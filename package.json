@@ -1,0 +1,50 @@
+{
+  "name": "fgo-tools",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "postinstall": "simple-git-hooks",
+    "dev": "next dev",
+    "prebuild": "eslint .",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "format": "prettier -w .",
+    "new": "node scripts/new.js"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "yarn lint-staged"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx}": [
+      "eslint",
+      "prettier -w"
+    ],
+    "**/*.{css,json,md}": [
+      "prettier -w"
+    ]
+  },
+  "dependencies": {
+    "@nanostores/persistent": "^0.3.0",
+    "chalk": "^4.1.2",
+    "nanostores": "^0.4.3",
+    "next": "11.1.0",
+    "next-transpile-modules": "^8.0.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "lint-staged": "^11.1.2",
+    "postcss": "^8.3.6",
+    "postcss-color-hex-alpha": "^7.0.0",
+    "postcss-focus": "^5.0.1",
+    "postcss-nested": "^5.0.6",
+    "postcss-preset-env": "^6.7.0",
+    "postcss-theme-ui": "^0.10.0",
+    "prettier": "^2.3.2",
+    "simple-git-hooks": "^2.6.1"
+  }
+}
