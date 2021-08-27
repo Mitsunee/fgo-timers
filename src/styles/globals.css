@@ -1,16 +1,31 @@
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  min-height: 100%;
+  background-color: #2e2c6a;
+  background-image: radial-gradient(ellipse at top, #2e2c6a, transparent),
+    radial-gradient(ellipse at bottom, #680c5f, transparent),
+    linear-gradient(to top, #2e627a, #2e627a);
+  background-size: contain;
+  font-family: sans;
+  color: primary;
+}
+
+#next {
+  min-height: 100%;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+  &:hover {
+    color: hover;
+    text-decoration: underline;
+  }
 }
 
-* {
-  box-sizing: border-box;
+h1,
+h2,
+h3 {
+  font-family: title;
+  font-weight: 700;
 }
