@@ -10,7 +10,8 @@
     "start": "next start",
     "lint": "eslint .",
     "format": "prettier -w .",
-    "new": "node scripts/new.js"
+    "new": "node scripts/new.js",
+    "update:upgrades": "node scripts/update-upgrades-data.js"
   },
   "simple-git-hooks": {
     "pre-commit": "yarn lint-staged"
