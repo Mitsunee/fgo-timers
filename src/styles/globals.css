@@ -7,7 +7,8 @@ body {
   background-image: radial-gradient(ellipse at top, #2e2c6a, transparent),
     radial-gradient(ellipse at bottom, #680c5f, transparent),
     linear-gradient(to top, #2e627a, #2e627a);
-  background-size: contain;
+  background-size: 100%;
+  background-attachment: fixed;
   font-family: sans;
   color: primary;
 }

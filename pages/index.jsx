@@ -8,6 +8,11 @@ export default function Home() {
   return (
     <>
       <Meta title="FGO Tools" description="BOTTOM TEXT" noTitleSuffix />
+      {Array(100)
+        .fill(0)
+        .map((_, idx) => (
+          <div key={idx}>{idx}</div>
+        ))}
     </>
   );
 }
