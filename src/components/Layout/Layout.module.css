@@ -1,0 +1,23 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px [20px, 40px];
+  user-select: none;
+}
+
+.inner {
+  display: flex;
+  grid-gap: 20px;
+  width: 100%;
+  max-width: [100%, 100%, 1600px];
+
+  nav {
+    width: 360px;
+  }
+
+  main {
+    flex-grow: 1;
+    user-select: initial;
+  }
+}
