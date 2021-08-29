@@ -1,11 +1,11 @@
 import { useStore } from "nanostores/react";
 
 import styles from "./Layout.module.css";
-import { mobileNavState } from "@stores/mobileNavState";
+import { navigationStore } from "@stores/navigationStore";
 import Navigation from "./Navigation";
 
 export default function Layout({ isDesktop, children }) {
-  const mobileOpen = useStore(mobileNavState);
+  const { mobileOpen } = useStore(navigationStore);
 
   return (
     <>

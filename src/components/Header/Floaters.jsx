@@ -1,5 +1,5 @@
 import styles from "./Floaters.module.css";
-import { setMobileNavOpen } from "@stores/mobileNavState";
+import { setMobileNavOpen } from "@stores/navigationStore";
 import { useThemeBreakpoint } from "@utils/hooks/useThemeBreakpoint";
 
 export default function Floaters({ inline = false }) {

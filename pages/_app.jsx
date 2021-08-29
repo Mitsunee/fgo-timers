@@ -4,7 +4,7 @@ import "modern-normalize/modern-normalize.css";
 import "@styles/globals.css";
 import { useRouterLoading } from "@utils/hooks/useRouterLoading";
 import { useThemeBreakpoint } from "@utils/hooks/useThemeBreakpoint";
-import { setMobileNavOpen } from "@stores/mobileNavState";
+import { setMobileNavOpen } from "@stores/navigationStore";
 import Header from "@components/Header";
 import Loading from "@components/Loading";
 import Layout from "@components/Layout";
