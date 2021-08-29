@@ -2,6 +2,7 @@
   position: [sticky, relative];
   top: 0px;
   left: 0px;
+  z-index: 1000;
   background-color: background-dark;
   display: flex;
   grid-gap: 0.33em;
