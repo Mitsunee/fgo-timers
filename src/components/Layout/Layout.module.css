@@ -2,13 +2,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  grid-gap: 0.66em;
   padding: 20px [20px, 40px];
   user-select: none;
 }
 
 .inner {
   display: flex;
-  grid-gap: 20px;
+  grid-gap: 0.66em;
   width: 100%;
   max-width: [100%, 100%, 1600px];
 

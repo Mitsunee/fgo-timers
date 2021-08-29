@@ -1,0 +1,60 @@
+.menu {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-gap: 0.33em;
+  width: 100%;
+  background-color: background-dark;
+
+  &:hover:not(.open) {
+    background-image: radial-gradient(ellipse at top, #f0ce0225, transparent);
+    background-size: cover;
+  }
+}
+
+.button {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  grid-gap: 0.33em;
+  height: 2em;
+  padding-left: 0.66em;
+  border: 0px;
+  background: transparent;
+  font-size: inherit;
+  font-weight: 700;
+  font-family: title;
+  text-decoration: none !important;
+  text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
+  color: primary;
+  font-size: 1.33rem;
+
+  &:hover {
+    color: hover;
+  }
+
+  &.static:hover {
+    color: primary;
+  }
+}
+
+.svg {
+  display: block;
+  width: 1.25em;
+  height: 0.75em;
+  fill: theme(colors.primary);
+  transition: transform 0.25s ease-in-out;
+
+  &.open {
+    transform: rotate(-90deg);
+  }
+}
+
+.item {
+  border: 1px solid #dfdfff30;
+  border-left-width: 5px !important;
+  background-color: transparent !important;
+}
