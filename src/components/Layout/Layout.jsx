@@ -11,7 +11,10 @@ export default function Layout({ isDesktop, children }) {
     <>
       <div className={styles.wrapper}>
         {mobileOpen && <Navigation />}
-        <div className={styles.inner}>
+        <div
+          className={
+            isDesktop ? `${styles.inner} ${styles.desktop}` : styles.inner
+          }>
           {isDesktop && <Navigation />}
           <main>{children}</main>
         </div>

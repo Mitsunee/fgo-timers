@@ -8,17 +8,17 @@
 }
 
 .inner {
-  display: flex;
-  grid-gap: 0.66em;
+  display: grid;
+  grid-gap: 1.66em;
   width: 100%;
   max-width: [100%, 100%, 1600px];
+  grid-template-columns: auto;
 
-  nav {
-    width: 360px;
+  &.desktop {
+    grid-template-columns: 360px auto;
   }
 
   main {
-    flex-grow: 1;
     user-select: initial;
   }
 }
