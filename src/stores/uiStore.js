@@ -1,17 +1,17 @@
 import { createStore, getValue } from "nanostores";
 
-export const navigationStore = createStore(() => {
-  navigationStore.set({
+export const uiStore = createStore(() => {
+  uiStore.set({
     mobileOpen: false,
     subMenusOpen: {}
   });
 });
 
 export function setMobileNavOpen(open) {
-  const value = getValue(navigationStore);
+  const value = getValue(uiStore);
   const mobileOpen = typeof open === "function" ? open(value.mobileOpen) : open;
 
-  navigationStore.set({
+  uiStore.set({
     ...value,
     mobileOpen
   });
@@ -23,11 +23,11 @@ export function setMobileNavOpen(open) {
 }
 
 export function setSubMenuOpen(key, open) {
-  const value = getValue(navigationStore);
+  const value = getValue(uiStore);
   const menuOpen =
     typeof open === "function" ? open(value.subMenusOpen[key] || false) : open;
 
-  navigationStore.set({
+  uiStore.set({
     ...value,
     subMenusOpen: {
       ...value.subMenusOpen,

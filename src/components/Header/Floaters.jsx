@@ -1,5 +1,5 @@
 import styles from "./Floaters.module.css";
-import { setMobileNavOpen } from "@stores/navigationStore";
+import { setMobileNavOpen } from "@stores/uiStore";
 import { useThemeBreakpoint } from "@utils/hooks/useThemeBreakpoint";
 import DiscordIcon from "./DiscordIcon";
 import SettingsIcon from "./SettingsIcon";

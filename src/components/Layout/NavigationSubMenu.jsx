@@ -2,7 +2,7 @@ import { useStore } from "nanostores/react";
 import { useRouter } from "next/router";
 
 import styles from "./NavigationSubMenu.module.css";
-import { navigationStore, setSubMenuOpen } from "@stores/navigationStore";
+import { uiStore, setSubMenuOpen } from "@stores/uiStore";
 import Svg from "@components/Svg";
 import NavigationItem from "./NavigationItem";
 
@@ -14,7 +14,7 @@ export default function NavigationSubMenu({
 }) {
   const {
     subMenusOpen: { [menuKey]: isOpen }
-  } = useStore(navigationStore);
+  } = useStore(uiStore);
   const router = useRouter();
   const testActive = item =>
     item.test
