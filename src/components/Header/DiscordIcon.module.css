@@ -1,0 +1,8 @@
+.icon {
+  fill: theme(colors.primary);
+  transition: 0.125s ease-in-out;
+
+  &:hover {
+    fill: #5865f2;
+  }
+}
