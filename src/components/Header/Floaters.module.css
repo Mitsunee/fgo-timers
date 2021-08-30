@@ -7,7 +7,7 @@
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  grid-gap: 0.33em;
+  grid-gap: 0.66em;
   height: [54px, unset];
   padding: 0.45em 0.33em;
   user-select: none;
@@ -20,7 +20,9 @@
     padding: 0px;
   }
 
+  a,
   button {
+    display: block;
     width: 1em;
     height: 1em;
     padding: 0px;
