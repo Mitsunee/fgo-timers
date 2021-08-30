@@ -1,0 +1,11 @@
+.headline {
+  margin: 0.66em 0px;
+  font-size: 2.5em;
+  font-weight: 700;
+  font-family: title;
+  text-align: center;
+
+  &:first-child {
+    margin-top: 0px;
+  }
+}

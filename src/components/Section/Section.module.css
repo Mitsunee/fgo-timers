@@ -1,0 +1,23 @@
+.section {
+  margin-bottom: 1.66em;
+
+  &:last-child {
+    margin-bottom: 0px;
+  }
+
+  & > :first-child {
+    margin-top: 0px;
+  }
+
+  & > :last-child {
+    margin-bottom: 0px;
+  }
+}
+
+.background {
+  background-color: background-dark;
+}
+
+.padding {
+  padding: 1.33em;
+}

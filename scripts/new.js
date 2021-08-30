@@ -76,7 +76,11 @@ const handleOption = {
     fs.mkdirSync(dirPath, { recursive: true });
 
     // index.js
-    writeFile(dirPath, "index.js", `export * from "./${parentComponent}"`);
+    writeFile(
+      dirPath,
+      "index.js",
+      `import ${parentComponent} from "./${parentComponent}"; export default ${parentComponent}`
+    );
 
     // children
     for (let childComponent of childComponents) {

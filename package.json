@@ -38,6 +38,7 @@
     "eslint-config-next": "11.1.0",
     "eslint-config-prettier": "^8.3.0",
     "lint-staged": "^11.1.2",
+    "modern-normalize": "^1.1.0",
     "postcss": "^8.3.6",
     "postcss-color-hex-alpha": "^7.0.0",
     "postcss-focus": "^5.0.1",
