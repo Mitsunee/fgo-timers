@@ -5,11 +5,11 @@
   "scripts": {
     "postinstall": "simple-git-hooks",
     "dev": "next dev",
-    "prebuild": "eslint .",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
     "format": "prettier -w .",
+    "format:check": "prettier -c .",
     "new": "node scripts/new.js"
   },
   "simple-git-hooks": {
