@@ -9,6 +9,8 @@ export default function NavigationItem({
   active,
   className = false
 }) {
+  // TODO: refactor to use new <Button> component
+
   return active ? (
     <span
       className={
