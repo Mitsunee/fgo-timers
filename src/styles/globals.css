@@ -3,10 +3,22 @@ body {
   min-width: 100%;
   max-width: 100%;
   min-height: 100%;
-  background-color: #2e2c6a;
-  background-image: radial-gradient(ellipse at top, #2e2c6a, transparent),
-    radial-gradient(ellipse at bottom, #680c5f, transparent),
-    linear-gradient(to top, #2e627a, #2e627a);
+  background-color: background-blue;
+  background-image: radial-gradient(
+      ellipse at top,
+      theme(colors.background-blue),
+      transparent
+    ),
+    radial-gradient(
+      ellipse at bottom,
+      theme(colors.background-purple),
+      transparent
+    ),
+    linear-gradient(
+      to top,
+      theme(colors.background-light-blue),
+      theme(colors.background-light-blue)
+    );
   background-size: 100%;
   background-attachment: fixed;
   font-family: sans;

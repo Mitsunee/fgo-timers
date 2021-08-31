@@ -5,6 +5,10 @@ module.exports = {
   colors: {
     primary: "#ffffff",
     hover: "#f0ce02",
+    "ui-light": "#dfdfff30",
+    "background-blue": "#2e2c6a",
+    "background-light-blue": "#2e627a",
+    "background-purple": "#680c5f",
     "background-dark": "#00000070"
   },
   fonts: {
