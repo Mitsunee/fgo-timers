@@ -10,7 +10,7 @@ import {
 import { svgClose } from "@utils/svgIcons";
 import Modal from "@components/Modal";
 import Headline from "@components/Headline";
-import Button from "@components/Button";
+import { Button } from "@components/Button";
 import { Select, SelectOption } from "@components/Select";
 
 export default function SettingsMenu() {

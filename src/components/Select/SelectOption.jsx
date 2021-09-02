@@ -1,5 +1,5 @@
 import styles from "./SelectOption.module.css";
-import Button from "@components/Button";
+import { Button } from "@components/Button";
 
 export default function SelectOption({
   children,
