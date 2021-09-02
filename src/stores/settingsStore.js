@@ -22,17 +22,17 @@ export const settingsStore = createDerived(settingsMap, store => ({
 }));
 
 export const setAlternativeClockFormat = value => {
-  settingsStore.setKey("alternativeClockFormat", value ? "true" : "false");
+  settingsMap.setKey("alternativeClockFormat", value ? "true" : "false");
 };
 
 export const setShowServerTimes = value => {
-  settingsStore.setKey("showServerTimes", value ? "true" : "false");
+  settingsMap.setKey("showServerTimes", value ? "true" : "false");
 };
 
 export const setUserMaxAP = value => {
-  settingsStore.setKey("userMaxAP", `${value}`);
+  settingsMap.setKey("userMaxAP", `${value}`);
 };
 
 export const setUserMaxCost = value => {
-  settingsStore.setKey("userMaxCost", `${value}`);
+  settingsMap.setKey("userMaxCost", `${value}`);
 };

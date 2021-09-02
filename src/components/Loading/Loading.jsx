@@ -13,6 +13,8 @@ export default function Loading() {
     return () => clearInterval(timeout);
   }, [isClient, dots]);
 
+  // TODO: rewrite to use <Modal>
+
   return (
     <div className={styles.overlay}>
       <h1>Loading{".".repeat(dots)}</h1>
