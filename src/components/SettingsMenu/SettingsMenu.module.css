@@ -31,3 +31,11 @@
     fill: theme(colors.hover);
   }
 }
+
+.section {
+  h2 {
+    padding: 0px;
+    margin: 0.33em 0px;
+    font-size: 1.5em;
+  }
+}
