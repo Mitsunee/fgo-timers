@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 
 import styles from "./NavigationSubMenu.module.css";
 import { uiStore, setSubMenuOpen } from "@stores/uiStore";
+import { svgArrow } from "@utils/svgIcons";
 import Svg from "@components/Svg";
 import NavigationItem from "./NavigationItem";
 
@@ -32,11 +33,10 @@ export default function NavigationSubMenu({
           event.target.blur();
           setSubMenuOpen(menuKey, state => !state);
         }}>
-        <Svg className={open ? `${styles.svg} ${styles.open}` : styles.svg}>
-          <path
-            // ./assets/arrow.svg
-            d="M 12,22 0,2 12,7 24,2 Z"
-          />
+        <Svg
+          viewBox={svgArrow.viewBox}
+          className={open ? `${styles.svg} ${styles.open}` : styles.svg}>
+          <path d={svgArrow.path} />
         </Svg>
         {text}
       </button>

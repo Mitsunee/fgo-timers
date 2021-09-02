@@ -12,8 +12,7 @@ export default function Button({
   nextLink = false, // if using <a> use <Link>
   disableDefaultStyle = false,
   icon = false, // image file, leave empty for SVG!
-  iconViewBox, // for SVG
-  iconPath, // SVG Path
+  iconSvg, // for SVG
   iconSide = "left", // "left" or "right"
   iconSize = "1em", // used as inline-style!
   className = "",
@@ -32,15 +31,7 @@ export default function Button({
     ...props
   };
 
-  const iconProps = {
-    icon,
-    iconSvg:
-      iconPath || iconViewBox
-        ? { viewBox: iconViewBox, path: iconPath || icon }
-        : false,
-    iconSide,
-    iconSize
-  };
+  const iconProps = { icon, iconSvg, iconSide, iconSize };
 
   // input doesn't support icons!
   if (inputType)

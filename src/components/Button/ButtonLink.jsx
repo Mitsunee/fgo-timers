@@ -11,7 +11,7 @@ export default function ButtonLink({
   ...props
 }) {
   const commonProps = {
-    className: `${styles.button} ${className}`.trim(),
+    className: `${styles.link} ${className}`.trim(),
     ...props
   };
 
