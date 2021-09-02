@@ -2,7 +2,7 @@ import styles from "./ButtonIcon.module.css";
 import Svg from "@components/Svg";
 
 export default function ButtonIcon({ icon, iconSvg, iconSize }) {
-  if (!icon) return null;
+  if (!(icon || iconSvg)) return null;
 
   const iconSizeStyle = iconSize
     ? { width: iconSize, height: iconSize }

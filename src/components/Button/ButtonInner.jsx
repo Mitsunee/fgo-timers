@@ -9,11 +9,13 @@ export default function ButtonInner({
   iconSize
 }) {
   const iconProps = { icon, iconSvg, iconSize };
-  return icon ? (
+  const hasIcon = icon || iconSvg ? true : false;
+
+  return hasIcon ? (
     <div className={styles.inner}>
-      {icon && iconSide === "left" && <ButtonIcon {...iconProps} />}
+      {hasIcon && iconSide === "left" && <ButtonIcon {...iconProps} />}
       {typeof children === "string" ? <span>{children}</span> : children}
-      {icon && iconSide === "right" && <ButtonIcon {...iconProps} />}
+      {hasIcon && iconSide === "right" && <ButtonIcon {...iconProps} />}
     </div>
   ) : (
     <>{children}</>

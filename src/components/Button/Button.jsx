@@ -17,6 +17,7 @@ export default function Button({
   iconSide = "left", // "left" or "right"
   iconSize = "1em", // used as inline-style!
   className = "",
+  style = {},
   disabled,
   ...props
 }) {
@@ -24,6 +25,7 @@ export default function Button({
     className: `${disableDefaultStyle ? "" : styles.button} ${
       className ?? ""
     }`.trim(),
+    style: { fontSize: iconSize, ...style },
     onClick,
     "aria-disabled": disabled ? "true" : undefined,
     disabled: disabled ? true : undefined,
