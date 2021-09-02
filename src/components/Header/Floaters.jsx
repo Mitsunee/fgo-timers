@@ -1,5 +1,5 @@
 import styles from "./Floaters.module.css";
-import { setMobileNavOpen } from "@stores/uiStore";
+import { setMobileNavOpen, setSettingsMenuOpen } from "@stores/uiStore";
 import { useThemeBreakpoint } from "@utils/hooks/useThemeBreakpoint";
 
 // TODO: these don't need to be extra files really
@@ -25,10 +25,7 @@ export default function Floaters({ inline = false }) {
         rel="noopener noreferrer">
         <DiscordIcon />
       </a>
-      <button
-        // TODO: implement settings
-        onClick={() => alert("UNIMPLEMENTED")} // PLACEHOLDER
-      >
+      <button onClick={() => setSettingsMenuOpen(true)}>
         <SettingsIcon />
       </button>
       {currentBreakpoint <= breakpoints[2] && (

@@ -1,0 +1,33 @@
+.menu {
+  position: relative;
+  min-width: [90vw, 50vw, 25vw];
+  padding: 0.66em;
+  padding-top: 0px;
+  background-color: background-blue;
+  background-image: radial-gradient(
+      ellipse at top,
+      theme(colors.background-blue),
+      transparent
+    ),
+    linear-gradient(
+      to bottom,
+      theme(colors.background-light-blue),
+      theme(colors.background-blue)
+    );
+  border: 1px solid theme(colors.ui-light);
+  border-radius: 0.5em;
+  box-shadow: 3px 3px 3px theme(colors.background-dark);
+}
+
+.buttonClose {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+
+  svg {
+    fill: theme(colors.primary);
+  }
+  &:hover svg {
+    fill: theme(colors.hover);
+  }
+}

@@ -3,6 +3,7 @@ import { createStore, getValue } from "nanostores";
 export const uiStore = createStore(() => {
   uiStore.set({
     mobileOpen: false,
+    settingsMenuOpen: false,
     subMenusOpen: {}
   });
 });
@@ -33,5 +34,16 @@ export function setSubMenuOpen(key, open) {
       ...value.subMenusOpen,
       [key]: menuOpen
     }
+  });
+}
+
+export function setSettingsMenuOpen(open) {
+  const value = getValue(uiStore);
+  const settingsMenuOpen =
+    typeof open === "function" ? open(value.settingsMenuOpen) : open;
+
+  uiStore.set({
+    ...value,
+    settingsMenuOpen
   });
 }
