@@ -1,9 +1,8 @@
 import styles from "./Floaters.module.css";
-import { setMobileNavOpen } from "@stores/navigationStore";
+import { setMobileNavOpen, setSettingsMenuOpen } from "@stores/uiStore";
 import { useThemeBreakpoint } from "@utils/hooks/useThemeBreakpoint";
-import DiscordIcon from "./DiscordIcon";
-import SettingsIcon from "./SettingsIcon";
-import HamburgerIcon from "./HamburgerIcon";
+import { svgDiscord, svgSettings, svgHamburger } from "@utils/svgIcons";
+import { Button } from "@components/Button";
 
 export default function Floaters({ inline = false }) {
   const [currentBreakpoint, breakpoints] = useThemeBreakpoint();
@@ -15,22 +14,26 @@ export default function Floaters({ inline = false }) {
       className={
         inline ? `${styles.floaters} ${styles.inline}` : styles.floaters
       }>
-      <a
+      <Button
         href="https://discord.gg/ZncPkjw"
-        target="_blank"
-        rel="noopener noreferrer">
-        <DiscordIcon />
-      </a>
-      <button
-        // TODO: implement settings
-        onClick={() => alert("UNIMPLEMENTED")} // PLACEHOLDER
-      >
-        <SettingsIcon />
-      </button>
+        targetBlank
+        iconSvg={svgDiscord}
+        disableDefaultStyle
+        className={styles.buttonDiscord}
+      />
+      <Button
+        onClick={() => setSettingsMenuOpen(true)}
+        iconSvg={svgSettings}
+        disableDefaultStyle
+        className={styles.button}
+      />
       {currentBreakpoint <= breakpoints[2] && (
-        <button onClick={handleMobileNavButton}>
-          <HamburgerIcon />
-        </button>
+        <Button
+          onClick={handleMobileNavButton}
+          iconSvg={svgHamburger}
+          disableDefaultStyle
+          className={styles.button}
+        />
       )}
     </div>
   );

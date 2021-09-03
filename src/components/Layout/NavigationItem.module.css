@@ -11,26 +11,29 @@
   font-size: 1.33rem;
   font-weight: 700;
   font-family: title;
+  color: primary;
   text-decoration: none !important;
   text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
     -1px -1px 0 #000;
 
   &.active {
-    background-image: radial-gradient(ellipse at top, #dfdfff30, transparent);
+    background-image: radial-gradient(
+      ellipse at top,
+      theme(colors.ui-light),
+      transparent
+    );
     background-size: cover;
-    border: 1px solid #dfdfff30;
+    border: 1px solid theme(colors.ui-light);
   }
 
   &:hover:not(.active) {
     background-image: radial-gradient(ellipse at top, #f0ce0225, transparent);
     background-size: cover;
   }
-}
 
-.svg {
-  display: inline-block;
-  width: 1.25em;
-  height: 1.25em;
-  fill: theme(colors.primary);
-  content: "";
+  svg {
+    display: inline-block;
+    fill: theme(colors.primary);
+    content: "";
+  }
 }

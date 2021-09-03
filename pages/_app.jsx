@@ -4,10 +4,11 @@ import "modern-normalize/modern-normalize.css";
 import "@styles/globals.css";
 import { useRouterLoading } from "@utils/hooks/useRouterLoading";
 import { useThemeBreakpoint } from "@utils/hooks/useThemeBreakpoint";
-import { setMobileNavOpen } from "@stores/navigationStore";
+import { setMobileNavOpen } from "@stores/uiStore";
 import Header from "@components/Header";
 import Loading from "@components/Loading";
 import Layout from "@components/Layout";
+import SettingsMenu from "@components/SettingsMenu";
 
 function MyApp({ Component, pageProps }) {
   const loading = useRouterLoading();
@@ -31,6 +32,7 @@ function MyApp({ Component, pageProps }) {
           <Component {...pageProps} />
         </Layout>
       )}
+      <SettingsMenu />
     </>
   );
 }

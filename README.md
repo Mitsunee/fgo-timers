@@ -23,7 +23,7 @@ Run `yarn dev` to start the development server locally on your system, then visi
 - public: Contains files that will get served in `/` alongside the app
 - scripts: Contains helper and data generation scripts
 - src:
-  - components: (alias `"@components"`) Contains React components. Note that as a convention only the parent component is meant to be imported in pages and other components like `"@components/ExampleComponent"`. Make separate components if you need to share them!
+  - components: (alias `"@components"`) Contains React components. Note that as a convention only the `index.js` of each component is meant to be imported. This file should either default export the component or in rare cases named export the component and any Parent/Child components required to use it.
   - stores: (alias `"@stores"`) Contains all stores and their logic
   - styles: (alias `"@styles"`) Contains CSS Modules for all pages, the global stylesheet and theme config
   - utils: (alias `"@utils"`) contains utility functions

@@ -1,0 +1,7 @@
+.inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+  grid-gap: 0.66em;
+}

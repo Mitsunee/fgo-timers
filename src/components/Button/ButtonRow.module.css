@@ -1,0 +1,15 @@
+.buttonrow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  grip-gap: 0.66em;
+  margin: 0.66em 0px;
+
+  &.left {
+    justify-content: flex-start;
+  }
+  &.right {
+    justify-content: flex-end;
+  }
+}

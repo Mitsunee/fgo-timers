@@ -32,13 +32,23 @@
     cursor: pointer;
 
     svg {
-      width: 100%;
-      height: 100%;
-      fill: primary;
+      fill: theme(colors.primary);
     }
+  }
+}
 
-    &:hover > svg {
-      fill: hover;
-    }
+.buttonDiscord {
+  transition: 0.125s ease-in-out;
+
+  &:hover svg {
+    fill: #5865f2;
+  }
+}
+
+.button {
+  transition: 0.125s ease-in-out;
+
+  &:hover svg {
+    fill: theme(colors.hover);
   }
 }

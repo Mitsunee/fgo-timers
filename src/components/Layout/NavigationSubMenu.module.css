@@ -11,6 +11,15 @@
     background-image: radial-gradient(ellipse at top, #f0ce0225, transparent);
     background-size: cover;
   }
+
+  svg {
+    fill: theme(colors.primary);
+    transition: transform 0.125s ease-in-out;
+  }
+
+  &.open svg {
+    transform: rotate(-90deg);
+  }
 }
 
 .button {
@@ -41,20 +50,8 @@
   }
 }
 
-.svg {
-  display: block;
-  width: 1.25em;
-  height: 0.75em;
-  fill: theme(colors.primary);
-  transition: transform 0.125s ease-in-out;
-
-  &.open {
-    transform: rotate(-90deg);
-  }
-}
-
 .item {
-  border: 1px solid #dfdfff30;
+  border: 1px solid theme(colors.ui-light);
   border-left-width: 5px !important;
   background-color: transparent !important;
 }
