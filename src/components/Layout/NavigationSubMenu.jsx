@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import styles from "./NavigationSubMenu.module.css";
 import { uiStore, setSubMenuOpen } from "@stores/uiStore";
 import { svgArrow } from "@utils/svgIcons";
-import Svg from "@components/Svg";
+import { Button } from "@components/Button";
 import NavigationItem from "./NavigationItem";
 
 export default function NavigationSubMenu({
@@ -25,21 +25,20 @@ export default function NavigationSubMenu({
 
   return (
     <section className={open ? `${styles.menu} ${styles.open}` : styles.menu}>
-      <button
-        className={
-          forceOpen ? `${styles.button} ${styles.static}` : styles.button
-        }
+      <Button
         onClick={event => {
           event.target.blur();
           setSubMenuOpen(menuKey, state => !state);
-        }}>
-        <Svg
-          viewBox={svgArrow.viewBox}
-          className={open ? `${styles.svg} ${styles.open}` : styles.svg}>
-          <path d={svgArrow.path} />
-        </Svg>
+        }}
+        disableDefaultStyle
+        className={
+          forceOpen ? `${styles.button} ${styles.static}` : styles.button
+        }
+        iconSvg={svgArrow}
+        iconSize="0.75em"
+        iconSide="left">
         {text}
-      </button>
+      </Button>
       {open &&
         items.map(item => {
           const isActiveItem = testActive(item);

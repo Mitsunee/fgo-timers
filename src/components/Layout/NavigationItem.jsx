@@ -1,8 +1,6 @@
-import Link from "next/link";
-
 import styles from "./NavigationItem.module.css";
 import { svgChaldea } from "@utils/svgIcons";
-import Svg from "@components/Svg";
+import { Button } from "@components/Button";
 
 export default function NavigationItem({
   children,
@@ -10,25 +8,26 @@ export default function NavigationItem({
   active,
   className = false
 }) {
-  // TODO: refactor to use new <Button> component
-
   return active ? (
-    <span
+    <Button
+      disableDefaultStyle
       className={
         className
           ? `${styles.link} ${styles.active} ${className}`
           : `${styles.link} ${styles.active}`
-      }>
-      <Svg viewBox={svgChaldea.viewBox} className={styles.svg}>
-        <path d={svgChaldea.path} />
-      </Svg>
+      }
+      iconSvg={svgChaldea}
+      iconSize="1.25em"
+      iconSide="left">
       {children}
-    </span>
+    </Button>
   ) : (
-    <Link href={link} passHref>
-      <a className={className ? `${styles.link} ${className}` : styles.link}>
-        {children}
-      </a>
-    </Link>
+    <Button
+      href={link}
+      nextLink
+      disableDefaultStyle
+      className={className ? `${styles.link} ${className}` : styles.link}>
+      {children}
+    </Button>
   );
 }
