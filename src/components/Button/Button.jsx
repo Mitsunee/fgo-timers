@@ -24,7 +24,7 @@ export default function Button({
     className: `${disableDefaultStyle ? "" : styles.button} ${
       className ?? ""
     }`.trim(),
-    style: { fontSize: iconSize, ...style },
+    style: disableDefaultStyle ? style : { fontSize: iconSize, ...style },
     onClick,
     "aria-disabled": disabled ? "true" : undefined,
     disabled: disabled ? true : undefined,
