@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 import styles from "./Loading.module.css";
 import { useIsClient } from "@utils/hooks/useIsClient";
+import Modal from "@components/Modal";
 
 export default function Loading() {
   const [dots, setDots] = useState(0);
@@ -13,13 +14,11 @@ export default function Loading() {
     return () => clearInterval(timeout);
   }, [isClient, dots]);
 
-  // TODO: rewrite to use <Modal>
-
   return (
-    <div className={styles.overlay}>
-      <h1>Loading{".".repeat(dots)}</h1>
-      <hr />
-      <img src="/assets/loading.png" alt="loading" />
-    </div>
+    <Modal>
+      <h1 className={styles.title}>Loading{".".repeat(dots)}</h1>
+      <hr className={styles.line} />
+      <img src="/assets/loading.png" alt="loading" className={styles.cat} />
+    </Modal>
   );
 }
