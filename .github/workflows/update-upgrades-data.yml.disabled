@@ -1,0 +1,24 @@
+name: update-upgrades-data
+on:
+  schedule:
+    - cron: "10 9 * * *"
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: main
+      - name: Install Dependencies
+        uses: bahmutov/npm-install@v1
+        with:
+          install-command: yarn install
+          useRollingCache: true
+      - name: Run update script
+        run: yarn update:upgrades
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "chore: update upgrades data"
+          branch: main
