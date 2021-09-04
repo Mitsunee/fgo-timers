@@ -4,6 +4,9 @@ import path from "path";
 import chalk from "chalk";
 import fetch from "node-fetch";
 
+// TODO: figure out a workaround for Jekyll&Hyde
+// TODO: figure out a workaround for EoR skills
+
 // globals
 const CWD = process.cwd();
 const ATLAS = "https://api.atlasacademy.io/";
@@ -158,7 +161,7 @@ async function main() {
       .map(np => ({ ...np, owner: servant.id }))
       .filter(({ num }) => num === 1)
   );
-  const npsNA = niceServant.flatMap(servant =>
+  const npsNA = niceServantNA.flatMap(servant =>
     servant.noblePhantasms
       .map(np => ({ ...np, owner: servant.id }))
       .filter(({ num }) => num === 1)
@@ -285,7 +288,7 @@ async function main() {
 
       newUpgrades.push({
         target: "np",
-        initial: describeSkill(initialNP, initialNPNA),
+        initial: describeNP(initialNP, initialNPNA),
         np: describeNP(relatedNP, relatedNPNA),
         quest: describeQuest(questData, questDataNA),
         servant: describeServant(relatedServant, relatedServantNA)
