@@ -1,5 +1,4 @@
 import { parseDate } from "./parseDate";
-import { parseRotationTime } from "./parseRotationTime";
 
 export function parseEventTime(time) {
   const { date, times, ...props } = time;
@@ -15,7 +14,10 @@ export function parseEventTime(time) {
       timeParsed.endsAt = endsAt;
     }
   } else {
-    timeParsed.times = times.map(parseRotationTime);
+    timeParsed.times = times.map(({ title, date }) => ({
+      title,
+      startsAt: parseDate(date)
+    }));
   }
 
   return timeParsed;

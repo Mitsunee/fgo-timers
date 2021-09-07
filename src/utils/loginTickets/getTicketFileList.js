@@ -1,12 +1,5 @@
-import { join } from "path";
-import { readdir } from "fs/promises";
+import { getFileList } from "@utils/server/getFileList";
 
 export async function getTicketFileList() {
-  const ticketDir = join(process.cwd(), "assets/data/login-tickets");
-  const ticketFileList = await readdir(ticketDir);
-  const ticketFileListJoined = ticketFileList.map(ticketFile =>
-    join(ticketDir, ticketFile)
-  );
-
-  return ticketFileListJoined;
+  return await getFileList("assets/data/login-tickets");
 }

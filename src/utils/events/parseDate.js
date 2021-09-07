@@ -1,5 +1,5 @@
-import { matchDate } from "./matchDate";
-import { convertDate } from "./convertDate";
+import { matchDate } from "./helpers/matchDate";
+import { convertDate } from "./helpers/convertDate";
 
 export function parseDate(dateString, allowDuration) {
   const match = matchDate(dateString, allowDuration);
