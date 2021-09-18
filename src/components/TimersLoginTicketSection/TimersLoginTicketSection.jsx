@@ -2,15 +2,21 @@ import { useState, useRef, useEffect } from "react";
 import spacetime from "spacetime";
 import lt from "long-timeout";
 
+import { useFormattedSpacetime } from "@utils/hooks/useFormattedSpacetime";
+import { useFormattedDelta } from "@utils/hooks/useFormattedDelta";
 import LoginTicketSection from "@components/LoginTicketSection";
+import NoSSR from "@components/NoSSR";
 
 export default function TimersLoginTicketSection({
   tickets,
   itemData,
   interval
 }) {
-  const [currentMonth, setCurrentMonth] = useState(null);
   const timeoutRef = useRef(null);
+  const [currentMonth, setCurrentMonth] = useState(null);
+  const [nextMonth, setNextMonth] = useState(null);
+  const nextMonthDate = useFormattedSpacetime(nextMonth, "short");
+  const nextMonthDelta = useFormattedDelta(interval, nextMonth);
 
   // effect that find currentMonth in tickets and manages timeout to update
   useEffect(() => {
@@ -24,6 +30,7 @@ export default function TimersLoginTicketSection({
         .next("month")
         .time(`${now.isDST() ? 21 : 20}:00:05`, true);
       const timeDelta = next.epoch - now.epoch;
+      setNextMonth(next.subtract(5, "seconds").goto());
 
       // in client-only schedule timeout to update page when next month starts
       if (typeof window !== "undefined") {
@@ -44,12 +51,11 @@ export default function TimersLoginTicketSection({
   return currentMonth === null ? null : (
     <>
       <LoginTicketSection data={currentMonth.map(id => itemData[id])} />
-      <span
-      // DEBUG
-      // WIP
-      >
-        DEBUG: {interval}
-      </span>
+      <NoSSR>
+        <span>
+          Next Exchange Ticket Rotation: {nextMonthDelta} ({nextMonthDate})
+        </span>
+      </NoSSR>
     </>
   );
 }
