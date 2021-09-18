@@ -1,0 +1,36 @@
+background: "#f9e677"
+border: "#f0ce02"
+icon: https://assets.atlasacademy.io/GameData/NA/Items/18.png
+inventory:
+  - name: Lantern of Chaldea
+    icon: https://assets.atlasacademy.io/GameData/NA/Items/1000.png
+    background: gold
+    cost: 3
+    amount: 1
+  - name: Code Remover
+    icon: https://assets.atlasacademy.io/GameData/NA/Items/5003.png
+    background: gold
+    cost: 1
+    amount: 3
+  - name: Crystallized Lore
+    icon: https://assets.atlasacademy.io/GameData/NA/Items/6999.png
+    background: gold
+    cost: 5
+    amount: 1
+  - name: Meteor Fou
+    icon: https://assets.atlasacademy.io/GameData/JP/Faces/f_95704000.png
+    background: gold
+    cost: 3
+    amount: 1
+  - name: Corona Fou
+    icon: https://assets.atlasacademy.io/GameData/JP/Faces/f_96704000.png
+    background: gold
+    cost: 3
+    amount: 1
+  - name: Friend Points
+    icon: https://assets.atlasacademy.io/GameData/JP/Items/12.png
+    background: silver
+    cost: 1
+    amount: 5
+    stack: 20000
+limitedInventory: []
