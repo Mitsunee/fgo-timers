@@ -1,11 +1,10 @@
-import YAML from "yaml";
-import { readFile } from "fs/promises";
 import { basename, extname } from "path";
+
+import { parseYamlFile } from "@utils/server/parseYamlFile";
 
 export async function parseTicketFile(filePath, itemIdMap) {
   // read and parse data
-  const fileContent = await readFile(filePath, "utf8");
-  const fileData = YAML.parse(fileContent);
+  const fileData = await parseYamlFile(filePath);
 
   // grab key
   const key = basename(filePath).substring(0, extname(filePath).length);
