@@ -1,8 +1,10 @@
 import spacetime from "spacetime";
+import { useEffect } from "react";
 
 import { getTicketFileList } from "@utils/server/loginTickets/getTicketFileList";
 import { getItemIdMap } from "@utils/server/loginTickets/getItemIdMap";
 import { parseTicketFile } from "@utils/server/loginTickets/parseTicketFile";
+import { parseShopFile } from "@utils/server/parseShopFile";
 
 //import styles from "@styles/TimersPage.module.css";
 import { useInterval } from "@utils/hooks/useInterval";
@@ -11,8 +13,20 @@ import Clocks from "@components/Clocks";
 import Headline from "@components/Headline";
 import TimersLoginTicketSection from "@components/TimersLoginTicketSection";
 
-export default function TimersPage({ tickets, itemData }) {
+export default function TimersPage({
+  tickets,
+  itemData,
+  mpShopData,
+  rpShopData
+}) {
   const interval = useInterval(1000);
+
+  // DEBUG
+  useEffect(() => {
+    console.log("IN REACT", { mpShopData, rpShopData });
+    console.log(JSON.stringify(mpShopData, null, 2));
+    console.log(JSON.stringify(rpShopData, null, 2));
+  }, [mpShopData, rpShopData]);
 
   return (
     <>
@@ -77,5 +91,9 @@ export async function getStaticProps() {
     itemData[id] = { id, name, icon, background };
   }
 
-  return { props: { tickets, itemData } };
+  // parse shop data
+  const mpShopData = await parseShopFile("assets/data/manaPrismShop.yml");
+  const rpShopData = await parseShopFile("assets/data/rarePrismShop.yml");
+
+  return { props: { tickets, itemData, mpShopData, rpShopData } };
 }
