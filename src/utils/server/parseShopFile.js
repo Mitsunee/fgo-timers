@@ -6,12 +6,10 @@ export async function parseShopFile(filePath) {
 
   const parsedFile = {
     ...props,
-    limitedInventory: await Promise.all(
-      limitedInventory.map(async ({ endsAt, ...props }) => ({
-        ...props,
-        endsAt: await parseDate(endsAt)
-      }))
-    )
+    limitedInventory: limitedInventory.map(({ endsAt, ...props }) => ({
+      ...props,
+      endsAt: parseDate(endsAt)
+    }))
   };
 
   return parsedFile;
