@@ -6,6 +6,7 @@ import { getItemIdMap } from "@utils/loginTickets/getItemIdMap";
 import { parseTicketFile } from "@utils/loginTickets/parseTicketFile";
 import { useInterval } from "@utils/hooks/useInterval";
 import Meta from "@components/Meta";
+import Clocks from "@components/Clocks";
 import Headline from "@components/Headline";
 import TimersLoginTicketSection from "@components/TimersLoginTicketSection";
 
@@ -15,6 +16,7 @@ export default function TimersPage({ tickets, itemData }) {
   return (
     <>
       <Meta title="Timers" description="Timers for Fate/Grand Order" />
+      <Clocks interval={interval} />
       <Headline>Login Exchange Tickets</Headline>
       <TimersLoginTicketSection
         tickets={tickets}

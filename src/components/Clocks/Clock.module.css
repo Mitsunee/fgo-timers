@@ -1,0 +1,25 @@
+.clock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.66em;
+
+  h1,
+  h2 {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+  }
+}
+
+.clock h1 {
+  font-size: [20px, 24px, 26px];
+}
+
+.clock h2 {
+  font-size: [32px, 36px, 42px];
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+}
