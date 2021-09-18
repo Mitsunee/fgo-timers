@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useState, useMemo, useEffect } from "react";
 
 import spacetime from "spacetime";
