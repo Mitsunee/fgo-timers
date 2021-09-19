@@ -1,0 +1,11 @@
+.item {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 0.33em;
+  align-items: center;
+
+  & > :first-child {
+    height: 32px;
+  }
+}
