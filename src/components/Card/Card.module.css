@@ -1,0 +1,23 @@
+.card {
+  font-size: 14px;
+  border: 2px solid theme(colors.ui-light);
+  border-radius: 1.5em;
+  overflow: hidden;
+  background-color: background-blue;
+  background-image: radial-gradient(
+      ellipse at bottom,
+      theme(colors.background-blue),
+      transparent
+    ),
+    linear-gradient(
+      to bottom,
+      theme(colors.background-blue),
+      theme(colors.background-blue) 85px,
+      theme(colors.background-light-blue)
+    );
+  box-shadow: 3px 3px 7px theme(colors.background-dark);
+}
+
+.inner {
+  padding: 1.33em;
+}
