@@ -1,7 +1,7 @@
 // see https://github.com/nelonoel/postcss-theme-ui#options for documentation
 
 module.exports = {
-  breakpoints: ["500px", "800px", "1000px"],
+  breakpoints: ["500px", "800px", "1000px", "1280px"],
   colors: {
     primary: "#ffffff",
     hover: "#f0ce02",
