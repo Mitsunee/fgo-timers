@@ -2,16 +2,14 @@ import { useState, useRef, useEffect } from "react";
 import spacetime from "spacetime";
 import lt from "long-timeout";
 
+// import styles from "./LoginTicketCard.module.css";
 import { useFormattedSpacetime } from "@utils/hooks/useFormattedSpacetime";
 import { useFormattedDelta } from "@utils/hooks/useFormattedDelta";
-import LoginTicketSection from "@components/LoginTicketSection";
+import { Card } from "@components/Card";
+import { FGOItemList, FGOItemListItem } from "@components/FGOItemList";
 import NoSSR from "@components/NoSSR";
 
-export default function TimersLoginTicketSection({
-  tickets,
-  itemData,
-  interval
-}) {
+export default function LoginTicketCard({ tickets, itemData, interval }) {
   const timeoutRef = useRef(null);
   const [currentMonth, setCurrentMonth] = useState(null);
   const [nextMonth, setNextMonth] = useState(null);
@@ -49,13 +47,23 @@ export default function TimersLoginTicketSection({
   }, [tickets]);
 
   return currentMonth === null ? null : (
-    <>
-      <LoginTicketSection data={currentMonth.map(id => itemData[id])} />
+    <Card
+      title="Login Exchange Tickets"
+      icon="https://assets.atlasacademy.io/GameData/NA/Items/10000.png">
+      <FGOItemList>
+        {currentMonth
+          .map(id => itemData[id])
+          .map(item => (
+            <FGOItemListItem key={item.id} data={item} />
+          ))}
+      </FGOItemList>
       <NoSSR>
         <span>
-          Next Exchange Ticket Rotation: {nextMonthDelta} ({nextMonthDate})
+          Next Exchange Ticket Rotation:
+          <br />
+          {nextMonthDelta} ({nextMonthDate})
         </span>
       </NoSSR>
-    </>
+    </Card>
   );
 }

@@ -1,8 +1,0 @@
-.section {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  row-gap: 0.66em;
-  column-gap: 1em;
-  flex-direction: [column, row];
-}

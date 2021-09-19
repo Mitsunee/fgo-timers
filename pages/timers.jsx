@@ -10,8 +10,8 @@ import { parseShopFile } from "@utils/server/parseShopFile";
 import { useInterval } from "@utils/hooks/useInterval";
 import Meta from "@components/Meta";
 import Clocks from "@components/Clocks";
-import Headline from "@components/Headline";
-import TimersLoginTicketSection from "@components/TimersLoginTicketSection";
+import LoginTicketCard from "@components/LoginTicketCard";
+import { CardGrid, Card } from "@components/Card";
 
 export default function TimersPage({
   tickets,
@@ -32,12 +32,29 @@ export default function TimersPage({
     <>
       <Meta title="Timers" description="Timers for Fate/Grand Order" />
       <Clocks interval={interval} />
-      <Headline>Login Exchange Tickets</Headline>
-      <TimersLoginTicketSection
-        tickets={tickets}
-        itemData={itemData}
-        interval={interval}
-      />
+      <CardGrid>
+        <LoginTicketCard
+          tickets={tickets}
+          itemData={itemData}
+          interval={interval}
+        />
+        <Card
+          icon={mpShopData.icon}
+          title="Mana Prism Shop"
+          background={mpShopData.background}
+          border={mpShopData.border}>
+          {/* WIP */}
+          lorem ipsum dolor sit amet woof woof meow
+        </Card>
+        <Card
+          icon={rpShopData.icon}
+          title="Rare Prism Shop"
+          background={rpShopData.background}
+          border={rpShopData.border}>
+          {/* WIP */}
+          lorem ipsum dolor sit amet woof woof meow
+        </Card>
+      </CardGrid>
     </>
   );
 }
