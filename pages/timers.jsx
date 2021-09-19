@@ -8,10 +8,12 @@ import { parseShopFile } from "@utils/server/parseShopFile";
 
 //import styles from "@styles/TimersPage.module.css";
 import { useInterval } from "@utils/hooks/useInterval";
+import { useRecurringEvent } from "@utils/hooks/useRecurringEvent";
 import Meta from "@components/Meta";
 import Clocks from "@components/Clocks";
 import LoginTicketCard from "@components/LoginTicketCard";
-import { CardGrid, Card } from "@components/Card";
+import ShopCard from "@components/ShopCard";
+import { CardGrid } from "@components/Card";
 
 export default function TimersPage({
   tickets,
@@ -20,6 +22,14 @@ export default function TimersPage({
   rpShopData
 }) {
   const interval = useInterval(1000);
+  const mpShopReset = useRecurringEvent(
+    { day: 1, hour: 0, tz: "utc" },
+    interval
+  );
+  const rpShopReset = useRecurringEvent(
+    { day: 15, hour: 0, tz: "utc" },
+    interval
+  );
 
   // DEBUG
   useEffect(() => {
@@ -38,22 +48,16 @@ export default function TimersPage({
           itemData={itemData}
           interval={interval}
         />
-        <Card
-          icon={mpShopData.icon}
-          title="Mana Prism Shop"
-          background={mpShopData.background}
-          border={mpShopData.border}>
-          {/* WIP */}
-          lorem ipsum dolor sit amet woof woof meow
-        </Card>
-        <Card
-          icon={rpShopData.icon}
-          title="Rare Prism Shop"
-          background={rpShopData.background}
-          border={rpShopData.border}>
-          {/* WIP */}
-          lorem ipsum dolor sit amet woof woof meow
-        </Card>
+        <ShopCard
+          shopData={mpShopData}
+          endsAt={mpShopReset}
+          interval={interval}
+        />
+        <ShopCard
+          shopData={rpShopData}
+          endsAt={rpShopReset}
+          interval={interval}
+        />
       </CardGrid>
     </>
   );
