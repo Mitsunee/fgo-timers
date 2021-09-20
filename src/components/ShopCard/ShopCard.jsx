@@ -20,8 +20,12 @@ export default function ShopCard({ shopData, interval, endsAt }) {
     <Card {...cardProps}>
       <h2>Monthly Inventory</h2>
       <FGOItemList>
-        {inventory.map(({ id, ...data }) => (
-          <ShopCardListItem key={id} currency={cardProps.icon} data={data} />
+        {inventory.map(data => (
+          <ShopCardListItem
+            key={data.name}
+            currency={cardProps.icon}
+            data={data}
+          />
         ))}
       </FGOItemList>
       {endsAt && (
@@ -37,9 +41,9 @@ export default function ShopCard({ shopData, interval, endsAt }) {
         <>
           <h2>Special Inventory</h2>
           <FGOItemList>
-            {limitedInventory.map(({ id, ...data }) => (
+            {limitedInventory.map(data => (
               <ShopCardLimitedItem
-                key={id}
+                key={data.name}
                 currency={cardProps.icon}
                 data={data}
               />
