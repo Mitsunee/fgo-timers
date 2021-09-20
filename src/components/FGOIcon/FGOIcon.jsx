@@ -5,7 +5,8 @@ const backgrounds = new Map([
   ["silver", "/assets/backgrounds/material_bg_silver.png"],
   ["gold", "/assets/backgrounds/material_bg_gold.png"],
   ["zero", "/assets/backgrounds/material_bg_blue.png"],
-  ["questClearQPReward", "/assets/backgrounds/material_bg_blue.png"]
+  ["questClearQPReward", "/assets/backgrounds/material_bg_blue.png"],
+  ["clear", undefined]
 ]);
 
 const borderColors = new Map([
@@ -15,7 +16,8 @@ const borderColors = new Map([
   ["zero", "#9db5b5"],
   ["questClearQPReward", "#9db5b5"],
   ["black", "#000000"],
-  ["red", "#e35e2b"]
+  ["red", "#e35e2b"],
+  ["clear", "transparent"]
 ]);
 
 export default function FGOIcon({
@@ -31,13 +33,13 @@ export default function FGOIcon({
   const borderColor =
     (background ? borderColors.get(background) : undefined) ||
     borderColors.get("black");
+  const classNames = [styles.wrapper];
+  if (className) classNames.push(className);
+  if (background === "clear") classNames.push(styles.clear);
 
   return (
-    <div
-      className={className ? `${styles.wrapper} ${className}` : styles.wrapper}
-      title={name}
-      style={{ borderColor }}>
-      {background && (
+    <div className={classNames.join(" ")} title={name} style={{ borderColor }}>
+      {backgroundPath && (
         <div
           className={styles.background}
           style={{ backgroundImage: `url("${backgroundPath}")` }}

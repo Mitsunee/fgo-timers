@@ -7,6 +7,12 @@
   border-style: solid;
   border-radius: 12px;
   user-select: none;
+
+  &.clear {
+    overflow: visible;
+    border-radius: 0px;
+    border-width: 0px;
+  }
 }
 
 .background,
