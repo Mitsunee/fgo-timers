@@ -1,5 +1,4 @@
 import spacetime from "spacetime";
-import { useEffect } from "react";
 
 import { getTicketFileList } from "@utils/server/loginTickets/getTicketFileList";
 import { getItemIdMap } from "@utils/server/loginTickets/getItemIdMap";
@@ -11,9 +10,10 @@ import { useInterval } from "@utils/hooks/useInterval";
 import { useRecurringEvent } from "@utils/hooks/useRecurringEvent";
 import Meta from "@components/Meta";
 import Clocks from "@components/Clocks";
+import { CardGrid } from "@components/Card";
 import LoginTicketCard from "@components/LoginTicketCard";
 import ShopCard from "@components/ShopCard";
-import { CardGrid } from "@components/Card";
+import ChaldeaGateCard from "@components/ChaldeaGateCard";
 
 export default function TimersPage({
   tickets,
@@ -31,12 +31,11 @@ export default function TimersPage({
     interval
   );
 
-  // DEBUG
-  useEffect(() => {
-    console.log("IN REACT", { mpShopData, rpShopData });
-    console.log(JSON.stringify(mpShopData, null, 2));
-    console.log(JSON.stringify(rpShopData, null, 2));
-  }, [mpShopData, rpShopData]);
+  /* TODO:
+   * - Recurring stuff like dailies needs a section
+   * - AP Calc
+   * - idk what else rn lol
+   */
 
   return (
     <>
@@ -47,6 +46,11 @@ export default function TimersPage({
           tickets={tickets}
           itemData={itemData}
           interval={interval}
+        />
+        <ChaldeaGateCard
+          interval={interval}
+          border={mpShopData.border}
+          background={mpShopData.background}
         />
         <ShopCard
           shopData={mpShopData}

@@ -17,6 +17,7 @@ export default function LoginTicketCard({ tickets, itemData, interval }) {
   const nextMonthDelta = useFormattedDelta(interval, nextMonth);
 
   // effect that find currentMonth in tickets and manages timeout to update
+  // TODO: does this work?
   useEffect(() => {
     const update = () => {
       // set data for current month
