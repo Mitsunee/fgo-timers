@@ -1,0 +1,12 @@
+.buttonClose {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+
+  svg {
+    fill: theme(colors.primary);
+  }
+  &:hover svg {
+    fill: theme(colors.hover);
+  }
+}
