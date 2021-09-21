@@ -43,6 +43,7 @@
     "lint-staged": "^11.1.2",
     "long-timeout": "^0.1.1",
     "modern-normalize": "^1.1.0",
+    "nanoid": "^3.1.25",
     "node-fetch": "^3.0.0",
     "postcss": "^8.3.6",
     "postcss-color-hex-alpha": "^7.0.0",

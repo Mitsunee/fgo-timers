@@ -4,7 +4,8 @@ export const uiStore = createStore(() => {
   uiStore.set({
     mobileOpen: false,
     settingsMenuOpen: false,
-    subMenusOpen: {}
+    subMenusOpen: {},
+    apTrackerMenuOpen: false
   });
 });
 
@@ -45,5 +46,16 @@ export function setSettingsMenuOpen(open) {
   uiStore.set({
     ...value,
     settingsMenuOpen
+  });
+}
+
+export function setApTrackerMenuOpen(open) {
+  const value = getValue(uiStore);
+  const apTrackerMenuOpen =
+    typeof open === "function" ? open(value.apTrackerMenuOpen) : open;
+
+  uiStore.set({
+    ...value,
+    apTrackerMenuOpen
   });
 }
