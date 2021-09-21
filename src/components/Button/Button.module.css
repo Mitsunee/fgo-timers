@@ -14,4 +14,10 @@
     border-color: hover;
     color: hover;
   }
+
+  &:disabled {
+    opacity: 0.5;
+    filter: grayscale(0.5);
+    cursor: not-allowed;
+  }
 }

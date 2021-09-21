@@ -1,0 +1,12 @@
+.input {
+  background-color: background-blue;
+  background-image: linear-gradient();
+  border: 1px solid theme(colors.ui-light);
+  box-shadow: inset 1px 1px 4px theme(colors.background-dark),
+    0px 0px 4px theme(colors.background-dark);
+
+  &.invalid {
+    border-color: #f00;
+    box-shadow: inset 1px 1px 4px #f00a, 0px 0px 4px #f00a;
+  }
+}
