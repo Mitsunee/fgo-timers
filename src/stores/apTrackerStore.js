@@ -14,6 +14,7 @@ export const apTrackerMap = createPersistentMap("fgoToolsAP:", {
   type: "null", // "null" | "byNodeCost" | "byTarget"
   target: "1",
   nodeCost: "1",
+  maxAp: "142",
   apAtStart: "0",
   offsetTime: "0", // seconds to subtract based on timer to next ap
   startTime: "0"
@@ -25,13 +26,14 @@ export const apTrackerStore = createDerived(apTrackerMap, store => ({
   type: store.type === null ? null : store.type,
   target: +store.target,
   nodeCost: store.type === "byNodeCost" ? +store.nodeCost : null,
+  maxAp: +store.maxAp,
   apAtStart: +store.apAtStart,
   offsetTime: +store.offsetTime,
   startTime: +store.startTime
 }));
 
 export function startApTracker(
-  { type, target, nodeCost, apAtStart, mins, secs },
+  { type, target, nodeCost, maxAp, apAtStart, mins, secs },
   interval
 ) {
   const offsetTime = 300 - mins * 60 - secs;
@@ -41,6 +43,7 @@ export function startApTracker(
     type,
     target: `${target}`,
     nodeCost: `${nodeCost}`,
+    maxAp: `${maxAp}`,
     apAtStart: `${apAtStart}`,
     offsetTime: `${offsetTime}`,
     startTime: `${Math.floor(interval / 1000)}`

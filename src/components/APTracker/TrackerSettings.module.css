@@ -1,5 +1,22 @@
 .formGrid {
   display: grid;
   grid-auto-rows: auto;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: 1fr 2fr;
+  gap: 0.66em;
+  margin: 0.66em 0px;
+
+  label {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  & > div {
+    grid-column: span 2;
+  }
+}
+
+.submitWrapper {
+  display: flex;
+  justify-content: flex-end;
 }
