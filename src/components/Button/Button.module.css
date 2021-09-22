@@ -10,7 +10,7 @@
   );
   color: primary;
 
-  &:hover {
+  &:hover:not(:disabled) {
     border-color: hover;
     color: hover;
   }

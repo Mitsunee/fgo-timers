@@ -10,34 +10,26 @@ export default function Input({
   required,
   ...props
 }) {
-  const classNames = [styles.input];
-  if (
+  const checkIsInvalid =
     isInvalid === true ||
     (typeof customValidation === "function" &&
-      customValidation(value) === false)
-  ) {
-    classNames.push(styles.invalid);
-  }
+      customValidation(value) === false);
+  const classNames = [styles.input];
+  if (checkIsInvalid) classNames.push(styles.invalid);
   if (className) classNames.push(className);
 
+  const commonProps = {
+    id: id,
+    name: id,
+    value: value,
+    className: classNames.join(" "),
+    "data-input-invalid": checkIsInvalid ? "true" : undefined,
+    required: required ? true : undefined
+  };
+
   return type === "textarea" ? (
-    <textarea
-      id={id}
-      name={id}
-      value={value}
-      className={classNames.join(" ")}
-      required={required ? "true" : undefined}
-      {...props}
-    />
+    <textarea {...commonProps} {...props} />
   ) : (
-    <input
-      type={type}
-      id={id}
-      name={id}
-      value={value}
-      className={classNames.join(" ")}
-      required={required ? "true" : undefined}
-      {...props}
-    />
+    <input type={type} {...commonProps} {...props} />
   );
 }

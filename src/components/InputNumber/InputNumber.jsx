@@ -9,10 +9,10 @@ export default function InputNumber({
   max = Number.MAX_SAFE_INTEGER,
   ...props
 }) {
-  const [isInvalid, setIsInvalid] = useState(true);
+  const [isInvalid, setIsInvalid] = useState(false);
 
   useEffect(() => {
-    setIsInvalid(value < min && value > max);
+    setIsInvalid(value < min || value > max);
   }, [value, min, max]);
 
   return (
