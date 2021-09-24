@@ -2,29 +2,25 @@ import { useStore } from "nanostores/react";
 
 import styles from "./SettingsMenu.module.css";
 import { uiStore, setSettingsMenuOpen } from "@stores/uiStore";
-import {
-  settingsStore,
-  setAlternativeClockFormat,
-  setShowServerTimes
-} from "@stores/settingsStore";
+import { settingsStore, setSetting } from "@stores/settingsStore";
 import Modal from "@components/Modal";
 import ModalMenu from "@components/ModalMenu";
 import Headline from "@components/Headline";
 import { Select, SelectOption } from "@components/Select";
 
+const handleClockFormatChange = ({ value, event }) => {
+  event.target.blur();
+  setSetting("alternativeClockFormat", value);
+};
+
+const handleShowServerTimesChange = ({ value, event }) => {
+  event.target.blur();
+  setSetting("showServerTimes", value);
+};
+
 export default function SettingsMenu() {
   const { settingsMenuOpen } = useStore(uiStore);
   const { alternativeClockFormat, showServerTimes } = useStore(settingsStore);
-
-  const handleClockFormatChange = (value, event) => {
-    event.target.blur();
-    setAlternativeClockFormat(value);
-  };
-
-  const handleShowServerTimesChange = (value, event) => {
-    event.target.blur();
-    setShowServerTimes(value);
-  };
 
   return (
     <>
