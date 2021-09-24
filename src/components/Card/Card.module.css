@@ -16,6 +16,14 @@
       theme(colors.background-light-blue)
     );
   box-shadow: 3px 3px 7px theme(colors.background-dark);
+
+  p {
+    margin: 0.33em 0px;
+
+    & + p {
+      margin-top: 1em;
+    }
+  }
 }
 
 .inner {

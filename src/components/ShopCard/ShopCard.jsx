@@ -30,11 +30,11 @@ export default function ShopCard({ shopData, interval, endsAt }) {
       </FGOItemList>
       {endsAt && (
         <NoSSR>
-          <span>
+          <p>
             Next shop rotation:
             <br />
             {nextMonthDelta} ({nextMonthDate})
-          </span>
+          </p>
         </NoSSR>
       )}
       {limitedInventory?.length > 0 && (

@@ -27,11 +27,11 @@ export default function ChaldeaGateCard({ interval, background, border }) {
       <TrainingLootList data={currentDay.training} />
       <EmberLootList data={currentDay.embers} />
       <NoSSR>
-        <span>
+        <p>
           Next Daily Quest Rotation in:
           <br />
           {nextRotationDelta} ({nextRotationDate})
-        </span>
+        </p>
       </NoSSR>
       <ScheduleTable weekday={weekday} />
     </Card>
