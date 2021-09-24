@@ -4,7 +4,7 @@ export const servantClasses = new Map([
   [
     "saber",
     {
-      name: "Saber",
+      class: "Saber",
       icon: "https://assets.atlasacademy.io/GameData/JP/ClassIcons/class3_1.png",
       piece: "https://assets.atlasacademy.io/GameData/JP/Items/7001.png",
       monument: "https://assets.atlasacademy.io/GameData/JP/Items/7101.png",
