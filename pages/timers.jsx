@@ -32,9 +32,7 @@ export default function TimersPage({
   );
 
   /* TODO:
-   * - Recurring stuff like dailies needs a section
    * - AP Calc
-   * - idk what else rn lol
    */
 
   return (
