@@ -9,7 +9,6 @@ import Header from "@components/Header";
 import Loading from "@components/Loading";
 import Layout from "@components/Layout";
 import SettingsMenu from "@components/SettingsMenu";
-import APTracker from "@components/APTracker";
 
 function MyApp({ Component, pageProps }) {
   const loading = useRouterLoading();
@@ -34,7 +33,6 @@ function MyApp({ Component, pageProps }) {
         </Layout>
       )}
       <SettingsMenu />
-      <APTracker />
     </>
   );
 }
