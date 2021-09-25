@@ -14,6 +14,7 @@ import { CardGrid } from "@components/Card";
 import LoginTicketCard from "@components/LoginTicketCard";
 import ShopCard from "@components/ShopCard";
 import ChaldeaGateCard from "@components/ChaldeaGateCard";
+import APCalcCard from "@components/APCalcCard";
 
 export default function TimersPage({
   tickets,
@@ -30,10 +31,6 @@ export default function TimersPage({
     { day: 15, hour: 0, tz: "utc" },
     interval
   );
-
-  /* TODO:
-   * - AP Calc
-   */
 
   return (
     <>
@@ -59,6 +56,10 @@ export default function TimersPage({
           shopData={rpShopData}
           endsAt={rpShopReset}
           interval={interval}
+        />
+        <APCalcCard
+          border={rpShopData.border}
+          background={rpShopData.background}
         />
       </CardGrid>
     </>
