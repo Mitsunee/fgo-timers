@@ -1,7 +1,6 @@
 .input {
   padding: 0.33em;
   background-color: background-blue;
-  background-image: linear-gradient();
   border: 1px solid theme(colors.ui-light);
   border-radius: 0.33em;
   color: inherit;
