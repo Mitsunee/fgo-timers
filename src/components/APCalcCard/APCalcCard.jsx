@@ -6,6 +6,12 @@ import { settingsStore, setSetting } from "@stores/settingsStore";
 import { useIsClient } from "@utils/hooks/useIsClient";
 import { useInputNumberValue } from "@utils/hooks/useInputNumberValue";
 import { clamp, isClamped } from "@utils/clamp";
+import {
+  MAX_AP_MAX_VALUE,
+  MAX_AP_MIN_VALUE,
+  NODE_COST_MAX_VALUE,
+  NODE_COST_MIN_VALUE
+} from "@utils/globals.js";
 import { Card } from "@components/Card";
 import { Select, SelectOption } from "@components/Select";
 import FormField from "./FormField";
@@ -15,13 +21,6 @@ import Results from "./Results";
 
 const validateApOffset = value =>
   /^(0:(0[1-9]|[1-5]\d)|[1-4]:[0-5]\d)$/.test(value);
-
-// constants
-// TODO: move into settingsStore?
-const MAXAP_MIN_VALUE = 20;
-const MAXAP_MAX_VALUE = 142;
-const NODE_COST_MIN_VALUE = 3;
-const NODE_COST_MAX_VALUE = 40;
 
 // TODO: change nodeCost to use settingsStore
 
@@ -43,8 +42,8 @@ export default function APCalc({ border, background }) {
       !(
         isClamped({
           value: userMaxAP,
-          min: MAXAP_MIN_VALUE,
-          max: MAXAP_MAX_VALUE
+          min: MAX_AP_MIN_VALUE,
+          max: MAX_AP_MAX_VALUE
         }) &&
         isClamped({ value: currentAp, min: 0, max: userMaxAP }) &&
         validateApOffset(apOffset)
@@ -173,8 +172,8 @@ export default function APCalc({ border, background }) {
               <InputNumber
                 name="user-max-ap"
                 value={userMaxAP}
-                min={MAXAP_MIN_VALUE}
-                max={MAXAP_MAX_VALUE}
+                min={MAX_AP_MIN_VALUE}
+                max={MAX_AP_MAX_VALUE}
                 onChange={handleMaxAP}
               />
             </FormField>
