@@ -26,7 +26,7 @@ export default function ButtonLink({
 
   if (targetBlank) {
     return (
-      <a {...commonProps} target="_blank" rel="noopener noreferrer">
+      <a href={href} {...commonProps} target="_blank" rel="noopener noreferrer">
         {children}
       </a>
     );

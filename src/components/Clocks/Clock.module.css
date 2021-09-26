@@ -19,6 +19,7 @@
 }
 
 .clock h2 {
+  font-family: sans;
   font-size: [32px, 36px, 42px];
   font-weight: 400;
   font-variant-numeric: tabular-nums;
