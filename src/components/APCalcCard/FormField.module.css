@@ -1,0 +1,11 @@
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: 0.33em;
+  justify-content: center;
+  align-items: center;
+
+  input {
+    max-width: 80px;
+  }
+}
