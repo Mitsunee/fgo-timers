@@ -22,8 +22,6 @@ import Results from "./Results";
 const validateApOffset = value =>
   /^(0:(0[1-9]|[1-5]\d)|[1-4]:[0-5]\d)$/.test(value);
 
-// TODO: change nodeCost to use settingsStore
-
 export default function APCalc({ border, background }) {
   const isClient = useIsClient();
   const [formMode, setFormMode] = useState("byTargetAp");

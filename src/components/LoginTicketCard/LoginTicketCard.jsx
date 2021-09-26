@@ -22,7 +22,6 @@ export default function LoginTicketCard({ tickets, itemData, interval }) {
   const nextLoginDelta = useFormattedDelta(interval, nextLogin);
 
   // effect that find currentMonth in tickets and manages timeout to update
-  // TODO: does this work?
   useEffect(() => {
     const update = () => {
       // set data for current month
@@ -30,18 +29,16 @@ export default function LoginTicketCard({ tickets, itemData, interval }) {
       setCurrentMonth(tickets[now.year()][now.format("month-short")]);
 
       // find delta to next login ticket cycle
-      const next = now
-        .next("month")
-        .time(`${now.isDST() ? 21 : 20}:00:05`, true);
+      const next = now.next("month").time(`${now.isDST() ? 21 : 20}:00`, true);
       const timeDelta = next.epoch - now.epoch;
-      setNextMonth(next.subtract(5, "seconds").goto());
+      setNextMonth(next.goto());
 
       // in client-only schedule timeout to update page when next month starts
       if (typeof window !== "undefined") {
         timeoutRef.current = lt.setTimeout(update, timeDelta);
       }
 
-      // cleanup function
+      // return cleanup function to effect
       return () => {
         if (timeoutRef.current !== null) {
           lt.clearTimeout(timeoutRef.current);
@@ -49,7 +46,7 @@ export default function LoginTicketCard({ tickets, itemData, interval }) {
       };
     };
 
-    return update();
+    return update(); // runs function, which returns cleanup function
   }, [tickets]);
 
   return currentMonth === null ? null : (
