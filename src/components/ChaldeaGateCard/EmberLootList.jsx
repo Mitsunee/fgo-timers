@@ -6,14 +6,16 @@ export default function EmberLootList({ data }) {
     <>
       <h2>Daily Ember Gathering</h2>
       <FGOItemList>
-        {data.map(date => {
+        {data.map((date, idx) => {
           const itemData = {
             name: `${date.class} Embers`,
             icon: date.ember,
             background: "clear"
           };
 
-          return <FGOItemListItem key={date.class} data={itemData} />;
+          return (
+            <FGOItemListItem key={`${date.class}-${idx}`} data={itemData} />
+          );
         })}
       </FGOItemList>
     </>
