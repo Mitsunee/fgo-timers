@@ -27,11 +27,10 @@ const validateApOffset = value =>
 export default function APCalc({ border, background }) {
   const isClient = useIsClient();
   const [formMode, setFormMode] = useState("byTargetAp");
-  const { userMaxAP } = useStore(settingsStore);
+  const { userMaxAP, userNodeCost } = useStore(settingsStore);
   const [currentAp, setCurrentAp] = useInputNumberValue(0);
   const [apOffset, setApOffset] = useState("0:01");
   const [apTarget, setApTarget] = useInputNumberValue(0);
-  const [nodeCost, setNodeCost] = useInputNumberValue(40);
   const [resultData, setResultData] = useState([]);
 
   // effect that handles form input and generates resultData
@@ -93,7 +92,7 @@ export default function APCalc({ border, background }) {
       // check if nodeCost is valid, if not return with only max ap
       if (
         !isClamped({
-          value: nodeCost,
+          value: userNodeCost,
           min: NODE_COST_MIN_VALUE,
           max: NODE_COST_MAX_VALUE
         })
@@ -102,12 +101,12 @@ export default function APCalc({ border, background }) {
         return;
       }
 
-      const possibleRuns = Math.floor(userMaxAP / nodeCost);
+      const possibleRuns = Math.floor(userMaxAP / userNodeCost);
       const runs = Array(possibleRuns)
         .fill(1)
         .map((one, index) => ({
           text: `Run #${index + one}`, // variable is used, you happy now eslint?
-          time: calcTime(nodeCost * (index + one) - currentAp),
+          time: calcTime(userNodeCost * (index + one) - currentAp),
           from: renderedAt
         }));
       setResultData(runs.concat(maxApData));
@@ -116,7 +115,15 @@ export default function APCalc({ border, background }) {
 
     // "byMaxAp"
     setResultData([maxApData]);
-  }, [isClient, userMaxAP, currentAp, apOffset, formMode, apTarget, nodeCost]);
+  }, [
+    isClient,
+    userMaxAP,
+    currentAp,
+    apOffset,
+    formMode,
+    apTarget,
+    userNodeCost
+  ]);
 
   const handleFormMode = ({ event, value }) => {
     event.target.blur();
@@ -125,6 +132,10 @@ export default function APCalc({ border, background }) {
 
   const handleMaxAP = ev => {
     setSetting("userMaxAP", ev.target.value);
+  };
+
+  const handleNodeCost = ev => {
+    setSetting("userNodeCost", ev.target.value);
   };
 
   const sanitizeApOffset = ev => {
@@ -211,10 +222,10 @@ export default function APCalc({ border, background }) {
               <FormField label="Node Cost" htmlFor="user-node-cost">
                 <InputNumber
                   name="user-node-cost"
-                  value={nodeCost}
+                  value={userNodeCost}
                   min={NODE_COST_MIN_VALUE}
                   max={NODE_COST_MAX_VALUE}
-                  onChange={setNodeCost}
+                  onChange={handleNodeCost}
                 />
               </FormField>
             )}
