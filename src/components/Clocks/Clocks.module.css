@@ -1,0 +1,9 @@
+.wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.66em;
+  width: 100%;
+  margin: 0.66em 0px 2.33em 0px;
+}

@@ -1,0 +1,12 @@
+.wrapper {
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  transform: translate(20%, 20%);
+  padding: 12px;
+  background: linear-gradient(
+    to bottom,
+    theme(colors.background-blue) 56px,
+    transparent 58px
+  );
+}

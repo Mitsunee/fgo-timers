@@ -1,0 +1,25 @@
+.formGrid {
+  font-size: 1rem;
+  display: grid;
+  grid-template-columns: [1fr 1fr, 1fr 1fr, repeat(3, 1fr) ];
+  justify-content: space-around;
+  align-items: center;
+  column-gap: 0.33em;
+  row-gap: 0.66em;
+  margin: 0.66em 0px;
+}
+
+.formGrid.withFourthCol {
+  grid-template-columns: [1fr 1fr, 1fr 1fr, repeat(4, 1fr) ];
+}
+
+.selectWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.33em 0px;
+}
+
+.cardWrapper {
+  grid-column: [span 1, span 2];
+}

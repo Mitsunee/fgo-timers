@@ -14,7 +14,7 @@ export default function SelectOption({
           ? `${styles.option} ${styles.selected}`
           : `${styles.option} ${styles.unselected}`
       }
-      onClick={event => handler(value, event)}>
+      onClick={event => handler({ value, event })}>
       {children}
     </Button>
   );

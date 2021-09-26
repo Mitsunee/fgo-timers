@@ -11,6 +11,7 @@ export const settingsMap = createPersistentMap("fgoTools:", {
   alternativeClockFormat: "false", // use 12h AM/PM time format instead of 24h format
   showServerTimes: "false", // show server times instead of local time
   userMaxAP: "142",
+  userNodeCost: "40",
   userMaxCost: "113"
 });
 
@@ -18,21 +19,10 @@ export const settingsStore = createDerived(settingsMap, store => ({
   alternativeClockFormat: store.alternativeClockFormat === "true",
   showServerTimes: store.showServerTimes === "true",
   userMaxAP: Number(store.userMaxAP),
+  userNodeCost: Number(store.userNodeCost),
   userMaxCost: Number(store.userMaxCost)
 }));
 
-export const setAlternativeClockFormat = value => {
-  settingsMap.setKey("alternativeClockFormat", value ? "true" : "false");
-};
-
-export const setShowServerTimes = value => {
-  settingsMap.setKey("showServerTimes", value ? "true" : "false");
-};
-
-export const setUserMaxAP = value => {
-  settingsMap.setKey("userMaxAP", `${value}`);
-};
-
-export const setUserMaxCost = value => {
-  settingsMap.setKey("userMaxCost", `${value}`);
+export const setSetting = (key, value) => {
+  settingsMap.setKey(key, `${value}`);
 };
