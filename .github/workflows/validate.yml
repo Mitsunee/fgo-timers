@@ -21,4 +21,4 @@ jobs:
       - name: Check Formatting
         run: yarn format:check
       - name: Lint
-        run: yarn lint
+        run: yarn lint:strict
