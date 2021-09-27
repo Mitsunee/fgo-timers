@@ -12,7 +12,8 @@
     "format": "prettier -w .",
     "format:check": "prettier -c .",
     "new": "node scripts/new.js",
-    "update:upgrades": "node scripts/update-upgrades-data.mjs"
+    "update:upgrades": "node scripts/update-upgrades-data.mjs",
+    "update:svg": "node scripts/build-svg-components.mjs"
   },
   "simple-git-hooks": {
     "pre-commit": "yarn lint-staged"
@@ -45,6 +46,7 @@
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.0",
     "eslint-config-prettier": "^8.3.0",
+    "globby": "^12.0.2",
     "lint-staged": "^11.1.2",
     "long-timeout": "^0.1.1",
     "modern-normalize": "^1.1.0",
