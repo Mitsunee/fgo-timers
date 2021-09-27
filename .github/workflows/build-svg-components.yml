@@ -7,7 +7,7 @@ on:
       - "assets/svg/**"
 
 jobs:
-  validate:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
