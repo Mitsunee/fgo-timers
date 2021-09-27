@@ -24,6 +24,9 @@
     ],
     "**/*.{css,json,md}": [
       "prettier -w"
+    ],
+    "**/*.svg": [
+      "node scripts/optimize-svg.mjs"
     ]
   },
   "dependencies": {
