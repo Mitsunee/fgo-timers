@@ -88,6 +88,25 @@ async function main() {
     "utf8"
   );
   console.log(cyan("Built 'icons/index.js'"));
+
+  // cleanup components dir
+  const dir = await globby("src/components/icons/*.jsx");
+  const dirUnknown = dir.filter(
+    file => !componentNames.includes(path.basename(file, path.extname(file)))
+  );
+  for (const file of dirUnknown) {
+    const name = path.basename(file);
+    try {
+      await fs.rm(file);
+      console.log(
+        yellow(`Cleaned up '${name}' as source file does not exist anymore.`)
+      );
+    } catch (e) {
+      console.error(
+        red(`Could not delete '${name}'. No source file exists for this path.`)
+      );
+    }
+  }
 }
 
 main().catch(e => {
