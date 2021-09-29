@@ -3,8 +3,8 @@ import { useRouter } from "next/router";
 
 import styles from "./NavigationSubMenu.module.css";
 import { uiStore, setSubMenuOpen } from "@stores/uiStore";
-import { svgArrow } from "@utils/svgIcons";
 import { Button } from "@components/Button";
+import { IconArrow } from "@components/icons";
 import NavigationItem from "./NavigationItem";
 
 export default function NavigationSubMenu({
@@ -34,7 +34,7 @@ export default function NavigationSubMenu({
         className={
           forceOpen ? `${styles.button} ${styles.static}` : styles.button
         }
-        iconSvg={svgArrow}
+        iconComponent={IconArrow}
         iconSize="0.75em"
         iconSide="left">
         {text}
