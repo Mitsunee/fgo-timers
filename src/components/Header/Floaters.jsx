@@ -1,8 +1,8 @@
 import styles from "./Floaters.module.css";
 import { setMobileNavOpen, setSettingsMenuOpen } from "@stores/uiStore";
 import { useThemeBreakpoint } from "@utils/hooks/useThemeBreakpoint";
-import { svgDiscord, svgSettings, svgHamburger } from "@utils/svgIcons";
 import { Button } from "@components/Button";
+import { IconDiscord, IconSettings, IconHamburger } from "@components/icons";
 
 export default function Floaters({ inline = false }) {
   const [currentBreakpoint, breakpoints] = useThemeBreakpoint();
@@ -17,20 +17,20 @@ export default function Floaters({ inline = false }) {
       <Button
         href="https://discord.gg/ZncPkjw"
         targetBlank
-        iconSvg={svgDiscord}
+        iconComponent={IconDiscord}
         disableDefaultStyle
         className={styles.buttonDiscord}
       />
       <Button
         onClick={() => setSettingsMenuOpen(true)}
-        iconSvg={svgSettings}
+        iconComponent={IconSettings}
         disableDefaultStyle
         className={styles.button}
       />
       {currentBreakpoint <= breakpoints[2] && (
         <Button
           onClick={handleMobileNavButton}
-          iconSvg={svgHamburger}
+          iconComponent={IconHamburger}
           disableDefaultStyle
           className={styles.button}
         />

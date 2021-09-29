@@ -4,12 +4,12 @@ import ButtonIcon from "./ButtonIcon";
 export default function ButtonInner({
   children,
   icon,
-  iconSvg,
+  iconComponent,
   iconSide,
   iconSize
 }) {
-  const iconProps = { icon, iconSvg, iconSize };
-  const hasIcon = icon || iconSvg ? true : false;
+  const iconProps = { icon, Component: iconComponent, iconSize };
+  const hasIcon = icon || iconComponent ? true : false;
 
   return hasIcon ? (
     <div className={styles.inner}>

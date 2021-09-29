@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 import styles from "./ScheduleTable.module.css";
-import { svgArrow } from "@utils/svgIcons";
 import { schedules, servantClasses } from "./schedules";
 import { Button } from "@components/Button";
+import { IconArrow } from "@components/icons";
 import ScheduleRow from "./ScheduleRow";
 
 export default function ScheduleTable({ weekday }) {
@@ -15,7 +15,7 @@ export default function ScheduleTable({ weekday }) {
         onClick={() => setOpen(state => !state)}
         disableDefaultStyle
         className={open ? `${styles.header} ${styles.open}` : styles.header}
-        iconSvg={svgArrow}
+        iconComponent={IconArrow}
         iconSize="0.75em">
         Schedule
       </Button>

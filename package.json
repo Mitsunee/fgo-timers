@@ -12,7 +12,8 @@
     "format": "prettier -w .",
     "format:check": "prettier -c .",
     "new": "node scripts/new.js",
-    "update:upgrades": "node scripts/update-upgrades-data.mjs"
+    "update:upgrades": "node scripts/update-upgrades-data.mjs",
+    "update:svg": "node scripts/build-svg-components.mjs"
   },
   "simple-git-hooks": {
     "pre-commit": "yarn lint-staged"
@@ -24,6 +25,9 @@
     ],
     "**/*.{css,json,md}": [
       "prettier -w"
+    ],
+    "**/!(*inkscape).svg": [
+      "svgo"
     ]
   },
   "dependencies": {
@@ -38,12 +42,15 @@
     "yaml": "^1.10.2"
   },
   "devDependencies": {
+    "@svgo/jsx": "^0.2.0",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.0",
     "eslint-config-prettier": "^8.3.0",
+    "globby": "^12.0.2",
     "lint-staged": "^11.1.2",
     "long-timeout": "^0.1.1",
     "modern-normalize": "^1.1.0",
+    "nanocolors": "^0.2.10",
     "nanoid": "^3.1.25",
     "node-fetch": "^3.0.0",
     "postcss": "^8.3.6",
@@ -53,6 +60,7 @@
     "postcss-preset-env": "^6.7.0",
     "postcss-theme-ui": "^0.10.0",
     "prettier": "^2.3.2",
-    "simple-git-hooks": "^2.6.1"
+    "simple-git-hooks": "^2.6.1",
+    "svgo": "^2.7.0"
   }
 }

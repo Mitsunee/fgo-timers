@@ -1,0 +1,25 @@
+name: Build SVG Components
+on:
+  pull_request:
+    branches:
+      - "*"
+    paths:
+      - "assets/svg/**"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install Dependencies
+        uses: bahmutov/npm-install@v1
+        with:
+          install-command: yarn install
+          useRollingCache: true
+      - name: Run Build script
+        run: yarn update:svg
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "chore: build svg components"
