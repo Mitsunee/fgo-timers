@@ -9,43 +9,52 @@ const dataAsc = upgradesData.sort(
 );
 const dataDesc = [...dataAsc].reverse(); // needs spread as reverse happens in-place!
 
-// WIP
-// TODO: na-only filter
 export default async function upgrades(req, res) {
   const {
     page = 0,
     perPage = 25,
     search = "",
     className = "",
-    quest = "",
     type = "",
+    target = "",
+    na = null,
     sortDesc = false
   } = req.query;
 
-  let returnDataSet = (sortDesc ? dataDesc : dataAsc).filter(
-    ({ servant, quest: _quest, type: _type }) => {
-      // apply search
-      if (search && !sanitize(servant.name).includes(sanitize(search))) {
-        return false;
-      }
+  let returnDataSet = (sortDesc ? dataDesc : dataAsc).filter(upgrade => {
+    const { servant } = upgrade;
 
-      // apply className filter
-      if (
-        className &&
-        !matchClassName(servant.className, className.split(","))
-      ) {
-        return false;
-      }
+    // apply quest type filter (interlude, rankup)
+    if (type && upgrade.quest.type !== type) return false;
 
-      // apply quest filter
-      if (quest && _quest.type !== quest) return false;
+    // apply target filter (np, skill, sq)
+    if (target && upgrade.target !== target) return false;
 
-      // apply type filter
-      if (type && _type !== type) return false;
-
-      return true;
+    // apply region filter (null, true, false) based on quest.na (undefined, true)
+    if (
+      (na === false && upgrade.quest.na) ||
+      (na === true && !upgrade.quest.na)
+    ) {
+      return false;
     }
-  );
+
+    // apply className filter
+    if (className && !matchClassName(servant.className, className.split(","))) {
+      return false;
+    }
+
+    // apply servant name search
+    if (
+      search &&
+      !sanitize(servant.name.toLowerCase()).includes(
+        sanitize(search.toLowerCase())
+      )
+    ) {
+      return false;
+    }
+
+    return true; // passed all filters
+  });
 
   const total = returnDataSet.length;
   const pages = Math.ceil(total / perPage);
@@ -54,9 +63,9 @@ export default async function upgrades(req, res) {
   const end = Math.min(start + perPage, total);
 
   res.status(200).json({
-    data: returnDataSet.slice(start, end),
     total,
     pages,
-    last: page >= pages
+    last: page >= pages,
+    data: returnDataSet.slice(start, end)
   });
 }
