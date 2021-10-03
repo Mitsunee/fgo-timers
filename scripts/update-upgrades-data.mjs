@@ -114,6 +114,7 @@ const nameServant = (servantData, servantDataNA) => {
 const describeServant = (servantData, servantDataNA) => ({
   name: nameServant(servantData, servantDataNA),
   icon: servantData.extraAssets.faces.ascension["1"],
+  className: servantData.className,
   na: servantDataNA ? true : undefined
 });
 const describeQuest = (questData, questDataNA) => ({
