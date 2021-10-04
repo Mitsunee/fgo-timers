@@ -12,12 +12,12 @@
     background-size: cover;
   }
 
-  svg {
+  .button svg {
     fill: theme(colors.primary);
     transition: transform 0.125s ease-in-out;
   }
 
-  &.open svg {
+  &.open .button svg {
     transform: rotate(-90deg);
   }
 }
