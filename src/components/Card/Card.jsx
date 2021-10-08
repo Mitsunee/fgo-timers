@@ -8,6 +8,7 @@ export default function Card({
   title,
   background,
   border,
+  forceRoundIcon,
   className,
   wrapperClassName,
   style,
@@ -22,7 +23,12 @@ export default function Card({
         {...props}
         className={className ? `${styles.card} ${className}` : styles.card}
         style={border || style ? articleStyle : undefined}>
-        <CardHero icon={icon} background={background} title={title} />
+        <CardHero
+          icon={icon}
+          background={background}
+          title={title}
+          forceRoundIcon={forceRoundIcon}
+        />
         <main className={styles.inner}>
           <Headline>{title}</Headline>
           {children}
