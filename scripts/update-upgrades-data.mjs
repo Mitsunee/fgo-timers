@@ -3,6 +3,7 @@ import { existsSync } from "fs";
 import path from "path";
 import picocolors from "picocolors";
 import fetch from "node-fetch";
+import { sanitize } from "modern-diacritics";
 
 // BUG: nanospinner currently causes a memory leak after the 10th spinner
 // import { createSpinner } from "nanospinner";
@@ -299,21 +300,26 @@ const describeNP = (npData, npDataNA) => ({
   border: borderColors.get(npData.priority),
   na: npDataNA ? true : undefined
 });
-const nameServant = (servantData, servantDataNA) => {
-  return (
+function nameServant(servantData, servantDataNA) {
+  const name =
     servantDataNA?.ascensionAdd.overWriteServantName?.ascension?.["0"] || // spoiler-safe name
     servantDataNA?.name || // english name
     servantData?.ascensionAdd.overWriteServantName?.ascension?.["0"] || // spoiler-safe fan-translated name
-    servantData.name // fan-translated name
-  );
-};
-const describeServant = (servantData, servantDataNA) => ({
-  name: nameServant(servantData, servantDataNA),
-  icon: servantData.extraAssets.faces.ascension["1"],
-  className: servantData.className,
-  na: servantDataNA ? true : undefined
-});
-const describeQuest = async (questData, questDataNA) => {
+    servantData.name; // fan-translated name
+
+  return [name, sanitize(name)];
+}
+function describeServant(servantData, servantDataNA) {
+  const [name, search] = nameServant(servantData, servantDataNA);
+  return {
+    name,
+    search,
+    icon: servantData.extraAssets.faces.ascension["1"],
+    className: servantData.className,
+    na: servantDataNA ? true : undefined
+  };
+}
+async function describeQuest(questData, questDataNA) {
   const requiredQuestId =
     questData.releaseConditions?.find(({ type }) => type === "questClear")
       ?.targetId ?? false;
@@ -345,7 +351,7 @@ const describeQuest = async (questData, questDataNA) => {
     },
     na: questDataNA ? true : undefined
   };
-};
+}
 
 async function main() {
   // read existing data
@@ -380,18 +386,32 @@ async function main() {
   );
 
   // compare quest IDs to find any that changed
-  const knownQuests = data.map(upgrade => upgrade.quest.id);
-  const knownQuestsNA = data
-    .filter(upgrade => upgrade.quest.na)
-    .map(upgrade => upgrade.quest.id);
-  const changedQuests = [
-    ...niceServant
-      .flatMap(servant => servant.relateQuestIds)
-      .filter(quest => !knownQuests.includes(quest)),
-    ...niceServantNA
-      .flatMap(servant => servant.relateQuestIds)
-      .filter(quest => !knownQuestsNA.includes(quest))
-  ].filter((v, i, s) => s.indexOf(v) === i);
+  let changedQuests = new Set();
+  for (const servant of niceServant) {
+    const servantNA = niceServantNA.find(({ id }) => id === servant.id);
+
+    for (const questId of servant.relateQuestIds) {
+      const questCached = data.find(cached => cached.quest.id === questId);
+      // new quest
+      if (!questCached) {
+        changedQuests.add(questId);
+        continue;
+      }
+      // servant name changed
+      if ((servantNA?.name || servant.name) !== questCached.servant.name) {
+        changedQuests.add(questId);
+        continue;
+      }
+      // quest released on na
+      if (
+        !questCached.quest.na &&
+        niceServantNA.relateQuestIds.includes(questId)
+      ) {
+        changedQuests.add(questId);
+        continue;
+      }
+    }
+  }
 
   // if nothing changed quit with success
   if (changedQuests.length === 0) {
@@ -409,10 +429,10 @@ async function main() {
     if (questData.type === "main") {
       // this keeps main quest IDs in the data so they aren't fetched everytime
       // the script runs.
-      // TODO: filter out main quests like filter(upgrade => upgrade.target) in SSG
       const upgrade = {
         quest: {
-          id: quest
+          id: quest,
+          open: questDataNA?.openedAt || questData.openedAt
         }
       };
 
@@ -453,7 +473,7 @@ async function main() {
       log.table({
         for: initialSkillNA?.name || initialSkill?.name || "PLACEHOLDER",
         to: relatedSkillNA?.name || relatedSkill.name,
-        of: nameServant(relatedServant, relatedServantNA)
+        of: nameServant(relatedServant, relatedServantNA)[0]
       });
 
       // assemble data
@@ -488,7 +508,7 @@ async function main() {
       log.table({
         for: initialNPNA?.name || initialNP.name,
         to: relatedNPNA?.name || relatedNP.name,
-        of: nameServant(relatedServant, relatedServantNA)
+        of: nameServant(relatedServant, relatedServantNA)[0]
       });
 
       newUpgrades.push({
@@ -511,9 +531,11 @@ async function main() {
   }
 
   data = [
-    ...data.filter(({ quest }) => !changedQuests.includes(quest.id)),
+    ...data.filter(({ quest }) => !changedQuests.has(quest.id)),
     ...newUpgrades
-  ];
+  ].sort((a, b) => {
+    a.quest.open - b.quest.open;
+  });
 
   // write file
   await fs.writeFile(
