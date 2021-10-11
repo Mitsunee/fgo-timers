@@ -1,8 +1,11 @@
 import fs from "fs/promises";
 import { existsSync } from "fs";
 import path from "path";
-import chalk from "chalk";
+import picocolors from "picocolors";
 import fetch from "node-fetch";
+
+// BUG: nanospinner currently causes a memory leak after the 10th spinner
+// import { createSpinner } from "nanospinner";
 
 // TODO: figure out a workaround for Jekyll&Hyde
 // TODO: figure out a workaround for EoR skills
@@ -176,17 +179,15 @@ const questDatesMap = new Map([
    */
   [91600701, LAUNCH_LONDON] // Jekyll & Hyde Interlude 1
 ]);
-/*
-https://fategrandorder.fandom.com/wiki/User_blog:Primordialancient/Interlude_Release_Dates
-*/
+const questDataMap = new Map();
 
 // helper functions
 const join = relPath => path.join(CWD, relPath);
 const log = message => console.log(message);
-log.error = message => console.error(chalk.red(message));
-log.warn = message => console.warn(chalk.yellow(message));
-log.success = message => console.log(chalk.cyan(message));
-log.debug = arg => {
+log.error = message => console.error(picocolors.red(message));
+log.warn = message => console.warn(picocolors.yellow(message));
+log.success = message => console.log(picocolors.cyan(message));
+log.table = arg => {
   if (typeof arg === "string") {
     return console.log(arg);
   }
@@ -201,36 +202,75 @@ log.debug = arg => {
   }
   console.table(temp);
 };
-const die = message => {
+function die(message) {
   if (message) log.error(message);
   process.exit(1);
-};
-const fetchData = async (url, defaultValue) => {
+}
+async function fetchData(url, defaultValue, message = "Fetching Data") {
+  //const spinner = createSpinner(message);
+  log(message); // TEMP
   const _fetch = async (url, defaultValue) => {
     try {
       const res = await fetch(url);
       if (!res.ok) {
-        if (defaultValue === undefined) die("error while fetching " + url);
+        if (defaultValue === undefined) {
+          //spinner.error(`error while fetching '${url}'`);
+          log.error(`Error while fetching '${url}'`); // TEMP
+          process.exit(2);
+        }
         return defaultValue;
       }
       return await res.json();
     } catch (e) {
-      if (defaultValue === undefined) die(e);
+      if (defaultValue === undefined) {
+        //spinner.error(`received invalid data from '${url}'`);
+        log.error(`Received invalid data from '${url}'`);
+        process.exit(2);
+      }
       return defaultValue;
     }
   };
+
+  let res;
+  //spinner.start();
   if (url instanceof Array) {
-    return await Promise.all(
+    res = await Promise.all(
       url.map(async item => await _fetch(item, defaultValue))
     );
+  } else {
+    res = await _fetch(url, defaultValue);
   }
-  return await _fetch(url, defaultValue);
-};
-const fetchNiceServant = async () => {
-  const res = await fetchData([
-    `${ATLAS}export/JP/nice_servant_lang_en.json`,
-    `${ATLAS}export/NA/nice_servant.json`
-  ]);
+  //spinner.success();
+  return res;
+}
+async function fetchQuestData(id) {
+  let tmp;
+  if ((tmp = questDataMap.get(id))) return tmp;
+
+  const [questData, questDataNA] = await fetchData(
+    [`${ATLAS}nice/JP/quest/${id}`, `${ATLAS}nice/NA/quest/${id}`],
+    false, // needs defaultValue as NA quest may not exist!
+    `Fetching quest: ${id}`
+  );
+  if (!questData) die(`Error while fetching atlas API for quest ${id}`); // but we need JP to exist
+
+  // save to map
+  questDataMap.set(id, [questData, questDataNA]);
+
+  // atlas api can't handle too many requests in a row
+  await sleep(250);
+
+  return [questData, questDataNA];
+}
+async function fetchNiceServant() {
+  const res = await fetchData(
+    [
+      `${ATLAS}export/JP/nice_servant_lang_en.json`,
+      `${ATLAS}export/NA/nice_servant.json`
+    ],
+    undefined,
+    "Fetching niceServant data"
+  );
   return res.map(data =>
     data
       .filter(servant => servant.type === "normal")
@@ -240,9 +280,10 @@ const fetchNiceServant = async () => {
         ({ id }) => ![600700, 304800].includes(id)
       )
   );
-};
-const sleep = time =>
-  new Promise(resolve => setTimeout(() => resolve(), time ?? 250));
+}
+function sleep(time = 250) {
+  return new Promise(resolve => setTimeout(() => resolve(), time));
+}
 
 // descriptors
 const describeSkill = (skillData, skillDataNA) => ({
@@ -272,28 +313,39 @@ const describeServant = (servantData, servantDataNA) => ({
   className: servantData.className,
   na: servantDataNA ? true : undefined
 });
-const describeQuest = (questData, questDataNA) => ({
-  id: questData.id,
-  name: questDataNA?.name || questData.name,
-  open:
-    questDatesMap.get(questData.id) ||
-    questDataNA?.openedAt ||
-    questData.openedAt,
-  type: questData.type === "friendship" ? "interlude" : "rankup",
-  unlock: {
-    bond:
-      questData.releaseConditions?.find(({ type }) => type === "svtFriendship")
-        ?.value ?? 0,
-    ascension:
-      questData.releaseConditions?.find(({ type }) => type === "svtLimit")
-        ?.value ?? 0,
-    quest:
-      // TODO: fetch this data?
-      questData.releaseConditions?.find(({ type }) => type === "questClear")
-        ?.value ?? undefined
-  },
-  na: questDataNA ? true : undefined
-});
+const describeQuest = async (questData, questDataNA) => {
+  const requiredQuestId =
+    questData.releaseConditions?.find(({ type }) => type === "questClear")
+      ?.targetId ?? false;
+  const [requiredQuest, requiredQuestNA] = requiredQuestId
+    ? await fetchQuestData(requiredQuestId)
+    : [false, false];
+
+  return {
+    id: questData.id,
+    name: questDataNA?.name || questData.name,
+    open:
+      questDatesMap.get(questData.id) ||
+      questDataNA?.openedAt ||
+      questData.openedAt,
+    type: questData.type === "friendship" ? "interlude" : "rankup",
+    unlock: {
+      bond:
+        questData.releaseConditions?.find(
+          ({ type }) => type === "svtFriendship"
+        )?.value ?? 0,
+      ascension:
+        questData.releaseConditions?.find(({ type }) => type === "svtLimit")
+          ?.value ?? 0,
+      quest: requiredQuestNA
+        ? { name: requiredQuestNA.name, id: requiredQuestNA.id }
+        : requiredQuest
+        ? { name: requiredQuest.name, id: requiredQuest.id }
+        : undefined
+    },
+    na: questDataNA ? true : undefined
+  };
+};
 
 async function main() {
   // read existing data
@@ -350,15 +402,8 @@ async function main() {
   const newUpgrades = [];
 
   for (const quest of changedQuests) {
-    await sleep(); // atlas api can't handle too many requests in a row
-
     // fetch quest data
-    log.debug(`Fetching quest: ${quest}`);
-    const [questData, questDataNA] = await fetchData(
-      [`${ATLAS}nice/JP/quest/${quest}`, `${ATLAS}nice/NA/quest/${quest}`],
-      false // needs defaultValue as NA quest may not exist!
-    );
-    if (!questData) die("Error while fetching atlas API"); // but we need JP to exist
+    const [questData, questDataNA] = await fetchQuestData(quest);
 
     // handle main quests
     if (questData.type === "main") {
@@ -390,7 +435,7 @@ async function main() {
 
     // Quest has related skill
     if (relatedSkill) {
-      log.debug("Quest upgrades a skill");
+      log("Quest upgrades a skill");
       // find skill on NA
       const relatedSkillNA = skillsNA.find(({ id }) => id === relatedSkill.id);
 
@@ -405,7 +450,7 @@ async function main() {
         initialSkill && skillsNA.find(({ id }) => id === initialSkill.id);
 
       // print log
-      log.debug({
+      log.table({
         for: initialSkillNA?.name || initialSkill?.name || "PLACEHOLDER",
         to: relatedSkillNA?.name || relatedSkill.name,
         of: nameServant(relatedServant, relatedServantNA)
@@ -419,7 +464,7 @@ async function main() {
           initialSkillNA
         ),
         skill: describeSkill(relatedSkill, relatedSkillNA),
-        quest: describeQuest(questData, questDataNA),
+        quest: await describeQuest(questData, questDataNA),
         servant: describeServant(relatedServant, relatedServantNA)
       });
       continue;
@@ -427,7 +472,7 @@ async function main() {
 
     // Quest has related NP
     if (relatedNP) {
-      log.debug("Quest upgrades NP");
+      log("Quest upgrades NP");
       // find NP on NA
       const relatedNPNA =
         relatedNP && npsNA.find(({ id }) => id === relatedNP.id);
@@ -440,7 +485,7 @@ async function main() {
       const initialNPNA = npsNA.find(({ id }) => id === initialNP.id);
 
       // print log
-      log.debug({
+      log.table({
         for: initialNPNA?.name || initialNP.name,
         to: relatedNPNA?.name || relatedNP.name,
         of: nameServant(relatedServant, relatedServantNA)
@@ -450,17 +495,17 @@ async function main() {
         target: "np",
         initial: describeNP(initialNP, initialNPNA),
         np: describeNP(relatedNP, relatedNPNA),
-        quest: describeQuest(questData, questDataNA),
+        quest: await describeQuest(questData, questDataNA),
         servant: describeServant(relatedServant, relatedServantNA)
       });
       continue;
     }
 
     // Quest has neither skill nor NP, assume sq interlude
-    log.debug("Quest only rewards Saint Quartz");
+    log("Quest only rewards Saint Quartz");
     newUpgrades.push({
       target: "sq",
-      quest: describeQuest(questData, questDataNA),
+      quest: await describeQuest(questData, questDataNA),
       servant: describeServant(relatedServant, relatedServantNA)
     });
   }

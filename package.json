@@ -58,7 +58,6 @@
     "modern-normalize": "^1.1.0",
     "nanocolors": "^0.2.10",
     "nanoid": "^3.1.25",
-    "nanospinner": "^0.2.2",
     "node-fetch": "^3.0.0",
     "picocolors": "^0.2.1",
     "postcss": "^8.3.6",
