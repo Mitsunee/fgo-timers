@@ -307,7 +307,7 @@ function nameServant(servantData, servantDataNA) {
     servantData?.ascensionAdd.overWriteServantName?.ascension?.["0"] || // spoiler-safe fan-translated name
     servantData.name; // fan-translated name
 
-  return [name, sanitize(name)];
+  return [name, sanitize(name, { lowerCase: true })];
 }
 function describeServant(servantData, servantDataNA) {
   const [name, search] = nameServant(servantData, servantDataNA);
