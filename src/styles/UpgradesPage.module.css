@@ -1,0 +1,20 @@
+.formSection {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.66em;
+  margin: 0.66em 0px;
+}
+
+.formItem {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.33em;
+
+  label {
+    font-size: 1.2em;
+  }
+}
