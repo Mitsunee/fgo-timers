@@ -389,24 +389,30 @@ async function main() {
   let changedQuests = new Set();
   for (const servant of niceServant) {
     const servantNA = niceServantNA.find(({ id }) => id === servant.id);
+    const [servantName] = nameServant(servant, servantNA);
 
     for (const questId of servant.relateQuestIds) {
       const questCached = data.find(cached => cached.quest.id === questId);
       // new quest
       if (!questCached) {
+        log("Quest is new");
         changedQuests.add(questId);
         continue;
       }
       // servant name changed
-      if ((servantNA?.name || servant.name) !== questCached.servant.name) {
+      if (servantName !== questCached.servant.name) {
+        log(
+          `Servant Name has changed: '${questCached.servant.name}' => '${servantName}'`
+        );
         changedQuests.add(questId);
         continue;
       }
       // quest released on na
       if (
         !questCached.quest.na &&
-        niceServantNA.relateQuestIds.includes(questId)
+        servantNA?.relateQuestIds.includes(questId)
       ) {
+        log("Quest is new on NA");
         changedQuests.add(questId);
         continue;
       }
@@ -414,7 +420,7 @@ async function main() {
   }
 
   // if nothing changed quit with success
-  if (changedQuests.length === 0) {
+  if (changedQuests.size === 0) {
     log.success(`Data is already up-to-date (total: ${data.length})`);
     return 0;
   }
