@@ -319,6 +319,11 @@ function describeServant(servantData, servantDataNA) {
     na: servantDataNA ? true : undefined
   };
 }
+function nameQuest(questData, questDataNA) {
+  const name = questDataNA?.name || questData.name;
+
+  return [name, sanitize(name, { lowerCase: true })];
+}
 async function describeQuest(questData, questDataNA) {
   const requiredQuestId =
     questData.releaseConditions?.find(({ type }) => type === "questClear")
@@ -326,10 +331,12 @@ async function describeQuest(questData, questDataNA) {
   const [requiredQuest, requiredQuestNA] = requiredQuestId
     ? await fetchQuestData(requiredQuestId)
     : [false, false];
+  const [name, search] = nameQuest(questData, questDataNA);
 
   return {
     id: questData.id,
-    name: questDataNA?.name || questData.name,
+    name,
+    search,
     open:
       questDatesMap.get(questData.id) ||
       questDataNA?.openedAt ||
@@ -395,7 +402,7 @@ async function main() {
       const questCached = data.find(cached => cached.quest.id === questId);
       // new quest
       if (!questCached) {
-        log("Quest is new");
+        log(`Quest ${questId} is new`);
         changedQuests.add(questId);
         continue;
       }
@@ -412,7 +419,7 @@ async function main() {
         !questCached.quest.na &&
         servantNA?.relateQuestIds.includes(questId)
       ) {
-        log("Quest is new on NA");
+        log(`Quest ${questId} is new on NA`);
         changedQuests.add(questId);
         continue;
       }

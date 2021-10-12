@@ -38,7 +38,7 @@
   "dependencies": {
     "@nanostores/persistent": "^0.3.0",
     "chalk": "^4.1.2",
-    "modern-diacritics": "^1.1.0",
+    "modern-diacritics": "^1.2.1",
     "nanostores": "^0.4.3",
     "next": "11.1.0",
     "next-transpile-modules": "^8.0.0",
