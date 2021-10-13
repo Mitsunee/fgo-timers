@@ -2,11 +2,13 @@ import { useReducer } from "react";
 import { parseJsonFile } from "@utils/server/parseJsonFile";
 
 import styles from "@styles/UpgradesPage.module.css";
+import { matchClassName } from "@utils/matchClassName";
 import Meta from "@components/Meta";
 //import { CardGrid } from "@components/Card";
 import Section from "@components/Section";
 import { Select, SelectOption } from "@components/Select";
 import Input from "@components/Input";
+import { Button } from "@components/Button";
 import UpgradeCard from "@components/UpgradeCard";
 
 function formUpdateReducer(state, { field, value }) {
@@ -41,18 +43,38 @@ function formUpdateReducer(state, { field, value }) {
         // force type to interlude if selected target is sq
         type: value === "sq" ? "interlude" : state.type
       };
+    case "class":
+      return {
+        ...state,
+        classes: {
+          ...state.classes,
+          [value]: !state.classes[value]
+        }
+      };
   }
 }
 
+const formDefaults = {
+  page: 0, // page index: number
+  search: "", // text search on servant name and quest title: string
+  desc: false, // toggle descending sorting order: boolean // TODO: implement
+  region: "jp", // region: null | "na" | "jp"
+  type: null, // quest type: null | "interlude" | "rankup"
+  target: null, // target type: null | "skill" | "np" | "sq"
+  classes: {
+    saber: false,
+    lancer: false,
+    archer: false,
+    rider: false,
+    caster: false,
+    assassin: false,
+    berserker: false,
+    extra: false
+  }
+};
+
 export default function UpgradesPage({ upgradesData }) {
-  const [formState, setFormState] = useReducer(formUpdateReducer, {
-    page: 0, // page index: number
-    search: "", // text search on servant name and quest title: string
-    desc: false, // toggle descending sorting order: boolean // TODO: implement
-    region: "jp", // region: null | "na" | "jp"
-    type: null, // quest type: null | "interlude" | "rankup"
-    target: null // target type: null | "skill" | "np" | "sq"
-  });
+  const [formState, setFormState] = useReducer(formUpdateReducer, formDefaults);
 
   // TODO: fuse.js search
   // const search = useMemo fuse.js search
@@ -67,6 +89,18 @@ export default function UpgradesPage({ upgradesData }) {
     }
     // upgrade type (aka target) filter
     if (formState.target && formState.target !== upgrade.target) return false;
+
+    // servant class filter
+    const selectedClasses = new Set();
+    for (const idx in formState.classes) {
+      if (formState.classes[idx]) selectedClasses.add(idx);
+    }
+    if (
+      selectedClasses.size > 0 &&
+      !matchClassName(upgrade.servant.className, selectedClasses)
+    ) {
+      return false;
+    }
 
     return true;
   });
@@ -122,6 +156,28 @@ export default function UpgradesPage({ upgradesData }) {
           </div>
         </div>
         <div className={styles.formSection}>
+          <div className={styles.classSelect}>
+            <label>Class:</label>
+            <div>
+              {Object.keys(formState.classes).map(className => (
+                <Button
+                  key={className}
+                  icon={`/assets/classes/${className}.png`}
+                  iconSize="2em"
+                  onClick={event => {
+                    event.target.blur();
+                    setFormState({ field: "class", value: className });
+                  }}
+                  disableDefaultStyle
+                  className={
+                    formState.classes[className]
+                      ? styles.selected
+                      : styles.disabled
+                  }
+                />
+              ))}
+            </div>
+          </div>
           <div className={styles.formItem}>
             <label htmlFor="upgrade-search">Search:</label>
             <Input
