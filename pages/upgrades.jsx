@@ -1,4 +1,6 @@
 import { useReducer } from "react";
+//import { sanitize } from "modern-diacritics";
+
 import { parseJsonFile } from "@utils/server/parseJsonFile";
 
 import styles from "@styles/UpgradesPage.module.css";
@@ -49,7 +51,8 @@ function formUpdateReducer(state, { field, value }) {
         classes: {
           ...state.classes,
           [value]: !state.classes[value]
-        }
+        },
+        page: 0
       };
   }
 }
@@ -76,8 +79,11 @@ const formDefaults = {
 export default function UpgradesPage({ upgradesData }) {
   const [formState, setFormState] = useReducer(formUpdateReducer, formDefaults);
 
-  // TODO: fuse.js search
-  // const search = useMemo fuse.js search
+  // TODO: better search with modern-diacritics
+  const selectedClasses = new Set();
+  for (const idx in formState.classes) {
+    if (formState.classes[idx]) selectedClasses.add(idx);
+  }
   const upgradesList = upgradesData.filter(upgrade => {
     // region filter
     if (formState.region === "na" && !upgrade.quest.na) return false;
@@ -91,15 +97,27 @@ export default function UpgradesPage({ upgradesData }) {
     if (formState.target && formState.target !== upgrade.target) return false;
 
     // servant class filter
-    const selectedClasses = new Set();
-    for (const idx in formState.classes) {
-      if (formState.classes[idx]) selectedClasses.add(idx);
-    }
     if (
       selectedClasses.size > 0 &&
       !matchClassName(upgrade.servant.className, selectedClasses)
     ) {
       return false;
+    }
+
+    let search = formState.search.trim().toLowerCase();
+    if (search) {
+      // BUG: modern-diacritics breaks next?
+      //search = sanitize(search, { lowerCase: true });
+
+      if (
+        search &&
+        !(
+          upgrade.servant.search.includes(search) ||
+          upgrade.quest.search.includes(search)
+        )
+      ) {
+        return false;
+      }
     }
 
     return true;
