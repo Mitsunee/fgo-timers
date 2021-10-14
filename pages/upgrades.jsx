@@ -5,18 +5,22 @@ import { parseJsonFile } from "@utils/server/parseJsonFile";
 
 import styles from "@styles/UpgradesPage.module.css";
 import { matchClassName } from "@utils/matchClassName";
+import { usePaginationSlice } from "@utils/hooks/usePaginationSlice";
 import Meta from "@components/Meta";
-//import { CardGrid } from "@components/Card";
 import Section from "@components/Section";
 import { Select, SelectOption } from "@components/Select";
 import Input from "@components/Input";
 import { Button } from "@components/Button";
+import Pagination from "@components/Pagination";
+//import { CardGrid } from "@components/Card";
 import UpgradeCard from "@components/UpgradeCard";
 
 function formUpdateReducer(state, { field, value }) {
   switch (field) {
     case "search":
-      return { ...state, search: value, page: 0 };
+      return { ...state, search: value, page: 1 };
+    case "page":
+      return { ...state, page: value };
     case "pageUp":
       return { ...state, page: state.page + 1 };
     case "pageDown":
@@ -27,12 +31,12 @@ function formUpdateReducer(state, { field, value }) {
         order: value || state.order === "asc" ? "desc" : "asc"
       };
     case "region":
-      return { ...state, region: value || null, page: 0 };
+      return { ...state, region: value || null, page: 1 };
     case "type":
       return {
         ...state,
         type: value || null,
-        page: 0,
+        page: 1,
         target:
           // reset target if selected type is not interlude and target was sq
           value !== "interlude" && state.target === "sq" ? null : state.target
@@ -41,7 +45,7 @@ function formUpdateReducer(state, { field, value }) {
       return {
         ...state,
         target: value || null,
-        page: 0,
+        page: 1,
         // force type to interlude if selected target is sq
         type: value === "sq" ? "interlude" : state.type
       };
@@ -52,13 +56,13 @@ function formUpdateReducer(state, { field, value }) {
           ...state.classes,
           [value]: !state.classes[value]
         },
-        page: 0
+        page: 1
       };
   }
 }
 
 const formDefaults = {
-  page: 0, // page index: number
+  page: 1, // current page: number
   search: "", // text search on servant name and quest title: string
   desc: false, // toggle descending sorting order: boolean // TODO: implement
   region: "jp", // region: null | "na" | "jp"
@@ -106,7 +110,7 @@ export default function UpgradesPage({ upgradesData }) {
 
     let search = formState.search.trim().toLowerCase();
     if (search) {
-      // BUG: modern-diacritics breaks next?
+      // BUG: modern-diacritics breaks nextjs?
       //search = sanitize(search, { lowerCase: true });
 
       if (
@@ -122,6 +126,10 @@ export default function UpgradesPage({ upgradesData }) {
 
     return true;
   });
+  const [startSlice, endSlice] = usePaginationSlice(
+    upgradesList.length,
+    formState.page
+  );
 
   return (
     <>
@@ -129,7 +137,6 @@ export default function UpgradesPage({ upgradesData }) {
         title="Upgrades"
         description="Explore the Interludes and Rank Up Quests of Fate/Grand Order"
       />
-      {/* WIP: form */}
       <Section background="blue">
         <div className={styles.formSection}>
           <div className={styles.formItem}>
@@ -156,7 +163,11 @@ export default function UpgradesPage({ upgradesData }) {
               <SelectOption value={null}>All</SelectOption>
               <SelectOption value="skill">Skill</SelectOption>
               <SelectOption value="np">NPs</SelectOption>
-              <SelectOption value="sq">SQ Interludes</SelectOption>
+              <SelectOption value="sq">
+                SQ Inter
+                <wbr />
+                ludes
+              </SelectOption>
             </Select>
           </div>
           <div className={styles.formItem}>
@@ -168,7 +179,11 @@ export default function UpgradesPage({ upgradesData }) {
                 setFormState({ field: "type", value });
               }}>
               <SelectOption value={null}>All</SelectOption>
-              <SelectOption value="interlude">Interludes</SelectOption>
+              <SelectOption value="interlude">
+                Inter
+                <wbr />
+                ludes
+              </SelectOption>
               <SelectOption value="rankup">Rank Ups</SelectOption>
             </Select>
           </div>
@@ -209,24 +224,33 @@ export default function UpgradesPage({ upgradesData }) {
         </div>
       </Section>
       {/* TODO:
-       * Pagination
        * proper output display
-       * Result number like: n to m (of p)
-      <CardGrid>
-      */}
-      {/* DEBUG */}
-      {formState.search.trim() && (
-        <p>Search: &apos;{formState.search.trim()}&apos;</p>
-      )}
-      <p>{upgradesList.length} Results</p>
-      <ul>
-        {upgradesList.slice(0, 24).map(upgrade => (
+       */}
+      <Pagination
+        elements={upgradesList.length}
+        currentPage={formState.page}
+        setPage={page => setFormState({ field: "page", value: page })}
+        pageDown={() => setFormState({ field: "pageDown" })}
+        pageUp={() => setFormState({ field: "pageUp" })}
+        top
+      />
+      <ul
+      // <CardGrid>
+      >
+        {upgradesList.slice(startSlice, endSlice).map(upgrade => (
           <UpgradeCard key={upgrade.quest.id} {...upgrade} />
         ))}
       </ul>
       {/*
       </CardGrid>
       */}
+      <Pagination
+        elements={upgradesList.length}
+        setPage={page => setFormState({ field: "page", value: page })}
+        pageDown={() => setFormState({ field: "pageDown" })}
+        pageUp={() => setFormState({ field: "pageUp" })}
+        currentPage={formState.page}
+      />
     </>
   );
 }

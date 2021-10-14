@@ -1,0 +1,50 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap-reverse;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.33em 0px;
+
+  &.top {
+    flex-wrap: wrap;
+  }
+}
+
+.buttonCell,
+.otherCell {
+  display: flex;
+  align-items: center;
+  padding: 0.33em;
+}
+
+.buttonCell {
+  flex-basis: 100%;
+  justify-content: center;
+  gap: 0.33em;
+}
+
+.otherCell {
+  flex-basis: [100%, 45%];
+  justify-content: center;
+}
+
+.otherCell:first-of-type {
+  justify-content: [center, flex-start];
+}
+
+.otherCell:last-of-type {
+  justify-content: [center, flex-end];
+}
+
+.arrow {
+  svg {
+    fill: theme(colors.primary);
+    transform: rotate(90deg);
+  }
+  &.flip {
+    svg {
+      transform: rotate(-90deg);
+    }
+  }
+}

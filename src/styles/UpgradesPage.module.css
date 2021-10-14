@@ -23,8 +23,9 @@
 .classSelect {
   & > div {
     display: flex;
-    justify-content: space-between;
+    justify-content: [space-around, space-between];
     align-items: center;
+    flex-wrap: [wrap, nowrap];
     gap: 0.66em;
 
     button {
