@@ -7,12 +7,12 @@ export const borderColors = new Map([
   ["zero", BLUE],
   ["questClearQPReward", BLUE],
   ["blue", BLUE],
-  ["red", "#e22b52"],
+  ["red", "#a00920"],
   ["green", "#1e7552"],
   ["clear", "transparent"]
 ]);
 
-const BLUE_BG = "#3a5266";
+const BLUE_BG = "#366baf";
 export const backgroundColors = new Map([
   ["black", "#000000"],
   ["bronze", "#56361d"],
@@ -21,7 +21,7 @@ export const backgroundColors = new Map([
   ["zero", BLUE_BG],
   ["questClearQPReward", BLUE_BG],
   ["blue", BLUE_BG],
-  ["red", "#a00920"],
+  ["red", "#e22b52"],
   ["green", "#71ca8a"],
   ["clear", "transparent"]
 ]);

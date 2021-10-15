@@ -16,7 +16,7 @@ import { Select, SelectOption } from "@components/Select";
 import Input from "@components/Input";
 import { Button } from "@components/Button";
 import Pagination from "@components/Pagination";
-//import { CardGrid } from "@components/Card";
+import { CardGrid } from "@components/Card";
 import UpgradeCard from "@components/UpgradeCard";
 
 function formUpdateReducer(state, { field, value }) {
@@ -151,6 +151,8 @@ export default function UpgradesPage({ upgradesData }) {
     />
   );
 
+  // TODO: scroll to top when appropriate
+
   return (
     <>
       <Meta
@@ -243,20 +245,12 @@ export default function UpgradesPage({ upgradesData }) {
           </div>
         </div>
       </Section>
-      {/* TODO:
-       * proper output display
-       */}
       {withAddedProps(pagination, { props: { top: true } })}
-      <ul
-      // <CardGrid>
-      >
+      <CardGrid>
         {upgradesList.slice(startSlice, endSlice).map(upgrade => (
           <UpgradeCard key={upgrade.quest.id} {...upgrade} />
         ))}
-      </ul>
-      {/*
       </CardGrid>
-      */}
       {pagination}
     </>
   );
