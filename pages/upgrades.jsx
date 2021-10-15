@@ -8,6 +8,7 @@ import styles from "@styles/UpgradesPage.module.css";
 import { settingsStore } from "@stores/settingsStore";
 import { matchClassName } from "@utils/matchClassName";
 import { usePaginationSlice } from "@utils/hooks/usePaginationSlice";
+import { withAddedProps } from "@utils/withAddedProps";
 import Meta from "@components/Meta";
 import Section from "@components/Section";
 import { Select, SelectOption } from "@components/Select";
@@ -139,6 +140,16 @@ export default function UpgradesPage({ upgradesData }) {
     formState.page
   );
 
+  const pagination = (
+    <Pagination
+      elements={upgradesList.length}
+      currentPage={formState.page}
+      setPage={page => setFormState({ field: "page", value: page })}
+      pageDown={() => setFormState({ field: "pageDown" })}
+      pageUp={() => setFormState({ field: "pageUp" })}
+    />
+  );
+
   return (
     <>
       <Meta
@@ -234,14 +245,7 @@ export default function UpgradesPage({ upgradesData }) {
       {/* TODO:
        * proper output display
        */}
-      <Pagination
-        elements={upgradesList.length}
-        currentPage={formState.page}
-        setPage={page => setFormState({ field: "page", value: page })}
-        pageDown={() => setFormState({ field: "pageDown" })}
-        pageUp={() => setFormState({ field: "pageUp" })}
-        top
-      />
+      {withAddedProps(pagination, { props: { top: true } })}
       <ul
       // <CardGrid>
       >
@@ -252,13 +256,7 @@ export default function UpgradesPage({ upgradesData }) {
       {/*
       </CardGrid>
       */}
-      <Pagination
-        elements={upgradesList.length}
-        currentPage={formState.page}
-        setPage={page => setFormState({ field: "page", value: page })}
-        pageDown={() => setFormState({ field: "pageDown" })}
-        pageUp={() => setFormState({ field: "pageUp" })}
-      />
+      {pagination}
     </>
   );
 }

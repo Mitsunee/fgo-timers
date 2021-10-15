@@ -1,20 +1,23 @@
 .wrapper {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap-reverse;
   justify-content: space-between;
   align-items: center;
   padding: 0.33em 0px;
 
-  &.top {
+  &:not(.top) {
     flex-wrap: wrap;
   }
-
-  & > div {
-    display: flex;
-    align-items: center;
-    padding: 0.33em;
+  &.top {
+    flex-wrap: wrap-reverse;
   }
+}
+
+.buttonCell,
+.infoCell {
+  display: flex;
+  align-items: center;
+  padding: 0.33em;
 }
 
 .buttonCell {
@@ -38,18 +41,9 @@
   }
 }
 
-.resultsCell,
-.settingCell {
+.infoCell {
   flex-basis: [100%, 45%];
-  justify-content: center;
-}
-
-.resultsCell {
   justify-content: [center, flex-start];
-}
-
-.settingCell {
-  justify-content: [center, flex-end];
 }
 
 .arrow {

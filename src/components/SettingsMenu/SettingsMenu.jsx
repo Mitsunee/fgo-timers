@@ -18,9 +18,15 @@ const handleShowServerTimesChange = ({ value, event }) => {
   setSetting("showServerTimes", value);
 };
 
+const handlePerPageChange = ({ value, event }) => {
+  event.target.blur();
+  setSetting("perPage", value);
+};
+
 export default function SettingsMenu() {
   const { settingsMenuOpen } = useStore(uiStore);
-  const { alternativeClockFormat, showServerTimes } = useStore(settingsStore);
+  const { alternativeClockFormat, showServerTimes, perPage } =
+    useStore(settingsStore);
 
   return (
     <>
@@ -44,6 +50,15 @@ export default function SettingsMenu() {
                 value={showServerTimes}>
                 <SelectOption value={false}>Local Time</SelectOption>
                 <SelectOption value={true}>Server Time</SelectOption>
+              </Select>
+            </section>
+            <section className={styles.section}>
+              <h2>Items per Page</h2>
+              <Select onChange={handlePerPageChange} value={perPage}>
+                <SelectOption value={10}>10</SelectOption>
+                <SelectOption value={25}>25</SelectOption>
+                <SelectOption value={50}>50</SelectOption>
+                <SelectOption value={100}>100</SelectOption>
               </Select>
             </section>
           </ModalMenu>
