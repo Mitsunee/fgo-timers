@@ -92,7 +92,10 @@ export default function Pagination({
       <div className={styles.buttonCell}>
         <Button
           disabled={currentPage === 1}
-          onClick={pageDown}
+          onClick={ev => {
+            ev.target.blur();
+            pageDown();
+          }}
           iconComponent={IconArrow}
           iconSize="0.95em"
           className={styles.arrow}
@@ -121,7 +124,10 @@ export default function Pagination({
         ))}
         <Button
           disabled={currentPage === pageCount}
-          onClick={pageUp}
+          onClick={ev => {
+            ev.target.blur();
+            pageUp();
+          }}
           iconComponent={IconArrow}
           iconSize="0.95em"
           className={`${styles.arrow} ${styles.flip}`}
