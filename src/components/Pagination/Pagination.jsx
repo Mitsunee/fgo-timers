@@ -88,10 +88,10 @@ export default function Pagination({
 
   return (
     <div className={top ? `${styles.wrapper} ${styles.top}` : styles.wrapper}>
-      <div className={styles.otherCell}>
+      <div className={styles.resultsCell}>
         Results {startSlice + 1} to {endSlice} (of {elements})
       </div>
-      <div className={styles.otherCell}>perpage dropdown</div>
+      <div className={styles.settingCell}>perpage dropdown</div>
       <div className={styles.buttonCell}>
         <Button
           disabled={currentPage === 1}
@@ -104,6 +104,13 @@ export default function Pagination({
           <Button
             key={`${item}${item === "..." ? idx : ""}`}
             disabled={item === "..." || item === currentPage}
+            className={
+              item === "..." || item === currentPage
+                ? `${styles.noFilter} ${
+                    item === currentPage ? styles.selected : styles.transparent
+                  }`
+                : undefined
+            }
             onClick={
               item === "..."
                 ? undefined

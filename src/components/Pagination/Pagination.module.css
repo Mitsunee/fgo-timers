@@ -9,31 +9,46 @@
   &.top {
     flex-wrap: wrap;
   }
-}
 
-.buttonCell,
-.otherCell {
-  display: flex;
-  align-items: center;
-  padding: 0.33em;
+  & > div {
+    display: flex;
+    align-items: center;
+    padding: 0.33em;
+  }
 }
 
 .buttonCell {
   flex-basis: 100%;
   justify-content: center;
   gap: 0.33em;
+
+  button {
+    &.selected {
+      border: 1px solid theme(colors.hover);
+      color: hover;
+    }
+    &.noFilter {
+      opacity: 1;
+      filter: unset;
+    }
+    &.transparent {
+      background: transparent;
+      border: 0px;
+    }
+  }
 }
 
-.otherCell {
+.resultsCell,
+.settingCell {
   flex-basis: [100%, 45%];
   justify-content: center;
 }
 
-.otherCell:first-of-type {
+.resultsCell {
   justify-content: [center, flex-start];
 }
 
-.otherCell:last-of-type {
+.settingCell {
   justify-content: [center, flex-end];
 }
 
