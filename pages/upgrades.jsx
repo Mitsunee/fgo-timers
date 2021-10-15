@@ -1,9 +1,11 @@
-import { useReducer } from "react";
+import { useReducer, useEffect } from "react";
+import { useStore } from "nanostores/react";
 //import { sanitize } from "modern-diacritics";
 
 import { parseJsonFile } from "@utils/server/parseJsonFile";
 
 import styles from "@styles/UpgradesPage.module.css";
+import { settingsStore } from "@stores/settingsStore";
 import { matchClassName } from "@utils/matchClassName";
 import { usePaginationSlice } from "@utils/hooks/usePaginationSlice";
 import Meta from "@components/Meta";
@@ -82,6 +84,11 @@ const formDefaults = {
 
 export default function UpgradesPage({ upgradesData }) {
   const [formState, setFormState] = useReducer(formUpdateReducer, formDefaults);
+  const { perPage } = useStore(settingsStore);
+
+  useEffect(() => {
+    setFormState({ field: "page", value: 1 });
+  }, [perPage]);
 
   // TODO: better search with modern-diacritics
   const selectedClasses = new Set();
@@ -126,6 +133,7 @@ export default function UpgradesPage({ upgradesData }) {
 
     return true;
   });
+
   const [startSlice, endSlice] = usePaginationSlice(
     upgradesList.length,
     formState.page
@@ -246,10 +254,10 @@ export default function UpgradesPage({ upgradesData }) {
       */}
       <Pagination
         elements={upgradesList.length}
+        currentPage={formState.page}
         setPage={page => setFormState({ field: "page", value: page })}
         pageDown={() => setFormState({ field: "pageDown" })}
         pageUp={() => setFormState({ field: "pageUp" })}
-        currentPage={formState.page}
       />
     </>
   );
