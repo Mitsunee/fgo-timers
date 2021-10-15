@@ -3,6 +3,7 @@ import { useStore } from "nanostores/react";
 //import { sanitize } from "modern-diacritics";
 
 import { parseJsonFile } from "@utils/server/parseJsonFile";
+import { JP_TO_NA_ESTIMATE } from "@utils/globals";
 
 import styles from "@styles/UpgradesPage.module.css";
 import { settingsStore } from "@stores/settingsStore";
@@ -268,12 +269,22 @@ export async function getStaticProps() {
 
   return {
     props: {
-      // TEMP: sort in SSG until sorting option is implemented
-      // NOTE: sorting needs to recognize jp-only quests and add magic number!
-      // filter out main quests
       upgradesData: upgradesData
+        // filter out main quests
         .filter(upgrade => upgrade.target)
-        .sort(({ quest: { open: a } }, { quest: { open: b } }) => a - b)
+        // apply magic number to JP quest to estimate NA release date
+        .map(upgrade => {
+          if (upgrade.quest.na) return upgrade;
+          return {
+            ...upgrade,
+            quest: {
+              ...upgrade.quest,
+              open: upgrade.quest.open + JP_TO_NA_ESTIMATE
+            }
+          };
+        })
+        // TEMP: sort in SSG until sorting option is implemented
+        .sort((a, b) => a.quest.open - b.quest.open)
     }
   };
 }
