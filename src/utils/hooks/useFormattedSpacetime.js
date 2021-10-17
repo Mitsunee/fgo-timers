@@ -9,9 +9,9 @@ export function useFormattedSpacetime(spacetime, formatName) {
   const { alternativeClockFormat, showServerTimes } = useStore(settingsStore);
 
   useEffect(() => {
-    const format = timeFormatsMap.get(
-      `${formatName}-${alternativeClockFormat ? 12 : 24}`
-    );
+    const format =
+      timeFormatsMap.get(formatName) ||
+      timeFormatsMap.get(`${formatName}-${alternativeClockFormat ? 12 : 24}`);
     setOutput(
       spacetime
         ? showServerTimes

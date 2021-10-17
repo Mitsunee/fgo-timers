@@ -152,6 +152,7 @@ export default function UpgradesPage({ upgradesData }) {
   );
 
   // TODO: scroll to top when appropriate
+  // TODO: text section explaining estimates
 
   return (
     <>

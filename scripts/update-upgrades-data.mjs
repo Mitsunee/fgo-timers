@@ -10,6 +10,7 @@ import { sanitize } from "modern-diacritics";
 
 // TODO: figure out a workaround for Jekyll&Hyde
 // TODO: figure out a workaround for EoR skills
+// TODO: handle multiple required quests
 
 // globals
 const CWD = process.cwd();
@@ -291,7 +292,7 @@ const describeSkill = (skillData, skillDataNA) => ({
   name: skillDataNA?.name || skillData.name,
   num: skillData.num,
   icon: skillData.icon,
-  border: borderColors.get(skillData.priority),
+  border: borderColors.get(skillData.priority), // BUG: always returns "black"
   na: skillDataNA ? true : undefined
 });
 const describeNP = (npData, npDataNA) => ({
@@ -310,6 +311,7 @@ function nameServant(servantData, servantDataNA) {
   return [name, sanitize(name, { lowerCase: true })];
 }
 function describeServant(servantData, servantDataNA) {
+  // TODO: add servant id for link generation
   const [name, search] = nameServant(servantData, servantDataNA);
   return {
     name,

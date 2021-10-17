@@ -1,0 +1,23 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1.33em 1fr;
+  grid-template-rows: 64px auto;
+
+  & > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+}
+
+.arrow {
+  fill: theme(colors.primary);
+  width: 1em;
+  height: 1em;
+  transform: rotate(-90deg);
+}
