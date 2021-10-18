@@ -291,7 +291,7 @@ const describeSkill = (skillData, skillDataNA) => ({
   name: skillDataNA?.name || skillData.name,
   num: skillData.num,
   icon: skillData.icon,
-  border: borderColors.get(skillData.priority), // BUG: always returns "black"
+  border: borderColors.get(skillData.priority),
   na: skillDataNA ? true : undefined
 });
 const describeNP = (npData, npDataNA) => ({

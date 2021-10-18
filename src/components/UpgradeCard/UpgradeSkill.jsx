@@ -11,7 +11,7 @@ export default function UpgradeSkill({ initial, skill }) {
       leftColor={initial.border ?? "black"}
       rightIcon={skill.icon}
       rightName={skill.name}
-      rightColor={skill.color}
+      rightColor={skill.border ?? "black"}
     />
   );
 }

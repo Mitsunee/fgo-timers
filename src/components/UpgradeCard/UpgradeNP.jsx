@@ -8,10 +8,10 @@ export default function UpgradeNP({ initial, np }) {
     <UpgradeGrid
       leftIcon={`/assets/icon_${initial.type}.png`}
       leftName={initial.name}
-      leftColor={initial.border}
+      leftColor={initial.border ?? "black"}
       rightIcon={`/assets/icon_${np.type}.png`}
       rightName={np.name}
-      rightColor={np.border}
+      rightColor={np.border ?? "black"}
     />
   );
 }
