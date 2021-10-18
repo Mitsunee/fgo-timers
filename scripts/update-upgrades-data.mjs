@@ -10,7 +10,6 @@ import { sanitize } from "modern-diacritics";
 
 // TODO: figure out a workaround for Jekyll&Hyde
 // TODO: figure out a workaround for EoR skills
-// TODO: handle multiple required quests
 
 // globals
 const CWD = process.cwd();
@@ -327,15 +326,42 @@ function nameQuest(questData, questDataNA) {
   return [name, sanitize(name, { lowerCase: true })];
 }
 async function describeQuest(questData, questDataNA) {
-  const requiredQuestId =
-    questData.releaseConditions?.find(({ type }) => type === "questClear")
-      ?.targetId ?? false;
-  const [requiredQuest, requiredQuestNA] = requiredQuestId
-    ? await fetchQuestData(requiredQuestId)
-    : [false, false];
   const [name, search] = nameQuest(questData, questDataNA);
+  const unlock = new Object();
+  for (let condition of questData.releaseConditions) {
+    // Servant Bond condition
+    if (condition.type === "svtFriendship") {
+      if (condition.value > 0) {
+        unlock.bond = condition.value;
+      }
+      continue;
+    }
 
-  return {
+    // Servant Ascension condition
+    if (condition.type === "svtLimit") {
+      if (condition.value > 0) {
+        unlock.ascension = condition.value;
+      }
+      continue;
+    }
+
+    // Quest clear condition
+    if (condition.type === "questClear") {
+      const requiredQuest = await fetchQuestData(condition.targetId);
+      const [requiredQuestName] = nameQuest(...requiredQuest);
+
+      // initialize array if it doesn't exist already
+      if (unlock.quest == null) unlock.quest = new Array();
+
+      unlock.quest.push({
+        name: requiredQuestName,
+        id: condition.targetId
+      });
+      continue;
+    }
+  }
+
+  const describedQuest = {
     id: questData.id,
     name,
     search,
@@ -344,22 +370,12 @@ async function describeQuest(questData, questDataNA) {
       questDataNA?.openedAt ||
       questData.openedAt,
     type: questData.type === "friendship" ? "interlude" : "rankup",
-    unlock: {
-      bond:
-        questData.releaseConditions?.find(
-          ({ type }) => type === "svtFriendship"
-        )?.value ?? 0,
-      ascension:
-        questData.releaseConditions?.find(({ type }) => type === "svtLimit")
-          ?.value ?? 0,
-      quest: requiredQuestNA
-        ? { name: requiredQuestNA.name, id: requiredQuestNA.id }
-        : requiredQuest
-        ? { name: requiredQuest.name, id: requiredQuest.id }
-        : undefined
-    },
-    na: questDataNA ? true : undefined
+    unlock
   };
+
+  if (questDataNA) describedQuest.na = true;
+
+  return describedQuest;
 }
 
 async function main() {

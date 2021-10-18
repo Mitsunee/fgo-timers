@@ -43,15 +43,14 @@ export default function UpgradeCard({
         {quest.unlock.ascension > 0 && (
           <li>Ascension {quest.unlock.ascension}</li>
         )}
-        {quest.unlock.quest && (
-          <li>
-            Completed Quest
+        {quest.unlock.quest?.map(({ id, name }) => (
+          <li key={id}>
             {
               // TODO: Atlas DB button
-              ` “${quest.unlock.quest.name}”`
+              `Completed Quest: “${name}”`
             }
           </li>
-        )}
+        ))}
       </ul>
       <p>
         {quest.na ? (
