@@ -8,12 +8,12 @@ import { sanitize } from "modern-diacritics";
 // BUG: nanospinner currently causes a memory leak after the 10th spinner
 // import { createSpinner } from "nanospinner";
 
-// TODO: figure out a workaround for Jekyll&Hyde
 // TODO: figure out a workaround for EoR skills
 
 // globals
 const CWD = process.cwd();
 const ATLAS = "https://api.atlasacademy.io/";
+let niceServant, niceServantNA;
 const borderColors = new Map([
   [1, "black"],
   [2, "gold"],
@@ -272,15 +272,15 @@ async function fetchNiceServant() {
     undefined,
     "Fetching niceServant data"
   );
-  return res.map(data =>
-    data
-      .filter(servant => servant.type === "normal")
-      .filter(
-        // Jekyll&Hyde (600700) literally turns into an NP as part of his NP, which is not currently supported
-        // Melusine (304800) uses strengthStatus 0 on everything and priorities break this script
-        ({ id }) => ![600700, 304800].includes(id)
-      )
-  );
+
+  const servantFilter = servant =>
+    // filter mash and boss collections
+    servant.type === "normal" &&
+    // Melusine (304800) uses strengthStatus 0 on everything and priorities break this script
+    servant.id !== 304800;
+
+  niceServant = res[0].filter(servantFilter);
+  niceServantNA = res[1].filter(servantFilter);
 }
 function sleep(time = 250) {
   return new Promise(resolve => setTimeout(() => resolve(), time));
@@ -301,18 +301,33 @@ const describeNP = (npData, npDataNA) => ({
   na: npDataNA ? true : undefined
 });
 function nameServant(servantData, servantDataNA) {
-  const name =
+  // find name and generate searchName
+  let name =
     servantDataNA?.ascensionAdd.overWriteServantName?.ascension?.["0"] || // spoiler-safe name
     servantDataNA?.name || // english name
     servantData?.ascensionAdd.overWriteServantName?.ascension?.["0"] || // spoiler-safe fan-translated name
     servantData.name; // fan-translated name
+  const searchName = sanitize(name, { lowerCase: true });
 
-  return [name, sanitize(name, { lowerCase: true })];
+  // unique name check
+  const findServantWithName = servant =>
+    servant.ascensionAdd.overWriteServantName?.ascension?.["0"] === name ||
+    servant.name === name;
+  const isUniqueName = servantDataNA
+    ? niceServantNA.filter(findServantWithName).length === 1
+    : niceServant.filter(findServantWithName).length === 1;
+  if (!isUniqueName) {
+    name = `${name} (${servantData.className.replace(/^./, c =>
+      c.toUpperCase()
+    )})`;
+  }
+
+  return [name, searchName];
 }
 function describeServant(servantData, servantDataNA) {
-  // TODO: add servant id for link generation
   const [name, search] = nameServant(servantData, servantDataNA);
   return {
+    id: servantData.id,
     name,
     search,
     icon: servantData.extraAssets.faces.ascension["1"],
@@ -392,7 +407,7 @@ async function main() {
   }
 
   // fetch nice servant data
-  const [niceServant, niceServantNA] = await fetchNiceServant();
+  await fetchNiceServant();
   const skills = niceServant.flatMap(servant =>
     servant.skills.map(skill => ({ ...skill, owner: servant.id }))
   );
