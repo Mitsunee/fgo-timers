@@ -132,6 +132,7 @@ const questDatesMap = new Map([
   [91601301, LAUNCH_GAME], // Phantom of the Opera Interlude 1
   [91601401, LAUNCH_GAME], // Mata Hari Interlude 1
   [91601701, LAUNCH_GAME], // Carmilla Interlude 1
+  [91600701, LAUNCH_LONDON], // Jekyll & Hyde Interlude 1
   [91601801, 1515038400], // Mysterious Heroine X Interlude 1 (Saber Wars)
   [91601802, 1515038400], // Mysterious Heroine X Interlude 2 (Saber Wars)
   [91601803, 1515038400], // Mysterious Heroine X Interlude 3 (Saber Wars)
@@ -173,12 +174,10 @@ const questDatesMap = new Map([
    * these quests literally have JP dates in the NA data
    * smol indie company, please understand
    */
+  // TODO: find all wrong dates...
   [91300801, 1584504000], // Enkidu Interlude 1
   [911100101, 1584504000], // Angra Interlude 1
-  /*
-   * Jekyll here at the end please, as he gets ignored currently lol
-   */
-  [91600701, LAUNCH_LONDON] // Jekyll & Hyde Interlude 1
+  [91103001, 1588305600] // Suzuka Gozen Interlude 1 (Interlude Campaign 5)
 ]);
 const questDataMap = new Map();
 
@@ -439,6 +438,7 @@ async function main() {
         changedQuests.add(questId);
         continue;
       }
+
       // servant name changed
       if (servantName !== questCached.servant.name) {
         log(
@@ -447,12 +447,23 @@ async function main() {
         changedQuests.add(questId);
         continue;
       }
+
       // quest released on na
       if (
         !questCached.quest.na &&
         servantNA?.relateQuestIds.includes(questId)
       ) {
         log(`Quest ${questId} is new on NA`);
+        changedQuests.add(questId);
+        continue;
+      }
+
+      // quest start date overriden
+      if (
+        questDatesMap.has(questId) &&
+        questDatesMap.get(questId) !== questCached.quest.open
+      ) {
+        log(`Quest ${questId} open time overriden`);
         changedQuests.add(questId);
         continue;
       }
@@ -465,7 +476,7 @@ async function main() {
     return 0;
   }
 
-  const newUpgrades = [];
+  const newUpgrades = new Array();
 
   for (const quest of changedQuests) {
     // fetch quest data
