@@ -1,0 +1,15 @@
+.button {
+  svg {
+    fill: theme(colors.primary);
+  }
+  &:hover svg {
+    fill: theme(colors.hover);
+  }
+}
+
+.inline {
+  display: inline-block;
+  background: transparent;
+  border: 0px;
+  margin: 0px 0.25ch;
+}

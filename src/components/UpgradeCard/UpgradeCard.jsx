@@ -5,6 +5,7 @@ import { useFormattedEstimate } from "@utils/hooks/useFormattedEstimate";
 import { Card } from "@components/Card";
 import UpgradeSkill from "./UpgradeSkill";
 import UpgradeNP from "./UpgradeNP";
+import AtlasButton from "@components/AtlasButton";
 import InlineIcon from "@components/InlineIcon";
 
 export default function UpgradeCard({
@@ -43,12 +44,10 @@ export default function UpgradeCard({
         {quest.unlock.ascension > 0 && (
           <li>Ascension {quest.unlock.ascension}</li>
         )}
-        {quest.unlock.quest?.map(({ id, name }) => (
+        {quest.unlock.quest?.map(({ id, name, na }) => (
           <li key={id}>
-            {
-              // TODO: Atlas DB button
-              `Completed Quest: “${name}”`
-            }
+            {`Completed Quest: “${name}”`}
+            <AtlasButton link={`quest/${id}/1`} na={na} inline />
           </li>
         ))}
       </ul>
