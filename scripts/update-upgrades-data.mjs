@@ -9,6 +9,8 @@ import { sanitize } from "modern-diacritics";
 // import { createSpinner } from "nanospinner";
 
 // TODO: figure out a workaround for EoR skills
+// TODO: refactor with imports
+// TODO: add map for classNames that can't simply be capitalized (currently only Alter-Ego)
 
 // globals
 const CWD = process.cwd();
@@ -179,7 +181,7 @@ const questDatesMap = new Map([
   [911100101, 1584504000], // Angra Interlude 1
   [91103001, 1588305600] // Suzuka Gozen Interlude 1 (Interlude Campaign 5)
 ]);
-const questDataMap = new Map();
+const questDataMap = new Map(); // data cache
 
 // helper functions
 const join = relPath => path.join(CWD, relPath);
@@ -278,8 +280,28 @@ async function fetchNiceServant() {
     // Melusine (304800) uses strengthStatus 0 on everything and priorities break this script
     servant.id !== 304800;
 
-  niceServant = res[0].filter(servantFilter);
   niceServantNA = res[1].filter(servantFilter);
+  // save JP data with NA names where possible
+  niceServant = res[0].filter(servantFilter).map(servant => {
+    const servantNA = niceServantNA.find(
+      servantNA => servantNA.id === servant.id
+    );
+    if (!servantNA) return servant;
+
+    // clone and copy name
+    const translatedServant = {
+      ...servant,
+      name: servantNA.name
+    };
+
+    // copy spoiler-safe name if possible
+    if (servantNA.ascensionAdd.overWriteServantName?.["0"]) {
+      translatedServant.ascensionAdd.overWriteServantName =
+        servantNA.ascensionAdd.overWriteServantName;
+    }
+
+    return translatedServant;
+  });
 }
 function sleep(time = 250) {
   return new Promise(resolve => setTimeout(() => resolve(), time));
@@ -309,13 +331,13 @@ function nameServant(servantData, servantDataNA) {
   const searchName = sanitize(name, { lowerCase: true });
 
   // unique name check
-  const findServantWithName = servant =>
-    servant.ascensionAdd.overWriteServantName?.ascension?.["0"] === name ||
-    servant.name === name;
-  const isUniqueName = servantDataNA
-    ? niceServantNA.filter(findServantWithName).length === 1
-    : niceServant.filter(findServantWithName).length === 1;
-  if (!isUniqueName) {
+  if (
+    niceServant.filter(
+      servant =>
+        servant.ascensionAdd.overWriteServantName?.ascension?.["0"] === name ||
+        servant.name === name
+    ).length > 1
+  ) {
     name = `${name} (${servantData.className.replace(/^./, c =>
       c.toUpperCase()
     )})`;
