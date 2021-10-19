@@ -35,9 +35,12 @@ export default function UpgradeCard({
       <h2>
         {quest.name} ({quest.type === "interlude" ? "Interlude" : "Rank Up"})
       </h2>
-      {/* WIP: upgrade display */}
-      {target === "skill" && <UpgradeSkill initial={initial} skill={skill} />}
-      {target === "np" && <UpgradeNP initial={initial} np={np} />}
+      {target === "skill" && (
+        <UpgradeSkill initial={initial} skill={skill} servantId={servant.id} />
+      )}
+      {target === "np" && (
+        <UpgradeNP initial={initial} np={np} servantId={servant.id} />
+      )}
       <h3>Requires:</h3>
       <ul>
         {quest.unlock.bond > 0 && <li>Bond {quest.unlock.bond}</li>}
@@ -46,8 +49,11 @@ export default function UpgradeCard({
         )}
         {quest.unlock.quest?.map(({ id, name, na }) => (
           <li key={id}>
-            {`Completed Quest: “${name}”`}
-            <AtlasButton link={`quest/${id}/1`} na={na} inline />
+            {"Completed Quest: "}
+            <AtlasButton
+              link={`quest/${id}/1`}
+              na={na}
+              inline>{`“${name}”`}</AtlasButton>
           </li>
         ))}
       </ul>
@@ -69,6 +75,9 @@ export default function UpgradeCard({
           Saint Quartz
         </p>
       )}
+      <AtlasButton link={`servant/${servant.id}`} na={servant.na} inline>
+        Servant Info on Atlas DB
+      </AtlasButton>
     </Card>
   );
 }

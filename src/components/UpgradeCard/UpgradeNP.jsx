@@ -1,17 +1,13 @@
 //import styles from "./UpgradeNP.module.css";
 import UpgradeGrid from "./UpgradeGrid";
 
-export default function UpgradeNP({ initial, np }) {
-  // TODO: link generation
-
+export default function UpgradeNP({ initial, np, servantId }) {
   return (
     <UpgradeGrid
-      leftIcon={`/assets/icon_${initial.type}.png`}
-      leftName={initial.name}
-      leftColor={initial.border ?? "black"}
-      rightIcon={`/assets/icon_${np.type}.png`}
-      rightName={np.name}
-      rightColor={np.border ?? "black"}
+      icon={`/assets/icon_${initial.type}.png`}
+      initial={initial}
+      upgraded={np}
+      link={`servant/${servantId}/noble-phantasms`}
     />
   );
 }
