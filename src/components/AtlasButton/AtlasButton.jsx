@@ -2,7 +2,12 @@ import styles from "./AtlasButton.module.css";
 import { IconAtlas } from "@components/icons";
 import { Button } from "@components/Button";
 
-export default function AtlasButton({ link, na = false, inline = false }) {
+export default function AtlasButton({
+  children,
+  link,
+  na = false,
+  inline = false
+}) {
   const href = `https://apps.atlasacademy.io/db/${na ? "NA" : "JP"}/${link}`;
 
   return (
@@ -10,8 +15,10 @@ export default function AtlasButton({ link, na = false, inline = false }) {
       href={href}
       targetBlank
       iconComponent={IconAtlas}
+      iconSide="right"
       className={inline ? `${styles.button} ${styles.inline}` : styles.button}
-      disableDefaultStyle={inline}
-    />
+      disableDefaultStyle={inline}>
+      {children}
+    </Button>
   );
 }
