@@ -93,6 +93,11 @@ export default function UpgradesPage({ upgradesData }) {
     setFormState({ field: "page", value: 1 });
   }, [perPage]);
 
+  // scroll to top if page changes
+  useEffect(() => {
+    window?.scrollTo({ top: 0, behavior: "smooth" });
+  }, [formState.page]);
+
   // TODO: better search with modern-diacritics
   const selectedClasses = new Set();
   for (const idx in formState.classes) {
@@ -282,8 +287,6 @@ export async function getStaticProps() {
             }
           };
         })
-        // TEMP: sort in SSG until sorting option is implemented
-        .sort((a, b) => a.quest.open - b.quest.open)
     }
   };
 }
