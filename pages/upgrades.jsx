@@ -30,10 +30,7 @@ function formUpdateReducer(state, { field, value }) {
     case "pageDown":
       return { ...state, page: Math.max(state.page - 1, 0) };
     case "order":
-      return {
-        ...state,
-        order: value || state.order === "asc" ? "desc" : "asc"
-      };
+      return { ...state, desc: !state.desc, page: 1 };
     case "region":
       return { ...state, region: value || null, page: 1 };
     case "type":
@@ -68,7 +65,7 @@ function formUpdateReducer(state, { field, value }) {
 const formDefaults = {
   page: 1, // current page: number
   search: "", // text search on servant name and quest title: string
-  desc: false, // toggle descending sorting order: boolean // TODO: implement
+  desc: false, // toggle descending sorting order: boolean
   region: "jp", // region: null | "na" | "jp"
   type: null, // quest type: null | "interlude" | "rankup"
   target: null, // target type: null | "skill" | "np" | "sq"
@@ -84,10 +81,14 @@ const formDefaults = {
   }
 };
 
+const sortAsc = (a, b) => a.quest.open - b.quest.open;
+const sortDesc = (a, b) => b.quest.open - a.quest.open;
+
 export default function UpgradesPage({ upgradesData }) {
   const [formState, setFormState] = useReducer(formUpdateReducer, formDefaults);
   const { perPage } = useStore(settingsStore);
 
+  // return to page 1 if perPage setting changes (isn't in reducer)
   useEffect(() => {
     setFormState({ field: "page", value: 1 });
   }, [perPage]);
@@ -97,44 +98,46 @@ export default function UpgradesPage({ upgradesData }) {
   for (const idx in formState.classes) {
     if (formState.classes[idx]) selectedClasses.add(idx);
   }
-  const upgradesList = upgradesData.filter(upgrade => {
-    // region filter
-    if (formState.region === "na" && !upgrade.quest.na) return false;
-    if (formState.region === "jp" && upgrade.quest.na) return false;
+  const upgradesList = upgradesData
+    .filter(upgrade => {
+      // region filter
+      if (formState.region === "na" && !upgrade.quest.na) return false;
+      if (formState.region === "jp" && upgrade.quest.na) return false;
 
-    // quest type filter
-    if (formState.type && formState.type !== upgrade.quest.type) {
-      return false;
-    }
-    // upgrade type (aka target) filter
-    if (formState.target && formState.target !== upgrade.target) return false;
+      // quest type filter
+      if (formState.type && formState.type !== upgrade.quest.type) {
+        return false;
+      }
+      // upgrade type (aka target) filter
+      if (formState.target && formState.target !== upgrade.target) return false;
 
-    // servant class filter
-    if (
-      selectedClasses.size > 0 &&
-      !matchClassName(upgrade.servant.className, selectedClasses)
-    ) {
-      return false;
-    }
-
-    let search = formState.search.trim().toLowerCase();
-    if (search) {
-      // BUG: modern-diacritics breaks nextjs?
-      //search = sanitize(search, { lowerCase: true });
-
+      // servant class filter
       if (
-        search &&
-        !(
-          upgrade.servant.search.includes(search) ||
-          upgrade.quest.search.includes(search)
-        )
+        selectedClasses.size > 0 &&
+        !matchClassName(upgrade.servant.className, selectedClasses)
       ) {
         return false;
       }
-    }
 
-    return true;
-  });
+      let search = formState.search.trim().toLowerCase();
+      if (search) {
+        // BUG: modern-diacritics breaks nextjs?
+        //search = sanitize(search, { lowerCase: true });
+
+        if (
+          search &&
+          !(
+            upgrade.servant.search.includes(search) ||
+            upgrade.quest.search.includes(search)
+          )
+        ) {
+          return false;
+        }
+      }
+
+      return true;
+    })
+    .sort(formState.desc ? sortDesc : sortAsc);
 
   const [startSlice, endSlice] = usePaginationSlice(
     upgradesList.length,
@@ -145,13 +148,14 @@ export default function UpgradesPage({ upgradesData }) {
     <Pagination
       elements={upgradesList.length}
       currentPage={formState.page}
+      isDesc={formState.desc}
       setPage={page => setFormState({ field: "page", value: page })}
       pageDown={() => setFormState({ field: "pageDown" })}
       pageUp={() => setFormState({ field: "pageUp" })}
+      toggleSort={() => setFormState({ field: "order" })}
     />
   );
 
-  // TODO: scroll to top when appropriate
   // TODO: text section explaining estimates
 
   return (

@@ -13,8 +13,7 @@
   }
 }
 
-.buttonCell,
-.infoCell {
+.cell {
   display: flex;
   align-items: center;
   padding: 0.33em;
@@ -41,17 +40,32 @@
   }
 }
 
-.infoCell {
+.infoCell,
+.orderCell {
   flex-basis: [100%, 45%];
+}
+.infoCell {
   justify-content: [center, flex-start];
+}
+.orderCell {
+  justify-content: [center, flex-end];
 }
 
 .arrow {
   svg {
     fill: theme(colors.primary);
-    transform: rotate(90deg);
   }
-  &.flip {
+  &.up {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+  &.left {
+    svg {
+      transform: rotate(90deg);
+    }
+  }
+  &.right {
     svg {
       transform: rotate(-90deg);
     }

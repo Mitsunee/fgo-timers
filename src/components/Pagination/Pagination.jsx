@@ -12,9 +12,11 @@ import { IconArrow } from "@components/icons";
 export default function Pagination({
   elements = 0,
   currentPage = 1,
+  isDesc,
   setPage,
   pageUp,
   pageDown,
+  toggleSort,
   top = false
 }) {
   const { perPage } = useStore(settingsStore);
@@ -86,10 +88,22 @@ export default function Pagination({
 
   return (
     <div className={top ? `${styles.wrapper} ${styles.top}` : styles.wrapper}>
-      <div className={styles.infoCell}>
+      <div className={`${styles.cell} ${styles.infoCell}`}>
         Results {startSlice + 1} to {endSlice} (of {elements})
       </div>
-      <div className={styles.buttonCell}>
+      <div className={`${styles.cell} ${styles.orderCell}`}>
+        <Button
+          onClick={ev => {
+            ev.target.blur();
+            toggleSort();
+          }}
+          iconComponent={IconArrow}
+          iconSize="0.95em"
+          className={isDesc ? styles.arrow : `${styles.arrow} ${styles.up}`}>
+          {isDesc ? "Desc." : "Asc."}
+        </Button>
+      </div>
+      <div className={`${styles.cell} ${styles.buttonCell}`}>
         <Button
           disabled={currentPage === 1}
           onClick={ev => {
@@ -98,7 +112,7 @@ export default function Pagination({
           }}
           iconComponent={IconArrow}
           iconSize="0.95em"
-          className={styles.arrow}
+          className={`${styles.arrow} ${styles.left}`}
         />
         {display.map((item, idx) => (
           <Button
@@ -130,7 +144,7 @@ export default function Pagination({
           }}
           iconComponent={IconArrow}
           iconSize="0.95em"
-          className={`${styles.arrow} ${styles.flip}`}
+          className={`${styles.arrow} ${styles.right}`}
         />
       </div>
     </div>
