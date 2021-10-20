@@ -10,12 +10,14 @@ import { settingsStore } from "@stores/settingsStore";
 import { matchClassName } from "@utils/matchClassName";
 import { usePaginationSlice } from "@utils/hooks/usePaginationSlice";
 import { withAddedProps } from "@utils/withAddedProps";
+import Pagination from "@components/Pagination";
 import Meta from "@components/Meta";
 import Section from "@components/Section";
 import { Select, SelectOption } from "@components/Select";
 import Input from "@components/Input";
 import { Button } from "@components/Button";
-import Pagination from "@components/Pagination";
+import CollapsableSection from "@components/CollapsableSection";
+import { IconAtlas } from "@components/icons";
 import { CardGrid } from "@components/Card";
 import UpgradeCard from "@components/UpgradeCard";
 
@@ -161,8 +163,6 @@ export default function UpgradesPage({ upgradesData }) {
     />
   );
 
-  // TODO: text section explaining estimates
-
   return (
     <>
       <Meta
@@ -255,6 +255,19 @@ export default function UpgradesPage({ upgradesData }) {
           </div>
         </div>
       </Section>
+      <CollapsableSection closeable background>
+        <p>
+          <b>Note:</b> All future release dates are estimates based on JP
+          release dates. Things like anniversary and summer will <b>not</b> be
+          accurate! Some NA release dates may be inaccurate (DW tends to leave
+          the JP date or put a bad placeholder). Feel free to report those on
+          discord or github.
+        </p>
+        <p>
+          Use the <IconAtlas className={styles.atlas} /> buttons to see more
+          info on Quests and Servants.
+        </p>
+      </CollapsableSection>
       {withAddedProps(pagination, { props: { top: true } })}
       <CardGrid>
         {upgradesList.slice(startSlice, endSlice).map(upgrade => (
