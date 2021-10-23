@@ -3,7 +3,7 @@ import { existsSync } from "fs";
 import path from "path";
 import picocolors from "picocolors";
 import fetch from "node-fetch";
-import { sanitize } from "modern-diacritics";
+import { latinize } from "modern-diacritics";
 import { createSpinner } from "nanospinner";
 
 // TODO: figure out a workaround for EoR skills
@@ -323,7 +323,7 @@ function nameServant(servantData, servantDataNA) {
     servantDataNA?.name || // english name
     servantData?.ascensionAdd.overWriteServantName?.ascension?.["0"] || // spoiler-safe fan-translated name
     servantData.name; // fan-translated name
-  const searchName = sanitize(name, { lowerCase: true });
+  const searchName = latinize(name, { lowerCase: true });
 
   // unique name check
   if (
@@ -356,7 +356,7 @@ function describeServant(servantData, servantDataNA) {
 function nameQuest(questData, questDataNA) {
   const name = questDataNA?.name || questData.name;
 
-  return [name, sanitize(name, { lowerCase: true })];
+  return [name, latinize(name, { lowerCase: true })];
 }
 async function describeQuest(questData, questDataNA) {
   const [name, search] = nameQuest(questData, questDataNA);

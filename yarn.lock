@@ -2325,10 +2325,10 @@ minimist@^1.2.0:
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
   integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
 
-modern-diacritics@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/modern-diacritics/-/modern-diacritics-1.2.1.tgz#20b481c108fa466a40335d3a95805ca034473760"
-  integrity sha512-q/eDkRb2XhX/gAUdOgQvH0gG6IvUqpnzQ0by1iiJJhku6UBl24xGdHtd5m9mBcIrCy0PUl4tmyVaYN4eNCkEXw==
+modern-diacritics@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/modern-diacritics/-/modern-diacritics-2.0.0.tgz#f545d29fda524cec56b066abf0c74be7188d9a3f"
+  integrity sha512-YKVWrmTp9ls/EiRHE/PgudqXqeJSxpj/rKxVmmOCfBVUKsxYma1Mn2hpfFQJCryKLSIsBjk5XFSAXSyFEAf7BQ==
 
 modern-normalize@^1.1.0:
   version "1.1.0"

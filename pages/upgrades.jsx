@@ -1,6 +1,6 @@
 import { useReducer, useEffect } from "react";
 import { useStore } from "nanostores/react";
-//import { sanitize } from "modern-diacritics";
+import { latinize } from "modern-diacritics";
 
 import { parseJsonFile } from "@utils/server/parseJsonFile";
 import { JP_TO_NA_ESTIMATE } from "@utils/globals";
@@ -100,7 +100,6 @@ export default function UpgradesPage({ upgradesData }) {
     window?.scrollTo({ top: 0, behavior: "smooth" });
   }, [formState.page]);
 
-  // TODO: better search with modern-diacritics
   const selectedClasses = new Set();
   for (const idx in formState.classes) {
     if (formState.classes[idx]) selectedClasses.add(idx);
@@ -126,10 +125,12 @@ export default function UpgradesPage({ upgradesData }) {
         return false;
       }
 
-      let search = formState.search.trim().toLowerCase();
-      if (search) {
-        // BUG: modern-diacritics breaks nextjs?
-        //search = sanitize(search, { lowerCase: true });
+      // search filter
+      if (formState.search) {
+        const search = latinize(formState.search, {
+          lowerCase: true,
+          trim: true
+        });
 
         if (
           search &&

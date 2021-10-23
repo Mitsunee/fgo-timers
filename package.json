@@ -38,7 +38,6 @@
   "dependencies": {
     "@nanostores/persistent": "^0.3.0",
     "chalk": "^4.1.2",
-    "modern-diacritics": "^1.2.1",
     "nanostores": "^0.4.3",
     "next": "11.1.0",
     "next-transpile-modules": "^8.0.0",
@@ -55,6 +54,7 @@
     "globby": "^12.0.2",
     "lint-staged": "^11.1.2",
     "long-timeout": "^0.1.1",
+    "modern-diacritics": "^2.0.0",
     "modern-normalize": "^1.1.0",
     "nanocolors": "^0.2.10",
     "nanoid": "^3.1.25",
