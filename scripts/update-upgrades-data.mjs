@@ -4,9 +4,7 @@ import path from "path";
 import picocolors from "picocolors";
 import fetch from "node-fetch";
 import { sanitize } from "modern-diacritics";
-
-// BUG: nanospinner currently causes a memory leak after the 10th spinner
-// import { createSpinner } from "nanospinner";
+import { createSpinner } from "nanospinner";
 
 // TODO: figure out a workaround for EoR skills
 // TODO: refactor with imports
@@ -209,15 +207,13 @@ function die(message) {
   process.exit(1);
 }
 async function fetchData(url, defaultValue, message = "Fetching Data") {
-  //const spinner = createSpinner(message);
-  log(message); // TEMP
+  const spinner = createSpinner(message);
   const _fetch = async (url, defaultValue) => {
     try {
       const res = await fetch(url);
       if (!res.ok) {
         if (defaultValue === undefined) {
-          //spinner.error(`error while fetching '${url}'`);
-          log.error(`Error while fetching '${url}'`); // TEMP
+          spinner.error(`error while fetching '${url}'`);
           process.exit(2);
         }
         return defaultValue;
@@ -225,8 +221,7 @@ async function fetchData(url, defaultValue, message = "Fetching Data") {
       return await res.json();
     } catch (e) {
       if (defaultValue === undefined) {
-        //spinner.error(`received invalid data from '${url}'`);
-        log.error(`Received invalid data from '${url}'`);
+        spinner.error(`received invalid data from '${url}'`);
         process.exit(2);
       }
       return defaultValue;
@@ -234,7 +229,7 @@ async function fetchData(url, defaultValue, message = "Fetching Data") {
   };
 
   let res;
-  //spinner.start();
+  spinner.start();
   if (url instanceof Array) {
     res = await Promise.all(
       url.map(async item => await _fetch(item, defaultValue))
@@ -242,7 +237,7 @@ async function fetchData(url, defaultValue, message = "Fetching Data") {
   } else {
     res = await _fetch(url, defaultValue);
   }
-  //spinner.success();
+  spinner.success();
   return res;
 }
 async function fetchQuestData(id) {
