@@ -1,19 +1,13 @@
-import { cloneElement } from "react";
-
 import styles from "./Select.module.css";
+import { withAddedProps } from "@utils/withAddedProps";
 
 export default function Select({ children, onChange, value }) {
   return (
     <div className={styles.wrapper}>
-      {children instanceof Array
-        ? children.map(child =>
-            cloneElement(child, {
-              key: `${child.props.value}`,
-              handler: onChange,
-              currentValue: value
-            })
-          )
-        : cloneElement(children, { handler: onChange, currentValue: value })}
+      {withAddedProps(children, {
+        props: { handler: onChange, currentValue: value },
+        keyFn: child => `${child.props.value}`
+      })}
     </div>
   );
 }

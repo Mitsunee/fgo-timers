@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 import styles from "./Modal.module.css";
 
-export default function Modal({ children, labelledBy }) {
+export default function Modal({ children, labelledBy, background = true }) {
   useEffect(() => {
     if (typeof document !== "undefined") {
       // disable document scrolling
@@ -17,7 +17,10 @@ export default function Modal({ children, labelledBy }) {
   }, []);
 
   return (
-    <div className={styles.wrapper}>
+    <div
+      className={
+        background ? `${styles.wrapper} ${styles.background}` : styles.wrapper
+      }>
       <div
         className={styles.content}
         aria-modal="true"

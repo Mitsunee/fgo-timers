@@ -1,0 +1,52 @@
+.atlas {
+  display: inline-block;
+  fill: theme(colors.primary);
+  height: 1em;
+  width: 1em;
+  margin: 0px 0.33ch;
+}
+
+.formSection {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.66em;
+  margin: 0.66em 0px;
+}
+
+.formItem,
+.classSelect {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.33em;
+
+  label {
+    font-size: 1.2em;
+  }
+}
+
+.classSelect {
+  & > div {
+    display: flex;
+    justify-content: [space-around, space-between];
+    align-items: center;
+    flex-wrap: [wrap, nowrap];
+    gap: 0.66em;
+
+    button {
+      background: transparent;
+      padding: 0px;
+      border: 0px;
+      transition: opacity 0.2ms ease-in-out;
+      &.selected {
+        opacity: 1;
+      }
+      &.disabled {
+        opacity: 0.5;
+      }
+    }
+  }
+}

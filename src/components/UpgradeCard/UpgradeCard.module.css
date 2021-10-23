@@ -1,0 +1,13 @@
+.card {
+  user-select: text;
+
+  h1 {
+    font-size: 1.75em;
+  }
+
+  h2 {
+    font-size: 1.2em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}

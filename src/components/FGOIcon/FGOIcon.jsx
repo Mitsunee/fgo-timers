@@ -1,24 +1,5 @@
 import styles from "./FGOIcon.module.css";
-
-const backgrounds = new Map([
-  ["bronze", "/assets/backgrounds/material_bg_bronze.png"],
-  ["silver", "/assets/backgrounds/material_bg_silver.png"],
-  ["gold", "/assets/backgrounds/material_bg_gold.png"],
-  ["zero", "/assets/backgrounds/material_bg_blue.png"],
-  ["questClearQPReward", "/assets/backgrounds/material_bg_blue.png"],
-  ["clear", undefined]
-]);
-
-const borderColors = new Map([
-  ["bronze", "#7d583b"],
-  ["silver", "#c1c1c1"],
-  ["gold", "#f0ce02"],
-  ["zero", "#9db5b5"],
-  ["questClearQPReward", "#9db5b5"],
-  ["black", "#000000"],
-  ["red", "#e35e2b"],
-  ["clear", "transparent"]
-]);
+import { backgrounds, borderColors } from "@styles/fgoIconTheme";
 
 export default function FGOIcon({
   children = null,

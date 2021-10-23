@@ -10,3 +10,7 @@
     transparent 58px
   );
 }
+
+.forceRound {
+  border-radius: 100%;
+}

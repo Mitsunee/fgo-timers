@@ -1,9 +1,7 @@
-import { join } from "path";
+import { join, isAbsolute } from "path";
 
 export function resolveFilePath(filePath) {
-  const test = /^[a-z0-9_-]/i.test(filePath);
-
-  if (test) {
+  if (!isAbsolute(filePath)) {
     return join(process.cwd(), filePath);
   }
 

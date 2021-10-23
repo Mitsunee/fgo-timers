@@ -1,7 +1,13 @@
 import styles from "./CardHero.module.css";
 import CardHeroIcon from "./CardHeroIcon";
 
-export default function CardHero({ icon, background, backgroundImage, title }) {
+export default function CardHero({
+  icon,
+  background,
+  backgroundImage,
+  title,
+  forceRoundIcon
+}) {
   const style = {
     backgroundColor: background ?? "white"
   };
@@ -9,7 +15,9 @@ export default function CardHero({ icon, background, backgroundImage, title }) {
 
   return (
     <header className={styles.hero} style={style}>
-      {icon && <CardHeroIcon icon={icon} alt={title} />}
+      {icon && (
+        <CardHeroIcon icon={icon} alt={title} forceRoundIcon={forceRoundIcon} />
+      )}
     </header>
   );
 }

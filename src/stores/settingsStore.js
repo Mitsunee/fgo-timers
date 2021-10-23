@@ -12,7 +12,8 @@ export const settingsMap = createPersistentMap("fgoTools:", {
   showServerTimes: "false", // show server times instead of local time
   userMaxAP: "142",
   userNodeCost: "40",
-  userMaxCost: "113"
+  userMaxCost: "113",
+  perPage: "10"
 });
 
 export const settingsStore = createDerived(settingsMap, store => ({
@@ -20,7 +21,8 @@ export const settingsStore = createDerived(settingsMap, store => ({
   showServerTimes: store.showServerTimes === "true",
   userMaxAP: Number(store.userMaxAP),
   userNodeCost: Number(store.userNodeCost),
-  userMaxCost: Number(store.userMaxCost)
+  userMaxCost: Number(store.userMaxCost),
+  perPage: Number(store.perPage)
 }));
 
 export const setSetting = (key, value) => {

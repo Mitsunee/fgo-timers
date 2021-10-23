@@ -4,5 +4,6 @@ export const timeFormatsMap = new Map([
   ["short-12", "nice-short"],
   ["short-24", "nice-short-24"],
   ["full-12", "nice-full"],
-  ["full-24", "nice-full-24"]
+  ["full-24", "nice-full-24"],
+  ["date", "{date-ordinal} {month} {year}"]
 ]);
