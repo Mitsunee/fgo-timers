@@ -191,6 +191,7 @@ log.table = arg => {
   if (typeof arg === "string") {
     return console.log(arg);
   }
+
   const temp = {};
   for (const key in arg) {
     temp[key] =
@@ -200,6 +201,7 @@ log.table = arg => {
           : "object"
         : arg[key];
   }
+
   console.table(temp);
 };
 function die(message) {
@@ -216,6 +218,7 @@ async function fetchData(url, defaultValue, message = "Fetching Data") {
           spinner.error(`error while fetching '${url}'`);
           process.exit(2);
         }
+
         return defaultValue;
       }
       return await res.json();
@@ -224,6 +227,7 @@ async function fetchData(url, defaultValue, message = "Fetching Data") {
         spinner.error(`received invalid data from '${url}'`);
         process.exit(2);
       }
+
       return defaultValue;
     }
   };
@@ -238,6 +242,7 @@ async function fetchData(url, defaultValue, message = "Fetching Data") {
     res = await _fetch(url, defaultValue);
   }
   spinner.success();
+
   return res;
 }
 async function fetchQuestData(id) {
@@ -344,6 +349,7 @@ function nameServant(servantData, servantDataNA) {
 }
 function describeServant(servantData, servantDataNA) {
   const [name, search] = nameServant(servantData, servantDataNA);
+
   return {
     id: servantData.id,
     name,
@@ -467,6 +473,7 @@ async function main() {
           );
           servantNameChangeLogged = true;
         }
+
         changedQuests.add(questId);
         continue;
       }
@@ -496,6 +503,7 @@ async function main() {
   // if nothing changed quit with success
   if (changedQuests.size === 0) {
     log.success(`Data is already up-to-date (total: ${data.length})`);
+
     return 0;
   }
 

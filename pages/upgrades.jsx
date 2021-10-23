@@ -114,6 +114,7 @@ export default function UpgradesPage({ upgradesData }) {
       if (formState.type && formState.type !== upgrade.quest.type) {
         return false;
       }
+
       // upgrade type (aka target) filter
       if (formState.target && formState.target !== upgrade.target) return false;
 
