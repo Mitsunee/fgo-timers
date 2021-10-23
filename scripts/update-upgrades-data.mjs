@@ -7,12 +7,11 @@ import { sanitize } from "modern-diacritics";
 import { createSpinner } from "nanospinner";
 
 // TODO: figure out a workaround for EoR skills
-// TODO: refactor with imports
-// TODO: add map for classNames that can't simply be capitalized (currently only Alter-Ego)
+// TODO: refactor and cleanup with imports
 
 // globals
 const CWD = process.cwd();
-const ATLAS = "https://api.atlasacademy.io/";
+const ATLAS_API = "https://api.atlasacademy.io/";
 let niceServant, niceServantNA;
 const borderColors = new Map([
   [1, "black"],
@@ -180,6 +179,7 @@ const questDatesMap = new Map([
   [91103001, 1588305600] // Suzuka Gozen Interlude 1 (Interlude Campaign 5)
 ]);
 const questDataMap = new Map(); // data cache
+const classNameMap = new Map([["alterEgo", "Alter Ego"]]);
 
 // helper functions
 const join = relPath => path.join(CWD, relPath);
@@ -245,7 +245,7 @@ async function fetchQuestData(id) {
   if ((tmp = questDataMap.get(id))) return tmp;
 
   const [questData, questDataNA] = await fetchData(
-    [`${ATLAS}nice/JP/quest/${id}`, `${ATLAS}nice/NA/quest/${id}`],
+    [`${ATLAS_API}nice/JP/quest/${id}`, `${ATLAS_API}nice/NA/quest/${id}`],
     false, // needs defaultValue as NA quest may not exist!
     `Fetching quest: ${id}`
   );
@@ -262,8 +262,8 @@ async function fetchQuestData(id) {
 async function fetchNiceServant() {
   const res = await fetchData(
     [
-      `${ATLAS}export/JP/nice_servant_lang_en.json`,
-      `${ATLAS}export/NA/nice_servant.json`
+      `${ATLAS_API}export/JP/nice_servant_lang_en.json`,
+      `${ATLAS_API}export/NA/nice_servant.json`
     ],
     undefined,
     "Fetching niceServant data"
@@ -333,9 +333,11 @@ function nameServant(servantData, servantDataNA) {
         servant.name === name
     ).length > 1
   ) {
-    name = `${name} (${servantData.className.replace(/^./, c =>
-      c.toUpperCase()
-    )})`;
+    const className =
+      classNameMap.get(servantData.className) ??
+      servantData.className.replace(/^./, c => c.toUpperCase());
+
+    name = `${name} (${className})`;
   }
 
   return [name, searchName];
@@ -446,6 +448,7 @@ async function main() {
   for (const servant of niceServant) {
     const servantNA = niceServantNA.find(({ id }) => id === servant.id);
     const [servantName] = nameServant(servant, servantNA);
+    let servantNameChangeLogged = false;
 
     for (const questId of servant.relateQuestIds) {
       const questCached = data.find(cached => cached.quest.id === questId);
@@ -458,9 +461,12 @@ async function main() {
 
       // servant name changed
       if (servantName !== questCached.servant.name) {
-        log(
-          `Servant Name has changed: '${questCached.servant.name}' => '${servantName}'`
-        );
+        if (!servantNameChangeLogged) {
+          log(
+            `Servant Name has changed: '${questCached.servant.name}' => '${servantName}'`
+          );
+          servantNameChangeLogged = true;
+        }
         changedQuests.add(questId);
         continue;
       }
