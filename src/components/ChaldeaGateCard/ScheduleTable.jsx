@@ -1,5 +1,5 @@
 import styles from "./ScheduleTable.module.css";
-import { schedules, servantClasses } from "./schedules";
+import { schedules } from "./schedules";
 import CollapsableSection from "@components/CollapsableSection";
 import ScheduleRow from "./ScheduleRow";
 
@@ -19,8 +19,8 @@ export default function ScheduleTable({ weekday }) {
             <ScheduleRow
               key={name}
               short={name}
-              training={servantClasses.get(training)}
-              embers={embers.map(className => servantClasses.get(className))}
+              training={training}
+              embers={embers}
               activeDay={weekday === name}
             />
           ))}
