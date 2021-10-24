@@ -208,6 +208,9 @@ function die(message) {
   if (message) log.error(message);
   process.exit(1);
 }
+function sleep(time = 250) {
+  return new Promise(resolve => setTimeout(() => resolve(), time));
+}
 async function fetchData(url, defaultValue, message = "Fetching Data") {
   const spinner = createSpinner(message);
   const _fetch = async (url, defaultValue) => {
@@ -303,9 +306,6 @@ async function fetchNiceServant() {
     return translatedServant;
   });
 }
-function sleep(time = 250) {
-  return new Promise(resolve => setTimeout(() => resolve(), time));
-}
 
 // descriptors
 const describeSkill = (skillData, skillDataNA) => ({
@@ -367,7 +367,7 @@ function nameQuest(questData, questDataNA) {
 async function describeQuest(questData, questDataNA) {
   const [name, search] = nameQuest(questData, questDataNA);
   const unlock = new Object();
-  for (let condition of questData.releaseConditions) {
+  for (const condition of questData.releaseConditions) {
     // Servant Bond condition
     if (condition.type === "svtFriendship") {
       if (condition.value > 0) {
@@ -450,7 +450,7 @@ async function main() {
   );
 
   // compare quest IDs to find any that changed
-  let changedQuests = new Set();
+  const changedQuests = new Set();
   for (const servant of niceServant) {
     const servantNA = niceServantNA.find(({ id }) => id === servant.id);
     const [servantName] = nameServant(servant, servantNA);

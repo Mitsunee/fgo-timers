@@ -15,7 +15,7 @@ export default function Clocks({ interval }) {
     const format = timeFormatsMap.get(
       `clock-${alternativeClockFormat ? 12 : 24}`
     );
-    let s = spacetime(interval);
+    const s = spacetime(interval);
 
     setTimes([
       { title: "Local", time: s.format(format) },

@@ -20,11 +20,11 @@ export function useFormattedEstimate(timestamp) {
 
     const date = s.date();
     if (date <= 10) {
-      output = "Early " + output;
+      output = `Early ${output}`;
     } else if (date <= 20) {
-      output = "Mid " + output;
+      output = `Mid ${output}`;
     } else {
-      output = "Late " + output;
+      output = `Late ${output}`;
     }
 
     setOutput(output);

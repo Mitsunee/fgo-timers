@@ -39,7 +39,7 @@ export default function CollapsableSection({
         {isInline ? (
           <Button
             className={`${styles.button} ${styles.inline}${
-              open ? " " + styles.open : ""
+              open ? ` ${styles.open}` : ""
             }`}
             disableDefaultStyle
             iconComponent={closeable ? IconClose : IconArrow}
@@ -51,7 +51,7 @@ export default function CollapsableSection({
           <>
             <Button
               className={`${styles.button} ${styles.float}${
-                open ? " " + styles.open : ""
+                open ? ` ${styles.open}` : ""
               }`}
               disableDefaultStyle
               iconComponent={closeable ? IconClose : IconArrow}

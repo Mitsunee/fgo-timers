@@ -44,10 +44,10 @@ function sanitizeComponentName(name) {
 function sanitizePageFileName(name) {
   return path.join(
     path.dirname(name),
-    path
+    `${path
       .basename(name, path.extname(name))
       .toLowerCase()
-      .replace(/[^a-z]/g, "") + ".jsx"
+      .replace(/[^a-z]/g, "")}.jsx`
   );
 }
 
@@ -83,7 +83,7 @@ const handleOption = {
     );
 
     // children
-    for (let childComponent of childComponents) {
+    for (const childComponent of childComponents) {
       writeFile(dirPath, `${childComponent}.module.css`, "");
       writeFile(
         dirPath,
@@ -118,7 +118,7 @@ const handleOption = {
     const dirPath = resolvePath("pages", path.dirname(fileNameArg));
     fs.mkdirSync(dirPath, { recursive: true });
     const componentName = sanitizeComponentName(componentNameArg);
-    let fileName = sanitizePageFileName(path.basename(fileNameArg));
+    const fileName = sanitizePageFileName(path.basename(fileNameArg));
 
     writeFile(resolvePath("src", "styles"), `${componentName}.module.css`, "");
     writeFile(

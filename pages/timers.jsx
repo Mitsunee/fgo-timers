@@ -85,14 +85,14 @@ export async function getStaticProps() {
     const { key, data } = await parseTicketFile(currentYearFile, itemIdMap);
     tickets[key] = data;
   } else {
-    throw new Error("Error while loading ticket file for year " + currentYear);
+    throw new Error(`Error while loading ticket file for year ${currentYear}`);
   }
   if (nextYearFile) {
     const { key, data } = await parseTicketFile(nextYearFile, itemIdMap);
     tickets[key] = data;
   } else {
     throw new Error(
-      "Error while loading ticket file for year " + (currentYear + 1)
+      `Error while loading ticket file for year ${currentYear + 1}`
     );
   }
 
