@@ -3,9 +3,17 @@ on:
   pull_request:
     branches:
       - "*"
+    paths:
+      - "pages/**"
+      - "scripts/**"
+      - "src/**"
   push:
     branches:
       - "main"
+    paths:
+      - "pages/**"
+      - "scripts/**"
+      - "src/**"
 
 jobs:
   validate:
@@ -13,12 +21,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Install Dependencies
-        uses: bahmutov/npm-install@v1
+      - name: Install Node.js
+        uses: actions/setup-node@v2
         with:
-          install-command: yarn install
-          useRollingCache: true
+          node-version: 16
+          cache: yarn
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
       - name: Check Formatting
-        run: yarn format:check
+        run: yarn prettier -c .
       - name: Lint
-        run: yarn lint:strict
+        run: yarn eslint --max-warnings 0 .

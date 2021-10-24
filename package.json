@@ -8,9 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "lint:strict": "eslint --max-warnings 0 .",
     "format": "prettier -w .",
-    "format:check": "prettier -c .",
     "new": "node scripts/new.js",
     "update:upgrades": "node scripts/update-upgrades-data.mjs",
     "update:svg": "node scripts/build-svg-components.mjs"
