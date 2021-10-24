@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useStore } from "nanostores/react";
+import cc from "classcat";
 
 import styles from "./Pagination.module.css";
 import { settingsStore } from "@stores/settingsStore";
@@ -87,11 +88,11 @@ export default function Pagination({
   }, [currentBreakpoint, breakpoints, pageCount, currentPage]);
 
   return (
-    <div className={top ? `${styles.wrapper} ${styles.top}` : styles.wrapper}>
+    <div className={cc([styles.wrapper, top && styles.top])}>
       <div className={`${styles.cell} ${styles.infoCell}`}>
         Results {startSlice + 1} to {endSlice} (of {elements})
       </div>
-      <div className={`${styles.cell} ${styles.orderCell}`}>
+      <div className={cc([styles.cell, styles.orderCell])}>
         <Button
           onClick={ev => {
             ev.target.blur();
@@ -99,11 +100,11 @@ export default function Pagination({
           }}
           iconComponent={IconArrow}
           iconSize="0.95em"
-          className={isDesc ? styles.arrow : `${styles.arrow} ${styles.up}`}>
+          className={cc([styles.arrow, !isDesc && styles.up])}>
           {isDesc ? "Desc." : "Asc."}
         </Button>
       </div>
-      <div className={`${styles.cell} ${styles.buttonCell}`}>
+      <div className={cc([styles.cell, styles.buttonCell])}>
         <Button
           disabled={currentPage === 1}
           onClick={ev => {
@@ -112,19 +113,18 @@ export default function Pagination({
           }}
           iconComponent={IconArrow}
           iconSize="0.95em"
-          className={`${styles.arrow} ${styles.left}`}
+          className={cc([styles.arrow, styles.left])}
         />
         {display.map((item, idx) => (
           <Button
             key={`${item}${item === "..." ? idx : ""}`}
             disabled={item === "..." || item === currentPage}
-            className={
-              item === "..." || item === currentPage
-                ? `${styles.noFilter} ${
-                    item === currentPage ? styles.selected : styles.transparent
-                  }`
-                : undefined
-            }
+            className={cc(
+              (item === "..." || item === currentPage) && [
+                styles.noFilter,
+                item === currentPage ? styles.selected : styles.transparent
+              ]
+            )}
             onClick={
               item === "..."
                 ? undefined
@@ -144,7 +144,7 @@ export default function Pagination({
           }}
           iconComponent={IconArrow}
           iconSize="0.95em"
-          className={`${styles.arrow} ${styles.right}`}
+          className={cc([styles.arrow, styles.right])}
         />
       </div>
     </div>

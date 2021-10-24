@@ -1,3 +1,5 @@
+import cc from "classcat";
+
 import styles from "./ScheduleRow.module.css";
 import FGOIcon from "@components/FGOIcon";
 
@@ -8,7 +10,7 @@ export default function ScheduleRow({
   activeDay = false
 }) {
   return (
-    <tr className={activeDay ? styles.active : ""}>
+    <tr className={cc(activeDay && styles.active)}>
       <th>{short}</th>
       <td>
         <div className={styles.iconRow}>

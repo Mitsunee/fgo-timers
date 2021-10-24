@@ -1,3 +1,5 @@
+import cc from "classcat";
+
 import styles from "./Card.module.css";
 import CardHero from "./CardHero";
 import Headline from "@components/Headline";
@@ -21,7 +23,7 @@ export default function Card({
     <div className={wrapperClassName || undefined}>
       <article
         {...props}
-        className={className ? `${styles.card} ${className}` : styles.card}
+        className={cc([styles.card, className])}
         style={border || style ? articleStyle : undefined}>
         <CardHero
           icon={icon}

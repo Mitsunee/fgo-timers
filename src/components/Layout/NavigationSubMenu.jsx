@@ -1,5 +1,6 @@
 import { useStore } from "nanostores/react";
 import { useRouter } from "next/router";
+import cc from "classcat";
 
 import styles from "./NavigationSubMenu.module.css";
 import { uiStore, setSubMenuOpen } from "@stores/uiStore";
@@ -24,16 +25,14 @@ export default function NavigationSubMenu({
   const open = isOpen || forceOpen;
 
   return (
-    <section className={open ? `${styles.menu} ${styles.open}` : styles.menu}>
+    <section className={cc([styles.menu, open && styles.open])}>
       <Button
         onClick={event => {
           event.target.blur();
           setSubMenuOpen(menuKey, state => !state);
         }}
         disableDefaultStyle
-        className={
-          forceOpen ? `${styles.button} ${styles.static}` : styles.button
-        }
+        className={cc([styles.button, forceOpen && styles.static])}
         iconComponent={IconArrow}
         iconSize="0.75em"
         iconSide="left">

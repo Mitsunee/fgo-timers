@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useStore } from "nanostores/react";
+import cc from "classcat";
 
 import styles from "./APCalcCard.module.css";
 import { settingsStore, setSetting } from "@stores/settingsStore";
@@ -172,11 +173,10 @@ export default function APCalc({ border, background }) {
         </div>
         {isClient && (
           <div
-            className={
-              formMode === "byMaxAp"
-                ? styles.formGrid
-                : `${styles.formGrid} ${styles.withFourthCol}`
-            }>
+            className={cc([
+              styles.formGrid,
+              formMode === "byMaxAp" && styles.withFourthCol
+            ])}>
             <FormField label="Max AP" htmlFor="user-max-ap">
               <InputNumber
                 name="user-max-ap"

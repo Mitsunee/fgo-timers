@@ -48,6 +48,7 @@
   "devDependencies": {
     "@foxkit/eslint-config": "^1.0.2",
     "@svgo/jsx": "^0.2.0",
+    "classcat": "^5.0.3",
     "confusing-browser-globals": "^1.0.10",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.0",
