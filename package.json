@@ -62,7 +62,7 @@
     "node-fetch": "^3.0.0",
     "picocolors": "^1.0.0",
     "postcss": "^8.3.6",
-    "postcss-color-hex-alpha": "^7.0.0",
+    "postcss-color-hex-alpha": "^8.0.0",
     "postcss-focus": "^5.0.1",
     "postcss-nested": "^5.0.6",
     "postcss-preset-env": "^6.7.0",
