@@ -1632,6 +1632,11 @@ foreach@^2.0.5:
   resolved "https://registry.yarnpkg.com/foreach/-/foreach-2.0.5.tgz#0bee005018aeb260d0a3af3ae658dd0136ec1b99"
   integrity sha1-C+4AUBiusmDQo6865ljdATbsG5k=
 
+foxkit@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/foxkit/-/foxkit-0.3.0.tgz#40f4c67232092eb1c9512d2491d67714d5e817a6"
+  integrity sha512-fYJxi3Z08fzscDHjguWYtG8wgdEa9lAec61By6B+g1Yi2upV13/rVxcGUAa1v6B4UqytQEYe02NOxJECRn6Irg==
+
 fs.realpath@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"

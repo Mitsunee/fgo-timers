@@ -3,6 +3,7 @@ import { existsSync } from "fs";
 import path from "path";
 import picocolors from "picocolors";
 import fetch from "node-fetch";
+import { sleep } from "foxkit/sleep";
 import { latinize } from "modern-diacritics";
 import { createSpinner } from "nanospinner";
 
@@ -207,9 +208,6 @@ log.table = arg => {
 function die(message) {
   if (message) log.error(message);
   process.exit(1);
-}
-function sleep(time = 250) {
-  return new Promise(resolve => setTimeout(() => resolve(), time));
 }
 async function fetchData(url, defaultValue, message = "Fetching Data") {
   const spinner = createSpinner(message);

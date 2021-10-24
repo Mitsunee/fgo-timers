@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { useStore } from "nanostores/react";
+import { isClamped } from "foxkit/clamp";
 import cc from "classcat";
 
 import styles from "./Pagination.module.css";
 import { settingsStore } from "@stores/settingsStore";
 import { useThemeBreakpoint } from "@utils/hooks/useThemeBreakpoint";
 import { usePaginationSlice } from "@utils/hooks/usePaginationSlice";
-import { isClamped } from "@utils/clamp";
 import { Button } from "@components/Button";
 import { IconArrow } from "@components/icons";
 

@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { useStore } from "nanostores/react";
+import { clamp, isClamped } from "foxkit/clamp";
 import cc from "classcat";
 
 import styles from "./APCalcCard.module.css";
 import { settingsStore, setSetting } from "@stores/settingsStore";
 import { useIsClient } from "@utils/hooks/useIsClient";
 import { useInputNumberValue } from "@utils/hooks/useInputNumberValue";
-import { clamp, isClamped } from "@utils/clamp";
 import {
   MAX_AP_MAX_VALUE,
   MAX_AP_MIN_VALUE,

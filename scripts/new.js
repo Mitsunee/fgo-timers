@@ -2,6 +2,7 @@ const chalk = require("chalk");
 const fs = require("fs");
 const path = require("path");
 const prettier = require("prettier");
+// NOTE: this script could use foxkit dedent I think?
 
 // fetch configs
 const prettierConfig = {
