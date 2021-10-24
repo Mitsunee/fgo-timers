@@ -175,7 +175,7 @@ export default function APCalc({ border, background }) {
           <div
             className={cc([
               styles.formGrid,
-              formMode === "byMaxAp" && styles.withFourthCol
+              formMode !== "byMaxAp" && styles.withFourthCol
             ])}>
             <FormField label="Max AP" htmlFor="user-max-ap">
               <InputNumber
