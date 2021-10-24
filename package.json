@@ -2,6 +2,7 @@
   "name": "fgo-tools",
   "version": "0.1.0",
   "private": true,
+  "packageMananger": "yarn",
   "scripts": {
     "postinstall": "simple-git-hooks",
     "dev": "next dev",
