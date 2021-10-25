@@ -8,7 +8,8 @@ export async function readFile(path) {
 }
 
 export async function readFileJson(path) {
-  const content = await fs.readFile(path);
+  const realpath = resolveFilePath(path);
+  const content = await fs.readFile(realpath, "utf8");
   try {
     return JSON.parse(content);
   } catch (e) {

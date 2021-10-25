@@ -1,5 +1,6 @@
 import { globby } from "globby";
 
+import { isRoot } from "./shared/isRoot.mjs";
 import { buildComponents } from "./build-svg/buildComponents.mjs";
 import { buildIndex } from "./build-svg/buildIndex.mjs";
 import { cleanupComponents } from "./build-svg/cleanupComponents.mjs";
@@ -12,4 +13,5 @@ async function main() {
   await cleanupComponents(componentNames);
 }
 
+isRoot();
 main().catch(e => die(e));
