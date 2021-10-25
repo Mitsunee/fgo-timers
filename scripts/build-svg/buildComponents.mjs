@@ -1,4 +1,4 @@
-import { optimize } from "svgo";
+import { loadConfig, optimize } from "svgo";
 import { convertSvgToJsx } from "@svgo/jsx";
 import { createSpinner } from "nanospinner";
 
@@ -7,7 +7,8 @@ import { readFile, writeFile } from "../shared/fs-helper.mjs";
 import { log } from "../shared/log.mjs";
 import { format } from "../shared/format.mjs";
 
-export async function buildComponents(svgFiles, config) {
+export async function buildComponents(svgFiles) {
+  const config = await loadConfig();
   const configSvgoJsx = {
     svgProps: {
       "{...props}": null
@@ -66,16 +67,16 @@ export async function buildComponents(svgFiles, config) {
     );
   }
 
-  spinner.success();
   log.success(
-    components
+    `Built components: ${components
       .map(
         componentName =>
-          `Built component '${componentName}' for '${basename(
+          `  - '${componentName}' for '${basename(
             fileNames.get(componentName)
           )}'.`
       )
-      .join("\n")
+      .join("\n")}`,
+    spinner
   );
 
   return components;
