@@ -56,7 +56,7 @@ async function main() {
   });
 
   // write file
-  await writeFile("assets/data/upgrades/upgrades.json", data, false); // TEMP: switch to true to enable pretty print
+  await writeFile("assets/data/upgrades/upgrades.json", data, true);
   log.success(
     `Updated data for ${newUpgrades.length} quests (total: ${data.length})`
   );
