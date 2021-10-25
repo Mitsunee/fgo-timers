@@ -10,7 +10,7 @@
     "start": "next start",
     "lint": "eslint .",
     "format": "prettier -w .",
-    "new": "node scripts/new.js",
+    "new": "node scripts/new.mjs",
     "update:upgrades": "node scripts/update-upgrades-data.mjs",
     "update:svg": "node scripts/build-svg-components.mjs"
   },
