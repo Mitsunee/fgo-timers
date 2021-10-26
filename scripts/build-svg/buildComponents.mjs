@@ -4,7 +4,7 @@ import { createSpinner } from "nanospinner";
 
 import { basename, extname } from "path";
 import { readFile, writeFile } from "../shared/fs-helper.mjs";
-import { log } from "../shared/log.mjs";
+import { log, die } from "../shared/log.mjs";
 import { format } from "../shared/format.mjs";
 
 export async function buildComponents(svgFiles) {
@@ -35,12 +35,11 @@ export async function buildComponents(svgFiles) {
     // check for naming conflicts
     if (fileNames.has(componentName)) {
       spinner.error();
-      log.error(
+      die(
         `Name conflict between '${fileNames.get(
           componentName
         )}' and '${file}' for name '${componentName}'`
       );
-      process.exit(1);
     }
 
     // build component
