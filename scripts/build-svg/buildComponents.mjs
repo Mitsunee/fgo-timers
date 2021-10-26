@@ -24,37 +24,31 @@ export async function buildComponents(svgFiles) {
 
   const components = new Array();
   const fileNames = new Map();
-  const spinner = createSpinner("Building Components");
-  spinner.start();
 
   for (const file of svgFiles) {
     const componentName = `Icon-${basename(file, extname(file))}`
       .replace(/^[a-z]/, c => c.toUpperCase())
       .replace(/[_-][a-z]/g, c => c.substring(1).toUpperCase())
       .replace(/[^a-z]/gi, "");
+    const spinner = createSpinner(`Building ${componentName}`);
 
     // check for naming conflicts
     if (fileNames.has(componentName)) {
+      spinner.error();
       log.error(
         `Name conflict between '${fileNames.get(
           componentName
-        )}' and '${file}' for name '${componentName}'`,
-        spinner
+        )}' and '${file}' for name '${componentName}'`
       );
       process.exit(1);
     }
 
     // build component
+    spinner.start();
     components.push(componentName);
     fileNames.set(componentName, file);
     const fileContent = await readFile(file);
     const { data: svg } = await optimize(fileContent, config);
-
-    // check if svgo did anything, save changes and warn user
-    if (fileContent !== svg) {
-      await writeFile(file, svg);
-      log.warn(`'${basename(file)}' was not optimized.`, spinner);
-    }
 
     // write component
     await writeFile(
@@ -65,19 +59,17 @@ export async function buildComponents(svgFiles) {
         }
       `)
     );
-  }
 
-  log.success(
-    `Built components: ${components
-      .map(
-        componentName =>
-          `  - '${componentName}' for '${basename(
-            fileNames.get(componentName)
-          )}'.`
-      )
-      .join("\n")}`,
-    spinner
-  );
+    spinner.success({
+      text: `Built '${componentName}' for '${basename(file)}'.`
+    });
+
+    // check if svgo did anything, save changes and warn user
+    if (fileContent !== svg) {
+      await writeFile(file, svg);
+      log.warn(`  '${basename(file)}' was not optimized.`);
+    }
+  }
 
   return components;
 }

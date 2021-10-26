@@ -2,20 +2,17 @@ import { createSpinner } from "nanospinner";
 
 import { writeFile } from "../shared/fs-helper.mjs";
 import { format } from "../shared/format.mjs";
-import { log } from "../shared/log.mjs";
 
-export async function buildIndex(componentNames) {
+export async function buildIndex(components) {
   const spinner = createSpinner("Building 'index.js'");
   await writeFile(
     "src/components/icons/index.js",
     format(`
-      ${componentNames
-        .map(name => `import ${name} from "./${name}"`)
-        .join("\n")}
+      ${components.map(name => `import ${name} from "./${name}"`).join("\n")}
 
-      export {${componentNames.join(",")}}
+      export {${components.join(",")}}
     `)
   );
 
-  log.success("Built 'icons/index.js'", spinner);
+  spinner.success({ text: "Built 'icons/index.js'" });
 }

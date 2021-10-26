@@ -1,14 +1,19 @@
+import { createSpinner } from "nanospinner";
+
 import { fetchData } from "./fetchData.mjs";
 import { ATLAS_API } from "./constants.mjs";
 
 export async function fetchNiceServant() {
+  const spinner = createSpinner("Fetching niceServant data");
+  spinner.start();
+
   const res = await fetchData(
     [
       `${ATLAS_API}export/JP/nice_servant_lang_en.json`,
       `${ATLAS_API}export/NA/nice_servant.json`
     ],
     undefined,
-    "Fetching niceServant data"
+    spinner
   );
 
   const servantFilter = servant =>
@@ -37,6 +42,8 @@ export async function fetchNiceServant() {
 
     return translatedServant;
   });
+
+  spinner.success();
 
   return { na, jp };
 }

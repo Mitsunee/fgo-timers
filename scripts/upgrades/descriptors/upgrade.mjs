@@ -1,4 +1,3 @@
-import { log } from "../../shared/log.mjs";
 import { fetchQuestData } from "../fetchQuestData.mjs";
 import { describeSkill } from "../descriptors/skill.mjs";
 import { describeNP } from "../descriptors/np.mjs";
@@ -43,7 +42,6 @@ export async function describeUpgrade(quest, { skills, nps, servants }) {
 
   // Quest has related skill
   if (relatedSkill) {
-    log("Quest upgrades a skill");
     // find skill on NA
     const relatedSkillNA = skills.na.find(({ id }) => id === relatedSkill.id);
 
@@ -57,26 +55,28 @@ export async function describeUpgrade(quest, { skills, nps, servants }) {
     const initialSkillNA =
       initialSkill && skills.na.find(({ id }) => id === initialSkill.id);
 
-    // print log
-    log.table({
+    // prepare log
+    const upgradeLog = {
+      type: "Skill Upgrade",
       for: initialSkillNA?.name || initialSkill?.name || "PLACEHOLDER",
       to: relatedSkillNA?.name || relatedSkill.name,
       of: nameServant(relatedServant, relatedServantNA, servants)[0]
-    });
+    };
 
     // assemble data
-    return {
+    const upgradeData = {
       target: "skill",
       initial: describeSkill(initialSkill ?? PLACEHOLDER_SKILL, initialSkillNA),
       skill: describeSkill(relatedSkill, relatedSkillNA),
       quest: await describeQuest(questData, questDataNA),
       servant: describeServant(relatedServant, relatedServantNA, servants)
     };
+
+    return { upgradeData, upgradeLog };
   }
 
   // Quest has related NP
   if (relatedNP) {
-    log("Quest upgrades NP");
     // find NP on NA
     const relatedNPNA =
       relatedNP && nps.na.find(({ id }) => id === relatedNP.id);
@@ -89,26 +89,34 @@ export async function describeUpgrade(quest, { skills, nps, servants }) {
     const initialNPNA = nps.na.find(({ id }) => id === initialNP.id);
 
     // print log
-    log.table({
+    const upgradeLog = {
+      type: "NP Upgrade",
       for: initialNPNA?.name || initialNP.name,
       to: relatedNPNA?.name || relatedNP.name,
       of: nameServant(relatedServant, relatedServantNA, servants)[0]
-    });
+    };
 
-    return {
+    const upgradeData = {
       target: "np",
       initial: describeNP(initialNP, initialNPNA),
       np: describeNP(relatedNP, relatedNPNA),
       quest: await describeQuest(questData, questDataNA),
       servant: describeServant(relatedServant, relatedServantNA, servants)
     };
+
+    return { upgradeData, upgradeLog };
   }
 
   // Quest has neither skill nor NP, assume sq interlude
-  log("Quest only rewards Saint Quartz");
-  return {
+  const upgradeLog = {
+    type: "SQ Interlude",
+    of: nameServant(relatedServant, relatedServantNA, servants)[0]
+  };
+  const upgradeData = {
     target: "sq",
     quest: await describeQuest(questData, questDataNA),
     servant: describeServant(relatedServant, relatedServantNA, servants)
   };
+
+  return { upgradeData, upgradeLog };
 }

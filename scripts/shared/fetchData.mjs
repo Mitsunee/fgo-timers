@@ -1,15 +1,15 @@
-import { createSpinner } from "nanospinner";
 import fetch from "node-fetch";
 
-export async function fetchData(url, defaultValue, message = "Fetching Data") {
-  const spinner = createSpinner(message);
+import { die } from "./log.mjs";
+
+export async function fetchData(url, defaultValue, spinner) {
   const _fetch = async (url, defaultValue) => {
     try {
       const res = await fetch(url);
       if (!res.ok) {
         if (defaultValue === undefined) {
-          spinner.error(`error while fetching '${url}'`);
-          process.exit(2);
+          spinner?.error();
+          die(`error while fetching '${url}'`);
         }
 
         return defaultValue;
@@ -17,8 +17,8 @@ export async function fetchData(url, defaultValue, message = "Fetching Data") {
       return await res.json();
     } catch (e) {
       if (defaultValue === undefined) {
-        spinner.error(`received invalid data from '${url}'`);
-        process.exit(2);
+        spinner?.error();
+        die(`received invalid data from '${url}'`);
       }
 
       return defaultValue;
@@ -26,7 +26,6 @@ export async function fetchData(url, defaultValue, message = "Fetching Data") {
   };
 
   let res;
-  spinner.start();
   if (url instanceof Array) {
     res = await Promise.all(
       url.map(async item => await _fetch(item, defaultValue))
@@ -34,7 +33,6 @@ export async function fetchData(url, defaultValue, message = "Fetching Data") {
   } else {
     res = await _fetch(url, defaultValue);
   }
-  spinner.success();
 
   return res;
 }

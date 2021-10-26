@@ -1,9 +1,9 @@
-import path from "path";
+import { basename, dirname } from "path";
 import { mkdir } from "fs/promises";
 import { existsSync } from "fs";
 import { createSpinner } from "nanospinner";
 
-import { die } from "../../shared/log.mjs";
+import { log, die } from "../../shared/log.mjs";
 import { resolveFilePath } from "../../shared/path-helper.mjs";
 import { sanitizeComponentName, sanitizePageFileName } from "../sanitizers.mjs";
 import { writeFile } from "../../shared/fs-helper.mjs";
@@ -15,11 +15,11 @@ export async function optionPage(fileNameArg, componentNameArg) {
     die("Must provide both arguments for 'page' option. See yarn new --help");
   }
 
-  const dirPath = resolveFilePath("pages", path.dirname(fileNameArg));
+  const dirPath = resolveFilePath("pages", dirname(fileNameArg));
   const componentName = sanitizeComponentName(componentNameArg);
   const filePath = resolveFilePath(
     dirPath,
-    sanitizePageFileName(path.basename(fileNameArg))
+    sanitizePageFileName(basename(fileNameArg))
   );
   const cssPath = resolveFilePath(
     "src",
@@ -52,4 +52,5 @@ export async function optionPage(fileNameArg, componentNameArg) {
   // log
   spinner.success();
   printBuildLog();
+  log.success(`Successfully created ${basename(filePath, ".jsx")} route`);
 }

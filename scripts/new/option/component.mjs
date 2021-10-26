@@ -7,6 +7,7 @@ import { resolveFilePath } from "../../shared/path-helper.mjs";
 import { writeFile } from "../../shared/fs-helper.mjs";
 import { format } from "../../shared/format.mjs";
 import { buildLog, printBuildLog } from "../buildLog.mjs";
+import { log } from "../../shared/log.mjs";
 
 export async function optionComponent(args) {
   const [parent, ...children] = args;
@@ -84,9 +85,13 @@ export async function optionComponent(args) {
         export default function ${parentComponent}() {return null}
       `)
     );
+    buildLog.push(parentPath);
   }
 
   // log
   spinner.success();
   printBuildLog();
+  log.success(
+    `Successfully created ${parentComponent} (+ ${childComponents.length} child components)`
+  );
 }

@@ -1,3 +1,4 @@
+import { createSpinner } from "nanospinner";
 import { sleep } from "foxkit/sleep";
 
 import { readFileJson, writeFile } from "./shared/fs-helper.mjs";
@@ -31,7 +32,7 @@ async function main() {
   };
 
   // compare quest IDs to find any that changed
-  const changedQuests = findChangedQuests(data, niceServant);
+  const { changedQuests, changeReasons } = findChangedQuests(data, niceServant);
 
   // if nothing changed quit with success
   if (changedQuests.size === 0) {
@@ -43,9 +44,18 @@ async function main() {
 
   for (const quest of changedQuests) {
     // atlas api can't handle too many requests in a row
-    await sleep(250);
+    const spinner = createSpinner(`Fetching data for Quest ${quest}`);
+    spinner.start();
 
-    newUpgrades.push(await describeUpgrade(quest, niceData));
+    // describe quest and sleep to a bit to not crash the API
+    const { upgradeData, upgradeLog } = await describeUpgrade(quest, niceData);
+    await sleep(250);
+    spinner.success();
+
+    // log change reason and info
+    log(changeReasons.get(quest));
+    log.table(upgradeLog);
+    newUpgrades.push(upgradeData);
   }
 
   data = [

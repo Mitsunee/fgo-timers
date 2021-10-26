@@ -3,26 +3,24 @@ import { rm } from "fs/promises";
 import { createSpinner } from "nanospinner";
 import { globby } from "globby";
 
-import { log } from "../shared/log.mjs";
+import { die } from "../shared/log.mjs";
 
-export async function cleanupComponents(componentNames) {
+export async function cleanupComponents(components) {
   const spinner = createSpinner("Cleaning up ./src/components/icons/");
   const dir = await globby("src/components/icons/*.jsx");
   const dirUnknown = dir.filter(
-    file => !componentNames.includes(basename(file, extname(file)))
+    file => !components.includes(basename(file, extname(file)))
   );
   for (const file of dirUnknown) {
     const name = basename(file);
     try {
       await rm(file);
     } catch (e) {
-      log.error(
-        `Could not delete '${name}'. No source file exists for this path.`,
-        spinner
-      );
+      spinner.error();
+      die(`Could not delete '${name}'. No source file exists for this path.`);
       return;
     }
 
-    log.success("Cleaned up ./src/components/icons/", spinner);
+    spinner.success({ text: "Cleaned up ./src/components/icons/" });
   }
 }
