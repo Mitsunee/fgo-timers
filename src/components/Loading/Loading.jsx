@@ -11,7 +11,7 @@ export default function Loading() {
   useEffect(() => {
     if (!isClient) return;
     const timeout = setTimeout(() => setDots((dots + 1) % 4), 500);
-    return () => clearInterval(timeout);
+    return () => clearTimeout(timeout);
   }, [isClient, dots]);
 
   return (
