@@ -11,7 +11,7 @@ import EmberLootList from "./EmberLootList";
 import ScheduleTable from "./ScheduleTable";
 import NoSSR from "@components/NoSSR";
 
-export default function ChaldeaGateCard({ interval, background, border }) {
+export default function ChaldeaGateCard({ interval }) {
   const weekday = useMemo(() => getWeekday(interval), [interval]);
   const currentDay = useMemo(() => findScheduleByDay(weekday), [weekday]);
   const nextRotation = useRecurringDaily({ hour: 0, tz: "utc" }, interval);
@@ -22,8 +22,7 @@ export default function ChaldeaGateCard({ interval, background, border }) {
     <Card
       title="Daily Quests"
       icon="/assets/icon_chaldeagate.png"
-      background={background}
-      border={border}>
+      color="green">
       <TrainingLootList data={currentDay.training} />
       <EmberLootList data={currentDay.embers} />
       <NoSSR>

@@ -23,7 +23,7 @@ import Results from "./Results";
 const validateApOffset = value =>
   /^(0:(0[1-9]|[1-5]\d)|[1-4]:[0-5]\d)$/.test(value);
 
-export default function APCalc({ border, background }) {
+export default function APCalcCard() {
   const isClient = useIsClient();
   const [formMode, setFormMode] = useState("byTargetAp");
   const { userMaxAP, userNodeCost } = useStore(settingsStore);
@@ -161,8 +161,7 @@ export default function APCalc({ border, background }) {
       <Card
         title="AP Calculator"
         icon="/assets/gApple.png"
-        border={border}
-        background={background}
+        color="gold"
         wrapperClassName={styles.cardWrapper}>
         <div className={styles.selectWrapper}>
           <Select value={formMode} onChange={handleFormMode}>

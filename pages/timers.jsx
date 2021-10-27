@@ -42,11 +42,7 @@ export default function TimersPage({
           itemData={itemData}
           interval={interval}
         />
-        <ChaldeaGateCard
-          interval={interval}
-          border={mpShopData.border}
-          background={mpShopData.background}
-        />
+        <ChaldeaGateCard interval={interval} />
         <ShopCard
           shopData={mpShopData}
           endsAt={mpShopReset}
@@ -57,10 +53,7 @@ export default function TimersPage({
           endsAt={rpShopReset}
           interval={interval}
         />
-        <APCalcCard
-          border={rpShopData.border}
-          background={rpShopData.background}
-        />
+        <APCalcCard />
       </CardGrid>
     </>
   );

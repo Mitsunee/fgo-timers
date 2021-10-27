@@ -1,6 +1,7 @@
 import cc from "classcat";
 
 import styles from "./Card.module.css";
+import { borderColors, backgroundColors } from "@styles/fgoIconTheme";
 import CardHero from "./CardHero";
 import Headline from "@components/Headline";
 
@@ -8,8 +9,7 @@ export default function Card({
   children,
   icon,
   title,
-  background,
-  border,
+  color,
   forceRoundIcon,
   className,
   wrapperClassName,
@@ -17,17 +17,17 @@ export default function Card({
   ...props
 }) {
   const articleStyle = typeof style === "object" ? style : new Object();
-  if (border) articleStyle.borderColor = border;
+  if (color) articleStyle.borderColor = borderColors.get(color);
 
   return (
     <div className={wrapperClassName || undefined}>
       <article
         {...props}
         className={cc([styles.card, className])}
-        style={border || style ? articleStyle : undefined}>
+        style={articleStyle}>
         <CardHero
           icon={icon}
-          background={background}
+          background={color && backgroundColors.get(color)}
           title={title}
           forceRoundIcon={forceRoundIcon}
         />
