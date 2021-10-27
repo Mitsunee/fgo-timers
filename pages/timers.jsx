@@ -11,9 +11,10 @@ import { useRecurringEvent } from "@utils/hooks/useRecurringEvent";
 import Meta from "@components/Meta";
 import Clocks from "@components/Clocks";
 import { CardGrid } from "@components/Card";
+import MasterMissionCard from "@components/MasterMissionCard";
+import ChaldeaGateCard from "@components/ChaldeaGateCard";
 import LoginTicketCard from "@components/LoginTicketCard";
 import ShopCard from "@components/ShopCard";
-import ChaldeaGateCard from "@components/ChaldeaGateCard";
 import APCalcCard from "@components/APCalcCard";
 
 export default function TimersPage({
@@ -37,12 +38,13 @@ export default function TimersPage({
       <Meta title="Timers" description="Timers for Fate/Grand Order" />
       <Clocks interval={interval} />
       <CardGrid>
+        <MasterMissionCard interval={interval} />
+        <ChaldeaGateCard interval={interval} />
         <LoginTicketCard
           tickets={tickets}
           itemData={itemData}
           interval={interval}
         />
-        <ChaldeaGateCard interval={interval} />
         <ShopCard
           shopData={mpShopData}
           endsAt={mpShopReset}
