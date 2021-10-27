@@ -3,6 +3,7 @@ import { describeSkill } from "../descriptors/skill.mjs";
 import { describeNP } from "../descriptors/np.mjs";
 import { describeQuest } from "../descriptors/quest.mjs";
 import { nameServant, describeServant } from "../descriptors/servant.mjs";
+import { log } from "../../shared/log.mjs";
 
 const PLACEHOLDER_SKILL = {
   id: 0,
@@ -11,7 +12,11 @@ const PLACEHOLDER_SKILL = {
   priority: 0
 };
 
-export async function describeUpgrade(quest, { skills, nps, servants }) {
+export async function describeUpgrade(
+  quest,
+  { skills, nps, servants },
+  spinner
+) {
   // fetch quest data
   const [questData, questDataNA] = await fetchQuestData(quest);
 
@@ -55,24 +60,24 @@ export async function describeUpgrade(quest, { skills, nps, servants }) {
     const initialSkillNA =
       initialSkill && skills.na.find(({ id }) => id === initialSkill.id);
 
-    // prepare log
-    const upgradeLog = {
+    // log info
+    spinner?.clear();
+    log.table({
       type: "Skill Upgrade",
       for: initialSkillNA?.name || initialSkill?.name || "PLACEHOLDER",
       to: relatedSkillNA?.name || relatedSkill.name,
       of: nameServant(relatedServant, relatedServantNA, servants)[0]
-    };
+    });
+    spinner?.start();
 
     // assemble data
-    const upgradeData = {
+    return {
       target: "skill",
       initial: describeSkill(initialSkill ?? PLACEHOLDER_SKILL, initialSkillNA),
       skill: describeSkill(relatedSkill, relatedSkillNA),
       quest: await describeQuest(questData, questDataNA),
       servant: describeServant(relatedServant, relatedServantNA, servants)
     };
-
-    return { upgradeData, upgradeLog };
   }
 
   // Quest has related NP

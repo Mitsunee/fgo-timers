@@ -45,16 +45,14 @@ async function main() {
   for (const quest of changedQuests) {
     // atlas api can't handle too many requests in a row
     const spinner = createSpinner(`Fetching data for Quest ${quest}`);
-    spinner.start();
 
     // describe quest and sleep to a bit to not crash the API
-    const { upgradeData, upgradeLog } = await describeUpgrade(quest, niceData);
+    log(`  ${changeReasons.get(quest)}`);
+    spinner.start();
+    const upgradeData = await describeUpgrade(quest, niceData, spinner);
     await sleep(250);
-    spinner.success();
 
-    // log change reason and info
-    log(changeReasons.get(quest));
-    log.table(upgradeLog);
+    spinner.success();
     newUpgrades.push(upgradeData);
   }
 

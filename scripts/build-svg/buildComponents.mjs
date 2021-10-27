@@ -49,6 +49,14 @@ export async function buildComponents(svgFiles) {
     const fileContent = await readFile(file);
     const { data: svg } = await optimize(fileContent, config);
 
+    // check if svgo did anything, save changes and warn user
+    if (fileContent !== svg) {
+      await writeFile(file, svg);
+      spinner.clear();
+      log.warn(`  '${basename(file)}' was not optimized.`);
+      spinner.start();
+    }
+
     // write component
     await writeFile(
       `src/components/icons/${componentName}.jsx`,
@@ -62,12 +70,6 @@ export async function buildComponents(svgFiles) {
     spinner.success({
       text: `Built '${componentName}' for '${basename(file)}'.`
     });
-
-    // check if svgo did anything, save changes and warn user
-    if (fileContent !== svg) {
-      await writeFile(file, svg);
-      log.warn(`  '${basename(file)}' was not optimized.`);
-    }
   }
 
   return components;
