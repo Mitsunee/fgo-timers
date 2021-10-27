@@ -7,6 +7,7 @@ import Modal from "@components/Modal";
 import ModalMenu from "@components/ModalMenu";
 import Headline from "@components/Headline";
 import { Select, SelectOption } from "@components/Select";
+import DebugInfo from "./DebugInfo";
 
 const handleClockFormatChange = ({ value, event }) => {
   event.target.blur();
@@ -61,6 +62,7 @@ export default function SettingsMenu() {
                 <SelectOption value={100}>100</SelectOption>
               </Select>
             </section>
+            <DebugInfo />
           </ModalMenu>
         </Modal>
       )}

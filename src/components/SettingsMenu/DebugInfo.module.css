@@ -1,0 +1,8 @@
+.infoGrid {
+  display: grid;
+  grid-template-columns: fit-content(33%) fit-content(67%);
+  column-gap: 0.66em;
+  row-gap: 0.33em;
+  margin: 0.66em;
+  width: 100%;
+}
