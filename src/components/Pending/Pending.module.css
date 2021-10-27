@@ -1,0 +1,14 @@
+.title {
+  display: block;
+  width: 100%;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.cat {
+  display: block;
+  max-width: 80%;
+  width: 100px;
+  height: auto;
+  margin: 0.66em auto;
+}
