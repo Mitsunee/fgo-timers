@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import cc from "classcat";
+
 import styles from "./CollapsableSection.module.css";
 import Section from "@components/Section";
 import { Button } from "@components/Button";
@@ -33,14 +35,10 @@ export default function CollapsableSection({
     visible && (
       <Section
         background={background}
-        className={
-          isInline ? `${styles.section} ${styles.inline}` : styles.section
-        }>
+        className={cc([styles.section, isInline && styles.inline])}>
         {isInline ? (
           <Button
-            className={`${styles.button} ${styles.inline}${
-              open ? " " + styles.open : ""
-            }`}
+            className={cc([styles.button, styles.inline, open && styles.open])}
             disableDefaultStyle
             iconComponent={closeable ? IconClose : IconArrow}
             iconSize="0.75em"
@@ -50,9 +48,7 @@ export default function CollapsableSection({
         ) : (
           <>
             <Button
-              className={`${styles.button} ${styles.float}${
-                open ? " " + styles.open : ""
-              }`}
+              className={cc([styles.button, styles.float, open && styles.open])}
               disableDefaultStyle
               iconComponent={closeable ? IconClose : IconArrow}
               onClick={handleButton}

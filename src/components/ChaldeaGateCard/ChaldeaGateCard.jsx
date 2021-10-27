@@ -4,16 +4,16 @@ import { useMemo } from "react";
 import { useRecurringDaily } from "@utils/hooks/useRecurringDaily";
 import { useFormattedDelta } from "@utils/hooks/useFormattedDelta";
 import { useFormattedTimestamp } from "@utils/hooks/useFormattedTimestamp";
-import { getWeekday, findAndMapDay } from "./schedules";
+import { getWeekday, findScheduleByDay } from "./schedules";
 import { Card } from "@components/Card";
 import TrainingLootList from "./TrainingLootList";
 import EmberLootList from "./EmberLootList";
 import ScheduleTable from "./ScheduleTable";
 import NoSSR from "@components/NoSSR";
 
-export default function ChaldeaGateCard({ interval, background, border }) {
+export default function ChaldeaGateCard({ interval }) {
   const weekday = useMemo(() => getWeekday(interval), [interval]);
-  const currentDay = useMemo(() => findAndMapDay(weekday), [weekday]);
+  const currentDay = useMemo(() => findScheduleByDay(weekday), [weekday]);
   const nextRotation = useRecurringDaily({ hour: 0, tz: "utc" }, interval);
   const nextRotationDelta = useFormattedDelta(interval, nextRotation);
   const nextRotationDate = useFormattedTimestamp(nextRotation, "short");
@@ -22,8 +22,7 @@ export default function ChaldeaGateCard({ interval, background, border }) {
     <Card
       title="Daily Quests"
       icon="/assets/icon_chaldeagate.png"
-      background={background}
-      border={border}>
+      color="green">
       <TrainingLootList data={currentDay.training} />
       <EmberLootList data={currentDay.embers} />
       <NoSSR>

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import cc from "classcat";
 
 import styles from "./Modal.module.css";
 
@@ -17,10 +18,7 @@ export default function Modal({ children, labelledBy, background = true }) {
   }, []);
 
   return (
-    <div
-      className={
-        background ? `${styles.wrapper} ${styles.background}` : styles.wrapper
-      }>
+    <div className={cc([styles.wrapper, background && styles.background])}>
       <div
         className={styles.content}
         aria-modal="true"

@@ -1,3 +1,5 @@
+import cc from "classcat";
+
 import styles from "./AtlasButton.module.css";
 import { IconAtlas } from "@components/icons";
 import { Button } from "@components/Button";
@@ -16,7 +18,7 @@ export default function AtlasButton({
       targetBlank
       iconComponent={IconAtlas}
       iconSide="right"
-      className={inline ? `${styles.button} ${styles.inline}` : styles.button}
+      className={cc([styles.button, inline && styles.inline])}
       disableDefaultStyle={inline}>
       {children}
     </Button>

@@ -1,3 +1,5 @@
+import cc from "classcat";
+
 import styles from "./Floaters.module.css";
 import { setMobileNavOpen, setSettingsMenuOpen } from "@stores/uiStore";
 import { useThemeBreakpoint } from "@utils/hooks/useThemeBreakpoint";
@@ -10,10 +12,7 @@ export default function Floaters({ inline = false }) {
   const handleMobileNavButton = () => setMobileNavOpen(state => !state);
 
   return (
-    <div
-      className={
-        inline ? `${styles.floaters} ${styles.inline}` : styles.floaters
-      }>
+    <div className={cc([styles.floaters, inline && styles.inline])}>
       <Button
         href="https://discord.gg/ZncPkjw"
         targetBlank

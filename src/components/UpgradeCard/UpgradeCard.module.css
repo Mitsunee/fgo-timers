@@ -7,7 +7,5 @@
 
   h2 {
     font-size: 1.2em;
-    white-space: nowrap;
-    text-overflow: ellipsis;
   }
 }

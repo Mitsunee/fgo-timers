@@ -2,18 +2,17 @@
   "name": "fgo-tools",
   "version": "0.1.0",
   "private": true,
+  "packageMananger": "yarn",
   "scripts": {
     "postinstall": "simple-git-hooks",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "lint:strict": "eslint --max-warnings 0 .",
     "format": "prettier -w .",
-    "format:check": "prettier -c .",
-    "new": "node scripts/new.js",
+    "new": "node scripts/new.mjs",
     "update:upgrades": "node scripts/update-upgrades-data.mjs",
-    "update:svg": "node scripts/build-svg-components.mjs"
+    "update:svg": "node scripts/build-svg.mjs"
   },
   "simple-git-hooks": {
     "pre-commit": "yarn lint-staged"
@@ -36,39 +35,40 @@
     "not ie 11"
   ],
   "dependencies": {
-    "@nanostores/persistent": "^0.3.0",
-    "chalk": "^4.1.2",
-    "nanostores": "^0.4.3",
     "next": "11.1.0",
     "next-transpile-modules": "^8.0.0",
     "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "spacetime": "~6.16.3",
-    "yaml": "^1.10.2"
+    "react-dom": "17.0.2"
   },
   "devDependencies": {
+    "@foxkit/eslint-config": "^1.0.2",
+    "@nanostores/persistent": "^0.3.0",
     "@svgo/jsx": "^0.2.0",
+    "classcat": "^5.0.3",
+    "confusing-browser-globals": "^1.0.10",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.0",
     "eslint-config-prettier": "^8.3.0",
+    "foxkit": "^0.3.0",
     "globby": "^12.0.2",
     "lint-staged": "^11.1.2",
     "long-timeout": "^0.1.1",
     "modern-diacritics": "^2.0.0",
     "modern-normalize": "^1.1.0",
-    "nanocolors": "^0.2.10",
-    "nanoid": "^3.1.25",
-    "nanospinner": "^0.3.2",
+    "nanospinner": "^0.4.0",
+    "nanostores": "^0.4.3",
     "node-fetch": "^3.0.0",
     "picocolors": "^1.0.0",
     "postcss": "^8.3.6",
-    "postcss-color-hex-alpha": "^7.0.0",
+    "postcss-color-hex-alpha": "^8.0.0",
     "postcss-focus": "^5.0.1",
     "postcss-nested": "^5.0.6",
     "postcss-preset-env": "^6.7.0",
     "postcss-theme-ui": "^0.10.0",
     "prettier": "^2.3.2",
     "simple-git-hooks": "^2.6.1",
-    "svgo": "^2.7.0"
+    "spacetime": "~6.16.3",
+    "svgo": "^2.7.0",
+    "yaml": "^1.10.2"
   }
 }

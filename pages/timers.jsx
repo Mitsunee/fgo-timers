@@ -42,11 +42,7 @@ export default function TimersPage({
           itemData={itemData}
           interval={interval}
         />
-        <ChaldeaGateCard
-          interval={interval}
-          border={mpShopData.border}
-          background={mpShopData.background}
-        />
+        <ChaldeaGateCard interval={interval} />
         <ShopCard
           shopData={mpShopData}
           endsAt={mpShopReset}
@@ -57,10 +53,7 @@ export default function TimersPage({
           endsAt={rpShopReset}
           interval={interval}
         />
-        <APCalcCard
-          border={rpShopData.border}
-          background={rpShopData.background}
-        />
+        <APCalcCard />
       </CardGrid>
     </>
   );
@@ -85,14 +78,14 @@ export async function getStaticProps() {
     const { key, data } = await parseTicketFile(currentYearFile, itemIdMap);
     tickets[key] = data;
   } else {
-    throw new Error("Error while loading ticket file for year " + currentYear);
+    throw new Error(`Error while loading ticket file for year ${currentYear}`);
   }
   if (nextYearFile) {
     const { key, data } = await parseTicketFile(nextYearFile, itemIdMap);
     tickets[key] = data;
   } else {
     throw new Error(
-      "Error while loading ticket file for year " + (currentYear + 1)
+      `Error while loading ticket file for year ${currentYear + 1}`
     );
   }
 

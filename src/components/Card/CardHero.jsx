@@ -9,7 +9,7 @@ export default function CardHero({
   forceRoundIcon
 }) {
   const style = {
-    backgroundColor: background ?? "white"
+    backgroundColor: background || "white"
   };
   if (backgroundImage) style.backgroundImage = `url("${backgroundImage}")`;
 

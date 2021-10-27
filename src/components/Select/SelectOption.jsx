@@ -1,3 +1,5 @@
+import cc from "classcat";
+
 import styles from "./SelectOption.module.css";
 import { Button } from "@components/Button";
 
@@ -9,11 +11,10 @@ export default function SelectOption({
 }) {
   return (
     <Button
-      className={
-        value === currentValue
-          ? `${styles.option} ${styles.selected}`
-          : `${styles.option} ${styles.unselected}`
-      }
+      className={cc([
+        styles.option,
+        value === currentValue ? styles.selected : styles.unselected
+      ])}
       onClick={event => handler({ value, event })}>
       {children}
     </Button>

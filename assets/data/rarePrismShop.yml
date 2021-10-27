@@ -1,6 +1,5 @@
 title: Rare Prism Shop
-background: "#f9e677"
-border: "#f0ce02"
+color: gold
 icon: https://assets.atlasacademy.io/GameData/NA/Items/18.png
 inventory:
   - name: Lantern of Chaldea

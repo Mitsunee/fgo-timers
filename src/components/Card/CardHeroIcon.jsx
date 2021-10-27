@@ -1,3 +1,5 @@
+import cc from "classcat";
+
 import styles from "./CardHeroIcon.module.css";
 
 export default function CardHeroIcon({ icon, alt, forceRoundIcon }) {
@@ -6,7 +8,7 @@ export default function CardHeroIcon({ icon, alt, forceRoundIcon }) {
       <img
         src={icon}
         alt={alt}
-        className={forceRoundIcon ? styles.forceRound : undefined}
+        className={cc(forceRoundIcon && styles.forceRound)}
       />
     </div>
   );

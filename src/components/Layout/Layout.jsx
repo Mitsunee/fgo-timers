@@ -1,4 +1,5 @@
 import { useStore } from "nanostores/react";
+import cc from "classcat";
 
 import styles from "./Layout.module.css";
 import { uiStore } from "@stores/uiStore";
@@ -11,10 +12,7 @@ export default function Layout({ isDesktop, children }) {
     <>
       <div className={styles.wrapper}>
         {mobileOpen && <Navigation />}
-        <div
-          className={
-            isDesktop ? `${styles.inner} ${styles.desktop}` : styles.inner
-          }>
+        <div className={cc([styles.inner, isDesktop && styles.desktop])}>
           {isDesktop && <Navigation />}
           <main>{children}</main>
         </div>

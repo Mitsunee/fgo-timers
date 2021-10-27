@@ -5,7 +5,7 @@ export const servantClasses = new Map([
     "saber",
     {
       class: "Saber",
-      icon: "https://assets.atlasacademy.io/GameData/JP/ClassIcons/class3_1.png",
+      icon: "/assets/classes/saber.png",
       piece: "https://assets.atlasacademy.io/GameData/JP/Items/7001.png",
       monument: "https://assets.atlasacademy.io/GameData/JP/Items/7101.png",
       ember:
@@ -16,7 +16,7 @@ export const servantClasses = new Map([
     "archer",
     {
       class: "Archer",
-      icon: "https://assets.atlasacademy.io/GameData/JP/ClassIcons/class3_2.png",
+      icon: "/assets/classes/archer.png",
       piece: "https://assets.atlasacademy.io/GameData/JP/Items/7002.png",
       monument: "https://assets.atlasacademy.io/GameData/JP/Items/7102.png",
       ember:
@@ -27,7 +27,7 @@ export const servantClasses = new Map([
     "lancer",
     {
       class: "Lancer",
-      icon: "https://assets.atlasacademy.io/GameData/JP/ClassIcons/class3_3.png",
+      icon: "/assets/classes/lancer.png",
       piece: "https://assets.atlasacademy.io/GameData/JP/Items/7003.png",
       monument: "https://assets.atlasacademy.io/GameData/JP/Items/7103.png",
       ember:
@@ -38,7 +38,7 @@ export const servantClasses = new Map([
     "rider",
     {
       class: "Rider",
-      icon: "https://assets.atlasacademy.io/GameData/JP/ClassIcons/class3_4.png",
+      icon: "/assets/classes/rider.png",
       piece: "https://assets.atlasacademy.io/GameData/JP/Items/7004.png",
       monument: "https://assets.atlasacademy.io/GameData/JP/Items/7104.png",
       ember:
@@ -49,7 +49,7 @@ export const servantClasses = new Map([
     "caster",
     {
       class: "Caster",
-      icon: "https://assets.atlasacademy.io/GameData/JP/ClassIcons/class3_5.png",
+      icon: "/assets/classes/caster.png",
       piece: "https://assets.atlasacademy.io/GameData/JP/Items/7005.png",
       monument: "https://assets.atlasacademy.io/GameData/JP/Items/7105.png",
       ember:
@@ -60,7 +60,7 @@ export const servantClasses = new Map([
     "assassin",
     {
       class: "Assassin",
-      icon: "https://assets.atlasacademy.io/GameData/JP/ClassIcons/class3_6.png",
+      icon: "/assets/classes/assassin.png",
       piece: "https://assets.atlasacademy.io/GameData/JP/Items/7006.png",
       monument: "https://assets.atlasacademy.io/GameData/JP/Items/7106.png",
       ember:
@@ -71,7 +71,7 @@ export const servantClasses = new Map([
     "berserker",
     {
       class: "Berserker",
-      icon: "https://assets.atlasacademy.io/GameData/JP/ClassIcons/class3_7.png",
+      icon: "/assets/classes/berserker.png",
       piece: "https://assets.atlasacademy.io/GameData/JP/Items/7007.png",
       monument: "https://assets.atlasacademy.io/GameData/JP/Items/7107.png",
       ember:
@@ -82,7 +82,7 @@ export const servantClasses = new Map([
     "random",
     {
       class: "Random",
-      icon: "https://assets.atlasacademy.io/GameData/JP/ClassIcons/class3_97.png",
+      icon: "/assets/classes/question.png",
       piece: null,
       monument: null,
       ember: "/assets/randomEmber.png"
@@ -93,38 +93,62 @@ export const servantClasses = new Map([
 export const schedules = [
   {
     name: "Mon",
-    training: "archer",
-    embers: ["lancer", "assassin", "berserker"]
+    training: servantClasses.get("archer"),
+    embers: [
+      servantClasses.get("lancer"),
+      servantClasses.get("assassin"),
+      servantClasses.get("berserker")
+    ]
   },
   {
     name: "Tue",
-    training: "lancer",
-    embers: ["saber", "rider", "berserker"]
+    training: servantClasses.get("lancer"),
+    embers: [
+      servantClasses.get("saber"),
+      servantClasses.get("rider"),
+      servantClasses.get("berserker")
+    ]
   },
   {
     name: "Wed",
-    training: "berserker",
-    embers: ["archer", "caster", "berserker"]
+    training: servantClasses.get("berserker"),
+    embers: [
+      servantClasses.get("archer"),
+      servantClasses.get("caster"),
+      servantClasses.get("berserker")
+    ]
   },
   {
     name: "Thu",
-    training: "rider",
-    embers: ["lancer", "assassin", "berserker"]
+    training: servantClasses.get("rider"),
+    embers: [
+      servantClasses.get("lancer"),
+      servantClasses.get("assassin"),
+      servantClasses.get("berserker")
+    ]
   },
   {
     name: "Fri",
-    training: "caster",
-    embers: ["saber", "rider", "berserker"]
+    training: servantClasses.get("caster"),
+    embers: [
+      servantClasses.get("saber"),
+      servantClasses.get("rider"),
+      servantClasses.get("berserker")
+    ]
   },
   {
     name: "Sat",
-    training: "assassin",
-    embers: ["archer", "caster", "berserker"]
+    training: servantClasses.get("assassin"),
+    embers: [
+      servantClasses.get("archer"),
+      servantClasses.get("caster"),
+      servantClasses.get("berserker")
+    ]
   },
   {
     name: "Sun",
-    training: "saber",
-    embers: Array(3).fill("random")
+    training: servantClasses.get("saber"),
+    embers: Array(3).fill(servantClasses.get("random"))
   }
 ];
 
@@ -132,14 +156,6 @@ export function getWeekday(interval) {
   return spacetime(interval, "utc").format("day-short");
 }
 
-export function findAndMapDay(weekday) {
-  const { name, training, embers } = schedules.find(
-    ({ name }) => name === weekday
-  );
-
-  return {
-    name,
-    training: servantClasses.get(training),
-    embers: embers.map(className => servantClasses.get(className))
-  };
+export function findScheduleByDay(weekday) {
+  return schedules.find(({ name }) => name === weekday);
 }

@@ -1,3 +1,5 @@
+import cc from "classcat";
+
 import styles from "./FGOIcon.module.css";
 import { backgrounds, borderColors } from "@styles/fgoIconTheme";
 
@@ -14,12 +16,16 @@ export default function FGOIcon({
   const borderColor =
     (background ? borderColors.get(background) : undefined) ||
     borderColors.get("black");
-  const classNames = [styles.wrapper];
-  if (className) classNames.push(className);
-  if (background === "clear") classNames.push(styles.clear);
 
   return (
-    <div className={classNames.join(" ")} title={name} style={{ borderColor }}>
+    <div
+      className={cc([
+        styles.wrapper,
+        className,
+        background === "clear" && styles.clear
+      ])}
+      title={name}
+      style={{ borderColor }}>
       {backgroundPath && (
         <div
           className={styles.background}

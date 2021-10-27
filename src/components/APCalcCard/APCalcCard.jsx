@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { useStore } from "nanostores/react";
+import { clamp, isClamped } from "foxkit/clamp";
+import cc from "classcat";
 
 import styles from "./APCalcCard.module.css";
 import { settingsStore, setSetting } from "@stores/settingsStore";
 import { useIsClient } from "@utils/hooks/useIsClient";
 import { useInputNumberValue } from "@utils/hooks/useInputNumberValue";
-import { clamp, isClamped } from "@utils/clamp";
 import {
   MAX_AP_MAX_VALUE,
   MAX_AP_MIN_VALUE,
@@ -22,7 +23,7 @@ import Results from "./Results";
 const validateApOffset = value =>
   /^(0:(0[1-9]|[1-5]\d)|[1-4]:[0-5]\d)$/.test(value);
 
-export default function APCalc({ border, background }) {
+export default function APCalcCard() {
   const isClient = useIsClient();
   const [formMode, setFormMode] = useState("byTargetAp");
   const { userMaxAP, userNodeCost } = useStore(settingsStore);
@@ -160,8 +161,7 @@ export default function APCalc({ border, background }) {
       <Card
         title="AP Calculator"
         icon="/assets/gApple.png"
-        border={border}
-        background={background}
+        color="gold"
         wrapperClassName={styles.cardWrapper}>
         <div className={styles.selectWrapper}>
           <Select value={formMode} onChange={handleFormMode}>
@@ -172,11 +172,10 @@ export default function APCalc({ border, background }) {
         </div>
         {isClient && (
           <div
-            className={
-              formMode === "byMaxAp"
-                ? styles.formGrid
-                : `${styles.formGrid} ${styles.withFourthCol}`
-            }>
+            className={cc([
+              styles.formGrid,
+              formMode !== "byMaxAp" && styles.withFourthCol
+            ])}>
             <FormField label="Max AP" htmlFor="user-max-ap">
               <InputNumber
                 name="user-max-ap"

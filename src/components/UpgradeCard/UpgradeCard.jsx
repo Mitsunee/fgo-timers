@@ -1,5 +1,4 @@
 import styles from "./UpgradeCard.module.css";
-import { borderColors, backgroundColors } from "@styles/fgoIconTheme";
 import { useFormattedTimestamp } from "@utils/hooks/useFormattedTimestamp";
 import { useFormattedEstimate } from "@utils/hooks/useFormattedEstimate";
 import { Card } from "@components/Card";
@@ -17,8 +16,6 @@ export default function UpgradeCard({
   np
 }) {
   const color = skill?.border || np?.border || "blue";
-  const background = backgroundColors.get(color);
-  const border = borderColors.get(color);
   const questRelease = useFormattedTimestamp(quest.open * 1000, "date");
   const questReleaseEstimate = useFormattedEstimate(quest.open * 1000);
 
@@ -29,8 +26,7 @@ export default function UpgradeCard({
       }`}
       icon={servant.icon}
       forceRoundIcon
-      border={border}
-      background={background}
+      color={color}
       className={styles.card}>
       <h2>
         {quest.name} ({quest.type === "interlude" ? "Interlude" : "Rank Up"})
