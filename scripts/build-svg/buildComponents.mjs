@@ -30,7 +30,7 @@ export async function buildComponents(svgFiles) {
       .replace(/^[a-z]/, c => c.toUpperCase())
       .replace(/[_-][a-z]/g, c => c.substring(1).toUpperCase())
       .replace(/[^a-z]/gi, "");
-    const spinner = createSpinner(`Building ${componentName}`);
+    const spinner = createSpinner(`Building ${componentName}`).start();
 
     // check for naming conflicts
     if (fileNames.has(componentName)) {
@@ -43,7 +43,6 @@ export async function buildComponents(svgFiles) {
     }
 
     // build component
-    spinner.start();
     components.push(componentName);
     fileNames.set(componentName, file);
     const fileContent = await readFile(file);
