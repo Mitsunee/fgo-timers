@@ -1,6 +1,5 @@
-import cc from "classcat";
-
 import styles from "./ScheduleRow.module.css";
+import { InfoTableRow } from "@components/InfoTable";
 import FGOIcon from "@components/FGOIcon";
 
 export default function ScheduleRow({
@@ -10,7 +9,7 @@ export default function ScheduleRow({
   activeDay = false
 }) {
   return (
-    <tr className={cc(activeDay && styles.active)}>
+    <InfoTableRow active={activeDay}>
       <th>{short}</th>
       <td>
         <div className={styles.iconRow}>
@@ -35,6 +34,6 @@ export default function ScheduleRow({
           ))}
         </div>
       </td>
-    </tr>
+    </InfoTableRow>
   );
 }
