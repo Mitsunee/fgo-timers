@@ -12,8 +12,9 @@ import Meta from "@components/Meta";
 import Clocks from "@components/Clocks";
 import { CardGrid } from "@components/Card";
 import LoginTicketCard from "@components/LoginTicketCard";
-import ShopCard from "@components/ShopCard";
+import MasterMissionCard from "@components/MasterMissionCard";
 import ChaldeaGateCard from "@components/ChaldeaGateCard";
+import ShopCard from "@components/ShopCard";
 import APCalcCard from "@components/APCalcCard";
 
 export default function TimersPage({
@@ -42,6 +43,7 @@ export default function TimersPage({
           itemData={itemData}
           interval={interval}
         />
+        <MasterMissionCard interval={interval} />
         <ChaldeaGateCard interval={interval} />
         <ShopCard
           shopData={mpShopData}

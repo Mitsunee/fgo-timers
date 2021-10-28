@@ -5,11 +5,11 @@ import lt from "long-timeout";
 // import styles from "./LoginTicketCard.module.css";
 import { useFormattedSpacetime } from "@utils/hooks/useFormattedSpacetime";
 import { useFormattedDelta } from "@utils/hooks/useFormattedDelta";
-import { useRecurringDaily } from "@utils/hooks/useRecurringDaily";
-import { useFormattedTimestamp } from "@utils/hooks/useFormattedTimestamp";
 import { Card } from "@components/Card";
 import { FGOItemList, FGOItemListItem } from "@components/FGOItemList";
 import NoSSR from "@components/NoSSR";
+import NextLogin from "./NextLogin";
+import NextServerMilestone from "./NextServerMilestone";
 
 export default function LoginTicketCard({ tickets, itemData, interval }) {
   const timeoutRef = useRef(null);
@@ -17,9 +17,6 @@ export default function LoginTicketCard({ tickets, itemData, interval }) {
   const [nextMonth, setNextMonth] = useState(null);
   const nextMonthDate = useFormattedSpacetime(nextMonth, "short");
   const nextMonthDelta = useFormattedDelta(interval, nextMonth);
-  const nextLogin = useRecurringDaily({ hour: 4, tz: "utc" });
-  const nextLoginDate = useFormattedTimestamp(nextLogin, "short");
-  const nextLoginDelta = useFormattedDelta(interval, nextLogin);
 
   // effect that find currentMonth in tickets and manages timeout to update
   useEffect(() => {
@@ -61,16 +58,13 @@ export default function LoginTicketCard({ tickets, itemData, interval }) {
           ))}
       </FGOItemList>
       <NoSSR>
-        <p>
-          Next Login Bonus Reset:
-          <br />
-          {nextLoginDelta} ({nextLoginDate})
-        </p>
+        <NextLogin interval={interval} />
         <p>
           Next Exchange Ticket Rotation:
           <br />
           {nextMonthDelta} ({nextMonthDate})
         </p>
+        <NextServerMilestone interval={interval} />
       </NoSSR>
     </Card>
   );

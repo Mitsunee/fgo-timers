@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 
-import styles from "./Loading.module.css";
+import styles from "./Pending.module.css";
 import { useIsClient } from "@utils/hooks/useIsClient";
-import Modal from "@components/Modal";
 
-export default function Loading() {
+export default function Pending() {
   const [dots, setDots] = useState(0);
   const isClient = useIsClient();
 
@@ -15,10 +14,9 @@ export default function Loading() {
   }, [isClient, dots]);
 
   return (
-    <Modal>
+    <div>
       <h1 className={styles.title}>Loading{".".repeat(dots)}</h1>
-      <hr className={styles.line} />
       <img src="/assets/loading.png" alt="loading" className={styles.cat} />
-    </Modal>
+    </div>
   );
 }

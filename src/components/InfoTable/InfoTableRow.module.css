@@ -1,0 +1,6 @@
+.active {
+  th,
+  td {
+    background-color: background-dark;
+  }
+}

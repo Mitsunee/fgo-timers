@@ -1,12 +1,13 @@
-import styles from "./ScheduleTable.module.css";
+//import styles from "./ScheduleTable.module.css";
 import { schedules } from "./schedules";
 import CollapsableSection from "@components/CollapsableSection";
+import { InfoTable } from "@components/InfoTable";
 import ScheduleRow from "./ScheduleRow";
 
 export default function ScheduleTable({ weekday }) {
   return (
     <CollapsableSection summary="Schedule">
-      <table className={styles.table}>
+      <InfoTable>
         <thead>
           <tr>
             <th>Day</th>
@@ -25,7 +26,7 @@ export default function ScheduleTable({ weekday }) {
             />
           ))}
         </tbody>
-      </table>
+      </InfoTable>
     </CollapsableSection>
   );
 }

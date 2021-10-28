@@ -1,0 +1,19 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.66em 0px;
+
+  th {
+    font-weight: 700;
+  }
+
+  th,
+  td {
+    padding: 0.33em;
+  }
+
+  th,
+  tr:hover > td {
+    background-color: background-dark;
+  }
+}
