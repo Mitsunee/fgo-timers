@@ -4,30 +4,21 @@ import { getEventFileList } from "@utils/server/events/getEventFileList";
 import { parseEventFile } from "@utils/server/events/parseEventFile";
 
 import styles from "@styles/EventsPage.module.css";
-import Headline from "@components/Headline";
-import { useIsClient } from "@utils/hooks/useIsClient";
+import { useInterval } from "@utils/hooks/useInterval";
+import Meta from "@components/Meta";
+import EventCard from "@components/EventCard";
 
 export default function EventsPage({ events }) {
-  const isClient = useIsClient();
-
-  // DEBUG
-  if (isClient) {
-    //console.log({ events });
-  }
+  const interval = useInterval(1000);
   // TODO: Meta
 
   return (
     <>
-      <Headline>PLACEHOLDER - EVENTS</Headline>
+      <Meta title="Events" description="Event Timers for Fate/Grand Order NA" />
       <section className={styles.grid}>
-        {
-          // PLACEHOLDER
-          events.map(event => (
-            <div key={event.shortTitle}>
-              <img src={`/banners/${event.banner}`} alt={event.shortTitle} />
-            </div>
-          ))
-        }
+        {events.map(event => (
+          <EventCard key={event.shortTitle} interval={interval} {...event} />
+        ))}
       </section>
     </>
   );
@@ -45,7 +36,8 @@ export async function getStaticProps() {
       shortTitle: data.shortTitle,
       slug: basename(file, extname(file)),
       banner: data.banner,
-      startsAt: data.startsAt
+      startsAt: data.startsAt,
+      displayOrder: data.displayOrder ?? 0
     };
 
     if (typeof data.endsAt !== "undefined") {
@@ -53,23 +45,27 @@ export async function getStaticProps() {
     }
 
     if (typeof data.hideWhenDone !== "undefined") {
-      event.hideWhenDone = data.hideWhenDone;
-
       // don't include events in data that are hidden already
       if (
-        event.hideWhenDone &&
+        data.hideWhenDone &&
         ((typeof data.endsAt === "undefined" && data.startsAt < buildTime) ||
           (typeof data.endsAt === "number" && data.endsAt < buildTime))
       ) {
         continue;
       }
+
+      event.hideWhenDone = data.hideWhenDone;
     }
 
     events.push(event);
   }
 
-  // TODO: priority prop to sort by if startsAt is the same?
-  events = events.sort((a, b) => a.startsAt - b.startsAt);
+  events = events.sort((a, b) => {
+    if (a.startsAt === b.startsAt) {
+      return a.displayOrder - b.displayOrder;
+    }
+    return a.startsAt - b.startsAt;
+  });
 
   return {
     props: { events }
