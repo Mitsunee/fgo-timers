@@ -3,15 +3,4 @@
   justify-content: space-around;
   flex-wrap: wrap;
   gap: [0.66em, null, 1.33em];
-
-  div {
-    max-width: 800px;
-    flex: 1 1 400px;
-    aspect-ratio: 8 / 3;
-
-    img {
-      width: 100%;
-      height: auto;
-    }
-  }
 }
