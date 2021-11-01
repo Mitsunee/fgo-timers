@@ -10,7 +10,6 @@ import EventCard from "@components/EventCard";
 
 export default function EventsPage({ events }) {
   const interval = useInterval(1000);
-  // TODO: Meta
 
   return (
     <>
@@ -44,17 +43,13 @@ export async function getStaticProps() {
       event.endsAt = data.endsAt;
     }
 
-    if (typeof data.hideWhenDone !== "undefined") {
-      // don't include events in data that are hidden already
-      if (
-        data.hideWhenDone &&
-        ((typeof data.endsAt === "undefined" && data.startsAt < buildTime) ||
-          (typeof data.endsAt === "number" && data.endsAt < buildTime))
-      ) {
-        continue;
-      }
-
-      event.hideWhenDone = data.hideWhenDone;
+    // don't include events in data that are hidden already
+    if (
+      data.hideWhenDone === true &&
+      ((typeof data.endsAt === "undefined" && data.startsAt < buildTime) ||
+        (typeof data.endsAt === "number" && data.endsAt < buildTime))
+    ) {
+      continue;
     }
 
     events.push(event);
@@ -64,10 +59,9 @@ export async function getStaticProps() {
     if (a.startsAt === b.startsAt) {
       return a.displayOrder - b.displayOrder;
     }
+
     return a.startsAt - b.startsAt;
   });
 
-  return {
-    props: { events }
-  };
+  return { props: { events } };
 }
