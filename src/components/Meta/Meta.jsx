@@ -8,11 +8,16 @@ export default function Meta({
   title,
   description,
   image = false,
-  noTitleSuffix = false
+  noTitleSuffix = false,
+  headerTitle = false,
+  headerDescription = false
 }) {
   useEffect(() => {
-    setPageMeta({ title, description });
-  }, [title, description]);
+    setPageMeta({
+      title: headerTitle ?? title,
+      description: headerDescription ?? description
+    });
+  }, [headerTitle, title, headerDescription, description]);
 
   return (
     <Head>
@@ -54,6 +59,7 @@ export default function Meta({
       {process.env.NEXT_PUBLIC_DOMAIN && (
         <link
           rel="canonical"
+          // TODO: put path from router into canonical meta tag
           href={`https://${process.env.NEXT_PUBLIC_DOMAIN}/`}
         />
       )}
