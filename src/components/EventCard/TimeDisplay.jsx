@@ -9,7 +9,11 @@ export default function TimeDisplay({ startsAt, endsAt = false, interval }) {
   return (
     <div className={styles.time}>
       <IconHourglass className={styles.icon} />
-      {target ? `${interval > startsAt ? "Ends:" : "Starts:"} ${delta}` : "---"}
+      {endsAt && endsAt < interval
+        ? "Ended"
+        : target
+        ? `${interval > startsAt ? "Ends:" : "Starts:"} ${delta}`
+        : "---"}
     </div>
   );
 }
