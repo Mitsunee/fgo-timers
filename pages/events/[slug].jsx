@@ -31,6 +31,7 @@ export default function EventPage({
         image={`/banners/${banner}`}
         description={`Event Timers for ${title}`}
         headerDescription={`Event Timers for ${shortTitle}`}
+        noTitleSuffix
       />
       <div className={styles.header}>
         {/* TODO: Modal */}

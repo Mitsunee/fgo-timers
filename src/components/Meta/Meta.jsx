@@ -9,8 +9,8 @@ export default function Meta({
   description,
   image = false,
   noTitleSuffix = false,
-  headerTitle = false,
-  headerDescription = false
+  headerTitle = null,
+  headerDescription = null
 }) {
   useEffect(() => {
     setPageMeta({
