@@ -8,10 +8,9 @@ export default function EventTimeRow({ title, target, interval }) {
 
   return (
     <tr>
-      <th>{title}</th>
-      <td>
-        {delta} ({date})
-      </td>
+      <td>{title}</td>
+      <td>{delta}</td>
+      <td>{date}</td>
     </tr>
   );
 }

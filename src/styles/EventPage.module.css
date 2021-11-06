@@ -11,3 +11,17 @@
     height: auto;
   }
 }
+
+.table {
+  tr > td:first-child {
+    text-align: right;
+    width: 50%;
+  }
+  tr > td:not(:first-child) {
+    text-align: center;
+    width: 25%;
+  }
+  .headerRow {
+    font-size: 1.25em;
+  }
+}

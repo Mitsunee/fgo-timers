@@ -10,30 +10,18 @@ import Meta from "@components/Meta";
 import { InfoTable } from "@components/InfoTable";
 import EventTimeRow from "@components/EventTimeRow";
 
-export default function EventPage(
-  debug
-  /*
-{
+export default function EventPage({
   title,
+  shortTitle,
   banner,
   url,
   startsAt,
-  endsAt,
-  times
-}
-*/
-) {
+  endsAt = null,
+  times = []
+}) {
   const interval = useInterval(1000);
-  // TEMP:
-  const {
-    title,
-    shortTitle,
-    banner,
-    url,
-    startsAt,
-    endsAt = null,
-    times = []
-  } = debug;
+
+  // TODO: Description section
 
   return (
     <>
@@ -53,10 +41,15 @@ export default function EventPage(
           <img src={`/banners/${banner}`} alt={title} />
         </a>
       </div>
-      <InfoTable>
+      <InfoTable background className={styles.table}>
         <thead>
           <tr>
-            <th colSpan={2}>{title}</th>
+            <th colSpan={3}>{title}</th>
+          </tr>
+          <tr className={styles.headerRow}>
+            <th>#</th>
+            <th>in</th>
+            <th>at</th>
           </tr>
         </thead>
         <tbody>
@@ -72,11 +65,32 @@ export default function EventPage(
               target={endsAt}
             />
           )}
+          {times.map((time, idx) => {
+            // TODO: rotating events
+            // skip finished times where hideWhenDone is set
+            if (
+              time.hideWhenDone &&
+              ((time.endsAt && interval > time.endsAt) ||
+                (!time.endsAt && interval > time.startsAt))
+            ) {
+              return null;
+            }
+
+            return (
+              <EventTimeRow
+                key={idx}
+                title={time.title}
+                interval={interval}
+                target={
+                  time.startsAt > interval
+                    ? time.startsAt
+                    : time.endsAt || time.startsAt
+                }
+              />
+            );
+          })}
         </tbody>
       </InfoTable>
-      <code>
-        <pre>{JSON.stringify(debug, null, 2)}</pre>
-      </code>
     </>
   );
 }

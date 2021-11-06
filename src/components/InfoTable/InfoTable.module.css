@@ -12,6 +12,7 @@
     padding: 0.33em;
   }
 
+  &.background,
   th,
   tr:hover > td {
     background-color: background-dark;
