@@ -6,10 +6,9 @@ export const servantClasses = new Map([
     {
       class: "Saber",
       icon: "/assets/classes/saber.png",
-      piece: "https://assets.atlasacademy.io/GameData/JP/Items/7001.png",
-      monument: "https://assets.atlasacademy.io/GameData/JP/Items/7101.png",
-      ember:
-        "https://assets.atlasacademy.io/GameData/JP/Faces/f_97014000_bordered.png"
+      piece: "https://static.atlasacademy.io/NA/Items/7001.png",
+      monument: "https://static.atlasacademy.io/NA/Items/7101.png",
+      ember: "https://static.atlasacademy.io/NA/Faces/f_97014000_bordered.png"
     }
   ],
   [
@@ -17,10 +16,9 @@ export const servantClasses = new Map([
     {
       class: "Archer",
       icon: "/assets/classes/archer.png",
-      piece: "https://assets.atlasacademy.io/GameData/JP/Items/7002.png",
-      monument: "https://assets.atlasacademy.io/GameData/JP/Items/7102.png",
-      ember:
-        "https://assets.atlasacademy.io/GameData/JP/Faces/f_97034000_bordered.png"
+      piece: "https://static.atlasacademy.io/NA/Items/7002.png",
+      monument: "https://static.atlasacademy.io/NA/Items/7102.png",
+      ember: "https://static.atlasacademy.io/NA/Faces/f_97034000_bordered.png"
     }
   ],
   [
@@ -28,10 +26,9 @@ export const servantClasses = new Map([
     {
       class: "Lancer",
       icon: "/assets/classes/lancer.png",
-      piece: "https://assets.atlasacademy.io/GameData/JP/Items/7003.png",
-      monument: "https://assets.atlasacademy.io/GameData/JP/Items/7103.png",
-      ember:
-        "https://assets.atlasacademy.io/GameData/JP/Faces/f_97024000_bordered.png"
+      piece: "https://static.atlasacademy.io/NA/Items/7003.png",
+      monument: "https://static.atlasacademy.io/NA/Items/7103.png",
+      ember: "https://static.atlasacademy.io/NA/Faces/f_97024000_bordered.png"
     }
   ],
   [
@@ -39,10 +36,9 @@ export const servantClasses = new Map([
     {
       class: "Rider",
       icon: "/assets/classes/rider.png",
-      piece: "https://assets.atlasacademy.io/GameData/JP/Items/7004.png",
-      monument: "https://assets.atlasacademy.io/GameData/JP/Items/7104.png",
-      ember:
-        "https://assets.atlasacademy.io/GameData/JP/Faces/f_97044000_bordered.png"
+      piece: "https://static.atlasacademy.io/NA/Items/7004.png",
+      monument: "https://static.atlasacademy.io/NA/Items/7104.png",
+      ember: "https://static.atlasacademy.io/NA/Faces/f_97044000_bordered.png"
     }
   ],
   [
@@ -50,10 +46,9 @@ export const servantClasses = new Map([
     {
       class: "Caster",
       icon: "/assets/classes/caster.png",
-      piece: "https://assets.atlasacademy.io/GameData/JP/Items/7005.png",
-      monument: "https://assets.atlasacademy.io/GameData/JP/Items/7105.png",
-      ember:
-        "https://assets.atlasacademy.io/GameData/JP/Faces/f_97054000_bordered.png"
+      piece: "https://static.atlasacademy.io/NA/Items/7005.png",
+      monument: "https://static.atlasacademy.io/NA/Items/7105.png",
+      ember: "https://static.atlasacademy.io/NA/Faces/f_97054000_bordered.png"
     }
   ],
   [
@@ -61,10 +56,9 @@ export const servantClasses = new Map([
     {
       class: "Assassin",
       icon: "/assets/classes/assassin.png",
-      piece: "https://assets.atlasacademy.io/GameData/JP/Items/7006.png",
-      monument: "https://assets.atlasacademy.io/GameData/JP/Items/7106.png",
-      ember:
-        "https://assets.atlasacademy.io/GameData/JP/Faces/f_97064000_bordered.png"
+      piece: "https://static.atlasacademy.io/NA/Items/7006.png",
+      monument: "https://static.atlasacademy.io/NA/Items/7106.png",
+      ember: "https://static.atlasacademy.io/NA/Faces/f_97064000_bordered.png"
     }
   ],
   [
@@ -72,10 +66,9 @@ export const servantClasses = new Map([
     {
       class: "Berserker",
       icon: "/assets/classes/berserker.png",
-      piece: "https://assets.atlasacademy.io/GameData/JP/Items/7007.png",
-      monument: "https://assets.atlasacademy.io/GameData/JP/Items/7107.png",
-      ember:
-        "https://assets.atlasacademy.io/GameData/JP/Faces/f_97074000_bordered.png"
+      piece: "https://static.atlasacademy.io/NA/Items/7007.png",
+      monument: "https://static.atlasacademy.io/NA/Items/7107.png",
+      ember: "https://static.atlasacademy.io/NA/Faces/f_97074000_bordered.png"
     }
   ],
   [

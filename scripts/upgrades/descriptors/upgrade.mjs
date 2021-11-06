@@ -8,7 +8,7 @@ import { log } from "../../shared/log.mjs";
 const PLACEHOLDER_SKILL = {
   id: 0,
   name: null,
-  icon: "https://assets.atlasacademy.io/GameData/JP/SkillIcons/skill_999999.png",
+  icon: "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png",
   priority: 0
 };
 

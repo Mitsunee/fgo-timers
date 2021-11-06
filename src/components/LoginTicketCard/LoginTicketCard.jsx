@@ -49,7 +49,7 @@ export default function LoginTicketCard({ tickets, itemData, interval }) {
   return currentMonth === null ? null : (
     <Card
       title="Login Exchange Tickets"
-      icon="https://assets.atlasacademy.io/GameData/NA/Items/10000.png">
+      icon="https://static.atlasacademy.io/NA/Items/10000.png">
       <FGOItemList>
         {currentMonth
           .map(id => itemData[id])
