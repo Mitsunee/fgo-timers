@@ -1,5 +1,6 @@
 .header {
   width: 100%;
+  margin-bottom: 1.66em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,13 +14,14 @@
 }
 
 .table {
-  tr > td:first-child {
-    text-align: right;
-    width: 50%;
-  }
-  tr > td:not(:first-child) {
+  tr > td {
     text-align: center;
-    width: 25%;
+    &:first-child {
+      width: 50%;
+    }
+    &:not(:first-child) {
+      width: 25%;
+    }
   }
   .headerRow {
     font-size: 1.25em;

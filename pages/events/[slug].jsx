@@ -7,6 +7,8 @@ import { parseEventFile } from "@utils/server/events/parseEventFile";
 import styles from "@styles/EventPage.module.css";
 import { useInterval } from "@utils/hooks/useInterval";
 import Meta from "@components/Meta";
+import Headline from "@components/Headline";
+import Section from "@components/Section";
 import { InfoTable } from "@components/InfoTable";
 import EventTimeRow from "@components/EventTimeRow";
 
@@ -17,11 +19,10 @@ export default function EventPage({
   url,
   startsAt,
   endsAt = null,
-  times = []
+  times = [],
+  description
 }) {
   const interval = useInterval(1000);
-
-  // TODO: Description section
 
   return (
     <>
@@ -29,7 +30,9 @@ export default function EventPage({
         title={title}
         headerTitle="Events"
         image={`/banners/${banner}`}
-        description={`Event Timers for ${title}`}
+        description={`Event Timers for ${title}${
+          description ? `. ${description[0].slice(0, 150)}...` : ""
+        }`}
         headerDescription={`Event Timers for ${shortTitle}`}
       />
       <div className={styles.header}>
@@ -41,11 +44,16 @@ export default function EventPage({
           <img src={`/banners/${banner}`} alt={title} />
         </a>
       </div>
+      <Headline>{title}</Headline>
+      {description && (
+        <Section background>
+          {description.map((line, idx) => (
+            <p key={idx}>{line}</p>
+          ))}
+        </Section>
+      )}
       <InfoTable background className={styles.table}>
         <thead>
-          <tr>
-            <th colSpan={3}>{title}</th>
-          </tr>
           <tr className={styles.headerRow}>
             <th>#</th>
             <th>in</th>
@@ -139,6 +147,13 @@ export async function getStaticProps(context) {
 
   if (typeof data.times !== "undefined") {
     props.times = data.times;
+  }
+
+  if (typeof data.description !== "undefined") {
+    props.description = data.description
+      .trim()
+      .replace(/\n{2,}/gm, "\n")
+      .split("\n");
   }
 
   return { props };
