@@ -31,7 +31,6 @@ export default function EventPage({
         image={`/banners/${banner}`}
         description={`Event Timers for ${title}`}
         headerDescription={`Event Timers for ${shortTitle}`}
-        noTitleSuffix
       />
       <div className={styles.header}>
         {/* TODO: Modal */}
@@ -67,7 +66,24 @@ export default function EventPage({
             />
           )}
           {times.map((time, idx) => {
-            // TODO: rotating events
+            // handle rotating times
+            if (time.times) {
+              let next = time.times.find(({ startsAt }) => startsAt > interval);
+              if (!next && time.hideWhenDone) return null;
+              if (!next) {
+                next = time.times[time.times.length - 1];
+              }
+
+              return (
+                <EventTimeRow
+                  key={idx}
+                  title={next.title}
+                  interval={interval}
+                  target={next.startsAt}
+                />
+              );
+            }
+
             // skip finished times where hideWhenDone is set
             if (
               time.hideWhenDone &&
