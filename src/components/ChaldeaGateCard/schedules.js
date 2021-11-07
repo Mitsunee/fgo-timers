@@ -1,5 +1,3 @@
-import spacetime from "spacetime";
-
 export const servantClasses = new Map([
   [
     "saber",
@@ -144,10 +142,6 @@ export const schedules = [
     embers: Array(3).fill(servantClasses.get("random"))
   }
 ];
-
-export function getWeekday(interval) {
-  return spacetime(interval, "utc").format("day-short");
-}
 
 export function findScheduleByDay(weekday) {
   return schedules.find(({ name }) => name === weekday);

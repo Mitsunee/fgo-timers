@@ -11,12 +11,12 @@ import NoSSR from "@components/NoSSR";
 import NextLogin from "./NextLogin";
 import NextServerMilestone from "./NextServerMilestone";
 
-export default function LoginTicketCard({ tickets, itemData, interval }) {
+export default function LoginTicketCard({ tickets, itemData }) {
   const timeoutRef = useRef(null);
   const [currentMonth, setCurrentMonth] = useState(null);
   const [nextMonth, setNextMonth] = useState(null);
   const nextMonthDate = useFormattedSpacetime(nextMonth, "short");
-  const nextMonthDelta = useFormattedDelta(interval, nextMonth);
+  const nextMonthDelta = useFormattedDelta(nextMonth);
 
   // effect that find currentMonth in tickets and manages timeout to update
   useEffect(() => {
@@ -58,13 +58,13 @@ export default function LoginTicketCard({ tickets, itemData, interval }) {
           ))}
       </FGOItemList>
       <NoSSR>
-        <NextLogin interval={interval} />
+        <NextLogin />
         <p>
           Next Exchange Ticket Rotation:
           <br />
           {nextMonthDelta} ({nextMonthDate})
         </p>
-        <NextServerMilestone interval={interval} />
+        <NextServerMilestone />
       </NoSSR>
     </Card>
   );

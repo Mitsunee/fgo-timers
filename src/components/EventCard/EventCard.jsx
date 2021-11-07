@@ -1,8 +1,9 @@
 import Link from "next/link";
 
 import styles from "./EventCard.module.css";
-import TimeDisplay from "./TimeDisplay";
 import Overlay from "./Overlay";
+import NoSSR from "@components/NoSSR";
+import TimeDisplay from "./TimeDisplay";
 
 export default function EventCard({
   title,
@@ -10,15 +11,16 @@ export default function EventCard({
   slug,
   banner,
   startsAt,
-  endsAt,
-  interval
+  endsAt
 }) {
   return (
     <Link href={`/events/${slug}/`} passHref>
       <a className={styles.card} title={title}>
         <img src={`/banners/${banner}`} alt={slug} />
         <Overlay title={title} shortTitle={shortTitle} />
-        <TimeDisplay startsAt={startsAt} endsAt={endsAt} interval={interval} />
+        <NoSSR>
+          <TimeDisplay startsAt={startsAt} endsAt={endsAt} />
+        </NoSSR>
       </a>
     </Link>
   );

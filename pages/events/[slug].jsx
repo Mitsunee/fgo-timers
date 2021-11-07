@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useStore } from "nanostores/react";
 
 import { basename, extname } from "path";
 import { getEventFileList } from "@utils/server/events/getEventFileList";
@@ -6,10 +7,11 @@ import { resolveFilePath } from "@utils/server/resolveFilePath";
 import { parseEventFile } from "@utils/server/events/parseEventFile";
 
 import styles from "@styles/EventPage.module.css";
-import { useInterval } from "@utils/hooks/useInterval";
+import { intervalStore } from "@stores/intervalStore";
 import Meta from "@components/Meta";
 import Headline from "@components/Headline";
 import Section from "@components/Section";
+import NoSSR from "@components/NoSSR";
 import { InfoTable } from "@components/InfoTable";
 import EventTimeRow from "@components/EventTimeRow";
 import Modal from "@components/Modal";
@@ -26,8 +28,8 @@ export default function EventPage({
   times = [],
   description
 }) {
-  const interval = useInterval(1000);
   const [showModal, setShowModal] = useState(false);
+  const { interval } = useStore(intervalStore);
 
   const handleModalOpen = event => {
     event.preventDefault();
@@ -63,82 +65,82 @@ export default function EventPage({
           ))}
         </Section>
       )}
-      <InfoTable background className={styles.table}>
-        <thead>
-          <tr className={styles.headerRow}>
-            <th>#</th>
-            <th>in</th>
-            <th>at</th>
-          </tr>
-        </thead>
-        <tbody>
-          <EventTimeRow
-            title={startsAt > interval ? "Starts" : "Started"}
-            interval={interval}
-            target={startsAt}
-          />
-          {endsAt !== null && (
+      <NoSSR>
+        <InfoTable background className={styles.table}>
+          <thead>
+            <tr className={styles.headerRow}>
+              <th>#</th>
+              <th>in</th>
+              <th>at</th>
+            </tr>
+          </thead>
+          <tbody>
             <EventTimeRow
-              title={endsAt > interval ? "Ends" : "Ended"}
-              interval={interval}
-              target={endsAt}
+              title={startsAt > interval ? "Starts" : "Started"}
+              target={startsAt}
             />
-          )}
-          {times.map((time, idx) => {
-            // handle rotating times
-            if (time.times) {
-              let next = time.times.find(({ startsAt }) => startsAt > interval);
-              if (!next && time.hideWhenDone) return null;
-              if (!next) {
-                next = time.times[time.times.length - 1];
+            {endsAt !== null && (
+              <EventTimeRow
+                title={endsAt > interval ? "Ends" : "Ended"}
+                target={endsAt}
+              />
+            )}
+            {times.map((time, idx) => {
+              // handle rotating times
+              if (time.times) {
+                let next = time.times.find(
+                  ({ startsAt }) => startsAt > interval
+                );
+                if (!next && time.hideWhenDone) return null;
+                if (!next) {
+                  next = time.times[time.times.length - 1];
+                }
+
+                return (
+                  <EventTimeRow
+                    key={idx}
+                    title={next.title}
+                    target={next.startsAt}
+                  />
+                );
+              }
+
+              // skip finished times where hideWhenDone is set
+              if (
+                time.hideWhenDone &&
+                ((time.endsAt && interval > time.endsAt) ||
+                  (!time.endsAt && interval > time.startsAt))
+              ) {
+                return null;
               }
 
               return (
                 <EventTimeRow
                   key={idx}
-                  title={next.title}
-                  interval={interval}
-                  target={next.startsAt}
+                  title={time.title}
+                  target={
+                    time.startsAt > interval
+                      ? time.startsAt
+                      : time.endsAt || time.startsAt
+                  }
                 />
               );
-            }
-
-            // skip finished times where hideWhenDone is set
-            if (
-              time.hideWhenDone &&
-              ((time.endsAt && interval > time.endsAt) ||
-                (!time.endsAt && interval > time.startsAt))
-            ) {
-              return null;
-            }
-
-            return (
-              <EventTimeRow
-                key={idx}
-                title={time.title}
-                interval={interval}
-                target={
-                  time.startsAt > interval
-                    ? time.startsAt
-                    : time.endsAt || time.startsAt
-                }
+            })}
+          </tbody>
+        </InfoTable>
+        {showModal && (
+          <Modal>
+            <div className={styles.iframeWrapper}>
+              <iframe src={`https://webview.fate-go.us/iframe/${url}`} />
+              <Button
+                className={styles.close}
+                iconComponent={IconClose}
+                onClick={() => setShowModal(false)}
               />
-            );
-          })}
-        </tbody>
-      </InfoTable>
-      {showModal && (
-        <Modal>
-          <div className={styles.iframeWrapper}>
-            <iframe src={`https://webview.fate-go.us/iframe/${url}`} />
-            <Button
-              className={styles.close}
-              iconComponent={IconClose}
-              onClick={() => setShowModal(false)}
-            />
-          </div>
-        </Modal>
-      )}
+            </div>
+          </Modal>
+        )}
+      </NoSSR>
     </>
   );
 }

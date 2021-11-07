@@ -4,19 +4,16 @@ import { getEventFileList } from "@utils/server/events/getEventFileList";
 import { parseEventFile } from "@utils/server/events/parseEventFile";
 
 import styles from "@styles/EventsPage.module.css";
-import { useInterval } from "@utils/hooks/useInterval";
 import Meta from "@components/Meta";
 import EventCard from "@components/EventCard";
 
 export default function EventsPage({ events }) {
-  const interval = useInterval(1000);
-
   return (
     <>
       <Meta title="Events" description="Event Timers for Fate/Grand Order NA" />
       <section className={styles.grid}>
         {events.map(event => (
-          <EventCard key={event.shortTitle} interval={interval} {...event} />
+          <EventCard key={event.shortTitle} {...event} />
         ))}
       </section>
     </>

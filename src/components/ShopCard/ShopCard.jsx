@@ -10,11 +10,11 @@ import NoSSR from "@components/NoSSR";
 import ShopCardListItem from "./ShopCardListItem";
 import ShopCardLimitedItem from "./ShopCardLimitedItem";
 
-export default function ShopCard({ shopData, interval, endsAt }) {
+export default function ShopCard({ shopData, endsAt }) {
   const { inventory, limitedInventory, ...cardProps } = shopData;
   const endsAtSpaceTime = useMemo(() => spacetime(endsAt), [endsAt]);
   const nextMonthDate = useFormattedSpacetime(endsAtSpaceTime || null, "short");
-  const nextMonthDelta = useFormattedDelta(interval, endsAtSpaceTime || null);
+  const nextMonthDelta = useFormattedDelta(endsAtSpaceTime || null);
 
   return (
     <Card {...cardProps}>

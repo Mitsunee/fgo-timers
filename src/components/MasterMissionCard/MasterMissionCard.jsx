@@ -8,7 +8,7 @@ import Pending from "@components/Pending";
 import WeeklyMissionList from "./WeeklyMissionList";
 import MissionList from "./MissionList";
 
-export default function MasterMissionCard({ interval }) {
+export default function MasterMissionCard() {
   const [loading, data, error] = useFetch(
     `${ATLAS_API}export/NA/nice_master_mission.json`
   );
@@ -38,7 +38,7 @@ export default function MasterMissionCard({ interval }) {
         ) : loading ? (
           <Pending />
         ) : (
-          <WeeklyMissionList data={data} interval={interval} />
+          <WeeklyMissionList data={data} />
         )}
       </Card>
       {limitedMissions.length > 0 && (
@@ -50,7 +50,6 @@ export default function MasterMissionCard({ interval }) {
             <MissionList
               key={data[limitedMission].id}
               data={data[limitedMission]}
-              interval={interval}
             />
           ))}
         </Card>

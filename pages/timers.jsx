@@ -6,7 +6,6 @@ import { parseTicketFile } from "@utils/server/loginTickets/parseTicketFile";
 import { parseShopFile } from "@utils/server/parseShopFile";
 
 //import styles from "@styles/TimersPage.module.css";
-import { useInterval } from "@utils/hooks/useInterval";
 import { useRecurringEvent } from "@utils/hooks/useRecurringEvent";
 import Meta from "@components/Meta";
 import Clocks from "@components/Clocks";
@@ -23,38 +22,19 @@ export default function TimersPage({
   mpShopData,
   rpShopData
 }) {
-  const interval = useInterval(1000);
-  const mpShopReset = useRecurringEvent(
-    { day: 1, hour: 0, tz: "utc" },
-    interval
-  );
-  const rpShopReset = useRecurringEvent(
-    { day: 15, hour: 0, tz: "utc" },
-    interval
-  );
+  const mpShopReset = useRecurringEvent({ day: 1, hour: 0, tz: "utc" });
+  const rpShopReset = useRecurringEvent({ day: 15, hour: 0, tz: "utc" });
 
   return (
     <>
       <Meta title="Timers" description="Timers for Fate/Grand Order" />
-      <Clocks interval={interval} />
+      <Clocks />
       <CardGrid>
-        <LoginTicketCard
-          tickets={tickets}
-          itemData={itemData}
-          interval={interval}
-        />
-        <MasterMissionCard interval={interval} />
-        <ChaldeaGateCard interval={interval} />
-        <ShopCard
-          shopData={mpShopData}
-          endsAt={mpShopReset}
-          interval={interval}
-        />
-        <ShopCard
-          shopData={rpShopData}
-          endsAt={rpShopReset}
-          interval={interval}
-        />
+        <LoginTicketCard tickets={tickets} itemData={itemData} />
+        <MasterMissionCard />
+        <ChaldeaGateCard />
+        <ShopCard shopData={mpShopData} endsAt={mpShopReset} />
+        <ShopCard shopData={rpShopData} endsAt={rpShopReset} />
         <APCalcCard />
       </CardGrid>
     </>

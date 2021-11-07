@@ -1,9 +1,13 @@
 import { useRef, useState, useEffect } from "react";
+import { useStore } from "nanostores/react";
 import spacetime from "spacetime";
 
-export function useRecurringDaily(options, interval) {
+import { intervalStore } from "@stores/intervalStore";
+
+export function useRecurringDaily(options) {
   const optionsRef = useRef(null);
   const [nextOccurence, setNextOccurence] = useState(null);
+  const { interval } = useStore(intervalStore);
 
   // options cached on first render and never updated!
   optionsRef.current ??= options;
