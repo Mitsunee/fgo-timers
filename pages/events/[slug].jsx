@@ -1,5 +1,6 @@
-import { basename, extname } from "path";
+import { useState } from "react";
 
+import { basename, extname } from "path";
 import { getEventFileList } from "@utils/server/events/getEventFileList";
 import { resolveFilePath } from "@utils/server/resolveFilePath";
 import { parseEventFile } from "@utils/server/events/parseEventFile";
@@ -11,6 +12,9 @@ import Headline from "@components/Headline";
 import Section from "@components/Section";
 import { InfoTable } from "@components/InfoTable";
 import EventTimeRow from "@components/EventTimeRow";
+import Modal from "@components/Modal";
+import { Button } from "@components/Button";
+import { IconClose } from "@components/icons";
 
 export default function EventPage({
   title,
@@ -23,6 +27,12 @@ export default function EventPage({
   description
 }) {
   const interval = useInterval(1000);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleModalOpen = event => {
+    event.preventDefault();
+    setShowModal(true);
+  };
 
   return (
     <>
@@ -36,12 +46,13 @@ export default function EventPage({
         headerDescription={`Event Timers for ${shortTitle}`}
       />
       <div className={styles.header}>
-        {/* TODO: Modal */}
         <a
           href={`https://webview.fate-go.us/${url}`}
+          onClick={handleModalOpen}
           target="_blank"
           rel="noreferrer noopener">
           <img src={`/banners/${banner}`} alt={title} />
+          <div className={styles.hint}>Click to see the official News Post</div>
         </a>
       </div>
       <Headline>{title}</Headline>
@@ -116,6 +127,18 @@ export default function EventPage({
           })}
         </tbody>
       </InfoTable>
+      {showModal && (
+        <Modal>
+          <div className={styles.iframeWrapper}>
+            <iframe src={`https://webview.fate-go.us/iframe/${url}`} />
+            <Button
+              className={styles.close}
+              iconComponent={IconClose}
+              onClick={() => setShowModal(false)}
+            />
+          </div>
+        </Modal>
+      )}
     </>
   );
 }

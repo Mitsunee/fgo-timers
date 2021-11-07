@@ -1,15 +1,34 @@
 .header {
   width: 100%;
-  margin-bottom: 1.66em;
+  margin: 0px auto 1.66em;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  img {
-    display: block;
-    max-width: 100%;
-    width: 800px;
-    height: auto;
+  & > a {
+    position: relative;
+
+    img {
+      display: block;
+      max-width: 100%;
+      width: 800px;
+      height: auto;
+    }
+
+    .hint {
+      position: absolute;
+      right: 0.75%;
+      bottom: 2%;
+      padding: 0.33em;
+      max-width: 98.5%;
+      background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 80%),
+        rgba(0, 0, 0, 55%) 66%,
+        rgba(0, 0, 0, 80%)
+      );
+      backdrop-filter: blur(2px);
+    }
   }
 }
 
@@ -25,5 +44,34 @@
   }
   .headerRow {
     font-size: 1.25em;
+  }
+}
+
+.iframeWrapper {
+  position: relative;
+  width: 700px;
+  max-width: 95vw;
+  height: 95vh;
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: 1px solid theme(colors.ui-light);
+    border-radius: 1em;
+    overflow: hidden;
+    box-shadow: 2px 2px 8px 3px theme(colors.background-dark);
+  }
+  .close {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    transform: translate(33%, -33%);
+
+    svg {
+      fill: theme(colors.primary);
+    }
+    &:hover svg {
+      fill: theme(colors.hover);
+    }
   }
 }
