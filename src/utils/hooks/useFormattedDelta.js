@@ -1,9 +1,11 @@
-import { useState, useMemo, useEffect } from "react";
-
+import { useState, useEffect } from "react";
+import { useStore } from "nanostores/react";
 import spacetime from "spacetime";
 
-export function useFormattedDelta(interval, target) {
-  const now = useMemo(() => spacetime(interval), [interval]);
+import { intervalStore } from "@stores/intervalStore";
+
+export function useFormattedDelta(target) {
+  const { s: now } = useStore(intervalStore);
   const [output, setOutput] = useState("");
 
   useEffect(() => {

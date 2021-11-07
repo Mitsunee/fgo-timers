@@ -3,10 +3,10 @@ import { useRecurringDaily } from "@utils/hooks/useRecurringDaily";
 import { useFormattedTimestamp } from "@utils/hooks/useFormattedTimestamp";
 import { useFormattedDelta } from "@utils/hooks/useFormattedDelta";
 
-export default function NextLogin({ interval }) {
+export default function NextLogin() {
   const next = useRecurringDaily({ hour: 4, tz: "utc" });
   const date = useFormattedTimestamp(next, "short");
-  const delta = useFormattedDelta(interval, next);
+  const delta = useFormattedDelta(next);
 
   return (
     <p>

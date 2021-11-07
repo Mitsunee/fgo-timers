@@ -1,5 +1,6 @@
 import { createStore } from "nanostores";
 
+// TODO: rewrite to set event listener in createStore and use cleanup func
 export const clientStore = createStore(() => {
   if (typeof window !== "undefined") {
     clientStore.set({

@@ -11,8 +11,7 @@ export default function EventCard({
   slug,
   banner,
   startsAt,
-  endsAt,
-  interval
+  endsAt
 }) {
   return (
     <Link href={`/events/${slug}/`} passHref>
@@ -20,11 +19,7 @@ export default function EventCard({
         <img src={`/banners/${banner}`} alt={slug} />
         <Overlay title={title} shortTitle={shortTitle} />
         <NoSSR>
-          <TimeDisplay
-            startsAt={startsAt}
-            endsAt={endsAt}
-            interval={interval}
-          />
+          <TimeDisplay startsAt={startsAt} endsAt={endsAt} />
         </NoSSR>
       </a>
     </Link>

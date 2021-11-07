@@ -1,8 +1,12 @@
 import { useRef, useState, useEffect } from "react";
+import { useStore } from "nanostores/react";
 
-export function useRecurringInterval(options, interval) {
+import { intervalStore } from "@stores/intervalStore";
+
+export function useRecurringInterval(options) {
   const optionsRef = useRef(null);
   const [nextOccurence, setNextOccurence] = useState(null);
+  const { seconds } = useStore(intervalStore);
 
   // options cached on first render and never updated!
   optionsRef.current ??= options;
@@ -10,11 +14,10 @@ export function useRecurringInterval(options, interval) {
   useEffect(() => {
     const { length, offset } = optionsRef.current;
 
-    const s = Math.trunc(interval / 1000);
-    const next = s - ((s - offset) % length) + length;
+    const next = seconds - ((seconds - offset) % length) + length;
 
     setNextOccurence(next * 1000);
-  }, [interval]);
+  }, [seconds]);
 
   return nextOccurence;
 }

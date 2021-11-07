@@ -2,8 +2,8 @@
 import { useFormattedDelta } from "@utils/hooks/useFormattedDelta";
 import { useFormattedTimestamp } from "@utils/hooks/useFormattedTimestamp";
 
-export default function EventTimeRow({ title, target, interval }) {
-  const delta = useFormattedDelta(interval, target);
+export default function EventTimeRow({ title, target }) {
+  const delta = useFormattedDelta(target);
   const date = useFormattedTimestamp(target, "full");
 
   return (

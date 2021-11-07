@@ -7,15 +7,15 @@ import { useFormattedDelta } from "@utils/hooks/useFormattedDelta";
 import { useFormattedTimestamp } from "@utils/hooks/useFormattedTimestamp";
 import MissionList from "./MissionList";
 
-export default function WeeklyMissionList({ data, interval }) {
+export default function WeeklyMissionList({ data }) {
   const [error, setError] = useState(false);
-  const expectedEnd = useRecurringInterval(
-    { length: WEEKLY_MM_LEN, offset: WEEKLY_MM_OFFSET },
-    interval
-  );
+  const expectedEnd = useRecurringInterval({
+    length: WEEKLY_MM_LEN,
+    offset: WEEKLY_MM_OFFSET
+  });
   const [index, setIndex] = useState(false);
   const [timestamp, setTimestamp] = useState(null);
-  const weeklyDelta = useFormattedDelta(interval, timestamp);
+  const weeklyDelta = useFormattedDelta(timestamp);
   const weeklyDate = useFormattedTimestamp(timestamp, "short");
 
   useEffect(() => {

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useStore } from "nanostores/react";
 
 import { basename, extname } from "path";
 import { getEventFileList } from "@utils/server/events/getEventFileList";
@@ -6,7 +7,7 @@ import { resolveFilePath } from "@utils/server/resolveFilePath";
 import { parseEventFile } from "@utils/server/events/parseEventFile";
 
 import styles from "@styles/EventPage.module.css";
-import { useInterval } from "@utils/hooks/useInterval";
+import { intervalStore } from "@stores/intervalStore";
 import Meta from "@components/Meta";
 import Headline from "@components/Headline";
 import Section from "@components/Section";
@@ -27,8 +28,8 @@ export default function EventPage({
   times = [],
   description
 }) {
-  const interval = useInterval(1000);
   const [showModal, setShowModal] = useState(false);
+  const { interval } = useStore(intervalStore);
 
   const handleModalOpen = event => {
     event.preventDefault();
@@ -76,13 +77,11 @@ export default function EventPage({
           <tbody>
             <EventTimeRow
               title={startsAt > interval ? "Starts" : "Started"}
-              interval={interval}
               target={startsAt}
             />
             {endsAt !== null && (
               <EventTimeRow
                 title={endsAt > interval ? "Ends" : "Ended"}
-                interval={interval}
                 target={endsAt}
               />
             )}
@@ -101,7 +100,6 @@ export default function EventPage({
                   <EventTimeRow
                     key={idx}
                     title={next.title}
-                    interval={interval}
                     target={next.startsAt}
                   />
                 );
@@ -120,7 +118,6 @@ export default function EventPage({
                 <EventTimeRow
                   key={idx}
                   title={time.title}
-                  interval={interval}
                   target={
                     time.startsAt > interval
                       ? time.startsAt
