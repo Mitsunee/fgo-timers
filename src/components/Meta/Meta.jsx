@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 //import styles from "./Meta.module.css";
@@ -12,6 +13,8 @@ export default function Meta({
   headerTitle = null,
   headerDescription = null
 }) {
+  const router = useRouter();
+
   useEffect(() => {
     setPageMeta({
       title: headerTitle ?? title,
@@ -59,8 +62,7 @@ export default function Meta({
       {process.env.NEXT_PUBLIC_DOMAIN && (
         <link
           rel="canonical"
-          // TODO: put path from router into canonical meta tag
-          href={`https://${process.env.NEXT_PUBLIC_DOMAIN}/`}
+          href={`https://${process.env.NEXT_PUBLIC_DOMAIN}${router.asPath}`}
         />
       )}
     </Head>
