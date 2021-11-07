@@ -1,0 +1,26 @@
+.overlay {
+  position: absolute;
+  bottom: 2%;
+  left: 50%;
+  width: 98.5%;
+  height: 92.3333%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  h1 {
+    display: block;
+    width: 100%;
+    margin: 0px;
+    padding: 0.66rem;
+    font-size: [1em, 1.5em];
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 80%),
+      rgba(0, 0, 0, 55%) 66%,
+      rgba(0, 0, 0, 80%)
+    );
+    backdrop-filter: blur(2px);
+  }
+}

@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 //import styles from "./Meta.module.css";
@@ -8,11 +9,18 @@ export default function Meta({
   title,
   description,
   image = false,
-  noTitleSuffix = false
+  noTitleSuffix = false,
+  headerTitle = null,
+  headerDescription = null
 }) {
+  const router = useRouter();
+
   useEffect(() => {
-    setPageMeta({ title, description });
-  }, [title, description]);
+    setPageMeta({
+      title: headerTitle ?? title,
+      description: headerDescription ?? description
+    });
+  }, [headerTitle, title, headerDescription, description]);
 
   return (
     <Head>
@@ -54,7 +62,7 @@ export default function Meta({
       {process.env.NEXT_PUBLIC_DOMAIN && (
         <link
           rel="canonical"
-          href={`https://${process.env.NEXT_PUBLIC_DOMAIN}/`}
+          href={`https://${process.env.NEXT_PUBLIC_DOMAIN}${router.asPath}`}
         />
       )}
     </Head>

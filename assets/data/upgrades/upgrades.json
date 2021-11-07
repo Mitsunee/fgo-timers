@@ -426,7 +426,7 @@
     "target": "skill",
     "initial": {
       "name": null,
-      "icon": "https://assets.atlasacademy.io/GameData/JP/SkillIcons/skill_999999.png"
+      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
     },
     "skill": {
       "name": "Invictus Spiritus A",
@@ -1527,7 +1527,7 @@
     "target": "skill",
     "initial": {
       "name": null,
-      "icon": "https://assets.atlasacademy.io/GameData/JP/SkillIcons/skill_999999.png"
+      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
     },
     "skill": {
       "name": "Prelati's Encouragement B",
@@ -2587,7 +2587,7 @@
     "target": "skill",
     "initial": {
       "name": null,
-      "icon": "https://assets.atlasacademy.io/GameData/JP/SkillIcons/skill_999999.png"
+      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
     },
     "skill": {
       "name": "May King B",
@@ -2708,7 +2708,7 @@
     "target": "skill",
     "initial": {
       "name": null,
-      "icon": "https://assets.atlasacademy.io/GameData/JP/SkillIcons/skill_999999.png"
+      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
     },
     "skill": {
       "name": "Calydonian Hunt A",
@@ -3206,7 +3206,7 @@
     "target": "skill",
     "initial": {
       "name": null,
-      "icon": "https://assets.atlasacademy.io/GameData/JP/SkillIcons/skill_999999.png"
+      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
     },
     "skill": {
       "name": "Whim of the Goddess A",
@@ -3280,7 +3280,7 @@
     "target": "skill",
     "initial": {
       "name": null,
-      "icon": "https://assets.atlasacademy.io/GameData/JP/SkillIcons/skill_999999.png"
+      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
     },
     "skill": {
       "name": "Arrow Construction A",
@@ -4470,7 +4470,7 @@
     "target": "skill",
     "initial": {
       "name": null,
-      "icon": "https://assets.atlasacademy.io/GameData/JP/SkillIcons/skill_999999.png"
+      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
     },
     "skill": {
       "name": "Blank Subscription List",
@@ -4781,7 +4781,7 @@
     "target": "skill",
     "initial": {
       "name": null,
-      "icon": "https://assets.atlasacademy.io/GameData/JP/SkillIcons/skill_999999.png"
+      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
     },
     "skill": {
       "name": "Warrior's War Cry B",
@@ -4882,7 +4882,7 @@
     "target": "skill",
     "initial": {
       "name": null,
-      "icon": "https://assets.atlasacademy.io/GameData/JP/SkillIcons/skill_999999.png"
+      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
     },
     "skill": {
       "name": "Septem Colles A",
@@ -6113,7 +6113,7 @@
     "target": "skill",
     "initial": {
       "name": null,
-      "icon": "https://assets.atlasacademy.io/GameData/JP/SkillIcons/skill_999999.png"
+      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
     },
     "skill": {
       "name": "Blood Fort Andromeda B",
@@ -6536,7 +6536,7 @@
     "target": "skill",
     "initial": {
       "name": null,
-      "icon": "https://assets.atlasacademy.io/GameData/JP/SkillIcons/skill_999999.png"
+      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
     },
     "skill": {
       "name": "Gentlemanly Love C",
@@ -6745,7 +6745,7 @@
     "target": "skill",
     "initial": {
       "name": null,
-      "icon": "https://assets.atlasacademy.io/GameData/JP/SkillIcons/skill_999999.png"
+      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
     },
     "skill": {
       "name": "Andraste's Protection A",
@@ -7234,7 +7234,7 @@
     "target": "skill",
     "initial": {
       "name": null,
-      "icon": "https://assets.atlasacademy.io/GameData/JP/SkillIcons/skill_999999.png"
+      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
     },
     "skill": {
       "name": "Art of the Swallow B",
@@ -7388,7 +7388,7 @@
     "target": "skill",
     "initial": {
       "name": null,
-      "icon": "https://assets.atlasacademy.io/GameData/JP/SkillIcons/skill_999999.png"
+      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
     },
     "skill": {
       "name": "Omen of the Conqueror A",
@@ -7757,7 +7757,7 @@
     "target": "skill",
     "initial": {
       "name": null,
-      "icon": "https://assets.atlasacademy.io/GameData/JP/SkillIcons/skill_999999.png"
+      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
     },
     "skill": {
       "name": "Oath of the Holy Maiden C",
@@ -8115,7 +8115,7 @@
     "target": "skill",
     "initial": {
       "name": null,
-      "icon": "https://assets.atlasacademy.io/GameData/JP/SkillIcons/skill_999999.png"
+      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
     },
     "skill": {
       "name": "Circe's Teaching A",
@@ -8177,7 +8177,7 @@
     "target": "skill",
     "initial": {
       "name": null,
-      "icon": "https://assets.atlasacademy.io/GameData/JP/SkillIcons/skill_999999.png"
+      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
     },
     "skill": {
       "name": "Evil Eye of the Abyss C",
@@ -8520,7 +8520,7 @@
     "target": "skill",
     "initial": {
       "name": null,
-      "icon": "https://assets.atlasacademy.io/GameData/JP/SkillIcons/skill_999999.png"
+      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
     },
     "skill": {
       "name": "King's Men C",
@@ -9007,7 +9007,7 @@
     "target": "skill",
     "initial": {
       "name": null,
-      "icon": "https://assets.atlasacademy.io/GameData/JP/SkillIcons/skill_999999.png"
+      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
     },
     "skill": {
       "name": "Clown's Laughter A+",
@@ -9108,7 +9108,7 @@
     "target": "skill",
     "initial": {
       "name": null,
-      "icon": "https://assets.atlasacademy.io/GameData/JP/SkillIcons/skill_999999.png"
+      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
     },
     "skill": {
       "name": "Eine kleine Nachtmusik EX",
@@ -9793,7 +9793,7 @@
     "target": "skill",
     "initial": {
       "name": null,
-      "icon": "https://assets.atlasacademy.io/GameData/JP/SkillIcons/skill_999999.png"
+      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
     },
     "skill": {
       "name": "Concept Improvement A+",
@@ -11038,7 +11038,7 @@
     "target": "skill",
     "initial": {
       "name": null,
-      "icon": "https://assets.atlasacademy.io/GameData/JP/SkillIcons/skill_999999.png"
+      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
     },
     "skill": {
       "name": "Whim of the Goddess A",
@@ -11139,7 +11139,7 @@
     "target": "skill",
     "initial": {
       "name": null,
-      "icon": "https://assets.atlasacademy.io/GameData/JP/SkillIcons/skill_999999.png"
+      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
     },
     "skill": {
       "name": "Insolent A",
@@ -11458,7 +11458,7 @@
     "target": "skill",
     "initial": {
       "name": null,
-      "icon": "https://assets.atlasacademy.io/GameData/JP/SkillIcons/skill_999999.png"
+      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
     },
     "skill": {
       "name": "Double-cross B",
@@ -11600,7 +11600,7 @@
     "target": "skill",
     "initial": {
       "name": null,
-      "icon": "https://assets.atlasacademy.io/GameData/JP/SkillIcons/skill_999999.png"
+      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
     },
     "skill": {
       "name": "Bath of Fresh Blood A",
@@ -12969,7 +12969,7 @@
     "target": "skill",
     "initial": {
       "name": null,
-      "icon": "https://assets.atlasacademy.io/GameData/JP/SkillIcons/skill_999999.png"
+      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
     },
     "skill": {
       "name": "Mana Reversal A",
@@ -13031,7 +13031,7 @@
     "target": "skill",
     "initial": {
       "name": null,
-      "icon": "https://assets.atlasacademy.io/GameData/JP/SkillIcons/skill_999999.png"
+      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
     },
     "skill": {
       "name": "Chaotic Villain A",
@@ -13217,7 +13217,7 @@
     "target": "skill",
     "initial": {
       "name": null,
-      "icon": "https://assets.atlasacademy.io/GameData/JP/SkillIcons/skill_999999.png"
+      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
     },
     "skill": {
       "name": "Triumphant Return of the Sword B",
@@ -13704,7 +13704,7 @@
     "target": "skill",
     "initial": {
       "name": null,
-      "icon": "https://assets.atlasacademy.io/GameData/JP/SkillIcons/skill_999999.png"
+      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
     },
     "skill": {
       "name": "Labrys of the Abyss C",
@@ -13766,7 +13766,7 @@
     "target": "skill",
     "initial": {
       "name": null,
-      "icon": "https://assets.atlasacademy.io/GameData/JP/SkillIcons/skill_999999.png"
+      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
     },
     "skill": {
       "name": "Glory of Past Days B",
@@ -13973,7 +13973,7 @@
     "target": "skill",
     "initial": {
       "name": null,
-      "icon": "https://assets.atlasacademy.io/GameData/JP/SkillIcons/skill_999999.png"
+      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
     },
     "skill": {
       "name": "Flame-Colored Kiss A",
@@ -14218,7 +14218,7 @@
     "target": "skill",
     "initial": {
       "name": null,
-      "icon": "https://assets.atlasacademy.io/GameData/JP/SkillIcons/skill_999999.png"
+      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
     },
     "skill": {
       "name": "Half-Dead Bloodaxe A+",

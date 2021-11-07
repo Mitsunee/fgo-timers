@@ -13,7 +13,9 @@ export function parseEventTime(time) {
     if (endsAt) {
       timeParsed.endsAt = endsAt;
     }
-  } else {
+  }
+
+  if (times) {
     timeParsed.times = times.map(({ title, date }) => ({
       title,
       startsAt: parseDate(date)

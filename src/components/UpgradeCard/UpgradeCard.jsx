@@ -67,7 +67,7 @@ export default function UpgradeCard({
       {(target === "sq" || quest.type === "rankup") && (
         <p>
           <b>Rewards:</b> 2x{" "}
-          <InlineIcon icon="https://static.atlasacademy.io/JP/Items/6.png" />{" "}
+          <InlineIcon icon="https://static.atlasacademy.io/NA/Items/6.png" />{" "}
           Saint Quartz
         </p>
       )}

@@ -5,6 +5,7 @@ import IconChaldea from "./IconChaldea";
 import IconClose from "./IconClose";
 import IconDiscord from "./IconDiscord";
 import IconHamburger from "./IconHamburger";
+import IconHourglass from "./IconHourglass";
 import IconSettings from "./IconSettings";
 
 export {
@@ -15,5 +16,6 @@ export {
   IconClose,
   IconDiscord,
   IconHamburger,
+  IconHourglass,
   IconSettings
 };
