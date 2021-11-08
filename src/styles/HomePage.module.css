@@ -1,0 +1,45 @@
+.button {
+  svg {
+    fill: theme(colors.primary);
+  }
+  &:hover {
+    svg {
+      fill: theme(colors.hover);
+    }
+  }
+  &.discord:hover {
+    &:hover svg {
+      fill: #5865f2 !important;
+    }
+  }
+}
+
+.section > img {
+  width: 256px;
+  max-width: [75%, 90%];
+  height: auto;
+  display: block;
+  margin: 1.66em auto;
+}
+.section > h1 {
+  font-size: [1.5em, 2em, 3em];
+}
+.section > p {
+  font-size: [0.8em, null, 0.66em];
+}
+
+.body {
+  min-height: 100vh;
+  background-image: var(--landing-bg);
+
+  & > div[id="__next"] {
+    background: radial-gradient(
+        ellipse at top,
+        rgba(46, 44, 106, 0.8),
+        transparent
+      ),
+      radial-gradient(ellipse at bottom, rgba(104, 12, 95, 0.8), transparent);
+    backdrop-filter: blur(3px);
+    min-height: 100vh;
+  }
+}
