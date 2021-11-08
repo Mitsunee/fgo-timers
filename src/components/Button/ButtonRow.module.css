@@ -1,11 +1,14 @@
-.buttonrow {
+.row {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  grip-gap: 0.66em;
+  gap: 0.66em;
   margin: 0.66em 0px;
 
+  &.center {
+    justify-content: space-around;
+  }
   &.left {
     justify-content: flex-start;
   }
