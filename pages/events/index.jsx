@@ -5,12 +5,16 @@ import { parseEventFile } from "@utils/server/events/parseEventFile";
 
 import styles from "@styles/EventsPage.module.css";
 import Meta from "@components/Meta";
+import Clocks from "@components/Clocks";
+import Headline from "@components/Headline";
 import EventCard from "@components/EventCard";
 
 export default function EventsPage({ events }) {
   return (
     <>
       <Meta title="Events" description="Event Timers for Fate/Grand Order NA" />
+      <Clocks />
+      <Headline>Current Events</Headline>
       <section className={styles.grid}>
         {events.map(event => (
           <EventCard key={event.shortTitle} {...event} />

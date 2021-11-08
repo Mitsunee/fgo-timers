@@ -9,6 +9,7 @@ import { parseEventFile } from "@utils/server/events/parseEventFile";
 import styles from "@styles/EventPage.module.css";
 import { intervalStore } from "@stores/intervalStore";
 import Meta from "@components/Meta";
+import Clocks from "@components/Clocks";
 import Headline from "@components/Headline";
 import Section from "@components/Section";
 import NoSSR from "@components/NoSSR";
@@ -47,6 +48,7 @@ export default function EventPage({
         }`}
         headerDescription={`Event Timers for ${shortTitle}`}
       />
+      <Clocks />
       <div className={styles.header}>
         <a
           href={`https://webview.fate-go.us/${url}`}
