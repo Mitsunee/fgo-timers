@@ -27,7 +27,11 @@ export default function TimersPage({
 
   return (
     <>
-      <Meta title="Timers" description="Timers for Fate/Grand Order" />
+      <Meta
+        title="Timers"
+        description="Timers for Fate/Grand Order"
+        image="/meta/timers.jpg"
+      />
       <Clocks />
       <CardGrid>
         <LoginTicketCard tickets={tickets} itemData={itemData} />

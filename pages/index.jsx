@@ -35,6 +35,7 @@ export default function HomePage({ backgrounds }) {
       <Meta
         title="FGO Tools"
         description="Fate/Grand Order Tools by Mitsunee"
+        image="/meta/landing.jpg"
         noTitleSuffix
       />
       <Section className={styles.section}>

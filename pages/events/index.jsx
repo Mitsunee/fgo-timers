@@ -12,7 +12,11 @@ import EventCard from "@components/EventCard";
 export default function EventsPage({ events }) {
   return (
     <>
-      <Meta title="Events" description="Event Timers for Fate/Grand Order NA" />
+      <Meta
+        title="Events"
+        description="Event Timers for Fate/Grand Order NA"
+        image="/meta/events.jpg"
+      />
       <Clocks />
       <Headline>Current Events</Headline>
       <section className={styles.grid}>
