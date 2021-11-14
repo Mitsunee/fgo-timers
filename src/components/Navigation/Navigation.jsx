@@ -2,8 +2,9 @@ import { useRouter } from "next/router";
 
 import styles from "./Navigation.module.css";
 import { navRoutes } from "@utils/navRoutes";
+import { setSettingsMenuOpen } from "@stores/uiStore";
 import NavigationItem from "./NavigationItem";
-import NavigationSubMenu from "./NavigationSubMenu";
+import { IconSettings, IconDiscord, IconGithub } from "@components/icons";
 
 export default function Navigation() {
   const router = useRouter();
@@ -18,15 +19,7 @@ export default function Navigation() {
         {navRoutes.map(navItem => {
           const isActiveItem = testActive(navItem);
 
-          return navItem.link instanceof Array ? (
-            <NavigationSubMenu
-              key={navItem.key || navItem.text}
-              menuKey={navItem.key}
-              text={navItem.text}
-              forceOpen={isActiveItem}
-              items={navItem.link}
-            />
-          ) : (
+          return (
             <NavigationItem
               key={navItem.key || navItem.text}
               link={navItem.link}
@@ -35,6 +28,19 @@ export default function Navigation() {
             </NavigationItem>
           );
         })}
+        <NavigationItem
+          onClick={() => setSettingsMenuOpen(true)}
+          icon={IconSettings}>
+          Settings
+        </NavigationItem>
+        <NavigationItem link="https://discord.gg/ZncPkjw" icon={IconDiscord}>
+          Discord
+        </NavigationItem>
+        <NavigationItem
+          link="https://github.com/sponsors/Mitsunee"
+          icon={IconGithub}>
+          Sponsor on Github
+        </NavigationItem>
       </section>
     </nav>
   );

@@ -40,3 +40,23 @@
   font-size: 0.33em;
   margin: 0.25em 0px;
 }
+
+.button {
+  display: block;
+  width: 1em;
+  height: 1em;
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: 0.125s ease-in-out;
+
+  svg {
+    fill: theme(colors.primary);
+  }
+
+  &:hover svg {
+    fill: theme(colors.hover);
+  }
+}
