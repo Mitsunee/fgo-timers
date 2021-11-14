@@ -1,89 +1,186 @@
-// import Head from 'next/head'
-// import Image from 'next/image'
+import { useEffect } from "react";
+import spacetime from "spacetime";
 
-// import styles from '@styles/Home.module.css'
+import { basename, extname } from "path";
+import { getFileList } from "@utils/server/getFileList";
+import { getEventFileList } from "@utils/server/events/getEventFileList";
+import { parseEventFile } from "@utils/server/events/parseEventFile";
+import { getTicketFileList } from "@utils/server/loginTickets/getTicketFileList";
+import { getItemIdMap } from "@utils/server/loginTickets/getItemIdMap";
+import { parseTicketFile } from "@utils/server/loginTickets/parseTicketFile";
+import { parseShopFile } from "@utils/server/parseShopFile";
+
+import styles from "@styles/HomePage.module.css";
+import { useRecurringEvent } from "@utils/hooks/useRecurringEvent";
 import Meta from "@components/Meta";
+import Clocks from "@components/Clocks";
 import Headline from "@components/Headline";
-import Section from "@components/Section";
+import EventCard from "@components/EventCard";
+import { CardGrid } from "@components/Card";
+import LoginTicketCard from "@components/LoginTicketCard";
+import MasterMissionCard from "@components/MasterMissionCard";
+import ChaldeaGateCard from "@components/ChaldeaGateCard";
+import ShopCard from "@components/ShopCard";
 
-export default function Home() {
+export default function HomePage({
+  backgrounds,
+  events,
+  tickets,
+  itemData,
+  mpShopData,
+  rpShopData
+}) {
+  const mpShopReset = useRecurringEvent({ day: 1, hour: 0, tz: "utc" });
+  const rpShopReset = useRecurringEvent({ day: 15, hour: 0, tz: "utc" });
+
+  useEffect(() => {
+    // only in client
+    if (typeof document === "undefined") return;
+
+    // pick random background
+    const backgroundFile =
+      backgrounds[Math.floor(Math.random() * backgrounds.length)];
+    const background = `url("${backgroundFile}")`;
+
+    // set css property and attach className
+    document.body.style.setProperty("--landing-bg", background);
+    document.body.classList.add(styles.body);
+
+    return () => {
+      document.body.classList.remove(styles.body);
+    };
+  }, [backgrounds]);
+
   return (
     <>
-      <Meta title="FGO Tools" description="BOTTOM TEXT" noTitleSuffix />
-      <Headline>FGO Tools</Headline>
-      <Section background>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Tellus
-          molestie nunc non blandit massa enim nec dui nunc. Nisl nunc mi ipsum
-          faucibus vitae aliquet nec ullamcorper. Semper viverra nam libero
-          justo laoreet sit. Aliquam sem et tortor consequat id porta. Egestas
-          erat imperdiet sed euismod nisi porta lorem mollis. Euismod lacinia at
-          quis risus sed vulputate odio. Amet nisl suscipit adipiscing bibendum
-          est ultricies integer. Diam maecenas ultricies mi eget mauris pharetra
-          et. Id semper risus in hendrerit gravida rutrum quisque non tellus.
-          Quam quisque id diam vel quam. Semper risus in hendrerit gravida
-          rutrum quisque non tellus. Pellentesque diam volutpat commodo sed
-          egestas. Justo laoreet sit amet cursus sit. Aenean vel elit
-          scelerisque mauris pellentesque pulvinar.
-        </p>
-      </Section>
-      <Headline>PLACEHOLDER</Headline>
-      <Section padding>
-        <p>
-          Ipsum consequat nisl vel pretium lectus quam id. Fermentum leo vel
-          orci porta non. Neque ornare aenean euismod elementum nisi. Euismod
-          nisi porta lorem mollis aliquam ut. Consectetur adipiscing elit ut
-          aliquam purus sit amet luctus. Magna fringilla urna porttitor rhoncus
-          dolor. Faucibus in ornare quam viverra orci sagittis eu. Pretium fusce
-          id velit ut tortor pretium. Pellentesque diam volutpat commodo sed.
-          Nisi lacus sed viverra tellus. Laoreet sit amet cursus sit. Sapien nec
-          sagittis aliquam malesuada bibendum arcu. Fringilla est ullamcorper
-          eget nulla facilisi etiam dignissim diam. Lectus proin nibh nisl
-          condimentum id.
-        </p>
-      </Section>
-      <Section background>
-        <p>
-          Blandit aliquam etiam erat velit. Eget nulla facilisi etiam dignissim
-          diam quis enim lobortis. Sit amet est placerat in egestas erat
-          imperdiet sed. Vitae ultricies leo integer malesuada nunc vel risus
-          commodo viverra. Urna neque viverra justo nec ultrices dui sapien
-          eget. Tempor orci dapibus ultrices in iaculis nunc. Pharetra et
-          ultrices neque ornare aenean euismod elementum. Tincidunt lobortis
-          feugiat vivamus at augue. Aenean pharetra magna ac placerat vestibulum
-          lectus mauris. Donec et odio pellentesque diam volutpat commodo sed
-          egestas. Facilisi etiam dignissim diam quis enim lobortis.
-        </p>
-      </Section>
-      <Section background="blue">
-        <p>
-          I&apos;d just like to interject for a moment. What you&apos;re
-          refering to as Linux, is in fact, GNU/Linux, or as I&apos;ve recently
-          taken to calling it, GNU plus Linux. Linux is not an operating system
-          unto itself, but rather another free component of a fully functioning
-          GNU system made useful by the GNU corelibs, shell utilities and vital
-          system components comprising a full OS as defined by POSIX.
-        </p>
-        <p>
-          Many computer users run a modified version of the GNU system every
-          day, without realizing it. Through a peculiar turn of events, the
-          version of GNU which is widely used today is often called Linux, and
-          many of its users are not aware that it is basically the GNU system,
-          developed by the GNU Project.
-        </p>
-        <p>
-          There really is a Linux, and these people are using it, but it is just
-          a part of the system they use. Linux is the kernel: the program in the
-          system that allocates the machine&apos;s resources to the other
-          programs that you run. The kernel is an essential part of an operating
-          system, but useless by itself; it can only function in the context of
-          a complete operating system. Linux is normally used in combination
-          with the GNU operating system: the whole system is basically GNU with
-          Linux added, or GNU/Linux. All the so-called Linux distributions are
-          really distributions of GNU/Linux!
-        </p>
-      </Section>
+      <Meta
+        title="FGO Timers"
+        description="Timers for Fate/Grand Order NA"
+        image="/meta/landing.jpg"
+        noTitleSuffix
+      />
+      <Clocks />
+      <Headline>Current Events</Headline>
+      <section className={styles.grid}>
+        {events.map(event => (
+          <EventCard key={event.shortTitle} {...event} />
+        ))}
+      </section>
+      <Headline>Timers</Headline>
+      <CardGrid>
+        <LoginTicketCard tickets={tickets} itemData={itemData} />
+        <MasterMissionCard />
+        <ChaldeaGateCard />
+        <ShopCard shopData={mpShopData} endsAt={mpShopReset} />
+        <ShopCard shopData={rpShopData} endsAt={rpShopReset} />
+      </CardGrid>
     </>
   );
+}
+
+export async function getStaticProps() {
+  // backgrounds
+  const backgroundFiles = await getFileList(
+    "public/assets/backgrounds/landing"
+  );
+  const backgrounds = backgroundFiles.map(
+    file => `/assets/backgrounds/landing/${basename(file)}`
+  );
+
+  // events
+  const fileList = await getEventFileList();
+  const buildTime = Date.now();
+  let events = new Array();
+
+  for (const file of fileList) {
+    const data = await parseEventFile(file);
+    const event = {
+      title: data.title,
+      shortTitle: data.shortTitle,
+      slug: basename(file, extname(file)),
+      banner: data.banner,
+      startsAt: data.startsAt,
+      displayOrder: data.displayOrder ?? 0
+    };
+
+    if (typeof data.endsAt !== "undefined") {
+      event.endsAt = data.endsAt;
+    }
+
+    // don't include events in data that are hidden already
+    if (
+      data.hideWhenDone === true &&
+      ((typeof data.endsAt === "undefined" && data.startsAt < buildTime) ||
+        (typeof data.endsAt === "number" && data.endsAt < buildTime))
+    ) {
+      continue;
+    }
+
+    events.push(event);
+  }
+
+  events = events.sort((a, b) => {
+    if (a.startsAt === b.startsAt) {
+      return a.displayOrder - b.displayOrder;
+    }
+
+    return a.startsAt - b.startsAt;
+  });
+
+  // cards data
+  const ticketFileList = await getTicketFileList();
+  const itemIdMap = await getItemIdMap();
+
+  // find files for current and next year
+  const currentYear = spacetime.now().year();
+  const currentYearFile = ticketFileList.find(ticketFile =>
+    ticketFile.includes(currentYear)
+  );
+  const nextYearFile = ticketFileList.find(ticketFile =>
+    ticketFile.includes(currentYear + 1)
+  );
+
+  // parse tickets
+  const tickets = new Object();
+  if (currentYearFile) {
+    const { key, data } = await parseTicketFile(currentYearFile, itemIdMap);
+    tickets[key] = data;
+  } else {
+    throw new Error(`Error while loading ticket file for year ${currentYear}`);
+  }
+  if (nextYearFile) {
+    const { key, data } = await parseTicketFile(nextYearFile, itemIdMap);
+    tickets[key] = data;
+  } else {
+    throw new Error(
+      `Error while loading ticket file for year ${currentYear + 1}`
+    );
+  }
+
+  // fetch item data
+  const res = await fetch(
+    "https://api.atlasacademy.io/export/JP/nice_item_lang_en.json"
+  );
+  if (!res.ok) throw new Error("Error while fetch Atlas Item Data");
+  const niceItem = await res.json();
+
+  // generate itemData map
+  const itemIds = Object.keys(tickets)
+    .flatMap(year =>
+      Object.keys(tickets[year]).flatMap(month => tickets[year][month])
+    )
+    .filter((value, index, self) => index === self.indexOf(value));
+  const itemData = new Object();
+  for (const id of itemIds) {
+    const { name, icon, background } = niceItem.find(item => item.id === id);
+    itemData[id] = { id, name, icon, background };
+  }
+
+  // parse shop data
+  const mpShopData = await parseShopFile("assets/data/manaPrismShop.yml");
+  const rpShopData = await parseShopFile("assets/data/rarePrismShop.yml");
+
+  return {
+    props: { backgrounds, events, tickets, itemData, mpShopData, rpShopData }
+  };
 }

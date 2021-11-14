@@ -1,12 +1,7 @@
+import cc from "classcat";
+
 import styles from "./ButtonRow.module.css";
 
-export default function ButtonRow({ children, alignLeft = false }) {
-  return (
-    <div
-      className={`${styles.buttonrow} ${
-        alignLeft ? styles.left : styles.right
-      }`}>
-      {children}
-    </div>
-  );
+export default function ButtonRow({ children, align = "left" }) {
+  return <div className={cc([styles.row, styles[align]])}>{children}</div>;
 }

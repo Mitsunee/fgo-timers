@@ -5,13 +5,16 @@ import { useEffect } from "react";
 //import styles from "./Meta.module.css";
 import { setPageMeta } from "@stores/metaStore";
 
+const prefix = " - FGO Timers";
+
 export default function Meta({
   title,
   description,
   image = false,
   noTitleSuffix = false,
   headerTitle = null,
-  headerDescription = null
+  headerDescription = null,
+  color = "#2e2c6a"
 }) {
   const router = useRouter();
 
@@ -24,14 +27,14 @@ export default function Meta({
 
   return (
     <Head>
-      <title>{`${title}${noTitleSuffix ? "" : " - FGO Tools"}`}</title>
+      <title>{`${title}${noTitleSuffix ? "" : prefix}`}</title>
       <meta
         name="twitter:title"
-        content={`${title}${noTitleSuffix ? "" : " - FGO Tools"}`}
+        content={`${title}${noTitleSuffix ? "" : prefix}`}
       />
       <meta
         property="og:title"
-        content={`${title}${noTitleSuffix ? "" : " - FGO Tools"}`}
+        content={`${title}${noTitleSuffix ? "" : prefix}`}
       />
       <meta property="og:site_name" content="FGO Tools" />
       <meta name="description" content={description} />
@@ -65,6 +68,7 @@ export default function Meta({
           href={`https://${process.env.NEXT_PUBLIC_DOMAIN}${router.asPath}`}
         />
       )}
+      <meta name="theme-color" content={color} />
     </Head>
   );
 }

@@ -1,6 +1,5 @@
 export const navRoutes = [
-  { link: "/", text: "Home", test: /^\/$/ },
-  { link: "/timers", text: "Timers" },
-  { link: "/events", text: "Events", test: /^\/events\/?$/ },
-  { link: "/upgrades", text: "Upgrades" }
+  { link: "/", text: "Timers", test: /^\/$/ },
+  { link: "/upgrades", text: "Upgrades" },
+  { link: "/ap-calc", text: "AP Calculator" }
 ];

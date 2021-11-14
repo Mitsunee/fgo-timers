@@ -3,7 +3,7 @@ import { useStore } from "nanostores/react";
 import { clamp, isClamped } from "foxkit/clamp";
 import cc from "classcat";
 
-import styles from "./APCalcCard.module.css";
+import styles from "@styles/APCalcPage.module.css";
 import { settingsStore, setSetting } from "@stores/settingsStore";
 import { useIsClient } from "@utils/hooks/useIsClient";
 import { useInputNumberValue } from "@utils/hooks/useInputNumberValue";
@@ -13,17 +13,17 @@ import {
   NODE_COST_MAX_VALUE,
   NODE_COST_MIN_VALUE
 } from "@utils/globals.js";
-import { Card } from "@components/Card";
+import Meta from "@components/Meta";
+import Section from "@components/Section";
 import { Select, SelectOption } from "@components/Select";
-import FormField from "./FormField";
+import { FormField, Results } from "@components/ApCalc";
 import InputNumber from "@components/InputNumber";
 import Input from "@components/Input";
-import Results from "./Results";
 
 const validateApOffset = value =>
   /^(0:(0[1-9]|[1-5]\d)|[1-4]:[0-5]\d)$/.test(value);
 
-export default function APCalcCard() {
+export default function APCalcPage() {
   const isClient = useIsClient();
   const [formMode, setFormMode] = useState("byTargetAp");
   const { userMaxAP, userNodeCost } = useStore(settingsStore);
@@ -158,11 +158,13 @@ export default function APCalcCard() {
 
   return (
     <>
-      <Card
+      <Meta
         title="AP Calculator"
-        icon="/assets/gApple.png"
-        color="gold"
-        wrapperClassName={styles.cardWrapper}>
+        description="AP Calculator for Fate/Grand Order"
+        image="/meta/ap.jpg"
+        color="#f9e677"
+      />
+      <Section background="blue">
         <div className={styles.selectWrapper}>
           <Select value={formMode} onChange={handleFormMode}>
             <SelectOption value="byTargetAp">Use AP Target</SelectOption>
@@ -228,10 +230,12 @@ export default function APCalcCard() {
             )}
           </div>
         )}
-        {resultData.length > 0 && (
+      </Section>
+      {resultData.length > 0 && (
+        <Section background>
           <Results data={resultData} formMode={formMode} />
-        )}
-      </Card>
+        </Section>
+      )}
     </>
   );
 }

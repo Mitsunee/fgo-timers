@@ -1,0 +1,22 @@
+.grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: [0.66em, null, 1.33em];
+}
+
+.body {
+  min-height: 100vh;
+  background-image: var(--landing-bg);
+
+  & > div[id="__next"] {
+    background: radial-gradient(
+        ellipse at top,
+        rgba(46, 44, 106, 0.8),
+        transparent
+      ),
+      radial-gradient(ellipse at bottom, rgba(104, 12, 95, 0.8), transparent);
+    backdrop-filter: blur(3px);
+    min-height: 100vh;
+  }
+}
