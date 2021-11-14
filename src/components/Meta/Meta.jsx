@@ -13,7 +13,8 @@ export default function Meta({
   image = false,
   noTitleSuffix = false,
   headerTitle = null,
-  headerDescription = null
+  headerDescription = null,
+  color = "#2e2c6a"
 }) {
   const router = useRouter();
 
@@ -67,6 +68,7 @@ export default function Meta({
           href={`https://${process.env.NEXT_PUBLIC_DOMAIN}${router.asPath}`}
         />
       )}
+      <meta name="theme-color" content={color} />
     </Head>
   );
 }
