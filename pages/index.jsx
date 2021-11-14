@@ -22,7 +22,6 @@ import MasterMissionCard from "@components/MasterMissionCard";
 import ChaldeaGateCard from "@components/ChaldeaGateCard";
 import ShopCard from "@components/ShopCard";
 import APCalcCard from "@components/APCalcCard";
-import Section from "@components/Section";
 
 export default function HomePage({
   backgrounds,
@@ -77,42 +76,6 @@ export default function HomePage({
         <ShopCard shopData={rpShopData} endsAt={rpShopReset} />
         <APCalcCard />
       </CardGrid>
-      <Section className={styles.section}>
-        <p>
-          {"Made by "}
-          <a
-            href="https://twitter.com/mitsunee"
-            target="_blank"
-            rel="noopener noreferrer">
-            Mitsunee
-          </a>{" "}
-          | &ldquo;Fate/Grand Order&rdquo; is a trademark of Notes Co., Ltd. |
-          Game Assets &copy; Aniplex Inc. used under fair use.
-          <br />
-          {"Thanks to: "}
-          <a
-            href="https://atlasacademy.io/"
-            target="_blank"
-            rel="noopener noreferrer">
-            Atlas Academy
-          </a>
-          {" for their Game Data API, "}
-          <a
-            href="https://github.com/spencermountain/spacetime"
-            target="_blank"
-            rel="noopener noreferrer">
-            Spacetime
-          </a>
-          {" for timezone conversion, "}
-          <a
-            href="https://iconmonstr.com/"
-            target="_blank"
-            rel="noopener noreferrer">
-            iconmonstr
-          </a>
-          {" vector icons"}
-        </p>
-      </Section>
     </>
   );
 }

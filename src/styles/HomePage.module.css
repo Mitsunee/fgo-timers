@@ -5,10 +5,6 @@
   gap: [0.66em, null, 1.33em];
 }
 
-.section > p {
-  font-size: [0.8em, null, 0.66em];
-}
-
 .body {
   min-height: 100vh;
   background-image: var(--landing-bg);

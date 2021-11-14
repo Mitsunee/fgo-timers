@@ -4,6 +4,7 @@ import cc from "classcat";
 import styles from "./Layout.module.css";
 import { uiStore } from "@stores/uiStore";
 import Navigation from "./Navigation";
+import Footer from "@components/Footer";
 
 export default function Layout({ isDesktop, children }) {
   const { mobileOpen } = useStore(uiStore);
@@ -17,6 +18,7 @@ export default function Layout({ isDesktop, children }) {
           <main>{children}</main>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
