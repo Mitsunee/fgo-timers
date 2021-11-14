@@ -90,28 +90,29 @@ export default function EventPage({
             {times.map((time, idx) => {
               // handle rotating times
               if (time.times) {
-                let next = time.times.find(
+                let next = time.times.findIndex(
                   ({ startsAt }) => startsAt > interval
                 );
-                if (!next && time.hideWhenDone) return null;
-                if (!next) {
-                  next = time.times[time.times.length - 1];
+                if (next < 0) {
+                  if (time.hideWhenDone) return null;
+                  next = time.times.length - 1;
                 }
 
-                return (
-                  <EventTimeRow
-                    key={idx}
-                    title={next.title}
-                    target={next.startsAt}
-                  />
-                );
+                return time.times
+                  .slice(next)
+                  .map((subTime, subIdx) => (
+                    <EventTimeRow
+                      key={`${idx}-${subIdx}`}
+                      title={subTime.title}
+                      target={subTime.startsAt}
+                    />
+                  ));
               }
 
               // skip finished times where hideWhenDone is set
               if (
                 time.hideWhenDone &&
-                ((time.endsAt && interval > time.endsAt) ||
-                  (!time.endsAt && interval > time.startsAt))
+                interval > (time.endsAt || time.startsAt)
               ) {
                 return null;
               }
