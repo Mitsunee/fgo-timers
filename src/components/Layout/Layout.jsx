@@ -3,7 +3,7 @@ import cc from "classcat";
 
 import styles from "./Layout.module.css";
 import { uiStore } from "@stores/uiStore";
-import Navigation from "./Navigation";
+import Navigation from "@components/Navigation";
 import Footer from "@components/Footer";
 
 export default function Layout({ isDesktop, children }) {
