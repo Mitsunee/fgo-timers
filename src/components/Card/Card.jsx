@@ -25,12 +25,14 @@ export default function Card({
         {...props}
         className={cc([styles.card, className])}
         style={articleStyle}>
-        <CardHero
-          icon={icon}
-          background={color && backgroundColors.get(color)}
-          title={title}
-          forceRoundIcon={forceRoundIcon}
-        />
+        {(icon || color) && (
+          <CardHero
+            icon={icon}
+            background={color && backgroundColors.get(color)}
+            title={title}
+            forceRoundIcon={forceRoundIcon}
+          />
+        )}
         <main className={styles.inner}>
           <Headline>{title}</Headline>
           {children}
