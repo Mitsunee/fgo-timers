@@ -21,7 +21,6 @@ import LoginTicketCard from "@components/LoginTicketCard";
 import MasterMissionCard from "@components/MasterMissionCard";
 import ChaldeaGateCard from "@components/ChaldeaGateCard";
 import ShopCard from "@components/ShopCard";
-import APCalcCard from "@components/APCalcCard";
 
 export default function HomePage({
   backgrounds,
@@ -74,7 +73,6 @@ export default function HomePage({
         <ChaldeaGateCard />
         <ShopCard shopData={mpShopData} endsAt={mpShopReset} />
         <ShopCard shopData={rpShopData} endsAt={rpShopReset} />
-        <APCalcCard />
       </CardGrid>
     </>
   );
