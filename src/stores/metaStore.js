@@ -1,12 +1,10 @@
-import { createStore } from "nanostores";
+import { atom, action } from "nanostores";
 
-export const metaStore = createStore(() => {
-  metaStore.set({
-    title: "FGO Tools",
-    description: ""
-  });
+export const metaStore = atom({
+  title: "FGO Tools",
+  description: ""
 });
 
-export const setPageMeta = meta => {
-  metaStore.set(meta);
-};
+export const setPageMeta = action(metaStore, "update", (store, meta) =>
+  store.set(meta)
+);

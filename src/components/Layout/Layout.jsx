@@ -1,4 +1,4 @@
-import { useStore } from "nanostores/react";
+import { useStore } from "@nanostores/react";
 import cc from "classcat";
 
 import styles from "./Layout.module.css";

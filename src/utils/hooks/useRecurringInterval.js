@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import { useStore } from "nanostores/react";
+import { useStore } from "@nanostores/react";
 
 import { intervalStore } from "@stores/intervalStore";
 

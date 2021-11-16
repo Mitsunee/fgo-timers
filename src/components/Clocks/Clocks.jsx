@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useStore } from "nanostores/react";
+import { useStore } from "@nanostores/react";
 
 import styles from "./Clocks.module.css";
 import { timeFormatsMap } from "@utils/timeFormatsMap";

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useStore } from "nanostores/react";
+import { useStore } from "@nanostores/react";
 
 import { useIsClient } from "@utils/hooks/useIsClient";
 import { clientStore } from "@stores/clientStore";

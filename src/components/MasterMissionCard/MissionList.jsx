@@ -1,4 +1,4 @@
-import { useStore } from "nanostores/react";
+import { useStore } from "@nanostores/react";
 
 //import styles from "./MissionList.module.css";
 import { intervalStore } from "@stores/intervalStore";

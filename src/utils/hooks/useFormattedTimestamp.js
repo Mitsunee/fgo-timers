@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { useStore } from "nanostores/react";
+import { useStore } from "@nanostores/react";
 import spacetime from "spacetime";
 
 import { useFormattedSpacetime } from "@utils/hooks/useFormattedSpacetime";

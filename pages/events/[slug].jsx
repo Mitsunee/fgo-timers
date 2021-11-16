@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useStore } from "nanostores/react";
+import { useStore } from "@nanostores/react";
 
 import { basename, extname } from "path";
 import { getEventFileList } from "@utils/server/events/getEventFileList";

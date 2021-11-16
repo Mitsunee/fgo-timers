@@ -1,5 +1,5 @@
 import { useReducer, useEffect } from "react";
-import { useStore } from "nanostores/react";
+import { useStore } from "@nanostores/react";
 import { latinize } from "modern-diacritics";
 
 import { parseJsonFile } from "@utils/server/parseJsonFile";
