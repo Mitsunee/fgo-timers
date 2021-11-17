@@ -13,6 +13,7 @@
       max-width: 100%;
       width: 800px;
       height: auto;
+      min-height: 300px;
     }
 
     .hint {
