@@ -93,35 +93,39 @@ export async function describeUpgrade(
     );
     const initialNPNA = nps.na.find(({ id }) => id === initialNP.id);
 
-    // print log
-    const upgradeLog = {
+    // log info
+    spinner?.clear();
+    log.table({
       type: "NP Upgrade",
       for: initialNPNA?.name || initialNP.name,
       to: relatedNPNA?.name || relatedNP.name,
       of: nameServant(relatedServant, relatedServantNA, servants)[0]
-    };
+    });
+    spinner.start();
 
-    const upgradeData = {
+    // assemble data
+    return {
       target: "np",
       initial: describeNP(initialNP, initialNPNA),
       np: describeNP(relatedNP, relatedNPNA),
       quest: await describeQuest(questData, questDataNA),
       servant: describeServant(relatedServant, relatedServantNA, servants)
     };
-
-    return { upgradeData, upgradeLog };
   }
 
   // Quest has neither skill nor NP, assume sq interlude
-  const upgradeLog = {
+  // log info
+  spinner?.clear();
+  log.table({
     type: "SQ Interlude",
     of: nameServant(relatedServant, relatedServantNA, servants)[0]
-  };
-  const upgradeData = {
+  });
+  spinner.start();
+
+  // assemble data
+  return {
     target: "sq",
     quest: await describeQuest(questData, questDataNA),
     servant: describeServant(relatedServant, relatedServantNA, servants)
   };
-
-  return { upgradeData, upgradeLog };
 }

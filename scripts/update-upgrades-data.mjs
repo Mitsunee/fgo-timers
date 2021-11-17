@@ -59,9 +59,7 @@ async function main() {
   data = [
     ...data.filter(({ quest }) => !changedQuests.has(quest.id)),
     ...newUpgrades
-  ].sort((a, b) => {
-    a.quest.open - b.quest.open;
-  });
+  ].sort((a, b) => a.quest.open - b.quest.open);
 
   // write file
   await writeFile("assets/data/upgrades/upgrades.json", data, true);
