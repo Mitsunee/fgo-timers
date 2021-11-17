@@ -16,7 +16,7 @@ export default function EventCard({
   return (
     <Link href={`/events/${slug}/`} passHref>
       <a className={styles.card} title={title}>
-        <img src={`/banners/${banner}`} alt={slug} />
+        <img src={`/assets/events/${banner}`} alt={slug} />
         <Overlay title={title} shortTitle={shortTitle} />
         <NoSSR>
           <TimeDisplay startsAt={startsAt} endsAt={endsAt} />

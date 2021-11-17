@@ -42,7 +42,7 @@ export default function EventPage({
       <Meta
         title={title}
         headerTitle="Events"
-        image={`/banners/${banner}`}
+        image={`/assets/events/${banner}`}
         description={`Event Timers for ${title}${
           description ? `. ${description[0].slice(0, 150)}...` : ""
         }`}
@@ -55,7 +55,7 @@ export default function EventPage({
           onClick={handleModalOpen}
           target="_blank"
           rel="noreferrer noopener">
-          <img src={`/banners/${banner}`} alt={title} />
+          <img src={`/assets/events/${banner}`} alt={title} />
           <div className={styles.hint}>Click to see the official News Post</div>
         </a>
       </div>

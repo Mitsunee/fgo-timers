@@ -170,7 +170,7 @@ export default function UpgradesPage({ upgradesData }) {
       <Meta
         title="Upgrades"
         description="Explore the Interludes and Rank Up Quests of Fate/Grand Order"
-        image="/meta/upgrades.jpg"
+        image="/assets/meta/upgrades.jpg"
       />
       <Section background="blue">
         <div className={styles.formSection}>
