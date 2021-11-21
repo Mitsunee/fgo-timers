@@ -19,6 +19,8 @@ export default function UpgradeCard({
   const questRelease = useFormattedTimestamp(quest.open * 1000, "date");
   const questReleaseEstimate = useFormattedEstimate(quest.open * 1000);
 
+  // TODO: There should be a link to the quest info for the quest each card is actually about
+
   return (
     <Card
       title={`${servant.name}${
