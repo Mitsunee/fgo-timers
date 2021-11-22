@@ -1,4 +1,4 @@
-import { useStore } from "nanostores/react";
+import { useStore } from "@nanostores/react";
 
 import styles from "./SettingsMenu.module.css";
 import { uiStore, setSettingsMenuOpen } from "@stores/uiStore";

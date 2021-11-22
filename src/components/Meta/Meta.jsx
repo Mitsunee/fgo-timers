@@ -14,7 +14,8 @@ export default function Meta({
   noTitleSuffix = false,
   headerTitle = null,
   headerDescription = null,
-  color = "#2e2c6a"
+  color = "#2e2c6a",
+  isError = false
 }) {
   const router = useRouter();
 
@@ -36,7 +37,8 @@ export default function Meta({
         property="og:title"
         content={`${title}${noTitleSuffix ? "" : prefix}`}
       />
-      <meta property="og:site_name" content="FGO Tools" />
+      <meta name="application-name" content="FGO Timers" />
+      <meta property="og:site_name" content="FGO Timers" />
       <meta name="description" content={description} />
       <meta name="twitter:description" content={description} />
       <meta property="og:description" content={description} />
@@ -69,6 +71,7 @@ export default function Meta({
         />
       )}
       <meta name="theme-color" content={color} />
+      {isError && <meta name="robots" content="noindex,noarchive,none" />}
     </Head>
   );
 }

@@ -3,7 +3,7 @@ shortTitle: 15M DL Campaign
 banner: 2021_15mdl.png
 url: 2021/1101_1500dlcp/
 date: 2021-11-01 21:00 PDT - 11-15 19:59 PST
-hideWhenDone: false
+hideWhenDone: true
 times:
   - title: Special Login Bonus
     date: 2021-11-01 21:00 PDT - 11-18 19:59 PST

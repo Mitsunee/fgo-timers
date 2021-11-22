@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useStore } from "nanostores/react";
+import { useStore } from "@nanostores/react";
 import { clamp, isClamped } from "foxkit/clamp";
 import cc from "classcat";
 
@@ -161,7 +161,7 @@ export default function APCalcPage() {
       <Meta
         title="AP Calculator"
         description="AP Calculator for Fate/Grand Order"
-        image="/meta/ap.jpg"
+        image="/assets/meta/ap.jpg"
         color="#f9e677"
       />
       <Section background="blue">

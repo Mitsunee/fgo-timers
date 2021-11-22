@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useStore } from "nanostores/react";
+import { useStore } from "@nanostores/react";
 
 import { basename, extname } from "path";
 import { getEventFileList } from "@utils/server/events/getEventFileList";
@@ -42,7 +42,7 @@ export default function EventPage({
       <Meta
         title={title}
         headerTitle="Events"
-        image={`/banners/${banner}`}
+        image={`/assets/events/${banner}`}
         description={`Event Timers for ${title}${
           description ? `. ${description[0].slice(0, 150)}...` : ""
         }`}
@@ -51,12 +51,16 @@ export default function EventPage({
       <Clocks />
       <div className={styles.header}>
         <a
-          href={`https://webview.fate-go.us/${url}`}
-          onClick={handleModalOpen}
+          href={url ? `https://webview.fate-go.us/${url}` : undefined}
+          onClick={url ? handleModalOpen : undefined}
           target="_blank"
           rel="noreferrer noopener">
-          <img src={`/banners/${banner}`} alt={title} />
-          <div className={styles.hint}>Click to see the official News Post</div>
+          <img src={`/assets/events/${banner}`} alt={title} />
+          {url && (
+            <div className={styles.hint}>
+              Click to see the official News Post
+            </div>
+          )}
         </a>
       </div>
       <Headline>{title}</Headline>
@@ -131,7 +135,7 @@ export default function EventPage({
             })}
           </tbody>
         </InfoTable>
-        {showModal && (
+        {showModal && url && (
           <Modal>
             <div className={styles.iframeWrapper}>
               <iframe src={`https://webview.fate-go.us/iframe/${url}`} />
@@ -165,12 +169,17 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   const slug = context.params.slug;
   const filePath = resolveFilePath(`assets/data/events/${slug}.yml`);
-  const { title, shortTitle, banner, url, startsAt, ...data } =
-    await parseEventFile(filePath);
-  const props = { title, shortTitle, banner, url, startsAt };
+  const { title, shortTitle, banner, startsAt, ...data } = await parseEventFile(
+    filePath
+  );
+  const props = { title, shortTitle, banner, startsAt };
 
   if (typeof data.endsAt !== "undefined") {
     props.endsAt = data.endsAt;
+  }
+
+  if (typeof data.url !== "undefined") {
+    props.url = data.url;
   }
 
   if (typeof data.times !== "undefined") {

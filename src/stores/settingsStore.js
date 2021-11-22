@@ -1,5 +1,5 @@
-import { createDerived } from "nanostores";
-import { createPersistentMap } from "@nanostores/persistent";
+import { computed } from "nanostores";
+import { persistentMap } from "@nanostores/persistent";
 
 /*
  * This store uses persistence which requires all values to be string.
@@ -7,7 +7,7 @@ import { createPersistentMap } from "@nanostores/persistent";
  */
 
 // main store [key] => string
-export const settingsMap = createPersistentMap("fgoTools:", {
+export const settingsMap = persistentMap("fgoTools:", {
   alternativeClockFormat: "false", // use 12h AM/PM time format instead of 24h format
   showServerTimes: "false", // show server times instead of local time
   userMaxAP: "142",
@@ -16,7 +16,7 @@ export const settingsMap = createPersistentMap("fgoTools:", {
   perPage: "10"
 });
 
-export const settingsStore = createDerived(settingsMap, store => ({
+export const settingsStore = computed(settingsMap, store => ({
   alternativeClockFormat: store.alternativeClockFormat === "true",
   showServerTimes: store.showServerTimes === "true",
   userMaxAP: Number(store.userMaxAP),

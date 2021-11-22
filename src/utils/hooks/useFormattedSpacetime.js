@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { useStore } from "nanostores/react";
+import { useStore } from "@nanostores/react";
 
 import { settingsStore } from "@stores/settingsStore";
 import { timeFormatsMap } from "@utils/timeFormatsMap";
 
-export function useFormattedSpacetime(spacetime, formatName) {
+export function useFormattedSpacetime(spacetime, formatName, ignoreSettings) {
   const [output, setOutput] = useState("");
   const { alternativeClockFormat, showServerTimes } = useStore(settingsStore);
 
@@ -14,12 +14,18 @@ export function useFormattedSpacetime(spacetime, formatName) {
       timeFormatsMap.get(`${formatName}-${alternativeClockFormat ? 12 : 24}`);
     setOutput(
       spacetime
-        ? showServerTimes
+        ? !ignoreSettings && showServerTimes
           ? spacetime.goto("America/Los_Angeles").format(format)
           : spacetime.format(format)
         : ""
     );
-  }, [spacetime, formatName, alternativeClockFormat, showServerTimes]);
+  }, [
+    spacetime,
+    formatName,
+    alternativeClockFormat,
+    showServerTimes,
+    ignoreSettings
+  ]);
 
   return output;
 }

@@ -1,61 +1,43 @@
-import { createStore, getValue } from "nanostores";
+import { atom, action } from "nanostores";
 
-export const uiStore = createStore(() => {
-  uiStore.set({
-    mobileOpen: false,
-    settingsMenuOpen: false,
-    subMenusOpen: {},
-    apTrackerMenuOpen: false
-  });
+export const uiStore = atom({
+  mobileOpen: false,
+  settingsMenuOpen: false
 });
 
-export function setMobileNavOpen(open) {
-  const value = getValue(uiStore);
-  const mobileOpen = typeof open === "function" ? open(value.mobileOpen) : open;
+export const setMobileNavOpen = action(
+  uiStore,
+  "set mobileOpen state",
+  (store, open) => {
+    const value = store.get();
+    const mobileOpen =
+      typeof open === "function" ? open(value.mobileOpen) : open;
 
-  uiStore.set({
-    ...value,
-    mobileOpen
-  });
+    store.set({
+      ...value,
+      mobileOpen
+    });
 
-  // scroll to top if nav is opening
-  if (mobileOpen) {
-    setTimeout(() => window?.scrollTo({ top: 0, behavior: "smooth" }));
-  }
-}
-
-export function setSubMenuOpen(key, open) {
-  const value = getValue(uiStore);
-  const menuOpen =
-    typeof open === "function" ? open(value.subMenusOpen[key] || false) : open;
-
-  uiStore.set({
-    ...value,
-    subMenusOpen: {
-      ...value.subMenusOpen,
-      [key]: menuOpen
+    // scroll to top if nav is opening
+    if (mobileOpen) {
+      setTimeout(() => window?.scrollTo({ top: 0, behavior: "smooth" }));
     }
-  });
-}
+  }
+);
 
-export function setSettingsMenuOpen(open) {
-  const value = getValue(uiStore);
-  const settingsMenuOpen =
-    typeof open === "function" ? open(value.settingsMenuOpen) : open;
+export const setSettingsMenuOpen = action(
+  uiStore,
+  "set settingsMenuOpen state",
+  (store, open) => {
+    const value = store.get();
+    const settingsMenuOpen =
+      typeof open === "function" ? open(value.settingsMenuOpen) : open;
 
-  uiStore.set({
-    ...value,
-    settingsMenuOpen
-  });
-}
+    console.log({ value, settingsMenuOpen });
 
-export function setApTrackerMenuOpen(open) {
-  const value = getValue(uiStore);
-  const apTrackerMenuOpen =
-    typeof open === "function" ? open(value.apTrackerMenuOpen) : open;
-
-  uiStore.set({
-    ...value,
-    apTrackerMenuOpen
-  });
-}
+    store.set({
+      ...value,
+      settingsMenuOpen
+    });
+  }
+);

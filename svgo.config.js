@@ -10,11 +10,11 @@ module.exports = {
       params: {
         overrides: {
           // disable removeViewBox
-          removeViewBox: false,
+          removeViewBox: false
           // enable removeDimensions
-          removeDimensions: true
         }
       }
-    }
+    },
+    "removeDimensions"
   ]
 };

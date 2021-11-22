@@ -1,4 +1,4 @@
-import { useStore } from "nanostores/react";
+import { useStore } from "@nanostores/react";
 
 import styles from "./Header.module.css";
 import { metaStore } from "@stores/metaStore";

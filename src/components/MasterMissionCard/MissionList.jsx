@@ -1,4 +1,4 @@
-import { useStore } from "nanostores/react";
+import { useStore } from "@nanostores/react";
 
 //import styles from "./MissionList.module.css";
 import { intervalStore } from "@stores/intervalStore";
@@ -10,7 +10,11 @@ export default function MissionList({ data }) {
   const delta = useFormattedDelta(data.endedAt * 1000);
   const date = useFormattedTimestamp(data.endedAt * 1000, "short");
 
-  if (seconds && data.endedAt < seconds) return null;
+  // NOTE: missing workaround for limited missions that ended already
+  // currently they always display with the line below commented out
+  // as otherwise there would be an empty card.
+
+  //if (seconds && data.endedAt < seconds) return null;
 
   return (
     <>
@@ -25,7 +29,7 @@ export default function MissionList({ data }) {
         <p>
           Available until:
           <br />
-          {date} ({delta})
+          {date} ({delta === "---" ? "Ended" : delta})
         </p>
       )}
     </>

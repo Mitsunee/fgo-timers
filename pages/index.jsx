@@ -56,7 +56,7 @@ export default function HomePage({
       <Meta
         title="FGO Timers"
         description="Timers for Fate/Grand Order NA"
-        image="/meta/landing.jpg"
+        image="/assets/meta/landing.jpg"
         noTitleSuffix
       />
       <Clocks />

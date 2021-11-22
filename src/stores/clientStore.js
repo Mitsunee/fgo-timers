@@ -1,30 +1,20 @@
-import { createStore } from "nanostores";
+import { atom, action, onMount } from "nanostores";
 
-// TODO: rewrite to set event listener in createStore and use cleanup func
-export const clientStore = createStore(() => {
-  if (typeof window !== "undefined") {
-    clientStore.set({
-      width: window.innerWidth,
-      height: window.innerHeight
-    });
-  } else {
-    clientStore.set({
-      width: 0,
-      height: 0
-    });
-  }
+const getDimension = () =>
+  typeof window === "undefined"
+    ? { width: 0, height: 0 }
+    : { width: window.innerWidth, height: window.innerHeight };
+
+export const clientStore = atom(getDimension());
+
+export const updateClientStore = action(clientStore, "update", store =>
+  store.set(getDimension())
+);
+
+onMount(clientStore, () => {
+  if (typeof window === "undefined") return; // client only
+  window.addEventListener("resize", updateClientStore);
+
+  // cleanup event listener on dismount
+  return () => window.removeEventListener("resize", updateClientStore);
 });
-
-function updateClient() {
-  if (typeof window !== "undefined") {
-    clientStore.set({
-      width: window.innerWidth,
-      height: window.innerHeight
-    });
-  }
-}
-
-if (typeof window !== "undefined") {
-  window.addEventListener("resize", updateClient);
-  updateClient();
-}

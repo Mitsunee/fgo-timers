@@ -19,6 +19,8 @@ export default function UpgradeCard({
   const questRelease = useFormattedTimestamp(quest.open * 1000, "date");
   const questReleaseEstimate = useFormattedEstimate(quest.open * 1000);
 
+  // TODO: There should be a link to the quest info for the quest each card is actually about
+
   return (
     <Card
       title={`${servant.name}${
@@ -66,11 +68,16 @@ export default function UpgradeCard({
       </p>
       {(target === "sq" || quest.type === "rankup") && (
         <p>
-          <b>Rewards:</b> 2x{" "}
-          <InlineIcon icon="https://static.atlasacademy.io/NA/Items/6.png" />{" "}
-          Saint Quartz
+          <b>Rewards:</b>
+          {" 2x "}
+          <InlineIcon icon="https://static.atlasacademy.io/NA/Items/6.png" />
+          {" Saint Quartz"}
         </p>
       )}
+      <AtlasButton link={`quest/${quest.id}/1`} na={quest.na} inline>
+        Quest Info on Atlas DB
+      </AtlasButton>
+      <br />
       <AtlasButton link={`servant/${servant.id}`} na={servant.na} inline>
         Servant Info on Atlas DB
       </AtlasButton>

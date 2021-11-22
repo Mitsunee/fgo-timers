@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useStore } from "nanostores/react";
+import { useStore } from "@nanostores/react";
 
 import theme from "@styles/theme";
 import { clientStore } from "@stores/clientStore";

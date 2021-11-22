@@ -1,7 +1,7 @@
 import spacetime from "spacetime";
-import { createStore } from "nanostores";
+import { atom, action, onMount } from "nanostores";
 
-function _makeTimestamp() {
+function makeTimestamp() {
   const now = Date.now();
 
   return {
@@ -11,16 +11,16 @@ function _makeTimestamp() {
   };
 }
 
-export const intervalStore = createStore(() => {
-  const update = () => intervalStore.set(_makeTimestamp());
-  update(); // set initial values
+export const intervalStore = atom(makeTimestamp());
 
-  if (typeof window === "undefined") return; // no interval on server
-  const interval = setInterval(update, 1000);
+export const updateInterval = action(intervalStore, "update", store =>
+  store.set(makeTimestamp())
+);
 
+onMount(intervalStore, () => {
+  if (typeof window === "undefined") return; // client only
+  const interval = setInterval(updateInterval, 1000);
+
+  // cleanup interval on dismount
   return () => clearInterval(interval);
 });
-
-export function forceUpdateInterval() {
-  intervalStore.set(_makeTimestamp());
-}

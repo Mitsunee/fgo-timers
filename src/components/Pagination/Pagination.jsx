@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useStore } from "nanostores/react";
+import { useStore } from "@nanostores/react";
 import { isClamped } from "foxkit/clamp";
 import cc from "classcat";
 

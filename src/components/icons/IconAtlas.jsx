@@ -1,6 +1,6 @@
 export default function IconAtlas(props) {
   return (
-    <svg width="210mm" height="210mm" viewBox="0 0 210 210" {...props}>
+    <svg viewBox="0 0 210 210" {...props}>
       <path
         style={{
           opacity: "1",
