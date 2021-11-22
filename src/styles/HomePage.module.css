@@ -6,7 +6,6 @@
 }
 
 .body {
-  min-height: 100vh;
   background-image: var(--landing-bg);
 
   & > div[id="__next"] {
@@ -16,7 +15,8 @@
         transparent
       ),
       radial-gradient(ellipse at bottom, rgba(104, 12, 95, 0.8), transparent);
+    background-size: 100%;
+    background-attachment: fixed;
     backdrop-filter: blur(3px);
-    min-height: 100vh;
   }
 }
