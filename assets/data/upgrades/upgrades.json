@@ -11,7 +11,8 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -52,11 +53,13 @@
         "quest": [
           {
             "name": "Scourge of God",
-            "id": 1000215
+            "id": 1000215,
+            "na": true
           },
           {
             "name": "Reasons to Fight",
-            "id": 91100101
+            "id": 91100101,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -134,7 +137,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Altria Pendragon",
-            "id": 94026514
+            "id": 94026514,
+            "na": true
           }
         ]
       }
@@ -160,7 +164,8 @@
         "quest": [
           {
             "name": "The Dragon Witch",
-            "id": 1000115
+            "id": 1000115,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -189,11 +194,13 @@
         "quest": [
           {
             "name": "Scourge of God",
-            "id": 1000215
+            "id": 1000215,
+            "na": true
           },
           {
             "name": "Generations of Alter",
-            "id": 91100201
+            "id": 91100201,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -258,7 +265,8 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -334,7 +342,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Altria Pendragon (Lily)",
-            "id": 94022801
+            "id": 94022801,
+            "na": true
           }
         ]
       }
@@ -360,7 +369,8 @@
         "quest": [
           {
             "name": "Scourge of God",
-            "id": 1000215
+            "id": 1000215,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -401,11 +411,13 @@
         "quest": [
           {
             "name": "Scourge of God",
-            "id": 1000215
+            "id": 1000215,
+            "na": true
           },
           {
             "name": "First Sailing, Once Again",
-            "id": 91100501
+            "id": 91100501,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -445,11 +457,13 @@
         "quest": [
           {
             "name": "Beyond the Fog",
-            "id": 1000413
+            "id": 1000413,
+            "na": true
           },
           {
             "name": "A Golden Business",
-            "id": 91100502
+            "id": 91100502,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -514,7 +528,8 @@
         "quest": [
           {
             "name": "Beyond the Fog",
-            "id": 1000413
+            "id": 1000413,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -555,7 +570,8 @@
         "quest": [
           {
             "name": "Bouquet of Meetings",
-            "id": 91100601
+            "id": 91100601,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -633,7 +649,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Nero Claudius (Bride)",
-            "id": 94040509
+            "id": 94040509,
+            "na": true
           }
         ]
       }
@@ -659,7 +676,8 @@
         "quest": [
           {
             "name": "Replica (5/5)",
-            "id": 1000632
+            "id": 1000632,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -724,7 +742,8 @@
         "quest": [
           {
             "name": "The Dragon Witch",
-            "id": 1000115
+            "id": 1000115,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -753,11 +772,13 @@
         "quest": [
           {
             "name": "The Dragon Witch",
-            "id": 1000115
+            "id": 1000115,
+            "na": true
           },
           {
             "name": "Dragon Slayer",
-            "id": 91100801
+            "id": 91100801,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -834,7 +855,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Siegfried",
-            "id": 94008006
+            "id": 94008006,
+            "na": true
           }
         ]
       },
@@ -873,7 +895,8 @@
         "quest": [
           {
             "name": "Beyond the Fog",
-            "id": 1000413
+            "id": 1000413,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -902,11 +925,13 @@
         "quest": [
           {
             "name": "Return",
-            "id": 1000822
+            "id": 1000822,
+            "na": true
           },
           {
             "name": "King of Kings",
-            "id": 91100901
+            "id": 91100901,
+            "na": true
           }
         ],
         "ascension": 4,
@@ -1015,7 +1040,8 @@
         "quest": [
           {
             "name": "Return",
-            "id": 1000822
+            "id": 1000822,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -1078,7 +1104,8 @@
         "quest": [
           {
             "name": "Scourge of God",
-            "id": 1000215
+            "id": 1000215,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -1154,7 +1181,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Caesar",
-            "id": 94008002
+            "id": 94008002,
+            "na": true
           }
         ]
       }
@@ -1192,7 +1220,8 @@
         "quest": [
           {
             "name": "Beyond the Fog",
-            "id": 1000413
+            "id": 1000413,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -1232,7 +1261,8 @@
         "quest": [
           {
             "name": "See You Again Someday, Flower at the Apex of Heaven",
-            "id": 2000316
+            "id": 2000316,
+            "na": true
           }
         ],
         "ascension": 4
@@ -1259,7 +1289,8 @@
         "quest": [
           {
             "name": "Scourge of God",
-            "id": 1000215
+            "id": 1000215,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -1300,11 +1331,13 @@
         "quest": [
           {
             "name": "Scourge of God",
-            "id": 1000215
+            "id": 1000215,
+            "na": true
           },
           {
             "name": "The Beast Inside of Me",
-            "id": 91101801
+            "id": 91101801,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -1347,11 +1380,13 @@
         "quest": [
           {
             "name": "Shielder, Master, Soldier, Nurse",
-            "id": 1000522
+            "id": 1000522,
+            "na": true
           },
           {
             "name": "My Memories",
-            "id": 91101802
+            "id": 91101802,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -1416,7 +1451,8 @@
         "quest": [
           {
             "name": "Shielder, Master, Soldier, Nurse",
-            "id": 1000522
+            "id": 1000522,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -1477,7 +1513,8 @@
         "quest": [
           {
             "name": "Replica (5/5)",
-            "id": 1000632
+            "id": 1000632,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -1506,7 +1543,8 @@
         "quest": [
           {
             "name": "The Dragon Witch",
-            "id": 1000115
+            "id": 1000115,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -1568,7 +1606,8 @@
         "quest": [
           {
             "name": "The Dragon Witch",
-            "id": 1000115
+            "id": 1000115,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -1644,7 +1683,8 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -1754,7 +1794,8 @@
         "quest": [
           {
             "name": "intro.3-4",
-            "id": 3000303
+            "id": 3000303,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -1817,7 +1858,8 @@
         "quest": [
           {
             "name": "Return",
-            "id": 1000822
+            "id": 1000822,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -1859,11 +1901,13 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           },
           {
             "name": "A High School Girl Stroll in Chaldea",
-            "id": 91103001
+            "id": 91103001,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -1923,11 +1967,13 @@
         "quest": [
           {
             "name": "See You Again Someday, Flower at the Apex of Heaven",
-            "id": 2000316
+            "id": 2000316,
+            "na": true
           },
           {
             "name": "intro.3-4",
-            "id": 3000303
+            "id": 3000303,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -1990,7 +2036,8 @@
         "quest": [
           {
             "name": "The Dragon Witch",
-            "id": 1000115
+            "id": 1000115,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -2050,7 +2097,8 @@
         "quest": [
           {
             "name": "See You Again Someday, Flower at the Apex of Heaven",
-            "id": 2000316
+            "id": 2000316,
+            "na": true
           }
         ],
         "ascension": 2
@@ -2078,7 +2126,8 @@
         "quest": [
           {
             "name": "The Crimson Beauty under the Moon",
-            "id": 3000320
+            "id": 3000320,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -2146,7 +2195,8 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -2173,7 +2223,8 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -2227,7 +2278,8 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -2268,11 +2320,13 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           },
           {
             "name": "To be a Master",
-            "id": 91200101
+            "id": 91200101,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -2351,7 +2405,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Emiya",
-            "id": 94005014
+            "id": 94005014,
+            "na": true
           }
         ]
       },
@@ -2391,7 +2446,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Emiya 2",
-            "id": 94008005
+            "id": 94008005,
+            "na": true
           }
         ]
       }
@@ -2417,7 +2473,8 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -2458,11 +2515,13 @@
         "quest": [
           {
             "name": "Beyond the Fog",
-            "id": 1000413
+            "id": 1000413,
+            "na": true
           },
           {
             "name": "What's Worthy",
-            "id": 91200201
+            "id": 91200201,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -2505,11 +2564,13 @@
         "quest": [
           {
             "name": "Shielder, Master, Soldier, Nurse",
-            "id": 1000522
+            "id": 1000522,
+            "na": true
           },
           {
             "name": "Law of Creation",
-            "id": 91200202
+            "id": 91200202,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -2538,7 +2599,8 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -2614,7 +2676,8 @@
         "quest": [
           {
             "name": "Pioneer of the Stars",
-            "id": 1000314
+            "id": 1000314,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -2655,11 +2718,13 @@
         "quest": [
           {
             "name": "Beyond the Fog",
-            "id": 1000413
+            "id": 1000413,
+            "na": true
           },
           {
             "name": "Smile of the Goddess",
-            "id": 91200501
+            "id": 91200501,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -2721,7 +2786,8 @@
         "quest": [
           {
             "name": "Return",
-            "id": 1000822
+            "id": 1000822,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -2794,7 +2860,8 @@
         "quest": [
           {
             "name": "Return",
-            "id": 1000822
+            "id": 1000822,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -2857,7 +2924,8 @@
         "quest": [
           {
             "name": "Pioneer of the Stars",
-            "id": 1000314
+            "id": 1000314,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -2898,11 +2966,13 @@
         "quest": [
           {
             "name": "Shielder, Master, Soldier, Nurse",
-            "id": 1000522
+            "id": 1000522,
+            "na": true
           },
           {
             "name": "Unsweet Honeymoon",
-            "id": 91200901
+            "id": 91200901,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -2931,7 +3001,8 @@
         "quest": [
           {
             "name": "A Certain Love Song",
-            "id": 91200902
+            "id": 91200902,
+            "na": true
           }
         ]
       },
@@ -2958,7 +3029,8 @@
         "quest": [
           {
             "name": "Shielder, Master, Soldier, Nurse",
-            "id": 1000522
+            "id": 1000522,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -3033,7 +3105,8 @@
         "quest": [
           {
             "name": "Beyond the Fog",
-            "id": 1000413
+            "id": 1000413,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -3076,11 +3149,13 @@
         "quest": [
           {
             "name": "intro.3-4",
-            "id": 3000303
+            "id": 3000303,
+            "na": true
           },
           {
             "name": "Lightning",
-            "id": 91201101
+            "id": 91201101,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -3157,7 +3232,8 @@
         "quest": [
           {
             "name": "Scourge of God",
-            "id": 1000215
+            "id": 1000215,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -3231,7 +3307,8 @@
         "quest": [
           {
             "name": "Replica (3/5)",
-            "id": 1000630
+            "id": 1000630,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -3305,7 +3382,8 @@
         "quest": [
           {
             "name": "Replica (5/5)",
-            "id": 1000632
+            "id": 1000632,
+            "na": true
           }
         ],
         "bond": 2
@@ -3345,7 +3423,8 @@
         "quest": [
           {
             "name": "Pioneer of the Stars",
-            "id": 1000314
+            "id": 1000314,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -3388,11 +3467,13 @@
         "quest": [
           {
             "name": "Shielder, Master, Soldier, Nurse",
-            "id": 1000522
+            "id": 1000522,
+            "na": true
           },
           {
             "name": "True Value of the Divine Bow",
-            "id": 91201501
+            "id": 91201501,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -3455,7 +3536,8 @@
         "quest": [
           {
             "name": "Great Detectives' Great Deduction",
-            "id": 2000118
+            "id": 2000118,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -3530,7 +3612,8 @@
         "quest": [
           {
             "name": "Beyond the Fog",
-            "id": 1000413
+            "id": 1000413,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -3593,7 +3676,8 @@
         "quest": [
           {
             "name": "Return to Chaldea",
-            "id": 1000722
+            "id": 1000722,
+            "na": true
           }
         ],
         "ascension": 2
@@ -3633,11 +3717,13 @@
         "quest": [
           {
             "name": "Return",
-            "id": 1000822
+            "id": 1000822,
+            "na": true
           },
           {
             "name": "Ishtar's Eleven",
-            "id": 91202001
+            "id": 91202001,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -3666,11 +3752,13 @@
         "quest": [
           {
             "name": "Great Detectives' Great Deduction",
-            "id": 2000118
+            "id": 2000118,
+            "na": true
           },
           {
             "name": "intro.3-4",
-            "id": 3000303
+            "id": 3000303,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -3712,7 +3800,8 @@
         "quest": [
           {
             "name": "The Great Prison Break",
-            "id": 2000110
+            "id": 2000110,
+            "na": true
           }
         ],
         "ascension": 4
@@ -3753,7 +3842,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Moriarty",
-            "id": 94034901
+            "id": 94034901,
+            "na": true
           }
         ]
       }
@@ -3793,7 +3883,8 @@
         "quest": [
           {
             "name": "Shielder, Master, Soldier, Nurse",
-            "id": 1000522
+            "id": 1000522,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -3854,7 +3945,8 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -3882,7 +3974,8 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -3910,7 +4003,8 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -3938,7 +4032,8 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -3965,7 +4060,8 @@
         "quest": [
           {
             "name": "Scourge of God",
-            "id": 1000215
+            "id": 1000215,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -4041,7 +4137,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Cú Chulainn",
-            "id": 94026504
+            "id": 94026504,
+            "na": true
           }
         ]
       }
@@ -4079,7 +4176,8 @@
         "quest": [
           {
             "name": "Beyond the Fog",
-            "id": 1000413
+            "id": 1000413,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -4108,7 +4206,8 @@
         "quest": [
           {
             "name": "Replica (5/5)",
-            "id": 1000632
+            "id": 1000632,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -4137,7 +4236,8 @@
         "quest": [
           {
             "name": "Pioneer of the Stars",
-            "id": 1000314
+            "id": 1000314,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -4200,7 +4300,8 @@
         "quest": [
           {
             "name": "Scourge of God",
-            "id": 1000215
+            "id": 1000215,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -4277,7 +4378,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Elisabeth",
-            "id": 94008007
+            "id": 94008007,
+            "na": true
           }
         ]
       },
@@ -4317,7 +4419,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Elisabeth 2",
-            "id": 94022004
+            "id": 94022004,
+            "na": true
           }
         ]
       }
@@ -4343,7 +4446,8 @@
         "quest": [
           {
             "name": "Scourge of God",
-            "id": 1000215
+            "id": 1000215,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -4416,7 +4520,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Benkei",
-            "id": 94002504
+            "id": 94002504,
+            "na": true
           }
         ]
       }
@@ -4442,7 +4547,8 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -4518,7 +4624,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Cú Chulainn (Prototype)",
-            "id": 94008003
+            "id": 94008003,
+            "na": true
           }
         ]
       }
@@ -4544,7 +4651,8 @@
         "quest": [
           {
             "name": "Great Detectives' Great Deduction",
-            "id": 2000118
+            "id": 2000118,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -4585,11 +4693,13 @@
         "quest": [
           {
             "name": "On to an Unprecedented Journey",
-            "id": 3000008
+            "id": 3000008,
+            "na": true
           },
           {
             "name": "Made by God, Woven by Humans, and Returned to Soil I",
-            "id": 91300801
+            "id": 91300801,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -4654,7 +4764,8 @@
         "quest": [
           {
             "name": "Scourge of God",
-            "id": 1000215
+            "id": 1000215,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -4729,7 +4840,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Leonidas",
-            "id": 94002505
+            "id": 94002505,
+            "na": true
           }
         ]
       }
@@ -4755,7 +4867,8 @@
         "quest": [
           {
             "name": "Scourge of God",
-            "id": 1000215
+            "id": 1000215,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -4831,7 +4944,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Romulus",
-            "id": 94005003
+            "id": 94005003,
+            "na": true
           }
         ]
       },
@@ -4870,7 +4984,8 @@
         "quest": [
           {
             "name": "Beyond the Fog",
-            "id": 1000413
+            "id": 1000413,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -4949,7 +5064,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Fionn mac Cumhaill",
-            "id": 94014405
+            "id": 94014405,
+            "na": true
           }
         ]
       },
@@ -4988,7 +5104,8 @@
         "quest": [
           {
             "name": "Return",
-            "id": 1000822
+            "id": 1000822,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -5031,11 +5148,13 @@
         "quest": [
           {
             "name": "Great Detectives' Great Deduction",
-            "id": 2000118
+            "id": 2000118,
+            "na": true
           },
           {
             "name": "Yet I Want to Remain a Flame",
-            "id": 91301201
+            "id": 91301201,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -5110,7 +5229,8 @@
         "quest": [
           {
             "name": "Beyond the Fog",
-            "id": 1000413
+            "id": 1000413,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -5139,11 +5259,13 @@
         "quest": [
           {
             "name": "Replica (5/5)",
-            "id": 1000632
+            "id": 1000632,
+            "na": true
           },
           {
             "name": "Kill Me If You Can",
-            "id": 91301301
+            "id": 91301301,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -5206,7 +5328,8 @@
         "quest": [
           {
             "name": "See You Again Someday, Flower at the Apex of Heaven",
-            "id": 2000316
+            "id": 2000316,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -5247,7 +5370,8 @@
         "quest": [
           {
             "name": "Pioneer of the Stars",
-            "id": 1000314
+            "id": 1000314,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -5310,7 +5434,8 @@
         "quest": [
           {
             "name": "Great Detectives' Great Deduction",
-            "id": 2000118
+            "id": 2000118,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -5386,7 +5511,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Li Shuwen",
-            "id": 94035605
+            "id": 94035605,
+            "na": true
           }
         ]
       }
@@ -5424,7 +5550,8 @@
         "quest": [
           {
             "name": "Beyond the Fog",
-            "id": 1000413
+            "id": 1000413,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -5487,7 +5614,8 @@
         "quest": [
           {
             "name": "Replica (5/5)",
-            "id": 1000632
+            "id": 1000632,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -5562,7 +5690,8 @@
         "quest": [
           {
             "name": "Return to Chaldea",
-            "id": 1000722
+            "id": 1000722,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -5627,7 +5756,8 @@
         "quest": [
           {
             "name": "Return",
-            "id": 1000822
+            "id": 1000822,
+            "na": true
           }
         ],
         "bond": 3
@@ -5655,7 +5785,8 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           }
         ],
         "bond": 4
@@ -5683,7 +5814,8 @@
         "quest": [
           {
             "name": "Return",
-            "id": 1000822
+            "id": 1000822,
+            "na": true
           }
         ],
         "bond": 3
@@ -5775,7 +5907,8 @@
         "quest": [
           {
             "name": "intro.3-4",
-            "id": 3000303
+            "id": 3000303,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -5876,7 +6009,8 @@
         "quest": [
           {
             "name": "Return",
-            "id": 1000822
+            "id": 1000822,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -5903,7 +6037,8 @@
         "quest": [
           {
             "name": "intro.3-4",
-            "id": 3000303
+            "id": 3000303,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -5930,7 +6065,8 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -6004,7 +6140,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Medusa",
-            "id": 94003405
+            "id": 94003405,
+            "na": true
           }
         ]
       },
@@ -6031,7 +6168,8 @@
         "quest": [
           {
             "name": "The Dragon Witch",
-            "id": 1000115
+            "id": 1000115,
+            "na": true
           }
         ]
       },
@@ -6070,11 +6208,13 @@
         "quest": [
           {
             "name": "Replica (5/5)",
-            "id": 1000632
+            "id": 1000632,
+            "na": true
           },
           {
             "name": "Conqueror of Life",
-            "id": 91400201
+            "id": 91400201,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -6151,7 +6291,8 @@
         "quest": [
           {
             "name": "Pioneer of the Stars",
-            "id": 1000314
+            "id": 1000314,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -6180,11 +6321,13 @@
         "quest": [
           {
             "name": "Beyond the Fog",
-            "id": 1000413
+            "id": 1000413,
+            "na": true
           },
           {
             "name": "Treasure Island",
-            "id": 91400301
+            "id": 91400301,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -6261,7 +6404,8 @@
         "quest": [
           {
             "name": "The Dragon Witch",
-            "id": 1000115
+            "id": 1000115,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -6324,7 +6468,8 @@
         "quest": [
           {
             "name": "The Dragon Witch",
-            "id": 1000115
+            "id": 1000115,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -6353,7 +6498,8 @@
         "quest": [
           {
             "name": "Pioneer of the Stars",
-            "id": 1000314
+            "id": 1000314,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -6427,7 +6573,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Teach",
-            "id": 94005002
+            "id": 94005002,
+            "na": true
           }
         ]
       },
@@ -6466,7 +6613,8 @@
         "quest": [
           {
             "name": "Pioneer of the Stars",
-            "id": 1000314
+            "id": 1000314,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -6495,11 +6643,13 @@
         "quest": [
           {
             "name": "Replica (5/5)",
-            "id": 1000632
+            "id": 1000632,
+            "na": true
           },
           {
             "name": "Capture Captain Kidd's Treasure",
-            "id": 91400901
+            "id": 91400901,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -6562,7 +6712,8 @@
         "quest": [
           {
             "name": "Scourge of God",
-            "id": 1000215
+            "id": 1000215,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -6636,7 +6787,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Boudica",
-            "id": 94002506
+            "id": 94002506,
+            "na": true
           }
         ]
       },
@@ -6677,7 +6829,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Boudica 2",
-            "id": 94012507
+            "id": 94012507,
+            "na": true
           }
         ]
       },
@@ -6717,7 +6870,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Boudica 3",
-            "id": 94040510
+            "id": 94040510,
+            "na": true
           }
         ]
       }
@@ -6743,7 +6897,8 @@
         "quest": [
           {
             "name": "Return",
-            "id": 1000822
+            "id": 1000822,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -6772,11 +6927,13 @@
         "quest": [
           {
             "name": "Great Detectives' Great Deduction",
-            "id": 2000118
+            "id": 2000118,
+            "na": true
           },
           {
             "name": "Pharaoh's Shining Glory",
-            "id": 91401201
+            "id": 91401201,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -6890,7 +7047,8 @@
         "quest": [
           {
             "name": "Shielder, Master, Soldier, Nurse",
-            "id": 1000522
+            "id": 1000522,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -6933,11 +7091,13 @@
         "quest": [
           {
             "name": "Shielder, Master, Soldier, Nurse",
-            "id": 1000522
+            "id": 1000522,
+            "na": true
           },
           {
             "name": "Queen's Discipline",
-            "id": 91401301
+            "id": 91401301,
+            "na": true
           }
         ],
         "ascension": 4,
@@ -7013,7 +7173,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Medb",
-            "id": 94012503
+            "id": 94012503,
+            "na": true
           }
         ]
       }
@@ -7051,7 +7212,8 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -7127,7 +7289,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Ushiwakamaru",
-            "id": 94004105
+            "id": 94004105,
+            "na": true
           }
         ]
       },
@@ -7167,7 +7330,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Ushiwakamaru 2",
-            "id": 94026506
+            "id": 94026506,
+            "na": true
           }
         ]
       }
@@ -7205,7 +7369,8 @@
         "quest": [
           {
             "name": "Pioneer of the Stars",
-            "id": 1000314
+            "id": 1000314,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -7281,7 +7446,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Alexander",
-            "id": 94003404
+            "id": 94003404,
+            "na": true
           }
         ]
       },
@@ -7308,7 +7474,8 @@
         "quest": [
           {
             "name": "Scourge of God",
-            "id": 1000215
+            "id": 1000215,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -7337,11 +7504,13 @@
         "quest": [
           {
             "name": "Scourge of God",
-            "id": 1000215
+            "id": 1000215,
+            "na": true
           },
           {
             "name": "Queen of Lily and Emperor of Rose",
-            "id": 91401701
+            "id": 91401701,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -7417,7 +7586,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Marie Antoinette",
-            "id": 94022002
+            "id": 94022002,
+            "na": true
           }
         ]
       }
@@ -7443,7 +7613,8 @@
         "quest": [
           {
             "name": "Return",
-            "id": 1000822
+            "id": 1000822,
+            "na": true
           }
         ],
         "bond": 4
@@ -7505,7 +7676,8 @@
         "quest": [
           {
             "name": "The Dragon Witch",
-            "id": 1000115
+            "id": 1000115,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -7534,11 +7706,13 @@
         "quest": [
           {
             "name": "Scourge of God",
-            "id": 1000215
+            "id": 1000215,
+            "na": true
           },
           {
             "name": "Saint of the Dragon and Sea",
-            "id": 91401901
+            "id": 91401901,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -7614,7 +7788,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Martha",
-            "id": 94002507
+            "id": 94002507,
+            "na": true
           }
         ]
       },
@@ -7653,7 +7828,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Martha 2",
-            "id": 94005007
+            "id": 94005007,
+            "na": true
           }
         ]
       },
@@ -7692,7 +7868,8 @@
         "quest": [
           {
             "name": "Women of Agartha",
-            "id": 2000216
+            "id": 2000216,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -7757,7 +7934,8 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -7798,7 +7976,8 @@
         "quest": [
           {
             "name": "intro.3-4",
-            "id": 3000303
+            "id": 3000303,
+            "na": true
           }
         ],
         "ascension": 4,
@@ -7826,7 +8005,8 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -7893,7 +8073,8 @@
         "quest": [
           {
             "name": "Pioneer of the Stars",
-            "id": 1000314
+            "id": 1000314,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -7955,7 +8136,8 @@
         "quest": [
           {
             "name": "The Dragon Witch",
-            "id": 1000115
+            "id": 1000115,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -8030,7 +8212,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Gilles de Rais",
-            "id": 94003402
+            "id": 94003402,
+            "na": true
           }
         ]
       }
@@ -8068,7 +8251,8 @@
         "quest": [
           {
             "name": "Scourge of God",
-            "id": 1000215
+            "id": 1000215,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -8111,11 +8295,13 @@
         "quest": [
           {
             "name": "Beyond the Fog",
-            "id": 1000413
+            "id": 1000413,
+            "na": true
           },
           {
             "name": "E-Pal Wars",
-            "id": 91500301
+            "id": 91500301,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -8192,7 +8378,8 @@
         "quest": [
           {
             "name": "Beyond the Fog",
-            "id": 1000413
+            "id": 1000413,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -8233,7 +8420,8 @@
         "quest": [
           {
             "name": "Beyond the Fog",
-            "id": 1000413
+            "id": 1000413,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -8298,7 +8486,8 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -8372,7 +8561,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Shakespeare",
-            "id": 94004103
+            "id": 94004103,
+            "na": true
           }
         ]
       },
@@ -8399,7 +8589,8 @@
         "quest": [
           {
             "name": "Return",
-            "id": 1000822
+            "id": 1000822,
+            "na": true
           }
         ]
       },
@@ -8438,11 +8629,13 @@
         "quest": [
           {
             "name": "On to an Unprecedented Journey",
-            "id": 3000008
+            "id": 3000008,
+            "na": true
           },
           {
             "name": "Not Even The Almighty Hand Can Reach Here",
-            "id": 91500901
+            "id": 91500901,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -8517,7 +8710,8 @@
         "quest": [
           {
             "name": "Beyond the Fog",
-            "id": 1000413
+            "id": 1000413,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -8594,7 +8788,8 @@
         "quest": [
           {
             "name": "Beyond the Fog",
-            "id": 1000413
+            "id": 1000413,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -8672,7 +8867,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Babbage",
-            "id": 94014403
+            "id": 94014403,
+            "na": true
           }
         ]
       }
@@ -8710,7 +8906,8 @@
         "quest": [
           {
             "name": "Replica (5/5)",
-            "id": 1000632
+            "id": 1000632,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -8785,7 +8982,8 @@
         "quest": [
           {
             "name": "Beyond the Fog",
-            "id": 1000413
+            "id": 1000413,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -8860,7 +9058,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Mephistopheles",
-            "id": 94003407
+            "id": 94003407,
+            "na": true
           }
         ]
       }
@@ -8886,7 +9085,8 @@
         "quest": [
           {
             "name": "The Dragon Witch",
-            "id": 1000115
+            "id": 1000115,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -8961,7 +9161,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Amadeus",
-            "id": 94005004
+            "id": 94005004,
+            "na": true
           }
         ]
       }
@@ -8999,7 +9200,8 @@
         "quest": [
           {
             "name": "Shielder, Master, Soldier, Nurse",
-            "id": 1000522
+            "id": 1000522,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -9040,7 +9242,8 @@
         "quest": [
           {
             "name": "Pioneer of the Stars",
-            "id": 1000314
+            "id": 1000314,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -9083,11 +9286,13 @@
         "quest": [
           {
             "name": "Replica (5/5)",
-            "id": 1000632
+            "id": 1000632,
+            "na": true
           },
           {
             "name": "Close Friend of a Witch",
-            "id": 91501701
+            "id": 91501701,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -9152,7 +9357,8 @@
         "quest": [
           {
             "name": "Return to Chaldea",
-            "id": 1000722
+            "id": 1000722,
+            "na": true
           }
         ],
         "ascension": 2
@@ -9212,7 +9418,8 @@
         "quest": [
           {
             "name": "Scourge of God",
-            "id": 1000215
+            "id": 1000215,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -9241,11 +9448,13 @@
         "quest": [
           {
             "name": "Pioneer of the Stars",
-            "id": 1000314
+            "id": 1000314,
+            "na": true
           },
           {
             "name": "Heroic Spirit Possession",
-            "id": 91501901
+            "id": 91501901,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -9286,11 +9495,13 @@
         "quest": [
           {
             "name": "Pioneer of the Stars",
-            "id": 1000314
+            "id": 1000314,
+            "na": true
           },
           {
             "name": "Endless Sea",
-            "id": 91501902
+            "id": 91501902,
+            "na": true
           }
         ],
         "ascension": 4,
@@ -9319,7 +9530,8 @@
         "quest": [
           {
             "name": "Scourge of God",
-            "id": 1000215
+            "id": 1000215,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -9396,7 +9608,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Cú Chulainn",
-            "id": 94008004
+            "id": 94008004,
+            "na": true
           }
         ]
       },
@@ -9423,7 +9636,8 @@
         "quest": [
           {
             "name": "Return",
-            "id": 1000822
+            "id": 1000822,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -9499,7 +9713,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Xuanzang Sanzang",
-            "id": 94014412
+            "id": 94014412,
+            "na": true
           }
         ]
       }
@@ -9537,7 +9752,8 @@
         "quest": [
           {
             "name": "Replica (5/5)",
-            "id": 1000632
+            "id": 1000632,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -9611,7 +9827,8 @@
         "quest": [
           {
             "name": "Shielder, Master, Soldier, Nurse",
-            "id": 1000522
+            "id": 1000522,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -9688,7 +9905,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Thomas Edison",
-            "id": 94014406
+            "id": 94014406,
+            "na": true
           }
         ]
       },
@@ -9761,7 +9979,8 @@
         "quest": [
           {
             "name": "Return to Chaldea",
-            "id": 1000722
+            "id": 1000722,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -9838,7 +10057,8 @@
         "quest": [
           {
             "name": "Women of Agartha",
-            "id": 2000216
+            "id": 2000216,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -9879,7 +10099,8 @@
         "quest": [
           {
             "name": "Temporary Retreat",
-            "id": 2000209
+            "id": 2000209,
+            "na": true
           }
         ],
         "ascension": 4
@@ -9920,7 +10141,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Scheherazade",
-            "id": 94022003
+            "id": 94022003,
+            "na": true
           }
         ]
       }
@@ -9946,7 +10168,8 @@
         "quest": [
           {
             "name": "Chaldea",
-            "id": 2000410
+            "id": 2000410,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -10007,7 +10230,8 @@
         "quest": [
           {
             "name": "Chaldea",
-            "id": 2000410
+            "id": 2000410,
+            "na": true
           }
         ]
       },
@@ -10034,11 +10258,13 @@
         "quest": [
           {
             "name": "intro.3-4",
-            "id": 3000303
+            "id": 3000303,
+            "na": true
           },
           {
             "name": "絶望性の過去と希望性の未来",
-            "id": 91503501
+            "id": 91503501,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -10077,7 +10303,8 @@
         "quest": [
           {
             "name": "intro.3-4",
-            "id": 3000303
+            "id": 3000303,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -10137,7 +10364,8 @@
         "quest": [
           {
             "name": "intro.3-4",
-            "id": 3000303
+            "id": 3000303,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -10165,7 +10393,8 @@
         "quest": [
           {
             "name": "Scourge of God",
-            "id": 1000215
+            "id": 1000215,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -10242,7 +10471,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Sasaki Kojirou",
-            "id": 94008001
+            "id": 94008001,
+            "na": true
           }
         ]
       },
@@ -10282,7 +10512,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Sasaki Kojirou 2",
-            "id": 94026501
+            "id": 94026501,
+            "na": true
           }
         ]
       }
@@ -10308,7 +10539,8 @@
         "quest": [
           {
             "name": "Scourge of God",
-            "id": 1000215
+            "id": 1000215,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -10384,7 +10616,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Hassan of the Cursed Arm",
-            "id": 94026503
+            "id": 94026503,
+            "na": true
           }
         ]
       }
@@ -10422,7 +10655,8 @@
         "quest": [
           {
             "name": "Replica (5/5)",
-            "id": 1000632
+            "id": 1000632,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -10463,7 +10697,8 @@
         "quest": [
           {
             "name": "Beyond the Fog",
-            "id": 1000413
+            "id": 1000413,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -10492,11 +10727,13 @@
         "quest": [
           {
             "name": "Return",
-            "id": 1000822
+            "id": 1000822,
+            "na": true
           },
           {
             "name": "Jack Kills Jack",
-            "id": 91600501
+            "id": 91600501,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -10537,7 +10774,8 @@
         "quest": [
           {
             "name": "Beyond the Fog",
-            "id": 1000413
+            "id": 1000413,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -10566,7 +10804,8 @@
         "quest": [
           {
             "name": "Return",
-            "id": 1000822
+            "id": 1000822,
+            "na": true
           }
         ],
         "bond": 3
@@ -10606,11 +10845,13 @@
         "quest": [
           {
             "name": "Return",
-            "id": 1000822
+            "id": 1000822,
+            "na": true
           },
           {
             "name": "Where Beauty Lies",
-            "id": 91600801
+            "id": 91600801,
+            "na": true
           }
         ],
         "ascension": 4,
@@ -10653,7 +10894,8 @@
         "quest": [
           {
             "name": "Return",
-            "id": 1000822
+            "id": 1000822,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -10729,7 +10971,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Hassan of the Serenity",
-            "id": 94012506
+            "id": 94012506,
+            "na": true
           }
         ]
       }
@@ -10755,7 +10998,8 @@
         "quest": [
           {
             "name": "Scourge of God",
-            "id": 1000215
+            "id": 1000215,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -10784,11 +11028,13 @@
         "quest": [
           {
             "name": "Scourge of God",
-            "id": 1000215
+            "id": 1000215,
+            "na": true
           },
           {
             "name": "It's Not Impossible?",
-            "id": 91601001
+            "id": 91601001,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -10862,7 +11108,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Stheno",
-            "id": 94005013
+            "id": 94005013,
+            "na": true
           }
         ]
       },
@@ -10889,7 +11136,8 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -10963,7 +11211,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Jing Ke",
-            "id": 94003403
+            "id": 94003403,
+            "na": true
           }
         ]
       },
@@ -11003,7 +11252,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Jing Ke 2",
-            "id": 94014402
+            "id": 94014402,
+            "na": true
           }
         ]
       }
@@ -11029,7 +11279,8 @@
         "quest": [
           {
             "name": "The Dragon Witch",
-            "id": 1000115
+            "id": 1000115,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -11106,7 +11357,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Sanson",
-            "id": 94002503
+            "id": 94002503,
+            "na": true
           }
         ]
       },
@@ -11145,7 +11397,8 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -11208,7 +11461,8 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -11283,7 +11537,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Mata Hari",
-            "id": 94005006
+            "id": 94005006,
+            "na": true
           }
         ]
       }
@@ -11321,7 +11576,8 @@
         "quest": [
           {
             "name": "Return",
-            "id": 1000822
+            "id": 1000822,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -11350,7 +11606,8 @@
         "quest": [
           {
             "name": "The Dragon Witch",
-            "id": 1000115
+            "id": 1000115,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -11424,7 +11681,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Carmilla",
-            "id": 94005009
+            "id": 94005009,
+            "na": true
           }
         ]
       },
@@ -11451,7 +11709,8 @@
         "quest": [
           {
             "name": "Beyond the Fog",
-            "id": 1000413
+            "id": 1000413,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -11480,11 +11739,13 @@
         "quest": [
           {
             "name": "Beyond the Fog",
-            "id": 1000413
+            "id": 1000413,
+            "na": true
           },
           {
             "name": "Saber Slayer, Chapter Dawn",
-            "id": 91601801
+            "id": 91601801,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -11525,11 +11786,13 @@
         "quest": [
           {
             "name": "Beyond the Fog",
-            "id": 1000413
+            "id": 1000413,
+            "na": true
           },
           {
             "name": "Saber Slayer, Chapter Battle",
-            "id": 91601802
+            "id": 91601802,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -11608,7 +11871,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Mysterious Heroine X",
-            "id": 94014411
+            "id": 94014411,
+            "na": true
           }
         ]
       },
@@ -11647,7 +11911,8 @@
         "quest": [
           {
             "name": "See You Again Someday, Flower at the Apex of Heaven",
-            "id": 2000316
+            "id": 2000316,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -11712,7 +11977,8 @@
         "quest": [
           {
             "name": "Shielder, Master, Soldier, Nurse",
-            "id": 1000522
+            "id": 1000522,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -11754,11 +12020,13 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           },
           {
             "name": "Drunkenness, Madness, and Rage",
-            "id": 91602101
+            "id": 91602101,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -11904,7 +12172,8 @@
         "quest": [
           {
             "name": "Great Detectives' Great Deduction",
-            "id": 2000118
+            "id": 2000118,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -11944,7 +12213,8 @@
         "quest": [
           {
             "name": "Elegant Dance",
-            "id": 2000112
+            "id": 2000112,
+            "na": true
           }
         ],
         "ascension": 4
@@ -11971,7 +12241,8 @@
         "quest": [
           {
             "name": "Women of Agartha",
-            "id": 2000216
+            "id": 2000216,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -12012,11 +12283,13 @@
         "quest": [
           {
             "name": "Women of Agartha",
-            "id": 2000216
+            "id": 2000216,
+            "na": true
           },
           {
             "name": "Empress VS... ",
-            "id": 91602701
+            "id": 91602701,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -12058,7 +12331,8 @@
         "quest": [
           {
             "name": "The Brilliant Fortress City ",
-            "id": 2000208
+            "id": 2000208,
+            "na": true
           }
         ],
         "ascension": 4
@@ -12085,7 +12359,8 @@
         "quest": [
           {
             "name": "See You Again Someday, Flower at the Apex of Heaven",
-            "id": 2000316
+            "id": 2000316,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -12125,7 +12400,8 @@
         "quest": [
           {
             "name": "Terza Cantica: Paraíso (Ending)",
-            "id": 2000309
+            "id": 2000309,
+            "na": true
           }
         ],
         "ascension": 4
@@ -12152,7 +12428,8 @@
         "quest": [
           {
             "name": "See You Again Someday, Flower at the Apex of Heaven",
-            "id": 2000316
+            "id": 2000316,
+            "na": true
           }
         ],
         "ascension": 4,
@@ -12227,7 +12504,8 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -12290,7 +12568,8 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -12353,7 +12632,8 @@
         "quest": [
           {
             "name": "The Crimson Beauty under the Moon",
-            "id": 3000320
+            "id": 3000320,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -12416,7 +12696,8 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -12456,11 +12737,13 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           },
           {
             "name": "Perseverance Will Prevail",
-            "id": 91603601
+            "id": 91603601,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -12488,7 +12771,8 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -12544,7 +12828,8 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -12573,11 +12858,13 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           },
           {
             "name": "Oath of Heracles",
-            "id": 91700101
+            "id": 91700101,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -12646,7 +12933,8 @@
         "quest": [
           {
             "name": "The Dragon Witch",
-            "id": 1000115
+            "id": 1000115,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -12675,11 +12963,13 @@
         "quest": [
           {
             "name": "The Dragon Witch",
-            "id": 1000115
+            "id": 1000115,
+            "na": true
           },
           {
             "name": "Knight of Owner",
-            "id": 91700201
+            "id": 91700201,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -12741,7 +13031,8 @@
         "quest": [
           {
             "name": "Scourge of God",
-            "id": 1000215
+            "id": 1000215,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -12815,7 +13106,8 @@
         "quest": [
           {
             "name": "Beyond the Fog",
-            "id": 1000413
+            "id": 1000413,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -12858,11 +13150,13 @@
         "quest": [
           {
             "name": "Beyond the Fog",
-            "id": 1000413
+            "id": 1000413,
+            "na": true
           },
           {
             "name": "The Events of a Lonely Night in November I",
-            "id": 91700401
+            "id": 91700401,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -12891,7 +13185,8 @@
         "quest": [
           {
             "name": "Scourge of God",
-            "id": 1000215
+            "id": 1000215,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -12967,7 +13262,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Spartacus",
-            "id": 94002501
+            "id": 94002501,
+            "na": true
           }
         ]
       },
@@ -13006,7 +13302,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Spartacus 2",
-            "id": 94005010
+            "id": 94005010,
+            "na": true
           }
         ]
       },
@@ -13033,7 +13330,8 @@
         "quest": [
           {
             "name": "Beyond the Fog",
-            "id": 1000413
+            "id": 1000413,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -13062,11 +13360,13 @@
         "quest": [
           {
             "name": "Return",
-            "id": 1000822
+            "id": 1000822,
+            "na": true
           },
           {
             "name": "Kintoki's Bear Extermination on Mt. Ashigara",
-            "id": 91700601
+            "id": 91700601,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -13139,7 +13439,8 @@
         "quest": [
           {
             "name": "Beyond the Fog",
-            "id": 1000413
+            "id": 1000413,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -13182,7 +13483,8 @@
         "quest": [
           {
             "name": "Legend of Dracula I",
-            "id": 91700701
+            "id": 91700701,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -13256,7 +13558,8 @@
         "quest": [
           {
             "name": "Legend of Dracula I",
-            "id": 91700701
+            "id": 91700701,
+            "na": true
           },
           {
             "name": "強化クエスト ヴラド三世",
@@ -13298,7 +13601,8 @@
         "quest": [
           {
             "name": "Beyond the Fog",
-            "id": 1000413
+            "id": 1000413,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -13376,7 +13680,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Beowulf",
-            "id": 94035604
+            "id": 94035604,
+            "na": true
           }
         ]
       }
@@ -13414,7 +13719,8 @@
         "quest": [
           {
             "name": "Pioneer of the Stars",
-            "id": 1000314
+            "id": 1000314,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -13476,7 +13782,8 @@
         "quest": [
           {
             "name": "Scourge of God",
-            "id": 1000215
+            "id": 1000215,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -13549,7 +13856,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Caligula",
-            "id": 94005008
+            "id": 94005008,
+            "na": true
           }
         ]
       }
@@ -13575,7 +13883,8 @@
         "quest": [
           {
             "name": "Scourge of God",
-            "id": 1000215
+            "id": 1000215,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -13616,11 +13925,13 @@
         "quest": [
           {
             "name": "Scourge of God",
-            "id": 1000215
+            "id": 1000215,
+            "na": true
           },
           {
             "name": "Lord of the Destructive Storm",
-            "id": 91701101
+            "id": 91701101,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -13683,7 +13994,8 @@
         "quest": [
           {
             "name": "The Dragon Witch",
-            "id": 1000115
+            "id": 1000115,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -13759,7 +14071,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Kiyohime",
-            "id": 94004107
+            "id": 94004107,
+            "na": true
           }
         ]
       },
@@ -13798,7 +14111,8 @@
         "quest": [
           {
             "name": "Return",
-            "id": 1000822
+            "id": 1000822,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -13827,7 +14141,8 @@
         "quest": [
           {
             "name": "An Angel Does Not Plant Flowers",
-            "id": 91701401
+            "id": 91701401,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -13892,7 +14207,8 @@
         "quest": [
           {
             "name": "The Dragon Witch",
-            "id": 1000115
+            "id": 1000115,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -13968,7 +14284,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Eric",
-            "id": 94002502
+            "id": 94002502,
+            "na": true
           }
         ]
       },
@@ -13995,7 +14312,8 @@
         "quest": [
           {
             "name": "Pioneer of the Stars",
-            "id": 1000314
+            "id": 1000314,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -14036,11 +14354,13 @@
         "quest": [
           {
             "name": "Beyond the Fog",
-            "id": 1000413
+            "id": 1000413,
+            "na": true
           },
           {
             "name": "Overflowing Wildness",
-            "id": 91701601
+            "id": 91701601,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -14119,7 +14439,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Tamamo Cat",
-            "id": 94026511
+            "id": 94026511,
+            "na": true
           }
         ]
       },
@@ -14146,7 +14467,8 @@
         "quest": [
           {
             "name": "Shielder, Master, Soldier, Nurse",
-            "id": 1000522
+            "id": 1000522,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -14175,11 +14497,13 @@
         "quest": [
           {
             "name": "Return",
-            "id": 1000822
+            "id": 1000822,
+            "na": true
           },
           {
             "name": "A War of Only Two",
-            "id": 91702001
+            "id": 91702001,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -14240,7 +14564,8 @@
         "quest": [
           {
             "name": "Return to Chaldea",
-            "id": 1000722
+            "id": 1000722,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -14303,7 +14628,8 @@
         "quest": [
           {
             "name": "Shielder, Master, Soldier, Nurse",
-            "id": 1000522
+            "id": 1000522,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -14346,11 +14672,13 @@
         "quest": [
           {
             "name": "See You Again Someday, Flower at the Apex of Heaven",
-            "id": 2000316
+            "id": 2000316,
+            "na": true
           },
           {
             "name": "The Different Story of Ushi Gozen's Home",
-            "id": 91702301
+            "id": 91702301,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -14425,7 +14753,8 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -14501,7 +14830,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Mysterious Heroine X (Alter)",
-            "id": 94014410
+            "id": 94014410,
+            "na": true
           }
         ]
       }
@@ -14539,7 +14869,8 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -14602,7 +14933,8 @@
         "quest": [
           {
             "name": "Flames of Progress",
-            "id": 2000211
+            "id": 2000211,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -14676,7 +15008,8 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -14717,7 +15050,8 @@
         "quest": [
           {
             "name": "The Crimson Beauty under the Moon",
-            "id": 3000320
+            "id": 3000320,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -14745,7 +15079,8 @@
         "quest": [
           {
             "name": "Return",
-            "id": 1000822
+            "id": 1000822,
+            "na": true
           }
         ],
         "ascension": 4,
@@ -14773,7 +15108,8 @@
         "quest": [
           {
             "name": "The Dragon Witch",
-            "id": 1000115
+            "id": 1000115,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -14814,11 +15150,13 @@
         "quest": [
           {
             "name": "Beyond the Fog",
-            "id": 1000413
+            "id": 1000413,
+            "na": true
           },
           {
             "name": "My God is with Me I",
-            "id": 91900101
+            "id": 91900101,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -14847,11 +15185,13 @@
         "quest": [
           {
             "name": "Beyond the Fog",
-            "id": 1000413
+            "id": 1000413,
+            "na": true
           },
           {
             "name": "My God is with Me II",
-            "id": 91900102
+            "id": 91900102,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -14926,7 +15266,8 @@
         "quest": [
           {
             "name": "Shielder, Master, Soldier, Nurse",
-            "id": 1000522
+            "id": 1000522,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -14955,15 +15296,18 @@
         "quest": [
           {
             "name": "See You Again Someday, Flower at the Apex of Heaven",
-            "id": 2000316
+            "id": 2000316,
+            "na": true
           },
           {
             "name": "intro.3-4",
-            "id": 3000303
+            "id": 3000303,
+            "na": true
           },
           {
             "name": "Let's Talk About Saving the World",
-            "id": 91900201
+            "id": 91900201,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -15041,7 +15385,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Amakusa Shirou",
-            "id": 94014408
+            "id": 94014408,
+            "na": true
           }
         ]
       }
@@ -15153,7 +15498,8 @@
         "quest": [
           {
             "name": "intro.3-4",
-            "id": 3000303
+            "id": 3000303,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -15181,7 +15527,8 @@
         "quest": [
           {
             "name": "The Crimson Beauty under the Moon",
-            "id": 3000320
+            "id": 3000320,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -15220,7 +15567,8 @@
         "quest": [
           {
             "name": "intro.3-4",
-            "id": 3000303
+            "id": 3000303,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -15296,7 +15644,8 @@
         "quest": [
           {
             "name": "Return",
-            "id": 1000822
+            "id": 1000822,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -15408,7 +15757,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Meltryllis",
-            "id": 94022007
+            "id": 94022007,
+            "na": true
           }
         ]
       }
@@ -15484,7 +15834,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Sessyoin Kiara",
-            "id": 94022001
+            "id": 94022001,
+            "na": true
           }
         ]
       },
@@ -15522,7 +15873,8 @@
         "quest": [
           {
             "name": "Rank Up Quest: Sessyoin Kiara 2 ",
-            "id": 94035606
+            "id": 94035606,
+            "na": true
           }
         ]
       }
@@ -15629,7 +15981,8 @@
         "quest": [
           {
             "name": "Return",
-            "id": 1000822
+            "id": 1000822,
+            "na": true
           }
         ],
         "ascension": 4,
@@ -15759,7 +16112,8 @@
         "quest": [
           {
             "name": "Replica (5/5)",
-            "id": 1000632
+            "id": 1000632,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -15788,7 +16142,8 @@
         "quest": [
           {
             "name": "Return",
-            "id": 1000822
+            "id": 1000822,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -15851,7 +16206,8 @@
         "quest": [
           {
             "name": "Return to Chaldea",
-            "id": 1000722
+            "id": 1000722,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -15924,7 +16280,8 @@
         "quest": [
           {
             "name": "Return to Chaldea",
-            "id": 1000722
+            "id": 1000722,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -16001,7 +16358,8 @@
         "quest": [
           {
             "name": "Great Detectives' Great Deduction",
-            "id": 2000118
+            "id": 2000118,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -16043,7 +16401,8 @@
         "quest": [
           {
             "name": "intro.3-4",
-            "id": 3000303
+            "id": 3000303,
+            "na": true
           }
         ],
         "ascension": 4,
@@ -16105,7 +16464,8 @@
         "quest": [
           {
             "name": "Chaldea",
-            "id": 2000410
+            "id": 2000410,
+            "na": true
           }
         ],
         "ascension": 1,
@@ -16234,7 +16594,8 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           }
         ],
         "bond": 5
@@ -16292,7 +16653,8 @@
         "quest": [
           {
             "name": "intro.3-4",
-            "id": 3000303
+            "id": 3000303,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -16345,7 +16707,8 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -16386,7 +16749,8 @@
         "quest": [
           {
             "name": "See You Again Someday, Flower at the Apex of Heaven",
-            "id": 2000316
+            "id": 2000316,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -16427,7 +16791,8 @@
         "quest": [
           {
             "name": "intro.3-4",
-            "id": 3000303
+            "id": 3000303,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -16456,7 +16821,8 @@
         "quest": [
           {
             "name": "intro.3-4",
-            "id": 3000303
+            "id": 3000303,
+            "na": true
           }
         ],
         "ascension": 3,
@@ -16485,7 +16851,8 @@
         "quest": [
           {
             "name": "Grand Order",
-            "id": 1000011
+            "id": 1000011,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -16526,7 +16893,8 @@
         "quest": [
           {
             "name": "intro.3-4",
-            "id": 3000303
+            "id": 3000303,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -16555,7 +16923,8 @@
         "quest": [
           {
             "name": "Intro 1",
-            "id": 3000101
+            "id": 3000101,
+            "na": true
           }
         ],
         "ascension": 2,
@@ -16598,7 +16967,8 @@
         "quest": [
           {
             "name": "Saber Slayer, Chapter Awaken",
-            "id": 91601803
+            "id": 91601803,
+            "na": true
           }
         ]
       },

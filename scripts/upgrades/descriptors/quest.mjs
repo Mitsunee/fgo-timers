@@ -38,10 +38,14 @@ export async function describeQuest(questData, questDataNA) {
       // initialize array if it doesn't exist already
       if (unlock.quest == null) unlock.quest = new Array();
 
-      unlock.quest.push({
+      const unlockQuest = {
         name: requiredQuestName,
         id: condition.targetId
-      });
+      };
+
+      if (requiredQuest[1]) unlockQuest.na = true;
+
+      unlock.quest.push(unlockQuest);
       continue;
     }
   }
