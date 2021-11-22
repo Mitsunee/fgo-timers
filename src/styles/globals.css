@@ -1,8 +1,12 @@
 html,
-body {
+body,
+#__next {
   min-width: 100%;
   max-width: 100%;
-  min-height: 100%;
+  min-height: 100vh;
+}
+
+body {
   background-color: background-blue;
   background-image: radial-gradient(
       ellipse at top,
