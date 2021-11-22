@@ -68,11 +68,16 @@ export default function UpgradeCard({
       </p>
       {(target === "sq" || quest.type === "rankup") && (
         <p>
-          <b>Rewards:</b> 2x{" "}
-          <InlineIcon icon="https://static.atlasacademy.io/NA/Items/6.png" />{" "}
-          Saint Quartz
+          <b>Rewards:</b>
+          {" 2x "}
+          <InlineIcon icon="https://static.atlasacademy.io/NA/Items/6.png" />
+          {" Saint Quartz"}
         </p>
       )}
+      <AtlasButton link={`quest/${quest.id}/1`} na={quest.na} inline>
+        Quest Info on Atlas DB
+      </AtlasButton>
+      <br />
       <AtlasButton link={`servant/${servant.id}`} na={servant.na} inline>
         Servant Info on Atlas DB
       </AtlasButton>
