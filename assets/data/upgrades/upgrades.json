@@ -16612,5 +16612,44 @@
       "className": "assassin",
       "na": true
     }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Demon King of the Sixth Heaven EX",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00605.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Demon King of the Sixth Heaven EX",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00605.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94064180,
+      "name": "強化クエスト 魔王信長2",
+      "search": "強化クエスト 魔王信長2",
+      "open": 1637571600,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          {
+            "name": "強化クエスト 魔王信長",
+            "id": 94048897
+          }
+        ]
+      }
+    },
+    "servant": {
+      "id": 1100700,
+      "name": "Oda Nobunaga (Avenger)",
+      "search": "oda nobunaga",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_11007000.png",
+      "className": "avenger",
+      "na": true
+    }
   }
 ]
