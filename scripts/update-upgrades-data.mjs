@@ -10,7 +10,6 @@ import { isRoot } from "./shared/isRoot.mjs";
 import { arrangeSkills, arrangeNPs } from "./upgrades/arrange.mjs";
 
 // TODO: figure out a workaround for EoR skills
-// TODO: Upgrades unlock quest are missing `na` prop
 
 async function main() {
   // read existing data
