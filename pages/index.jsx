@@ -108,12 +108,15 @@ export async function getStaticProps() {
     }
 
     // don't include events in data that are hidden already
-    if (
-      data.hideWhenDone === true &&
-      ((typeof data.endsAt === "undefined" && data.startsAt < buildTime) ||
-        (typeof data.endsAt === "number" && data.endsAt < buildTime))
-    ) {
-      continue;
+    if (data.hideWhenDone === true) {
+      if (
+        (typeof data.endsAt === "undefined" && data.startsAt < buildTime) ||
+        (typeof data.endsAt === "number" && data.endsAt < buildTime)
+      ) {
+        continue;
+      }
+
+      event.hideWhenDone = true;
     }
 
     events.push(event);
