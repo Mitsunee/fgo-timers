@@ -4,6 +4,7 @@ import { useStore } from "@nanostores/react";
 import { intervalStore } from "@stores/intervalStore";
 import { useFormattedDelta } from "@utils/hooks/useFormattedDelta";
 import { useFormattedTimestamp } from "@utils/hooks/useFormattedTimestamp";
+import MissionListItem from "./MissionListItem";
 
 export default function MissionList({ data }) {
   const { seconds } = useStore(intervalStore);
@@ -22,7 +23,7 @@ export default function MissionList({ data }) {
         {data.missions
           .sort((a, b) => a.dispNo - b.dispNo)
           .map(mission => (
-            <li key={mission.id}>{mission.detail}</li>
+            <MissionListItem key={mission.id} detail={mission.detail} />
           ))}
       </ul>
       {seconds && (
