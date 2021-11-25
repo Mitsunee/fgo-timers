@@ -8,6 +8,7 @@ import { setMobileNavOpen } from "@stores/uiStore";
 import Header from "@components/Header";
 import Loading from "@components/Loading";
 import Layout from "@components/Layout";
+import Footer from "@components/Footer";
 import SettingsMenu from "@components/SettingsMenu";
 
 function MyApp({ Component, pageProps }) {
@@ -24,7 +25,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <Header isMobile={currentBreakpoint < breakpoints[1]} />
+      <Header showHamburger={!isDesktop} />
       {loading ? (
         <Loading />
       ) : (
@@ -32,6 +33,7 @@ function MyApp({ Component, pageProps }) {
           <Component {...pageProps} />
         </Layout>
       )}
+      <Footer />
       <SettingsMenu />
     </>
   );

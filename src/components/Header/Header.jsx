@@ -6,7 +6,7 @@ import { setMobileNavOpen } from "@stores/uiStore";
 import { Button } from "@components/Button";
 import { IconHamburger } from "@components/icons";
 
-export default function Header({ isMobile }) {
+export default function Header({ showHamburger }) {
   const meta = useStore(metaStore);
 
   return (
@@ -17,7 +17,7 @@ export default function Header({ isMobile }) {
           <h1>{meta.title}</h1>
           <h2>{meta.description}</h2>
         </section>
-        {isMobile && (
+        {showHamburger && (
           <Button
             onClick={() => setMobileNavOpen(state => !state)}
             iconComponent={IconHamburger}
