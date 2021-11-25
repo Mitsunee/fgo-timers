@@ -7,6 +7,7 @@
 
 .body {
   background-image: var(--landing-bg);
+  background-size: cover !important;
 
   & > div[id="__next"] {
     background: radial-gradient(
