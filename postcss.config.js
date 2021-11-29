@@ -1,4 +1,4 @@
-const chalk = require("chalk");
+const picocolors = require("picocolors");
 const theme = require("./src/styles/theme");
 
 const plugins = [
@@ -23,7 +23,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 console.log(
-  `${chalk.cyan("info")}  - Using PostCSS Plugins: ${plugins
+  `${picocolors.cyan("info")}  - Using PostCSS Plugins: ${plugins
     .map(plugin => {
       if (plugin instanceof Array) return plugin[0];
       return plugin;
