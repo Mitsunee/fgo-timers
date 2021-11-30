@@ -42,28 +42,24 @@ export default function Meta({
       <meta name="description" content={description} />
       <meta name="twitter:description" content={description} />
       <meta property="og:description" content={description} />
-      {image && (
-        <>
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:author" content="@Mitsunee" />
-          <meta
-            name="twitter:image"
-            content={
-              (process.env.NEXT_PUBLIC_DOMAIN
-                ? `https://${process.env.NEXT_PUBLIC_DOMAIN}`
-                : "") + image
-            }
-          />
-          <meta
-            property="og:image"
-            content={
-              (process.env.NEXT_PUBLIC_DOMAIN
-                ? `https://${process.env.NEXT_PUBLIC_DOMAIN}`
-                : "") + image
-            }
-          />
-        </>
-      )}
+      <meta name="twitter:author" content="@Mitsunee" />
+      {image && <meta name="twitter:card" content="summary_large_image" />}
+      <meta
+        name="twitter:image"
+        content={`${
+          process.env.NEXT_PUBLIC_DOMAIN
+            ? `https://${process.env.NEXT_PUBLIC_DOMAIN}`
+            : ""
+        } + ${image || "/icon-64.png"}`}
+      />
+      <meta
+        property="og:image"
+        content={`${
+          process.env.NEXT_PUBLIC_DOMAIN
+            ? `https://${process.env.NEXT_PUBLIC_DOMAIN}`
+            : ""
+        } + ${image || "/icon-64.png"}`}
+      />
       {process.env.NEXT_PUBLIC_DOMAIN && (
         <link
           rel="canonical"
