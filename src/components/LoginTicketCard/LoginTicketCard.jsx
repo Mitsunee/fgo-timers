@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import spacetime from "spacetime";
 import lt from "long-timeout";
+import Link from "next/link";
 
 // import styles from "./LoginTicketCard.module.css";
 import { useFormattedSpacetime } from "@utils/hooks/useFormattedSpacetime";
@@ -63,6 +64,10 @@ export default function LoginTicketCard({ tickets, itemData }) {
           Next Exchange Ticket Rotation:
           <br />
           {nextMonthDelta} ({nextMonthDate})
+          <br />
+          <Link href={`/exchange-tickets/${nextMonth.year()}`} passHref>
+            <a style={{ textDecoration: "underline" }}>More Information</a>
+          </Link>
         </p>
         <NextServerMilestone />
       </NoSSR>
