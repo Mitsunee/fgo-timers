@@ -1,0 +1,82 @@
+.navWrapper {
+  display: grid;
+  width: 100%;
+  grid-template-columns: [32px, 48px] auto [32px, 48px];
+  grid-auto-rows: [32px, 48px];
+
+  h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    font-size: 1.5em;
+  }
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    fill: theme(colors.primary);
+  }
+
+  &.left svg {
+    transform: rotate(90deg);
+  }
+  &.right svg {
+    transform: rotate(-90deg);
+  }
+
+  & > div {
+    justify-content: center;
+  }
+
+  &:hover:not(:disabled) {
+    svg {
+      fill: theme(colors.hover);
+    }
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.wrapper > article {
+  flex-basis: [100%, 100%, 48.5%, 100%, 48.5%];
+}
+
+.section {
+  display: flex;
+  flex-direction: [column, row];
+  justify-content: space-around;
+  align-items: [center, flex-start];
+  gap: [0.66em, unset];
+
+  & > div {
+    /* item wrapper */
+    flex-basis: 33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0.33em;
+
+    & > div {
+      /* FGOIcon */
+      width: 64px;
+      height: 64px;
+    }
+
+    & > span {
+      /* Item name display */
+      text-align: center;
+    }
+  }
+}
