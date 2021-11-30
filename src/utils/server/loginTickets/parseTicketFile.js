@@ -7,7 +7,7 @@ export async function parseTicketFile(filePath, itemIdMap) {
   const fileData = await parseYamlFile(filePath);
 
   // grab key
-  const key = basename(filePath).substring(0, extname(filePath).length);
+  const key = basename(filePath, extname(filePath));
 
   // build data
   const data = new Object();
