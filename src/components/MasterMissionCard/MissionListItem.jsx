@@ -20,10 +20,8 @@ function coloredDetail(detail) {
       // looking for closing tag
       if (remaining.startsWith("[-]")) {
         pos += 2; // advance pointer to ]
-        const obj = split[prevIdx];
-        split[prevIdx] = <Span col={obj.col}>{obj.content}</Span>;
         seekClose = false;
-        split.push("");
+        split.push(""); // add new element
         continue;
       }
 
@@ -61,13 +59,6 @@ function coloredDetail(detail) {
     split[prevIdx] += char;
   }
 
-  if (seekClose) {
-    // loop ended during a color object
-    const lastIdx = split.length - 1;
-    const lastItem = split[lastIdx];
-    split[lastIdx] = <Span col={lastItem.col}>{lastItem.content}</Span>;
-  }
-
   return split;
 }
 
@@ -78,5 +69,21 @@ export default function MissionListItem({ detail }) {
     [detail]
   );
 
-  return <li>{memo}</li>;
+  return (
+    <li>
+      {typeof memo === "string"
+        ? memo
+        : memo.map((piece, idx) => {
+            if (piece === "") return null;
+            if (typeof piece === "string")
+              return <span key={idx}>{piece}</span>;
+            const { col, content } = piece;
+            return (
+              <Span col={col} key={idx}>
+                {content}
+              </Span>
+            );
+          })}
+    </li>
+  );
 }
