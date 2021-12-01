@@ -18,6 +18,14 @@ export default function Meta({
   isError = false
 }) {
   const router = useRouter();
+  const imagePath = image
+    ? `${image.startsWith("/") ? "" : "/"}${image}`
+    : "/icon-64.png";
+  const imageUrl = `${
+    process.env.NEXT_PUBLIC_DOMAIN
+      ? `https://${process.env.NEXT_PUBLIC_DOMAIN}`
+      : ""
+  }${imagePath}`;
 
   useEffect(() => {
     setPageMeta({
@@ -44,22 +52,8 @@ export default function Meta({
       <meta property="og:description" content={description} />
       <meta name="twitter:author" content="@Mitsunee" />
       {image && <meta name="twitter:card" content="summary_large_image" />}
-      <meta
-        name="twitter:image"
-        content={`${
-          process.env.NEXT_PUBLIC_DOMAIN
-            ? `https://${process.env.NEXT_PUBLIC_DOMAIN}`
-            : ""
-        } + ${image || "/icon-64.png"}`}
-      />
-      <meta
-        property="og:image"
-        content={`${
-          process.env.NEXT_PUBLIC_DOMAIN
-            ? `https://${process.env.NEXT_PUBLIC_DOMAIN}`
-            : ""
-        } + ${image || "/icon-64.png"}`}
-      />
+      <meta name="twitter:image" content={imageUrl} />
+      <meta property="og:image" content={imageUrl} />
       {process.env.NEXT_PUBLIC_DOMAIN && (
         <link
           rel="canonical"
