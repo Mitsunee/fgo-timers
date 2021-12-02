@@ -17021,5 +17021,206 @@
       "className": "avenger",
       "na": true
     }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Antares Snipe",
+      "type": "arts",
+      "border": "black",
+      "na": true
+    },
+    "np": {
+      "name": "Antares Snipe",
+      "type": "arts",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 91203001,
+      "name": "かくて勝者は獅子となり敗者は虎となる",
+      "search": "かくて勝者は獅子となり敗者は虎となる",
+      "open": 1638435600,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          {
+            "name": "Grand Order",
+            "id": 1000011,
+            "na": true
+          }
+        ],
+        "ascension": 2,
+        "bond": 3
+      }
+    },
+    "servant": {
+      "id": 203000,
+      "name": "Chiron",
+      "search": "chiron",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_2030000.png",
+      "className": "archer",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91204002,
+      "name": "白い月を仰いで",
+      "search": "白い月を仰いて",
+      "open": 1638435600,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          {
+            "name": "つわものどもが、夢の跡",
+            "id": 3000716
+          },
+          {
+            "name": "エモーショナルな私達",
+            "id": 91204001
+          }
+        ],
+        "ascension": 3,
+        "bond": 4
+      }
+    },
+    "servant": {
+      "id": 204000,
+      "name": "Sei Shounagon (Archer)",
+      "search": "sei shounagon",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_2040000.png",
+      "className": "archer"
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91303901,
+      "name": "それでも、少女狼は",
+      "search": "それても、少女狼は",
+      "open": 1638435600,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          {
+            "name": "Grand Order",
+            "id": 1000011,
+            "na": true
+          }
+        ],
+        "ascension": 2,
+        "bond": 5
+      }
+    },
+    "servant": {
+      "id": 303900,
+      "name": "Gareth",
+      "search": "gareth",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_3039000.png",
+      "className": "lancer",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91603702,
+      "name": "愛神様は働かない",
+      "search": "愛神様は働かない",
+      "open": 1638435600,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          {
+            "name": "了",
+            "id": 3001009
+          },
+          {
+            "name": "愛／堕落はいつでもあなたの側に",
+            "id": 91603701
+          }
+        ],
+        "ascension": 3,
+        "bond": 5
+      }
+    },
+    "servant": {
+      "id": 603700,
+      "name": "Kama (Assassin)",
+      "search": "kama",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_6037000.png",
+      "className": "assassin",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "アフロディーテの恩恵 EX",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00606.png",
+      "border": "black"
+    },
+    "skill": {
+      "name": "アフロディーテの恩恵 EX",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00606.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 91703901,
+      "name": "いずれ完成する物語",
+      "search": "いすれ完成する物語",
+      "open": 1638435600,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          {
+            "name": "Grand Order",
+            "id": 1000011,
+            "na": true
+          }
+        ],
+        "ascension": 3,
+        "bond": 3
+      }
+    },
+    "servant": {
+      "id": 703900,
+      "name": "Galatea",
+      "search": "galatea",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_7039000.png",
+      "className": "berserker"
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 912500201,
+      "name": "鬼灯の朱夏",
+      "search": "鬼灯の朱夏",
+      "open": 1638435600,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          {
+            "name": "Grand Order",
+            "id": 1000011,
+            "na": true
+          }
+        ],
+        "ascension": 2,
+        "bond": 5
+      }
+    },
+    "servant": {
+      "id": 2500200,
+      "name": "Katsushika Hokusai",
+      "search": "katsushika hokusai",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_25002000.png",
+      "className": "foreigner",
+      "na": true
+    }
   }
 ]
