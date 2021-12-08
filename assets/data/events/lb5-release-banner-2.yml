@@ -1,0 +1,33 @@
+title: Atlantis Pickup 2 Summon (Daily)
+shortTitle: Atlantis Pickup Summon 2
+banner: 2021_lb5_pu2.png
+date: 2021-12-07 20:00 - 12-14 19:59 PST
+url: 2021/1207_atlantis_pu2/
+hideWhenDone: true
+description: >-
+  The second Lostbelt No. 5 Pickup Summon features the brand new Servant Europa
+  (SSR 5* Rider). Achilles and the limited Ruler Astraea are also featured as
+  rateups during this summoning banner. The rateup schedule cycles between the
+  two SSRs with Astraea and Hektor always being on rateup (see below).
+
+  Europa will be added to the general pool alongside the three new Craft
+  Essences One Who Wishes for Salvation, The Beginning of Ambition and Noble
+  Piece. The 3* CE Bygone Dream will be removed fromm the general pool after
+  this banner.
+times:
+  - hideWhenDone: false
+    times:
+      - title: Split Rateup
+        date: 2021-12-07 20:00 PST
+      - title: Europa Solo Rateup
+        date: 2021-12-08 20:00 PST
+      - title: Achilles Solo Rateup
+        date: 2021-12-09 20:00 PST
+      - title: Split Rateup
+        date: 2021-12-10 20:00 PST
+      - title: Europa Solo Rateup
+        date: 2021-12-11 20:00 PST
+      - title: Achilles Solo Rateup
+        date: 2021-12-12 20:00 PST
+      - title: Split Rateup
+        date: 2021-12-13 20:00 PST

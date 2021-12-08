@@ -3,6 +3,7 @@
   width: 100%;
   grid-template-columns: [32px, 48px] auto [32px, 48px];
   grid-auto-rows: [32px, 48px];
+  margin-bottom: 0.66em;
 
   h1 {
     display: flex;
@@ -46,6 +47,7 @@
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
+  margin: 0.66em 0px;
 }
 
 .wrapper > article {

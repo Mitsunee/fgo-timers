@@ -5,11 +5,13 @@ import { getTicketFileList } from "@utils/server/loginTickets/getTicketFileList"
 import { parseTicketFile } from "@utils/server/loginTickets/parseTicketFile";
 
 import cc from "classcat";
+import spacetime from "spacetime";
 
 import styles from "@styles/LoginTicketPage.module.css";
 import Meta from "@components/Meta";
 import { Button } from "@components/Button";
 import { IconArrow } from "@components/icons";
+import CollapsableSection from "@components/CollapsableSection";
 import Section from "@components/Section";
 import FGOIcon from "@components/FGOIcon";
 
@@ -33,6 +35,8 @@ export default function LoginTicketPage({ tickets, years, self }) {
   const hasPrev = years.includes(prev);
   const next = `${+self + 1}`;
   const hasNext = years.includes(next);
+  const s = spacetime.now();
+  const showDisclaimer = s.year() <= self;
 
   return (
     <>
@@ -57,6 +61,14 @@ export default function LoginTicketPage({ tickets, years, self }) {
           nextLink
         />
       </div>
+      {showDisclaimer && (
+        <CollapsableSection background closeable>
+          <p>
+            <b>Note:</b> All future Exchange Tickets are speculation based on
+            the JP version.
+          </p>
+        </CollapsableSection>
+      )}
       <div className={styles.wrapper}>
         {tickets.map(({ month, items }) => (
           <article key={month}>
