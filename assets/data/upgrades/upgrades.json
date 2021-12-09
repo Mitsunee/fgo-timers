@@ -5389,40 +5389,6 @@
     }
   },
   {
-    "target": "skill",
-    "initial": {
-      "name": "Tactics C+",
-      "num": 1,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00302.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "トロイアの守護者 A",
-      "num": 1,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00302.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94045801,
-      "name": "強化クエスト ヘクトール",
-      "search": "強化クエスト ヘクトル",
-      "open": 1577264400,
-      "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
-    },
-    "servant": {
-      "id": 301600,
-      "name": "Hektor",
-      "search": "hektor",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_3016000.png",
-      "className": "lancer",
-      "na": true
-    }
-  },
-  {
     "target": "sq",
     "quest": {
       "id": 91301701,
@@ -17220,6 +17186,74 @@
       "search": "katsushika hokusai",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_25002000.png",
       "className": "foreigner",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Tactics C+",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00302.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Guardian of Troy A",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00302.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94045801,
+      "name": "Rank Up Quest: Hektor",
+      "search": "rank up quest: hektor",
+      "open": 1638936000,
+      "type": "rankup",
+      "unlock": {
+        "ascension": 4
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 301600,
+      "name": "Hektor",
+      "search": "hektor",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_3016000.png",
+      "className": "lancer",
+      "na": true
+    }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Gate of Skye",
+      "type": "arts",
+      "border": "black",
+      "na": true
+    },
+    "np": {
+      "name": "Gate of Skye",
+      "type": "arts",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94064601,
+      "name": "強化クエスト スカサハ＝スカディ",
+      "search": "強化クエスト スカサハ＝スカティ",
+      "open": 1638954000,
+      "type": "rankup",
+      "unlock": {
+        "ascension": 4
+      }
+    },
+    "servant": {
+      "id": 503900,
+      "name": "Scáthach-Skadi",
+      "search": "scathach-skadi",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_5039000.png",
+      "className": "caster",
       "na": true
     }
   }
