@@ -33,6 +33,14 @@ export const setSettingsMenuOpen = action(
     const settingsMenuOpen =
       typeof open === "function" ? open(value.settingsMenuOpen) : open;
 
+    if (typeof document !== "undefined") {
+      // this fixes a bug in HomePage where the backdropFilter breaks fixed
+      // positioning of the Modal component, causing inoperable ui.
+      document.querySelector("#__next").style.backdropFilter = open
+        ? "unset"
+        : "";
+    }
+
     store.set({
       ...value,
       settingsMenuOpen
