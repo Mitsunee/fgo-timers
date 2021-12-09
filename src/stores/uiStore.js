@@ -33,8 +33,6 @@ export const setSettingsMenuOpen = action(
     const settingsMenuOpen =
       typeof open === "function" ? open(value.settingsMenuOpen) : open;
 
-    console.log({ value, settingsMenuOpen });
-
     store.set({
       ...value,
       settingsMenuOpen
