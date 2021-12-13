@@ -1,0 +1,33 @@
+title: Christmas 2021 Pickup Summon (Daily)
+shortTitle: Christmas 2021 Banner
+banner: 2021_xmas_pu.png
+date: 2021-12-14 00:00 - 12-31 19:59 PST
+displayOrder: 2
+description: >-
+  Christmas 2021 introduces the new limited 5* Saber Astolfo as well as featuring
+  rateups for Nightingale (Berserker), Asvatthaman, Nursery Rhyme, Caesar, Boudica
+  and Darius III.
+
+  The rateup rotation only affects the 4*s and Nightingale. As such the 3* servants
+  and Astolfo are always available and will thus not be mentioned. There is no
+  solo rateup for Nightingale, days without her are solo rateups for Astolfo.
+times:
+  - times:
+      - title: Both 4*s
+        date: 2021-12-14 00:00 PST
+      - title: All Rateup Servants
+        date: 2021-12-14 20:00 PST
+      - title: Nursery Rhyme
+        date: 2021-12-17 20:00 PST
+      - title: Asvatthaman
+        date: 2021-12-18 20:00 PST
+      - title: Both 4*s
+        date: 2021-12-19 20:00 PST
+      - title: Nightingale + Nursery Rhyme
+        date: 2021-12-20 20:00 PST
+      - title: Nightingale + Asvatthaman
+        date: 2021-12-21 20:00 PST
+      - title: Both 4*s
+        date: 2021-12-22 20:00 PST
+      - title: All Rateup Servants
+        date: 2021-12-24 20:00 PST
