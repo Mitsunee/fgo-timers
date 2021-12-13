@@ -127,7 +127,7 @@ export async function getStaticProps() {
       return a.displayOrder - b.displayOrder;
     }
 
-    return a.startsAt - b.startsAt;
+    return b.startsAt - a.startsAt;
   });
 
   // cards data
