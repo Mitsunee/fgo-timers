@@ -2,7 +2,14 @@ title: "Christmas 2021: Nightingale's Christmas Carol"
 shortTitle: Christmas 2021
 banner: 2021_xmas.png
 date: 2021-12-14 00:00 - 12-27 19:59 PST
+url: 2021/1212_christmas2021/
 times:
+  - title: Maintenance Begins
+    date: 2021-12-13 20:00 PST
+    hideWhenDone: true
+  - title: Maintenance Ends
+    date: 2021-12-14 00:00 PST
+    hideWhenDone: true
   - times:
       - title: Main Quest Section 1
         date: 2021-12-14 00:00 PST
@@ -18,14 +25,15 @@ times:
         date: 2021-12-18 20:00 PST
       - title: Epilogue
         date: 2021-12-23 20:00 PST
-  - title: Lotto Exchange Period
+  - title: Event Shop Exchange Period
+    date: 2021-12-14 00:00 - 2022-01-03 19:59 PST
+  - title: Lotto Box Exchange Period
     date: 2021-12-14 00:00 - 2022-01-03 19:59 PST
   - title: Christmas 2021 Exchange Ticket Exchange Period
     date: 2021-12-14 00:00 - 2022-01-06 19:59 PST
   - title: 2x EXP For Nightingale (Santa)
     date: 2021-12-14 00:00 - 12-27 19:59 PST
-  - title: Event Shop Exchange Period
-    date: 2021-12-14 00:00 - 2022-01-03 19:59 PST
+    hideWhenDone: true
   - title: Nightingale (Santa) permanently unlockable
     date: 2021-12-18 20:00 PST
 description: >-
