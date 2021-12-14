@@ -6345,84 +6345,6 @@
     }
   },
   {
-    "target": "skill",
-    "initial": {
-      "name": "Evaporation of Reason D",
-      "num": 3,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00605.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "Evaporation of Reason D+",
-      "num": 3,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00605.png",
-      "border": "gold",
-      "na": true
-    },
-    "quest": {
-      "id": 91400401,
-      "name": "While Waiting for Roland",
-      "search": "while waiting for roland",
-      "open": 1499277600,
-      "type": "interlude",
-      "unlock": {
-        "quest": [
-          {
-            "name": "The Dragon Witch",
-            "id": 1000115,
-            "na": true
-          }
-        ],
-        "ascension": 3,
-        "bond": 3
-      },
-      "na": true
-    },
-    "servant": {
-      "id": 400400,
-      "name": "Astolfo (Rider)",
-      "search": "astolfo",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_4004000.png",
-      "className": "rider",
-      "na": true
-    }
-  },
-  {
-    "target": "np",
-    "initial": {
-      "name": "Hippogriff",
-      "type": "quick",
-      "border": "black",
-      "na": true
-    },
-    "np": {
-      "name": "Hippogriff",
-      "type": "quick",
-      "border": "gold",
-      "na": true
-    },
-    "quest": {
-      "id": 94012504,
-      "name": "Rank Up Quest: Astolfo",
-      "search": "rank up quest: astolfo",
-      "open": 1558224000,
-      "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
-      "na": true
-    },
-    "servant": {
-      "id": 400400,
-      "name": "Astolfo (Rider)",
-      "search": "astolfo",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_4004000.png",
-      "className": "rider",
-      "na": true
-    }
-  },
-  {
     "target": "sq",
     "quest": {
       "id": 91400601,
@@ -17254,6 +17176,84 @@
       "search": "scathach-skadi",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_5039000.png",
       "className": "caster",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Evaporation of Reason D",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00605.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Evaporation of Reason D+",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00605.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 91400401,
+      "name": "While Waiting for Roland",
+      "search": "while waiting for roland",
+      "open": 1499277600,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          {
+            "name": "The Dragon Witch",
+            "id": 1000115,
+            "na": true
+          }
+        ],
+        "ascension": 3,
+        "bond": 3
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 400400,
+      "name": "Astolfo",
+      "search": "astolfo",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_4004000.png",
+      "className": "rider",
+      "na": true
+    }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Hippogriff",
+      "type": "quick",
+      "border": "black",
+      "na": true
+    },
+    "np": {
+      "name": "Hippogriff",
+      "type": "quick",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94012504,
+      "name": "Rank Up Quest: Astolfo",
+      "search": "rank up quest: astolfo",
+      "open": 1558224000,
+      "type": "rankup",
+      "unlock": {
+        "ascension": 4
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 400400,
+      "name": "Astolfo",
+      "search": "astolfo",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_4004000.png",
+      "className": "rider",
       "na": true
     }
   }
