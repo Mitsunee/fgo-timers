@@ -5,9 +5,10 @@ import { useRecurringInterval } from "@utils/hooks/useRecurringInterval";
 import { WEEKLY_MM_LEN, WEEKLY_MM_OFFSET } from "@utils/globals";
 import { useFormattedDelta } from "@utils/hooks/useFormattedDelta";
 import { useFormattedTimestamp } from "@utils/hooks/useFormattedTimestamp";
+import { Card } from "@components/Card";
 import MissionList from "./MissionList";
 
-export default function WeeklyMissionList({ data }) {
+export default function WeeklyMissionCard({ data }) {
   const [error, setError] = useState(false);
   const expectedEnd = useRecurringInterval({
     length: WEEKLY_MM_LEN,
@@ -35,23 +36,30 @@ export default function WeeklyMissionList({ data }) {
     setTimestamp((data[index].endedAt + 1) * 1000);
   }, [data, expectedEnd]);
 
-  return error ? (
-    <>
-      <h2>An Error occured</h2>
-      <p>{error.message}</p>
-    </>
-  ) : (
-    index && (
-      <>
-        <MissionList data={data[index]} />
-        {timestamp && (
-          <p>
-            Next Weekly Mission Rotation:
-            <br />
-            {weeklyDelta} ({weeklyDate})
-          </p>
-        )}
-      </>
-    )
+  return (
+    <Card
+      title="Weekly Master Missions"
+      icon="/assets/icon_mm.png"
+      color="blue">
+      {error ? (
+        <>
+          <h2>An Error occured</h2>
+          <p>{error.message}</p>
+        </>
+      ) : (
+        index && (
+          <>
+            <MissionList data={data[index]} />
+            {timestamp && (
+              <p>
+                Next Weekly Mission Rotation:
+                <br />
+                {weeklyDelta} ({weeklyDate})
+              </p>
+            )}
+          </>
+        )
+      )}
+    </Card>
   );
 }
