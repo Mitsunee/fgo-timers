@@ -8,7 +8,7 @@ Due to game data containing placeholder dates and sometimes JP times it many tim
 
 ## Data Typing
 
-See [upgrades.d.ts](../assets/upgrades/upgrades.d.ts) for static typing and information on the structure of the data.
+See [upgrades.d.ts](../assets/data/upgrades/upgrades.d.ts) for static typing and information on the structure of the data.
 
 ## Static Generation
 
