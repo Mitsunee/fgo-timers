@@ -451,10 +451,10 @@
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.1.0.tgz#7f698254aadf921e48dda8c0a6b304026b8a9323"
   integrity sha512-JLo+Y592QzIE+q7Dl2pMUtt4q8SKYI5jDrZxrozEQxnGVOyYE+GWK9eLkwTaeN9DDctlaRAQ3TBmzZ1qdLE30A==
 
-"@svgo/jsx@^0.2.5":
-  version "0.2.5"
-  resolved "https://registry.yarnpkg.com/@svgo/jsx/-/jsx-0.2.5.tgz#21072eaadddf30e85251b309f420cddcc06dc3b4"
-  integrity sha512-vt8JohFhXrlebSWoCl7mg+rs36a8YnoFaU/8ApYUShbxLEPWf/hrclwl1QX6AGYKmJWQg59I5GglOTZw05gX4g==
+"@svgo/jsx@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@svgo/jsx/-/jsx-0.3.0.tgz#3863cf89947b1b6b4e279a19fe49b412ecff26b2"
+  integrity sha512-+PCylEyb8ZEBmF3ZPpXjUZeZUwBAjBJDL9NSD4QjDJGgT3YTSi3gpDmR/x5M48YHSkCHAHn9QeYqnlerKakeYg==
   dependencies:
     css-tree "^1.1.3"
     svgo "^2.7.0"

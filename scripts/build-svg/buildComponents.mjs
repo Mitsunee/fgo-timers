@@ -56,12 +56,14 @@ export async function buildComponents(svgFiles) {
       spinner.start();
     }
 
+    const { jsx } = await convertSvgToJsx({ svg, ...configSvgoJsx });
+
     // write component
     await writeFile(
       `src/components/icons/${componentName}.jsx`,
       format(`
         export default function ${componentName}(props) {
-          return ${await convertSvgToJsx({ svg, ...configSvgoJsx })}
+          return ${jsx}
         }
       `)
     );
