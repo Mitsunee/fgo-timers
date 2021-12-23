@@ -13,7 +13,8 @@ export const settingsMap = persistentMap("fgoTools:", {
   userMaxAP: "142",
   userNodeCost: "40",
   userMaxCost: "113",
-  perPage: "10"
+  perPage: "10",
+  showSpoiler: "some" // "strict" | "some" | "all"
 });
 
 export const settingsStore = computed(settingsMap, store => ({
@@ -22,7 +23,8 @@ export const settingsStore = computed(settingsMap, store => ({
   userMaxAP: Number(store.userMaxAP),
   userNodeCost: Number(store.userNodeCost),
   userMaxCost: Number(store.userMaxCost),
-  perPage: Number(store.perPage)
+  perPage: Number(store.perPage),
+  showSpoiler: store.showSpoiler
 }));
 
 export const setSetting = (key, value) => {

@@ -24,9 +24,14 @@ const handlePerPageChange = ({ value, event }) => {
   setSetting("perPage", value);
 };
 
+const handleSpoilerChange = ({ value, event }) => {
+  event.target.blur();
+  setSetting("showSpoiler", value);
+};
+
 export default function SettingsMenu() {
   const { settingsMenuOpen } = useStore(uiStore);
-  const { alternativeClockFormat, showServerTimes, perPage } =
+  const { alternativeClockFormat, showServerTimes, perPage, showSpoiler } =
     useStore(settingsStore);
 
   return (
@@ -60,6 +65,14 @@ export default function SettingsMenu() {
                 <SelectOption value={25}>25</SelectOption>
                 <SelectOption value={50}>50</SelectOption>
                 <SelectOption value={100}>100</SelectOption>
+              </Select>
+            </section>
+            <section className={styles.section}>
+              <h2>Show Spoilers</h2>
+              <Select onChange={handleSpoilerChange} value={showSpoiler}>
+                <SelectOption value="strict">None</SelectOption>
+                <SelectOption value="some">Names only</SelectOption>
+                <SelectOption value="all">All</SelectOption>
               </Select>
             </section>
             <DebugInfo />
