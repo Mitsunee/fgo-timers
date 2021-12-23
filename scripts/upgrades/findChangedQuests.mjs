@@ -10,6 +10,7 @@ export function findChangedQuests(data, niceServant) {
 
     for (const questId of servant.relateQuestIds) {
       const questCached = data.find(cached => cached.quest.id === questId);
+
       // new quest
       if (!questCached) {
         changedQuests.add(questId);
@@ -23,6 +24,19 @@ export function findChangedQuests(data, niceServant) {
         changeReasons.set(
           questId,
           `Servant Name has changed: '${questCached.servant.name}' => '${servantName}'`
+        );
+        continue;
+      }
+
+      // servant released on na
+      if (
+        !questCached.servant.na &&
+        niceServant.na.find(servant => servant.id === questCached.servant.id)
+      ) {
+        changedQuests.add(questId);
+        changeReasons.set(
+          questId,
+          `Servant related to ${questId} is new on NA`
         );
         continue;
       }
@@ -45,6 +59,23 @@ export function findChangedQuests(data, niceServant) {
         changedQuests.add(questId);
         changeReasons.set(questId, `Quest ${questId} open time overriden`);
         continue;
+      }
+    }
+
+    // second pass
+    for (const questId of servant.relateQuestIds) {
+      if (changedQuests.has(questId)) continue; // already in there
+
+      const questCached = data.find(cached => cached.quest.id === questId);
+
+      if (!questCached) continue;
+
+      if (questCached.unlock?.quest?.some(({ id }) => changedQuests.has(id))) {
+        changedQuests.add(questId);
+        changeReasons.set(
+          questId,
+          `Updating Quest ${questId} due to quest unlock condition updating`
+        );
       }
     }
   }

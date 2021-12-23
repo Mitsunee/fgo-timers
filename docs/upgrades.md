@@ -24,8 +24,10 @@ Upgrade data will be replaced if at least one of these conditions is met:
 
 - Quest is not found in the data
 - Name of the servant changed (see below)
+- Servant just released on NA
 - Quest just released on NA
-- Release Time was overriden and is now different
+- Release Time was overridden and is now different
+- The quest that is required as unlock condition updated (done in second pass, shouldn't snowball)
 
 ## Servant Names
 
