@@ -1,4 +1,7 @@
+import { useStore } from "@nanostores/react";
+
 import styles from "./UpgradeCard.module.css";
+import { settingsStore } from "@stores/settingsStore";
 import { useFormattedTimestamp } from "@utils/hooks/useFormattedTimestamp";
 import { useFormattedEstimate } from "@utils/hooks/useFormattedEstimate";
 import { Card } from "@components/Card";
@@ -15,23 +18,36 @@ export default function UpgradeCard({
   skill,
   np
 }) {
+  const { showSpoiler } = useStore(settingsStore);
   const color = skill?.border || np?.border || "blue";
   const questRelease = useFormattedTimestamp(quest.open * 1000, "date");
   const questReleaseEstimate = useFormattedEstimate(quest.open * 1000);
 
-  // TODO: There should be a link to the quest info for the quest each card is actually about
+  // Spoiler values
+  const servantName =
+    servant.na || showSpoiler !== "strict"
+      ? servant.name
+      : `Servant ${servant.id}`;
+  const cardTitle = `${servantName}${
+    skill ? ` Skill ${skill.num}` : np ? ` NP` : ""
+  }`;
+  const servantIcon =
+    servant.na || showSpoiler === "all"
+      ? servant.icon
+      : "/assets/icon_spoilerServant.png";
 
   return (
     <Card
-      title={`${servant.name}${
-        skill ? ` Skill ${skill.num}` : np ? ` NP` : ""
-      }`}
-      icon={servant.icon}
+      title={cardTitle}
+      icon={servantIcon}
       forceRoundIcon
       color={color}
       className={styles.card}>
       <h2>
-        {quest.name} ({quest.type === "interlude" ? "Interlude" : "Rank Up"})
+        {quest.na || showSpoiler !== "strict"
+          ? quest.name
+          : `Quest ${quest.id}`}{" "}
+        ({quest.type === "interlude" ? "Interlude" : "Rank Up"})
       </h2>
       {target === "skill" && (
         <UpgradeSkill initial={initial} skill={skill} servantId={servant.id} />
@@ -48,10 +64,9 @@ export default function UpgradeCard({
         {quest.unlock.quest?.map(({ id, name, na }) => (
           <li key={id}>
             {"Completed Quest: "}
-            <AtlasButton
-              link={`quest/${id}/1`}
-              na={na}
-              inline>{`“${name}”`}</AtlasButton>
+            <AtlasButton link={`quest/${id}/1`} na={na} inline>
+              {na || showSpoiler !== "strict" ? `“${name}”` : `Quest ${id}`}
+            </AtlasButton>
           </li>
         ))}
       </ul>
