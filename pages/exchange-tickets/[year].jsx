@@ -4,15 +4,19 @@ import { getItemIdMap } from "@utils/server/loginTickets/getItemIdMap";
 import { getTicketFileList } from "@utils/server/loginTickets/getTicketFileList";
 import { parseTicketFile } from "@utils/server/loginTickets/parseTicketFile";
 
-import cc from "classcat";
+import { useStore } from "@nanostores/react";
 import spacetime from "spacetime";
+import cc from "classcat";
 
 import styles from "@styles/LoginTicketPage.module.css";
+import { settingsStore } from "@stores/settingsStore";
+import { withSpoilerLevel } from "@utils/withSpoilerLevel";
 import Meta from "@components/Meta";
 import { Button } from "@components/Button";
 import { IconArrow } from "@components/icons";
 import CollapsableSection from "@components/CollapsableSection";
 import Section from "@components/Section";
+import NoSSR from "@components/NoSSR";
 import FGOIcon from "@components/FGOIcon";
 
 const monthName = new Map([
@@ -31,6 +35,7 @@ const monthName = new Map([
 ]);
 
 export default function LoginTicketPage({ tickets, years, self }) {
+  const { showSpoiler } = useStore(settingsStore);
   const prev = `${+self - 1}`;
   const hasPrev = years.includes(prev);
   const next = `${+self + 1}`;
@@ -74,12 +79,22 @@ export default function LoginTicketPage({ tickets, years, self }) {
           <article key={month}>
             <h1>{monthName.get(month)}</h1>
             <Section background="blue" className={styles.section}>
-              {items.map(item => (
-                <div key={item.id}>
-                  <FGOIcon {...item} />
-                  <span>{item.name}</span>
-                </div>
-              ))}
+              <NoSSR>
+                {items.map(item => {
+                  const itemSpoilered = withSpoilerLevel(
+                    item,
+                    showSpoiler,
+                    "item"
+                  );
+
+                  return (
+                    <div key={item.id}>
+                      <FGOIcon {...itemSpoilered} />
+                      <span>{itemSpoilered.name}</span>
+                    </div>
+                  );
+                })}
+              </NoSSR>
             </Section>
           </article>
         ))}
@@ -112,11 +127,13 @@ export async function getStaticProps(context) {
   );
 
   // fetch item data
-  const res = await fetch(
-    "https://api.atlasacademy.io/export/JP/nice_item_lang_en.json"
-  );
-  if (!res.ok) throw new Error("Error while fetch Atlas Item Data");
-  const niceItem = await res.json();
+  const res = await Promise.all([
+    fetch("https://api.atlasacademy.io/export/JP/nice_item_lang_en.json"),
+    fetch("https://api.atlasacademy.io/export/NA/nice_item.json")
+  ]);
+  if (res.some(r => !r.ok))
+    throw new Error("Error while fetch Atlas Item Data");
+  const [niceItem, niceItemNA] = await Promise.all(res.map(r => r.json()));
 
   // map ids to niceItem data
   const tickets = new Array();
@@ -124,10 +141,17 @@ export async function getStaticProps(context) {
     tickets.push({
       month,
       items: data[month].map(itemId => {
+        // check JP for the item and get data
         const { id, name, icon, background } = niceItem.find(
           item => item.id === itemId
         );
-        return { id, name, icon, background };
+        const item = { id, name, icon, background };
+
+        // check NA for the item
+        if (niceItemNA.findIndex(item => item.id === itemId) >= 0)
+          item.na = true;
+
+        return item;
       })
     });
   }
