@@ -2,39 +2,31 @@ import { useStore } from "@nanostores/react";
 
 import styles from "./UpgradeGrid.module.css";
 import { settingsStore } from "@stores/settingsStore";
+import { withSpoilerLevel } from "@utils/withSpoilerLevel";
 import FGOIcon from "@components/FGOIcon";
 import { IconArrow } from "@components/icons";
 import AtlasButton from "@components/AtlasButton";
 
-const spoilerSkillIcon =
-  "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png";
-
 export default function UpgradeGrid({ icon = false, initial, upgraded, link }) {
   const { showSpoiler } = useStore(settingsStore);
-  const initialName =
-    initial.na || showSpoiler !== "strict"
-      ? initial.name
-      : initial.num
-      ? `Skill ${initial.num}`
-      : `Noble Phantasm`;
-  const upgradedName =
-    upgraded.na || showSpoiler !== "strict"
-      ? upgraded.name
-      : upgraded.num
-      ? `Skill ${upgraded.num}`
-      : `Noble Phantasm`;
+  const initialSpoilered = withSpoilerLevel(
+    initial,
+    showSpoiler,
+    initial.num ? "skill" : "np"
+  );
+  const upgradedSpoilered = withSpoilerLevel(
+    upgraded,
+    showSpoiler,
+    upgraded.num ? "skill" : "np"
+  );
 
   return (
     <div className={styles.grid}>
       <div>
         <FGOIcon
-          icon={
-            initial.na || showSpoiler === "all"
-              ? icon || initial.icon
-              : spoilerSkillIcon
-          }
+          icon={icon || initialSpoilered.icon}
           background={initial.border ?? "black"}
-          name={initialName}
+          name={initialSpoilered.name}
           className={styles.icon}
         />
       </div>
@@ -43,13 +35,9 @@ export default function UpgradeGrid({ icon = false, initial, upgraded, link }) {
       </div>
       <div>
         <FGOIcon
-          icon={
-            upgraded.na || showSpoiler === "all"
-              ? icon || upgraded.icon
-              : spoilerSkillIcon
-          }
+          icon={icon || upgradedSpoilered.icon}
           background={upgraded.border ?? "black"}
-          name={upgradedName}
+          name={upgradedSpoilered.name}
           className={styles.icon}
         />
       </div>
@@ -58,7 +46,7 @@ export default function UpgradeGrid({ icon = false, initial, upgraded, link }) {
           // this is possibly `null` for quests that add a new 3rd skill
           initial.name && (
             <AtlasButton link={link} na={initial.na} inline>
-              {initialName}
+              {initialSpoilered.name}
             </AtlasButton>
           )
         }
@@ -66,7 +54,7 @@ export default function UpgradeGrid({ icon = false, initial, upgraded, link }) {
       <div />
       <div>
         <AtlasButton link={link} na={upgraded.na} inline>
-          {upgradedName}
+          {upgradedSpoilered.name}
         </AtlasButton>
       </div>
     </div>
