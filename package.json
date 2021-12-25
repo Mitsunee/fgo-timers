@@ -4,13 +4,14 @@
   "private": true,
   "packageMananger": "yarn",
   "scripts": {
-    "postinstall": "simple-git-hooks",
-    "dev": "next dev",
+    "postinstall": "simple-git-hooks && node scripts/cache-atlas-api.mjs",
+    "dev": "node scripts/cache-atlas-api.mjs && next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
     "format": "prettier -w .",
     "new": "node scripts/new.mjs",
+    "update:cache": "node scripts/cache-atlas-api.mjs",
     "update:upgrades": "node scripts/update-upgrades-data.mjs",
     "update:svg": "node scripts/build-svg.mjs"
   },
