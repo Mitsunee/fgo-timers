@@ -1,9 +1,9 @@
 import { basename, extname } from "path";
 import { getFileList } from "@utils/server/getFileList";
 import { getItemIdMap } from "@utils/server/loginTickets/getItemIdMap";
+import { parseJsonFile } from "@utils/server/parseJsonFile";
 import { getTicketFileList } from "@utils/server/loginTickets/getTicketFileList";
 import { parseTicketFile } from "@utils/server/loginTickets/parseTicketFile";
-import { ATLAS_API } from "@utils/globals";
 
 import { useStore } from "@nanostores/react";
 import spacetime from "spacetime";
@@ -123,22 +123,14 @@ export async function getStaticProps(context) {
   const year = context.params.year;
   const ticketFileList = await getTicketFileList();
   const itemIdMap = await getItemIdMap();
+  const niceItem = await parseJsonFile("cache/JP/nice_item_lang_en.json");
+  const niceItemNA = await parseJsonFile("cache/NA/nice_item.json");
+
+  // parse ticket data
   const { data } = await parseTicketFile(
     ticketFileList.find(path => path.includes(year)),
     itemIdMap
   );
-
-  // fetch item data
-  const res = await Promise.all([
-    fetch(`${ATLAS_API}export/JP/nice_item_lang_en.json`),
-    fetch(`${ATLAS_API}export/NA/nice_item.json`)
-  ]);
-  if (res.some(r => !r.ok)) {
-    throw new Error("Error while fetch Atlas Item Data");
-  }
-  const [niceItem, niceItemNA] = await Promise.all(res.map(r => r.json()));
-
-  // map ids to niceItem data
   const tickets = new Array();
   for (const month in data) {
     tickets.push({
