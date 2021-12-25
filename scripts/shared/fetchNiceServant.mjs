@@ -1,20 +1,13 @@
-import { createSpinner } from "nanospinner";
-
-import { fetchData } from "./fetchData.mjs";
-import { ATLAS_API } from "./constants.mjs";
+import { readFileJson } from "./fs-helper.mjs";
+import { die } from "./log.mjs";
 
 export async function fetchNiceServant() {
-  const spinner = createSpinner("Fetching niceServant data");
-  spinner.start();
+  const niceServant = await readFileJson("cache/JP/nice_servant_lang_en.json");
+  const niceServantNA = await readFileJson("cache/NA/nice_servant.json");
 
-  const res = await fetchData(
-    [
-      `${ATLAS_API}export/JP/nice_servant_lang_en.json`,
-      `${ATLAS_API}export/NA/nice_servant.json`
-    ],
-    undefined,
-    spinner
-  );
+  if (!niceServant || !niceServantNA) {
+    die("Could not read API cache. Please run: yarn run update:cache");
+  }
 
   const servantFilter = servant =>
     // filter mash and boss collections
@@ -22,9 +15,9 @@ export async function fetchNiceServant() {
     // Melusine (304800) uses strengthStatus 0 on everything and priorities break this script
     servant.id !== 304800;
 
-  const na = res[1].filter(servantFilter);
+  const na = niceServantNA.filter(servantFilter);
   // save JP data with NA names where possible
-  const jp = res[0].filter(servantFilter).map(servant => {
+  const jp = niceServant.filter(servantFilter).map(servant => {
     const servantNA = na.find(servantNA => servantNA.id === servant.id);
     if (!servantNA) return servant;
 
@@ -42,8 +35,6 @@ export async function fetchNiceServant() {
 
     return translatedServant;
   });
-
-  spinner.success();
 
   return { na, jp };
 }
