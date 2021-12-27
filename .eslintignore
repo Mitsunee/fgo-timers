@@ -3,3 +3,4 @@ src/**/*.css
 build/**
 .next/**
 out/**
+cache/**

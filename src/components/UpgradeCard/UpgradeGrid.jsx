@@ -1,16 +1,32 @@
+import { useStore } from "@nanostores/react";
+
 import styles from "./UpgradeGrid.module.css";
+import { settingsStore } from "@stores/settingsStore";
+import { withSpoilerLevel } from "@utils/withSpoilerLevel";
 import FGOIcon from "@components/FGOIcon";
 import { IconArrow } from "@components/icons";
 import AtlasButton from "@components/AtlasButton";
 
 export default function UpgradeGrid({ icon = false, initial, upgraded, link }) {
+  const { showSpoiler } = useStore(settingsStore);
+  const initialSpoilered = withSpoilerLevel(
+    initial,
+    showSpoiler,
+    initial.num ? "skill" : "np"
+  );
+  const upgradedSpoilered = withSpoilerLevel(
+    upgraded,
+    showSpoiler,
+    upgraded.num ? "skill" : "np"
+  );
+
   return (
     <div className={styles.grid}>
       <div>
         <FGOIcon
-          icon={icon || initial.icon}
+          icon={icon || initialSpoilered.icon}
           background={initial.border ?? "black"}
-          name={initial.name}
+          name={initialSpoilered.name}
           className={styles.icon}
         />
       </div>
@@ -19,9 +35,9 @@ export default function UpgradeGrid({ icon = false, initial, upgraded, link }) {
       </div>
       <div>
         <FGOIcon
-          icon={icon || upgraded.icon}
+          icon={icon || upgradedSpoilered.icon}
           background={upgraded.border ?? "black"}
-          name={upgraded.name}
+          name={upgradedSpoilered.name}
           className={styles.icon}
         />
       </div>
@@ -30,7 +46,7 @@ export default function UpgradeGrid({ icon = false, initial, upgraded, link }) {
           // this is possibly `null` for quests that add a new 3rd skill
           initial.name && (
             <AtlasButton link={link} na={initial.na} inline>
-              {initial.name}
+              {initialSpoilered.name}
             </AtlasButton>
           )
         }
@@ -38,7 +54,7 @@ export default function UpgradeGrid({ icon = false, initial, upgraded, link }) {
       <div />
       <div>
         <AtlasButton link={link} na={upgraded.na} inline>
-          {upgraded.name}
+          {upgradedSpoilered.name}
         </AtlasButton>
       </div>
     </div>

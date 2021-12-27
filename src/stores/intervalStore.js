@@ -1,20 +1,24 @@
 import spacetime from "spacetime";
 import { atom, action, onMount } from "nanostores";
 
-function makeTimestamp() {
-  const now = Date.now();
+class Timestamp {
+  constructor() {
+    this.interval = Date.now();
+  }
+  get seconds() {
+    return Math.trunc(this.interval / 1000);
+  }
+  get s() {
+    if (!this._s) this._s = spacetime(this.interval);
 
-  return {
-    interval: now,
-    seconds: Math.trunc(now / 1000),
-    s: spacetime(now)
-  };
+    return this._s;
+  }
 }
 
-export const intervalStore = atom(makeTimestamp());
+export const intervalStore = atom(new Timestamp());
 
 export const updateInterval = action(intervalStore, "update", store =>
-  store.set(makeTimestamp())
+  store.set(new Timestamp())
 );
 
 onMount(intervalStore, () => {

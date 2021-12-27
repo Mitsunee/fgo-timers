@@ -46,4 +46,7 @@ To make new pages and components you can use the `new` script. See `yarn new --h
 
 ## Further Information
 
-The format for Event data used to generate Event pages is described in [events](events.md).
+### Data Formats
+
+- Event Data: [events](events.md)
+- Upgrades Data: [upgrades](upgrades.md)

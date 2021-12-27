@@ -8,6 +8,7 @@ import { parseEventFile } from "@utils/server/events/parseEventFile";
 import { getTicketFileList } from "@utils/server/loginTickets/getTicketFileList";
 import { getItemIdMap } from "@utils/server/loginTickets/getItemIdMap";
 import { parseTicketFile } from "@utils/server/loginTickets/parseTicketFile";
+import { parseJsonFile } from "@utils/server/parseJsonFile";
 import { parseShopFile } from "@utils/server/parseShopFile";
 
 import styles from "@styles/HomePage.module.css";
@@ -160,14 +161,8 @@ export async function getStaticProps() {
     );
   }
 
-  // fetch item data
-  const res = await fetch(
-    "https://api.atlasacademy.io/export/JP/nice_item_lang_en.json"
-  );
-  if (!res.ok) throw new Error("Error while fetch Atlas Item Data");
-  const niceItem = await res.json();
-
   // generate itemData map
+  const niceItem = await parseJsonFile("cache/JP/nice_item_lang_en.json");
   const itemIds = Object.keys(tickets)
     .flatMap(year =>
       Object.keys(tickets[year]).flatMap(month => tickets[year][month])

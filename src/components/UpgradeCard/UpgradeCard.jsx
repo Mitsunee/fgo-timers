@@ -1,6 +1,10 @@
+import { useStore } from "@nanostores/react";
+
 import styles from "./UpgradeCard.module.css";
+import { settingsStore } from "@stores/settingsStore";
 import { useFormattedTimestamp } from "@utils/hooks/useFormattedTimestamp";
 import { useFormattedEstimate } from "@utils/hooks/useFormattedEstimate";
+import { withSpoilerLevel } from "@utils/withSpoilerLevel";
 import { Card } from "@components/Card";
 import UpgradeSkill from "./UpgradeSkill";
 import UpgradeNP from "./UpgradeNP";
@@ -15,23 +19,28 @@ export default function UpgradeCard({
   skill,
   np
 }) {
+  const { showSpoiler } = useStore(settingsStore);
   const color = skill?.border || np?.border || "blue";
   const questRelease = useFormattedTimestamp(quest.open * 1000, "date");
   const questReleaseEstimate = useFormattedEstimate(quest.open * 1000);
 
-  // TODO: There should be a link to the quest info for the quest each card is actually about
+  // Spoiler values
+  const servantSpoilered = withSpoilerLevel(servant, showSpoiler, "servant");
+  const cardTitle = `${servantSpoilered.name}${
+    skill ? ` Skill ${skill.num}` : np ? ` NP` : ""
+  }`;
+  const { name: questName } = withSpoilerLevel(quest, showSpoiler, "quest");
 
   return (
     <Card
-      title={`${servant.name}${
-        skill ? ` Skill ${skill.num}` : np ? ` NP` : ""
-      }`}
-      icon={servant.icon}
+      title={cardTitle}
+      icon={servantSpoilered.icon}
       forceRoundIcon
       color={color}
       className={styles.card}>
       <h2>
-        {quest.name} ({quest.type === "interlude" ? "Interlude" : "Rank Up"})
+        {questName}
+        {` (${quest.type === "interlude" ? "Interlude" : "Rank Up"})`}
       </h2>
       {target === "skill" && (
         <UpgradeSkill initial={initial} skill={skill} servantId={servant.id} />
@@ -45,15 +54,23 @@ export default function UpgradeCard({
         {quest.unlock.ascension > 0 && (
           <li>Ascension {quest.unlock.ascension}</li>
         )}
-        {quest.unlock.quest?.map(({ id, name, na }) => (
-          <li key={id}>
-            {"Completed Quest: "}
-            <AtlasButton
-              link={`quest/${id}/1`}
-              na={na}
-              inline>{`“${name}”`}</AtlasButton>
-          </li>
-        ))}
+        {quest.unlock.quest?.map(unlockQuest => {
+          const { id, na } = unlockQuest;
+          const { name: unlockQuestName } = withSpoilerLevel(
+            unlockQuest,
+            showSpoiler,
+            "quest"
+          );
+
+          return (
+            <li key={id}>
+              {"Completed Quest: "}
+              <AtlasButton link={`quest/${unlockQuest.id}/1`} na={na} inline>
+                {unlockQuestName}
+              </AtlasButton>
+            </li>
+          );
+        })}
       </ul>
       <p>
         {quest.na ? (
