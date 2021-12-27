@@ -107,7 +107,7 @@ export default function EventPage({
                   .map((subTime, subIdx) => (
                     <EventTimeRow
                       key={`${idx}-${subIdx}`}
-                      title={subTime.title}
+                      title={`[Start] ${subTime.title}`}
                       target={subTime.startsAt}
                     />
                   ));
@@ -121,10 +121,16 @@ export default function EventPage({
                 return null;
               }
 
+              const isDuration = Boolean(time.endsAt);
+              const isEndTime = time.startsAt < interval;
+              const title = isDuration
+                ? `[${isEndTime ? "End" : "Start"}] ${time.title}`
+                : time.title;
+
               return (
                 <EventTimeRow
                   key={idx}
-                  title={time.title}
+                  title={title}
                   target={
                     time.startsAt > interval
                       ? time.startsAt
