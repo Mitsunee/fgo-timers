@@ -8,13 +8,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 1,
         "bond": 3
       },
@@ -51,16 +45,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Scourge of God",
-            "id": 1000215,
-            "na": true
-          },
-          {
-            "name": "Reasons to Fight",
-            "id": 91100101,
-            "na": true
-          }
+          { "name": "Scourge of God", "id": 1000215, "na": true },
+          { "name": "Reasons to Fight", "id": 91100101, "na": true }
         ],
         "ascension": 2,
         "bond": 5
@@ -98,9 +84,7 @@
       "search": "rank up quest: altria pendragon",
       "open": 1594080000,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -161,13 +145,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "The Dragon Witch",
-            "id": 1000115,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "The Dragon Witch", "id": 1000115, "na": true }],
         "ascension": 1,
         "bond": 2
       },
@@ -192,16 +170,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Scourge of God",
-            "id": 1000215,
-            "na": true
-          },
-          {
-            "name": "Generations of Alter",
-            "id": 91100201,
-            "na": true
-          }
+          { "name": "Scourge of God", "id": 1000215, "na": true },
+          { "name": "Generations of Alter", "id": 91100201, "na": true }
         ],
         "ascension": 2,
         "bond": 3
@@ -239,9 +209,7 @@
       "search": "rank up quest: altria pendragon (alter)",
       "open": 1629172800,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -262,13 +230,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 1,
         "bond": 1
       },
@@ -303,9 +265,7 @@
       "search": "rank up quest: altria pendragon (lily)",
       "open": 1584072000,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -366,13 +326,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Scourge of God",
-            "id": 1000215,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Scourge of God", "id": 1000215, "na": true }],
         "ascension": 1,
         "bond": 2
       },
@@ -409,16 +363,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Scourge of God",
-            "id": 1000215,
-            "na": true
-          },
-          {
-            "name": "First Sailing, Once Again",
-            "id": 91100501,
-            "na": true
-          }
+          { "name": "Scourge of God", "id": 1000215, "na": true },
+          { "name": "First Sailing, Once Again", "id": 91100501, "na": true }
         ],
         "ascension": 2,
         "bond": 2
@@ -455,16 +401,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Beyond the Fog",
-            "id": 1000413,
-            "na": true
-          },
-          {
-            "name": "A Golden Business",
-            "id": 91100502,
-            "na": true
-          }
+          { "name": "Beyond the Fog", "id": 1000413, "na": true },
+          { "name": "A Golden Business", "id": 91100502, "na": true }
         ],
         "ascension": 3,
         "bond": 5
@@ -502,9 +440,7 @@
       "search": "rank up quest: nero claudius",
       "open": 1613534400,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -525,13 +461,7 @@
       "open": 1516863600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Beyond the Fog",
-            "id": 1000413,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Beyond the Fog", "id": 1000413, "na": true }],
         "ascension": 1,
         "bond": 2
       },
@@ -568,11 +498,7 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Bouquet of Meetings",
-            "id": 91100601,
-            "na": true
-          }
+          { "name": "Bouquet of Meetings", "id": 91100601, "na": true }
         ],
         "ascension": 2,
         "bond": 4
@@ -610,9 +536,7 @@
       "search": "rank up quest: nero claudius (bride)",
       "open": 1625702400,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -673,13 +597,7 @@
       "open": 1507140000,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Replica (5/5)",
-            "id": 1000632,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Replica (5/5)", "id": 1000632, "na": true }],
         "ascension": 2,
         "bond": 1
       },
@@ -716,9 +634,7 @@
       "search": "rank up quest: gawain",
       "open": 1625875200,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -739,13 +655,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "The Dragon Witch",
-            "id": 1000115,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "The Dragon Witch", "id": 1000115, "na": true }],
         "ascension": 1,
         "bond": 2
       },
@@ -770,16 +680,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "The Dragon Witch",
-            "id": 1000115,
-            "na": true
-          },
-          {
-            "name": "Dragon Slayer",
-            "id": 91100801,
-            "na": true
-          }
+          { "name": "The Dragon Witch", "id": 1000115, "na": true },
+          { "name": "Dragon Slayer", "id": 91100801, "na": true }
         ],
         "ascension": 2,
         "bond": 4
@@ -817,9 +719,7 @@
       "search": "rank up quest: siegfried",
       "open": 1540339200,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -839,12 +739,7 @@
       "border": "black",
       "na": true
     },
-    "np": {
-      "name": "Balmung",
-      "type": "buster",
-      "border": "gold",
-      "na": true
-    },
+    "np": { "name": "Balmung", "type": "buster", "border": "gold", "na": true },
     "quest": {
       "id": 94012505,
       "name": "Rank Up Quest: Siegfried 2",
@@ -853,11 +748,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Siegfried",
-            "id": 94008006,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Siegfried", "id": 94008006, "na": true }
         ]
       },
       "na": true
@@ -892,13 +783,7 @@
       "open": 1513670400,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Beyond the Fog",
-            "id": 1000413,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Beyond the Fog", "id": 1000413, "na": true }],
         "ascension": 1,
         "bond": 3
       },
@@ -923,16 +808,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Return",
-            "id": 1000822,
-            "na": true
-          },
-          {
-            "name": "King of Kings",
-            "id": 91100901,
-            "na": true
-          }
+          { "name": "Return", "id": 1000822, "na": true },
+          { "name": "King of Kings", "id": 91100901, "na": true }
         ],
         "ascension": 4,
         "bond": 5
@@ -969,9 +846,7 @@
       "search": "強化クエスト モトレット",
       "open": 1585126800,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 100900,
@@ -1003,9 +878,7 @@
       "search": "強化クエスト エリサヘト・ハトリ〔フレイフ〕",
       "open": 1633510800,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 101000,
@@ -1037,13 +910,7 @@
       "open": 1507140000,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Return",
-            "id": 1000822,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Return", "id": 1000822, "na": true }],
         "ascension": 3,
         "bond": 5
       },
@@ -1079,9 +946,7 @@
       "search": "強化クエスト ヘティウィエル",
       "open": 1620637200,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 101200,
@@ -1101,13 +966,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Scourge of God",
-            "id": 1000215,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Scourge of God", "id": 1000215, "na": true }],
         "ascension": 1,
         "bond": 1
       },
@@ -1144,9 +1003,7 @@
       "search": "rank up quest: caesar",
       "open": 1539993600,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -1166,11 +1023,7 @@
       "border": "black",
       "na": true
     },
-    "np": {
-      "name": "Crocea Mors",
-      "type": "quick",
-      "border": "gold"
-    },
+    "np": { "name": "Crocea Mors", "type": "quick", "border": "gold" },
     "quest": {
       "id": 94046302,
       "name": "強化クエスト カエサル 2",
@@ -1179,11 +1032,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Caesar",
-            "id": 94008002,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Caesar", "id": 94008002, "na": true }
         ]
       }
     },
@@ -1217,13 +1066,7 @@
       "open": 1521097200,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Beyond the Fog",
-            "id": 1000413,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Beyond the Fog", "id": 1000413, "na": true }],
         "ascension": 2,
         "bond": 3
       },
@@ -1286,13 +1129,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Scourge of God",
-            "id": 1000215,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Scourge of God", "id": 1000215, "na": true }],
         "ascension": 1,
         "bond": 3
       },
@@ -1329,16 +1166,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Scourge of God",
-            "id": 1000215,
-            "na": true
-          },
-          {
-            "name": "The Beast Inside of Me",
-            "id": 91101801,
-            "na": true
-          }
+          { "name": "Scourge of God", "id": 1000215, "na": true },
+          { "name": "The Beast Inside of Me", "id": 91101801, "na": true }
         ],
         "ascension": 2,
         "bond": 4
@@ -1383,11 +1212,7 @@
             "id": 1000522,
             "na": true
           },
-          {
-            "name": "My Memories",
-            "id": 91101802,
-            "na": true
-          }
+          { "name": "My Memories", "id": 91101802, "na": true }
         ],
         "ascension": 3,
         "bond": 5
@@ -1425,9 +1250,7 @@
       "search": "rank up quest: altera",
       "open": 1625360400,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -1477,20 +1300,14 @@
       "border": "black",
       "na": true
     },
-    "np": {
-      "name": "Brahmastra",
-      "type": "buster",
-      "border": "gold"
-    },
+    "np": { "name": "Brahmastra", "type": "buster", "border": "gold" },
     "quest": {
       "id": 94058605,
       "name": "強化クエスト ラーマ",
       "search": "強化クエスト ラマ",
       "open": 1618477200,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 101900,
@@ -1510,13 +1327,7 @@
       "open": 1507140000,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Replica (5/5)",
-            "id": 1000632,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Replica (5/5)", "id": 1000632, "na": true }],
         "ascension": 2,
         "bond": 4
       },
@@ -1540,13 +1351,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "The Dragon Witch",
-            "id": 1000115,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "The Dragon Witch", "id": 1000115, "na": true }],
         "ascension": 1,
         "bond": 2
       },
@@ -1580,9 +1385,7 @@
       "search": "rank up quest: gilles de rais",
       "open": 1525233600,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -1603,13 +1406,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "The Dragon Witch",
-            "id": 1000115,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "The Dragon Witch", "id": 1000115, "na": true }],
         "ascension": 1,
         "bond": 1
       },
@@ -1644,9 +1441,7 @@
       "search": "rank up quest: chevalier d'eon",
       "open": 1562630400,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -1680,13 +1475,7 @@
       "open": 1632906000,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 3,
         "bond": 5
       }
@@ -1721,9 +1510,7 @@
       "search": "強化クエスト 沖田総司",
       "open": 1601629200,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 102700,
@@ -1754,9 +1541,7 @@
       "search": "rank up quest: ryougi shiki",
       "open": 1613534400,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -1791,13 +1576,7 @@
       "open": 1622174400,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "intro.3-4",
-            "id": 3000303,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "intro.3-4", "id": 3000303, "na": true }],
         "ascension": 3,
         "bond": 5
       },
@@ -1833,9 +1612,7 @@
       "search": "強化クエスト アサ・ヘントラコン〔フロトタイフ〕",
       "open": 1614157200,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 102900,
@@ -1855,13 +1632,7 @@
       "open": 1588305600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Return",
-            "id": 1000822,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Return", "id": 1000822, "na": true }],
         "ascension": 2,
         "bond": 3
       },
@@ -1899,11 +1670,7 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          },
+          { "name": "Grand Order", "id": 1000011, "na": true },
           {
             "name": "A High School Girl Stroll in Chaldea",
             "id": 91103001,
@@ -1931,20 +1698,14 @@
       "border": "black",
       "na": true
     },
-    "np": {
-      "name": "Demonic Sun-Shower",
-      "type": "buster",
-      "border": "gold"
-    },
+    "np": { "name": "Demonic Sun-Shower", "type": "buster", "border": "gold" },
     "quest": {
       "id": 94051272,
       "name": "強化クエスト 鈴鹿御前",
       "search": "強化クエスト 鈴鹿御前",
       "open": 1594803600,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 103000,
@@ -1970,11 +1731,7 @@
             "id": 2000316,
             "na": true
           },
-          {
-            "name": "intro.3-4",
-            "id": 3000303,
-            "na": true
-          }
+          { "name": "intro.3-4", "id": 3000303, "na": true }
         ],
         "ascension": 3,
         "bond": 5
@@ -2011,9 +1768,7 @@
       "search": "強化クエスト 柳生但馬守宗矩",
       "open": 1609923600,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 103200,
@@ -2033,13 +1788,7 @@
       "open": 1593421200,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "The Dragon Witch",
-            "id": 1000115,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "The Dragon Witch", "id": 1000115, "na": true }],
         "ascension": 3,
         "bond": 4
       }
@@ -2061,20 +1810,14 @@
       "border": "black",
       "na": true
     },
-    "np": {
-      "name": "Bölverkr Gram",
-      "type": "buster",
-      "border": "gold"
-    },
+    "np": { "name": "Bölverkr Gram", "type": "buster", "border": "gold" },
     "quest": {
       "id": 94052080,
       "name": "強化クエスト シグルド",
       "search": "強化クエスト シクルト",
       "open": 1597654800,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 103300,
@@ -2152,12 +1895,7 @@
       "open": 1593421200,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "最終決戦・虚ろなる海神",
-            "id": 3000531
-          }
-        ],
+        "quest": [{ "name": "最終決戦・虚ろなる海神", "id": 3000531 }],
         "ascension": 2,
         "bond": 4
       }
@@ -2172,46 +1910,6 @@
     }
   },
   {
-    "target": "skill",
-    "initial": {
-      "name": "破却宣言 C",
-      "num": 1,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00607.png",
-      "border": "black"
-    },
-    "skill": {
-      "name": "破却宣言（強） B+",
-      "num": 1,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00601.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 91104101,
-      "name": "新月にて、浮かれ浮かれてなんやかんや",
-      "search": "新月にて、浮かれ浮かれてなんやかんや",
-      "open": 1624438800,
-      "type": "interlude",
-      "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
-        "ascension": 2,
-        "bond": 3
-      }
-    },
-    "servant": {
-      "id": 104100,
-      "name": "Astolfo (Saber)",
-      "search": "astolfo",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_1041000.png",
-      "className": "saber"
-    }
-  },
-  {
     "target": "sq",
     "quest": {
       "id": 91104201,
@@ -2220,13 +1918,7 @@
       "open": 1607936400,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 2,
         "bond": 5
       }
@@ -2248,12 +1940,7 @@
       "open": 1632906000,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "つわものどもが、夢の跡",
-            "id": 3000716
-          }
-        ],
+        "quest": [{ "name": "つわものどもが、夢の跡", "id": 3000716 }],
         "ascension": 3,
         "bond": 5
       }
@@ -2275,13 +1962,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 1,
         "bond": 2
       },
@@ -2318,16 +1999,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          },
-          {
-            "name": "To be a Master",
-            "id": 91200101,
-            "na": true
-          }
+          { "name": "Grand Order", "id": 1000011, "na": true },
+          { "name": "To be a Master", "id": 91200101, "na": true }
         ],
         "ascension": 2,
         "bond": 4
@@ -2365,9 +2038,7 @@
       "search": "rank up quest: emiya",
       "open": 1531540800,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -2403,11 +2074,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Emiya",
-            "id": 94005014,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Emiya", "id": 94005014, "na": true }
         ]
       },
       "na": true
@@ -2444,11 +2111,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Emiya 2",
-            "id": 94008005,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Emiya 2", "id": 94008005, "na": true }
         ]
       }
     },
@@ -2470,13 +2133,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 1,
         "bond": 1
       },
@@ -2513,16 +2170,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Beyond the Fog",
-            "id": 1000413,
-            "na": true
-          },
-          {
-            "name": "What's Worthy",
-            "id": 91200201,
-            "na": true
-          }
+          { "name": "Beyond the Fog", "id": 1000413, "na": true },
+          { "name": "What's Worthy", "id": 91200201, "na": true }
         ],
         "ascension": 2,
         "bond": 3
@@ -2567,11 +2216,7 @@
             "id": 1000522,
             "na": true
           },
-          {
-            "name": "Law of Creation",
-            "id": 91200202,
-            "na": true
-          }
+          { "name": "Law of Creation", "id": 91200202, "na": true }
         ],
         "ascension": 3,
         "bond": 5
@@ -2596,13 +2241,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 1,
         "bond": 3
       },
@@ -2636,9 +2275,7 @@
       "search": "rank up quest: robin hood",
       "open": 1531022400,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -2674,11 +2311,7 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Pioneer of the Stars",
-            "id": 1000314,
-            "na": true
-          }
+          { "name": "Pioneer of the Stars", "id": 1000314, "na": true }
         ],
         "ascension": 1,
         "bond": 3
@@ -2716,16 +2349,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Beyond the Fog",
-            "id": 1000413,
-            "na": true
-          },
-          {
-            "name": "Smile of the Goddess",
-            "id": 91200501,
-            "na": true
-          }
+          { "name": "Beyond the Fog", "id": 1000413, "na": true },
+          { "name": "Smile of the Goddess", "id": 91200501, "na": true }
         ],
         "ascension": 2,
         "bond": 4
@@ -2760,9 +2385,7 @@
       "search": "rank up quest: atalante",
       "open": 1531454400,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -2783,13 +2406,7 @@
       "open": 1499277600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Return",
-            "id": 1000822,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Return", "id": 1000822, "na": true }],
         "ascension": 2,
         "bond": 2
       },
@@ -2812,20 +2429,14 @@
       "border": "black",
       "na": true
     },
-    "np": {
-      "name": "Hamesh Avanim",
-      "type": "buster",
-      "border": "gold"
-    },
+    "np": { "name": "Hamesh Avanim", "type": "buster", "border": "gold" },
     "quest": {
       "id": 94052288,
       "name": "強化クエスト ダビデ",
       "search": "強化クエスト タヒテ",
       "open": 1596790800,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 200600,
@@ -2857,13 +2468,7 @@
       "open": 1507140000,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Return",
-            "id": 1000822,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Return", "id": 1000822, "na": true }],
         "ascension": 2,
         "bond": 4
       },
@@ -2899,9 +2504,7 @@
       "search": "強化クエスト トリスタン",
       "open": 1620810000,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 200800,
@@ -2922,11 +2525,7 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Pioneer of the Stars",
-            "id": 1000314,
-            "na": true
-          }
+          { "name": "Pioneer of the Stars", "id": 1000314, "na": true }
         ],
         "ascension": 1,
         "bond": 2
@@ -2969,11 +2568,7 @@
             "id": 1000522,
             "na": true
           },
-          {
-            "name": "Unsweet Honeymoon",
-            "id": 91200901,
-            "na": true
-          }
+          { "name": "Unsweet Honeymoon", "id": 91200901, "na": true }
         ],
         "ascension": 3,
         "bond": 5
@@ -2998,13 +2593,7 @@
       "open": 1547708400,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "A Certain Love Song",
-            "id": 91200902,
-            "na": true
-          }
-        ]
+        "quest": [{ "name": "A Certain Love Song", "id": 91200902, "na": true }]
       },
       "na": true
     },
@@ -3067,9 +2656,7 @@
       "search": "rank up quest: billy the kid",
       "open": 1557979200,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -3102,13 +2689,7 @@
       "open": 1513670400,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Beyond the Fog",
-            "id": 1000413,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Beyond the Fog", "id": 1000413, "na": true }],
         "ascension": 2,
         "bond": 3
       },
@@ -3147,16 +2728,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "intro.3-4",
-            "id": 3000303,
-            "na": true
-          },
-          {
-            "name": "Lightning",
-            "id": 91201101,
-            "na": true
-          }
+          { "name": "intro.3-4", "id": 3000303, "na": true },
+          { "name": "Lightning", "id": 91201101, "na": true }
         ],
         "ascension": 3,
         "bond": 5
@@ -3194,9 +2767,7 @@
       "search": "rank up quest: nikola tesla",
       "open": 1562803200,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -3229,13 +2800,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Scourge of God",
-            "id": 1000215,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Scourge of God", "id": 1000215, "na": true }],
         "ascension": 1,
         "bond": 2
       },
@@ -3269,9 +2834,7 @@
       "search": "rank up quest: euryale",
       "open": 1528430400,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -3291,12 +2854,7 @@
       "border": "black",
       "na": true
     },
-    "np": {
-      "name": "Stella",
-      "type": "buster",
-      "border": "gold",
-      "na": true
-    },
+    "np": { "name": "Stella", "type": "buster", "border": "gold", "na": true },
     "quest": {
       "id": 91201301,
       "name": "Lonely Soldier, Brave As a Lion",
@@ -3304,13 +2862,7 @@
       "open": 1530178200,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Replica (3/5)",
-            "id": 1000630,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Replica (3/5)", "id": 1000630, "na": true }],
         "ascension": 1,
         "bond": 5
       },
@@ -3344,9 +2896,7 @@
       "search": "rank up quest: arash",
       "open": 1528603200,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -3379,13 +2929,7 @@
       "open": 1509645600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Replica (5/5)",
-            "id": 1000632,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Replica (5/5)", "id": 1000632, "na": true }],
         "bond": 2
       },
       "na": true
@@ -3421,11 +2965,7 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Pioneer of the Stars",
-            "id": 1000314,
-            "na": true
-          }
+          { "name": "Pioneer of the Stars", "id": 1000314, "na": true }
         ],
         "ascension": 1,
         "bond": 2
@@ -3470,11 +3010,7 @@
             "id": 1000522,
             "na": true
           },
-          {
-            "name": "True Value of the Divine Bow",
-            "id": 91201501,
-            "na": true
-          }
+          { "name": "True Value of the Divine Bow", "id": 91201501, "na": true }
         ],
         "ascension": 2,
         "bond": 4
@@ -3511,9 +3047,7 @@
       "search": "強化クエスト アルシュナ",
       "open": 1596877200,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 201500,
@@ -3574,9 +3108,7 @@
       "search": "rank up quest: emiya (alter)",
       "open": 1594512000,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -3609,13 +3141,7 @@
       "open": 1541649600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Beyond the Fog",
-            "id": 1000413,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Beyond the Fog", "id": 1000413, "na": true }],
         "ascension": 3,
         "bond": 5
       },
@@ -3651,9 +3177,7 @@
       "search": "強化クエスト 子キル",
       "open": 1612947600,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 201800,
@@ -3673,13 +3197,7 @@
       "open": 1513965600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Return to Chaldea",
-            "id": 1000722,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Return to Chaldea", "id": 1000722, "na": true }],
         "ascension": 2
       },
       "na": true
@@ -3715,16 +3233,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Return",
-            "id": 1000822,
-            "na": true
-          },
-          {
-            "name": "Ishtar's Eleven",
-            "id": 91202001,
-            "na": true
-          }
+          { "name": "Return", "id": 1000822, "na": true },
+          { "name": "Ishtar's Eleven", "id": 91202001, "na": true }
         ],
         "ascension": 3,
         "bond": 3
@@ -3755,11 +3265,7 @@
             "id": 2000118,
             "na": true
           },
-          {
-            "name": "intro.3-4",
-            "id": 3000303,
-            "na": true
-          }
+          { "name": "intro.3-4", "id": 3000303, "na": true }
         ],
         "ascension": 3,
         "bond": 3
@@ -3798,11 +3304,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "The Great Prison Break",
-            "id": 2000110,
-            "na": true
-          }
+          { "name": "The Great Prison Break", "id": 2000110, "na": true }
         ],
         "ascension": 4
       },
@@ -3840,11 +3342,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Moriarty",
-            "id": 94034901,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Moriarty", "id": 94034901, "na": true }
         ]
       }
     },
@@ -3920,9 +3418,7 @@
       "search": "強化クエスト 浅上藤乃",
       "open": 1622019600,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 202900,
@@ -3942,13 +3438,7 @@
       "open": 1580893200,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 2,
         "bond": 3
       }
@@ -3971,13 +3461,7 @@
       "open": 1593421200,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 2,
         "bond": 4
       }
@@ -4000,13 +3484,7 @@
       "open": 1607936400,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 2,
         "bond": 3
       }
@@ -4029,13 +3507,7 @@
       "open": 1607936400,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 3,
         "bond": 4
       }
@@ -4057,13 +3529,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Scourge of God",
-            "id": 1000215,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Scourge of God", "id": 1000215, "na": true }],
         "ascension": 1,
         "bond": 1
       },
@@ -4086,21 +3552,14 @@
       "border": "black",
       "na": true
     },
-    "np": {
-      "name": "Gáe Bolg",
-      "type": "quick",
-      "border": "gold",
-      "na": true
-    },
+    "np": { "name": "Gáe Bolg", "type": "quick", "border": "gold", "na": true },
     "quest": {
       "id": 94026504,
       "name": "Rank Up Quest: Cú Chulainn",
       "search": "rank up quest: cu chulainn",
       "open": 1594339200,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -4135,11 +3594,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Cú Chulainn",
-            "id": 94026504,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Cú Chulainn", "id": 94026504, "na": true }
         ]
       }
     },
@@ -4173,13 +3628,7 @@
       "open": 1519275600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Beyond the Fog",
-            "id": 1000413,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Beyond the Fog", "id": 1000413, "na": true }],
         "ascension": 1,
         "bond": 2
       },
@@ -4203,13 +3652,7 @@
       "open": 1507140000,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Replica (5/5)",
-            "id": 1000632,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Replica (5/5)", "id": 1000632, "na": true }],
         "ascension": 2,
         "bond": 4
       },
@@ -4234,11 +3677,7 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Pioneer of the Stars",
-            "id": 1000314,
-            "na": true
-          }
+          { "name": "Pioneer of the Stars", "id": 1000314, "na": true }
         ],
         "ascension": 1,
         "bond": 2
@@ -4274,9 +3713,7 @@
       "search": "rank up quest: karna",
       "open": 1563062400,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -4297,13 +3734,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Scourge of God",
-            "id": 1000215,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Scourge of God", "id": 1000215, "na": true }],
         "ascension": 1,
         "bond": 1
       },
@@ -4340,9 +3771,7 @@
       "search": "rank up quest: elisabeth",
       "open": 1540252800,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -4376,11 +3805,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Elisabeth",
-            "id": 94008007,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Elisabeth", "id": 94008007, "na": true }
         ]
       },
       "na": true
@@ -4417,11 +3842,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Elisabeth 2",
-            "id": 94022004,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Elisabeth 2", "id": 94022004, "na": true }
         ]
       }
     },
@@ -4443,13 +3864,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Scourge of God",
-            "id": 1000215,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Scourge of God", "id": 1000215, "na": true }],
         "ascension": 1,
         "bond": 1
       },
@@ -4483,9 +3898,7 @@
       "search": "rank up quest: benkei",
       "open": 1517716800,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -4518,11 +3931,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Benkei",
-            "id": 94002504,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Benkei", "id": 94002504, "na": true }
         ]
       }
     },
@@ -4544,13 +3953,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 1,
         "bond": 2
       },
@@ -4587,9 +3990,7 @@
       "search": "rank up quest: cu chulainn (prototype)",
       "open": 1540080000,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -4609,11 +4010,7 @@
       "border": "black",
       "na": true
     },
-    "np": {
-      "name": "Gáe Bolg",
-      "type": "quick",
-      "border": "gold"
-    },
+    "np": { "name": "Gáe Bolg", "type": "quick", "border": "gold" },
     "quest": {
       "id": 94061508,
       "name": "強化クエスト クー・フーリン〔プロトタイプ〕 2",
@@ -4738,9 +4135,7 @@
       "search": "rank up quest: enkidu",
       "open": 1562889600,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -4761,13 +4156,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Scourge of God",
-            "id": 1000215,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Scourge of God", "id": 1000215, "na": true }],
         "ascension": 1,
         "bond": 1
       },
@@ -4801,9 +4190,7 @@
       "search": "rank up quest: leonidas",
       "open": 1517803200,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -4838,11 +4225,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Leonidas",
-            "id": 94002505,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Leonidas", "id": 94002505, "na": true }
         ]
       }
     },
@@ -4864,13 +4247,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Scourge of God",
-            "id": 1000215,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Scourge of God", "id": 1000215, "na": true }],
         "ascension": 1,
         "bond": 5
       },
@@ -4904,9 +4281,7 @@
       "search": "rank up quest: romulus",
       "open": 1531108800,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -4942,11 +4317,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Romulus",
-            "id": 94005003,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Romulus", "id": 94005003, "na": true }
         ]
       },
       "na": true
@@ -4981,13 +4352,7 @@
       "open": 1521097200,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Beyond the Fog",
-            "id": 1000413,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Beyond the Fog", "id": 1000413, "na": true }],
         "ascension": 1,
         "bond": 3
       },
@@ -5024,9 +4389,7 @@
       "search": "rank up quest: fionn mac cumhaill",
       "open": 1563062400,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -5101,13 +4464,7 @@
       "open": 1557979200,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Return",
-            "id": 1000822,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Return", "id": 1000822, "na": true }],
         "ascension": 3,
         "bond": 5
       },
@@ -5151,11 +4508,7 @@
             "id": 2000118,
             "na": true
           },
-          {
-            "name": "Yet I Want to Remain a Flame",
-            "id": 91301201,
-            "na": true
-          }
+          { "name": "Yet I Want to Remain a Flame", "id": 91301201, "na": true }
         ],
         "ascension": 3,
         "bond": 5
@@ -5192,9 +4545,7 @@
       "search": "強化クエスト フリュンヒルテ",
       "open": 1596618000,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 301200,
@@ -5226,13 +4577,7 @@
       "open": 1516863600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Beyond the Fog",
-            "id": 1000413,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Beyond the Fog", "id": 1000413, "na": true }],
         "ascension": 2,
         "bond": 3
       },
@@ -5257,16 +4602,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Replica (5/5)",
-            "id": 1000632,
-            "na": true
-          },
-          {
-            "name": "Kill Me If You Can",
-            "id": 91301301,
-            "na": true
-          }
+          { "name": "Replica (5/5)", "id": 1000632, "na": true },
+          { "name": "Kill Me If You Can", "id": 91301301, "na": true }
         ],
         "ascension": 2,
         "bond": 5
@@ -5303,9 +4640,7 @@
       "search": "強化クエスト スカサハ",
       "open": 1600419600,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 301300,
@@ -5368,11 +4703,7 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Pioneer of the Stars",
-            "id": 1000314,
-            "na": true
-          }
+          { "name": "Pioneer of the Stars", "id": 1000314, "na": true }
         ],
         "ascension": 1,
         "bond": 3
@@ -5438,9 +4769,7 @@
       "search": "rank up quest: li shuwen",
       "open": 1613260800,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -5475,11 +4804,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Li Shuwen",
-            "id": 94035605,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Li Shuwen", "id": 94035605, "na": true }
         ]
       }
     },
@@ -5513,13 +4838,7 @@
       "open": 1513670400,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Beyond the Fog",
-            "id": 1000413,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Beyond the Fog", "id": 1000413, "na": true }],
         "ascension": 3,
         "bond": 4
       },
@@ -5555,9 +4874,7 @@
       "search": "強化クエスト アルトリア・ヘントラコン〔オルタ〕",
       "open": 1618909200,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 301900,
@@ -5577,13 +4894,7 @@
       "open": 1530178200,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Replica (5/5)",
-            "id": 1000632,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Replica (5/5)", "id": 1000632, "na": true }],
         "ascension": 2,
         "bond": 2
       },
@@ -5619,9 +4930,7 @@
       "search": "強化クエスト アルトリア・ヘントラコン",
       "open": 1620810000,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 302000,
@@ -5653,13 +4962,7 @@
       "open": 1512669600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Return to Chaldea",
-            "id": 1000722,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Return to Chaldea", "id": 1000722, "na": true }],
         "ascension": 2,
         "bond": 4
       },
@@ -5696,9 +4999,7 @@
       "search": "rank up quest: medusa",
       "open": 1625443200,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -5719,13 +5020,7 @@
       "open": 1512669600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Return",
-            "id": 1000822,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Return", "id": 1000822, "na": true }],
         "bond": 3
       },
       "na": true
@@ -5748,13 +5043,7 @@
       "open": 1629345600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "bond": 4
       },
       "na": true
@@ -5777,13 +5066,7 @@
       "open": 1512669600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Return",
-            "id": 1000822,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Return", "id": 1000822, "na": true }],
         "bond": 3
       },
       "na": true
@@ -5816,9 +5099,7 @@
       "search": "強化クエスト 哪吒",
       "open": 1596877200,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 303100,
@@ -5837,20 +5118,14 @@
       "border": "black",
       "na": true
     },
-    "np": {
-      "name": "Kur Ki Gal Irkalla",
-      "type": "buster",
-      "border": "gold"
-    },
+    "np": { "name": "Kur Ki Gal Irkalla", "type": "buster", "border": "gold" },
     "quest": {
       "id": 94061506,
       "name": "強化クエスト エレシュキガル",
       "search": "強化クエスト エレシュキカル",
       "open": 1628326800,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 303200,
@@ -5870,13 +5145,7 @@
       "open": 1580893200,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "intro.3-4",
-            "id": 3000303,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "intro.3-4", "id": 3000303, "na": true }],
         "ascension": 3,
         "bond": 5
       }
@@ -5911,9 +5180,7 @@
       "search": "強化クエスト カレス",
       "open": 1623411000,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 303900,
@@ -5945,12 +5212,7 @@
       "open": 1624438800,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "続く旅路",
-            "id": 3000628
-          }
-        ],
+        "quest": [{ "name": "続く旅路", "id": 3000628 }],
         "ascension": 4,
         "bond": 5
       }
@@ -5972,13 +5234,7 @@
       "open": 1607936400,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Return",
-            "id": 1000822,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Return", "id": 1000822, "na": true }],
         "ascension": 3,
         "bond": 5
       }
@@ -6000,13 +5256,7 @@
       "open": 1632906000,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "intro.3-4",
-            "id": 3000303,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "intro.3-4", "id": 3000303, "na": true }],
         "ascension": 2,
         "bond": 3
       }
@@ -6028,13 +5278,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 1,
         "bond": 4
       },
@@ -6068,9 +5312,7 @@
       "search": "rank up quest: medusa",
       "open": 1525579200,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -6104,11 +5346,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Medusa",
-            "id": 94003405,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Medusa", "id": 94003405, "na": true }
         ]
       },
       "na": true
@@ -6131,13 +5369,7 @@
       "open": 1542600000,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "The Dragon Witch",
-            "id": 1000115,
-            "na": true
-          }
-        ]
+        "quest": [{ "name": "The Dragon Witch", "id": 1000115, "na": true }]
       },
       "na": true
     },
@@ -6172,16 +5404,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Replica (5/5)",
-            "id": 1000632,
-            "na": true
-          },
-          {
-            "name": "Conqueror of Life",
-            "id": 91400201,
-            "na": true
-          }
+          { "name": "Replica (5/5)", "id": 1000632, "na": true },
+          { "name": "Conqueror of Life", "id": 91400201, "na": true }
         ],
         "ascension": 1,
         "bond": 2
@@ -6219,9 +5443,7 @@
       "search": "rank up quest: iskandar",
       "open": 1625529600,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -6255,11 +5477,7 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Pioneer of the Stars",
-            "id": 1000314,
-            "na": true
-          }
+          { "name": "Pioneer of the Stars", "id": 1000314, "na": true }
         ],
         "ascension": 1,
         "bond": 1
@@ -6285,16 +5503,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Beyond the Fog",
-            "id": 1000413,
-            "na": true
-          },
-          {
-            "name": "Treasure Island",
-            "id": 91400301,
-            "na": true
-          }
+          { "name": "Beyond the Fog", "id": 1000413, "na": true },
+          { "name": "Treasure Island", "id": 91400301, "na": true }
         ],
         "ascension": 3,
         "bond": 5
@@ -6331,9 +5541,7 @@
       "search": "強化クエスト フランシス・トレイク",
       "open": 1628326800,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 400300,
@@ -6353,13 +5561,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "The Dragon Witch",
-            "id": 1000115,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "The Dragon Witch", "id": 1000115, "na": true }],
         "ascension": 1,
         "bond": 2
       },
@@ -6384,11 +5586,7 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Pioneer of the Stars",
-            "id": 1000314,
-            "na": true
-          }
+          { "name": "Pioneer of the Stars", "id": 1000314, "na": true }
         ],
         "ascension": 1,
         "bond": 1
@@ -6423,9 +5621,7 @@
       "search": "rank up quest: teach",
       "open": 1531022400,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -6459,11 +5655,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Teach",
-            "id": 94005002,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Teach", "id": 94005002, "na": true }
         ]
       },
       "na": true
@@ -6499,11 +5691,7 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Pioneer of the Stars",
-            "id": 1000314,
-            "na": true
-          }
+          { "name": "Pioneer of the Stars", "id": 1000314, "na": true }
         ],
         "ascension": 1,
         "bond": 2
@@ -6529,11 +5717,7 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Replica (5/5)",
-            "id": 1000632,
-            "na": true
-          },
+          { "name": "Replica (5/5)", "id": 1000632, "na": true },
           {
             "name": "Capture Captain Kidd's Treasure",
             "id": 91400901,
@@ -6575,9 +5759,7 @@
       "search": "強化クエスト アン・ホニ＆メアリ・リト",
       "open": 1627981200,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 400900,
@@ -6597,13 +5779,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Scourge of God",
-            "id": 1000215,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Scourge of God", "id": 1000215, "na": true }],
         "ascension": 1,
         "bond": 1
       },
@@ -6637,9 +5813,7 @@
       "search": "rank up quest: boudica",
       "open": 1517889600,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -6673,11 +5847,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Boudica",
-            "id": 94002506,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Boudica", "id": 94002506, "na": true }
         ]
       },
       "na": true
@@ -6715,11 +5885,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Boudica 2",
-            "id": 94012507,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Boudica 2", "id": 94012507, "na": true }
         ]
       },
       "na": true
@@ -6756,11 +5922,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Boudica 3",
-            "id": 94040510,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Boudica 3", "id": 94040510, "na": true }
         ]
       }
     },
@@ -6782,13 +5944,7 @@
       "open": 1509645600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Return",
-            "id": 1000822,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Return", "id": 1000822, "na": true }],
         "ascension": 3,
         "bond": 5
       },
@@ -6818,11 +5974,7 @@
             "id": 2000118,
             "na": true
           },
-          {
-            "name": "Pharaoh's Shining Glory",
-            "id": 91401201,
-            "na": true
-          }
+          { "name": "Pharaoh's Shining Glory", "id": 91401201, "na": true }
         ],
         "ascension": 3,
         "bond": 5
@@ -6859,9 +6011,7 @@
       "search": "強化クエスト オシマンティアス",
       "open": 1620637200,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 401200,
@@ -6880,11 +6030,7 @@
       "border": "black",
       "na": true
     },
-    "np": {
-      "name": "Ramesseum Tentyris",
-      "type": "buster",
-      "border": "gold"
-    },
+    "np": { "name": "Ramesseum Tentyris", "type": "buster", "border": "gold" },
     "quest": {
       "id": 94061512,
       "name": "強化クエスト オジマンディアス 2",
@@ -6892,12 +6038,7 @@
       "open": 1627894800,
       "type": "rankup",
       "unlock": {
-        "quest": [
-          {
-            "name": "強化クエスト オジマンディアス",
-            "id": 94059001
-          }
-        ]
+        "quest": [{ "name": "強化クエスト オジマンディアス", "id": 94059001 }]
       }
     },
     "servant": {
@@ -6982,11 +6123,7 @@
             "id": 1000522,
             "na": true
           },
-          {
-            "name": "Queen's Discipline",
-            "id": 91401301,
-            "na": true
-          }
+          { "name": "Queen's Discipline", "id": 91401301, "na": true }
         ],
         "ascension": 4,
         "bond": 5
@@ -7022,9 +6159,7 @@
       "search": "rank up quest: medb",
       "open": 1558137600,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -7058,13 +6193,7 @@
       "open": 1619436600,
       "type": "rankup",
       "unlock": {
-        "quest": [
-          {
-            "name": "Rank Up Quest: Medb",
-            "id": 94012503,
-            "na": true
-          }
-        ]
+        "quest": [{ "name": "Rank Up Quest: Medb", "id": 94012503, "na": true }]
       }
     },
     "servant": {
@@ -7097,13 +6226,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 1,
         "bond": 2
       },
@@ -7137,9 +6260,7 @@
       "search": "rank up quest: ushiwakamaru",
       "open": 1528689600,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -7175,11 +6296,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Ushiwakamaru",
-            "id": 94004105,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Ushiwakamaru", "id": 94004105, "na": true }
         ]
       },
       "na": true
@@ -7255,11 +6372,7 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Pioneer of the Stars",
-            "id": 1000314,
-            "na": true
-          }
+          { "name": "Pioneer of the Stars", "id": 1000314, "na": true }
         ],
         "ascension": 2,
         "bond": 4
@@ -7294,9 +6407,7 @@
       "search": "rank up quest: alexander",
       "open": 1525492800,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -7332,11 +6443,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Alexander",
-            "id": 94003404,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Alexander", "id": 94003404, "na": true }
         ]
       },
       "na": true
@@ -7359,13 +6466,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Scourge of God",
-            "id": 1000215,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Scourge of God", "id": 1000215, "na": true }],
         "ascension": 1,
         "bond": 1
       },
@@ -7390,11 +6491,7 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Scourge of God",
-            "id": 1000215,
-            "na": true
-          },
+          { "name": "Scourge of God", "id": 1000215, "na": true },
           {
             "name": "Queen of Lily and Emperor of Rose",
             "id": 91401701,
@@ -7435,9 +6532,7 @@
       "search": "rank up quest: marie antoinette",
       "open": 1582675200,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -7498,13 +6593,7 @@
       "open": 1512669600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Return",
-            "id": 1000822,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Return", "id": 1000822, "na": true }],
         "bond": 4
       },
       "na": true
@@ -7539,9 +6628,7 @@
       "search": "強化クエスト ケツァル・コアトル",
       "open": 1618650000,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 401800,
@@ -7561,13 +6648,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "The Dragon Witch",
-            "id": 1000115,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "The Dragon Witch", "id": 1000115, "na": true }],
         "ascension": 1,
         "bond": 2
       },
@@ -7592,16 +6673,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Scourge of God",
-            "id": 1000215,
-            "na": true
-          },
-          {
-            "name": "Saint of the Dragon and Sea",
-            "id": 91401901,
-            "na": true
-          }
+          { "name": "Scourge of God", "id": 1000215, "na": true },
+          { "name": "Saint of the Dragon and Sea", "id": 91401901, "na": true }
         ],
         "ascension": 2,
         "bond": 3
@@ -7639,9 +6712,7 @@
       "search": "rank up quest: martha",
       "open": 1517976000,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -7674,11 +6745,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Martha",
-            "id": 94002507,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Martha", "id": 94002507, "na": true }
         ]
       },
       "na": true
@@ -7714,11 +6781,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Martha 2",
-            "id": 94005007,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Martha 2", "id": 94005007, "na": true }
         ]
       },
       "na": true
@@ -7740,12 +6803,7 @@
       "border": "gold",
       "na": true
     },
-    "np": {
-      "name": "???",
-      "type": "buster",
-      "border": "red",
-      "na": true
-    },
+    "np": { "name": "???", "type": "buster", "border": "red", "na": true },
     "quest": {
       "id": 91402501,
       "name": "Him",
@@ -7753,13 +6811,7 @@
       "open": 1531332000,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Women of Agartha",
-            "id": 2000216,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Women of Agartha", "id": 2000216, "na": true }],
         "ascension": 2,
         "bond": 3
       },
@@ -7796,9 +6848,7 @@
       "search": "rank up quest: altria pendragon (alter)",
       "open": 1625875200,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -7819,13 +6869,7 @@
       "open": 1600074000,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 2,
         "bond": 5
       }
@@ -7861,13 +6905,7 @@
       "open": 1593421200,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "intro.3-4",
-            "id": 3000303,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "intro.3-4", "id": 3000303, "na": true }],
         "ascension": 4,
         "bond": 3
       }
@@ -7890,13 +6928,7 @@
       "open": 1607936400,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 2,
         "bond": 3
       }
@@ -7908,33 +6940,6 @@
       "icon": "https://static.atlasacademy.io/JP/Faces/f_4034000.png",
       "className": "rider",
       "na": true
-    }
-  },
-  {
-    "target": "sq",
-    "quest": {
-      "id": 91403901,
-      "name": "君を想うということ",
-      "search": "君を想うということ",
-      "open": 1624438800,
-      "type": "interlude",
-      "unlock": {
-        "quest": [
-          {
-            "name": "最終決戦・虚ろなる海神",
-            "id": 3000531
-          }
-        ],
-        "ascension": 3,
-        "bond": 3
-      }
-    },
-    "servant": {
-      "id": 403900,
-      "name": "Mandricardo",
-      "search": "mandricardo",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_4039000.png",
-      "className": "rider"
     }
   },
   {
@@ -7959,11 +6964,7 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Pioneer of the Stars",
-            "id": 1000314,
-            "na": true
-          }
+          { "name": "Pioneer of the Stars", "id": 1000314, "na": true }
         ],
         "ascension": 2,
         "bond": 4
@@ -7998,9 +6999,7 @@
       "search": "rank up quest: medea",
       "open": 1528344000,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -8021,13 +7020,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "The Dragon Witch",
-            "id": 1000115,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "The Dragon Witch", "id": 1000115, "na": true }],
         "ascension": 1,
         "bond": 3
       },
@@ -8061,9 +7054,7 @@
       "search": "rank up quest: gilles de rais",
       "open": 1525320000,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -8136,13 +7127,7 @@
       "open": 1508212800,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Scourge of God",
-            "id": 1000215,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Scourge of God", "id": 1000215, "na": true }],
         "ascension": 1,
         "bond": 2
       },
@@ -8181,16 +7166,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Beyond the Fog",
-            "id": 1000413,
-            "na": true
-          },
-          {
-            "name": "E-Pal Wars",
-            "id": 91500301,
-            "na": true
-          }
+          { "name": "Beyond the Fog", "id": 1000413, "na": true },
+          { "name": "E-Pal Wars", "id": 91500301, "na": true }
         ],
         "ascension": 1,
         "bond": 3
@@ -8228,9 +7205,7 @@
       "search": "rank up quest: tamamo-no-mae",
       "open": 1609488000,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -8263,13 +7238,7 @@
       "open": 1513670400,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Beyond the Fog",
-            "id": 1000413,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Beyond the Fog", "id": 1000413, "na": true }],
         "ascension": 3,
         "bond": 4
       },
@@ -8305,13 +7274,7 @@
       "open": 1513670400,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Beyond the Fog",
-            "id": 1000413,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Beyond the Fog", "id": 1000413, "na": true }],
         "ascension": 2,
         "bond": 3
       },
@@ -8348,9 +7311,7 @@
       "search": "rank up quest: andersen",
       "open": 1613433600,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -8371,13 +7332,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 1,
         "bond": 1
       },
@@ -8411,9 +7366,7 @@
       "search": "rank up quest: shakespeare",
       "open": 1528516800,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -8447,11 +7400,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Shakespeare",
-            "id": 94004103,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Shakespeare", "id": 94004103, "na": true }
         ]
       },
       "na": true
@@ -8473,15 +7422,7 @@
       "search": "not even the almighty hand can reach here",
       "open": 1548907200,
       "type": "interlude",
-      "unlock": {
-        "quest": [
-          {
-            "name": "Return",
-            "id": 1000822,
-            "na": true
-          }
-        ]
-      },
+      "unlock": { "quest": [{ "name": "Return", "id": 1000822, "na": true }] },
       "na": true
     },
     "servant": {
@@ -8561,9 +7502,7 @@
       "search": "強化クエスト レオナルト・タ・ウィンチ",
       "open": 1614762000,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 500900,
@@ -8595,13 +7534,7 @@
       "open": 1513670400,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Beyond the Fog",
-            "id": 1000413,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Beyond the Fog", "id": 1000413, "na": true }],
         "ascension": 2,
         "bond": 4
       },
@@ -8638,9 +7571,7 @@
       "search": "rank up quest: paracelsus von hohenheim",
       "open": 1594166400,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -8673,13 +7604,7 @@
       "open": 1513670400,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Beyond the Fog",
-            "id": 1000413,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Beyond the Fog", "id": 1000413, "na": true }],
         "ascension": 2,
         "bond": 4
       },
@@ -8716,9 +7641,7 @@
       "search": "rank up quest: babbage",
       "open": 1562716800,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -8753,11 +7676,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Babbage",
-            "id": 94014403,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Babbage", "id": 94014403, "na": true }
         ]
       }
     },
@@ -8791,13 +7710,7 @@
       "open": 1541649600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Replica (5/5)",
-            "id": 1000632,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Replica (5/5)", "id": 1000632, "na": true }],
         "ascension": 2,
         "bond": 4
       },
@@ -8833,9 +7746,7 @@
       "search": "強化クエスト ニトクリス",
       "open": 1619436600,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 501200,
@@ -8867,13 +7778,7 @@
       "open": 1513670400,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Beyond the Fog",
-            "id": 1000413,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Beyond the Fog", "id": 1000413, "na": true }],
         "ascension": 2,
         "bond": 4
       },
@@ -8907,9 +7812,7 @@
       "search": "rank up quest: mephistopheles",
       "open": 1525752000,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -8970,13 +7873,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "The Dragon Witch",
-            "id": 1000115,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "The Dragon Witch", "id": 1000115, "na": true }],
         "ascension": 1,
         "bond": 2
       },
@@ -9010,9 +7907,7 @@
       "search": "rank up quest: amadeus",
       "open": 1531108800,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -9047,11 +7942,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Amadeus",
-            "id": 94005004,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Amadeus", "id": 94005004, "na": true }
         ]
       }
     },
@@ -9128,11 +8019,7 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Pioneer of the Stars",
-            "id": 1000314,
-            "na": true
-          }
+          { "name": "Pioneer of the Stars", "id": 1000314, "na": true }
         ],
         "ascension": 1,
         "bond": 2
@@ -9172,16 +8059,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Replica (5/5)",
-            "id": 1000632,
-            "na": true
-          },
-          {
-            "name": "Close Friend of a Witch",
-            "id": 91501701,
-            "na": true
-          }
+          { "name": "Replica (5/5)", "id": 1000632, "na": true },
+          { "name": "Close Friend of a Witch", "id": 91501701, "na": true }
         ],
         "ascension": 2,
         "bond": 4
@@ -9219,9 +8098,7 @@
       "search": "rank up quest: medea (lily)",
       "open": 1625616000,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -9242,13 +8119,7 @@
       "open": 1513965600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Return to Chaldea",
-            "id": 1000722,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Return to Chaldea", "id": 1000722, "na": true }],
         "ascension": 2
       },
       "na": true
@@ -9270,20 +8141,14 @@
       "border": "black",
       "na": true
     },
-    "np": {
-      "name": "Melammu Dingir",
-      "type": "arts",
-      "border": "gold"
-    },
+    "np": { "name": "Melammu Dingir", "type": "arts", "border": "gold" },
     "quest": {
       "id": 94052291,
       "name": "強化クエスト ギルガメッシュ",
       "search": "強化クエスト キルカメッシュ",
       "open": 1596963600,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 501800,
@@ -9303,13 +8168,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Scourge of God",
-            "id": 1000215,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Scourge of God", "id": 1000215, "na": true }],
         "ascension": 1,
         "bond": 3
       },
@@ -9334,16 +8193,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Pioneer of the Stars",
-            "id": 1000314,
-            "na": true
-          },
-          {
-            "name": "Heroic Spirit Possession",
-            "id": 91501901,
-            "na": true
-          }
+          { "name": "Pioneer of the Stars", "id": 1000314, "na": true },
+          { "name": "Heroic Spirit Possession", "id": 91501901, "na": true }
         ],
         "ascension": 2,
         "bond": 4
@@ -9381,16 +8232,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Pioneer of the Stars",
-            "id": 1000314,
-            "na": true
-          },
-          {
-            "name": "Endless Sea",
-            "id": 91501902,
-            "na": true
-          }
+          { "name": "Pioneer of the Stars", "id": 1000314, "na": true },
+          { "name": "Endless Sea", "id": 91501902, "na": true }
         ],
         "ascension": 4,
         "bond": 5
@@ -9415,13 +8258,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Scourge of God",
-            "id": 1000215,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Scourge of God", "id": 1000215, "na": true }],
         "ascension": 1,
         "bond": 2
       },
@@ -9458,9 +8295,7 @@
       "search": "rank up quest: cu chulainn",
       "open": 1539907200,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -9494,11 +8329,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Cú Chulainn",
-            "id": 94008004,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Cú Chulainn", "id": 94008004, "na": true }
         ]
       },
       "na": true
@@ -9521,13 +8352,7 @@
       "open": 1509645600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Return",
-            "id": 1000822,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Return", "id": 1000822, "na": true }],
         "ascension": 2,
         "bond": 5
       },
@@ -9562,9 +8387,7 @@
       "search": "rank up quest: xuanzang sanzang",
       "open": 1562716800,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -9637,13 +8460,7 @@
       "open": 1557979200,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Replica (5/5)",
-            "id": 1000632,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Replica (5/5)", "id": 1000632, "na": true }],
         "ascension": 2,
         "bond": 3
       },
@@ -9679,9 +8496,7 @@
       "search": "強化クエスト エレナ・フラウァツキ",
       "open": 1618995600,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 502300,
@@ -9753,9 +8568,7 @@
       "search": "rank up quest: thomas edison",
       "open": 1562803200,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -9791,11 +8604,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Thomas Edison",
-            "id": 94014406,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Thomas Edison", "id": 94014406, "na": true }
         ]
       },
       "na": true
@@ -9830,9 +8639,7 @@
       "search": "強化クエスト エリサヘト・ハトリ〔ハロウィン〕",
       "open": 1633510800,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 502600,
@@ -9864,13 +8671,7 @@
       "open": 1503684000,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Return to Chaldea",
-            "id": 1000722,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Return to Chaldea", "id": 1000722, "na": true }],
         "ascension": 3,
         "bond": 4
       },
@@ -9906,9 +8707,7 @@
       "search": "強化クエスト イリヤスフィル・フォン・アインツヘルン",
       "open": 1630054800,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 502800,
@@ -9942,13 +8741,7 @@
       "open": 1525888800,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Women of Agartha",
-            "id": 2000216,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Women of Agartha", "id": 2000216, "na": true }],
         "ascension": 3,
         "bond": 3
       },
@@ -9971,12 +8764,7 @@
       "border": "black",
       "na": true
     },
-    "np": {
-      "name": "???",
-      "type": "arts",
-      "border": "gold",
-      "na": true
-    },
+    "np": { "name": "???", "type": "arts", "border": "gold", "na": true },
     "quest": {
       "id": 94022003,
       "name": "Rank Up Quest: Scheherazade",
@@ -9984,13 +8772,7 @@
       "open": 1582761600,
       "type": "rankup",
       "unlock": {
-        "quest": [
-          {
-            "name": "Temporary Retreat",
-            "id": 2000209,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Temporary Retreat", "id": 2000209, "na": true }],
         "ascension": 4
       },
       "na": true
@@ -10027,11 +8809,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Scheherazade",
-            "id": 94022003,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Scheherazade", "id": 94022003, "na": true }
         ]
       }
     },
@@ -10053,13 +8831,7 @@
       "open": 1531332000,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Chaldea",
-            "id": 2000410,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Chaldea", "id": 2000410, "na": true }],
         "ascension": 3,
         "bond": 5
       },
@@ -10082,20 +8854,14 @@
       "border": "black",
       "na": true
     },
-    "np": {
-      "name": "Metabole Piglets",
-      "type": "buster",
-      "border": "gold"
-    },
+    "np": { "name": "Metabole Piglets", "type": "buster", "border": "gold" },
     "quest": {
       "id": 94061507,
       "name": "強化クエスト キルケー",
       "search": "強化クエスト キルケ",
       "open": 1628067600,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 503300,
@@ -10114,15 +8880,7 @@
       "search": "harder than going through the eye of a needle",
       "open": 1512669600,
       "type": "interlude",
-      "unlock": {
-        "quest": [
-          {
-            "name": "Chaldea",
-            "id": 2000410,
-            "na": true
-          }
-        ]
-      },
+      "unlock": { "quest": [{ "name": "Chaldea", "id": 2000410, "na": true }] },
       "na": true
     },
     "servant": {
@@ -10144,16 +8902,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "intro.3-4",
-            "id": 3000303,
-            "na": true
-          },
-          {
-            "name": "絶望性の過去と希望性の未来",
-            "id": 91503501,
-            "na": true
-          }
+          { "name": "intro.3-4", "id": 3000303, "na": true },
+          { "name": "絶望性の過去と希望性の未来", "id": 91503501, "na": true }
         ],
         "ascension": 3,
         "bond": 5
@@ -10176,11 +8926,7 @@
       "border": "black",
       "na": true
     },
-    "np": {
-      "name": "Golem Keter Malkuth",
-      "type": "buster",
-      "border": "gold"
-    },
+    "np": { "name": "Golem Keter Malkuth", "type": "buster", "border": "gold" },
     "quest": {
       "id": 91503601,
       "name": "ギッチギチ第一回史上最強ロボコンテスト",
@@ -10188,13 +8934,7 @@
       "open": 1600074000,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "intro.3-4",
-            "id": 3000303,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "intro.3-4", "id": 3000303, "na": true }],
         "ascension": 2,
         "bond": 3
       }
@@ -10216,20 +8956,14 @@
       "border": "black",
       "na": true
     },
-    "np": {
-      "name": "Wish Upon the Stars",
-      "type": "arts",
-      "border": "gold"
-    },
+    "np": { "name": "Wish Upon the Stars", "type": "arts", "border": "gold" },
     "quest": {
       "id": 94062082,
       "name": "強化クエスト 美遊・エーデルフェルト",
       "search": "強化クエスト 美遊・エテルフェルト",
       "open": 1630054800,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 504100,
@@ -10249,13 +8983,7 @@
       "open": 1580893200,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "intro.3-4",
-            "id": 3000303,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "intro.3-4", "id": 3000303, "na": true }],
         "ascension": 3,
         "bond": 5
       }
@@ -10278,13 +9006,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Scourge of God",
-            "id": 1000215,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Scourge of God", "id": 1000215, "na": true }],
         "ascension": 1,
         "bond": 2
       },
@@ -10321,9 +9043,7 @@
       "search": "rank up quest: sasaki kojirou",
       "open": 1539835200,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -10424,13 +9144,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Scourge of God",
-            "id": 1000215,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Scourge of God", "id": 1000215, "na": true }],
         "ascension": 1,
         "bond": 3
       },
@@ -10467,9 +9181,7 @@
       "search": "rank up quest: hassan of the cursed arm",
       "open": 1594512000,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -10489,11 +9201,7 @@
       "border": "black",
       "na": true
     },
-    "np": {
-      "name": "Zabaniya",
-      "type": "quick",
-      "border": "gold"
-    },
+    "np": { "name": "Zabaniya", "type": "quick", "border": "gold" },
     "quest": {
       "id": 94061510,
       "name": "強化クエスト 呪腕のハサン 2",
@@ -10527,12 +9235,7 @@
       "border": "black",
       "na": true
     },
-    "np": {
-      "name": "Zabaniya",
-      "type": "arts",
-      "border": "gold",
-      "na": true
-    },
+    "np": { "name": "Zabaniya", "type": "arts", "border": "gold", "na": true },
     "quest": {
       "id": 91600301,
       "name": "Hundred Personas Looking for Something",
@@ -10540,13 +9243,7 @@
       "open": 1507140000,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Replica (5/5)",
-            "id": 1000632,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Replica (5/5)", "id": 1000632, "na": true }],
         "ascension": 3,
         "bond": 5
       },
@@ -10582,13 +9279,7 @@
       "open": 1513670400,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Beyond the Fog",
-            "id": 1000413,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Beyond the Fog", "id": 1000413, "na": true }],
         "ascension": 2,
         "bond": 3
       },
@@ -10613,16 +9304,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Return",
-            "id": 1000822,
-            "na": true
-          },
-          {
-            "name": "Jack Kills Jack",
-            "id": 91600501,
-            "na": true
-          }
+          { "name": "Return", "id": 1000822, "na": true },
+          { "name": "Jack Kills Jack", "id": 91600501, "na": true }
         ],
         "ascension": 3,
         "bond": 5
@@ -10659,13 +9342,7 @@
       "open": 1513670400,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Beyond the Fog",
-            "id": 1000413,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Beyond the Fog", "id": 1000413, "na": true }],
         "ascension": 3,
         "bond": 4
       },
@@ -10689,13 +9366,7 @@
       "open": 1509645600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Return",
-            "id": 1000822,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Return", "id": 1000822, "na": true }],
         "bond": 3
       },
       "na": true
@@ -10731,16 +9402,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Return",
-            "id": 1000822,
-            "na": true
-          },
-          {
-            "name": "Where Beauty Lies",
-            "id": 91600801,
-            "na": true
-          }
+          { "name": "Return", "id": 1000822, "na": true },
+          { "name": "Where Beauty Lies", "id": 91600801, "na": true }
         ],
         "ascension": 4,
         "bond": 5
@@ -10779,13 +9442,7 @@
       "open": 1509645600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Return",
-            "id": 1000822,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Return", "id": 1000822, "na": true }],
         "ascension": 3,
         "bond": 5
       },
@@ -10808,21 +9465,14 @@
       "border": "black",
       "na": true
     },
-    "np": {
-      "name": "Zabaniya",
-      "type": "arts",
-      "border": "gold",
-      "na": true
-    },
+    "np": { "name": "Zabaniya", "type": "arts", "border": "gold", "na": true },
     "quest": {
       "id": 94012506,
       "name": "Rank Up Quest: Hassan of the Serenity",
       "search": "rank up quest: hassan of the serenity",
       "open": 1558396800,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -10883,13 +9533,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Scourge of God",
-            "id": 1000215,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Scourge of God", "id": 1000215, "na": true }],
         "ascension": 1,
         "bond": 2
       },
@@ -10914,16 +9558,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Scourge of God",
-            "id": 1000215,
-            "na": true
-          },
-          {
-            "name": "It's Not Impossible?",
-            "id": 91601001,
-            "na": true
-          }
+          { "name": "Scourge of God", "id": 1000215, "na": true },
+          { "name": "It's Not Impossible?", "id": 91601001, "na": true }
         ],
         "ascension": 2,
         "bond": 3
@@ -10958,9 +9594,7 @@
       "search": "rank up quest: stheno",
       "open": 1531540800,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -10994,11 +9628,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Stheno",
-            "id": 94005013,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Stheno", "id": 94005013, "na": true }
         ]
       },
       "na": true
@@ -11021,13 +9651,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 1,
         "bond": 1
       },
@@ -11061,9 +9685,7 @@
       "search": "rank up quest: jing ke",
       "open": 1525406400,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -11097,11 +9719,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Jing Ke",
-            "id": 94003403,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Jing Ke", "id": 94003403, "na": true }
         ]
       },
       "na": true
@@ -11138,11 +9756,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Jing Ke 2",
-            "id": 94014402,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Jing Ke 2", "id": 94014402, "na": true }
         ]
       }
     },
@@ -11164,13 +9778,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "The Dragon Witch",
-            "id": 1000115,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "The Dragon Witch", "id": 1000115, "na": true }],
         "ascension": 1,
         "bond": 1
       },
@@ -11207,9 +9815,7 @@
       "search": "rank up quest: sanson",
       "open": 1517630400,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -11243,11 +9849,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Sanson",
-            "id": 94002503,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Sanson", "id": 94002503, "na": true }
         ]
       },
       "na": true
@@ -11282,13 +9884,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 1,
         "bond": 3
       },
@@ -11324,9 +9920,7 @@
       "search": "強化クエスト ファントム",
       "open": 1596618000,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 601300,
@@ -11346,13 +9940,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 1,
         "bond": 1
       },
@@ -11386,9 +9974,7 @@
       "search": "rank up quest: mata hari",
       "open": 1531195200,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -11423,11 +10009,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Mata Hari",
-            "id": 94005006,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Mata Hari", "id": 94005006, "na": true }
         ]
       }
     },
@@ -11461,13 +10043,7 @@
       "open": 1509645600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Return",
-            "id": 1000822,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Return", "id": 1000822, "na": true }],
         "ascension": 3,
         "bond": 5
       },
@@ -11491,13 +10067,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "The Dragon Witch",
-            "id": 1000115,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "The Dragon Witch", "id": 1000115, "na": true }],
         "ascension": 1,
         "bond": 4
       },
@@ -11531,9 +10101,7 @@
       "search": "rank up quest: carmilla",
       "open": 1531368000,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -11567,11 +10135,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Carmilla",
-            "id": 94005009,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Carmilla", "id": 94005009, "na": true }
         ]
       },
       "na": true
@@ -11594,13 +10158,7 @@
       "open": 1515038400,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Beyond the Fog",
-            "id": 1000413,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Beyond the Fog", "id": 1000413, "na": true }],
         "ascension": 1,
         "bond": 3
       },
@@ -11625,16 +10183,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Beyond the Fog",
-            "id": 1000413,
-            "na": true
-          },
-          {
-            "name": "Saber Slayer, Chapter Dawn",
-            "id": 91601801,
-            "na": true
-          }
+          { "name": "Beyond the Fog", "id": 1000413, "na": true },
+          { "name": "Saber Slayer, Chapter Dawn", "id": 91601801, "na": true }
         ],
         "ascension": 2,
         "bond": 4
@@ -11672,16 +10222,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Beyond the Fog",
-            "id": 1000413,
-            "na": true
-          },
-          {
-            "name": "Saber Slayer, Chapter Battle",
-            "id": 91601802,
-            "na": true
-          }
+          { "name": "Beyond the Fog", "id": 1000413, "na": true },
+          { "name": "Saber Slayer, Chapter Battle", "id": 91601802, "na": true }
         ],
         "ascension": 3,
         "bond": 5
@@ -11719,9 +10261,7 @@
       "search": "rank up quest: mysterious heroine x",
       "open": 1562976000,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -11839,9 +10379,7 @@
       "search": "rank up quest: fuuma \"evil-wind\" kotarou",
       "open": 1625616000,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -11906,11 +10444,7 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          },
+          { "name": "Grand Order", "id": 1000011, "na": true },
           {
             "name": "Drunkenness, Madness, and Rage",
             "id": 91602101,
@@ -11950,9 +10484,7 @@
       "search": "rank up quest: shuten-douji",
       "open": 1599451200,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -11984,9 +10516,7 @@
       "search": "rank up quest: ryougi shiki",
       "open": 1613534400,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -12020,9 +10550,7 @@
       "search": "rank up quest: \"first hassan\"",
       "open": 1624852800,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -12098,13 +10626,7 @@
       "open": 1618736400,
       "type": "rankup",
       "unlock": {
-        "quest": [
-          {
-            "name": "Elegant Dance",
-            "id": 2000112,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Elegant Dance", "id": 2000112, "na": true }],
         "ascension": 4
       }
     },
@@ -12126,13 +10648,7 @@
       "open": 1531332000,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Women of Agartha",
-            "id": 2000216,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Women of Agartha", "id": 2000216, "na": true }],
         "ascension": 3,
         "bond": 5
       },
@@ -12155,12 +10671,7 @@
       "border": "black",
       "na": true
     },
-    "np": {
-      "name": "???",
-      "type": "quick",
-      "border": "gold",
-      "na": true
-    },
+    "np": { "name": "???", "type": "quick", "border": "gold", "na": true },
     "quest": {
       "id": 91602702,
       "name": "Empress+",
@@ -12169,16 +10680,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Women of Agartha",
-            "id": 2000216,
-            "na": true
-          },
-          {
-            "name": "Empress VS... ",
-            "id": 91602701,
-            "na": true
-          }
+          { "name": "Women of Agartha", "id": 2000216, "na": true },
+          { "name": "Empress VS... ", "id": 91602701, "na": true }
         ],
         "ascension": 3,
         "bond": 5
@@ -12217,11 +10720,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "The Brilliant Fortress City ",
-            "id": 2000208,
-            "na": true
-          }
+          { "name": "The Brilliant Fortress City ", "id": 2000208, "na": true }
         ],
         "ascension": 4
       }
@@ -12273,11 +10772,7 @@
       "border": "black",
       "na": true
     },
-    "np": {
-      "name": "???",
-      "type": "arts",
-      "border": "gold"
-    },
+    "np": { "name": "???", "type": "arts", "border": "gold" },
     "quest": {
       "id": 94058502,
       "name": "強化クエスト 望月千代女",
@@ -12353,9 +10848,7 @@
       "search": "強化クエスト 加藤段蔵",
       "open": 1606467600,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 603000,
@@ -12389,13 +10882,7 @@
       "open": 1622174400,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 2,
         "bond": 5
       },
@@ -12430,9 +10917,7 @@
       "search": "rank up quest: osakabehime",
       "open": 1601438400,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -12453,13 +10938,7 @@
       "open": 1615867200,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 1,
         "bond": 5
       },
@@ -12494,9 +10973,7 @@
       "search": "rank up quest: semiramis",
       "open": 1612929600,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -12559,9 +11036,7 @@
       "search": "強化クエスト 虞美人",
       "open": 1596790800,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 603500,
@@ -12581,13 +11056,7 @@
       "open": 1622174400,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 2,
         "bond": 5
       },
@@ -12610,11 +11079,7 @@
       "border": "black",
       "na": true
     },
-    "np": {
-      "name": "Wu Er Da",
-      "type": "arts",
-      "border": "gold"
-    },
+    "np": { "name": "Wu Er Da", "type": "arts", "border": "gold" },
     "quest": {
       "id": 91603602,
       "name": "受け継がれるもの",
@@ -12623,16 +11088,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          },
-          {
-            "name": "Perseverance Will Prevail",
-            "id": 91603601,
-            "na": true
-          }
+          { "name": "Grand Order", "id": 1000011, "na": true },
+          { "name": "Perseverance Will Prevail", "id": 91603601, "na": true }
         ],
         "ascension": 3,
         "bond": 5
@@ -12656,13 +11113,7 @@
       "open": 1600074000,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 3,
         "bond": 4
       }
@@ -12685,12 +11136,7 @@
       "open": 1632906000,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "最終決戦・虚ろなる海神",
-            "id": 3000531
-          }
-        ],
+        "quest": [{ "name": "最終決戦・虚ろなる海神", "id": 3000531 }],
         "ascension": 2,
         "bond": 3
       }
@@ -12713,13 +11159,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 1,
         "bond": 2
       },
@@ -12744,16 +11184,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          },
-          {
-            "name": "Oath of Heracles",
-            "id": 91700101,
-            "na": true
-          }
+          { "name": "Grand Order", "id": 1000011, "na": true },
+          { "name": "Oath of Heracles", "id": 91700101, "na": true }
         ],
         "ascension": 2,
         "bond": 3
@@ -12791,12 +11223,7 @@
       "open": 1597051800,
       "type": "rankup",
       "unlock": {
-        "quest": [
-          {
-            "name": "最終決戦・虚ろなる海神",
-            "id": 3000531
-          }
-        ],
+        "quest": [{ "name": "最終決戦・虚ろなる海神", "id": 3000531 }],
         "ascension": 4
       }
     },
@@ -12818,13 +11245,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "The Dragon Witch",
-            "id": 1000115,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "The Dragon Witch", "id": 1000115, "na": true }],
         "ascension": 1,
         "bond": 3
       },
@@ -12849,16 +11270,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "The Dragon Witch",
-            "id": 1000115,
-            "na": true
-          },
-          {
-            "name": "Knight of Owner",
-            "id": 91700201,
-            "na": true
-          }
+          { "name": "The Dragon Witch", "id": 1000115, "na": true },
+          { "name": "Knight of Owner", "id": 91700201, "na": true }
         ],
         "ascension": 2,
         "bond": 4
@@ -12893,9 +11306,7 @@
       "search": "rank up quest: lancelot",
       "open": 1531195200,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -12916,13 +11327,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Scourge of God",
-            "id": 1000215,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Scourge of God", "id": 1000215, "na": true }],
         "ascension": 1,
         "bond": 1
       },
@@ -12956,9 +11361,7 @@
       "search": "rank up quest: lu bu fengxian",
       "open": 1525665600,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -12991,13 +11394,7 @@
       "open": 1513670400,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Beyond the Fog",
-            "id": 1000413,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Beyond the Fog", "id": 1000413, "na": true }],
         "ascension": 2,
         "bond": 2
       },
@@ -13036,11 +11433,7 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Beyond the Fog",
-            "id": 1000413,
-            "na": true
-          },
+          { "name": "Beyond the Fog", "id": 1000413, "na": true },
           {
             "name": "The Events of a Lonely Night in November I",
             "id": 91700401,
@@ -13070,13 +11463,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Scourge of God",
-            "id": 1000215,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Scourge of God", "id": 1000215, "na": true }],
         "ascension": 1,
         "bond": 1
       },
@@ -13113,9 +11500,7 @@
       "search": "rank up quest: spartacus",
       "open": 1517457600,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -13148,11 +11533,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Spartacus",
-            "id": 94002501,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Spartacus", "id": 94002501, "na": true }
         ]
       },
       "na": true
@@ -13188,11 +11569,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Spartacus 2",
-            "id": 94005010,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Spartacus 2", "id": 94005010, "na": true }
         ]
       },
       "na": true
@@ -13215,13 +11592,7 @@
       "open": 1513670400,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Beyond the Fog",
-            "id": 1000413,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Beyond the Fog", "id": 1000413, "na": true }],
         "ascension": 2,
         "bond": 3
       },
@@ -13246,11 +11617,7 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Return",
-            "id": 1000822,
-            "na": true
-          },
+          { "name": "Return", "id": 1000822, "na": true },
           {
             "name": "Kintoki's Bear Extermination on Mt. Ashigara",
             "id": 91700601,
@@ -13279,20 +11646,14 @@
       "border": "black",
       "na": true
     },
-    "np": {
-      "name": "Golden Spark",
-      "type": "buster",
-      "border": "gold"
-    },
+    "np": { "name": "Golden Spark", "type": "buster", "border": "gold" },
     "quest": {
       "id": 94054487,
       "name": "強化クエスト 坂田金時",
       "search": "強化クエスト 坂田金時",
       "open": 1606467600,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 700600,
@@ -13324,13 +11685,7 @@
       "open": 1513670400,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Beyond the Fog",
-            "id": 1000413,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Beyond the Fog", "id": 1000413, "na": true }],
         "ascension": 2,
         "bond": 2
       },
@@ -13369,11 +11724,7 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Legend of Dracula I",
-            "id": 91700701,
-            "na": true
-          }
+          { "name": "Legend of Dracula I", "id": 91700701, "na": true }
         ],
         "ascension": 3,
         "bond": 4
@@ -13410,9 +11761,7 @@
       "search": "強化クエスト ウラト三世",
       "open": 1585126800,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 700700,
@@ -13431,11 +11780,7 @@
       "border": "gold",
       "na": true
     },
-    "np": {
-      "name": "Kazikli Bey",
-      "type": "arts",
-      "border": "red"
-    },
+    "np": { "name": "Kazikli Bey", "type": "arts", "border": "red" },
     "quest": {
       "id": 94058601,
       "name": "強化クエスト ヴラド三世 2",
@@ -13444,15 +11789,8 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Legend of Dracula I",
-            "id": 91700701,
-            "na": true
-          },
-          {
-            "name": "強化クエスト ヴラド三世",
-            "id": 94047403
-          }
+          { "name": "Legend of Dracula I", "id": 91700701, "na": true },
+          { "name": "強化クエスト ヴラド三世", "id": 94047403 }
         ]
       }
     },
@@ -13486,13 +11824,7 @@
       "open": 1519275600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Beyond the Fog",
-            "id": 1000413,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Beyond the Fog", "id": 1000413, "na": true }],
         "ascension": 2,
         "bond": 4
       },
@@ -13529,9 +11861,7 @@
       "search": "rank up quest: beowulf",
       "open": 1613174400,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -13566,11 +11896,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Beowulf",
-            "id": 94035604,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Beowulf", "id": 94035604, "na": true }
         ]
       }
     },
@@ -13605,11 +11931,7 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Pioneer of the Stars",
-            "id": 1000314,
-            "na": true
-          }
+          { "name": "Pioneer of the Stars", "id": 1000314, "na": true }
         ],
         "ascension": 1,
         "bond": 3
@@ -13644,9 +11966,7 @@
       "search": "rank up quest: asterios",
       "open": 1528776000,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -13667,13 +11987,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Scourge of God",
-            "id": 1000215,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Scourge of God", "id": 1000215, "na": true }],
         "ascension": 1,
         "bond": 3
       },
@@ -13707,9 +12021,7 @@
       "search": "rank up quest: caligula",
       "open": 1531281600,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -13729,11 +12041,7 @@
       "border": "black",
       "na": true
     },
-    "np": {
-      "name": "Flucticulus Diana",
-      "type": "arts",
-      "border": "gold"
-    },
+    "np": { "name": "Flucticulus Diana", "type": "arts", "border": "gold" },
     "quest": {
       "id": 94055983,
       "name": "強化クエスト カリギュラ 2",
@@ -13742,11 +12050,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Caligula",
-            "id": 94005008,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Caligula", "id": 94005008, "na": true }
         ]
       }
     },
@@ -13768,13 +12072,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Scourge of God",
-            "id": 1000215,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Scourge of God", "id": 1000215, "na": true }],
         "ascension": 1,
         "bond": 3
       },
@@ -13811,11 +12109,7 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Scourge of God",
-            "id": 1000215,
-            "na": true
-          },
+          { "name": "Scourge of God", "id": 1000215, "na": true },
           {
             "name": "Lord of the Destructive Storm",
             "id": 91701101,
@@ -13857,9 +12151,7 @@
       "search": "強化クエスト タレイオス三世",
       "open": 1596704400,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 701100,
@@ -13879,13 +12171,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "The Dragon Witch",
-            "id": 1000115,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "The Dragon Witch", "id": 1000115, "na": true }],
         "ascension": 1,
         "bond": 1
       },
@@ -13919,9 +12205,7 @@
       "search": "rank up quest: kiyohime",
       "open": 1528862400,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -13957,11 +12241,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Kiyohime",
-            "id": 94004107,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Kiyohime", "id": 94004107, "na": true }
         ]
       },
       "na": true
@@ -13996,13 +12276,7 @@
       "open": 1507140000,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Return",
-            "id": 1000822,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Return", "id": 1000822, "na": true }],
         "ascension": 3,
         "bond": 5
       },
@@ -14069,9 +12343,7 @@
       "search": "rank up quest: nightingale",
       "open": 1594425600,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -14092,13 +12364,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "The Dragon Witch",
-            "id": 1000115,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "The Dragon Witch", "id": 1000115, "na": true }],
         "ascension": 1,
         "bond": 3
       },
@@ -14135,9 +12401,7 @@
       "search": "rank up quest: eric",
       "open": 1517544000,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -14169,13 +12433,7 @@
       "open": 1531454400,
       "type": "rankup",
       "unlock": {
-        "quest": [
-          {
-            "name": "Rank Up Quest: Eric",
-            "id": 94002502,
-            "na": true
-          }
-        ]
+        "quest": [{ "name": "Rank Up Quest: Eric", "id": 94002502, "na": true }]
       },
       "na": true
     },
@@ -14198,11 +12456,7 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Pioneer of the Stars",
-            "id": 1000314,
-            "na": true
-          }
+          { "name": "Pioneer of the Stars", "id": 1000314, "na": true }
         ],
         "ascension": 1,
         "bond": 3
@@ -14240,16 +12494,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Beyond the Fog",
-            "id": 1000413,
-            "na": true
-          },
-          {
-            "name": "Overflowing Wildness",
-            "id": 91701601,
-            "na": true
-          }
+          { "name": "Beyond the Fog", "id": 1000413, "na": true },
+          { "name": "Overflowing Wildness", "id": 91701601, "na": true }
         ],
         "ascension": 2,
         "bond": 3
@@ -14287,9 +12533,7 @@
       "search": "rank up quest: tamamo cat",
       "open": 1594252800,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -14325,11 +12569,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Tamamo Cat",
-            "id": 94026511,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Tamamo Cat", "id": 94026511, "na": true }
         ]
       },
       "na": true
@@ -14383,16 +12623,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Return",
-            "id": 1000822,
-            "na": true
-          },
-          {
-            "name": "A War of Only Two",
-            "id": 91702001,
-            "na": true
-          }
+          { "name": "Return", "id": 1000822, "na": true },
+          { "name": "A War of Only Two", "id": 91702001, "na": true }
         ],
         "ascension": 3,
         "bond": 5
@@ -14416,20 +12648,14 @@
       "border": "black",
       "na": true
     },
-    "np": {
-      "name": "Curruid Coinchenn",
-      "type": "buster",
-      "border": "gold"
-    },
+    "np": { "name": "Curruid Coinchenn", "type": "buster", "border": "gold" },
     "quest": {
       "id": 94061505,
       "name": "強化クエスト クー・フーリン〔オルタ〕",
       "search": "強化クエスト ク・フリン〔オルタ〕",
       "open": 1628154000,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 702000,
@@ -14449,13 +12675,7 @@
       "open": 1558508400,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Return to Chaldea",
-            "id": 1000722,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Return to Chaldea", "id": 1000722, "na": true }],
         "ascension": 2,
         "bond": 3
       },
@@ -14491,9 +12711,7 @@
       "search": "強化クエスト 茨木童子",
       "open": 1606467600,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 702200,
@@ -14602,9 +12820,7 @@
       "search": "強化クエスト 源頼光",
       "open": 1596704400,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 702300,
@@ -14638,13 +12854,7 @@
       "open": 1622174400,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 3,
         "bond": 5
       },
@@ -14681,9 +12891,7 @@
       "search": "rank up quest: mysterious heroine x (alter)",
       "open": 1562558400,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -14703,11 +12911,7 @@
       "border": "black",
       "na": true
     },
-    "np": {
-      "name": "Cross Calibur",
-      "type": "quick",
-      "border": "gold"
-    },
+    "np": { "name": "Cross Calibur", "type": "quick", "border": "gold" },
     "quest": {
       "id": 94058382,
       "name": "強化クエスト 謎のヒロインX〔オルタ〕 2",
@@ -14754,13 +12958,7 @@
       "open": 1615867200,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 3,
         "bond": 3
       },
@@ -14796,9 +12994,7 @@
       "search": "強化クエスト 土方歳三",
       "open": 1601629200,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 702500,
@@ -14818,13 +13014,7 @@
       "open": 1604289600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Flames of Progress",
-            "id": 2000211,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Flames of Progress", "id": 2000211, "na": true }],
         "ascension": 2,
         "bond": 3
       },
@@ -14858,9 +13048,7 @@
       "search": "強化クエスト 織田信長",
       "open": 1588496400,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 702900,
@@ -14893,13 +13081,7 @@
       "open": 1600074000,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 2,
         "bond": 3
       }
@@ -14964,13 +13146,7 @@
       "open": 1624438800,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Return",
-            "id": 1000822,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Return", "id": 1000822, "na": true }],
         "ascension": 4,
         "bond": 5
       }
@@ -14993,13 +13169,7 @@
       "open": 1498449600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "The Dragon Witch",
-            "id": 1000115,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "The Dragon Witch", "id": 1000115, "na": true }],
         "ascension": 1,
         "bond": 2
       },
@@ -15036,16 +13206,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Beyond the Fog",
-            "id": 1000413,
-            "na": true
-          },
-          {
-            "name": "My God is with Me I",
-            "id": 91900101,
-            "na": true
-          }
+          { "name": "Beyond the Fog", "id": 1000413, "na": true },
+          { "name": "My God is with Me I", "id": 91900101, "na": true }
         ],
         "ascension": 3,
         "bond": 4
@@ -15071,16 +13233,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Beyond the Fog",
-            "id": 1000413,
-            "na": true
-          },
-          {
-            "name": "My God is with Me II",
-            "id": 91900102,
-            "na": true
-          }
+          { "name": "Beyond the Fog", "id": 1000413, "na": true },
+          { "name": "My God is with Me II", "id": 91900102, "na": true }
         ],
         "ascension": 3,
         "bond": 5
@@ -15117,9 +13271,7 @@
       "search": "強化クエスト シャンヌ・タルク",
       "open": 1618995600,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 900100,
@@ -15187,11 +13339,7 @@
             "id": 2000316,
             "na": true
           },
-          {
-            "name": "intro.3-4",
-            "id": 3000303,
-            "na": true
-          },
+          { "name": "intro.3-4", "id": 3000303, "na": true },
           {
             "name": "Let's Talk About Saving the World",
             "id": 91900201,
@@ -15234,9 +13382,7 @@
       "search": "rank up quest: amakusa shirou",
       "open": 1562630400,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -15310,12 +13456,7 @@
       "open": 1614762000,
       "type": "rankup",
       "unlock": {
-        "quest": [
-          {
-            "name": "強化クエスト 天草四郎 2",
-            "id": 94047402
-          }
-        ]
+        "quest": [{ "name": "強化クエスト 天草四郎 2", "id": 94047402 }]
       }
     },
     "servant": {
@@ -15347,9 +13488,7 @@
       "search": "rank up quest: martha",
       "open": 1625788800,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -15383,13 +13522,7 @@
       "open": 1593421200,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "intro.3-4",
-            "id": 3000303,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "intro.3-4", "id": 3000303, "na": true }],
         "ascension": 3,
         "bond": 3
       }
@@ -15440,11 +13573,7 @@
       "border": "black",
       "na": true
     },
-    "np": {
-      "name": "Custos Morum",
-      "type": "arts",
-      "border": "gold"
-    },
+    "np": { "name": "Custos Morum", "type": "arts", "border": "gold" },
     "quest": {
       "id": 91900801,
       "name": "裁くもの 裁かれるもの",
@@ -15452,13 +13581,7 @@
       "open": 1607936400,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "intro.3-4",
-            "id": 3000303,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "intro.3-4", "id": 3000303, "na": true }],
         "ascension": 2,
         "bond": 4
       }
@@ -15493,9 +13616,7 @@
       "search": "強化クエスト アルトリア・ヘントラコン",
       "open": 1592643600,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 900900,
@@ -15529,13 +13650,7 @@
       "open": 1531332000,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Return",
-            "id": 1000822,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Return", "id": 1000822, "na": true }],
         "ascension": 2,
         "bond": 4
       },
@@ -15570,9 +13685,7 @@
       "search": "rank up quest: passionlip",
       "open": 1613001600,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -15606,9 +13719,7 @@
       "search": "rank up quest: meltryllis",
       "open": 1583107200,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -15643,11 +13754,7 @@
       "type": "rankup",
       "unlock": {
         "quest": [
-          {
-            "name": "Rank Up Quest: Meltryllis",
-            "id": 94022007,
-            "na": true
-          }
+          { "name": "Rank Up Quest: Meltryllis", "id": 94022007, "na": true }
         ]
       }
     },
@@ -15682,9 +13789,7 @@
       "search": "rank up quest: sessyoin kiara",
       "open": 1582603200,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -15797,9 +13902,7 @@
       "search": "強化クエスト メカエリチャン",
       "open": 1633510800,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 1000400,
@@ -15831,9 +13934,7 @@
       "search": "強化クエスト メカエリチャンii号機",
       "open": 1633510800,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 1000500,
@@ -15866,13 +13967,7 @@
       "open": 1632906000,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Return",
-            "id": 1000822,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Return", "id": 1000822, "na": true }],
         "ascension": 4,
         "bond": 5
       }
@@ -15907,9 +14002,7 @@
       "search": "強化クエスト 沖田総司〔オルタ〕",
       "open": 1588496400,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 1000700,
@@ -15941,9 +14034,7 @@
       "search": "強化クエスト キンクフロテア",
       "open": 1594803600,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 1000900,
@@ -15962,9 +14053,7 @@
       "search": "霊基解放クエスト 蘆屋道満",
       "open": 1607072400,
       "type": "interlude",
-      "unlock": {
-        "ascension": 3
-      }
+      "unlock": { "ascension": 3 }
     },
     "servant": {
       "id": 1001000,
@@ -15997,13 +14086,7 @@
       "open": 1584504000,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Replica (5/5)",
-            "id": 1000632,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Replica (5/5)", "id": 1000632, "na": true }],
         "ascension": 3,
         "bond": 10
       },
@@ -16027,13 +14110,7 @@
       "open": 1548313200,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Return",
-            "id": 1000822,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Return", "id": 1000822, "na": true }],
         "ascension": 3,
         "bond": 5
       },
@@ -16068,9 +14145,7 @@
       "search": "rank up quest: edmond dantes",
       "open": 1594598400,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -16091,13 +14166,7 @@
       "open": 1499277600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Return to Chaldea",
-            "id": 1000722,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Return to Chaldea", "id": 1000722, "na": true }],
         "ascension": 2,
         "bond": 2
       },
@@ -16131,9 +14200,7 @@
       "search": "強化クエスト シャンヌ・タルク〔オルタ〕",
       "open": 1628240400,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 1100300,
@@ -16165,13 +14232,7 @@
       "open": 1512669600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Return to Chaldea",
-            "id": 1000722,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Return to Chaldea", "id": 1000722, "na": true }],
         "ascension": 3,
         "bond": 5
       },
@@ -16208,9 +14269,7 @@
       "search": "rank up quest: gorgon",
       "open": 1625443200,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -16286,13 +14345,7 @@
       "open": 1624438800,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "intro.3-4",
-            "id": 3000303,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "intro.3-4", "id": 3000303, "na": true }],
         "ascension": 4,
         "bond": 5
       }
@@ -16327,9 +14380,7 @@
       "search": "強化クエスト 魔王信長",
       "open": 1588496400,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 1100700,
@@ -16349,13 +14400,7 @@
       "open": 1531332000,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Chaldea",
-            "id": 2000410,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Chaldea", "id": 2000410, "na": true }],
         "ascension": 1,
         "bond": 5
       },
@@ -16391,9 +14436,7 @@
       "search": "強化クエスト アヒケイル・ウィリアムス",
       "open": 1604480400,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 2500100,
@@ -16425,9 +14468,7 @@
       "search": "強化クエスト 葛飾北斎",
       "open": 1617786000,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 2500200,
@@ -16457,9 +14498,7 @@
       "search": "強化クエスト 謎のヒロインxx",
       "open": 1604480400,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 2500300,
@@ -16479,13 +14518,7 @@
       "open": 1624438800,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "bond": 5
       }
     },
@@ -16517,9 +14550,7 @@
       "search": "強化クエスト 楊貴妃",
       "open": 1604480400,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 2500400,
@@ -16538,13 +14569,7 @@
       "open": 1632906000,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "intro.3-4",
-            "id": 3000303,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "intro.3-4", "id": 3000303, "na": true }],
         "ascension": 3,
         "bond": 4
       }
@@ -16565,15 +14590,7 @@
       "search": "霊基解放クエスト オヘロン",
       "open": 1628672400,
       "type": "interlude",
-      "unlock": {
-        "quest": [
-          {
-            "name": "了",
-            "id": 3001009
-          }
-        ],
-        "ascension": 3
-      }
+      "unlock": { "quest": [{ "name": "了", "id": 3001009 }], "ascension": 3 }
     },
     "servant": {
       "id": 2800100,
@@ -16592,13 +14609,7 @@
       "open": 1637035200,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 2,
         "bond": 3
       },
@@ -16621,12 +14632,7 @@
       "border": "black",
       "na": true
     },
-    "np": {
-      "name": "???",
-      "type": "buster",
-      "border": "gold",
-      "na": true
-    },
+    "np": { "name": "???", "type": "buster", "border": "gold", "na": true },
     "quest": {
       "id": 91202101,
       "name": "My Heart Shall Never Forget That Rising Sun",
@@ -16676,13 +14682,7 @@
       "open": 1637035200,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "intro.3-4",
-            "id": 3000303,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "intro.3-4", "id": 3000303, "na": true }],
         "ascension": 3,
         "bond": 5
       },
@@ -16706,13 +14706,7 @@
       "open": 1637035200,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "intro.3-4",
-            "id": 3000303,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "intro.3-4", "id": 3000303, "na": true }],
         "ascension": 3,
         "bond": 5
       },
@@ -16736,13 +14730,7 @@
       "open": 1637035200,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 2,
         "bond": 3
       },
@@ -16778,13 +14766,7 @@
       "open": 1637035200,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "intro.3-4",
-            "id": 3000303,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "intro.3-4", "id": 3000303, "na": true }],
         "ascension": 2,
         "bond": 4
       },
@@ -16808,13 +14790,7 @@
       "open": 1637035200,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Intro 1",
-            "id": 3000101,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Intro 1", "id": 3000101, "na": true }],
         "ascension": 2,
         "bond": 4
       },
@@ -16853,11 +14829,7 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "Saber Slayer, Chapter Awaken",
-            "id": 91601803,
-            "na": true
-          }
+          { "name": "Saber Slayer, Chapter Awaken", "id": 91601803, "na": true }
         ]
       },
       "na": true
@@ -16893,12 +14865,7 @@
       "open": 1637571600,
       "type": "rankup",
       "unlock": {
-        "quest": [
-          {
-            "name": "強化クエスト 魔王信長",
-            "id": 94048897
-          }
-        ]
+        "quest": [{ "name": "強化クエスト 魔王信長", "id": 94048897 }]
       }
     },
     "servant": {
@@ -16918,11 +14885,7 @@
       "border": "black",
       "na": true
     },
-    "np": {
-      "name": "Antares Snipe",
-      "type": "arts",
-      "border": "gold"
-    },
+    "np": { "name": "Antares Snipe", "type": "arts", "border": "gold" },
     "quest": {
       "id": 91203001,
       "name": "かくて勝者は獅子となり敗者は虎となる",
@@ -16930,13 +14893,7 @@
       "open": 1638435600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 2,
         "bond": 3
       }
@@ -16960,14 +14917,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "つわものどもが、夢の跡",
-            "id": 3000716
-          },
-          {
-            "name": "エモーショナルな私達",
-            "id": 91204001
-          }
+          { "name": "つわものどもが、夢の跡", "id": 3000716 },
+          { "name": "エモーショナルな私達", "id": 91204001 }
         ],
         "ascension": 3,
         "bond": 4
@@ -16990,13 +14941,7 @@
       "open": 1638435600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 2,
         "bond": 5
       }
@@ -17020,14 +14965,8 @@
       "type": "interlude",
       "unlock": {
         "quest": [
-          {
-            "name": "了",
-            "id": 3001009
-          },
-          {
-            "name": "愛／堕落はいつでもあなたの側に",
-            "id": 91603701
-          }
+          { "name": "了", "id": 3001009 },
+          { "name": "愛／堕落はいつでもあなたの側に", "id": 91603701 }
         ],
         "ascension": 3,
         "bond": 5
@@ -17063,13 +15002,7 @@
       "open": 1638435600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 3,
         "bond": 3
       }
@@ -17091,13 +15024,7 @@
       "open": 1638435600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "Grand Order",
-            "id": 1000011,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "ascension": 2,
         "bond": 5
       }
@@ -17133,9 +15060,7 @@
       "search": "rank up quest: hektor",
       "open": 1638936000,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -17155,20 +15080,14 @@
       "border": "black",
       "na": true
     },
-    "np": {
-      "name": "Gate of Skye",
-      "type": "arts",
-      "border": "gold"
-    },
+    "np": { "name": "Gate of Skye", "type": "arts", "border": "gold" },
     "quest": {
       "id": 94064601,
       "name": "強化クエスト スカサハ＝スカディ",
       "search": "強化クエスト スカサハ＝スカティ",
       "open": 1638954000,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      }
+      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 503900,
@@ -17202,13 +15121,7 @@
       "open": 1499277600,
       "type": "interlude",
       "unlock": {
-        "quest": [
-          {
-            "name": "The Dragon Witch",
-            "id": 1000115,
-            "na": true
-          }
-        ],
+        "quest": [{ "name": "The Dragon Witch", "id": 1000115, "na": true }],
         "ascension": 3,
         "bond": 3
       },
@@ -17243,9 +15156,7 @@
       "search": "rank up quest: astolfo",
       "open": 1558224000,
       "type": "rankup",
-      "unlock": {
-        "ascension": 4
-      },
+      "unlock": { "ascension": 4 },
       "na": true
     },
     "servant": {
@@ -17253,6 +15164,71 @@
       "name": "Astolfo",
       "search": "astolfo",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_4004000.png",
+      "className": "rider",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Declaration of Destruction C",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00607.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "破却宣言（強） B+",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00601.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 91104101,
+      "name": "新月にて、浮かれ浮かれてなんやかんや",
+      "search": "新月にて、浮かれ浮かれてなんやかんや",
+      "open": 1624438800,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
+        "ascension": 2,
+        "bond": 3
+      }
+    },
+    "servant": {
+      "id": 104100,
+      "name": "Astolfo (Saber)",
+      "search": "astolfo (saber)",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_1041000.png",
+      "className": "saber",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91403901,
+      "name": "君を想うということ",
+      "search": "君を想うということ",
+      "open": 1624438800,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          {
+            "name": "Final Showdown: The Hollow Sea God",
+            "id": 3000531,
+            "na": true
+          }
+        ],
+        "ascension": 3,
+        "bond": 3
+      }
+    },
+    "servant": {
+      "id": 403900,
+      "name": "Mandricardo",
+      "search": "mandricardo",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_4039000.png",
       "className": "rider",
       "na": true
     }
