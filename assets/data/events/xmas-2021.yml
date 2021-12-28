@@ -10,7 +10,8 @@ times:
   - title: Maintenance Ends
     date: 2021-12-14 00:00 PST
     hideWhenDone: true
-  - times:
+  - hideWhenDone: true
+    times:
       - title: Main Quest Section 1
         date: 2021-12-14 00:00 PST
       - title: Main Quest Section 2
@@ -36,6 +37,7 @@ times:
     hideWhenDone: true
   - title: Nightingale (Santa) permanently unlockable
     date: 2021-12-18 20:00 PST
+    hideWhenDone: true
 description: >-
   Christmas 2021: Nightingale's Christmas Carol is this year's second lotto event.
   It features Nightingale (Santa) as welfare and introduces the new limited 5*

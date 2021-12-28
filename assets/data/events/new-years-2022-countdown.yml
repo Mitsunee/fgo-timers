@@ -1,9 +1,10 @@
 title: "New Year's Countdown Campaign 2022"
-shortTitle: New Year 2022 Countdown
+shortTitle: New Years 2022 Countdown
 banner: 2021_ny2022countdown.png
 date: 2021-12-28 20:00 - 12-31 19:59 PST
 url: 2021/1228_newyearcp_2022/
 displayOrder: 2
+hideWhenDone: true
 times:
   - title: Special Login Bonus
     date: 2021-12-28 20:00 - 12-31 19:59 PST

@@ -3,6 +3,7 @@ shortTitle: Hunting Quest Revival
 banner: 2021_hqrevival.png
 date: 2021-12-27 20:00 - 12-31 19:59 PST
 url: 2021/1227_re_hunting/
+hideWhenDone: true
 times:
   - times:
       - title: Quest 1

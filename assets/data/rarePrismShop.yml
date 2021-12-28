@@ -33,4 +33,8 @@ inventory:
     cost: 1
     amount: 5
     stack: 20000
-limitedInventory: []
+limitedInventory:
+  - name: 2022 New Year's Limited Exchange
+    icon: /assets/icon_grabbag.png
+    background: gold
+    endsAt: 2022-01-10 19:59 PST

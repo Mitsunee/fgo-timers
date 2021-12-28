@@ -11,9 +11,13 @@ export default function ShopCardLimitedItem({ currency, data }) {
   return (
     <FGOItemListItem data={itemData}>
       {stack && `${stack.toLocaleString()}x `}
-      {name} ({amount}
-      {stack ? ` stacks` : `x`}, {cost.toLocaleString()}{" "}
-      <InlineIcon icon={currency} /> each)
+      {name}
+      {amount && cost && (
+        <>
+          {`(${amount}${stack ? ` stacks` : `x`}, ${cost.toLocaleString()}) `}
+          <InlineIcon icon={currency} /> each)
+        </>
+      )}
       <br />
       Available until {endDate}
     </FGOItemListItem>
