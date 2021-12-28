@@ -72,7 +72,8 @@ Displays as many sub-times as possible that have not expired yet. Most commonly 
 
 ```yml
 times: # Array
-  - hideWhenDone: # boolean, optional, Default: false
+  - title: # string, optional, Default: Start
+    hideWhenDone: # boolean, optional, Default: false
     times: # Array
       - title: # title of sub-time
         date: # Date, start time of sub-time

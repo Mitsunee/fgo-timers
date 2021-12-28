@@ -107,7 +107,7 @@ export default function EventPage({
                   .map((subTime, subIdx) => (
                     <EventTimeRow
                       key={`${idx}-${subIdx}`}
-                      title={`[Start] ${subTime.title}`}
+                      title={`[${time.title || "Start"}] ${subTime.title}`}
                       target={subTime.startsAt}
                     />
                   ));
