@@ -61,7 +61,7 @@
     border-radius: 1em;
     overflow: hidden;
     box-shadow: 2px 2px 8px 3px theme(colors.background-dark);
-    background-color: background-dark;
+    background-color: #fff;
   }
 
   .close {
