@@ -1,6 +1,7 @@
+import { die } from "@foxkit/node-util/log";
+
 import { fetchData } from "../shared/fetchData.mjs";
 import { ATLAS_API } from "../shared/constants.mjs";
-import { die } from "../shared/log.mjs";
 
 const questDataMap = new Map(); // data cache
 

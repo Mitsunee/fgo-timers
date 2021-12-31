@@ -1,12 +1,12 @@
-import { basename, dirname } from "path";
+import { dirname } from "path";
 import { mkdir } from "fs/promises";
 import { existsSync } from "fs";
 import { createSpinner } from "nanospinner";
+import { log, die } from "@foxkit/node-util/log";
+import { getFileName, resolvePath } from "@foxkit/node-util/path";
+import { writeFile } from "@foxkit/node-util/fs";
 
-import { log, die } from "../../shared/log.mjs";
-import { resolveFilePath } from "../../shared/path-helper.mjs";
 import { sanitizeComponentName, sanitizePageFileName } from "../sanitizers.mjs";
-import { writeFile } from "../../shared/fs-helper.mjs";
 import { buildLog, printBuildLog } from "../buildLog.mjs";
 import { format } from "../../shared/format.mjs";
 
@@ -15,17 +15,13 @@ export async function optionPage(fileNameArg, componentNameArg) {
     die("Must provide both arguments for 'page' option. See yarn new --help");
   }
 
-  const dirPath = resolveFilePath("pages", dirname(fileNameArg));
+  const dirPath = resolvePath("pages", dirname(fileNameArg));
   const componentName = sanitizeComponentName(componentNameArg);
-  const filePath = resolveFilePath(
+  const filePath = resolvePath(
     dirPath,
-    sanitizePageFileName(basename(fileNameArg))
+    sanitizePageFileName(getFileName(fileNameArg))
   );
-  const cssPath = resolveFilePath(
-    "src",
-    "styles",
-    `${componentName}.module.css`
-  );
+  const cssPath = resolvePath("src", "styles", `${componentName}.module.css`);
   const spinner = createSpinner("Building Page");
 
   // prepare
@@ -52,5 +48,5 @@ export async function optionPage(fileNameArg, componentNameArg) {
   // log
   spinner.success();
   printBuildLog();
-  log.success(`Successfully created ${basename(filePath, ".jsx")} route`);
+  log.success(`Successfully created ${getFileName(filePath, false)} route`);
 }

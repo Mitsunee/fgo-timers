@@ -1,5 +1,5 @@
-import { readFileJson } from "./fs-helper.mjs";
-import { die } from "./log.mjs";
+import { die } from "@foxkit/node-util/log";
+import { readFileJson } from "@foxkit/node-util/fs";
 
 export async function fetchNiceServant() {
   const niceServant = await readFileJson("cache/JP/nice_servant_lang_en.json");

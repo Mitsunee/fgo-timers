@@ -1,6 +1,5 @@
 import fetch from "node-fetch";
-
-import { die } from "./log.mjs";
+import { die } from "@foxkit/node-util/log";
 
 export async function fetchData(url, defaultValue, spinner) {
   const _fetch = async (url, defaultValue) => {

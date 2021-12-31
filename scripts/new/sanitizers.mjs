@@ -1,4 +1,5 @@
-import { join, dirname, basename, extname } from "path";
+import { join, dirname } from "path";
+import { getFileName } from "@foxkit/node-util/path";
 
 import { capitalize } from "../shared/capitalize.mjs";
 
@@ -10,7 +11,7 @@ export function sanitizeComponentName(name) {
 export function sanitizePageFileName(name) {
   return join(
     dirname(name),
-    `${basename(name, extname(name))
+    `${getFileName(name, false)
       .toLowerCase()
       .replace(/[^a-z]/g, "")}.jsx`
   );

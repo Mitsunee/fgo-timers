@@ -1,6 +1,6 @@
 import picocolors from "picocolors";
+import { log } from "@foxkit/node-util/log";
 
-import { log } from "../../shared/log.mjs";
 import { dd } from "../../shared/dedent.mjs";
 
 export function optionHelp() {

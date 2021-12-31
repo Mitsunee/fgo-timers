@@ -1,9 +1,10 @@
+import { log } from "@foxkit/node-util/log";
+
 import { fetchQuestData } from "../fetchQuestData.mjs";
 import { describeSkill } from "../descriptors/skill.mjs";
 import { describeNP } from "../descriptors/np.mjs";
 import { describeQuest } from "../descriptors/quest.mjs";
 import { nameServant, describeServant } from "../descriptors/servant.mjs";
-import { log } from "../../shared/log.mjs";
 
 const PLACEHOLDER_SKILL = {
   id: 0,
