@@ -1,4 +1,5 @@
-import { log } from "./shared/log.mjs";
+import { log } from "@foxkit/node-util/log";
+
 import { isRoot } from "./shared/isRoot.mjs";
 import { handleOption } from "./new/handleOption.mjs";
 

@@ -1,15 +1,16 @@
-import { useEffect, useMemo } from "react";
-import spacetime from "spacetime";
+import { getFileName } from "@foxkit/node-util/path";
+import { readFileJson } from "@foxkit/node-util/fs";
 
-import { basename, extname } from "path";
 import { getFileList } from "@utils/server/getFileList";
 import { getEventFileList } from "@utils/server/events/getEventFileList";
 import { parseEventFile } from "@utils/server/events/parseEventFile";
 import { getTicketFileList } from "@utils/server/loginTickets/getTicketFileList";
 import { getItemIdMap } from "@utils/server/loginTickets/getItemIdMap";
 import { parseTicketFile } from "@utils/server/loginTickets/parseTicketFile";
-import { parseJsonFile } from "@utils/server/parseJsonFile";
 import { parseShopFile } from "@utils/server/parseShopFile";
+
+import { useEffect, useMemo } from "react";
+import spacetime from "spacetime";
 
 import styles from "@styles/HomePage.module.css";
 import { useRecurringEvent } from "@utils/hooks/useRecurringEvent";
@@ -94,7 +95,7 @@ export async function getStaticProps() {
     "public/assets/backgrounds/landing"
   );
   const backgrounds = backgroundFiles.map(
-    file => `/assets/backgrounds/landing/${basename(file)}`
+    file => `/assets/backgrounds/landing/${getFileName(file)}`
   );
 
   // events
@@ -107,7 +108,7 @@ export async function getStaticProps() {
     const event = {
       title: data.title,
       shortTitle: data.shortTitle,
-      slug: basename(file, extname(file)),
+      slug: getFileName(file, false),
       banner: data.banner,
       startsAt: data.startsAt,
       displayOrder: data.displayOrder ?? 0
@@ -171,7 +172,7 @@ export async function getStaticProps() {
   }
 
   // generate itemData map
-  const niceItem = await parseJsonFile("cache/JP/nice_item_lang_en.json");
+  const niceItem = await readFileJson("cache/JP/nice_item_lang_en.json");
   const itemIds = Object.keys(tickets)
     .flatMap(year =>
       Object.keys(tickets[year]).flatMap(month => tickets[year][month])

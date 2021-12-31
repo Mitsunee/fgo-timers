@@ -1,10 +1,9 @@
 import { join } from "path";
 import { readdir } from "fs/promises";
-
-import { resolveFilePath } from "@utils/server/resolveFilePath";
+import { resolvePath } from "@foxkit/node-util/path";
 
 export async function getFileList(dirPath) {
-  const fullPath = resolveFilePath(dirPath);
+  const fullPath = resolvePath(dirPath);
   const fileList = await readdir(fullPath);
   const fileListJoined = fileList.map(ticketFile => join(fullPath, ticketFile));
 

@@ -1,9 +1,10 @@
+import { readFileJson } from "@foxkit/node-util/fs";
+
+import { JP_TO_NA_ESTIMATE } from "@utils/globals";
+
 import { useReducer, useEffect } from "react";
 import { useStore } from "@nanostores/react";
 import { latinize } from "modern-diacritics";
-
-import { parseJsonFile } from "@utils/server/parseJsonFile";
-import { JP_TO_NA_ESTIMATE } from "@utils/globals";
 
 import styles from "@styles/UpgradesPage.module.css";
 import { settingsStore } from "@stores/settingsStore";
@@ -283,9 +284,7 @@ export default function UpgradesPage({ upgradesData }) {
 }
 
 export async function getStaticProps() {
-  const upgradesData = await parseJsonFile(
-    "assets/data/upgrades/upgrades.json"
-  );
+  const upgradesData = await readFileJson("assets/data/upgrades/upgrades.json");
 
   return {
     props: {

@@ -1,7 +1,8 @@
 import { join } from "path";
+import { writeFile } from "@foxkit/node-util/fs";
+
 import { ATLAS_API } from "../shared/constants.mjs";
 import { fetchData } from "../shared/fetchData.mjs";
-import { writeFile } from "../shared/fs-helper.mjs";
 
 const API = `${ATLAS_API}export/`;
 

@@ -1,10 +1,10 @@
 import { loadConfig, optimize } from "svgo";
 import { convertSvgToJsx } from "@svgo/jsx";
 import { createSpinner } from "nanospinner";
+import { log, die } from "@foxkit/node-util/log";
+import { readFile, writeFile } from "@foxkit/node-util/fs";
+import { getFileName } from "@foxkit/node-util/path";
 
-import { basename, extname } from "path";
-import { readFile, writeFile } from "../shared/fs-helper.mjs";
-import { log, die } from "../shared/log.mjs";
 import { format } from "../shared/format.mjs";
 
 export async function buildComponents(svgFiles) {
@@ -26,7 +26,7 @@ export async function buildComponents(svgFiles) {
   const fileNames = new Map();
 
   for (const file of svgFiles) {
-    const componentName = `Icon-${basename(file, extname(file))}`
+    const componentName = `Icon-${getFileName(file, false)}`
       .replace(/^[a-z]/, c => c.toUpperCase())
       .replace(/[_-][a-z]/g, c => c.substring(1).toUpperCase())
       .replace(/[^a-z]/gi, "");
@@ -52,7 +52,7 @@ export async function buildComponents(svgFiles) {
     if (fileContent !== svg) {
       await writeFile(file, svg);
       spinner.clear();
-      log.warn(`  '${basename(file)}' was not optimized.`);
+      log.warn(`  '${getFileName(file)}' was not optimized.`);
       spinner.start();
     }
 
@@ -69,7 +69,7 @@ export async function buildComponents(svgFiles) {
     );
 
     spinner.success({
-      text: `Built '${componentName}' for '${basename(file)}'.`
+      text: `Built '${componentName}' for '${getFileName(file)}'.`
     });
   }
 

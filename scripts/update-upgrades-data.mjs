@@ -1,8 +1,8 @@
 import { createSpinner } from "nanospinner";
 import { sleep } from "foxkit/sleep";
+import { log, die } from "@foxkit/node-util/log";
+import { readFileJson, writeFile } from "@foxkit/node-util/fs";
 
-import { readFileJson, writeFile } from "./shared/fs-helper.mjs";
-import { log, die } from "./shared/log.mjs";
 import { fetchNiceServant } from "./shared/fetchNiceServant.mjs";
 import { findChangedQuests } from "./upgrades/findChangedQuests.mjs";
 import { describeUpgrade } from "./upgrades/descriptors/upgrade.mjs";

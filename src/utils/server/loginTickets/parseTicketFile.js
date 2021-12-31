@@ -1,13 +1,12 @@
-import { basename, extname } from "path";
-
-import { parseYamlFile } from "@utils/server/parseYamlFile";
+import { getFileName } from "@foxkit/node-util/path";
+import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 
 export async function parseTicketFile(filePath, itemIdMap) {
   // read and parse data
-  const fileData = await parseYamlFile(filePath);
+  const fileData = await readFileYaml(filePath);
 
   // grab key
-  const key = basename(filePath, extname(filePath));
+  const key = getFileName(filePath, false);
 
   // build data
   const data = new Object();

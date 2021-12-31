@@ -1,12 +1,11 @@
 import { existsSync, readFileSync } from "fs";
-
-import { resolveFilePath } from "./path-helper.mjs";
-import { die } from "./log.mjs";
+import { resolvePath } from "@foxkit/node-util/path";
+import { die } from "@foxkit/node-util/log";
 
 function checkRoot() {
   if (process.cwd().includes("node_modules")) return false;
 
-  const pkgJsonPath = resolveFilePath("package.json");
+  const pkgJsonPath = resolvePath("package.json");
   if (!existsSync(pkgJsonPath)) return false;
 
   const pkg = readFileSync(pkgJsonPath, "utf8");

@@ -282,6 +282,11 @@
   resolved "https://registry.yarnpkg.com/@foxkit/eslint-config/-/eslint-config-1.0.2.tgz#c75987e8b86a92758114b64ede997a0ac92a3dc8"
   integrity sha512-SEEw171FN2w5mxQwbqfiJ+PLKIn0HIPGwpWV3ZobvBn9FyiowhvWHYqPAoW1Fir8KOFyXO9IMJzcDBcQz/jA+Q==
 
+"@foxkit/node-util@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@foxkit/node-util/-/node-util-0.2.0.tgz#cd27b7915cd6dee4c5f6c2d629df68987610ce38"
+  integrity sha512-sAm/XPbgRT21q8j5nlgK5f3D0pyiHPNyvm7rivtvkGusnzRGAXm3KkTeA5ZBkEyYzrY9tkSii0VFPg8WD4ry1A==
+
 "@hapi/accept@5.0.2":
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/@hapi/accept/-/accept-5.0.2.tgz#ab7043b037e68b722f93f376afb05e85c0699523"

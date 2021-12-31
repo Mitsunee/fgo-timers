@@ -1,5 +1,5 @@
-import { log } from "../shared/log.mjs";
-import { toRelativePath } from "../shared/path-helper.mjs";
+import { log } from "@foxkit/node-util/log";
+import { toRelativePath } from "@foxkit/node-util/path";
 
 export const buildLog = new Array();
 export function printBuildLog() {

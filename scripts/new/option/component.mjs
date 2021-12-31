@@ -1,13 +1,13 @@
 import { mkdir } from "fs/promises";
 import { existsSync } from "fs";
 import { createSpinner } from "nanospinner";
+import { log } from "@foxkit/node-util/log";
+import { resolvePath } from "@foxkit/node-util/path";
+import { writeFile } from "@foxkit/node-util/fs";
 
 import { sanitizeComponentName } from "../sanitizers.mjs";
-import { resolveFilePath } from "../../shared/path-helper.mjs";
-import { writeFile } from "../../shared/fs-helper.mjs";
 import { format } from "../../shared/format.mjs";
 import { buildLog, printBuildLog } from "../buildLog.mjs";
-import { log } from "../../shared/log.mjs";
 
 export async function optionComponent(args) {
   const [parent, ...children] = args;
@@ -15,13 +15,10 @@ export async function optionComponent(args) {
   const childComponents = children
     ? children.map(child => sanitizeComponentName(child))
     : [];
-  const dirPath = resolveFilePath("src/components", parentComponent);
-  const indexPath = resolveFilePath(dirPath, "index.js");
-  const parentCssPath = resolveFilePath(
-    dirPath,
-    `${parentComponent}.module.css`
-  );
-  const parentPath = resolveFilePath(dirPath, `${parentComponent}.jsx`);
+  const dirPath = resolvePath("src/components", parentComponent);
+  const indexPath = resolvePath(dirPath, "index.js");
+  const parentCssPath = resolvePath(dirPath, `${parentComponent}.module.css`);
+  const parentPath = resolvePath(dirPath, `${parentComponent}.jsx`);
   const spinner = createSpinner("Building Components");
 
   // prepare
@@ -42,11 +39,8 @@ export async function optionComponent(args) {
 
   // children
   for (const childComponent of childComponents) {
-    const childCssPath = resolveFilePath(
-      dirPath,
-      `${childComponent}.module.css`
-    );
-    const childPath = resolveFilePath(dirPath, `${childComponent}.jsx`);
+    const childCssPath = resolvePath(dirPath, `${childComponent}.module.css`);
+    const childPath = resolvePath(dirPath, `${childComponent}.jsx`);
 
     if (!existsSync(childCssPath)) {
       await writeFile(childCssPath, "");

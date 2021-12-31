@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { useStore } from "@nanostores/react";
+import { getFileName, resolvePath } from "@foxkit/node-util/path";
 
-import { basename, extname } from "path";
 import { getEventFileList } from "@utils/server/events/getEventFileList";
-import { resolveFilePath } from "@utils/server/resolveFilePath";
 import { parseEventFile } from "@utils/server/events/parseEventFile";
 
 import styles from "@styles/EventPage.module.css";
@@ -162,7 +161,7 @@ export async function getStaticPaths() {
   const fileList = await getEventFileList();
   const paths = fileList.map(file => ({
     params: {
-      slug: basename(file, extname(file))
+      slug: getFileName(file, false)
     }
   }));
 
@@ -174,7 +173,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const slug = context.params.slug;
-  const filePath = resolveFilePath(`assets/data/events/${slug}.yml`);
+  const filePath = resolvePath(`assets/data/events/${slug}.yml`);
   const { title, shortTitle, banner, startsAt, ...data } = await parseEventFile(
     filePath
   );

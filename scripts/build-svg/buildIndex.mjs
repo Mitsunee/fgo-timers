@@ -1,6 +1,6 @@
 import { createSpinner } from "nanospinner";
+import { writeFile } from "@foxkit/node-util/fs";
 
-import { writeFile } from "../shared/fs-helper.mjs";
 import { format } from "../shared/format.mjs";
 
 export async function buildIndex(components) {
