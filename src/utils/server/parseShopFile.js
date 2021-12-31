@@ -1,8 +1,9 @@
-import { parseYamlFile } from "@utils/server/parseYamlFile";
+import { readFileYaml } from "@foxkit/node-util/fs-yaml";
+
 import { parseDate } from "@utils/server/events/parseDate";
 
 export async function parseShopFile(filePath) {
-  const { limitedInventory, ...props } = await parseYamlFile(filePath);
+  const { limitedInventory, ...props } = await readFileYaml(filePath);
 
   const parsedFile = {
     ...props,
