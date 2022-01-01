@@ -146,7 +146,7 @@ export async function getStaticProps() {
   const itemIdMap = await getItemIdMap();
 
   // find files for current and next year
-  const currentYear = spacetime.now().year();
+  const currentYear = spacetime.now().goto("America/Los_Angeles").year();
   const currentYearFile = ticketFileList.find(ticketFile =>
     ticketFile.includes(currentYear)
   );
