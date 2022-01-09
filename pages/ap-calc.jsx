@@ -14,6 +14,7 @@ import {
   NODE_COST_MIN_VALUE
 } from "@utils/globals.js";
 import Meta from "@components/Meta";
+import Clocks from "@components/Clocks";
 import Section from "@components/Section";
 import { Select, SelectOption } from "@components/Select";
 import { FormField, Results } from "@components/ApCalc";
@@ -164,6 +165,7 @@ export default function APCalcPage() {
         image="/assets/meta/ap.jpg"
         color="#f9e677"
       />
+      <Clocks />
       <Section background="blue">
         <div className={styles.selectWrapper}>
           <Select value={formMode} onChange={handleFormMode}>
