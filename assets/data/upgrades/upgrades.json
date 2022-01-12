@@ -15235,5 +15235,57 @@
       "className": "foreigner",
       "na": true
     }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Unspoken Formation",
+      "type": "arts",
+      "border": "black",
+      "na": true
+    },
+    "np": { "name": "Unspoken Formation", "type": "arts", "border": "gold" },
+    "quest": {
+      "id": 94065801,
+      "name": "強化クエスト 司馬懿〔ライネス〕",
+      "search": "強化クエスト 司馬懿〔ライネス〕",
+      "open": 1641978000,
+      "type": "rankup",
+      "unlock": { "ascension": 4 }
+    },
+    "servant": {
+      "id": 403200,
+      "name": "Sima Yi (Reines)",
+      "search": "sima yi (reines)",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_4032000.png",
+      "className": "rider",
+      "na": true
+    }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Rhongomyniad",
+      "type": "buster",
+      "border": "black",
+      "na": true
+    },
+    "np": { "name": "Rhongomyniad", "type": "buster", "border": "gold" },
+    "quest": {
+      "id": 94065802,
+      "name": "強化クエスト グレイ",
+      "search": "強化クエスト クレイ",
+      "open": 1641978000,
+      "type": "rankup",
+      "unlock": { "ascension": 4 }
+    },
+    "servant": {
+      "id": 603900,
+      "name": "Gray",
+      "search": "gray",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_6039000.png",
+      "className": "assassin",
+      "na": true
+    }
   }
 ]
