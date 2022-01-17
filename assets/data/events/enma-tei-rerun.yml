@@ -3,6 +3,7 @@ shortTitle: "Enma-Tei Rerun"
 banner: 2022_enmatei.png
 date: 2022-01-04 00:00 - 01-17 19:59 PST
 url: 2021/1228_re_sparrow_report/
+hideWhenDone: true
 times:
   - title: Event Shop Exchange Period
     date: 2022-01-04 00:00 - 01-24 19:59 PST
