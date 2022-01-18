@@ -9,7 +9,7 @@ import { getItemIdMap } from "@utils/server/loginTickets/getItemIdMap";
 import { parseTicketFile } from "@utils/server/loginTickets/parseTicketFile";
 import { parseShopFile } from "@utils/server/parseShopFile";
 
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import spacetime from "spacetime";
 
 import styles from "@styles/HomePage.module.css";
@@ -17,7 +17,6 @@ import { useRecurringEvent } from "@utils/hooks/useRecurringEvent";
 import Meta from "@components/Meta";
 import Clocks from "@components/Clocks";
 import Headline from "@components/Headline";
-import EnmaTeiTimer from "@components/EnmaTeiTimer";
 import EventCard from "@components/EventCard";
 import { CardGrid } from "@components/Card";
 import LoginTicketCard from "@components/LoginTicketCard";
@@ -54,13 +53,6 @@ export default function HomePage({
     };
   }, [backgrounds]);
 
-  const enma = useMemo(() => {
-    const { startsAt, endsAt } = events.find(
-      ({ shortTitle }) => shortTitle === "Enma-Tei Rerun"
-    );
-    return { startsAt, endsAt };
-  }, [events]);
-
   return (
     <>
       <Meta
@@ -72,7 +64,6 @@ export default function HomePage({
       <Clocks />
       <Headline>Current Events</Headline>
       <section className={styles.grid}>
-        <EnmaTeiTimer endsAt={enma?.endsAt} startsAt={enma?.startsAt} />
         {events.map(event => (
           <EventCard key={event.shortTitle} {...event} />
         ))}
