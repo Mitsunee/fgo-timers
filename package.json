@@ -6,6 +6,9 @@
   "scripts": {
     "postinstall": "simple-git-hooks && node scripts/cache-atlas-api.mjs",
     "dev": "node scripts/cache-atlas-api.mjs && next dev",
+    "pretest": "eslint --max-warnings 0 && prettier -c . && node scripts/test-helper.mjs set esm",
+    "test": "echo 'No tests yet'",
+    "posttest": "node scripts/test-helper.mjs set cjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",

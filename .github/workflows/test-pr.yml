@@ -1,4 +1,4 @@
-name: Check Formatting and Lint
+name: Linting and Testing
 on:
   pull_request:
     branches:
@@ -7,16 +7,10 @@ on:
       - "pages/**"
       - "scripts/**"
       - "src/**"
-  push:
-    branches:
-      - "main"
-    paths:
-      - "pages/**"
-      - "scripts/**"
-      - "src/**"
+      - "test/**"
 
 jobs:
-  validate:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -24,11 +18,9 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 16
+          node-version: 14
           cache: yarn
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-      - name: Check Formatting
-        run: yarn prettier -c .
-      - name: Lint
-        run: yarn eslint --max-warnings 0 .
+      - name: Run Tests
+        run: yarn run test
