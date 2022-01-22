@@ -23,7 +23,7 @@
       "eslint",
       "prettier -w"
     ],
-    "**/*.{css,json,md}": [
+    "**/*.{css,json,md,yml}": [
       "prettier -w"
     ],
     "**/!(*inkscape).svg": [
