@@ -131,7 +131,9 @@ export default function UpgradesPage({ upgradesData }) {
       if (formState.search) {
         const search = latinize(formState.search, {
           lowerCase: true,
-          trim: true
+          trim: true,
+          forceSingleSpace: true,
+          replaceWhiteSpace: " "
         });
 
         if (
