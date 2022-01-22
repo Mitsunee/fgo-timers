@@ -45,7 +45,3 @@ limitedInventory:
     cost: 1000
     amount: 5
     endsAt: 2022-01-31 15:59 PST
-  - name: 2022 New Year's Limited Exchange
-    icon: /assets/icon_grabbag.png
-    background: gold
-    endsAt: 2022-01-10 19:59 PST

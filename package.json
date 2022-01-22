@@ -23,7 +23,7 @@
       "eslint",
       "prettier -w"
     ],
-    "**/*.{css,json,md}": [
+    "**/*.{css,json,md,yml}": [
       "prettier -w"
     ],
     "**/!(*inkscape).svg": [
@@ -36,13 +36,13 @@
     "not ie 11"
   ],
   "dependencies": {
-    "next": "12.0.7",
+    "next": "12.0.8",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",
-    "@foxkit/eslint-config": "^1.0.2",
+    "@foxkit/eslint-config": "1.0.2",
     "@foxkit/node-util": "^0.2.0",
     "@nanostores/persistent": "^0.5.0",
     "@nanostores/react": "^0.1.5",
@@ -50,7 +50,7 @@
     "classcat": "^5.0.3",
     "confusing-browser-globals": "^1.0.11",
     "eslint": "7.32.0",
-    "eslint-config-next": "12.0.7",
+    "eslint-config-next": "12.0.8",
     "eslint-config-prettier": "^8.3.0",
     "foxkit": "^0.3.0",
     "globby": "^12.0.2",
@@ -58,7 +58,7 @@
     "long-timeout": "^0.1.1",
     "modern-diacritics": "^2.0.0",
     "modern-normalize": "^1.1.0",
-    "nanospinner": "^0.6.0",
+    "nanospinner": "^1.0.0",
     "nanostores": "^0.5.8",
     "node-fetch": "^3.0.0",
     "picocolors": "^1.0.0",
@@ -70,7 +70,7 @@
     "postcss-theme-ui": "^0.10.0",
     "prettier": "^2.5.1",
     "simple-git-hooks": "^2.6.1",
-    "spacetime": "~6.16.3",
+    "spacetime": "^7.1.0",
     "svgo": "^2.7.0",
     "typescript": "^4.5.4",
     "yaml": "^1.10.2"

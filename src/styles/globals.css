@@ -51,4 +51,9 @@ h3 {
 
 img {
   max-width: 100%;
+  user-select: none;
+}
+
+::selection {
+  background: #680c5f80;
 }

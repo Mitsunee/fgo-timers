@@ -1,8 +1,6 @@
 name: Build SVG Components
 on:
   pull_request:
-    branches:
-      - "*"
     paths:
       - "assets/svg/**"
 
@@ -15,7 +13,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 16
+          node-version: 14
           cache: yarn
       - name: Install dependencies
         run: yarn install --frozen-lockfile

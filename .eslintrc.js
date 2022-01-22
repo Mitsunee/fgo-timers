@@ -17,7 +17,8 @@ module.exports = {
     ...rules,
     "no-restricted-globals": ["error"].concat(restrictedGlobals),
     "@next/next/no-img-element": "off",
-    "react/jsx-filename-extension": ["error", { extensions: [".jsx"] }]
+    "react/jsx-filename-extension": ["error", { extensions: [".jsx"] }],
+    "no-undef": ["error"]
   },
   overrides: [
     {
