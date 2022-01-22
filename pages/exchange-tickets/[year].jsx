@@ -30,7 +30,7 @@ const monthName = new Map([
   ["Jun", "June"],
   ["Jul", "July"],
   ["Aug", "August"],
-  ["Sept", "September"],
+  ["Sep", "September"],
   ["Oct", "October"],
   ["Nov", "November"],
   ["Dec", "December"]

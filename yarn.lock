@@ -2758,10 +2758,10 @@ source-map@^0.6.1:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
 
-spacetime@~6.16.3:
-  version "6.16.3"
-  resolved "https://registry.yarnpkg.com/spacetime/-/spacetime-6.16.3.tgz#86d3b05db33421a9ee478b1f2ca025582fc61fcf"
-  integrity sha512-JQEfj3VHT1gU1IMV5NvhgAP8P+2mDFd84ZCiHN//dp6hRKmuW0IizHissy62lO0nilfFjVhnoSaMC7te+Y5f4A==
+spacetime@^7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/spacetime/-/spacetime-7.1.0.tgz#a0bd3e6f3f784b8e9b477170a6fea27159b94065"
+  integrity sha512-H40GWlEA0Su7oWesJaAiPdlNRInAZ51N1RmgSWXdC0o9nFOycQ5Ti3J4qfnRhtCwWB5pe0EQHS4YOR6+nMlIiA==
 
 sprintf-js@~1.0.2:
   version "1.0.3"
