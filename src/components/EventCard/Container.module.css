@@ -4,6 +4,7 @@
   flex: 1 1 400px;
   aspect-ratio: 8 / 3;
   text-decoration: none;
+  user-select: none;
 
   &:hover {
     border-color: hover;

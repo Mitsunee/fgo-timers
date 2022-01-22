@@ -6,4 +6,5 @@
   gap: 0.66em;
   width: 100%;
   margin: 0.66em 0px 2.33em 0px;
+  user-select: none;
 }
