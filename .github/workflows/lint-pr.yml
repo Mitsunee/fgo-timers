@@ -1,15 +1,8 @@
-name: Check Formatting and Lint
+name: Lint and Check Formatting
 on:
   pull_request:
     branches:
       - "*"
-    paths:
-      - "pages/**"
-      - "scripts/**"
-      - "src/**"
-  push:
-    branches:
-      - "main"
     paths:
       - "pages/**"
       - "scripts/**"
@@ -28,7 +21,7 @@ jobs:
           cache: yarn
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-      - name: Check Formatting
-        run: yarn prettier -c .
       - name: Lint
         run: yarn eslint --max-warnings 0 .
+      - name: Check Formatting
+        run: yarn prettier -c .

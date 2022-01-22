@@ -5,12 +5,31 @@ on:
       - "yarn.lock"
 
 jobs:
-  check:
+  browserslist:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Yarn Lock Changes
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          cache: yarn
+      - name: Install dependencies
+        run: yarn install
+      - name: Update browserslist
+        run: yarn browserslist --update-db
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Update Browserslist Database"
+  check:
+    needs: browserslist
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Document Lock Changes
         uses: Simek/yarn-lock-changes@main
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
