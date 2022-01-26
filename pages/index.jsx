@@ -35,6 +35,7 @@ export default function HomePage({
   const mpShopReset = useRecurringEvent({ day: 1, hour: 0, tz: "utc" });
   const rpShopReset = useRecurringEvent({ day: 15, hour: 0, tz: "utc" });
 
+  // BUG: causes SSR missmatch; possible fix: additional state that triggeres second effect
   useEffect(() => {
     // only in client
     if (typeof document === "undefined") return;
