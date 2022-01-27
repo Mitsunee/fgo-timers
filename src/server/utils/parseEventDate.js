@@ -23,7 +23,7 @@ export function parseEventDate(
   date,
   { allowDuration = true, parent = null, flat = false }
 ) {
-  if (date.contains("-")) {
+  if (date.includes(" - ")) {
     // date is a duration
     if (!allowDuration) {
       throw createDateError(
@@ -32,10 +32,14 @@ export function parseEventDate(
       );
     }
 
-    let [start, end] = date.split("-").map(str => str.trim());
+    let [start, end] = date.split(" - ").map(str => str.trim());
     if (!start.endsWith("PST") && !start.endsWith("PDT")) {
       // start Date has no own timezone
       start = `${start} ${end.slice(-3)}`;
+    }
+    if (!/^\d{4}/.test(end)) {
+      // end Date has no own year
+      end = `${start.slice(0, 4)}-${end}`;
     }
 
     start = parseEventDate(start, {
@@ -56,10 +60,7 @@ export function parseEventDate(
     /(?<date>\d{4}-\d{2}-\d{2}) (?<time>\d{2}:\d{2}) (?<timezone>P[DS]T)/i
   );
   if (!match) {
-    throw createDateError(
-      `Couldn't parse Date '${date}'${parent ? `in ${parent}` : ""}`,
-      parent
-    );
+    throw createDateError(`Couldn't parse Date '${date}'`, parent);
   }
   const result = convertDate(match);
 
