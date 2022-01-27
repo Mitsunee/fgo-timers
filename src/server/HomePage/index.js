@@ -1,15 +1,19 @@
+import { generateBackgroundList } from "./generateBackgroundList";
 import { generateEventData } from "./generateEventData";
 
 export async function getStaticProps() {
+  const backgrounds = await generateBackgroundList();
   const events = await generateEventData();
 
   /* TODO: rewrite other HomePage properties
-   - backgrounds
    - tickets
    - itemData
    - mpShopData
    - rpShopData
   */
 
-  return { props: { events }, revalidate: 60 };
+  return {
+    props: { backgrounds, events },
+    revalidate: 60
+  };
 }
