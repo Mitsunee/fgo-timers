@@ -1,8 +1,10 @@
 /* parseEventDate
- * This module parses Dates and Durations found in event files
+ * This module parses Dates and Durations found in data files
  */
 
 import spacetime from "spacetime";
+
+import { createServerError } from "./createServerError";
 
 const tzOffset = new Map([
   ["PST", "-08:00"],
@@ -15,10 +17,6 @@ function convertDate({ date, time, timezone }) {
   return Math.trunc(s.epoch / 1000);
 }
 
-function createDateError(message, parent = false) {
-  return new Error(`${message}${parent ? ` in '${parent}'` : ""}`);
-}
-
 export function parseEventDate(
   date,
   { allowDuration = true, parent = null, flat = false }
@@ -26,7 +24,7 @@ export function parseEventDate(
   if (date.includes(" - ")) {
     // date is a duration
     if (!allowDuration) {
-      throw createDateError(
+      throw createServerError(
         `Expected date ${date} to Date but received Duration`,
         parent
       );
@@ -60,7 +58,7 @@ export function parseEventDate(
     /(?<date>\d{4}-\d{2}-\d{2}) (?<time>\d{2}:\d{2}) (?<timezone>P[DS]T)/i
   );
   if (!match) {
-    throw createDateError(`Couldn't parse Date '${date}'`, parent);
+    throw createServerError(`Couldn't parse Date '${date}'`, parent);
   }
   const result = convertDate(match);
 

@@ -1,6 +1,8 @@
 import { readFileJson } from "@foxkit/node-util/fs";
 import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 
+import { shortenStaticUrl } from "./shortenStaticUrl";
+
 const promise_niceItem = readFileJson("cache/JP/nice_item_lang_en.json");
 const promise_itemIdMap = readFileYaml("assets/itemIdMap.yml");
 
@@ -25,7 +27,7 @@ export async function parseTicketData(data) {
     }
     parsedItem.name = nice.name;
     parsedItem.bg = nice.background;
-    parsedItem.url = nice.url.match(/(\d+\.png)$/)[1];
+    parsedItem.url = shortenStaticUrl(nice.url);
     parsedData.push(parsedItem);
   }
 
