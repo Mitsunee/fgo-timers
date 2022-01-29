@@ -4,6 +4,7 @@
 
 import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 
+import { createServerError } from "./createServerError";
 import { shortenStaticUrl } from "./shortenStaticUrl";
 import { parsePrismShopInventory } from "./parsePrismShopInventory";
 
@@ -25,27 +26,32 @@ export async function parsePrismShopData(filePath) {
   // required properties
   for (const [prop, expectedType] of requiredProps) {
     if (typeof data[prop] !== expectedType) {
-      throw new TypeError(
-        `Expected required property ${prop} to be type ${expectedType} in '${filePath}'`
+      throw createServerError(
+        `Expected required property ${prop} to be type ${expectedType}`,
+        filePath
       );
     }
 
-    if (prop !== "icon" || prop !== "inventory") parsedData[prop] = data[prop];
+    switch (prop) {
+      case "icon":
+        parsedData.icon = shortenStaticUrl(data.icon);
+        break;
+      case "inventory":
+        parsedData.inventory = parsePrismShopInventory(data.inventory, {
+          parent: filePath
+        });
+        break;
+      default:
+        parsedData[prop] = data[prop];
+    }
   }
 
-  // icon prop
-  parsedData.icon = shortenStaticUrl(data.icon);
-
-  // inventory property
-  parsedData.inventory = parsePrismShopInventory(data.inventory, {
-    parent: filePath
-  });
-
-  // limitedInventory property
+  // limitedInventory property (optional)
   if (data.limitedInventory !== undefined) {
     if (!(data.limitedInventory instanceof Array)) {
-      throw new Error(
-        `Expected optional property limitedInventory to be Array in ${filePath}`
+      throw createServerError(
+        `Expected optional property limitedInventory to be Array`,
+        filePath
       );
     }
     parsedData.limited = parsePrismShopData(data.limitedInventory, {

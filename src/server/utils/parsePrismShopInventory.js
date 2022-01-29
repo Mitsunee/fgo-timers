@@ -34,6 +34,7 @@ export async function parsePrismShopInventory(
           parent
         );
       }
+
       switch (prop) {
         case "icon":
           parsedItem.icon = shortenStaticUrl(rawItem.icon);

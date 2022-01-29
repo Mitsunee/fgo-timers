@@ -1,6 +1,7 @@
 /* parseEventTimes
  * This module parses the `times` property in event files for `parseEventFile`
  */
+
 import { parseEventDate } from "./parseEventDate";
 
 export function parseEventTimes(times, { parent = false }) {

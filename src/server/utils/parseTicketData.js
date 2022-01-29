@@ -1,3 +1,7 @@
+/* parseTicketData
+ * Maps Array of item names (itemIdMap.yml) to data nice nice_item_lang_en
+ */
+
 import { readFileJson } from "@foxkit/node-util/fs";
 import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 
@@ -10,7 +14,7 @@ export async function parseTicketData(data) {
   const niceItem = await promise_niceItem;
   const itemIdMap = await promise_itemIdMap;
 
-  if (typeof niceItem !== "object") {
+  if (!niceItem) {
     throw new TypeError("Could not read nice_item_lang_en from cache");
   }
 
