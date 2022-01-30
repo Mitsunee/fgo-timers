@@ -1,22 +1,25 @@
 import { generateBackgroundList } from "./generateBackgroundList";
 import { generateEventData } from "./generateEventData";
-import { filterHiddenEvents } from "../utils/filterHiddenEvents";
 import { generateLoginTicketData } from "./generateLoginTicketData";
 import { generatePrismShopData } from "./generatePrismShopData";
+import { generateMasterMissionData } from "./generateMasterMissionData";
 
 export async function getStaticProps() {
   const backgrounds = await generateBackgroundList();
-  const eventsAll = await generateEventData();
-  const events = await filterHiddenEvents(eventsAll);
+  const events = await generateEventData();
   const loginTicket = await generateLoginTicketData();
   const { mpShopData, rpShopData } = await generatePrismShopData();
-
-  // TODO: Master Missions
-  // TODO: update index.jsx and components to match new data structure and
-  //       remove anything that causes SSR missmatches (i.e. client autohiding)
+  const masterMissions = await generateMasterMissionData();
 
   return {
-    props: { backgrounds, events, loginTicket, mpShopData, rpShopData },
+    props: {
+      backgrounds,
+      events,
+      loginTicket,
+      mpShopData,
+      rpShopData,
+      masterMissions
+    },
     revalidate: 3600
   };
 }

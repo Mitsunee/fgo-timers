@@ -60,7 +60,7 @@ export function parseEventDate(
   if (!match) {
     throw createServerError(`Couldn't parse Date '${date}'`, parent);
   }
-  const result = convertDate(match);
+  const result = convertDate(match.groups);
 
   return flat ? result : [result];
 }

@@ -3,6 +3,7 @@
  */
 
 import { readFileYaml } from "@foxkit/node-util/fs-yaml";
+import { getFileName } from "@foxkit/node-util/path";
 import { log } from "@foxkit/node-util/log";
 
 import { createServerError } from "./createServerError";
@@ -12,12 +13,13 @@ import { parseEventTimes } from "./parseEventTimes";
 const requiredProps = new Map([
   ["title", "string"],
   ["shortTitle", "string"],
-  ["date", "string"]
+  ["date", "string"],
+  ["banner", "string"]
 ]);
 const optionalProps = new Map([
   ["url", "string"],
   ["displayOrder", "number"],
-  ["description", "object"],
+  ["description", "string"],
   ["times", "object"]
 ]);
 
@@ -25,6 +27,9 @@ export async function parseEventFile(filePath) {
   const rawData = await readFileYaml(filePath);
   if (!rawData) throw new Error(`Could not read file '${filePath}'`);
   const parsedData = new Object();
+
+  // slug property
+  parsedData.slug = getFileName(filePath, false);
 
   // required properties
   for (const [prop, expectedType] of requiredProps) {

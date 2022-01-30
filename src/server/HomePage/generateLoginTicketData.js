@@ -5,13 +5,13 @@ import { getCurrentTime } from "../utils/getCurrentTime";
 import { parseTicketData } from "../utils/parseTicketData";
 
 export async function generateLoginTicketData() {
-  const now = spacetime.now(getCurrentTime() * 1000, "America/Los_Angeles");
+  const now = spacetime(getCurrentTime() * 1000, "America/Los_Angeles");
   const currentYear = now.year();
   const currentMonth = now.format("month-short");
 
   // fetch and parse ticket data
   const data = await readFileYaml(
-    `assets/data/login-tickets${currentYear}.yml`
+    `assets/data/login-tickets/${currentYear}.yml`
   );
   if (!data || !data[currentMonth]) {
     throw new Error(`Couldn't find Login Ticket data for year ${currentYear}`);

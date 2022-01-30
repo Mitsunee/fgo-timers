@@ -37,7 +37,7 @@ export async function parsePrismShopData(filePath) {
         parsedData.icon = shortenStaticUrl(data.icon);
         break;
       case "inventory":
-        parsedData.inventory = parsePrismShopInventory(data.inventory, {
+        parsedData.inventory = await parsePrismShopInventory(data.inventory, {
           parent: filePath
         });
         break;
@@ -54,10 +54,15 @@ export async function parsePrismShopData(filePath) {
         filePath
       );
     }
-    parsedData.limited = parsePrismShopData(data.limitedInventory, {
-      parent: filePath,
-      limited: true
-    });
+    if (data.limitedInventory.length > 0) {
+      parsedData.limited = await parsePrismShopInventory(
+        data.limitedInventory,
+        {
+          parent: filePath,
+          limited: true
+        }
+      );
+    }
   }
 
   return parsedData;

@@ -1,41 +1,47 @@
-import { getFileName } from "@foxkit/node-util/path";
-import { readFileJson } from "@foxkit/node-util/fs";
+// TODO: update index.jsx and components to match new data structure and
+//       remove anything that causes SSR missmatches (i.e. client autohiding)
 
-import { getFileList } from "@utils/server/getFileList";
-import { getEventFileList } from "@utils/server/events/getEventFileList";
-import { parseEventFile } from "@utils/server/events/parseEventFile";
-import { getTicketFileList } from "@utils/server/loginTickets/getTicketFileList";
-import { getItemIdMap } from "@utils/server/loginTickets/getItemIdMap";
-import { parseTicketFile } from "@utils/server/loginTickets/parseTicketFile";
-import { parseShopFile } from "@utils/server/parseShopFile";
+//import { getFileName } from "@foxkit/node-util/path";
+//import { readFileJson } from "@foxkit/node-util/fs";
 
-import { useEffect } from "react";
-import spacetime from "spacetime";
+//import { getFileList } from "@utils/server/getFileList";
+//import { getEventFileList } from "@utils/server/events/getEventFileList";
+//import { parseEventFile } from "@utils/server/events/parseEventFile";
+//import { getTicketFileList } from "@utils/server/loginTickets/getTicketFileList";
+//import { getItemIdMap } from "@utils/server/loginTickets/getItemIdMap";
+//import { parseTicketFile } from "@utils/server/loginTickets/parseTicketFile";
+//import { parseShopFile } from "@utils/server/parseShopFile";
 
-import styles from "@styles/HomePage.module.css";
-import { useRecurringEvent } from "@utils/hooks/useRecurringEvent";
+//import { useEffect } from "react";
+//import spacetime from "spacetime";
+
+//import styles from "@styles/HomePage.module.css";
+//import { useRecurringEvent } from "@utils/hooks/useRecurringEvent";
 import Meta from "@components/Meta";
 import Clocks from "@components/Clocks";
 import Headline from "@components/Headline";
-import EventCard from "@components/EventCard";
-import { CardGrid } from "@components/Card";
-import LoginTicketCard from "@components/LoginTicketCard";
-import MasterMissionCard from "@components/MasterMissionCard";
-import ChaldeaGateCard from "@components/ChaldeaGateCard";
-import ShopCard from "@components/ShopCard";
+//import EventCard from "@components/EventCard";
+//import { CardGrid } from "@components/Card";
+//import LoginTicketCard from "@components/LoginTicketCard";
+//import MasterMissionCard from "@components/MasterMissionCard";
+//import ChaldeaGateCard from "@components/ChaldeaGateCard";
+//import ShopCard from "@components/ShopCard";
 
-export default function HomePage({
-  backgrounds,
-  events,
-  tickets,
-  itemData,
-  mpShopData,
-  rpShopData
-}) {
-  const mpShopReset = useRecurringEvent({ day: 1, hour: 0, tz: "utc" });
-  const rpShopReset = useRecurringEvent({ day: 15, hour: 0, tz: "utc" });
+export default function HomePage(
+  props //{
+  //backgrounds
+  //events
+  //tickets,
+  //itemData,
+  //mpShopData,
+  //rpShopData
+  /*}*/
+) {
+  //const mpShopReset = useRecurringEvent({ day: 1, hour: 0, tz: "utc" });
+  //const rpShopReset = useRecurringEvent({ day: 15, hour: 0, tz: "utc" });
 
   // BUG: causes SSR missmatch; possible fix: additional state that triggeres second effect
+  /*
   useEffect(() => {
     // only in client
     if (typeof document === "undefined") return;
@@ -43,7 +49,7 @@ export default function HomePage({
     // pick random background
     const backgroundFile =
       backgrounds[Math.floor(Math.random() * backgrounds.length)];
-    const background = `url("${backgroundFile}")`;
+    const background = `url("/assets/backgrounds/landing/${backgroundFile}")`;
 
     // set css property and attach className
     document.body.style.setProperty("--landing-bg", background);
@@ -53,6 +59,7 @@ export default function HomePage({
       document.body.classList.remove(styles.body);
     };
   }, [backgrounds]);
+  */
 
   return (
     <>
@@ -64,7 +71,11 @@ export default function HomePage({
       />
       <Clocks />
       <Headline>Current Events</Headline>
-      <section className={styles.grid}>
+      {/* TEMP: output data directly for debugging */}
+      <code>
+        <pre>{JSON.stringify(props, null, 2)}</pre>
+      </code>
+      {/*<section className={styles.grid}>
         {events.map(event => (
           <EventCard key={event.shortTitle} {...event} />
         ))}
@@ -76,11 +87,12 @@ export default function HomePage({
         <ChaldeaGateCard />
         <ShopCard shopData={mpShopData} endsAt={mpShopReset} />
         <ShopCard shopData={rpShopData} endsAt={rpShopReset} />
-      </CardGrid>
+      </CardGrid>*/}
     </>
   );
 }
 
+/*
 export async function getStaticProps() {
   // backgrounds
   const backgroundFiles = await getFileList(
@@ -184,3 +196,6 @@ export async function getStaticProps() {
     props: { backgrounds, events, tickets, itemData, mpShopData, rpShopData }
   };
 }
+*/
+
+export { getStaticProps } from "src/server/HomePage/";
