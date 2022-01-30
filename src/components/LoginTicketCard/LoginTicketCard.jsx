@@ -1,6 +1,5 @@
-import { useState, useRef, useEffect } from "react";
+import { useMemo } from "react";
 import spacetime from "spacetime";
-import lt from "long-timeout";
 import Link from "next/link";
 
 // import styles from "./LoginTicketCard.module.css";
@@ -12,51 +11,23 @@ import NoSSR from "@components/NoSSR";
 import NextLogin from "./NextLogin";
 import NextServerMilestone from "./NextServerMilestone";
 
-export default function LoginTicketCard({ tickets, itemData }) {
-  const timeoutRef = useRef(null);
-  const [currentMonth, setCurrentMonth] = useState(null);
-  const [nextMonth, setNextMonth] = useState(null);
+export default function LoginTicketCard({ items, next }) {
+  const nextMonth = useMemo(() => spacetime(next * 1000), [next]);
   const nextMonthDate = useFormattedSpacetime(nextMonth, "short");
   const nextMonthDelta = useFormattedDelta(nextMonth);
 
-  // effect that find currentMonth in tickets and manages timeout to update
-  useEffect(() => {
-    const update = () => {
-      // set data for current month
-      const now = spacetime.now("America/Los_Angeles");
-      setCurrentMonth(tickets[now.year()][now.format("month-short")]);
-
-      // find delta to next login ticket cycle
-      const next = now.next("month").time(`${now.isDST() ? 21 : 20}:00`, true);
-      const timeDelta = next.epoch - now.epoch;
-      setNextMonth(next.goto());
-
-      // in client-only schedule timeout to update page when next month starts
-      if (typeof window !== "undefined") {
-        timeoutRef.current = lt.setTimeout(update, timeDelta);
-      }
-
-      // return cleanup function to effect
-      return () => {
-        if (timeoutRef.current !== null) {
-          lt.clearTimeout(timeoutRef.current);
-        }
-      };
-    };
-
-    return update(); // runs function, which returns cleanup function
-  }, [tickets]);
-
-  return currentMonth === null ? null : (
+  return (
     <Card
       title="Login Exchange Tickets"
       icon="https://static.atlasacademy.io/NA/Items/10000.png">
       <FGOItemList>
-        {currentMonth
-          .map(id => itemData[id])
-          .map(item => (
-            <FGOItemListItem key={item.id} data={item} />
-          ))}
+        {items.map(item => {
+          const data = {
+            ...item,
+            icon: `https://static.atlasacademy.io/${item.icon}`
+          };
+          return <FGOItemListItem key={item.id} data={data} />;
+        })}
       </FGOItemList>
       <NoSSR>
         <NextLogin />

@@ -25,11 +25,12 @@ Run `yarn dev` to start the development server locally on your system, then visi
   - note that all files in here should be ESM and use the `.mjs` file extension. They are currently not compatible with utils in `./src/utils`!
 - src:
   - components: (alias `"@components"`) Contains React components. Note that as a convention only the `index.js` of each component is meant to be imported. This file should either default export the component or in rare cases named export the component and any Parent/Child components intended to be used with it.
+  - server: new location for all SSG, SSR and related util functions
   - stores: (alias `"@stores"`) Contains all stores and their logic
   - styles: (alias `"@styles"`) Contains CSS Modules for all pages, the global stylesheet and theme configs
   - utils: (alias `"@utils"`) contains utility functions
     - hooks: contains React hooks
-    - server: contains all utilities meant to be used with SSR or SSG and **not** shipped to the client.
+    - server: old SSG utils (currently getting rewritten)
 
 To make new pages and components you can use the `new` script. See `yarn new --help` for more inforation.
 
@@ -47,6 +48,8 @@ To make new pages and components you can use the `new` script. See `yarn new --h
 ## Further Information
 
 ### Data Formats
+
+**NOTE**: The backend is currently undergoing a major rewrite, documentation may be deprecated!
 
 - Event Data: [events](events.md)
 - Upgrades Data: [upgrades](upgrades.md)

@@ -12,6 +12,8 @@ import EmberLootList from "./EmberLootList";
 import ScheduleTable from "./ScheduleTable";
 import NoSSR from "@components/NoSSR";
 
+// TODO: Check for SSR missmatches
+
 export default function ChaldeaGateCard() {
   const { s } = useStore(intervalStore);
   const weekday = s.goto("utc").format("day-short");
