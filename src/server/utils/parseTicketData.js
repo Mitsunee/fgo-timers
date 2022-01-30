@@ -29,9 +29,10 @@ export async function parseTicketData(data) {
         `Could not find item ${item} (id: ${id}) in nice_item_lang_en`
       );
     }
+    parsedItem.id = id;
     parsedItem.name = nice.name;
-    parsedItem.bg = nice.background;
-    parsedItem.url = shortenStaticUrl(nice.icon);
+    parsedItem.background = nice.background;
+    parsedItem.icon = shortenStaticUrl(nice.icon);
     parsedData.push(parsedItem);
   }
 

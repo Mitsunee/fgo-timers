@@ -5,13 +5,15 @@ import { FGOItemListItem } from "@components/FGOItemList";
 import InlineIcon from "@components/InlineIcon";
 
 export default function ShopCardLimitedItem({ currency, data }) {
-  const { cost, amount, stack, endsAt, ...itemData } = data;
+  const { cost, amount, stack, ends, icon, ...itemData } = data;
   const { name } = itemData;
   const isClient = useIsClient();
-  const endDate = useFormattedTimestamp(endsAt, "short");
+  const endDate = useFormattedTimestamp(ends * 1000, "short");
 
   return (
-    <FGOItemListItem data={itemData}>
+    <FGOItemListItem
+      data={itemData}
+      icon={`https://static.atlasacademy.io/${icon}`}>
       {stack && `${isClient ? stack.toLocaleString() : stack}x `}
       {name}
       {amount && cost && (

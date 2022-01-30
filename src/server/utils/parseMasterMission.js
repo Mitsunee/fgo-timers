@@ -23,9 +23,9 @@ function parseMissionDetail(detail) {
   }
   let result = [tmp, ...texts.map(text => text.trim())];
 
-  // if string-only optimize to single piece
+  // if all pieces are strings join result
   if (result.every(piece => typeof piece === "string")) {
-    result = [result.join("")];
+    result = result.join("");
   }
 
   return result;
@@ -35,12 +35,13 @@ const missionProps = new Set(["id", "detail"]);
 
 function parseMissions(missions) {
   const parsedMissions = new Array();
+  const missionsSorted = missions.sort((a, b) => a.dispNo - b.dispNo);
 
-  for (const mission of missions) {
+  for (const mission of missionsSorted) {
     const parsedMission = new Object();
     for (const prop of missionProps) {
       if (prop === "detail") {
-        parsedMission.text = parseMissionDetail(mission.detail);
+        parsedMission.detail = parseMissionDetail(mission.detail);
         continue;
       }
 
@@ -61,10 +62,11 @@ export function parseMasterMission(data) {
   for (const prop of dataProps) {
     switch (prop) {
       case "endedAt":
-        parsedData.ends = data.endedAt;
+        parsedData.end = data.endedAt;
         break;
       case "missions":
         parsedData.missions = parseMissions(data.missions);
+        parsedData.type = data.missions[0].type;
         break;
       default:
         parsedData[prop] = data[prop];

@@ -1,25 +1,18 @@
 import { generateBackgroundList } from "./generateBackgroundList";
 import { generateEventData } from "./generateEventData";
 import { generateLoginTicketData } from "./generateLoginTicketData";
-import { generatePrismShopData } from "./generatePrismShopData";
 import { generateMasterMissionData } from "./generateMasterMissionData";
+import { generatePrismShopData } from "./generatePrismShopData";
 
 export async function getStaticProps() {
   const backgrounds = await generateBackgroundList();
   const events = await generateEventData();
   const loginTicket = await generateLoginTicketData();
-  const { mpShopData, rpShopData } = await generatePrismShopData();
   const masterMissions = await generateMasterMissionData();
+  const shopData = await generatePrismShopData();
 
   return {
-    props: {
-      backgrounds,
-      events,
-      loginTicket,
-      mpShopData,
-      rpShopData,
-      masterMissions
-    },
+    props: { backgrounds, events, loginTicket, masterMissions, shopData },
     revalidate: 3600
   };
 }

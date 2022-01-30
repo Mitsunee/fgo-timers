@@ -4,7 +4,7 @@
 
 import { log } from "@foxkit/node-util/log";
 
-const ATLAS_STATIC = "https://static.atlasacademy.io";
+const ATLAS_STATIC = "https://static.atlasacademy.io/";
 
 export function shortenStaticUrl(url) {
   if (!url.startsWith(ATLAS_STATIC)) {

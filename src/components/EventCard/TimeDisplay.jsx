@@ -5,18 +5,18 @@ import { intervalStore } from "@stores/intervalStore";
 import { useFormattedDelta } from "@utils/hooks/useFormattedDelta";
 import { IconHourglass } from "@components/icons";
 
-export default function TimeDisplay({ startsAt, endsAt = false }) {
-  const { interval } = useStore(intervalStore);
-  const target = interval > startsAt ? endsAt || null : startsAt;
-  const delta = useFormattedDelta(target);
+export default function TimeDisplay({ start, end = false }) {
+  const { seconds: interval } = useStore(intervalStore);
+  const target = interval > start ? end || null : start;
+  const delta = useFormattedDelta(target * 1000);
 
   return (
     <div className={styles.time}>
       <IconHourglass className={styles.icon} />
-      {endsAt && endsAt < interval
+      {end && end < interval
         ? "Ended"
         : target
-        ? `${interval > startsAt ? "Ends:" : "Starts:"} ${delta}`
+        ? `${interval > start ? "Ends:" : "Starts:"} ${delta}`
         : "---"}
     </div>
   );
