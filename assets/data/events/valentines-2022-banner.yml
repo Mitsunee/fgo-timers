@@ -1,0 +1,70 @@
+title: Valentine's 2022 Pickup Summon (Daily)
+shortTitle: Valentines 2022 Banner
+banner: 2022_valentines_pu.png
+date: 2022-02-01 00:00 - 02-14 19:59 PST
+url: 2022/0201_valentine_pu/
+displayOrder: 2
+description: >-
+  Valentines 2022 features a variety of female-only banners featuring the brand
+  new SSR Archer Sei Shounagon.
+
+  Sei's solo rateup banner features rateup for the SR Servants Queen of Sheba and
+  Marie Antoinette and is available at the start and near the end of the availability
+  period. Inbetween those there will be 2 simultanous Split Rateup banners featuring
+  a variety of other SSR Servants!
+times:
+  - title: Sei + Sheba + Marie
+    date: 2022-02-01 00:00 - 02-02 19:59 PST
+    hideWhenDone: true
+  - title: Rateup 1
+    hideWhenDone: true
+    times:
+      - title: Sei + Altera (Saber)
+        date: 2022-02-02 20:00 PST
+      - title: Sei + Orion (Artemis)
+        date: 2022-02-03 20:00 PST
+      - title: Sei + Altria Lancer
+        date: 2022-02-04 20:00 PST
+      - title: Sei + Europa
+        date: 2022-02-05 20:00 PST
+      - title: Sei + Anastasia
+        date: 2022-02-06 20:00 PST
+      - title: Sei + Osakabehime
+        date: 2022-02-07 20:00 PST
+      - title: Sei + Nightingale
+        date: 2022-02-08 20:00 PST
+      - title: Sei + Sitonai
+        date: 2022-02-09 20:00 PST
+      - title: Sei + Altria Saber
+        date: 2022-02-10 20:00 PST
+      - title: Sei + Bradamante
+        date: 2022-02-11 20:00 PST
+      - title: Ends
+        date: 2022-02-12 19:59 PST
+  - title: Rateup 2
+    hideWhenDone: true
+    times:
+      - title: Sei + Quetzalcoatl
+        date: 2022-02-02 20:00 PST
+      - title: Sei + Sanzang
+        date: 2022-02-03 20:00 PST
+      - title: Sei + Jack The Ripper
+        date: 2022-02-04 20:00 PST
+      - title: Sei + Jeanne d'Arc (Ruler)
+        date: 2022-02-05 20:00 PST
+      - title: Sei + Mordred
+        date: 2022-02-06 20:00 PST
+      - title: Sei + Queen Medb (Rider)
+        date: 2022-02-07 20:00 PST
+      - title: Sei + Tamamo (Caster)
+        date: 2022-02-08 20:00 PST
+      - title: Sei + Jinako/Ganesha
+        date: 2022-02-09 20:00 PST
+      - title: Sei + Francis Drake
+        date: 2022-02-10 20:00 PST
+      - title: Sei + Scheherazade
+        date: 2022-02-11 20:00 PST
+      - title: Ends
+        date: 2022-02-12 19:59 PST
+  - title: Sei + Sheba + Marie
+    date: 2022-02-12 20:00 - 02-14 19:59 PST

@@ -9,6 +9,7 @@ description: >-
 
   Beni-Enma, James Moriarty, Bradamante, Aśvatthāman and Asclepius will also get
   Interludes, rewarding Saint Quartz on completion.
+hideWhenDone: true
 times:
   - title: 1/2 AP Interlude Cost
     date: 2022-01-26 20:00 - 02-02 19:59 PST
