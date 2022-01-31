@@ -10,6 +10,7 @@ description: >-
 
   Penthesilea is always on rateup, the timers below are for the SSR rotations.
 displayOrder: 2
+hideWhenDone: true
 times:
   - title: Rateup
     times:

@@ -3,6 +3,7 @@ shortTitle: Save Amazones.com!
 banner: 2022_amazones.png
 date: 2022-01-18 00:00 - 01-31 19:59 PST
 url: 2022/0116_amazones/
+hideWhenDone: true
 times:
   - title: Challenge Quest Release
     date: 2022-01-18 00:00 PST
