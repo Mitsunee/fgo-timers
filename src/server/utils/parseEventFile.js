@@ -68,6 +68,7 @@ export async function parseEventFile(filePath) {
 
     if (prop == "times") {
       parsedData.times = parseEventTimes(rawData.times, { parent: filePath });
+      continue;
     }
 
     parsedData[prop] = rawData[prop]; // times is handled below

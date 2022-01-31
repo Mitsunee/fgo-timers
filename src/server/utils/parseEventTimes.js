@@ -37,6 +37,7 @@ export function parseEventTimes(times, { parent = false }) {
       // hideWhenDone property
       if (time.hideWhenDone) parsedTime.hide = end || start;
 
+      parsedTimes.push(parsedTime);
       continue;
     }
 
@@ -74,6 +75,7 @@ export function parseEventTimes(times, { parent = false }) {
         parsedTime.hide = parsedTime.times[parsedTime.times.length - 1].date;
       }
 
+      parsedTimes.push(parsedTime);
       continue;
     }
 
