@@ -1018,36 +1018,6 @@
   {
     "target": "np",
     "initial": {
-      "name": "Crocea Mors",
-      "type": "quick",
-      "border": "black",
-      "na": true
-    },
-    "np": { "name": "Crocea Mors", "type": "quick", "border": "gold" },
-    "quest": {
-      "id": 94046302,
-      "name": "強化クエスト カエサル 2",
-      "search": "強化クエスト カエサル 2",
-      "open": 1581498000,
-      "type": "rankup",
-      "unlock": {
-        "quest": [
-          { "name": "Rank Up Quest: Caesar", "id": 94008002, "na": true }
-        ]
-      }
-    },
-    "servant": {
-      "id": 101300,
-      "name": "Gaius Julius Caesar",
-      "search": "gaius julius caesar",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_1013000.png",
-      "className": "saber",
-      "na": true
-    }
-  },
-  {
-    "target": "np",
-    "initial": {
       "name": "Caladbolg",
       "type": "buster",
       "border": "black",
@@ -3414,28 +3384,6 @@
       "icon": "https://static.atlasacademy.io/JP/Faces/f_2035000.png",
       "className": "archer",
       "na": true
-    }
-  },
-  {
-    "target": "sq",
-    "quest": {
-      "id": 91204001,
-      "name": "エモーショナルな私達",
-      "search": "エモショナルな私達",
-      "open": 1607936400,
-      "type": "interlude",
-      "unlock": {
-        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
-        "ascension": 3,
-        "bond": 4
-      }
-    },
-    "servant": {
-      "id": 204000,
-      "name": "Sei Shounagon (Archer)",
-      "search": "sei shounagon",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_2040000.png",
-      "className": "archer"
     }
   },
   {
@@ -6429,46 +6377,6 @@
       "type": "rankup",
       "unlock": { "ascension": 4 },
       "na": true
-    },
-    "servant": {
-      "id": 401700,
-      "name": "Marie Antoinette",
-      "search": "marie antoinette",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_4017000.png",
-      "className": "rider",
-      "na": true
-    }
-  },
-  {
-    "target": "skill",
-    "initial": {
-      "name": "Siren Song C",
-      "num": 1,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00509.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "王統の音色 B+",
-      "num": 1,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00509.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94046301,
-      "name": "強化クエスト マリー・アントワネット 2",
-      "search": "強化クエスト マリ・アントワネット 2",
-      "open": 1581498000,
-      "type": "rankup",
-      "unlock": {
-        "quest": [
-          {
-            "name": "Rank Up Quest: Marie Antoinette",
-            "id": 94022002,
-            "na": true
-          }
-        ]
-      }
     },
     "servant": {
       "id": 401700,
@@ -14689,31 +14597,6 @@
   {
     "target": "sq",
     "quest": {
-      "id": 91204002,
-      "name": "白い月を仰いで",
-      "search": "白い月を仰いて",
-      "open": 1638435600,
-      "type": "interlude",
-      "unlock": {
-        "quest": [
-          { "name": "つわものどもが、夢の跡", "id": 3000716 },
-          { "name": "エモーショナルな私達", "id": 91204001 }
-        ],
-        "ascension": 3,
-        "bond": 4
-      }
-    },
-    "servant": {
-      "id": 204000,
-      "name": "Sei Shounagon (Archer)",
-      "search": "sei shounagon",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_2040000.png",
-      "className": "archer"
-    }
-  },
-  {
-    "target": "sq",
-    "quest": {
       "id": 91303901,
       "name": "それでも、少女狼は",
       "search": "それても、少女狼は",
@@ -15292,6 +15175,133 @@
       "search": "xiang yu",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_7032000.png",
       "className": "berserker",
+      "na": true
+    }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Crocea Mors",
+      "type": "quick",
+      "border": "black",
+      "na": true
+    },
+    "np": {
+      "name": "Crocea Mors",
+      "type": "quick",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94046302,
+      "name": "Rank Up Quest: Caesar 2",
+      "search": "rank up quest: caesar 2",
+      "open": 1643688000,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          { "name": "Rank Up Quest: Caesar", "id": 94008002, "na": true }
+        ]
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 101300,
+      "name": "Gaius Julius Caesar",
+      "search": "gaius julius caesar",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_1013000.png",
+      "className": "saber",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91204001,
+      "name": "エモーショナルな私達",
+      "search": "エモショナルな私達",
+      "open": 1607936400,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
+        "ascension": 3,
+        "bond": 4
+      }
+    },
+    "servant": {
+      "id": 204000,
+      "name": "Sei Shounagon (Archer)",
+      "search": "sei shounagon",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_2040000.png",
+      "className": "archer",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91204002,
+      "name": "白い月を仰いで",
+      "search": "白い月を仰いて",
+      "open": 1638435600,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          { "name": "つわものどもが、夢の跡", "id": 3000716 },
+          { "name": "エモーショナルな私達", "id": 91204001 }
+        ],
+        "ascension": 3,
+        "bond": 4
+      }
+    },
+    "servant": {
+      "id": 204000,
+      "name": "Sei Shounagon (Archer)",
+      "search": "sei shounagon",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_2040000.png",
+      "className": "archer",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Siren Song C",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00509.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Royal Melody B+",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00509.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94046301,
+      "name": "Rank Up Quest: Marie Antoinette 2",
+      "search": "rank up quest: marie antoinette 2",
+      "open": 1643688000,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          {
+            "name": "Rank Up Quest: Marie Antoinette",
+            "id": 94022002,
+            "na": true
+          }
+        ]
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 401700,
+      "name": "Marie Antoinette",
+      "search": "marie antoinette",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_4017000.png",
+      "className": "rider",
       "na": true
     }
   }
