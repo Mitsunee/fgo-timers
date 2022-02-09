@@ -15304,5 +15304,33 @@
       "className": "rider",
       "na": true
     }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "The Greatest Hits - \"Calling Agape\"",
+      "type": "quick",
+      "border": "black"
+    },
+    "np": {
+      "name": "The Greatest Hits - \"Calling Agape\"",
+      "type": "quick",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94066701,
+      "name": "強化クエスト アムール〔カレン〕",
+      "search": "強化クエスト アムル〔カレン〕",
+      "open": 1644397200,
+      "type": "rankup",
+      "unlock": { "ascension": 4 }
+    },
+    "servant": {
+      "id": 901100,
+      "name": "Amor (Caren)",
+      "search": "amor (caren)",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_9011000.png",
+      "className": "ruler"
+    }
   }
 ]
