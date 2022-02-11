@@ -7,7 +7,7 @@ import Meta from "@components/Meta";
 import Clocks from "@components/Clocks";
 import Headline from "@components/Headline";
 import EventCard from "@components/EventCard";
-import { CardGrid } from "@components/Card";
+import { Card, CardGrid } from "@components/Card";
 import LoginTicketCard from "@components/LoginTicketCard";
 import MasterMissionCard from "@components/MasterMissionCard";
 import ChaldeaGateCard from "@components/ChaldeaGateCard";
@@ -18,11 +18,19 @@ export default function HomePage({
   events,
   loginTicket,
   masterMissions,
-  shopData
+  shopData,
+  builtAt // DEBUG
 }) {
   const [background, setBackground] = useState(null);
   const mpShopReset = useRecurringEvent({ day: 1, hour: 0, tz: "utc" });
   const rpShopReset = useRecurringEvent({ day: 15, hour: 0, tz: "utc" });
+
+  // DEBUG:
+  const [timeString, setTimeString] = useState(builtAt);
+  useEffect(() => {
+    const date = new Date(builtAt);
+    setTimeString(date.toLocaleString());
+  }, [builtAt]);
 
   // Effect sets random background to state to avoid SSR missmatches
   useEffect(() => {
@@ -71,6 +79,9 @@ export default function HomePage({
         <ChaldeaGateCard />
         <ShopCard shopData={shopData.mpShop} endsAt={mpShopReset} />
         <ShopCard shopData={shopData.rpShop} endsAt={rpShopReset} />
+        <Card title="DEBUG">
+          <p>Built at: {timeString}</p>
+        </Card>
       </CardGrid>
     </>
   );

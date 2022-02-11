@@ -11,9 +11,12 @@ export async function getStaticProps() {
   const masterMissions = await generateMasterMissionData();
   const shopData = await generatePrismShopData();
 
+  // TEMP: include build time for debugging purposes
+  const builtAt = Date.now();
+
   return {
-    props: { backgrounds, events, loginTicket, masterMissions, shopData } //,
-    //revalidate: 3600
-    // TEMP: disable ISR as it does not have filesystem access
+    // prettier-ignore
+    props: { backgrounds, events, loginTicket, masterMissions, shopData, builtAt },
+    revalidate: 3600
   };
 }
