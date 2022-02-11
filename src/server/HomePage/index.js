@@ -12,7 +12,8 @@ export async function getStaticProps() {
   const shopData = await generatePrismShopData();
 
   return {
-    props: { backgrounds, events, loginTicket, masterMissions, shopData },
-    revalidate: 3600
+    props: { backgrounds, events, loginTicket, masterMissions, shopData } //,
+    //revalidate: 3600
+    // TEMP: disable ISR as it does not have filesystem access
   };
 }
