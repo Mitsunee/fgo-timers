@@ -20,10 +20,3 @@ export async function getStaticProps() {
     revalidate: 3600
   };
 }
-
-export const config = {
-  unstable_includeFiles: [
-    "assets/data/**/*.yml",
-    "public/assets/backgrounds/landing/*.png"
-  ]
-};
