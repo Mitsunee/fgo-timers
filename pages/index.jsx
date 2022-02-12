@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export { getStaticProps } from "src/server/HomePage/";
+export { config, getStaticProps } from "src/server/HomePage/";
 import styles from "@styles/HomePage.module.css";
 import { useRecurringEvent } from "@utils/hooks/useRecurringEvent";
 import Meta from "@components/Meta";
