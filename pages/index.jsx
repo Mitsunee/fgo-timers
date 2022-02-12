@@ -16,7 +16,7 @@ export { getStaticProps } from "src/server/HomePage/";
 export const config = {
   unstable_includeFiles: [
     "assets/data/**/*.yml",
-    "public/assets/backgrounds/landing/*.png"
+    "public/assets/backgrounds/landing/*.*(png|jpg)"
   ]
 };
 
