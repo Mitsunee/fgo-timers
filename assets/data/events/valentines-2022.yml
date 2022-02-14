@@ -15,6 +15,7 @@ description: >-
   a Rank Up Quest as the event starts. Chocolate CEs now have a special icon in
   the top left corner and it is now possible to get multiple copies of the same
   chocolate if you kept some from previous years!
+hideWhenDone: true
 times:
   - title: Story
     times:
