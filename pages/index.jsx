@@ -15,8 +15,11 @@ import ShopCard from "@components/ShopCard";
 export { getStaticProps } from "src/server/HomePage/";
 export const config = {
   unstable_includeFiles: [
+    "cache/HomePage_backgrounds.json",
+    // TEMP:
     "assets/data/**/*.yml",
-    "public/assets/backgrounds/landing/*.*(png|jpg)"
+    "cache/NA/*.json",
+    "cache/JP/*.json"
   ]
 };
 
