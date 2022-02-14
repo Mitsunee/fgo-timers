@@ -12,6 +12,7 @@ description: >-
   Marie Antoinette and is available at the start and near the end of the availability
   period. Inbetween those there will be 2 simultanous Split Rateup banners featuring
   a variety of other SSR Servants!
+hideWhenDone: true
 times:
   - title: Sei + Sheba + Marie
     date: 2022-02-01 00:00 - 02-02 19:59 PST
