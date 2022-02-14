@@ -11,7 +11,7 @@ import ShopCardListItem from "./ShopCardListItem";
 import ShopCardLimitedItem from "./ShopCardLimitedItem";
 
 export default function ShopCard({ shopData, endsAt }) {
-  const { inventory, limitedInventory, icon, ...cardProps } = shopData;
+  const { inventory, limited, icon, ...cardProps } = shopData;
   const currency = `https://static.atlasacademy.io/${icon}`;
   const endsAtSpaceTime = useMemo(() => spacetime(endsAt), [endsAt]);
   const nextMonthDate = useFormattedSpacetime(endsAtSpaceTime || null, "short");
@@ -34,11 +34,11 @@ export default function ShopCard({ shopData, endsAt }) {
           </p>
         </NoSSR>
       )}
-      {limitedInventory?.length && (
+      {limited?.length > 0 && (
         <>
           <h2>Special Inventory</h2>
           <FGOItemList>
-            {limitedInventory.map(data => (
+            {limited.map(data => (
               <ShopCardLimitedItem
                 key={data.name}
                 currency={currency}
