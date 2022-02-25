@@ -18,3 +18,4 @@ times:
         date: 2022-02-24 20:00 PST
       - title: Quest 6
         date: 2022-02-25 20:00 PST
+hideWhenDone: true
