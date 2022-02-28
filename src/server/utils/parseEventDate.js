@@ -55,7 +55,7 @@ export function parseEventDate(
   }
 
   const match = date.match(
-    /(?<date>\d{4}-\d{2}-\d{2}) (?<time>\d{2}:\d{2}) (?<timezone>P[DS]T)/i
+    /^(?<date>\d{4}-\d{2}-\d{2}) (?<time>\d{2}:\d{2}) (?<timezone>P[DS]T)$/i
   );
   if (!match) {
     throw createServerError(`Couldn't parse Date '${date}'`, parent);
