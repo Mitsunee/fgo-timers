@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
 
-export { getStaticProps } from "src/server/HomePage/";
+//export { getStaticProps } from "src/server/HomePage/";
+
+// TEMP: prevent build
+export async function getStaticProps() {
+  throw Error("Do not deploy this branch yet");
+}
+
 import styles from "@styles/HomePage.module.css";
 import { useRecurringEvent } from "@utils/hooks/useRecurringEvent";
 import Meta from "@components/Meta";

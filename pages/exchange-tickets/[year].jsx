@@ -119,6 +119,8 @@ export async function getStaticPaths() {
   };
 }
 
+// TEMP: disable SSG that uses old cache directories
+/*
 export async function getStaticProps(context) {
   // read ticket file
   const year = context.params.year;
@@ -157,3 +159,4 @@ export async function getStaticProps(context) {
 
   return { props: { tickets, years, self: year } };
 }
+*/
