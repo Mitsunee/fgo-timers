@@ -6,7 +6,7 @@
   "scripts": {
     "prepare": "simple-git-hooks",
     "dev": "next dev",
-    "build": "next build",
+    "build": "node --version && next build",
     "start": "next start",
     "lint": "eslint .",
     "format": "prettier -w ."
@@ -68,5 +68,8 @@
     "svgo": "^2.7.0",
     "typescript": "^4.5.4",
     "yaml": "^1.10.2"
+  },
+  "engines": {
+    "node": "^14"
   }
 }
