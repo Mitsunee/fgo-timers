@@ -1973,10 +1973,10 @@ path-type@^4.0.0:
   resolved "https://registry.yarnpkg.com/path-type/-/path-type-4.0.0.tgz#84ed01c0a7ba380afe09d90a8c180dcd9d03043b"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
 
-picoapi@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/picoapi/-/picoapi-0.1.0.tgz#52836f35c5162769926ebe62fff0b00a11959523"
-  integrity sha512-q7+uJWkj3kZ/1r4M6IqtW7/Op4+hRX9F9et3qRGgpRqkyn3RrrAsZzJNdFF2w3jTknU2U9gP8bW9aOnTSaU8nQ==
+picoapi@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/picoapi/-/picoapi-0.1.1.tgz#12add702837a7d1daa53aa9f1a73f0a04b20cfdb"
+  integrity sha512-fEEKTylyVYKfyXVY+dBHQeopR07SCr/Gz0n9BnfRaXQXElGOgajwpXt9CetHQJXl6KkZyx/odaiKHcdoyS+SLw==
 
 picocolors@^1.0.0:
   version "1.0.0"
