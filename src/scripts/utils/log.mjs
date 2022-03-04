@@ -1,12 +1,17 @@
 import picocolors from "picocolors";
 
-function _log(prefix, message, parent = false, color = false, level = "log") {
+export function _format(prefix, message, parent = false, color = false) {
   const paddedPrefix = prefix.padEnd(5, " ");
   const coloredPrefix = color ? picocolors[color](paddedPrefix) : paddedPrefix;
-  const fullMessage = `${coloredPrefix} - ${message}${
+
+  return `${coloredPrefix} - ${message}${
     parent ? picocolors.gray(` in '${parent}'`) : ""
   }`;
-  console[level](fullMessage);
+}
+
+function _log(prefix, message, parent = false, color = false, level = "log") {
+  const formattedMessage = _format(prefix, message, parent, color);
+  console[level](formattedMessage);
 }
 
 export function log(message, parent) {

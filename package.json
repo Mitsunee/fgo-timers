@@ -9,7 +9,8 @@
     "build": "node --version && next build",
     "start": "next start",
     "lint": "eslint .",
-    "format": "prettier -w ."
+    "format": "prettier -w .",
+    "test:scripts": "uvu tests/scripts"
   },
   "simple-git-hooks": {
     "pre-commit": "yarn nano-staged"
@@ -67,6 +68,7 @@
     "spacetime": "^7.1.0",
     "svgo": "^2.7.0",
     "typescript": "^4.5.4",
+    "uvu": "^0.5.3",
     "yaml": "^1.10.2"
   },
   "engines": {
