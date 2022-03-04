@@ -7,6 +7,10 @@ export async function getStaticProps() {
   throw Error("Do not deploy this branch yet");
 }
 
+export const config = {
+  unstable_includeFiles: ["assets/static/backgrounds.json"]
+};
+
 import styles from "@styles/HomePage.module.css";
 import { useRecurringEvent } from "@utils/hooks/useRecurringEvent";
 import Meta from "@components/Meta";

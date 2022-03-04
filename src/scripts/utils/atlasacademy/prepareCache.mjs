@@ -1,9 +1,9 @@
 import fetch from "node-fetch";
 import { readFileJson, writeFile } from "@foxkit/node-util/fs";
 import { atlasExport } from "./api.mjs";
-import { log } from "@foxkit/node-util/log";
 
-export const cachePath = ".next/cache/atlasacademy";
+import * as log from "../log.mjs";
+import { cachePath, cacheTargets, cacheVersion } from "./cache.mjs";
 
 async function fetchApiInfo() {
   const res = await fetch("https://api.atlasacademy.io/info");
@@ -13,20 +13,27 @@ async function fetchApiInfo() {
 }
 
 async function getCacheStatus() {
-  const infoLocal = await readFileJson(`${cachePath}/info.json`);
+  let infoLocal = await readFileJson(`${cachePath}/info.json`);
   const info = await fetchApiInfo();
-  const updateNa = !infoLocal || infoLocal.NA < info.NA;
-  const updateJp = !infoLocal || infoLocal.JP < info.JP;
 
+  // throw on unavailable API
   if (!info) {
     throw new Error("Could not reach AtlasAcademy API");
   }
 
-  if (!infoLocal) {
-    log("No local cache found");
+  // invalidate local info on hash missmatch
+  if (infoLocal.version !== cacheVersion) {
+    infoLocal = false;
   }
 
-  return { info, updateNa, updateJp };
+  const updateNa = !infoLocal || infoLocal.NA < info.NA;
+  const updateJp = !infoLocal || infoLocal.JP < info.JP;
+
+  if (!infoLocal) {
+    log.info("No local cache found or version missmatched");
+  }
+
+  return { info: { ...info, version: cacheVersion }, updateNa, updateJp };
 }
 
 async function updateCacheFile(region, file) {
@@ -42,17 +49,13 @@ export async function prepareAtlasCache() {
   const { info, updateNa, updateJp } = await getCacheStatus();
 
   if (updateNa) {
-    await updateCacheFile("NA", "nice_servant.json");
-    await updateCacheFile("NA", "nice_item.json");
-    //await updateCacheFile("NA","nice_equip.json");
-    log.success("Updated AtlasAcademy API NA Cache");
+    await Promise.all(cacheTargets.NA.map(file => updateCacheFile("NA", file)));
+    log.ready("Updated AtlasAcademy API NA Export Cache");
   }
 
   if (updateJp) {
-    await updateCacheFile("JP", "nice_servant_lang_en.json");
-    await updateCacheFile("JP", "nice_item_lang_en.json");
-    //await updateCacheFile("JP","nice_equip_lang_en.json");
-    log.success("Updated AtlasAcademy API JP Cache");
+    await Promise.all(cacheTargets.JP.map(file => updateCacheFile("JP", file)));
+    log.ready("Updated AtlasAcademy API JP Export Cache");
   }
 
   // update local info

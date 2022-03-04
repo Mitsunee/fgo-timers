@@ -1,11 +1,12 @@
-import { generateBackgroundList } from "./generateBackgroundList";
+import { readFileJson } from "@foxkit/node-util/fs";
+
 import { generateEventData } from "./generateEventData";
 import { generateLoginTicketData } from "./generateLoginTicketData";
 import { generateMasterMissionData } from "./generateMasterMissionData";
 import { generatePrismShopData } from "./generatePrismShopData";
 
 export async function getStaticProps() {
-  const backgrounds = await generateBackgroundList();
+  const backgrounds = await readFileJson("assets/static/backgrounds.json");
   const events = await generateEventData();
   const loginTicket = await generateLoginTicketData();
   const masterMissions = await generateMasterMissionData();
