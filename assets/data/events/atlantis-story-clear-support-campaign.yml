@@ -20,3 +20,4 @@ description: >-
 
   Note: Due to an ongoing rewrite the Limited Master Missions may not immediatly
   display on the Timers page.
+hideWhenDone: auto
