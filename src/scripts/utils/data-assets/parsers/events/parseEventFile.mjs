@@ -1,14 +1,9 @@
-/* parseEventFile
- * This module parses event files given a filePath
- */
-
 import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 import { getFileName } from "@foxkit/node-util/path";
-import { log } from "@foxkit/node-util/log";
 
-import { createServerError } from "./createServerError";
-import { parseEventDate } from "./parseEventDate";
-import { parseEventTimes } from "./parseEventTimes";
+import { warn } from "../../../log.mjs";
+import { parseDate } from "../../parseDate.mjs";
+import { parseEventTimes } from "./parseEventTimes.mjs";
 
 const requiredProps = new Map([
   ["title", "string"],
@@ -25,7 +20,7 @@ const optionalProps = new Map([
 
 export async function parseEventFile(filePath) {
   const rawData = await readFileYaml(filePath);
-  if (!rawData) throw new Error(`Could not read file '${filePath}'`);
+  if (!rawData) throw new Error(`Could not read file`);
   const parsedData = new Object();
 
   // slug property
@@ -34,14 +29,13 @@ export async function parseEventFile(filePath) {
   // required properties
   for (const [prop, expectedType] of requiredProps) {
     if (typeof rawData[prop] !== expectedType) {
-      throw createServerError(
-        `Expected required property ${prop} to be type ${expectedType}`,
-        filePath
+      throw new TypeError(
+        `Expected required property ${prop} to be type ${expectedType}`
       );
     }
 
     if (prop === "date") {
-      const [start, end] = parseEventDate(rawData.date, { parent: filePath });
+      const [start, end] = parseDate(rawData.date);
       parsedData.start = start;
       if (end) parsedData.end = end;
       continue;
@@ -55,19 +49,18 @@ export async function parseEventFile(filePath) {
     const isType = typeof rawData[prop];
     if (isType !== expectedType) {
       if (!(rawData[prop] == null || isType === "undefined")) {
-        throw createServerError(
-          `Expected optional property ${prop} to be type ${expectedType}`,
-          filePath
+        throw new TypeError(
+          `Expected optional property ${prop} to be type ${expectedType}`
         );
       }
       // while not having a url is correctly handled in the client it is usually
       // a special case if none is included. Thus a warning is thrown here
-      if (prop === "url") log.warn(`No url in Event '${filePath}'`);
+      if (prop === "url") warn(`No url in Event`);
       continue;
     }
 
     if (prop == "times") {
-      parsedData.times = parseEventTimes(rawData.times, { parent: filePath });
+      parsedData.times = parseEventTimes(rawData.times);
       continue;
     }
 
@@ -77,9 +70,8 @@ export async function parseEventFile(filePath) {
   // hideWhenDone property
   if (rawData.hideWhenDone !== undefined) {
     if (rawData.hideWhenDone !== "auto" && rawData.hideWhenDone !== true) {
-      throw createServerError(
-        `Expected optional property hideWhenDone to be either true or "auto"`,
-        filePath
+      throw new TypeError(
+        `Expected optional property hideWhenDone to be either true or "auto"`
       );
     }
 
