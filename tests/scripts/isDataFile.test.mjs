@@ -1,11 +1,12 @@
 import { test } from "uvu";
-import { ok, not } from "uvu/assert";
+import { ok, not, is } from "uvu/assert";
 import { resolvePath } from "@foxkit/node-util/path";
 import {
   isEventFile,
   isTicketFile,
   isShopFile,
-  isDataFile
+  isDataFile,
+  getDataFileType
 } from "../../src/scripts/utils/data-assets/isDataFile.mjs";
 
 test("isEventFile - reject bad paths", () => {
@@ -59,6 +60,29 @@ test("isDataFile - allow correct paths", () => {
   ok(isDataFile(resolvePath("assets/data/login-tickets/2022.yml")));
   ok(isDataFile(resolvePath("assets/data/manaPrismShop.yml")));
   ok(isDataFile(resolvePath("assets/data/rarePrismShop.yml")));
+});
+
+test("getDataFileType", () => {
+  is(getDataFileType(resolvePath("assets/data/events/testevent.yml")), "event");
+  is(
+    getDataFileType(resolvePath("assets/data/events/test-event.yml")),
+    "event"
+  );
+  is(
+    getDataFileType(resolvePath("assets/data/events/test-event-2.yml")),
+    "event"
+  );
+  is(
+    getDataFileType(resolvePath("assets/data/login-tickets/2019.yml")),
+    "ticketFile"
+  );
+  is(
+    getDataFileType(resolvePath("assets/data/login-tickets/2022.yml")),
+    "ticketFile"
+  );
+  is(getDataFileType(resolvePath("assets/data/manaPrismShop.yml")), "shopFile");
+  is(getDataFileType(resolvePath("assets/data/rarePrismShop.yml")), "shopFile");
+  not(getDataFileType(resolvePath("assets/data/somefile.yml")));
 });
 
 test.run();

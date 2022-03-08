@@ -24,3 +24,10 @@ export function isDataFile(file) {
   if (isEventFile(file) || isTicketFile(file) || isShopFile(file)) return true;
   return false;
 }
+
+export function getDataFileType(file) {
+  if (isEventFile(file)) return "event";
+  if (isTicketFile(file)) return "ticketFile";
+  if (isShopFile(file)) return "shopFile";
+  return false;
+}
