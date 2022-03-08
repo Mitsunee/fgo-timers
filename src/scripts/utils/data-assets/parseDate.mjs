@@ -1,32 +1,22 @@
-/* parseEventDate
- * This module parses Dates and Durations found in data files
- */
-
 import spacetime from "spacetime";
-
-import { createServerError } from "./createServerError";
 
 const tzOffset = new Map([
   ["PST", "-08:00"],
   ["PDT", "-07:00"]
 ]);
 
-function convertDate({ date, time, timezone }) {
+function toTimestamp({ date, time, timezone }) {
   const s = spacetime(`${date}T${time}:00${tzOffset.get(timezone)}`);
 
   return Math.trunc(s.epoch / 1000);
 }
 
-export function parseEventDate(
-  date,
-  { allowDuration = true, parent = null, flat = false }
-) {
+export function parseDate(date, { allowDuration = true, flat = false } = {}) {
   if (date.includes(" - ")) {
     // date is a duration
     if (!allowDuration) {
-      throw createServerError(
-        `Expected date ${date} to Date but received Duration`,
-        parent
+      throw new TypeError(
+        `Expected date ${date} to Date but received Duration`
       );
     }
 
@@ -40,16 +30,8 @@ export function parseEventDate(
       end = `${start.slice(0, 4)}-${end}`;
     }
 
-    start = parseEventDate(start, {
-      allowDuration: false,
-      parent: parent || date,
-      flat: true
-    });
-    end = parseEventDate(end, {
-      allowDuration: false,
-      parent: parent || date,
-      flat: true
-    });
+    start = parseDate(start, { allowDuration: false, flat: true });
+    end = parseDate(end, { allowDuration: false, flat: true });
 
     return [start, end];
   }
@@ -58,9 +40,9 @@ export function parseEventDate(
     /^(?<date>\d{4}-\d{2}-\d{2}) (?<time>\d{2}:\d{2}) (?<timezone>P[DS]T)$/i
   );
   if (!match) {
-    throw createServerError(`Couldn't parse Date '${date}'`, parent);
+    throw new Error(`Couldn't parse Date '${date}'`);
   }
-  const result = convertDate(match.groups);
+  const result = toTimestamp(match.groups);
 
   return flat ? result : [result];
 }
