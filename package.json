@@ -11,7 +11,8 @@
     "lint": "eslint .",
     "format": "prettier -w .",
     "test:scripts": "uvu tests/scripts",
-    "data:check": "node src/scripts/check/check.mjs"
+    "test:data": "node src/scripts/check/check.mjs",
+    "test": "yarn run test:scripts && yarn run test:data --all"
   },
   "simple-git-hooks": {
     "pre-commit": "yarn nano-staged"
