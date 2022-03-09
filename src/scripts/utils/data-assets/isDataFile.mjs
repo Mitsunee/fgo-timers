@@ -16,7 +16,7 @@ export function isTicketFile(file) {
 
 export function isShopFile(file) {
   if (!isInProject(file)) return false;
-  return /assets\/data\/[a-zA-Z]+PrismShop\.yml$/.test(file);
+  return /assets\/data\/(mana|rare)PrismShop\.yml$/.test(file);
 }
 
 export function isDataFile(file) {
