@@ -7,7 +7,7 @@ import {
   isShopFile,
   isDataFile,
   getDataFileType
-} from "../../src/scripts/utils/data-assets/isDataFile.mjs";
+} from "../../../src/scripts/utils/data-assets/isDataFile.mjs";
 
 test("isEventFile - reject bad paths", () => {
   not(isEventFile("/outside-project/assets/data/events/test-event.yml"));
