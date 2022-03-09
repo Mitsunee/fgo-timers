@@ -1,12 +1,9 @@
-name: Lint and Check Formatting
+name: Lint and Test (Data)
 on:
   pull_request:
-    branches:
-      - "*"
     paths:
-      - "pages/**"
-      - "scripts/**"
-      - "src/**"
+      - "assets/**"
+      - "src/scripts/utils/data-assets"
 
 jobs:
   validate:
@@ -21,7 +18,7 @@ jobs:
           cache: yarn
       - name: Install dependencies
         run: yarn install --frozen-lockfile --ignore-scripts
-      - name: Lint
-        run: yarn eslint --max-warnings 0 .
-      - name: Check Formatting
-        run: yarn prettier -c .
+      - name: Check formatting
+        run: yarn prettier -c assets
+      - name: Run tests
+        run: yarn test:data
