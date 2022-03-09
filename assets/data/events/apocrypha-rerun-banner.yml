@@ -1,8 +1,10 @@
 title: '"Revival: Fate/Apocrypha × Fate/Grand Order Special Event Pick-Up Summon (Daily)"!'
 shortTitle: Apocrypha Rerun Banner
 banner: 2022_apocre_pu.png
-date: 2022-03-13 03:00 PST - 03-23 20:59 PDT
+date: 2022-03-10 00:00 PST - 03-23 20:59 PDT
 url: 2022/0307_re_apocrypha_pu/
+hideWhenDone: true
+displayOrder: 2
 times:
   - title: Rateup
     times:
@@ -37,6 +39,10 @@ times:
 description: >-
   This Banner features rateups for many of the servants from Fate/Apocrypha and
   Event Shop currency Craft Essences for the collab Event!
+  
+  Note: The start time from the official news post appears to have an error.
+  The Start time below is based on the rateup schedule
+  (matching the Event's start time as well).
 
   On permanent rateup are: SR Siegfried, SR Atalante, SR Chiron, SR Astolfo (Rider),
   SR Atalante (Alter), SR Frankenstein (Berserker) and Rare Avicebron. SSRs are
