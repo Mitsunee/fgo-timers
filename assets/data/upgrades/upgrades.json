@@ -15332,5 +15332,37 @@
       "icon": "https://static.atlasacademy.io/JP/Faces/f_9011000.png",
       "className": "ruler"
     }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Mental Schism A",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00602.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "矛盾精神 A+",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00602.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94069501,
+      "name": "強化クエスト イヴァン雷帝",
+      "search": "強化クエスト イウァン雷帝",
+      "open": 1646816400,
+      "type": "rankup",
+      "unlock": { "ascension": 4 }
+    },
+    "servant": {
+      "id": 402800,
+      "name": "Ivan the Terrible",
+      "search": "ivan the terrible",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_4028000.png",
+      "className": "rider",
+      "na": true
+    }
   }
 ]
