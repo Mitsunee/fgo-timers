@@ -2,9 +2,8 @@
  * Parses inventory and limitedInventory props of Prism Exchange Shop data for parsePrismShopData
  */
 
-import { createServerError } from "./createServerError";
-import { shortenStaticUrl } from "./shortenStaticUrl";
-import { parseEventDate } from "./parseEventDate";
+import { shortenStaticUrl } from "../../shortenStaticUrl.mjs";
+import { parseDate } from "../../parseDate.mjs";
 
 const baseProps = new Map([
   ["name", "string"],
@@ -16,10 +15,7 @@ const baseProps = new Map([
 
 const limitedProps = new Map([...baseProps.entries(), ["endsAt", "string"]]);
 
-export async function parsePrismShopInventory(
-  data,
-  { parent = null, limited = false }
-) {
+export function parseShopInventory(data, limited = false) {
   const requiredProps = limited ? limitedProps : baseProps;
   const parsedData = new Array();
 
@@ -29,9 +25,8 @@ export async function parsePrismShopInventory(
     // required properties
     for (const [prop, expectedType] of requiredProps) {
       if (typeof rawItem[prop] !== expectedType) {
-        throw createServerError(
-          `Expected required property ${prop} to be type ${expectedType}`,
-          parent
+        throw new TypeError(
+          `Expected required property ${prop} to be type ${expectedType}`
         );
       }
 
@@ -40,10 +35,9 @@ export async function parsePrismShopInventory(
           parsedItem.icon = shortenStaticUrl(rawItem.icon);
           break;
         case "endsAt":
-          parsedItem.ends = parseEventDate(rawItem.endsAt, {
+          parsedItem.ends = parseDate(rawItem.endsAt, {
             allowDuration: false,
-            flat: true,
-            parent
+            flat: true
           });
           break;
         default:
@@ -54,9 +48,8 @@ export async function parsePrismShopInventory(
     // optional properties
     if (rawItem.stack != null) {
       if (typeof rawItem.stack !== "number") {
-        throw createServerError(
-          `Expected optional property stack to be type number`,
-          parent
+        throw new TypeError(
+          `Expected optional property stack to be type number`
         );
       }
       parsedItem.stack = rawItem.stack;
