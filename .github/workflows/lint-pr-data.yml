@@ -21,4 +21,4 @@ jobs:
       - name: Check formatting
         run: yarn prettier -c assets
       - name: Run tests
-        run: yarn test:data
+        run: yarn test:data --all
