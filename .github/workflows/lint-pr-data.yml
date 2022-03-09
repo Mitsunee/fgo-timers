@@ -3,7 +3,7 @@ on:
   pull_request:
     paths:
       - "assets/**"
-      - "src/scripts/utils/data-assets"
+      - "src/scripts/utils/data-assets/**"
 
 jobs:
   validate:
