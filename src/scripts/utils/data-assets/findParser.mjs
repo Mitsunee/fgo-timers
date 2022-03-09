@@ -1,4 +1,5 @@
 import { parseEventFile } from "./parsers/events/parseEventFile.mjs";
+import { parseShopFile } from "./parsers/shopFile/parseShopFile.mjs";
 import { getDataFileType } from "./isDataFile.mjs";
 
 export const parserMap = new Map();
@@ -13,6 +14,9 @@ export function findParser(filePath) {
   switch (fileType) {
     case "event":
       parser = parseEventFile;
+      break;
+    case "shopFile":
+      parser = parseShopFile;
       break;
     default:
       return [null, false];
