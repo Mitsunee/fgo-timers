@@ -1,7 +1,7 @@
 import { test } from "uvu";
 import { equal, throws } from "uvu/assert";
 import { parseDate } from "../../../src/scripts/utils/data-assets/parseDate.mjs";
-import { parseShopInventory } from "../../../src/scripts/utils/data-assets/parsers/shopFile/parseShopInventory.mjs";
+import { parseShopInventory } from "../../../src/scripts/utils/data-assets/parseShopInventory.mjs";
 
 test("can parse regular shop", () => {
   equal(

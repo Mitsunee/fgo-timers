@@ -2,8 +2,8 @@ import { test } from "uvu";
 import * as assert from "uvu/assert";
 import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 import { parseDate } from "../../../src/scripts/utils/data-assets/parseDate.mjs";
-import { parseEventTimes } from "../../../src/scripts/utils/data-assets/parsers/events/parseEventTimes.mjs";
-import { parseEventFile } from "../../../src/scripts/utils/data-assets/parsers/events/parseEventFile.mjs";
+import { parseEventTimes } from "../../../src/scripts/utils/data-assets/parseEventTimes.mjs";
+import { parseEventFile } from "../../../src/scripts/utils/data-assets/parseEventFile.mjs";
 
 test("parsing file", async () => {
   let tmp;

@@ -1,7 +1,7 @@
 import { test } from "uvu";
 import { equal, throws } from "uvu/assert";
 import { parseDate } from "../../../src/scripts/utils/data-assets/parseDate.mjs";
-import { parseEventTimes } from "../../../src/scripts/utils/data-assets/parsers/events/parseEventTimes.mjs";
+import { parseEventTimes } from "../../../src/scripts/utils/data-assets/parseEventTimes.mjs";
 
 test("can parse with date prop", () => {
   equal(

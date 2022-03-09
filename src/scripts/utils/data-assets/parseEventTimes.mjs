@@ -1,4 +1,4 @@
-import { parseDate } from "../../parseDate.mjs";
+import { parseDate } from "./parseDate.mjs";
 
 export function parseEventTimes(times) {
   const parsedTimes = new Array();

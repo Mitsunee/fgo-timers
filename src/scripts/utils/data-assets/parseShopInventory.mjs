@@ -2,8 +2,8 @@
  * Parses inventory and limitedInventory props of Prism Exchange Shop data for parsePrismShopData
  */
 
-import { shortenStaticUrl } from "../../shortenStaticUrl.mjs";
-import { parseDate } from "../../parseDate.mjs";
+import { shortenStaticUrl } from "./shortenStaticUrl.mjs";
+import { parseDate } from "./parseDate.mjs";
 
 const baseProps = new Map([
   ["name", "string"],

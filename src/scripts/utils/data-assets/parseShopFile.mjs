@@ -1,6 +1,6 @@
 import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 
-import { shortenStaticUrl } from "../../shortenStaticUrl.mjs";
+import { shortenStaticUrl } from "./shortenStaticUrl.mjs";
 import { parseShopInventory } from "./parseShopInventory.mjs";
 
 const requiredProps = new Map([

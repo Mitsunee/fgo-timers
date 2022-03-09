@@ -1,8 +1,8 @@
 import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 import { getFileName } from "@foxkit/node-util/path";
 
-import { warn } from "../../../log.mjs";
-import { parseDate } from "../../parseDate.mjs";
+import { warn } from "../log.mjs";
+import { parseDate } from "./parseDate.mjs";
 import { parseEventTimes } from "./parseEventTimes.mjs";
 
 const requiredProps = new Map([

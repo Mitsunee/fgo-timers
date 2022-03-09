@@ -1,5 +1,5 @@
-import { parseEventFile } from "./parsers/events/parseEventFile.mjs";
-import { parseShopFile } from "./parsers/shopFile/parseShopFile.mjs";
+import { parseEventFile } from "./parseEventFile.mjs";
+import { parseShopFile } from "./parseShopFile.mjs";
 import { getDataFileType } from "./isDataFile.mjs";
 
 export const parserMap = new Map();

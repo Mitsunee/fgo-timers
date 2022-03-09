@@ -2,8 +2,8 @@ import { test } from "uvu";
 import * as assert from "uvu/assert";
 import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 import { shortenStaticUrl } from "../../../src/scripts/utils/data-assets/shortenStaticUrl.mjs";
-import { parseShopInventory } from "../../../src/scripts/utils/data-assets/parsers/shopFile/parseShopInventory.mjs";
-import { parseShopFile } from "../../../src/scripts/utils/data-assets/parsers/shopFile/parseShopFile.mjs";
+import { parseShopInventory } from "../../../src/scripts/utils/data-assets/parseShopInventory.mjs";
+import { parseShopFile } from "../../../src/scripts/utils/data-assets/parseShopFile.mjs";
 
 test("parsing file", async () => {
   const [raw, out] = await Promise.all([
