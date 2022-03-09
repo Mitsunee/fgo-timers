@@ -1,6 +1,8 @@
 import "picoapi/node-polyfill";
 import { createApi } from "picoapi";
 
+// TODO: add default headers when that feature is added to picoapi
+
 const basePath = "https://api.atlasacademy.io";
 
 // nice endpoints

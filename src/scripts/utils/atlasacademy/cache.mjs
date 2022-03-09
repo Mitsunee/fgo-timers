@@ -1,4 +1,5 @@
 import { createHash } from "crypto";
+import { readFileJson } from "@foxkit/node-util/fs";
 
 export const cachePath = ".next/cache/atlasacademy";
 
@@ -18,3 +19,7 @@ export const cacheTargets = {
 export const cacheVersion = createHash("md5")
   .update(JSON.stringify(cacheTargets))
   .digest("hex");
+
+export async function readFromCache(region, file) {
+  return readFileJson(`${cachePath}/${region}/${file}`);
+}

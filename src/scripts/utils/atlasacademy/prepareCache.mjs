@@ -13,6 +13,7 @@ async function fetchApiInfo() {
 }
 
 async function getCacheStatus() {
+  // TODO: add a way to skip checking api based on cache age somehow
   let infoLocal = await readFileJson(`${cachePath}/info.json`);
   const info = await fetchApiInfo();
 

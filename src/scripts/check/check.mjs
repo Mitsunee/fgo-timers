@@ -3,6 +3,7 @@ import { readdir } from "fs/promises";
 import { resolvePath, joinPath } from "@foxkit/node-util/path";
 import { fileExists } from "@foxkit/node-util/fs";
 
+import { prepareAtlasCache } from "../utils/atlasacademy/prepareCache.mjs";
 import {
   isEventFile,
   isTicketFile,
@@ -21,6 +22,9 @@ program.option("-f, --file <files...>", "Parse only specific file(s)");
 program.option("-S, --silent", "Run without logging to cli");
 
 async function main(options) {
+  // update cache
+  await prepareAtlasCache();
+
   const targets = new Set();
   const startedAt = Date.now();
   const silent = options.silent;
