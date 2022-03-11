@@ -12,7 +12,7 @@ const optionsBase = {
 };
 
 function watchBundle(dataPath, bundlePath, buildHandler, options = {}) {
-  let timeout;
+  let timeout, hasBuilt;
   // make watcher
   const watcher = chokidar.watch(dataPath, { ...optionsBase, ...options });
   const bundle = new Map();
@@ -20,29 +20,37 @@ function watchBundle(dataPath, bundlePath, buildHandler, options = {}) {
   // bundle methods
   async function writeBundle() {
     await writeFile(bundlePath, buildHandler(bundle));
+    hasBuilt = true;
     log.ready("Built bundle", bundlePath);
   }
 
   function scheduleBuild() {
     if (timeout) clearTimeout(timeout);
-    timeout = setTimeout(writeBundle, 1000);
+    timeout = setTimeout(writeBundle, 2500);
   }
 
   // event handlers
   async function tryParse(path, showLog) {
+    if (showLog) log.info(showLog, path);
     try {
       const { data } = await parseDataFile(path);
       bundle.set(path, data);
-      if (showLog) log.info(showLog, path);
       scheduleBuild();
     } catch (e) {
       log.error(e.message, getFileName(path));
     }
   }
 
+  function removeFile(path) {
+    bundle.delete(path);
+    log.info("File removed", path);
+    scheduleBuild();
+  }
+
   // attach watcher events
-  watcher.on("add", path => tryParse(path, false));
+  watcher.on("add", path => tryParse(path, hasBuilt && "File added"));
   watcher.on("change", path => tryParse(path, "File changed"));
+  watcher.on("unlink", path => removeFile(path));
 }
 
 const handleBuildToArray = bundle => Array.from(bundle.values());
@@ -59,6 +67,7 @@ const handleBuildToObject = bundle => {
 
 (async function main() {
   await prepareAtlasCache();
+
   watchBundle(
     "assets/data/events/*.yml",
     "assets/static/events.json",

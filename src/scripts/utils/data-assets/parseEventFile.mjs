@@ -55,7 +55,7 @@ export async function parseEventFile(filePath) {
       }
       // while not having a url is correctly handled in the client it is usually
       // a special case if none is included. Thus a warning is thrown here
-      if (prop === "url") warn(`No url in Event`);
+      if (prop === "url") warn(`No url in Event`, filePath);
       continue;
     }
 
