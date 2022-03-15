@@ -12,7 +12,7 @@ import NextLogin from "./NextLogin";
 import NextServerMilestone from "./NextServerMilestone";
 
 export default function LoginTicketCard({ items, next }) {
-  const nextMonth = useMemo(() => spacetime(next * 1000), [next]);
+  const nextMonth = useMemo(() => spacetime(next), [next]);
   const nextMonthDate = useFormattedSpacetime(nextMonth, "short");
   const nextMonthDelta = useFormattedDelta(nextMonth);
 

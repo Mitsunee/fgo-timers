@@ -8,7 +8,12 @@ export async function getStaticProps() {
 }
 
 export const config = {
-  unstable_includeFiles: ["assets/static/backgrounds.json"]
+  unstable_includeFiles: [
+    "assets/static/backgrounds.json",
+    "assets/static/events.json",
+    "assets/static/loginTickets.json",
+    "assets/static/prismShops.json"
+  ]
 };
 
 import styles from "@styles/HomePage.module.css";
@@ -33,6 +38,7 @@ export default function HomePage({
   const [background, setBackground] = useState(null);
   const mpShopReset = useRecurringEvent({ day: 1, hour: 0, tz: "utc" });
   const rpShopReset = useRecurringEvent({ day: 15, hour: 0, tz: "utc" });
+  const loginTicketReset = useRecurringEvent({ day: 2, hour: 5, tz: "utc" });
 
   // Effect sets random background to state to avoid SSR missmatches
   useEffect(() => {
@@ -76,11 +82,11 @@ export default function HomePage({
       </section>
       <Headline>Timers</Headline>
       <CardGrid>
-        <LoginTicketCard items={loginTicket.items} next={loginTicket.next} />
+        <LoginTicketCard items={loginTicket} next={loginTicketReset} />
         <MasterMissionCard data={masterMissions} />
         <ChaldeaGateCard />
-        <ShopCard shopData={shopData.mpShop} endsAt={mpShopReset} />
-        <ShopCard shopData={shopData.rpShop} endsAt={rpShopReset} />
+        <ShopCard shopData={shopData.mp} endsAt={mpShopReset} />
+        <ShopCard shopData={shopData.rp} endsAt={rpShopReset} />
       </CardGrid>
     </>
   );

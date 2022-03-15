@@ -6,6 +6,7 @@ import { createServerError } from "../utils/createServerError";
 import { parseMasterMission } from "../utils/parseMasterMission";
 
 export async function generateMasterMissionData() {
+  // TODO: implement redis caching
   const now = getCurrentTime();
   const parsedMissionData = new Array();
   const res = await fetchJson(
