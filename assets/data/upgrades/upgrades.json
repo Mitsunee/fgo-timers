@@ -15370,5 +15370,86 @@
       "className": "ruler",
       "na": true
     }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Tesla Coil A+",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00602.png",
+      "border": "gold",
+      "na": true
+    },
+    "skill": {
+      "name": "テスラコイル A++",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00602.png",
+      "border": "red"
+    },
+    "quest": {
+      "id": 94068002,
+      "name": "強化クエスト ニコラ・テスラ 2",
+      "search": "強化クエスト ニコラ・テスラ 2",
+      "open": 1647421200,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          {
+            "name": "Humanity's Mythology, Thunder and Lightning Descend",
+            "id": 91201102,
+            "na": true
+          },
+          { "name": "Rank Up Quest: Nikola Tesla", "id": 94014413, "na": true }
+        ]
+      }
+    },
+    "servant": {
+      "id": 201100,
+      "name": "Nikola Tesla",
+      "search": "nikola tesla",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_2011000.png",
+      "className": "archer",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Mass Production A",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00605.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "大量生産 A+",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00605.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94068001,
+      "name": "強化クエスト トーマス・エジソン 3",
+      "search": "強化クエスト トマス・エシソン 3",
+      "open": 1647421200,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          {
+            "name": "Rank Up Quest: Thomas Edison 2",
+            "id": 94035603,
+            "na": true
+          }
+        ]
+      }
+    },
+    "servant": {
+      "id": 502500,
+      "name": "Thomas Edison",
+      "search": "thomas edison",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_5025000.png",
+      "className": "caster",
+      "na": true
+    }
   }
 ]
