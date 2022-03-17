@@ -1,4 +1,5 @@
 import { prepareAtlasCache } from "../utils/atlasacademy/prepareCache.mjs";
+import { watchSvgs } from "./watchSvgs.mjs";
 import { watchBackgrounds } from "./watchBackgrounds.mjs";
 import { watchBundle } from "./watchBundle.mjs";
 import { buildToArray, buildToObject } from "./builders.mjs";
@@ -8,6 +9,7 @@ import { buildToArray, buildToObject } from "./builders.mjs";
 (async function main() {
   await prepareAtlasCache();
 
+  watchSvgs();
   watchBackgrounds();
   watchBundle(
     "assets/data/events/*.yml",
