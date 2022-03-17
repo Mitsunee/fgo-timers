@@ -5,6 +5,7 @@ import { join } from "path";
 import { getComponentName } from "../utils/svg/getComponentName.mjs";
 import { buildSVGComponent } from "../utils/svg/buildComponent.mjs";
 import { buildSVGComponentIndex } from "../utils/svg/buildComponentIndex.mjs";
+import { cleanupSVGComponentFiles } from "../utils/svg/cleanupComponentFiles.mjs";
 import { ready, error } from "../utils/log.mjs";
 
 export async function buildSVGComponents() {
@@ -50,10 +51,7 @@ export async function buildSVGComponents() {
 
   await Promise.all(files.map(buildSVGComponent));
   await buildSVGComponentIndex(components);
-
-  // TODO: cleanup deleted icons
-  // TODO: CI integration?
-  // TODO: delete old code
+  await cleanupSVGComponentFiles(components);
 
   const duration = Date.now() - start;
   ready(

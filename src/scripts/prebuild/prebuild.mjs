@@ -11,6 +11,7 @@ import { buildSVGComponents } from "./buildSVGComponents.mjs";
 
   // TODO: prepare master missions in redis
   // TODO: handle returns below (where false means an error occured)
+  // TODO: filter and trim events
 
   // run bundlers
   await Promise.all([
