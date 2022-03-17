@@ -8,7 +8,6 @@ import { parseTicketFile } from "../utils/data-assets/parseTicketFile.mjs";
 import { ready } from "../utils/log.mjs";
 
 export async function bundleLoginTickets() {
-  const start = Date.now();
   const path = resolvePath("assets/data/login-tickets/");
   const dir = await readdir(path);
   const files = dir.map(file => join(path, file)).filter(isTicketFile);
@@ -21,9 +20,7 @@ export async function bundleLoginTickets() {
   const data = Object.fromEntries(dataEntries);
 
   await writeFile("assets/static/loginTickets.json", data);
-  const duration = Date.now() - start;
-  ready(
-    `Built login-tickets bundle (in ${duration}ms)`,
-    "assets/static/loginTickets.json"
-  );
+
+  ready("Built login-tickets bundle", "assets/static/loginTickets.json");
+  return true;
 }

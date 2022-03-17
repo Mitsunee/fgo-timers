@@ -8,7 +8,6 @@ import { parseEventFile } from "../utils/data-assets/parseEventFile.mjs";
 import { ready } from "../utils/log.mjs";
 
 export async function bundleEvents() {
-  const start = Date.now();
   const path = resolvePath("assets/data/events/");
   const dir = await readdir(path);
   const files = dir.map(file => join(path, file));
@@ -22,6 +21,7 @@ export async function bundleEvents() {
   });
 
   await writeFile("assets/static/events.json", dataSorted);
-  const duration = Date.now() - start;
-  ready(`Built events bundle (in ${duration}ms)`, "assets/static/events.json");
+
+  ready("Built events bundle", "assets/static/events.json");
+  return true;
 }

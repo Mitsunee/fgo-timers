@@ -9,16 +9,17 @@ import { buildSVGComponents } from "./buildSVGComponents.mjs";
   // update cache
   await prepareAtlasCache();
 
-  // TODO: prepare master missions in redis
-  // TODO: handle returns below (where false means an error occured)
-  // TODO: filter and trim events
+  // TODO: prepare master missions in redis?
 
   // run bundlers
-  await Promise.all([
+  const success = await Promise.all([
     buildSVGComponents(),
     bundleBackgrounds(),
     bundleEvents(),
     bundleLoginTickets(),
     bundlePrismShops()
   ]);
+
+  // exit with 0 or 1 depending on if all build steps completed correctly
+  process.exit(success.every(res => res === true) ? 0 : 1);
 })();

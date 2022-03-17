@@ -10,7 +10,6 @@ import { removeSvgComponent } from "../utils/svg/removeComponent.mjs";
 import { ready, error } from "../utils/log.mjs";
 
 export async function buildSVGComponents() {
-  const start = Date.now();
   const path = resolvePath("assets/svg/");
   const dir = await readdir(path);
   const components = new Set();
@@ -46,7 +45,6 @@ export async function buildSVGComponents() {
       );
     }
 
-    error("Halted build process due to naming conflicts");
     return false;
   }
 
@@ -58,10 +56,7 @@ export async function buildSVGComponents() {
     await Promise.all(cleanup.map(file => removeSvgComponent(file)));
   }
 
-  const duration = Date.now() - start;
-  ready(
-    `Built SVG Icon Components (in ${duration}ms)`,
-    "assets/svg/!(*inkscape).svg"
-  );
+  // NOTE: change when moving client src
+  ready("Built SVG Icon Components", "src/components/icons/");
   return true;
 }
