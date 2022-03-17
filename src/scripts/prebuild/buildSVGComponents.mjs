@@ -5,7 +5,8 @@ import { join } from "path";
 import { getComponentName } from "../utils/svg/getComponentName.mjs";
 import { buildSVGComponent } from "../utils/svg/buildComponent.mjs";
 import { buildSVGComponentIndex } from "../utils/svg/buildComponentIndex.mjs";
-import { cleanupSVGComponentFiles } from "../utils/svg/cleanupComponentFiles.mjs";
+import { findDeprecatedComponents } from "../utils/svg/findDeprecatedComponents.mjs";
+import { removeSvgComponent } from "../utils/svg/removeComponent.mjs";
 import { ready, error } from "../utils/log.mjs";
 
 export async function buildSVGComponents() {
@@ -51,7 +52,11 @@ export async function buildSVGComponents() {
 
   await Promise.all(files.map(buildSVGComponent));
   await buildSVGComponentIndex(components);
-  await cleanupSVGComponentFiles(components);
+  const cleanup = await findDeprecatedComponents(components);
+
+  if (cleanup.length > 0) {
+    await Promise.all(cleanup.map(file => removeSvgComponent(file)));
+  }
 
   const duration = Date.now() - start;
   ready(
