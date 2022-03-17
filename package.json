@@ -28,6 +28,12 @@
     ],
     "**/!(*inkscape).svg": [
       "svgo"
+    ],
+    "assets/data/{events,login-tickets}/*.yml": [
+      "node src/scripts/check/check.mjs --silent --file"
+    ],
+    "assets/data/{mana,rare}PrismShop.yml": [
+      "node src/scripts/check/check.mjs --silent --file"
     ]
   },
   "browserslist": [

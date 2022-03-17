@@ -126,5 +126,3 @@ async function main(options) {
 // run program
 program.parse();
 main(program.opts());
-
-// TODO: nano-staged patterns
