@@ -7,9 +7,10 @@ const eventProperties = new Set([
   "shortTitle",
   "slug",
   "banner",
-  "start",
-  "end"
+  "start"
 ]);
+
+const optionalEventProperties = new Set(["end", "displayOrder"]);
 
 export async function generateEventData() {
   const eventFiles = await getFileList("assets/data/events");
@@ -33,8 +34,17 @@ export async function generateEventData() {
       event[prop] = data[prop];
     }
 
-    // displayOrder property (optional)
-    event.order = data.displayOrder || 0;
+    // optional properties
+    for (const prop of optionalEventProperties) {
+      // check displayOrder first at it has a default value
+      if (prop === "displayOrder") {
+        event.order = data.displayOrder || 0;
+        continue;
+      }
+
+      if (!data[prop]) continue;
+      event[prop] = data[prop];
+    }
 
     events.push(event);
   }
