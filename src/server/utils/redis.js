@@ -81,8 +81,7 @@ class Hash {
     }
 
     // run command
-    const res = await db.hset(this.name, ...query);
-    if (res !== "OK") return Promise.reject(`Unknown error, returned: ${res}`);
+    await db.hset(this.name, ...query);
     return true;
   }
 
@@ -120,10 +119,10 @@ class Hash {
 
     const results = new Map();
     const res = await db.hgetallBuffer(this.name);
-    for (let i = 0; i < res.length; i += 2) {
-      const val = res[i];
+    const entries = Object.entries(res);
+    for (const [key, val] of entries) {
       const unpacked = val === null ? null : unpack(val);
-      results.set(res[i], unpacked);
+      results.set(key, unpacked);
     }
     return results;
   }
