@@ -42,6 +42,8 @@
     "not ie 11"
   ],
   "dependencies": {
+    "ioredis": "^4.28.5",
+    "msgpackr": "^1.5.5",
     "next": "12.1.0",
     "picoapi": "^0.1.1",
     "react": "17.0.2",
