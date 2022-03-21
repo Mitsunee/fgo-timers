@@ -4,7 +4,7 @@ This file contains general information for getting started working with the code
 
 ## Getting Started
 
-First make sure you have nodejs and yarn installed, then clone and install the repository:
+First make sure you have nodejs, yarn and redis installed, then clone and install the repository:
 
 ```shell
 git clone git@github.com:mitsunee/fgo-tools.git
@@ -12,31 +12,37 @@ cd fgo-tools
 yarn install
 ```
 
-## Development Startup
+This project uses [redis](https://redis.io/) for caching. To set up redis copy the `.env.example` file to `.env.local` and edit the `REDIS_URL` key to point to your testing instance. Feel free to make a directory `.dev` to store your redis config and `dump.rdb` files.
 
-Run `yarn dev` to start the development server locally on your system, then visit [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Development Server Startup
 
-## Paths and aliases
+Start your redis server and then run `yarn dev:data` and `yarn dev` in separate terminals to start the development servers locally on your system, then visit [http://localhost:3000](http://localhost:3000) with your browser to see the result. If you do not intend to edit data assets (in `./assets/`) you may choose to run `yarn prebuild` once instead of keeping `yarn dev:data` open.
 
-- assets: Contains raw assets and data for staticially generated pages
+## Directories in this repository
+
+**Note:** Directory Structure is currently changing, docs will be updated later
+
+- assets: Contains all data assets, images in original resolution and currently unused images
 - pages: Contains all pages and api routes
 - public: Contains files that will get served in `/` alongside the app
-- scripts: Contains project and data generation scripts as well as their utilities
-  - note that all files in here should be ESM and use the `.mjs` file extension. They are currently not compatible with utils in `./src/utils`!
+- scripts: (deprecated) old nodejs scripts that haven't been ported yet
 - src:
-  - components: (alias `"@components"`) Contains React components. Note that as a convention only the `index.js` of each component is meant to be imported. This file should either default export the component or in rare cases named export the component and any Parent/Child components intended to be used with it.
+  - components: Contains React components. Note that as a convention only the `index.js` of each component is meant to be imported
+  - scripts: MJS scripts for various tasks in this repository (such as build data bundles)
   - server: new location for all SSG, SSR and related util functions
-  - stores: (alias `"@stores"`) Contains all stores and their logic
-  - styles: (alias `"@styles"`) Contains CSS Modules for all pages, the global stylesheet and theme configs
-  - utils: (alias `"@utils"`) contains utility functions
+  - stores: Contains all stores and their logic
+  - styles: Contains CSS Modules for all pages, the global stylesheet and theme configs
+  - utils: Contains utility functions
     - hooks: contains React hooks
     - server: old SSG utils (currently getting rewritten)
-
-To make new pages and components you can use the `new` script. See `yarn new --help` for more inforation.
+- tests:
+  - \_\_mockups\_\_: Contains mock assets used in tests
+  - scripts: Contains all tests for utils used by scripts in `./src/scripts`. Uses `uvu` test runner via `yarn test:scripts`
 
 ## Environment Variables
 
-- `NEXT_PUBLIC_DOMAIN`: Domain name used for meta images. Do not include any preceeding or following slashes or protocols. The protocol `https://` will be used by the Meta component.
+- `REDIS_URL`: `redis://` or `rediss://` url to the redis server to be used for caching.
+- `NEXT_PUBLIC_DOMAIN`: Domain name used for meta images. Do not include any preceeding or following slashes or protocols. The protocol `https://` will be used by the Meta component. (not used in development)
 
 ## Code Guidelines
 

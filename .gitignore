@@ -1,9 +1,11 @@
-/node_modules
+/node_modules/
 /.next/
+/.dev/
 /out/
 *.log
 .DS_Store
 .env
 .env.*
+!.env.example
 .vercel
 /assets/static/
