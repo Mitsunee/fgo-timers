@@ -23,7 +23,7 @@ export async function set(...args) {
 
   // pack values
   const query = new Array();
-  for (let i = 0; i < args.length; args += 2) {
+  for (let i = 0; i < args.length; i += 2) {
     query.push(args[i], pack(args[i + 1]));
   }
 
@@ -76,7 +76,7 @@ class Hash {
 
     // pack values
     const query = new Array();
-    for (let i = 0; i < args.length; args += 2) {
+    for (let i = 0; i < args.length; i += 2) {
       query.push(args[i], pack(args[i + 1]));
     }
 
