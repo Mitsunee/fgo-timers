@@ -85,8 +85,8 @@ export default function HomePage({
         <LoginTicketCard items={loginTicket} next={loginTicketReset} />
         <MasterMissionCard data={masterMissions} />
         <ChaldeaGateCard />
-        <ShopCard shopData={shopData.mp} endsAt={mpShopReset} />
-        <ShopCard shopData={shopData.rp} endsAt={rpShopReset} />
+        <ShopCard shopData={shopData.manaPrismShop} endsAt={mpShopReset} />
+        <ShopCard shopData={shopData.rarePrismShop} endsAt={rpShopReset} />
       </CardGrid>
     </>
   );

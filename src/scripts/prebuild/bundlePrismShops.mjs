@@ -4,11 +4,11 @@ import { parseShopFile } from "../utils/data-assets/parseShopFile.mjs";
 import { ready } from "../utils/log.mjs";
 
 export async function bundlePrismShops() {
-  const [mpShopData, rpShopData] = await Promise.all([
+  const [manaPrismShop, rarePrismShop] = await Promise.all([
     parseShopFile("assets/data/manaPrismShop.yml"),
     parseShopFile("assets/data/rarePrismShop.yml")
   ]);
-  const data = { mp: mpShopData, rp: rpShopData };
+  const data = { manaPrismShop, rarePrismShop };
 
   await writeFile("assets/static/prismShops.json", data);
 

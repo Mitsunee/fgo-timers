@@ -23,7 +23,7 @@ import { buildToArray, buildToObject } from "./builders.mjs";
   );
   watchBundle(
     ["assets/data/manaPrismShop.yml", "assets/data/rarePrismShop.yml"],
-    "assets/static/shops.json",
+    "assets/static/prismShops.json",
     buildToObject,
     { disableGlobbing: true }
   );
