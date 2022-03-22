@@ -14,4 +14,4 @@ export const atlasBasicNa = createApi(`${basePath}/basic/NA`);
 export const atlasBasicJp = createApi(`${basePath}/basic/JP`);
 
 // exports endpoints
-export const atlasExport = createApi(`${basePath}/export`);
+export const atlasExport = createApi(`${basePath}/export`); // NOTE: add transformer to enforce .json ext

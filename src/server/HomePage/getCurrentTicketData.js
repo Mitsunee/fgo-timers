@@ -1,10 +1,10 @@
 import spacetime from "spacetime";
-import { readFileJson } from "@foxkit/node-util/fs";
 
+import { readStaticBundle } from "../utils/static";
 import { createServerError } from "../utils/createServerError";
 
 export async function getCurrentTicketData() {
-  const ticketsData = await readFileJson("assets/static/loginTickets.json");
+  const ticketsData = await readStaticBundle("loginTickets");
   const now = spacetime.now().goto("America/Los_Angeles");
   const data = ticketsData[now.year()][now.format("month-short")];
 
