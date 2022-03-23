@@ -9,8 +9,6 @@ import { buildSVGComponents } from "./buildSVGComponents.mjs";
   // update cache
   await prepareAtlasCache();
 
-  // TODO: prepare master missions in redis?
-
   // run bundlers
   const success = await Promise.all([
     buildSVGComponents(),
