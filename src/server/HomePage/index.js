@@ -1,7 +1,8 @@
 import { getCurrentTime } from "../utils/time";
+import { readStaticBundle } from "../utils/static";
+import { getCurrentEvents } from "./getCurrentEvents";
 import { getCurrentTicketData } from "./getCurrentTicketData";
 import { getCurrentMasterMissions } from "./getCurrentMasterMissions";
-import { readStaticBundle } from "../utils/static";
 
 export async function getStaticProps() {
   const now = getCurrentTime();
@@ -9,7 +10,7 @@ export async function getStaticProps() {
   const [backgrounds, events, loginTicket, shopData, masterMissions] =
     await Promise.all([
       readStaticBundle("backgrounds"),
-      readStaticBundle("events"),
+      getCurrentEvents(now),
       getCurrentTicketData(now),
       readStaticBundle("prismShops"),
       getCurrentMasterMissions(now)
