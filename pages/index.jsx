@@ -1,11 +1,6 @@
 import { useState, useEffect } from "react";
 
-//export { getStaticProps } from "src/server/HomePage/";
-
-// TEMP: prevent build
-export async function getStaticProps() {
-  throw Error("Do not deploy this branch yet");
-}
+export { getStaticProps } from "src/server/HomePage/";
 
 export const config = {
   unstable_includeFiles: [

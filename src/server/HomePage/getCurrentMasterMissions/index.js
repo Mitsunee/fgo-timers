@@ -1,12 +1,10 @@
 import { isClamped } from "foxkit/clamp";
 
-import { getCurrentTime } from "src/server/utils/time";
 import { fetchMasterMissions } from "./fetchMasterMissions";
 import { parseMasterMission } from "./parseMasterMission";
 import { warn } from "src/server/utils/log";
 
-export async function getCurrentMasterMissions() {
-  const now = getCurrentTime();
+export async function getCurrentMasterMissions(now) {
   const { weeklyMissions, limitedMissions } = await fetchMasterMissions(now);
 
   const isActive = ({ startedAt, endedAt }) =>

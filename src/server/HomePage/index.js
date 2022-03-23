@@ -1,16 +1,18 @@
+import { getCurrentTime } from "../utils/time";
 import { getCurrentTicketData } from "./getCurrentTicketData";
 import { getCurrentMasterMissions } from "./getCurrentMasterMissions";
 import { readStaticBundle } from "../utils/static";
 
 export async function getStaticProps() {
+  const now = getCurrentTime();
   // TODO: re-implement event hiding!
   const [backgrounds, events, loginTicket, shopData, masterMissions] =
     await Promise.all([
       readStaticBundle("backgrounds"),
       readStaticBundle("events"),
-      getCurrentTicketData(),
+      getCurrentTicketData(now),
       readStaticBundle("prismShops"),
-      getCurrentMasterMissions()
+      getCurrentMasterMissions(now)
     ]);
 
   return {
