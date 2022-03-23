@@ -1,5 +1,5 @@
 import { getCurrentTicketData } from "./getCurrentTicketData";
-import { generateMasterMissionData } from "./generateMasterMissionData";
+import { getCurrentMasterMissions } from "./getCurrentMasterMissions";
 import { readStaticBundle } from "../utils/static";
 
 export async function getStaticProps() {
@@ -10,7 +10,7 @@ export async function getStaticProps() {
       readStaticBundle("events"),
       getCurrentTicketData(),
       readStaticBundle("prismShops"),
-      generateMasterMissionData()
+      getCurrentMasterMissions()
     ]);
 
   return {

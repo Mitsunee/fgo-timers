@@ -1,7 +1,3 @@
-/* parseMasterMission
- * Parses Set of Master Missions
- */
-
 function parseMissionDetail(detail) {
   // /^\[|\]$/g matches square brackets wrapping the entire string
   // ^\[[a-f0-9]{6}\] matches color tags used in game data
