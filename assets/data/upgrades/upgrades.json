@@ -1821,28 +1821,6 @@
   {
     "target": "sq",
     "quest": {
-      "id": 91104201,
-      "name": "導きの星をさがして",
-      "search": "導きの星をさかして",
-      "open": 1607936400,
-      "type": "interlude",
-      "unlock": {
-        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
-        "ascension": 2,
-        "bond": 5
-      }
-    },
-    "servant": {
-      "id": 104200,
-      "name": "Dioscuri",
-      "search": "dioscuri",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_1042000.png",
-      "className": "saber"
-    }
-  },
-  {
-    "target": "sq",
-    "quest": {
       "id": 91104601,
       "name": "我が身、憶えはなかれども…",
       "search": "我か身、憶えはなかれとも…",
@@ -5000,62 +4978,6 @@
       "icon": "https://static.atlasacademy.io/JP/Faces/f_3039000.png",
       "className": "lancer",
       "na": true
-    }
-  },
-  {
-    "target": "skill",
-    "initial": {
-      "name": "略奪の鉾 B",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00515.png",
-      "border": "black"
-    },
-    "skill": {
-      "name": "簒奪の鉾 A",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00515.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 91304101,
-      "name": "垣間見えた過去、その欠片を",
-      "search": "垣間見えた過去、その欠片を",
-      "open": 1624438800,
-      "type": "interlude",
-      "unlock": {
-        "quest": [{ "name": "続く旅路", "id": 3000628 }],
-        "ascension": 4,
-        "bond": 5
-      }
-    },
-    "servant": {
-      "id": 304100,
-      "name": "Caenis (Lancer)",
-      "search": "caenis",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_3041000.png",
-      "className": "lancer"
-    }
-  },
-  {
-    "target": "sq",
-    "quest": {
-      "id": 91304201,
-      "name": "我が手のもたらす罪",
-      "search": "我か手のもたらす罪",
-      "open": 1607936400,
-      "type": "interlude",
-      "unlock": {
-        "quest": [{ "name": "Return", "id": 1000822, "na": true }],
-        "ascension": 3,
-        "bond": 5
-      }
-    },
-    "servant": {
-      "id": 304200,
-      "name": "Romulus-Quirinus",
-      "search": "romulus-quirinus",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_3042000.png",
-      "className": "lancer"
     }
   },
   {
@@ -15449,6 +15371,90 @@
       "search": "thomas edison",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_5025000.png",
       "className": "caster",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91104201,
+      "name": "導きの星をさがして",
+      "search": "導きの星をさかして",
+      "open": 1607936400,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
+        "ascension": 2,
+        "bond": 5
+      }
+    },
+    "servant": {
+      "id": 104200,
+      "name": "Dioscuri",
+      "search": "dioscuri",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_1042000.png",
+      "className": "saber",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Pillaging Spear B",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00515.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "簒奪の鉾 A",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00515.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 91304101,
+      "name": "垣間見えた過去、その欠片を",
+      "search": "垣間見えた過去、その欠片を",
+      "open": 1624438800,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          { "name": "The Journey Continues", "id": 3000628, "na": true }
+        ],
+        "ascension": 4,
+        "bond": 5
+      }
+    },
+    "servant": {
+      "id": 304100,
+      "name": "Caenis (Lancer)",
+      "search": "caenis",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_3041000.png",
+      "className": "lancer",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91304201,
+      "name": "我が手のもたらす罪",
+      "search": "我か手のもたらす罪",
+      "open": 1607936400,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "Return", "id": 1000822, "na": true }],
+        "ascension": 3,
+        "bond": 5
+      }
+    },
+    "servant": {
+      "id": 304200,
+      "name": "Romulus=Quirinus",
+      "search": "romulus=quirinus",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_3042000.png",
+      "className": "lancer",
       "na": true
     }
   }
