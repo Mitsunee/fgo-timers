@@ -15457,5 +15457,62 @@
       "className": "lancer",
       "na": true
     }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Dragon Modification EX",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00306.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Dragon Modification EX",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00306.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94070401,
+      "name": "強化クエスト シグルド 2",
+      "search": "強化クエスト シクルト 2",
+      "open": 1648630800,
+      "type": "rankup",
+      "unlock": {
+        "quest": [{ "name": "強化クエスト シグルド", "id": 94052080 }]
+      }
+    },
+    "servant": {
+      "id": 103300,
+      "name": "Sigurd",
+      "search": "sigurd",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_1033000.png",
+      "className": "saber",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91503901,
+      "name": "無間氷炎の世紀を超えて",
+      "search": "無間氷炎の世紀を超えて",
+      "open": 1648630800,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "了", "id": 3001009 }],
+        "ascension": 4,
+        "bond": 5
+      }
+    },
+    "servant": {
+      "id": 503900,
+      "name": "Scáthach-Skadi",
+      "search": "scathach-skadi",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_5039000.png",
+      "className": "caster",
+      "na": true
+    }
   }
 ]
