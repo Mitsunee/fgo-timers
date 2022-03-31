@@ -1,5 +1,5 @@
 title: Olympus Pickup Summon
-shortTitle: Lostbelt 5.2 Banner
+shortTitle: Lostbelt 5.2 Banner 1
 banner: 2022_lb5.2_pu1.png
 url: 2022/0324_olympus_pu/
 date: 2022-03-24 01:00 - 04-06 20:59 PDT
@@ -22,4 +22,4 @@ times:
     date: 2022-04-06 21:00 PDT
   - title: "'The Beauty at the Window' removed"
     date: 2022-04-06 21:00 PDT
-displayOrder: 2
+hideWhenDone: auto
