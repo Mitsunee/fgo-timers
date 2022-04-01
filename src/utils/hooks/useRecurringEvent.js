@@ -10,7 +10,9 @@ export function useRecurringEvent(options) {
   const { interval } = useStore(intervalStore);
 
   // options cached on first render and never updated!
-  optionsRef.current ??= options;
+  if (optionsRef.current === null) {
+    optionsRef.current = options;
+  }
 
   useEffect(() => {
     const { day, hour, tz } = optionsRef.current;

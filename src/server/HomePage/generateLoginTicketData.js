@@ -5,7 +5,12 @@ import { getCurrentTime } from "../utils/getCurrentTime";
 import { parseTicketData } from "../utils/parseTicketData";
 
 export async function generateLoginTicketData() {
-  const now = spacetime(getCurrentTime() * 1000, "America/Los_Angeles");
+  let now = spacetime(getCurrentTime() * 1000, "etc/utc");
+  if (now.hour24() < 4) {
+    // if it's before 4am travel back to yesterday
+    now = now.subtract(12, "hours");
+  }
+
   const currentYear = now.year();
   const currentMonth = now.format("month-short");
 
@@ -24,9 +29,7 @@ export async function generateLoginTicketData() {
   const items = await parseTicketData(data[currentMonth]);
 
   // find next reset
-  let next = now.next("month").time("20:00", true);
-  if (next.isDST()) next = next.add(1, "hour");
-  next = Math.trunc(next.epoch / 1000);
+  const next = Math.trunc(now.next("month").time("4am").epoch / 1000);
 
   return { items, next };
 }
