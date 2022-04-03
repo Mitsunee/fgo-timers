@@ -828,38 +828,6 @@
   {
     "target": "skill",
     "initial": {
-      "name": "Intuition B",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00603.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "シガレット・ライオン B+",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00308.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94047401,
-      "name": "強化クエスト モードレッド",
-      "search": "強化クエスト モトレット",
-      "open": 1585126800,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
-    },
-    "servant": {
-      "id": 100900,
-      "name": "Mordred",
-      "search": "mordred",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_1009000.png",
-      "className": "saber",
-      "na": true
-    }
-  },
-  {
-    "target": "skill",
-    "initial": {
       "name": "Legend of the Crimson Hero EX",
       "num": 3,
       "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00301.png",
@@ -1848,28 +1816,6 @@
       "icon": "https://static.atlasacademy.io/JP/Faces/f_1039000.png",
       "className": "saber",
       "na": true
-    }
-  },
-  {
-    "target": "sq",
-    "quest": {
-      "id": 91104201,
-      "name": "導きの星をさがして",
-      "search": "導きの星をさかして",
-      "open": 1607936400,
-      "type": "interlude",
-      "unlock": {
-        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
-        "ascension": 2,
-        "bond": 5
-      }
-    },
-    "servant": {
-      "id": 104200,
-      "name": "Dioscuri",
-      "search": "dioscuri",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_1042000.png",
-      "className": "saber"
     }
   },
   {
@@ -5032,62 +4978,6 @@
       "icon": "https://static.atlasacademy.io/JP/Faces/f_3039000.png",
       "className": "lancer",
       "na": true
-    }
-  },
-  {
-    "target": "skill",
-    "initial": {
-      "name": "略奪の鉾 B",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00515.png",
-      "border": "black"
-    },
-    "skill": {
-      "name": "簒奪の鉾 A",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00515.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 91304101,
-      "name": "垣間見えた過去、その欠片を",
-      "search": "垣間見えた過去、その欠片を",
-      "open": 1624438800,
-      "type": "interlude",
-      "unlock": {
-        "quest": [{ "name": "続く旅路", "id": 3000628 }],
-        "ascension": 4,
-        "bond": 5
-      }
-    },
-    "servant": {
-      "id": 304100,
-      "name": "Caenis (Lancer)",
-      "search": "caenis",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_3041000.png",
-      "className": "lancer"
-    }
-  },
-  {
-    "target": "sq",
-    "quest": {
-      "id": 91304201,
-      "name": "我が手のもたらす罪",
-      "search": "我か手のもたらす罪",
-      "open": 1607936400,
-      "type": "interlude",
-      "unlock": {
-        "quest": [{ "name": "Return", "id": 1000822, "na": true }],
-        "ascension": 3,
-        "bond": 5
-      }
-    },
-    "servant": {
-      "id": 304200,
-      "name": "Romulus-Quirinus",
-      "search": "romulus-quirinus",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_3042000.png",
-      "className": "lancer"
     }
   },
   {
@@ -11521,38 +11411,6 @@
     }
   },
   {
-    "target": "skill",
-    "initial": {
-      "name": "Battle Continuation A",
-      "num": 3,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "戦慄の不死者 A+",
-      "num": 3,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94047403,
-      "name": "強化クエスト ヴラド三世",
-      "search": "強化クエスト ウラト三世",
-      "open": 1585126800,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
-    },
-    "servant": {
-      "id": 700700,
-      "name": "Vlad III",
-      "search": "vlad iii",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_7007000.png",
-      "className": "berserker",
-      "na": true
-    }
-  },
-  {
     "target": "np",
     "initial": {
       "name": "Kazikli Bey",
@@ -13122,46 +12980,6 @@
       "type": "rankup",
       "unlock": { "ascension": 4 },
       "na": true
-    },
-    "servant": {
-      "id": 900200,
-      "name": "Amakusa Shirou",
-      "search": "amakusa shirou",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_9002000.png",
-      "className": "ruler",
-      "na": true
-    }
-  },
-  {
-    "target": "skill",
-    "initial": {
-      "name": "Revelation A",
-      "num": 1,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00605.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "長き旅路への祈り A",
-      "num": 1,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00605.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94047402,
-      "name": "強化クエスト 天草四郎 2",
-      "search": "強化クエスト 天草四郎 2",
-      "open": 1585126800,
-      "type": "rankup",
-      "unlock": {
-        "quest": [
-          {
-            "name": "Rank Up Quest: Amakusa Shirou",
-            "id": 94014408,
-            "na": true
-          }
-        ]
-      }
     },
     "servant": {
       "id": 900200,
@@ -15331,6 +15149,370 @@
       "search": "amor (caren)",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_9011000.png",
       "className": "ruler"
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Mental Schism A",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00602.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "矛盾精神 A+",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00602.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94069501,
+      "name": "強化クエスト イヴァン雷帝",
+      "search": "強化クエスト イウァン雷帝",
+      "open": 1646816400,
+      "type": "rankup",
+      "unlock": { "ascension": 4 }
+    },
+    "servant": {
+      "id": 402800,
+      "name": "Ivan the Terrible",
+      "search": "ivan the terrible",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_4028000.png",
+      "className": "rider",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Intuition B",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00603.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Cigarette Lion B+",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00308.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94047401,
+      "name": "Rank Up Quest: Mordred",
+      "search": "rank up quest: mordred",
+      "open": 1646884800,
+      "type": "rankup",
+      "unlock": { "ascension": 4 },
+      "na": true
+    },
+    "servant": {
+      "id": 100900,
+      "name": "Mordred",
+      "search": "mordred",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_1009000.png",
+      "className": "saber",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Battle Continuation A",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Terrifying Undead A+",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94047403,
+      "name": "Rank Up Quest: Vlad III",
+      "search": "rank up quest: vlad iii",
+      "open": 1646884800,
+      "type": "rankup",
+      "unlock": { "ascension": 4 },
+      "na": true
+    },
+    "servant": {
+      "id": 700700,
+      "name": "Vlad III",
+      "search": "vlad iii",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_7007000.png",
+      "className": "berserker",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Revelation A",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00605.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Prayer for the Long Journey A",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00605.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94047402,
+      "name": "Rank Up Quest: Amakusa Shirou 2",
+      "search": "rank up quest: amakusa shirou 2",
+      "open": 1646884800,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          {
+            "name": "Rank Up Quest: Amakusa Shirou",
+            "id": 94014408,
+            "na": true
+          }
+        ]
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 900200,
+      "name": "Amakusa Shirou",
+      "search": "amakusa shirou",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_9002000.png",
+      "className": "ruler",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Tesla Coil A+",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00602.png",
+      "border": "gold",
+      "na": true
+    },
+    "skill": {
+      "name": "テスラコイル A++",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00602.png",
+      "border": "red"
+    },
+    "quest": {
+      "id": 94068002,
+      "name": "強化クエスト ニコラ・テスラ 2",
+      "search": "強化クエスト ニコラ・テスラ 2",
+      "open": 1647421200,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          {
+            "name": "Humanity's Mythology, Thunder and Lightning Descend",
+            "id": 91201102,
+            "na": true
+          },
+          { "name": "Rank Up Quest: Nikola Tesla", "id": 94014413, "na": true }
+        ]
+      }
+    },
+    "servant": {
+      "id": 201100,
+      "name": "Nikola Tesla",
+      "search": "nikola tesla",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_2011000.png",
+      "className": "archer",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Mass Production A",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00605.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "大量生産 A+",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00605.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94068001,
+      "name": "強化クエスト トーマス・エジソン 3",
+      "search": "強化クエスト トマス・エシソン 3",
+      "open": 1647421200,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          {
+            "name": "Rank Up Quest: Thomas Edison 2",
+            "id": 94035603,
+            "na": true
+          }
+        ]
+      }
+    },
+    "servant": {
+      "id": 502500,
+      "name": "Thomas Edison",
+      "search": "thomas edison",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_5025000.png",
+      "className": "caster",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91104201,
+      "name": "導きの星をさがして",
+      "search": "導きの星をさかして",
+      "open": 1607936400,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
+        "ascension": 2,
+        "bond": 5
+      }
+    },
+    "servant": {
+      "id": 104200,
+      "name": "Dioscuri",
+      "search": "dioscuri",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_1042000.png",
+      "className": "saber",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Pillaging Spear B",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00515.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "簒奪の鉾 A",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00515.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 91304101,
+      "name": "垣間見えた過去、その欠片を",
+      "search": "垣間見えた過去、その欠片を",
+      "open": 1624438800,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          { "name": "The Journey Continues", "id": 3000628, "na": true }
+        ],
+        "ascension": 4,
+        "bond": 5
+      }
+    },
+    "servant": {
+      "id": 304100,
+      "name": "Caenis (Lancer)",
+      "search": "caenis",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_3041000.png",
+      "className": "lancer",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91304201,
+      "name": "我が手のもたらす罪",
+      "search": "我か手のもたらす罪",
+      "open": 1607936400,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "Return", "id": 1000822, "na": true }],
+        "ascension": 3,
+        "bond": 5
+      }
+    },
+    "servant": {
+      "id": 304200,
+      "name": "Romulus=Quirinus",
+      "search": "romulus=quirinus",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_3042000.png",
+      "className": "lancer",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Dragon Modification EX",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00306.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Dragon Modification EX",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00306.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94070401,
+      "name": "強化クエスト シグルド 2",
+      "search": "強化クエスト シクルト 2",
+      "open": 1648630800,
+      "type": "rankup",
+      "unlock": {
+        "quest": [{ "name": "強化クエスト シグルド", "id": 94052080 }]
+      }
+    },
+    "servant": {
+      "id": 103300,
+      "name": "Sigurd",
+      "search": "sigurd",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_1033000.png",
+      "className": "saber",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91503901,
+      "name": "無間氷炎の世紀を超えて",
+      "search": "無間氷炎の世紀を超えて",
+      "open": 1648630800,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "了", "id": 3001009 }],
+        "ascension": 4,
+        "bond": 5
+      }
+    },
+    "servant": {
+      "id": 503900,
+      "name": "Scáthach-Skadi",
+      "search": "scathach-skadi",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_5039000.png",
+      "className": "caster",
+      "na": true
     }
   }
 ]

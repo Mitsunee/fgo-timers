@@ -9,7 +9,9 @@ export function useRecurringInterval(options) {
   const { seconds } = useStore(intervalStore);
 
   // options cached on first render and never updated!
-  optionsRef.current ??= options;
+  if (optionsRef.current === null) {
+    optionsRef.current = options;
+  }
 
   useEffect(() => {
     const { length, offset } = optionsRef.current;

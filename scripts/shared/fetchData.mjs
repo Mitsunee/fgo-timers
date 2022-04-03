@@ -4,7 +4,7 @@ import { die } from "@foxkit/node-util/log";
 export async function fetchData(url, defaultValue, spinner) {
   const _fetch = async (url, defaultValue) => {
     try {
-      const res = await fetch(url);
+      const res = await fetch(url, { cache: "no-cache" });
       if (!res.ok) {
         if (defaultValue === undefined) {
           spinner?.error();
