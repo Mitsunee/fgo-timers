@@ -1,0 +1,92 @@
+name: Lint and Test
+on:
+  pull_request:
+    paths:
+      - "pages/**"
+      - "src/**"
+      - "assets/**"
+  push:
+    branches:
+      - "main"
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          cache: yarn
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile --ignore-scripts
+      - name: Lint
+        run: yarn eslint --max-warnings 0 .
+
+  format:
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          cache: yarn
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile --ignore-scripts
+      - name: Check Formatting
+        run: yarn prettier -c pages src
+
+  changes:
+    runs-on: ubuntu-latest
+    needs: lint
+    outputs:
+      backend: ${{ steps.filter.outputs.backend }}
+      frontend: ${{ steps.filter.outputs.frontend }}
+    steps:
+      # For pull requests it's not necessary to checkout the code
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            backend:
+              - 'backend/**'
+            frontend:
+              - 'frontend/**'
+
+  test:
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          filters: |
+            scripts:
+              - 'src/scripts/**'
+            server:
+              - 'src/server/**'
+            assets:
+              - 'assets/**'
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          cache: yarn
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile --ignore-scripts
+      - name: Test Scripts
+        if: steps.filter.outputs.scripts == 'true'
+        run: yarn test:scripts
+      - name: Test Data
+        if: steps.filter.outputs.assets == 'true'
+        run: yarn test:data --all
+      - name: Test Types
+        if: steps.filter.output.server == 'true'
+        run: yarn test:types
