@@ -7,13 +7,15 @@
     "prepare": "simple-git-hooks",
     "dev": "next dev",
     "dev:data": "node src/scripts/watch/watch.mjs",
+    "dev:types": "tsc -watch",
     "build": "node --version && next build",
     "start": "next start",
     "lint": "eslint .",
     "format": "prettier -w .",
     "test:scripts": "uvu tests/scripts",
     "test:data": "node src/scripts/check/check.mjs",
-    "test": "yarn run test:scripts && yarn run test:data --all"
+    "test:types": "tsc",
+    "test": "yarn run test:scripts && yarn run test:data --all && yarn test:types"
   },
   "simple-git-hooks": {
     "pre-commit": "yarn nano-staged"
@@ -42,6 +44,8 @@
     "not ie 11"
   ],
   "dependencies": {
+    "@types/node": "^17.0.23",
+    "@types/react": "^17.0.43",
     "ioredis": "^4.28.5",
     "msgpackr": "^1.5.5",
     "next": "12.1.4",
