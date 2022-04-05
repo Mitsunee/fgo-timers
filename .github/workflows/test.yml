@@ -41,23 +41,6 @@ jobs:
       - name: Check Formatting
         run: yarn prettier -c pages src
 
-  changes:
-    runs-on: ubuntu-latest
-    needs: lint
-    outputs:
-      backend: ${{ steps.filter.outputs.backend }}
-      frontend: ${{ steps.filter.outputs.frontend }}
-    steps:
-      # For pull requests it's not necessary to checkout the code
-      - uses: dorny/paths-filter@v2
-        id: filter
-        with:
-          filters: |
-            backend:
-              - 'backend/**'
-            frontend:
-              - 'frontend/**'
-
   test:
     runs-on: ubuntu-latest
     needs: lint
@@ -82,11 +65,11 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile --ignore-scripts
       - name: Test Scripts
-        if: steps.filter.outputs.scripts == 'true'
+        if: steps.changes.outputs.scripts == 'true'
         run: yarn test:scripts
       - name: Test Data
-        if: steps.filter.outputs.assets == 'true'
+        if: steps.changes.outputs.assets == 'true'
         run: yarn test:data --all
       - name: Test Types
-        if: steps.filter.output.server == 'true'
+        if: steps.changes.output.server == 'true'
         run: yarn test:types
