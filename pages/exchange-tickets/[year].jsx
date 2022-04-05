@@ -122,6 +122,7 @@ export async function getStaticPaths() {
 // TEMP: disable SSG that uses old cache directories
 /*
 export async function getStaticProps(context) {
+  // TODO: name override if item exists in NA/nice_item
   // read ticket file
   const year = context.params.year;
   const ticketFileList = await getTicketFileList();

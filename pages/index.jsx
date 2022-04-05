@@ -33,7 +33,6 @@ export default function HomePage({
   const [background, setBackground] = useState(null);
   const mpShopReset = useRecurringEvent({ day: 1, hour: 0, tz: "utc" });
   const rpShopReset = useRecurringEvent({ day: 15, hour: 0, tz: "utc" });
-  const loginTicketReset = useRecurringEvent({ day: 2, hour: 5, tz: "utc" });
 
   // Effect sets random background to state to avoid SSR missmatches
   useEffect(() => {
@@ -77,7 +76,7 @@ export default function HomePage({
       </section>
       <Headline>Timers</Headline>
       <CardGrid>
-        <LoginTicketCard items={loginTicket} next={loginTicketReset} />
+        <LoginTicketCard items={loginTicket.data} next={loginTicket.next} />
         <MasterMissionCard data={masterMissions} />
         <ChaldeaGateCard />
         <ShopCard shopData={shopData.manaPrismShop} endsAt={mpShopReset} />

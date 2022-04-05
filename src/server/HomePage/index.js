@@ -6,7 +6,6 @@ import { getCurrentMasterMissions } from "./getCurrentMasterMissions";
 
 export async function getStaticProps() {
   const now = getCurrentTime();
-  // TODO: re-implement event hiding!
   const [backgrounds, events, loginTicket, shopData, masterMissions] =
     await Promise.all([
       readStaticBundle("backgrounds"),
