@@ -71,5 +71,5 @@ jobs:
         if: steps.changes.outputs.assets == 'true'
         run: yarn test:data --all
       - name: Test Types
-        if: steps.changes.output.server == 'true'
+        if: steps.changes.outputs.server == 'true'
         run: yarn test:types
