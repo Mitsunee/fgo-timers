@@ -53,8 +53,6 @@ jobs:
           filters: |
             scripts:
               - 'src/scripts/**'
-            server:
-              - 'src/server/**'
             assets:
               - 'assets/**'
       - name: Install Node.js
@@ -70,6 +68,3 @@ jobs:
       - name: Test Data
         if: steps.changes.outputs.assets == 'true'
         run: yarn test:data --all
-      - name: Test Types
-        if: steps.changes.outputs.server == 'true'
-        run: yarn test:types
