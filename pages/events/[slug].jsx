@@ -1,9 +1,5 @@
 import { useState } from "react";
 import { useStore } from "@nanostores/react";
-import { getFileName, resolvePath } from "@foxkit/node-util/path";
-
-import { getEventFileList } from "@utils/server/events/getEventFileList";
-import { parseEventFile } from "@utils/server/events/parseEventFile";
 
 import styles from "@styles/EventPage.module.css";
 import { intervalStore } from "@stores/intervalStore";
@@ -18,13 +14,18 @@ import Modal from "@components/Modal";
 import { Button } from "@components/Button";
 import { IconClose } from "@components/icons";
 
+export { getStaticPaths, getStaticProps } from "src/server/EventPage";
+export const config = {
+  unstable_includeFiles: ["assets/static/events.json"]
+};
+
 export default function EventPage({
   title,
   shortTitle,
   banner,
   url,
-  startsAt,
-  endsAt = null,
+  starts,
+  ends = null,
   times = [],
   description
 }) {
@@ -42,9 +43,11 @@ export default function EventPage({
         title={title}
         headerTitle="Events"
         image={`/assets/events/${banner}`}
-        description={`Event Timers for ${title}${
-          description ? `. ${description[0].slice(0, 150)}...` : ""
-        }`}
+        description={
+          description
+            ? `${description[0].slice(0, 250)}...`
+            : `Event Timers for ${title}`
+        }
         headerDescription={`Event Timers for ${shortTitle}`}
       />
       <Clocks />
@@ -81,23 +84,23 @@ export default function EventPage({
           </thead>
           <tbody>
             <EventTimeRow
-              title={startsAt > interval ? "Starts" : "Started"}
-              target={startsAt}
+              title={starts > interval ? "Starts" : "Started"}
+              target={starts}
             />
-            {endsAt !== null && (
+            {ends !== null && (
               <EventTimeRow
-                title={endsAt > interval ? "Ends" : "Ended"}
-                target={endsAt}
+                title={ends > interval ? "Ends" : "Ended"}
+                target={ends}
               />
             )}
             {times.map((time, idx) => {
               // handle rotating times
               if (time.times) {
                 let next = time.times.findIndex(
-                  ({ startsAt }) => startsAt > interval
+                  ({ starts }) => starts > interval
                 );
                 if (next < 0) {
-                  if (time.hideWhenDone) return null;
+                  if (time.hide) return null;
                   next = time.times.length - 1;
                 }
 
@@ -107,21 +110,18 @@ export default function EventPage({
                     <EventTimeRow
                       key={`${idx}-${subIdx}`}
                       title={`[${time.title || "Start"}] ${subTime.title}`}
-                      target={subTime.startsAt}
+                      target={subTime.starts}
                     />
                   ));
               }
 
-              // skip finished times where hideWhenDone is set
-              if (
-                time.hideWhenDone &&
-                interval > (time.endsAt || time.startsAt)
-              ) {
+              // skip finished times where hide is set
+              if (time.hide && interval > (time.ends || time.starts)) {
                 return null;
               }
 
-              const isDuration = Boolean(time.endsAt);
-              const isEndTime = time.startsAt < interval;
+              const isDuration = Boolean(time.ends);
+              const isEndTime = time.starts < interval;
               const title = isDuration
                 ? `[${isEndTime ? "End" : "Start"}] ${time.title}`
                 : time.title;
@@ -131,9 +131,9 @@ export default function EventPage({
                   key={idx}
                   title={title}
                   target={
-                    time.startsAt > interval
-                      ? time.startsAt
-                      : time.endsAt || time.startsAt
+                    time.starts > interval
+                      ? time.starts
+                      : time.ends || time.starts
                   }
                 />
               );
@@ -155,48 +155,4 @@ export default function EventPage({
       </NoSSR>
     </>
   );
-}
-
-export async function getStaticPaths() {
-  const fileList = await getEventFileList();
-  const paths = fileList.map(file => ({
-    params: {
-      slug: getFileName(file, false)
-    }
-  }));
-
-  return {
-    paths,
-    fallback: false
-  };
-}
-
-export async function getStaticProps(context) {
-  const slug = context.params.slug;
-  const filePath = resolvePath(`assets/data/events/${slug}.yml`);
-  const { title, shortTitle, banner, startsAt, ...data } = await parseEventFile(
-    filePath
-  );
-  const props = { title, shortTitle, banner, startsAt };
-
-  if (typeof data.endsAt !== "undefined") {
-    props.endsAt = data.endsAt;
-  }
-
-  if (typeof data.url !== "undefined") {
-    props.url = data.url;
-  }
-
-  if (typeof data.times !== "undefined") {
-    props.times = data.times;
-  }
-
-  if (typeof data.description !== "undefined") {
-    props.description = data.description
-      .trim()
-      .replace(/\n{2,}/gm, "\n")
-      .split("\n");
-  }
-
-  return { props };
 }
