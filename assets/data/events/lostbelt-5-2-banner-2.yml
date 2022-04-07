@@ -12,4 +12,4 @@ times:
     date: 2022-04-06 21:00 PDT
   - title: "'The Beauty at the Window' removed"
     date: 2022-04-06 21:00 PDT
-hideWhenDone: auto
+hideWhenDone: true
