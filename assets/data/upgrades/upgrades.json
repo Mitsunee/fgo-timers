@@ -15514,5 +15514,37 @@
       "className": "caster",
       "na": true
     }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Imperial Privilege B",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00600.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "女中英主 B+",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00600.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94069301,
+      "name": "強化クエスト 武則天 2",
+      "search": "強化クエスト 武則天 2",
+      "open": 1649235600,
+      "type": "rankup",
+      "unlock": { "quest": [{ "name": "強化クエスト 武則天", "id": 94053299 }] }
+    },
+    "servant": {
+      "id": 602700,
+      "name": "Wu Zetian",
+      "search": "wu zetian",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_6027000.png",
+      "className": "assassin",
+      "na": true
+    }
   }
 ]
