@@ -1,13 +1,12 @@
-import { createSpinner } from "nanospinner";
 import { sleep } from "foxkit/sleep";
-import { log, die } from "@foxkit/node-util/log";
 import { readFileJson, writeFile } from "@foxkit/node-util/fs";
 
-import { fetchNiceServant } from "./shared/fetchNiceServant.mjs";
-import { findChangedQuests } from "./upgrades/findChangedQuests.mjs";
-import { describeUpgrade } from "./upgrades/descriptors/upgrade.mjs";
-import { isRoot } from "./shared/isRoot.mjs";
-import { arrangeSkills, arrangeNPs } from "./upgrades/arrange.mjs";
+import * as log from "../utils/log.mjs";
+import { die } from "./die.mjs";
+import { fetchNiceServant } from "./fetchNiceServant.mjs";
+import { findChangedQuests } from "./findChangedQuests.mjs";
+import { describeUpgrade } from "./descriptors/upgrade.mjs";
+import { arrangeSkills, arrangeNPs } from "./arrange.mjs";
 
 // TODO: figure out a workaround for EoR skills
 
@@ -36,23 +35,18 @@ async function main() {
 
   // if nothing changed quit with success
   if (changedQuests.size === 0) {
-    log.success(`Data is already up-to-date (total: ${data.length})`);
+    log.info(`Data is already up-to-date (total: ${data.length})`);
     process.exit(0);
   }
 
   const newUpgrades = new Array();
 
   for (const quest of changedQuests) {
-    // atlas api can't handle too many requests in a row
-    const spinner = createSpinner(`Fetching data for Quest ${quest}`);
-
     // describe quest and sleep to a bit to not crash the API
-    log(`  ${changeReasons.get(quest)}`);
-    spinner.start();
-    const upgradeData = await describeUpgrade(quest, niceData, spinner);
+    log.info(`  ${changeReasons.get(quest)}`);
+    const upgradeData = await describeUpgrade(quest, niceData);
     await sleep(250);
 
-    spinner.success();
     newUpgrades.push(upgradeData);
   }
 
@@ -63,7 +57,7 @@ async function main() {
 
   // write file
   await writeFile("assets/data/upgrades/upgrades.json", data, true);
-  log.success(
+  log.ready(
     `Updated data for ${newUpgrades.length} quests (total: ${data.length})`
   );
 
@@ -72,13 +66,12 @@ async function main() {
 }
 
 // run main, handle exit code
-isRoot();
 main()
   .then(res => {
     if (res === true) process.exit(0);
     if (typeof res === "number") process.exit(res);
     if (!res) process.exit(1);
-    log(res);
+    log.log(res);
     process.exit(1);
   })
   .catch(err => die(err));

@@ -4,3 +4,5 @@ export const latinizeOptions = {
   forceSingleSpace: true,
   replaceWhiteSpace: " "
 };
+
+export const ATLAS_API = "https://api.atlasacademy.io/";

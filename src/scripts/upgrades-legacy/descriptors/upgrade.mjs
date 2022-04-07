@@ -1,10 +1,10 @@
 import { log } from "@foxkit/node-util/log";
 
 import { fetchQuestData } from "../fetchQuestData.mjs";
-import { describeSkill } from "../descriptors/skill.mjs";
-import { describeNP } from "../descriptors/np.mjs";
-import { describeQuest } from "../descriptors/quest.mjs";
-import { nameServant, describeServant } from "../descriptors/servant.mjs";
+import { describeSkill } from "./skill.mjs";
+import { describeNP } from "./np.mjs";
+import { describeQuest } from "./quest.mjs";
+import { nameServant, describeServant } from "./servant.mjs";
 
 const PLACEHOLDER_SKILL = {
   id: 0,
@@ -13,11 +13,7 @@ const PLACEHOLDER_SKILL = {
   priority: 0
 };
 
-export async function describeUpgrade(
-  quest,
-  { skills, nps, servants },
-  spinner
-) {
+export async function describeUpgrade(quest, { skills, nps, servants }) {
   // fetch quest data
   const [questData, questDataNA] = await fetchQuestData(quest);
 
@@ -62,14 +58,12 @@ export async function describeUpgrade(
       initialSkill && skills.na.find(({ id }) => id === initialSkill.id);
 
     // log info
-    spinner?.clear();
     log.table({
       type: "Skill Upgrade",
       for: initialSkillNA?.name || initialSkill?.name || "PLACEHOLDER",
       to: relatedSkillNA?.name || relatedSkill.name,
       of: nameServant(relatedServant, relatedServantNA, servants)[0]
     });
-    spinner?.start();
 
     // assemble data
     return {
@@ -95,14 +89,12 @@ export async function describeUpgrade(
     const initialNPNA = nps.na.find(({ id }) => id === initialNP.id);
 
     // log info
-    spinner?.clear();
     log.table({
       type: "NP Upgrade",
       for: initialNPNA?.name || initialNP.name,
       to: relatedNPNA?.name || relatedNP.name,
       of: nameServant(relatedServant, relatedServantNA, servants)[0]
     });
-    spinner.start();
 
     // assemble data
     return {
@@ -116,12 +108,10 @@ export async function describeUpgrade(
 
   // Quest has neither skill nor NP, assume sq interlude
   // log info
-  spinner?.clear();
   log.table({
     type: "SQ Interlude",
     of: nameServant(relatedServant, relatedServantNA, servants)[0]
   });
-  spinner.start();
 
   // assemble data
   return {
