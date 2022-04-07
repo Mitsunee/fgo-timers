@@ -7,11 +7,13 @@ import { parseTicketMonth } from "../../../src/scripts/utils/data-assets/parseTi
 import { parseTicketFile } from "../../../src/scripts/utils/data-assets/parseTicketFile.mjs";
 
 let niceItem;
+let niceItemNa;
 let itemIdMap;
 
 test.before(async () => {
   await prepareAtlasCache();
   niceItem = await readFromCache("JP", "nice_item_lang_en.json");
+  niceItemNa = await readFromCache("NA", "nice_item.json");
   itemIdMap = await readFileYaml("assets/data/itemIdMap.yml");
 });
 
@@ -22,7 +24,10 @@ test("can parse valid file", async () => {
   ]);
 
   for (const month in out) {
-    equal(out[month], parseTicketMonth(raw[month], { niceItem, itemIdMap }));
+    equal(
+      out[month],
+      parseTicketMonth(raw[month], { niceItem, niceItemNa, itemIdMap })
+    );
   }
 });
 

@@ -1,5 +1,5 @@
 import { test } from "uvu";
-import { equal, throws } from "uvu/assert";
+import * as assert from "uvu/assert";
 import { parseTicketMonth } from "../../../src/scripts/utils/data-assets/parseTicketMonth.mjs";
 
 test("can parse months", () => {
@@ -35,8 +35,13 @@ test("can parse months", () => {
       icon: "https://static.atlasacademy.io/item1003"
     }
   ];
-  equal(
-    parseTicketMonth(["$1001", "$1002", "$1003"], { itemIdMap, niceItem }),
+  const niceItemNa = [];
+  assert.equal(
+    parseTicketMonth(["$1001", "$1002", "$1003"], {
+      itemIdMap,
+      niceItem,
+      niceItemNa
+    }),
     [
       { id: 1001, name: "item1001", background: "gold", icon: "item1001" },
       { id: 1002, name: "item1002", background: "silver", icon: "item1002" },
@@ -48,13 +53,64 @@ test("can parse months", () => {
 test("rejects when item not in map", () => {
   const itemIdMap = { $1001: 1001 };
   const niceItem = [];
-  throws(() => parseTicketMonth(["bad item"], { itemIdMap, niceItem }));
+  const niceItemNa = [];
+  assert.throws(() =>
+    parseTicketMonth(["bad item"], { itemIdMap, niceItem, niceItemNa })
+  );
 });
 
 test("reject when item not in niceItem", () => {
   const itemIdMap = { $1001: 1001 };
   const niceItem = [];
-  throws(() => parseTicketMonth(["$1001"], { itemIdMap, niceItem }));
+  const niceItemNa = [];
+  assert.throws(() =>
+    parseTicketMonth(["$1001"], { itemIdMap, niceItem, niceItemNa })
+  );
+});
+
+test("add na prop", () => {
+  const itemIdMap = { $1001: 1001, $1002: 1002 };
+  const niceItem = [
+    {
+      id: 1001,
+      name: "item1001JP",
+      background: "gold",
+      icon: "https://static.atlasacademy.io/item1001"
+    },
+    {
+      id: 1002,
+      name: "item1002JP",
+      background: "silver",
+      icon: "https://static.atlasacademy.io/item1002"
+    }
+  ];
+  const niceItemNa = [
+    {
+      id: 1001,
+      name: "item1001NA",
+      background: "gold",
+      icon: "https://static.atlasacademy.io/item1001"
+    }
+  ];
+
+  assert.equal(
+    parseTicketMonth(["$1002", "$1002", "$1001"], {
+      itemIdMap,
+      niceItem,
+      niceItemNa
+    }),
+    [
+      { id: 1002, name: "item1002JP", background: "silver", icon: "item1002" },
+      { id: 1002, name: "item1002JP", background: "silver", icon: "item1002" },
+      {
+        id: 1001,
+        name: "item1001NA",
+        background: "gold",
+        icon: "item1001",
+        na: true
+      }
+    ]
+  );
 });
 
 test.run();
