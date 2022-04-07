@@ -1,16 +1,5 @@
 import { useState, useEffect } from "react";
 
-export { getStaticProps } from "src/server/HomePage/";
-
-export const config = {
-  unstable_includeFiles: [
-    "assets/static/backgrounds.json",
-    "assets/static/events.json",
-    "assets/static/loginTickets.json",
-    "assets/static/prismShops.json"
-  ]
-};
-
 import styles from "@styles/HomePage.module.css";
 import { useRecurringEvent } from "@utils/hooks/useRecurringEvent";
 import Meta from "@components/Meta";
@@ -22,6 +11,16 @@ import LoginTicketCard from "@components/LoginTicketCard";
 import MasterMissionCard from "@components/MasterMissionCard";
 import ChaldeaGateCard from "@components/ChaldeaGateCard";
 import ShopCard from "@components/ShopCard";
+
+export { getStaticProps } from "src/server/HomePage/";
+export const config = {
+  unstable_includeFiles: [
+    "assets/static/backgrounds.json",
+    "assets/static/events.json",
+    "assets/static/loginTickets.json",
+    "assets/static/prismShops.json"
+  ]
+};
 
 export default function HomePage({
   backgrounds,

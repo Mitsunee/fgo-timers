@@ -1,7 +1,3 @@
-import { readFileJson } from "@foxkit/node-util/fs";
-
-import { JP_TO_NA_ESTIMATE } from "@utils/globals";
-
 import { useReducer, useEffect } from "react";
 import { useStore } from "@nanostores/react";
 import { latinize } from "modern-diacritics";
@@ -21,6 +17,11 @@ import CollapsableSection from "@components/CollapsableSection";
 import { IconAtlas } from "@components/icons";
 import { CardGrid } from "@components/Card";
 import UpgradeCard from "@components/UpgradeCard";
+
+export { getStaticProps } from "src/server/UpgradesPage/";
+export const config = {
+  unstable_includeFiles: ["assets/data/upgrades/upgrades.json"]
+};
 
 function formUpdateReducer(state, { field, value }) {
   switch (field) {
@@ -283,27 +284,4 @@ export default function UpgradesPage({ upgradesData }) {
       {pagination}
     </>
   );
-}
-
-export async function getStaticProps() {
-  const upgradesData = await readFileJson("assets/data/upgrades/upgrades.json");
-
-  return {
-    props: {
-      upgradesData: upgradesData
-        // filter out main quests
-        .filter(upgrade => upgrade.target)
-        // apply magic number to JP quest to estimate NA release date
-        .map(upgrade => {
-          if (upgrade.quest.na) return upgrade;
-          return {
-            ...upgrade,
-            quest: {
-              ...upgrade.quest,
-              open: upgrade.quest.open + JP_TO_NA_ESTIMATE
-            }
-          };
-        })
-    }
-  };
 }
