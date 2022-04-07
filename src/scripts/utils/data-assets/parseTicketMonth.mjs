@@ -32,7 +32,7 @@ async function prepareIdMap() {
   }
 }
 
-const itemProps = new Set(["id", "name", "background", "icon"]);
+const itemProps = new Set(["id", "name", "background", "icon", "na"]);
 
 export async function parseTicketMonth(rawData) {
   await Promise.all([prepareNiceItem(), prepareNiceItemNa(), prepareIdMap()]);
@@ -51,6 +51,7 @@ export async function parseTicketMonth(rawData) {
       );
     }
     const itemNa = niceItemNa.find(({ id }) => id === itemId);
+
     for (const prop of itemProps) {
       // use NA name where possible
       if (prop === "name" && itemNa) {
@@ -61,6 +62,11 @@ export async function parseTicketMonth(rawData) {
       // shorten icon url
       if (prop === "icon") {
         parsedItem.icon = shortenStaticUrl(item.icon);
+        continue;
+      }
+
+      if (prop === "na") {
+        parsedItem.na = itemNa ? true : false;
         continue;
       }
 
