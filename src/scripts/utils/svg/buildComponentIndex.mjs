@@ -8,7 +8,7 @@ export async function buildSVGComponentIndex(components) {
   );
 
   await writeFile(
-    "src/components/icons/index.js", // NOTE: change when moving client src
+    "src/client/components/icons/index.js",
     await prettier(list.join("\n"))
   );
 }

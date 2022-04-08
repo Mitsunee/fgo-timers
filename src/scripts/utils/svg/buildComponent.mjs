@@ -8,7 +8,7 @@ export async function buildSVGComponent({ file, componentName }) {
   const svg = await svgo(fileContent);
   const jsx = await svgToJsx(svg);
   await writeFile(
-    `src/components/icons/${componentName}.jsx`, // NOTE: change when moving client src
+    `src/client/components/icons/${componentName}.jsx`,
     await prettier(`
       export function ${componentName}(props) {
         return ${jsx}

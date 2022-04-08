@@ -3,7 +3,7 @@ import { resolvePath, getFileName } from "@foxkit/node-util/path";
 import { join } from "path";
 
 export async function findDeprecatedComponents(components) {
-  const relPath = "src/components/icons/"; // NOTE: change when moving client src
+  const relPath = "src/client/components/icons/";
   const path = resolvePath(relPath);
   const dir = await readdir(path);
   const files = dir

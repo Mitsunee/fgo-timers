@@ -20,7 +20,7 @@ export function watchSvgs() {
   async function writeBundle() {
     await buildSVGComponentIndex(components);
     hasBuilt = true;
-    log.ready("Built Icon index", "src/components/icons/index.js"); // NOTE: change when moving client src
+    log.ready("Built Icon index", "src/client/components/icons/index.js");
   }
 
   function scheduleBuild() {
@@ -62,13 +62,13 @@ export function watchSvgs() {
       componentNameMap.delete(componentName);
     }
 
-    // NOTE: change when moving client src
-    removeSvgComponent(`src/components/icons/${componentName}.jsx`, true).then(
-      () => {
-        log.info("SVG Icon and Component removed", path);
-        scheduleBuild();
-      }
-    );
+    removeSvgComponent(
+      `src/client/components/icons/${componentName}.jsx`,
+      true
+    ).then(() => {
+      log.info("SVG Icon and Component removed", path);
+      scheduleBuild();
+    });
   }
 
   // attach watcher events

@@ -56,7 +56,6 @@ export async function buildSVGComponents() {
     await Promise.all(cleanup.map(file => removeSvgComponent(file)));
   }
 
-  // NOTE: change when moving client src
-  ready("Built SVG Icon Components", "src/components/icons/");
+  ready("Built SVG Icon Components", "src/client/components/icons/");
   return true;
 }
