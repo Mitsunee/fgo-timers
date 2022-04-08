@@ -13,8 +13,11 @@ export async function getStaticProps(context) {
 
   if (!event) return { notFound: true };
 
-  event.description = event.description.trim().split("\n");
-  // NOTE: possibly implement autohiding here in the future?
+  if (event.description) {
+    event.description = event.description.trim().split("\n");
+  }
+
+  // NOTE: possibly implement autohiding for times here in the future?
 
   return { props: event };
 }
