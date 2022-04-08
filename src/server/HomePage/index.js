@@ -1,19 +1,22 @@
-import { generateBackgroundList } from "./generateBackgroundList";
-import { generateEventData } from "./generateEventData";
-import { generateLoginTicketData } from "./generateLoginTicketData";
-import { generateMasterMissionData } from "./generateMasterMissionData";
-import { generatePrismShopData } from "./generatePrismShopData";
+import { getCurrentTime } from "../utils/time";
+import { readStaticBundle } from "../utils/static";
+import { getCurrentEvents } from "./getCurrentEvents";
+import { getCurrentTicketData } from "./getCurrentTicketData";
+import { getCurrentMasterMissions } from "./getCurrentMasterMissions";
 
 export async function getStaticProps() {
-  const backgrounds = await generateBackgroundList();
-  const events = await generateEventData();
-  const loginTicket = await generateLoginTicketData();
-  const masterMissions = await generateMasterMissionData();
-  const shopData = await generatePrismShopData();
+  const now = getCurrentTime();
+  const [backgrounds, events, loginTicket, shopData, masterMissions] =
+    await Promise.all([
+      readStaticBundle("backgrounds"),
+      getCurrentEvents(now),
+      getCurrentTicketData(now),
+      readStaticBundle("prismShops"),
+      getCurrentMasterMissions(now)
+    ]);
 
   return {
-    props: { backgrounds, events, loginTicket, masterMissions, shopData } //,
-    //revalidate: 3600
-    // TEMP: disable ISR as it does not have filesystem access
+    props: { backgrounds, events, loginTicket, masterMissions, shopData },
+    revalidate: 3600
   };
 }

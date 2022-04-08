@@ -16,7 +16,7 @@ jobs:
           node-version: 14
           cache: yarn
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --ignore-scripts
       - name: Update browserslist
         run: yarn browserslist --update-db
       - name: Commit changes

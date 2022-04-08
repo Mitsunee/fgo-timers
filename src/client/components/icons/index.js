@@ -1,0 +1,10 @@
+export { IconApple } from "./IconApple";
+export { IconArrow } from "./IconArrow";
+export { IconAtlas } from "./IconAtlas";
+export { IconChaldea } from "./IconChaldea";
+export { IconClose } from "./IconClose";
+export { IconDiscord } from "./IconDiscord";
+export { IconGithub } from "./IconGithub";
+export { IconHamburger } from "./IconHamburger";
+export { IconHourglass } from "./IconHourglass";
+export { IconSettings } from "./IconSettings";

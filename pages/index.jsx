@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 
-export { getStaticProps } from "src/server/HomePage/";
 import styles from "@styles/HomePage.module.css";
 import { useRecurringEvent } from "@utils/hooks/useRecurringEvent";
 import Meta from "@components/Meta";
@@ -12,6 +11,16 @@ import LoginTicketCard from "@components/LoginTicketCard";
 import MasterMissionCard from "@components/MasterMissionCard";
 import ChaldeaGateCard from "@components/ChaldeaGateCard";
 import ShopCard from "@components/ShopCard";
+
+export { getStaticProps } from "@server/HomePage/";
+export const config = {
+  unstable_includeFiles: [
+    "assets/static/backgrounds.json",
+    "assets/static/events.json",
+    "assets/static/loginTickets.json",
+    "assets/static/prismShops.json"
+  ]
+};
 
 export default function HomePage({
   backgrounds,
@@ -66,11 +75,11 @@ export default function HomePage({
       </section>
       <Headline>Timers</Headline>
       <CardGrid>
-        <LoginTicketCard items={loginTicket.items} next={loginTicket.next} />
+        <LoginTicketCard items={loginTicket.data} next={loginTicket.next} />
         <MasterMissionCard data={masterMissions} />
         <ChaldeaGateCard />
-        <ShopCard shopData={shopData.mpShop} endsAt={mpShopReset} />
-        <ShopCard shopData={shopData.rpShop} endsAt={rpShopReset} />
+        <ShopCard shopData={shopData.manaPrismShop} endsAt={mpShopReset} />
+        <ShopCard shopData={shopData.rarePrismShop} endsAt={rpShopReset} />
       </CardGrid>
     </>
   );

@@ -1,5 +1,5 @@
 const picocolors = require("picocolors");
-const theme = require("./src/styles/theme");
+const theme = require("./src/client/styles/theme");
 
 const plugins = [
   "postcss-nested",
