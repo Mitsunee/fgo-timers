@@ -10,6 +10,12 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: main
+      - name: AtlasAcademy API Cache
+        id: atlas-cache
+        uses: actions/cache@v3
+        with:
+          path: ".next/cache/atlasacademy"
+          key: atlas-cache
       - name: Install Node.js
         uses: actions/setup-node@v2
         with:
