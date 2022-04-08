@@ -1,4 +1,4 @@
-export default function IconGithub(props) {
+export function IconGithub(props) {
   return (
     <svg viewBox="0 0 210 210" {...props}>
       <path

@@ -1,23 +1,10 @@
-import IconApple from "./IconApple";
-import IconArrow from "./IconArrow";
-import IconAtlas from "./IconAtlas";
-import IconChaldea from "./IconChaldea";
-import IconClose from "./IconClose";
-import IconDiscord from "./IconDiscord";
-import IconGithub from "./IconGithub";
-import IconHamburger from "./IconHamburger";
-import IconHourglass from "./IconHourglass";
-import IconSettings from "./IconSettings";
-
-export {
-  IconApple,
-  IconArrow,
-  IconAtlas,
-  IconChaldea,
-  IconClose,
-  IconDiscord,
-  IconGithub,
-  IconHamburger,
-  IconHourglass,
-  IconSettings
-};
+export { IconApple } from "./IconApple";
+export { IconArrow } from "./IconArrow";
+export { IconAtlas } from "./IconAtlas";
+export { IconChaldea } from "./IconChaldea";
+export { IconClose } from "./IconClose";
+export { IconDiscord } from "./IconDiscord";
+export { IconGithub } from "./IconGithub";
+export { IconHamburger } from "./IconHamburger";
+export { IconHourglass } from "./IconHourglass";
+export { IconSettings } from "./IconSettings";

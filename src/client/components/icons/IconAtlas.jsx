@@ -1,4 +1,4 @@
-export default function IconAtlas(props) {
+export function IconAtlas(props) {
   return (
     <svg viewBox="0 0 210 210" {...props}>
       <path
