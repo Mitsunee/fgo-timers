@@ -11,22 +11,24 @@ description: >-
   The SRs are always on rateup while the SSRs following a rateup rotation
   schedule.
 times:
-  - title: Both SSRs
-    date: 2022-04-06 21:00 PDT
-  - title: Francis Drake
-    date: 2022-04-07 21:00 PDT
-  - title: Minamoto-no-Raikou (Berserker)
-    date: 2022-04-08 21:00 PDT
-  - title: Both SSRs
-    date: 2022-04-09 21:00 PDT
-  - title: Francis Drake
-    date: 2022-04-10 21:00 PDT
-  - title: Minamoto-no-Raikou (Berserker)
-    date: 2022-04-11 21:00 PDT
-  - title: Francis Drake
-    date: 2022-04-12 21:00 PDT
-  - title: Minamoto-no-Raikou (Berserker)
-    date: 2022-04-13 21:00 PDT
-  - title: Both SSRs
-    date: 2022-04-14 21:00 PDT
+  - title: Rateup
+    times:
+      - title: Both SSRs
+        date: 2022-04-06 21:00 PDT
+      - title: Francis Drake
+        date: 2022-04-07 21:00 PDT
+      - title: Minamoto-no-Raikou (Berserker)
+        date: 2022-04-08 21:00 PDT
+      - title: Both SSRs
+        date: 2022-04-09 21:00 PDT
+      - title: Francis Drake
+        date: 2022-04-10 21:00 PDT
+      - title: Minamoto-no-Raikou (Berserker)
+        date: 2022-04-11 21:00 PDT
+      - title: Francis Drake
+        date: 2022-04-12 21:00 PDT
+      - title: Minamoto-no-Raikou (Berserker)
+        date: 2022-04-13 21:00 PDT
+      - title: Both SSRs
+        date: 2022-04-14 21:00 PDT
 hideWhenDone: true
