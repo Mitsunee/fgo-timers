@@ -12,7 +12,7 @@ import MasterMissionCard from "@components/MasterMissionCard";
 import ChaldeaGateCard from "@components/ChaldeaGateCard";
 import ShopCard from "@components/ShopCard";
 
-export { getStaticProps } from "src/server/HomePage/";
+export { getStaticProps } from "@server/HomePage/";
 export const config = {
   unstable_includeFiles: [
     "assets/static/backgrounds.json",

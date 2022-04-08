@@ -18,7 +18,7 @@ import { IconAtlas } from "@components/icons";
 import { CardGrid } from "@components/Card";
 import UpgradeCard from "@components/UpgradeCard";
 
-export { getStaticProps } from "src/server/UpgradesPage/";
+export { getStaticProps } from "@server/UpgradesPage/";
 export const config = {
   unstable_includeFiles: ["assets/data/upgrades/upgrades.json"]
 };

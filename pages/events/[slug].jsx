@@ -14,7 +14,7 @@ import Modal from "@components/Modal";
 import { Button } from "@components/Button";
 import { IconClose } from "@components/icons";
 
-export { getStaticPaths, getStaticProps } from "src/server/EventPage";
+export { getStaticPaths, getStaticProps } from "@server/EventPage";
 export const config = {
   unstable_includeFiles: ["assets/static/events.json"]
 };
