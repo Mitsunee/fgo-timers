@@ -45,3 +45,9 @@ limitedInventory:
     cost: 1000
     amount: 5
     endsAt: 2022-05-31 16:59 PDT
+  - name: Free Seating
+    icon: https://static.atlasacademy.io/JP/Faces/f_94045400.png
+    background: gold
+    cost: 1000
+    amount: 5
+    endsAt: 2022-07-31 16:59 PDT
