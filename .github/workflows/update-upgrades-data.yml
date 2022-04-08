@@ -22,7 +22,7 @@ jobs:
           node-version: 14
           cache: yarn
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --frozen-lockfile
       - name: Run update script
         run: yarn upgrades:legacy
       - name: Commit changes
