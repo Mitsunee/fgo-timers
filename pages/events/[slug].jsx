@@ -24,13 +24,14 @@ export default function EventPage({
   shortTitle,
   banner,
   url,
-  starts,
-  ends = null,
+  start,
+  end = null,
   times = [],
   description
 }) {
   const [showModal, setShowModal] = useState(false);
-  const { interval } = useStore(intervalStore);
+  const { seconds: interval } = useStore(intervalStore);
+  //console.log(interval);
 
   const handleModalOpen = event => {
     event.preventDefault();
@@ -84,20 +85,20 @@ export default function EventPage({
           </thead>
           <tbody>
             <EventTimeRow
-              title={starts > interval ? "Starts" : "Started"}
-              target={starts}
+              title={start > interval ? "Starts" : "Started"}
+              target={start}
             />
-            {ends !== null && (
+            {end !== null && (
               <EventTimeRow
-                title={ends > interval ? "Ends" : "Ended"}
-                target={ends}
+                title={end > interval ? "Ends" : "Ended"}
+                target={end}
               />
             )}
             {times.map((time, idx) => {
               // handle rotating times
               if (time.times) {
                 let next = time.times.findIndex(
-                  ({ starts }) => starts > interval
+                  ({ start }) => start > interval
                 );
                 if (next < 0) {
                   if (time.hide) return null;
@@ -110,18 +111,18 @@ export default function EventPage({
                     <EventTimeRow
                       key={`${idx}-${subIdx}`}
                       title={`[${time.title || "Start"}] ${subTime.title}`}
-                      target={subTime.starts}
+                      target={subTime.start}
                     />
                   ));
               }
 
               // skip finished times where hide is set
-              if (time.hide && interval > (time.ends || time.starts)) {
+              if (time.hide && interval > (time.end || time.start)) {
                 return null;
               }
 
-              const isDuration = Boolean(time.ends);
-              const isEndTime = time.starts < interval;
+              const isDuration = Boolean(time.end);
+              const isEndTime = time.start < interval;
               const title = isDuration
                 ? `[${isEndTime ? "End" : "Start"}] ${time.title}`
                 : time.title;
@@ -131,9 +132,7 @@ export default function EventPage({
                   key={idx}
                   title={title}
                   target={
-                    time.starts > interval
-                      ? time.starts
-                      : time.ends || time.starts
+                    time.start > interval ? time.start : time.end || time.start
                   }
                 />
               );
