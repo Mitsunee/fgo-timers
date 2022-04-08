@@ -6,7 +6,7 @@ import { join } from "path";
 import { findDeprecatedComponents } from "../../../src/scripts/utils/svg/findDeprecatedComponents.mjs";
 
 test("finds removed components", async () => {
-  const path = resolvePath("src/components/icons/"); // NOTE: change when moving client src
+  const path = resolvePath("src/client/components/icons/");
   const dir = await readdir(path);
   const files = dir
     .filter(file => getFileName(file, false) !== "index")
