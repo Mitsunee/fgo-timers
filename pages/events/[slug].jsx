@@ -97,9 +97,7 @@ export default function EventPage({
             {times.map((time, idx) => {
               // handle rotating times
               if (time.times) {
-                let next = time.times.findIndex(
-                  ({ start }) => start > interval
-                );
+                let next = time.times.findIndex(({ date }) => date > interval);
                 if (next < 0) {
                   if (time.hide) return null;
                   next = time.times.length - 1;
@@ -111,7 +109,7 @@ export default function EventPage({
                     <EventTimeRow
                       key={`${idx}-${subIdx}`}
                       title={`[${time.title || "Start"}] ${subTime.title}`}
-                      target={subTime.start}
+                      target={subTime.date}
                     />
                   ));
               }
