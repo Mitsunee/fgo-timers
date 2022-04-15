@@ -1,23 +1,83 @@
-function parseMissionDetail(detail) {
-  // /^\[|\]$/g matches square brackets wrapping the entire string
-  // ^\[[a-f0-9]{6}\] matches color tags used in game data
+export function parseMissionDetail(detail) {
+  if (!/\[.*\]/.test(detail)) return detail; // return as string if no tokens found
 
-  // it is assumed that the string starts with an optional color tag and maybe
-  // contains a format clear tag [-]. It is easier to split on format clear tags
-  // either way no matter if a color tag exists
+  let result = new Array();
+  let tmp = "";
 
-  if (!detail.includes("[-]")) return detail.replace(/^\[|\]$/g, "");
+  for (let i = 0; i < detail.length; i++) {
+    const currentChar = detail[i];
+    let isAtStart = result.length === 0;
 
-  const [tag, ...texts] = detail.split("[-]"); // not sure if rest operator is needed here
-  let tmp;
-  if (/^\[[a-f0-9]{6}\]/i.test(tag)) {
-    // has color
-    const [, color, text] = tag.match(/^\[([a-f0-9]{6})\](.*)/);
-    tmp = { color, text: `${text.replace(/^\[|\]$/g, "")}: ` };
-  } else {
-    tmp = `${tag.replace(/^\[|\]$/g, "")}: `;
+    // check if start of a token
+    if (currentChar === "[" && detail.slice(i + 1).includes("]")) {
+      // push current string in tmp
+      if (tmp) {
+        result.push(tmp);
+        tmp = "";
+        isAtStart = false;
+      }
+
+      // check if start of a color token
+      if (/^\[[a-fA-F0-9]{6}\]/.test(detail.slice(i))) {
+        const color = detail.slice(i + 1, i + 7);
+        let text;
+        const end = detail.slice(i + 8).indexOf("[-]");
+
+        // if no end tag just color the rest of the detail
+        if (end < 0) {
+          text = detail.slice(i + 8).replace(/\[|\]/g, "");
+          i = detail.length;
+          result.push({ color, text });
+          continue;
+        }
+
+        // with end tag find all text inside the color tag
+        text = detail.slice(i + 8, i + 8 + end);
+
+        // handle leading name token
+        if (isAtStart && text.startsWith("[") && text.slice(1).includes("]")) {
+          const nameEnd = text.indexOf("]");
+          text = `${text.slice(1, nameEnd)}: ${text.slice(1 + nameEnd).trim()}`;
+        }
+
+        text = text.replace(/\[|\]/g, "");
+        i += 8 + end + 2;
+        result.push({ color, text });
+        continue;
+      }
+
+      // handle stray clear token
+      if (detail.slice(i).startsWith("[-]")) {
+        i += 2;
+        continue;
+      }
+
+      const nameEnd = detail.slice(i).indexOf("]");
+      let text = detail.slice(i + 1, i + nameEnd).replace(/\[|\]/g, "");
+      if (isAtStart) text += ": ";
+      i += nameEnd;
+      result.push(text);
+      continue;
+    }
+
+    // prevent double whitespace after name tag
+    if (!tmp && currentChar === " " && result.length > 0) {
+      const previousResult = result[result.length - 1];
+      const text =
+        typeof previousResult === "object"
+          ? previousResult.text
+          : previousResult;
+      if (text.endsWith(" ")) continue;
+    }
+
+    // continue as string
+    tmp += currentChar;
   }
-  let result = [tmp, ...texts.map(text => text.trim())];
+
+  // push remaining text
+  if (tmp) {
+    result.push(tmp);
+  }
 
   // if all pieces are strings join result
   if (result.every(piece => typeof piece === "string")) {
