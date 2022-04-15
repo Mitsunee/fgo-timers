@@ -51,6 +51,8 @@ jobs:
         id: changes
         with:
           filters: |
+            server:
+              - 'src/server/**'
             scripts:
               - 'src/scripts/**'
             assets:
@@ -68,6 +70,9 @@ jobs:
           cache: yarn
       - name: Install dependencies
         run: yarn install --frozen-lockfile --ignore-scripts
+      - name: Test Server Modules
+        if: steps.changes.outputs.server == 'true'
+        run: yarn test:server
       - name: Test Scripts
         if: steps.changes.outputs.scripts == 'true'
         run: yarn test:scripts
