@@ -13,9 +13,10 @@
     "start": "next start",
     "lint": "eslint .",
     "format": "prettier -w .",
+    "test:server": "jest --testMatch **/tests/server/**/*.test.js",
     "test:scripts": "uvu tests/scripts",
     "test:data": "node src/scripts/check/check.mjs",
-    "test": "yarn run test:scripts && yarn run test:data --all"
+    "test": "yarn run test:server && yarn run test:scripts && yarn run test:data --all"
   },
   "simple-git-hooks": {
     "pre-commit": "yarn nano-staged"
@@ -74,6 +75,8 @@
     "yaml": "^2.0.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "12.1.5",
     "chokidar": "^3.5.3",
     "commander": "^9.1.0",
     "confusing-browser-globals": "^1.0.11",
@@ -81,6 +84,7 @@
     "eslint-config-foxkit": "^1.0.1",
     "eslint-config-next": "12.1.4",
     "eslint-config-prettier": "^8.5.0",
+    "jest": "^27.5.1",
     "nano-staged": "^0.6.0",
     "simple-git-hooks": "^2.6.1",
     "uvu": "^0.5.3"
