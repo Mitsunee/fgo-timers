@@ -59,12 +59,16 @@ export async function parseEventFile(filePath) {
       continue;
     }
 
-    if (prop == "times") {
-      parsedData.times = parseEventTimes(rawData.times);
-      continue;
+    switch (prop) {
+      case "times":
+        parsedData.times = parseEventTimes(rawData.times);
+        break;
+      case "displayOrder":
+        parsedData.order = rawData.displayOrder;
+        break;
+      default:
+        parsedData[prop] = rawData[prop];
     }
-
-    parsedData[prop] = rawData[prop]; // times is handled below
   }
 
   // hideWhenDone property
