@@ -1,13 +1,15 @@
-title: "GUDAGUDA Final Honnoji 2021 & Fate/Requiem: Board Games of the Apocalypse"
-shortTitle: GUDAGUDA 4 Rerun
-banner: 2022_guda4re.png
+title: "Sakuracon 2022 Announcements"
+shortTitle: Sakuracon Announcements
+banner: 2022_requiem.png
 url: 2022/0416_sakuracon/
-date: 2022-04-19 01:00 PDT
+date: 2022-04-15 01:00 PDT
 times:
-  - title: GUDAGUDA 4 Rerun
-    date: 2022-04-19 01:00 - 2022-05-02 20:59 PDT
+  - title: Sakuracon Commemoration Login Bonus
+    date: 2022-04-17 21:00 - 04-20 20:59 PDT
+  - title: GUDAGUDA 4 Rerun Event
+    date: 2022-04-19 01:00 PDT # - 2022-05-02 20:59 PDT
   - title: Fate/Requiem Event
-    date: 2022-05-06 01:00 - 2022-05-19 20:59 PDT
+    date: 2022-05-06 01:00 PDT # - 2022-05-19 20:59 PDT
   - title: Special Login Bonus (Easter)
     date: 2022-04-14 21:00 - 04-17 20:59 PDT
 description: >-
@@ -15,3 +17,4 @@ description: >-
   Honnoji 2021 (Rerun) will begin very soon and Fate/Requiem: Board Games of the
   Apocalypse will happen in early May. There is also currently the Easter
   Campaign going on!
+hideWhenDone: auto
