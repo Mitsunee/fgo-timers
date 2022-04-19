@@ -12668,36 +12668,6 @@
     }
   },
   {
-    "target": "np",
-    "initial": {
-      "name": "Nobunaga THE Rock n' Roll",
-      "type": "buster",
-      "border": "black",
-      "na": true
-    },
-    "np": {
-      "name": "Nobunaga THE Rock n' Roll",
-      "type": "buster",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94048899,
-      "name": "強化クエスト 織田信長",
-      "search": "強化クエスト 織田信長",
-      "open": 1588496400,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
-    },
-    "servant": {
-      "id": 702900,
-      "name": "Oda Nobunaga (Berserker)",
-      "search": "oda nobunaga (berserker)",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_7029000.png",
-      "className": "berserker",
-      "na": true
-    }
-  },
-  {
     "target": "skill",
     "initial": {
       "name": "Self Evolution EX",
@@ -13540,38 +13510,6 @@
   {
     "target": "skill",
     "initial": {
-      "name": "Persistence B",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00601.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "Persistence B+",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00601.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94048898,
-      "name": "強化クエスト 沖田総司〔オルタ〕",
-      "search": "強化クエスト 沖田総司〔オルタ〕",
-      "open": 1588496400,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
-    },
-    "servant": {
-      "id": 1000700,
-      "name": "Okita Souji (Alter) (Alter Ego)",
-      "search": "okita souji (alter)",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_10007000.png",
-      "className": "alterEgo",
-      "na": true
-    }
-  },
-  {
-    "target": "skill",
-    "initial": {
       "name": "Huge Scale C",
       "num": 1,
       "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00412.png",
@@ -13911,38 +13849,6 @@
       "name": "Antonio Salieri",
       "search": "antonio salieri",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_11006000.png",
-      "className": "avenger",
-      "na": true
-    }
-  },
-  {
-    "target": "skill",
-    "initial": {
-      "name": "It Is But a Dream B",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00403.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "夢幻の如く B++",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00403.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94048897,
-      "name": "強化クエスト 魔王信長",
-      "search": "強化クエスト 魔王信長",
-      "open": 1588496400,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
-    },
-    "servant": {
-      "id": 1100700,
-      "name": "Oda Nobunaga (Avenger)",
-      "search": "oda nobunaga",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_11007000.png",
       "className": "avenger",
       "na": true
     }
@@ -15544,6 +15450,106 @@
       "search": "wu zetian",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_6027000.png",
       "className": "assassin",
+      "na": true
+    }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Nobunaga THE Rock n' Roll",
+      "type": "buster",
+      "border": "black",
+      "na": true
+    },
+    "np": {
+      "name": "Nobunaga THE Rock n' Roll",
+      "type": "buster",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94048899,
+      "name": "Rank Up Quest: Oda Nobunaga",
+      "search": "rank up quest: oda nobunaga",
+      "open": 1650340800,
+      "type": "rankup",
+      "unlock": { "ascension": 4 },
+      "na": true
+    },
+    "servant": {
+      "id": 702900,
+      "name": "Oda Nobunaga (Berserker)",
+      "search": "oda nobunaga (berserker)",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_7029000.png",
+      "className": "berserker",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Persistence B",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00601.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Persistence B+",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00601.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94048898,
+      "name": "Rank Up Quest: Okita Souji (Alter)",
+      "search": "rank up quest: okita souji (alter)",
+      "open": 1650340800,
+      "type": "rankup",
+      "unlock": { "ascension": 4 },
+      "na": true
+    },
+    "servant": {
+      "id": 1000700,
+      "name": "Okita Souji (Alter) (Alter Ego)",
+      "search": "okita souji (alter)",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_10007000.png",
+      "className": "alterEgo",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "It Is But a Dream B",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00403.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "It Is But a Dream B++",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00403.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94048897,
+      "name": "Rank Up Quest: Demon King Nobunaga",
+      "search": "rank up quest: demon king nobunaga",
+      "open": 1650340800,
+      "type": "rankup",
+      "unlock": { "ascension": 4 },
+      "na": true
+    },
+    "servant": {
+      "id": 1100700,
+      "name": "Oda Nobunaga (Avenger)",
+      "search": "oda nobunaga",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_11007000.png",
+      "className": "avenger",
       "na": true
     }
   }
