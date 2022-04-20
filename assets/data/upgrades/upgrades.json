@@ -15552,5 +15552,171 @@
       "className": "avenger",
       "na": true
     }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Natural Body EX",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00401.png",
+      "border": "gold",
+      "na": true
+    },
+    "skill": {
+      "name": "完全構造体 EX",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00601.png",
+      "border": "red"
+    },
+    "quest": {
+      "id": 94070811,
+      "name": "強化クエスト アルテラ 2",
+      "search": "強化クエスト アルテラ 2",
+      "open": 1650445200,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          { "name": "My Sword of the God of War", "id": 91101803, "na": true },
+          { "name": "Rank Up Quest: Altera", "id": 94040501, "na": true }
+        ]
+      }
+    },
+    "servant": {
+      "id": 101800,
+      "name": "Altera",
+      "search": "altera",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_1018000.png",
+      "className": "saber",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Treasure Hunt (Sea) C",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00311.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "トレジャーハント（海） A",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00311.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94070814,
+      "name": "強化クエスト アン・ボニー＆メアリー・リード",
+      "search": "強化クエスト アン・ホニ＆メアリ・リト",
+      "open": 1650445200,
+      "type": "rankup",
+      "unlock": { "ascension": 4 }
+    },
+    "servant": {
+      "id": 202500,
+      "name": "Anne Bonny & Mary Read (Archer)",
+      "search": "anne bonny & mary read (archer)",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_2025000.png",
+      "className": "archer",
+      "na": true
+    }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Sanat Kumara Wheel",
+      "type": "arts",
+      "border": "black",
+      "na": true
+    },
+    "np": { "name": "Sanat Kumara Wheel", "type": "arts", "border": "gold" },
+    "quest": {
+      "id": 94070815,
+      "name": "強化クエスト エレナ・ブラヴァツキー",
+      "search": "強化クエスト エレナ・フラウァツキ",
+      "open": 1650445200,
+      "type": "rankup",
+      "unlock": { "ascension": 4 }
+    },
+    "servant": {
+      "id": 202800,
+      "name": "Helena Blavatsky (Archer)",
+      "search": "helena blavatsky (archer)",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_2028000.png",
+      "className": "archer",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Goddess Morph B",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00403.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "女神変生（天） A",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00403.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94070812,
+      "name": "強化クエスト 玉藻の前",
+      "search": "強化クエスト 玉藻の前",
+      "open": 1650445200,
+      "type": "rankup",
+      "unlock": { "ascension": 4 }
+    },
+    "servant": {
+      "id": 302400,
+      "name": "Tamamo-no-Mae (Lancer)",
+      "search": "tamamo-no-mae (lancer)",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_3024000.png",
+      "className": "lancer",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Marksmanship B",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00303.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "絢爛の海賊姫 B+",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00303.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94070813,
+      "name": "強化クエスト アン・ボニー＆メアリー・リード 2",
+      "search": "強化クエスト アン・ホニ＆メアリ・リト 2",
+      "open": 1650445200,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          {
+            "name": "強化クエスト アン・ボニー＆メアリー・リード",
+            "id": 94061511
+          }
+        ]
+      }
+    },
+    "servant": {
+      "id": 400900,
+      "name": "Anne Bonny & Mary Read",
+      "search": "anne bonny & mary read",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_4009000.png",
+      "className": "rider",
+      "na": true
+    }
   }
 ]
