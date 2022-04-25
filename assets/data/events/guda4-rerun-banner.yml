@@ -32,3 +32,4 @@ times:
       - title: Demon King Nobunaga
         date: 2022-04-30 21:00 PDT
 displayOrder: 2
+hideWhenDone: true
