@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useStore } from "@nanostores/react";
 import spacetime from "spacetime";
 
@@ -15,7 +16,14 @@ export default function Header({ showHamburger }) {
   return (
     <>
       <header className={styles.header}>
-        <img src={`/icon-${isPadoru ? "padoru" : 64}.png`} alt="FGO Tools" />
+        <Link href="/">
+          <a title="FGO Tools">
+            <img
+              src={`/icon-${isPadoru ? "padoru" : 64}.png`}
+              alt="FGO Tools"
+            />
+          </a>
+        </Link>
         <section>
           <h1>{meta.title}</h1>
           <h2>{meta.description}</h2>
