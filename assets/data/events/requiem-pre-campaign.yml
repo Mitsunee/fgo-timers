@@ -17,3 +17,6 @@ times:
     date: 2022-05-01 21:00 - 05-15 20:59 PDT
   - title: Summoning Campaign
     date: 2022-05-01 21:00 - 05-15 20:59 PDT
+  - title: Fate/Requiem Event
+    date: 2022-05-06 01:00 - 05-19 20:59 PDT
+hideWhenDone: true
