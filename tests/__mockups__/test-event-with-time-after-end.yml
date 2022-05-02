@@ -1,0 +1,13 @@
+title: Test Event Title (Has a Date that happens after event ends)
+shortTitle: Test Event
+banner: 2022_imagefile.png
+date: 2022-03-08 00:00 PST - 2022-04-01 19:00 PDT
+url: /2022/url-to-event
+hideWhenDone: auto
+times:
+  - title: test date
+    date: 2022-04-07 18:32 PST
+description: >-
+  this is a test event. if this shows up in production please report
+
+  kthx

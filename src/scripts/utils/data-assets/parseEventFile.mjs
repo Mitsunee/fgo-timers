@@ -85,13 +85,15 @@ export async function parseEventFile(filePath) {
 
       if (parsedData.times) {
         for (const time of parsedData.times) {
+          if (time.times) {
+            possibleHideTimes.add(time.times[time.times.length - 1].date);
+            continue;
+          }
           if (time.end) {
             possibleHideTimes.add(time.end);
             continue;
           }
-          if (time.times) {
-            possibleHideTimes.add(time.times[time.times.length - 1].date);
-          }
+          possibleHideTimes.add(time.start);
         }
       }
 

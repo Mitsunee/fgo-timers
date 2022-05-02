@@ -51,4 +51,11 @@ test("throw on missing prop", async () => {
   assert.unreachable("Failed to throw");
 });
 
+test("considers subtime dates starting after event end time", async () => {
+  const out = await parseEventFile(
+    "tests/__mockups__/test-event-with-time-after-end.yml"
+  );
+  assert.ok(out.hide > out.end);
+});
+
 test.run();
