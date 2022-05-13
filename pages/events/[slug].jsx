@@ -46,7 +46,9 @@ export default function EventPage({
         image={`/assets/events/${banner}`}
         description={
           description
-            ? `${description[0].slice(0, 250)}...`
+            ? description[0].length > 250
+              ? `${description[0].slice(0, 250)}...`
+              : description[0]
             : `Event Timers for ${title}`
         }
         headerDescription={`Event Timers for ${shortTitle}`}
