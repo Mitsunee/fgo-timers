@@ -15732,5 +15732,27 @@
       "className": "ruler",
       "na": true
     }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91304701,
+      "name": "騎士よ迷うことなかれ、と聖槍は言った",
+      "search": "騎士よ迷うことなかれ、と聖槍は言った",
+      "open": 1652778000,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "intro.3-4", "id": 3000303, "na": true }],
+        "ascension": 3,
+        "bond": 5
+      }
+    },
+    "servant": {
+      "id": 304700,
+      "name": "Percival",
+      "search": "percival",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_3047000.png",
+      "className": "lancer"
+    }
   }
 ]
