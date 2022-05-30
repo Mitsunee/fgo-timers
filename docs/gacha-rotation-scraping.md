@@ -59,6 +59,21 @@ console.log(
 );
 ```
 
+The next example has `2` title rows in the table and also a middle column using rowspan for the non-rotating servants. `||` is used to get the 3rd column and 2nd column (in the HTML) as fallback.
+
+```js
+console.log(
+  JSON.stringify(
+    tableContent.slice(2).map(([date, text, text2]) => ({
+      title: (text2 || text).split("\n").join(" & "),
+      date: `${date.substring(0, date.indexOf(" -"))} ${date.slice(-3)}`
+    })),
+    null,
+    2
+  )
+);
+```
+
 ## Editing in Code Editor
 
 Remove any brackets and quotation marks where possible. Add a `-` infront of the title keys and shorten their value as needed.
