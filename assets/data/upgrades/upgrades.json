@@ -15754,5 +15754,26 @@
       "icon": "https://static.atlasacademy.io/JP/Faces/f_3047000.png",
       "className": "lancer"
     }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91105201,
+      "name": "霊基解放クエスト シャルルマーニュ",
+      "search": "霊基解放クエスト シャルルマニュ",
+      "open": 1654086600,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "そして、あなたたちは応報を見る", "id": 3001222 }],
+        "ascension": 3
+      }
+    },
+    "servant": {
+      "id": 105200,
+      "name": "Charlemagne",
+      "search": "charlemagne",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_1052000.png",
+      "className": "saber"
+    }
   }
 ]
