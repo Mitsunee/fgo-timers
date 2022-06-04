@@ -12954,38 +12954,6 @@
   {
     "target": "skill",
     "initial": {
-      "name": "Royal Card C+",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00703.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "ロイヤルカード B+",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00703.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94050299,
-      "name": "強化クエスト アルトリア・ペンドラゴン",
-      "search": "強化クエスト アルトリア・ヘントラコン",
-      "open": 1592643600,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
-    },
-    "servant": {
-      "id": 900900,
-      "name": "Altria Pendragon (Ruler)",
-      "search": "altria pendragon (ruler)",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_9009000.png",
-      "className": "ruler",
-      "na": true
-    }
-  },
-  {
-    "target": "skill",
-    "initial": {
       "name": "Masochistic Nature A",
       "num": 2,
       "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00700.png",
@@ -15774,6 +15742,40 @@
       "search": "charlemagne",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_1052000.png",
       "className": "saber"
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Royal Card C+",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00703.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Royal Card B+",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00703.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94050299,
+      "name": "Rank Up Quest: Altria Pendragon",
+      "search": "rank up quest: altria pendragon",
+      "open": 1654315200,
+      "type": "rankup",
+      "unlock": { "ascension": 4 },
+      "na": true
+    },
+    "servant": {
+      "id": 900900,
+      "name": "Altria Pendragon (Ruler)",
+      "search": "altria pendragon (ruler)",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_9009000.png",
+      "className": "ruler",
+      "na": true
     }
   }
 ]
