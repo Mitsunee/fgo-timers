@@ -1,6 +1,7 @@
 import { log } from "@foxkit/node-util/log";
 
 import { fetchQuestData } from "../fetchQuestData.mjs";
+import { findInitialSkill } from "../findInitialSkill.mjs";
 import { describeSkill } from "./skill.mjs";
 import { describeNP } from "./np.mjs";
 import { describeQuest } from "./quest.mjs";
@@ -48,12 +49,13 @@ export async function describeUpgrade(quest, { skills, nps, servants }) {
     const relatedSkillNA = skills.na.find(({ id }) => id === relatedSkill.id);
 
     // find pre-upgrade skill
-    const initialSkill = skills.jp.find(
+    const initialSkill = findInitialSkill(relatedSkill, skills.jp);
+    /*skills.jp.find(
       ({ owner, num, priority }) =>
-        owner === relatedServant.id &&
-        num === relatedSkill.num &&
-        priority === relatedSkill.priority - 1
-    );
+      owner === relatedServant.id &&
+      num === relatedSkill.num &&
+      priority === relatedSkill.priority - 1
+    );*/
     const initialSkillNA =
       initialSkill && skills.na.find(({ id }) => id === initialSkill.id);
 

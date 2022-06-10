@@ -6,12 +6,24 @@ const flatMapNPs = servant =>
     .map(np => ({ ...np, owner: servant.id }))
     .filter(({ num }) => num === 1);
 
+const sortNPsCompare = (a, b) => {
+  if (a.owner != b.owner) return a.owner - b.owner;
+  if (a.priority != b.priority) return a.priority - b.priority;
+  return a.id - b.id;
+};
+
+const sortSkillsCompare = (a, b) => {
+  if (a.owner != b.owner) return a.owner - b.owner;
+  if (a.num != b.num) return a.num - b.num;
+  return a.priority - b.priority;
+};
+
 export const arrangeNPs = niceServant => ({
-  jp: niceServant.jp.flatMap(flatMapNPs),
-  na: niceServant.na.flatMap(flatMapNPs)
+  jp: niceServant.jp.flatMap(flatMapNPs).sort(sortNPsCompare),
+  na: niceServant.na.flatMap(flatMapNPs).sort(sortNPsCompare)
 });
 
 export const arrangeSkills = niceServant => ({
-  jp: niceServant.jp.flatMap(flatMapSkills),
-  na: niceServant.na.flatMap(flatMapSkills)
+  jp: niceServant.jp.flatMap(flatMapSkills).sort(sortSkillsCompare),
+  na: niceServant.na.flatMap(flatMapSkills).sort(sortSkillsCompare)
 });

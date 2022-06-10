@@ -15781,8 +15781,11 @@
   {
     "target": "skill",
     "initial": {
-      "name": null,
-      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
+      "name": "Golden Rule C-",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00602.png",
+      "border": "gold",
+      "na": true
     },
     "skill": {
       "name": "貪欲なる黄金 A",
