@@ -15777,5 +15777,71 @@
       "className": "archer",
       "na": true
     }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": null,
+      "icon": "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"
+    },
+    "skill": {
+      "name": "貪欲なる黄金 A",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00601.png",
+      "border": "red"
+    },
+    "quest": {
+      "id": 94072602,
+      "name": "強化クエスト ジークフリート 3",
+      "search": "強化クエスト シクフリト 3",
+      "open": 1654851600,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          { "name": "Rank Up Quest: Siegfried 2", "id": 94012505, "na": true }
+        ],
+        "ascension": 4
+      }
+    },
+    "servant": {
+      "id": 100800,
+      "name": "Siegfried",
+      "search": "siegfried",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_1008000.png",
+      "className": "saber",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Hypothetical Reasoning A+",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00311.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "明かす者 EX",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00601.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94072601,
+      "name": "強化クエスト シャーロック・ホームズ",
+      "search": "強化クエスト シャロック・ホムス",
+      "open": 1654851600,
+      "type": "rankup",
+      "unlock": { "ascension": 4 }
+    },
+    "servant": {
+      "id": 900500,
+      "name": "Sherlock Holmes",
+      "search": "sherlock holmes",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_9005000.png",
+      "className": "ruler",
+      "na": true
+    }
   }
 ]
