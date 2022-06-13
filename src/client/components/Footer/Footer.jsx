@@ -10,7 +10,7 @@ export default function Footer() {
     <footer className={cc([styles.footer, fixed && styles.fixed])}>
       {"Made by "}
       <a
-        href="https://twitter.com/mitsunee"
+        href="https://www.mitsunee.com/"
         target="_blank"
         rel="noopener noreferrer">
         Mitsunee
@@ -25,21 +25,21 @@ export default function Footer() {
         rel="noopener noreferrer">
         Atlas Academy
       </a>
-      {" for their Game Data API, "}
+      {" (Game Data API and Assets), "}
       <a
         href="https://github.com/spencermountain/spacetime"
         target="_blank"
         rel="noopener noreferrer">
         Spacetime
       </a>
-      {" for timezone conversion, "}
+      {" (timezone conversion), "}
       <a
         href="https://iconmonstr.com/"
         target="_blank"
         rel="noopener noreferrer">
         iconmonstr
       </a>
-      {" vector icons"}
+      {" (vector icons)"}
     </footer>
   );
 }
