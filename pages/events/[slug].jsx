@@ -100,7 +100,12 @@ export default function EventPage({
               // handle rotating times
               if (time.times) {
                 let next = time.times.findIndex(({ date }) => date > interval);
-                if (next < 0) {
+                if (next > 0) {
+                  // if it found a future item also show current item
+                  // (presumably previous item?)
+                  next--;
+                } else if (next < 0) {
+                  // if all items are past then only show last
                   if (time.hide) return null;
                   next = time.times.length - 1;
                 }
