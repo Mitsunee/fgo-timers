@@ -1,0 +1,30 @@
+title: Pre-5th Anniversary Lostbelt Pickup Summon (Daily)
+shortTitle: 5th Anniversary Pre-Campaign Banner
+banner: 2022_preanni_pu.png
+url: 2022/0612_5th_lostbelt_pu/
+date: 2022-06-13 21:00 - 06-23 20:59 PDT
+hideWhenDone: true
+displayOrder: 3
+times:
+  - title: Rotation
+    times:
+      - title: Lostbelt No.1
+        date: 2022-06-13 21:00 PDT
+      - title: Lostbelt No.2
+        date: 2022-06-14 21:00 PDT
+      - title: Lostbelt No.3
+        date: 2022-06-15 21:00 PDT
+      - title: Lostbelt No.4
+        date: 2022-06-16 21:00 PDT
+      - title: Lostbelt No.5
+        date: 2022-06-17 21:00 PDT
+      - title: Lostbelt No.1
+        date: 2022-06-18 21:00 PDT
+      - title: Lostbelt No.2
+        date: 2022-06-19 21:00 PDT
+      - title: Lostbelt No.3
+        date: 2022-06-20 21:00 PDT
+      - title: Lostbelt No.4
+        date: 2022-06-21 21:00 PDT
+      - title: Lostbelt No.5
+        date: 2022-06-22 21:00 PDT
