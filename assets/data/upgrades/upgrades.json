@@ -15846,5 +15846,144 @@
       "className": "ruler",
       "na": true
     }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Breast Valley A",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00400.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "ブレスト・バレー A+",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00400.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94071504,
+      "name": "強化クエスト パッションリップ 2",
+      "search": "強化クエスト ハッションリッフ 2",
+      "open": 1655283600,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          { "name": "Rank Up Quest: Passionlip", "id": 94035602, "na": true }
+        ]
+      }
+    },
+    "servant": {
+      "id": 1000100,
+      "name": "Passionlip",
+      "search": "passionlip",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_10001000.png",
+      "className": "alterEgo",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Crime Ballet A",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00402.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "クライム・バレエ A+",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00402.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94071502,
+      "name": "強化クエスト メルトリリス 3",
+      "search": "強化クエスト メルトリリス 3",
+      "open": 1655283600,
+      "type": "rankup",
+      "unlock": {
+        "quest": [{ "name": "強化クエスト メルトリリス 2", "id": 94051270 }]
+      }
+    },
+    "servant": {
+      "id": 1000200,
+      "name": "Meltryllis",
+      "search": "meltryllis",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_10002000.png",
+      "className": "alterEgo",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Monstrous Strength EX",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00300.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "大河の巨獣 B",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00300.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94071501,
+      "name": "強化クエスト キングプロテア 2",
+      "search": "強化クエスト キンクフロテア 2",
+      "open": 1655283600,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          { "name": "Return to Chaldea", "id": 1000722, "na": true },
+          { "name": "強化クエスト キングプロテア", "id": 94051271 }
+        ]
+      }
+    },
+    "servant": {
+      "id": 1000900,
+      "name": "Kingprotea",
+      "search": "kingprotea",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_10009000.png",
+      "className": "alterEgo",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Self-Modification EX",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00303.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "自己改造（恋） EX",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00303.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94071505,
+      "name": "強化クエスト BB",
+      "search": "強化クエスト bb",
+      "open": 1655283600,
+      "type": "rankup",
+      "unlock": { "ascension": 4 }
+    },
+    "servant": {
+      "id": 2300100,
+      "name": "BB (MoonCancer)",
+      "search": "bb",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_23001000.png",
+      "className": "moonCancer",
+      "na": true
+    }
   }
 ]
