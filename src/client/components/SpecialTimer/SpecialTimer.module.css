@@ -9,5 +9,6 @@ section.section {
 
   .icon {
     font-size: 2.66em;
+    margin: 0px;
   }
 }
