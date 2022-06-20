@@ -15985,5 +15985,37 @@
       "className": "moonCancer",
       "na": true
     }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Self-Modification EX",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00303.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "自己改造（愛） EX",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00303.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94071503,
+      "name": "強化クエスト ＢＢ",
+      "search": "強化クエスト bb",
+      "open": 1655629200,
+      "type": "rankup",
+      "unlock": { "ascension": 4 }
+    },
+    "servant": {
+      "id": 2300200,
+      "name": "BB (MoonCancer)",
+      "search": "bb",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_23002000.png",
+      "className": "moonCancer",
+      "na": true
+    }
   }
 ]
