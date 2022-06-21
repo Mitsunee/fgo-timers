@@ -1629,32 +1629,6 @@
     }
   },
   {
-    "target": "np",
-    "initial": {
-      "name": "Demonic Sun-Shower",
-      "type": "buster",
-      "border": "black",
-      "na": true
-    },
-    "np": { "name": "Demonic Sun-Shower", "type": "buster", "border": "gold" },
-    "quest": {
-      "id": 94051272,
-      "name": "強化クエスト 鈴鹿御前",
-      "search": "強化クエスト 鈴鹿御前",
-      "open": 1594803600,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
-    },
-    "servant": {
-      "id": 103000,
-      "name": "Suzuka Gozen",
-      "search": "suzuka gozen",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_1030000.png",
-      "className": "saber",
-      "na": true
-    }
-  },
-  {
     "target": "sq",
     "quest": {
       "id": 91103201,
@@ -12983,42 +12957,6 @@
   {
     "target": "skill",
     "initial": {
-      "name": "Sadistic Nature A",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00300.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "Sadistic Nature A+",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00300.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94051270,
-      "name": "強化クエスト メルトリリス 2",
-      "search": "強化クエスト メルトリリス 2",
-      "open": 1594803600,
-      "type": "rankup",
-      "unlock": {
-        "quest": [
-          { "name": "Rank Up Quest: Meltryllis", "id": 94022007, "na": true }
-        ]
-      }
-    },
-    "servant": {
-      "id": 1000200,
-      "name": "Meltryllis",
-      "search": "meltryllis",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_10002000.png",
-      "className": "alterEgo",
-      "na": true
-    }
-  },
-  {
-    "target": "skill",
-    "initial": {
       "name": "Clairvoyance (Beast) D",
       "num": 1,
       "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00502.png",
@@ -13226,38 +13164,6 @@
       "name": "Okita Souji (Alter) (Alter Ego)",
       "search": "okita souji (alter)",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_10007000.png",
-      "className": "alterEgo",
-      "na": true
-    }
-  },
-  {
-    "target": "skill",
-    "initial": {
-      "name": "Huge Scale C",
-      "num": 1,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00412.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "Huge Scale C+",
-      "num": 1,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00412.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94051271,
-      "name": "強化クエスト キングプロテア",
-      "search": "強化クエスト キンクフロテア",
-      "open": 1594803600,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
-    },
-    "servant": {
-      "id": 1000900,
-      "name": "Kingprotea",
-      "search": "kingprotea",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_10009000.png",
       "className": "alterEgo",
       "na": true
     }
@@ -16015,6 +15921,110 @@
       "search": "bb",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_23002000.png",
       "className": "moonCancer",
+      "na": true
+    }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Demonic Sun-Shower",
+      "type": "buster",
+      "border": "black",
+      "na": true
+    },
+    "np": {
+      "name": "Demonic Sun-Shower",
+      "type": "buster",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94051272,
+      "name": "Rank Up Quest: Suzuka Gozen",
+      "search": "rank up quest: suzuka gozen",
+      "open": 1655784000,
+      "type": "rankup",
+      "unlock": { "ascension": 4 },
+      "na": true
+    },
+    "servant": {
+      "id": 103000,
+      "name": "Suzuka Gozen",
+      "search": "suzuka gozen",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_1030000.png",
+      "className": "saber",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Sadistic Nature A",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00300.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Sadistic Nature A+",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00300.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94051270,
+      "name": "Rank Up Quest: Meltryllis 2",
+      "search": "rank up quest: meltryllis 2",
+      "open": 1655784000,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          { "name": "Rank Up Quest: Meltryllis", "id": 94022007, "na": true }
+        ]
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 1000200,
+      "name": "Meltryllis",
+      "search": "meltryllis",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_10002000.png",
+      "className": "alterEgo",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Huge Scale C",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00412.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Huge Scale C+",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00412.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94051271,
+      "name": "Rank Up Quest: Kingprotea",
+      "search": "rank up quest: kingprotea",
+      "open": 1655784000,
+      "type": "rankup",
+      "unlock": { "ascension": 4 },
+      "na": true
+    },
+    "servant": {
+      "id": 1000900,
+      "name": "Kingprotea",
+      "search": "kingprotea",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_10009000.png",
+      "className": "alterEgo",
       "na": true
     }
   }
