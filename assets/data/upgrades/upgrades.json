@@ -16027,5 +16027,68 @@
       "className": "alterEgo",
       "na": true
     }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Shimatsuken",
+      "type": "arts",
+      "border": "black",
+      "na": true
+    },
+    "np": { "name": "Shimatsuken", "type": "arts", "border": "gold" },
+    "quest": {
+      "id": 94073002,
+      "name": "強化クエスト 岡田以蔵",
+      "search": "強化クエスト 岡田以蔵",
+      "open": 1656504000,
+      "type": "rankup",
+      "unlock": { "ascension": 4 }
+    },
+    "servant": {
+      "id": 603300,
+      "name": "Okada Izo",
+      "search": "okada izo",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_6033000.png",
+      "className": "assassin",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Monstrous Strength B",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00300.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "郷愁の白狼 EX",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00300.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94073001,
+      "name": "強化クエスト ヘシアン・ロボ",
+      "search": "強化クエスト ヘシアン・ロホ",
+      "open": 1656504000,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          { "name": "Return of the Wolf King", "id": 2000113, "na": true }
+        ],
+        "ascension": 4
+      }
+    },
+    "servant": {
+      "id": 1100500,
+      "name": "Hessian Lobo",
+      "search": "hessian lobo",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_11005000.png",
+      "className": "avenger",
+      "na": true
+    }
   }
 ]
