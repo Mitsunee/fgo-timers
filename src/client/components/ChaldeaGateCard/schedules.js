@@ -86,8 +86,8 @@ export const schedules = [
     name: "Mon",
     training: servantClasses.get("archer"),
     embers: [
-      servantClasses.get("lancer"),
       servantClasses.get("assassin"),
+      servantClasses.get("lancer"),
       servantClasses.get("berserker")
     ]
   },
@@ -95,8 +95,8 @@ export const schedules = [
     name: "Tue",
     training: servantClasses.get("lancer"),
     embers: [
-      servantClasses.get("saber"),
       servantClasses.get("rider"),
+      servantClasses.get("saber"),
       servantClasses.get("berserker")
     ]
   },
@@ -104,8 +104,8 @@ export const schedules = [
     name: "Wed",
     training: servantClasses.get("berserker"),
     embers: [
-      servantClasses.get("archer"),
       servantClasses.get("caster"),
+      servantClasses.get("archer"),
       servantClasses.get("berserker")
     ]
   },

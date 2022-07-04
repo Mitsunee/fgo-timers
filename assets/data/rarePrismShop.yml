@@ -12,6 +12,11 @@ inventory:
     background: gold
     cost: 1
     amount: 3
+  - name: Beast's Footprint
+    icon: https://static.atlasacademy.io/JP/Items/2000.png
+    background: gold
+    cost: 1
+    amount: 1
   - name: Crystallized Lore
     icon: https://static.atlasacademy.io/NA/Items/6999.png
     background: gold
@@ -33,4 +38,41 @@ inventory:
     cost: 1
     amount: 5
     stack: 20000
-limitedInventory: []
+limitedInventory:
+  - name: Lantern of Chaldea
+    icon: https://static.atlasacademy.io/NA/Items/1000.png
+    background: gold
+    cost: 3
+    amount: 1
+    endsAt: 2022-07-17 20:59 PDT
+  - name: Code Remover
+    icon: https://static.atlasacademy.io/NA/Items/5003.png
+    background: gold
+    cost: 1
+    amount: 3
+    endsAt: 2022-07-17 20:59 PDT
+  - name: Crystallized Lore
+    icon: https://static.atlasacademy.io/NA/Items/6999.png
+    background: gold
+    cost: 5
+    amount: 1
+    endsAt: 2022-07-17 20:59 PDT
+  - name: Meteor Fou
+    icon: https://static.atlasacademy.io/NA/Faces/f_95704000.png
+    background: gold
+    cost: 3
+    amount: 1
+    endsAt: 2022-07-17 20:59 PDT
+  - name: Corona Fou
+    icon: https://static.atlasacademy.io/NA/Faces/f_96704000.png
+    background: gold
+    cost: 3
+    amount: 1
+    endsAt: 2022-07-17 20:59 PDT
+  - name: Friend Points
+    icon: https://static.atlasacademy.io/NA/Items/12.png
+    background: silver
+    cost: 1
+    amount: 5
+    stack: 20000
+    endsAt: 2022-07-17 20:59 PDT
