@@ -2842,38 +2842,6 @@
     }
   },
   {
-    "target": "skill",
-    "initial": {
-      "name": "Hero of the Endowed A",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00601.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "Hero of the Endowed A+",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00601.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94052295,
-      "name": "強化クエスト アルジュナ",
-      "search": "強化クエスト アルシュナ",
-      "open": 1596877200,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
-    },
-    "servant": {
-      "id": 201500,
-      "name": "Arjuna",
-      "search": "arjuna",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_2015000.png",
-      "className": "archer",
-      "na": true
-    }
-  },
-  {
     "target": "sq",
     "quest": {
       "id": 91201601,
@@ -9364,38 +9332,6 @@
     }
   },
   {
-    "target": "skill",
-    "initial": {
-      "name": "Siren Song B",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00509.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "ガルニエからの呼び声 B+",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00509.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94052286,
-      "name": "強化クエスト ファントム",
-      "search": "強化クエスト ファントム",
-      "open": 1596618000,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
-    },
-    "servant": {
-      "id": 601300,
-      "name": "Phantom of the Opera",
-      "search": "phantom of the opera",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_6013000.png",
-      "className": "assassin",
-      "na": true
-    }
-  },
-  {
     "target": "sq",
     "quest": {
       "id": 91601401,
@@ -11563,38 +11499,6 @@
     }
   },
   {
-    "target": "skill",
-    "initial": {
-      "name": "Battle Continuation A",
-      "num": 3,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "アケメネスの誇り A+",
-      "num": 3,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94052287,
-      "name": "強化クエスト ダレイオス三世",
-      "search": "強化クエスト タレイオス三世",
-      "open": 1596704400,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
-    },
-    "servant": {
-      "id": 701100,
-      "name": "Darius III",
-      "search": "darius iii",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_7011000.png",
-      "className": "berserker",
-      "na": true
-    }
-  },
-  {
     "target": "sq",
     "quest": {
       "id": 91701301,
@@ -12223,36 +12127,6 @@
         "bond": 5
       },
       "na": true
-    },
-    "servant": {
-      "id": 702300,
-      "name": "Minamoto-no-Raikou",
-      "search": "minamoto-no-raikou",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_7023000.png",
-      "className": "berserker",
-      "na": true
-    }
-  },
-  {
-    "target": "np",
-    "initial": {
-      "name": "Vengeful Lightning of the Ox-King",
-      "type": "buster",
-      "border": "black",
-      "na": true
-    },
-    "np": {
-      "name": "Vengeful Lightning of the Ox-King",
-      "type": "buster",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94052294,
-      "name": "強化クエスト 源頼光",
-      "search": "強化クエスト 源頼光",
-      "open": 1596704400,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 702300,
@@ -16088,6 +15962,140 @@
       "search": "hessian lobo",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_11005000.png",
       "className": "avenger",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Hero of the Endowed A",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00601.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Hero of the Endowed A+",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00601.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94052295,
+      "name": "Rank Up Quest: Arjuna",
+      "search": "rank up quest: arjuna",
+      "open": 1656907200,
+      "type": "rankup",
+      "unlock": { "ascension": 4 },
+      "na": true
+    },
+    "servant": {
+      "id": 201500,
+      "name": "Arjuna",
+      "search": "arjuna",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_2015000.png",
+      "className": "archer",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Siren Song B",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00509.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Shriek from the Palais Garnier B+",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00509.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94052286,
+      "name": "Rank Up Quest: Phantom",
+      "search": "rank up quest: phantom",
+      "open": 1656907200,
+      "type": "rankup",
+      "unlock": { "ascension": 4 },
+      "na": true
+    },
+    "servant": {
+      "id": 601300,
+      "name": "Phantom of the Opera",
+      "search": "phantom of the opera",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_6013000.png",
+      "className": "assassin",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Battle Continuation A",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Pride of an Achaemenid A+",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94052287,
+      "name": "Rank Up Quest: Darius III",
+      "search": "rank up quest: darius iii",
+      "open": 1656979200,
+      "type": "rankup",
+      "unlock": { "ascension": 4 },
+      "na": true
+    },
+    "servant": {
+      "id": 701100,
+      "name": "Darius III",
+      "search": "darius iii",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_7011000.png",
+      "className": "berserker",
+      "na": true
+    }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Vengeful Lightning of the Ox-King",
+      "type": "buster",
+      "border": "black",
+      "na": true
+    },
+    "np": {
+      "name": "Vengeful Lightning of the Ox-King",
+      "type": "buster",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94052294,
+      "name": "Rank Up Quest: Minamoto-no-Raikou",
+      "search": "rank up quest: minamoto-no-raikou",
+      "open": 1656979200,
+      "type": "rankup",
+      "unlock": { "ascension": 4 },
+      "na": true
+    },
+    "servant": {
+      "id": 702300,
+      "name": "Minamoto-no-Raikou",
+      "search": "minamoto-no-raikou",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_7023000.png",
+      "className": "berserker",
       "na": true
     }
   }
