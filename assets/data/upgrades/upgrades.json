@@ -2239,32 +2239,6 @@
   {
     "target": "np",
     "initial": {
-      "name": "Hamesh Avanim",
-      "type": "buster",
-      "border": "black",
-      "na": true
-    },
-    "np": { "name": "Hamesh Avanim", "type": "buster", "border": "gold" },
-    "quest": {
-      "id": 94052288,
-      "name": "強化クエスト ダビデ",
-      "search": "強化クエスト タヒテ",
-      "open": 1596790800,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
-    },
-    "servant": {
-      "id": 200600,
-      "name": "David",
-      "search": "david",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_2006000.png",
-      "className": "archer",
-      "na": true
-    }
-  },
-  {
-    "target": "np",
-    "initial": {
       "name": "Failnaught",
       "type": "quick",
       "border": "black",
@@ -10416,38 +10390,6 @@
     }
   },
   {
-    "target": "skill",
-    "initial": {
-      "name": "Taoist Winged Sage A",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00606.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "Taoist Winged Sage A+",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00606.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94052290,
-      "name": "強化クエスト 虞美人",
-      "search": "強化クエスト 虞美人",
-      "open": 1596790800,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
-    },
-    "servant": {
-      "id": 603500,
-      "name": "Yu Mei-ren (Assassin)",
-      "search": "yu mei-ren",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_6035000.png",
-      "className": "assassin",
-      "na": true
-    }
-  },
-  {
     "target": "sq",
     "quest": {
       "id": 91603601,
@@ -16096,6 +16038,72 @@
       "search": "minamoto-no-raikou",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_7023000.png",
       "className": "berserker",
+      "na": true
+    }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Hamesh Avanim",
+      "type": "buster",
+      "border": "black",
+      "na": true
+    },
+    "np": {
+      "name": "Hamesh Avanim",
+      "type": "buster",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94052288,
+      "name": "Rank Up Quest: David",
+      "search": "rank up quest: david",
+      "open": 1657065600,
+      "type": "rankup",
+      "unlock": { "ascension": 4 },
+      "na": true
+    },
+    "servant": {
+      "id": 200600,
+      "name": "David",
+      "search": "david",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_2006000.png",
+      "className": "archer",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Taoist Winged Sage A",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00606.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Taoist Winged Sage A+",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00606.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94052290,
+      "name": "Rank Up Quest: Yu Mei-ren",
+      "search": "rank up quest: yu mei-ren",
+      "open": 1657065600,
+      "type": "rankup",
+      "unlock": { "ascension": 4 },
+      "na": true
+    },
+    "servant": {
+      "id": 603500,
+      "name": "Yu Mei-ren (Assassin)",
+      "search": "yu mei-ren",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_6035000.png",
+      "className": "assassin",
       "na": true
     }
   }
