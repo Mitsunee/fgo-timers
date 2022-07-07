@@ -4109,38 +4109,6 @@
     }
   },
   {
-    "target": "skill",
-    "initial": {
-      "name": "Primordial Rune",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00520.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "Primordial Rune",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00601.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94052292,
-      "name": "強化クエスト ブリュンヒルデ",
-      "search": "強化クエスト フリュンヒルテ",
-      "open": 1596618000,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
-    },
-    "servant": {
-      "id": 301200,
-      "name": "Brynhild (Lancer)",
-      "search": "brynhild",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_3012000.png",
-      "className": "lancer",
-      "na": true
-    }
-  },
-  {
     "target": "np",
     "initial": {
       "name": "Gáe Bolg Alternative",
@@ -4654,36 +4622,6 @@
         "bond": 3
       },
       "na": true
-    },
-    "servant": {
-      "id": 303100,
-      "name": "Nezha",
-      "search": "nezha",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_3031000.png",
-      "className": "lancer",
-      "na": true
-    }
-  },
-  {
-    "target": "np",
-    "initial": {
-      "name": "Flying Bright Spirit, Fire-Tipped Spear",
-      "type": "buster",
-      "border": "black",
-      "na": true
-    },
-    "np": {
-      "name": "Flying Bright Spirit, Fire-Tipped Spear",
-      "type": "buster",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94052289,
-      "name": "強化クエスト 哪吒",
-      "search": "強化クエスト 哪吒",
-      "open": 1596877200,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 303100,
@@ -16104,6 +16042,72 @@
       "search": "yu mei-ren",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_6035000.png",
       "className": "assassin",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Primordial Rune",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00520.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Primordial Rune",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00601.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94052292,
+      "name": "Rank Up Quest: Brynhild",
+      "search": "rank up quest: brynhild",
+      "open": 1657152000,
+      "type": "rankup",
+      "unlock": { "ascension": 4 },
+      "na": true
+    },
+    "servant": {
+      "id": 301200,
+      "name": "Brynhild (Lancer)",
+      "search": "brynhild",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_3012000.png",
+      "className": "lancer",
+      "na": true
+    }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Flying Bright Spirit, Fire-Tipped Spear",
+      "type": "buster",
+      "border": "black",
+      "na": true
+    },
+    "np": {
+      "name": "Flying Bright Spirit, Fire-Tipped Spear",
+      "type": "buster",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94052289,
+      "name": "Rank Up Quest: Nezha",
+      "search": "rank up quest: nezha",
+      "open": 1657152000,
+      "type": "rankup",
+      "unlock": { "ascension": 4 },
+      "na": true
+    },
+    "servant": {
+      "id": 303100,
+      "name": "Nezha",
+      "search": "nezha",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_3031000.png",
+      "className": "lancer",
       "na": true
     }
   }
