@@ -2,13 +2,14 @@ section.section {
   flex-basis: 100%;
   margin-bottom: 0px;
   padding: 0.66em;
+  gap: 0.66em;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   .icon {
-    font-size: 2.66em;
-    margin: 0px;
+    height: 2.66em;
+    width: auto;
   }
 }
