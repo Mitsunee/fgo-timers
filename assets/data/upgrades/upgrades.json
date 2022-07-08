@@ -1020,45 +1020,6 @@
     }
   },
   {
-    "target": "np",
-    "initial": {
-      "name": "Six Paths, Five Rings: Kurikara Divine Blade",
-      "type": "buster",
-      "border": "gold",
-      "na": true
-    },
-    "np": {
-      "name": "Six Paths, Five Rings: Kurikara Divine Blade",
-      "type": "buster",
-      "border": "red"
-    },
-    "quest": {
-      "id": 94052293,
-      "name": "強化クエスト 宮本武蔵",
-      "search": "強化クエスト 宮本武蔵",
-      "open": 1596963600,
-      "type": "rankup",
-      "unlock": {
-        "quest": [
-          {
-            "name": "See You Again Someday, Flower at the Apex of Heaven",
-            "id": 2000316,
-            "na": true
-          }
-        ],
-        "ascension": 4
-      }
-    },
-    "servant": {
-      "id": 101700,
-      "name": "Miyamoto Musashi",
-      "search": "miyamoto musashi",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_1017000.png",
-      "className": "saber",
-      "na": true
-    }
-  },
-  {
     "target": "sq",
     "quest": {
       "id": 91101801,
@@ -7490,32 +7451,6 @@
         "ascension": 2
       },
       "na": true
-    },
-    "servant": {
-      "id": 501800,
-      "name": "Gilgamesh (Caster)",
-      "search": "gilgamesh",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_5018000.png",
-      "className": "caster",
-      "na": true
-    }
-  },
-  {
-    "target": "np",
-    "initial": {
-      "name": "Melammu Dingir",
-      "type": "arts",
-      "border": "black",
-      "na": true
-    },
-    "np": { "name": "Melammu Dingir", "type": "arts", "border": "gold" },
-    "quest": {
-      "id": 94052291,
-      "name": "強化クエスト ギルガメッシュ",
-      "search": "強化クエスト キルカメッシュ",
-      "open": 1596963600,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 501800,
@@ -16108,6 +16043,79 @@
       "search": "nezha",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_3031000.png",
       "className": "lancer",
+      "na": true
+    }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Six Paths, Five Rings: Kurikara Divine Blade",
+      "type": "buster",
+      "border": "gold",
+      "na": true
+    },
+    "np": {
+      "name": "Six Paths, Five Rings: Kurikara Divine Blade",
+      "type": "buster",
+      "border": "red",
+      "na": true
+    },
+    "quest": {
+      "id": 94052293,
+      "name": "Rank Up Quest: Miyamoto Musashi",
+      "search": "rank up quest: miyamoto musashi",
+      "open": 1657238400,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          {
+            "name": "See You Again Someday, Flower at the Apex of Heaven",
+            "id": 2000316,
+            "na": true
+          }
+        ],
+        "ascension": 4
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 101700,
+      "name": "Miyamoto Musashi",
+      "search": "miyamoto musashi",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_1017000.png",
+      "className": "saber",
+      "na": true
+    }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Melammu Dingir",
+      "type": "arts",
+      "border": "black",
+      "na": true
+    },
+    "np": {
+      "name": "Melammu Dingir",
+      "type": "arts",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94052291,
+      "name": "Rank Up Quest: Gilgamesh",
+      "search": "rank up quest: gilgamesh",
+      "open": 1657238400,
+      "type": "rankup",
+      "unlock": { "ascension": 4 },
+      "na": true
+    },
+    "servant": {
+      "id": 501800,
+      "name": "Gilgamesh (Caster)",
+      "search": "gilgamesh",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_5018000.png",
+      "className": "caster",
       "na": true
     }
   }
