@@ -97,46 +97,6 @@
     }
   },
   {
-    "target": "skill",
-    "initial": {
-      "name": "Mana Burst A",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00306.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "竜の炉心 B",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00306.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94052299,
-      "name": "強化クエスト アルトリア・ペンドラゴン 2",
-      "search": "強化クエスト アルトリア・ヘントラコン 2",
-      "open": 1597051800,
-      "type": "rankup",
-      "unlock": {
-        "quest": [
-          {
-            "name": "Rank Up Quest: Altria Pendragon",
-            "id": 94026514,
-            "na": true
-          }
-        ]
-      }
-    },
-    "servant": {
-      "id": 100100,
-      "name": "Altria Pendragon",
-      "search": "altria pendragon",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_1001000.png",
-      "className": "saber",
-      "na": true
-    }
-  },
-  {
     "target": "sq",
     "quest": {
       "id": 91100201,
@@ -1865,42 +1825,6 @@
     }
   },
   {
-    "target": "skill",
-    "initial": {
-      "name": "Projection A",
-      "num": 3,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00317.png",
-      "border": "gold",
-      "na": true
-    },
-    "skill": {
-      "name": "回路接続 EX",
-      "num": 3,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00317.png",
-      "border": "red"
-    },
-    "quest": {
-      "id": 94052298,
-      "name": "強化クエスト エミヤ 3",
-      "search": "強化クエスト エミヤ 3",
-      "open": 1597051800,
-      "type": "rankup",
-      "unlock": {
-        "quest": [
-          { "name": "Rank Up Quest: Emiya 2", "id": 94008005, "na": true }
-        ]
-      }
-    },
-    "servant": {
-      "id": 200100,
-      "name": "Emiya",
-      "search": "emiya",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_2001000.png",
-      "className": "archer",
-      "na": true
-    }
-  },
-  {
     "target": "sq",
     "quest": {
       "id": 91200201,
@@ -3106,42 +3030,6 @@
       "type": "rankup",
       "unlock": { "ascension": 4 },
       "na": true
-    },
-    "servant": {
-      "id": 300100,
-      "name": "Cú Chulainn (Lancer)",
-      "search": "cu chulainn",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_3001000.png",
-      "className": "lancer",
-      "na": true
-    }
-  },
-  {
-    "target": "skill",
-    "initial": {
-      "name": "Battle Continuation A",
-      "num": 1,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "四枝の浅瀬 A",
-      "num": 1,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94052296,
-      "name": "強化クエスト クー・フーリン 2",
-      "search": "強化クエスト ク・フリン 2",
-      "open": 1597051800,
-      "type": "rankup",
-      "unlock": {
-        "quest": [
-          { "name": "Rank Up Quest: Cú Chulainn", "id": 94026504, "na": true }
-        ]
-      }
     },
     "servant": {
       "id": 300100,
@@ -10417,41 +10305,6 @@
     }
   },
   {
-    "target": "skill",
-    "initial": {
-      "name": "Battle Continuation A",
-      "num": 3,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "不撓不屈 A",
-      "num": 3,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94052297,
-      "name": "強化クエスト ヘラクレス",
-      "search": "強化クエスト ヘラクレス",
-      "open": 1597051800,
-      "type": "rankup",
-      "unlock": {
-        "quest": [{ "name": "最終決戦・虚ろなる海神", "id": 3000531 }],
-        "ascension": 4
-      }
-    },
-    "servant": {
-      "id": 700100,
-      "name": "Heracles",
-      "search": "heracles",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_7001000.png",
-      "className": "berserker",
-      "na": true
-    }
-  },
-  {
     "target": "sq",
     "quest": {
       "id": 91700201,
@@ -16116,6 +15969,167 @@
       "search": "gilgamesh",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_5018000.png",
       "className": "caster",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Mana Burst A",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00306.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Dragon's Core B",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00306.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94052299,
+      "name": "Rank Up Quest: Altria Pendragon 2",
+      "search": "rank up quest: altria pendragon 2",
+      "open": 1657324800,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          {
+            "name": "Rank Up Quest: Altria Pendragon",
+            "id": 94026514,
+            "na": true
+          }
+        ]
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 100100,
+      "name": "Altria Pendragon",
+      "search": "altria pendragon",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_1001000.png",
+      "className": "saber",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Projection A",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00317.png",
+      "border": "gold",
+      "na": true
+    },
+    "skill": {
+      "name": "Circuit Connect EX",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00317.png",
+      "border": "red",
+      "na": true
+    },
+    "quest": {
+      "id": 94052298,
+      "name": "Rank Up Quest: Emiya 3",
+      "search": "rank up quest: emiya 3",
+      "open": 1657324800,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          { "name": "Rank Up Quest: Emiya 2", "id": 94008005, "na": true }
+        ]
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 200100,
+      "name": "Emiya",
+      "search": "emiya",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_2001000.png",
+      "className": "archer",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Battle Continuation A",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Ath nGabla A",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94052296,
+      "name": "Rank Up Quest: Cú Chulainn 2",
+      "search": "rank up quest: cu chulainn 2",
+      "open": 1657324800,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          { "name": "Rank Up Quest: Cú Chulainn", "id": 94026504, "na": true }
+        ]
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 300100,
+      "name": "Cú Chulainn (Lancer)",
+      "search": "cu chulainn",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_3001000.png",
+      "className": "lancer",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Battle Continuation A",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Indefatigable A",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94052297,
+      "name": "Rank Up Quest: Heracles",
+      "search": "rank up quest: heracles",
+      "open": 1657324800,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          {
+            "name": "Final Showdown: The Hollow Sea God",
+            "id": 3000531,
+            "na": true
+          }
+        ],
+        "ascension": 4
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 700100,
+      "name": "Heracles",
+      "search": "heracles",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_7001000.png",
+      "className": "berserker",
       "na": true
     }
   }
