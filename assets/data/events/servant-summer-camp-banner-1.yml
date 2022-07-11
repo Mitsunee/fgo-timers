@@ -1,0 +1,38 @@
+title: Servant Summer Camp! Pickup 1 Summon (Daily)
+shortTitle: Summer Camp Banner 1
+banner: 2022_summer5_pu1.png
+url: 2022/0710_2022summer_pu/
+date: 2022-07-12 02:00 - 08-01 20:59 PDT
+hideWhenDone: true
+displayOrder: 2
+description: >-
+  The first of three Summoning Banners of Servant Summer Camp features limited
+  SSR Sessyoin Kiara (Moon Cancer) and limited SRs Illyasviel von Einzbern (Archer)
+  and Bryhild (Berserker) as well as a brand new set of Event Craft Essences.
+
+  The SRs are on a rotating schedule while Sessyoin Kiara is always on rateup.
+times:
+  - title: Rateup
+    times:
+      - title: Illyasviel & Brynhild
+        date: 2022-07-12 02:00 PDT
+      - title: Illyasviel
+        date: 2022-07-13 21:00 PDT
+      - title: Brynhild
+        date: 2022-07-14 21:00 PDT
+      - title: Illyasviel
+        date: 2022-07-15 21:00 PDT
+      - title: Brynhild
+        date: 2022-07-16 21:00 PDT
+      - title: Illyasviel & Brynhild
+        date: 2022-07-17 21:00 PDT
+      - title: Illyasviel
+        date: 2022-07-22 21:00 PDT
+      - title: Brynhild
+        date: 2022-07-24 21:00 PDT
+      - title: Illyasviel
+        date: 2022-07-26 21:00 PDT
+      - title: Brynhild
+        date: 2022-07-28 21:00 PDT
+      - title: Illyasviel & Brynhild
+        date: 2022-07-30 21:00 PDT
