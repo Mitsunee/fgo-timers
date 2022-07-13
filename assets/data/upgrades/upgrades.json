@@ -1613,32 +1613,6 @@
     }
   },
   {
-    "target": "np",
-    "initial": {
-      "name": "Bölverkr Gram",
-      "type": "buster",
-      "border": "black",
-      "na": true
-    },
-    "np": { "name": "Bölverkr Gram", "type": "buster", "border": "gold" },
-    "quest": {
-      "id": 94052080,
-      "name": "強化クエスト シグルド",
-      "search": "強化クエスト シクルト",
-      "open": 1597654800,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
-    },
-    "servant": {
-      "id": 103300,
-      "name": "Sigurd",
-      "search": "sigurd",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_1033000.png",
-      "className": "saber",
-      "na": true
-    }
-  },
-  {
     "target": "sq",
     "quest": {
       "id": 91103501,
@@ -16130,6 +16104,38 @@
       "search": "heracles",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_7001000.png",
       "className": "berserker",
+      "na": true
+    }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Bölverkr Gram",
+      "type": "buster",
+      "border": "black",
+      "na": true
+    },
+    "np": {
+      "name": "Bölverkr Gram",
+      "type": "buster",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94052080,
+      "name": "Rank Up Quest: Sigurd",
+      "search": "rank up quest: sigurd",
+      "open": 1657598400,
+      "type": "rankup",
+      "unlock": { "ascension": 4 },
+      "na": true
+    },
+    "servant": {
+      "id": 103300,
+      "name": "Sigurd",
+      "search": "sigurd",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_1033000.png",
+      "className": "saber",
       "na": true
     }
   }
