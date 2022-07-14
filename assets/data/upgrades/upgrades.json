@@ -16138,5 +16138,35 @@
       "className": "saber",
       "na": true
     }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91503002,
+      "name": "思い出される物語",
+      "search": "思い出される物語",
+      "open": 1657702800,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          { "name": "Women of Agartha", "id": 2000216, "na": true },
+          {
+            "name": "The One Thousand and Second Night",
+            "id": 91503001,
+            "na": true
+          }
+        ],
+        "ascension": 3,
+        "bond": 4
+      }
+    },
+    "servant": {
+      "id": 503000,
+      "name": "Scheherazade",
+      "search": "scheherazade",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_5030000.png",
+      "className": "caster",
+      "na": true
+    }
   }
 ]
