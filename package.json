@@ -58,7 +58,7 @@
     "msgpackr": "^1.6.1",
     "nanostores": "^0.5.12",
     "next": "12.2.0",
-    "node-fetch": "^3.2.6",
+    "node-fetch": "^3.2.10",
     "picoapi": "^0.1.2",
     "picocolors": "^1.0.0",
     "postcss": "^8.4.14",
