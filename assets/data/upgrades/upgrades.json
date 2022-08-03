@@ -16236,5 +16236,73 @@
       "className": "alterEgo",
       "na": true
     }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Knight's Strategy B",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00604.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "悲恋繚乱 A",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00314.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94074103,
+      "name": "強化クエスト ディルムッド",
+      "search": "強化クエスト ティルムット",
+      "open": 1659430800,
+      "type": "rankup",
+      "unlock": { "ascension": 4 }
+    },
+    "servant": {
+      "id": 300200,
+      "name": "Diarmuid Ua Duibhne (Lancer)",
+      "search": "diarmuid ua duibhne",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_3002000.png",
+      "className": "lancer",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Distant Thoughts A",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "白い花冠 EX",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94074114,
+      "name": "強化クエスト メドゥーサ 2",
+      "search": "強化クエスト メトゥサ 2",
+      "open": 1659430800,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          { "name": "Rank Up Quest: Medusa", "id": 94040503, "na": true }
+        ]
+      }
+    },
+    "servant": {
+      "id": 302700,
+      "name": "Medusa (Lancer)",
+      "search": "medusa",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_3027000.png",
+      "className": "lancer",
+      "na": true
+    }
   }
 ]
