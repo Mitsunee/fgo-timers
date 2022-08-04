@@ -16304,5 +16304,73 @@
       "className": "lancer",
       "na": true
     }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Defiant B",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00400.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "勇士の矜持 A",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00306.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94074101,
+      "name": "強化クエスト フェルグス",
+      "search": "強化クエスト フェルクス",
+      "open": 1659517200,
+      "type": "rankup",
+      "unlock": { "ascension": 4 }
+    },
+    "servant": {
+      "id": 101400,
+      "name": "Fergus mac Róich",
+      "search": "fergus mac roich",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_1014000.png",
+      "className": "saber",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Yin-Yang A",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00610.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "陰陽魚 A+",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00610.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94074108,
+      "name": "強化クエスト 両儀式 2",
+      "search": "強化クエスト 両儀式 2",
+      "open": 1659517200,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          { "name": "Rank Up Quest: Ryougi Shiki", "id": 94037801, "na": true }
+        ]
+      }
+    },
+    "servant": {
+      "id": 102800,
+      "name": "Ryougi Shiki (Saber)",
+      "search": "ryougi shiki (saber)",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_1028000.png",
+      "className": "saber",
+      "na": true
+    }
   }
 ]
