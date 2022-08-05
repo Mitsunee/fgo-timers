@@ -16372,5 +16372,67 @@
       "className": "saber",
       "na": true
     }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Pirate Gentleman A",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00537.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "海賊紳士 A+",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00537.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94074104,
+      "name": "強化クエスト バーソロミュー",
+      "search": "強化クエスト ハソロミュ",
+      "open": 1659603600,
+      "type": "rankup",
+      "unlock": { "ascension": 4 }
+    },
+    "servant": {
+      "id": 403400,
+      "name": "Bartholomew Roberts",
+      "search": "bartholomew roberts",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_4034000.png",
+      "className": "rider",
+      "na": true
+    }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Tengu's Fan, Akarashimakaze",
+      "type": "quick",
+      "border": "black",
+      "na": true
+    },
+    "np": {
+      "name": "Tengu's Fan, Akarashimakaze",
+      "type": "quick",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94074111,
+      "name": "強化クエスト 牛若丸",
+      "search": "強化クエスト 牛若丸",
+      "open": 1659603600,
+      "type": "rankup",
+      "unlock": { "ascension": 4 }
+    },
+    "servant": {
+      "id": 603400,
+      "name": "Ushiwakamaru (Assassin)",
+      "search": "ushiwakamaru (assassin)",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_6034000.png",
+      "className": "assassin",
+      "na": true
+    }
   }
 ]
