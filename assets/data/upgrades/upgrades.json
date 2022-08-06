@@ -16434,5 +16434,67 @@
       "className": "assassin",
       "na": true
     }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Inexhaustible Straw Bag EX",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00412.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Inexhaustible Straw Bag EX",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00412.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94074102,
+      "name": "強化クエスト 俵藤太",
+      "search": "強化クエスト 俵藤太",
+      "open": 1659690000,
+      "type": "rankup",
+      "unlock": { "ascension": 4 }
+    },
+    "servant": {
+      "id": 201400,
+      "name": "Tawara Touta",
+      "search": "tawara touta",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_2014000.png",
+      "className": "archer",
+      "na": true
+    }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Sotohrihime, Spider's Conduct",
+      "type": "arts",
+      "border": "black",
+      "na": true
+    },
+    "np": {
+      "name": "Sotohrihime, Spider's Conduct",
+      "type": "arts",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94074110,
+      "name": "強化クエスト 紫式部",
+      "search": "強化クエスト 紫式部",
+      "open": 1659690000,
+      "type": "rankup",
+      "unlock": { "ascension": 4 }
+    },
+    "servant": {
+      "id": 404100,
+      "name": "Murasaki Shikibu (Rider)",
+      "search": "murasaki shikibu",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_4041000.png",
+      "className": "rider",
+      "na": true
+    }
   }
 ]
