@@ -16496,5 +16496,65 @@
       "className": "rider",
       "na": true
     }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Prelati's Spellbook",
+      "type": "buster",
+      "border": "black",
+      "na": true
+    },
+    "np": { "name": "Prelati's Spellbook", "type": "buster", "border": "gold" },
+    "quest": {
+      "id": 94074105,
+      "name": "強化クエスト ジル・ド・レェ 3",
+      "search": "強化クエスト シル・ト・レェ 3",
+      "open": 1659776400,
+      "type": "rankup",
+      "unlock": {
+        "quest": [{ "name": "強化クエスト ジル・ド・レェ 2", "id": 94053799 }]
+      }
+    },
+    "servant": {
+      "id": 500200,
+      "name": "Gilles de Rais (Caster)",
+      "search": "gilles de rais",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_5002000.png",
+      "className": "caster",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Protection of World's End (Space) B",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00311.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "最果ての加護（宇宙） B+",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00311.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94074109,
+      "name": "強化クエスト ボイジャー",
+      "search": "強化クエスト ホイシャ",
+      "open": 1659776400,
+      "type": "rankup",
+      "unlock": { "ascension": 4 }
+    },
+    "servant": {
+      "id": 2500500,
+      "name": "Voyager",
+      "search": "voyager",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_25005000.png",
+      "className": "foreigner",
+      "na": true
+    }
   }
 ]
