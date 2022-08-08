@@ -16556,5 +16556,57 @@
       "className": "foreigner",
       "na": true
     }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Arondight Overload",
+      "type": "arts",
+      "border": "black",
+      "na": true
+    },
+    "np": { "name": "Arondight Overload", "type": "arts", "border": "gold" },
+    "quest": {
+      "id": 94074112,
+      "name": "強化クエスト ランスロット",
+      "search": "強化クエスト ランスロット",
+      "open": 1659862800,
+      "type": "rankup",
+      "unlock": { "ascension": 4 }
+    },
+    "servant": {
+      "id": 102000,
+      "name": "Lancelot (Saber)",
+      "search": "lancelot",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_1020000.png",
+      "className": "saber",
+      "na": true
+    }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Marvelous Exploits",
+      "type": "buster",
+      "border": "black",
+      "na": true
+    },
+    "np": { "name": "Marvelous Exploits", "type": "buster", "border": "gold" },
+    "quest": {
+      "id": 94074107,
+      "name": "強化クエスト ポール・バニヤン",
+      "search": "強化クエスト ホル・ハニヤン",
+      "open": 1659862800,
+      "type": "rankup",
+      "unlock": { "ascension": 4 }
+    },
+    "servant": {
+      "id": 702800,
+      "name": "Paul Bunyan",
+      "search": "paul bunyan",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_7028000.png",
+      "className": "berserker",
+      "na": true
+    }
   }
 ]
