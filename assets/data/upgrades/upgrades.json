@@ -4157,42 +4157,6 @@
     }
   },
   {
-    "target": "skill",
-    "initial": {
-      "name": "Juezhao B",
-      "num": 3,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00312.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "絶招 B++",
-      "num": 3,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00312.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94053298,
-      "name": "強化クエスト 李書文 2",
-      "search": "強化クエスト 李書文 2",
-      "open": 1599469200,
-      "type": "rankup",
-      "unlock": {
-        "quest": [
-          { "name": "Rank Up Quest: Li Shuwen", "id": 94035605, "na": true }
-        ]
-      }
-    },
-    "servant": {
-      "id": 301700,
-      "name": "Li Shuwen (Lancer)",
-      "search": "li shuwen",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_3017000.png",
-      "className": "lancer",
-      "na": true
-    }
-  },
-  {
     "target": "np",
     "initial": {
       "name": "Rhongomyniad",
@@ -9760,43 +9724,6 @@
         "bond": 5
       },
       "na": true
-    },
-    "servant": {
-      "id": 602700,
-      "name": "Wu Zetian",
-      "search": "wu zetian",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_6027000.png",
-      "className": "assassin",
-      "na": true
-    }
-  },
-  {
-    "target": "skill",
-    "initial": {
-      "name": "Torture Technique A",
-      "num": 1,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00504.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "焦骨牡丹 A+",
-      "num": 1,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00504.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94053299,
-      "name": "強化クエスト 武則天",
-      "search": "強化クエスト 武則天",
-      "open": 1599469200,
-      "type": "rankup",
-      "unlock": {
-        "quest": [
-          { "name": "The Brilliant Fortress City ", "id": 2000208, "na": true }
-        ],
-        "ascension": 4
-      }
     },
     "servant": {
       "id": 602700,
@@ -16606,6 +16533,83 @@
       "search": "paul bunyan",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_7028000.png",
       "className": "berserker",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Juezhao B",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00312.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Juezhao B++",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00312.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94053298,
+      "name": "Rank Up Quest: Li Shuwen 2",
+      "search": "rank up quest: li shuwen 2",
+      "open": 1660104000,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          { "name": "Rank Up Quest: Li Shuwen", "id": 94035605, "na": true }
+        ]
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 301700,
+      "name": "Li Shuwen (Lancer)",
+      "search": "li shuwen",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_3017000.png",
+      "className": "lancer",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Torture Technique A",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00504.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Scorched Peony A+",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00504.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94053299,
+      "name": "Rank Up Quest: Wu Zetian",
+      "search": "rank up quest: wu zetian",
+      "open": 1660104000,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          { "name": "The Brilliant Fortress City ", "id": 2000208, "na": true }
+        ],
+        "ascension": 4
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 602700,
+      "name": "Wu Zetian",
+      "search": "wu zetian",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_6027000.png",
+      "className": "assassin",
       "na": true
     }
   }
