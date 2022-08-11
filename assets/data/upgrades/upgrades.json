@@ -4446,38 +4446,6 @@
     }
   },
   {
-    "target": "skill",
-    "initial": {
-      "name": "Battle Continuation C",
-      "num": 1,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "狼は眠らず B++",
-      "num": 1,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94060390,
-      "name": "強化クエスト ガレス",
-      "search": "強化クエスト カレス",
-      "open": 1623411000,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
-    },
-    "servant": {
-      "id": 303900,
-      "name": "Gareth",
-      "search": "gareth",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_3039000.png",
-      "className": "lancer",
-      "na": true
-    }
-  },
-  {
     "target": "sq",
     "quest": {
       "id": 91304601,
@@ -13319,29 +13287,6 @@
   {
     "target": "sq",
     "quest": {
-      "id": 91303901,
-      "name": "それでも、少女狼は",
-      "search": "それても、少女狼は",
-      "open": 1638435600,
-      "type": "interlude",
-      "unlock": {
-        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
-        "ascension": 2,
-        "bond": 5
-      }
-    },
-    "servant": {
-      "id": 303900,
-      "name": "Gareth",
-      "search": "gareth",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_3039000.png",
-      "className": "lancer",
-      "na": true
-    }
-  },
-  {
-    "target": "sq",
-    "quest": {
       "id": 91603702,
       "name": "愛神様は働かない",
       "search": "愛神様は働かない",
@@ -16610,6 +16555,61 @@
       "search": "wu zetian",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_6027000.png",
       "className": "assassin",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91303901,
+      "name": "それでも、少女狼は",
+      "search": "それても、少女狼は",
+      "open": 1638435600,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
+        "ascension": 2,
+        "bond": 5
+      }
+    },
+    "servant": {
+      "id": 303900,
+      "name": "Gareth (Lancer)",
+      "search": "gareth",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_3039000.png",
+      "className": "lancer",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Battle Continuation C",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "狼は眠らず B++",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94060390,
+      "name": "強化クエスト ガレス",
+      "search": "強化クエスト カレス",
+      "open": 1623411000,
+      "type": "rankup",
+      "unlock": { "ascension": 4 }
+    },
+    "servant": {
+      "id": 303900,
+      "name": "Gareth (Lancer)",
+      "search": "gareth",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_3039000.png",
+      "className": "lancer",
       "na": true
     }
   }
