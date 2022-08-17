@@ -1507,49 +1507,6 @@
     }
   },
   {
-    "target": "skill",
-    "initial": {
-      "name": "Divine Power B",
-      "num": 1,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00306.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "神通力（ＪＫ） B+",
-      "num": 1,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00306.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 91103002,
-      "name": "ミミ思う故にミミあり",
-      "search": "ミミ思う故にミミあり",
-      "open": 1600074000,
-      "type": "interlude",
-      "unlock": {
-        "quest": [
-          { "name": "Grand Order", "id": 1000011, "na": true },
-          {
-            "name": "A High School Girl Stroll in Chaldea",
-            "id": 91103001,
-            "na": true
-          }
-        ],
-        "ascension": 2,
-        "bond": 5
-      }
-    },
-    "servant": {
-      "id": 103000,
-      "name": "Suzuka Gozen",
-      "search": "suzuka gozen",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_1030000.png",
-      "className": "saber",
-      "na": true
-    }
-  },
-  {
     "target": "sq",
     "quest": {
       "id": 91103201,
@@ -5999,29 +5956,6 @@
   {
     "target": "sq",
     "quest": {
-      "id": 91403101,
-      "name": "もう一人の呂布の正体、それは…",
-      "search": "もう一人の呂布の正体、それは…",
-      "open": 1600074000,
-      "type": "interlude",
-      "unlock": {
-        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
-        "ascension": 2,
-        "bond": 5
-      }
-    },
-    "servant": {
-      "id": 403100,
-      "name": "Red Hare",
-      "search": "red hare",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_4031000.png",
-      "className": "rider",
-      "na": true
-    }
-  },
-  {
-    "target": "sq",
-    "quest": {
       "id": 91403401,
       "name": "ドリーム・トレジャー",
       "search": "トリム・トレシャ",
@@ -7959,36 +7893,6 @@
   {
     "target": "np",
     "initial": {
-      "name": "Golem Keter Malkuth",
-      "type": "buster",
-      "border": "black",
-      "na": true
-    },
-    "np": { "name": "Golem Keter Malkuth", "type": "buster", "border": "gold" },
-    "quest": {
-      "id": 91503601,
-      "name": "ギッチギチ第一回史上最強ロボコンテスト",
-      "search": "キッチキチ第一回史上最強ロホコンテスト",
-      "open": 1600074000,
-      "type": "interlude",
-      "unlock": {
-        "quest": [{ "name": "intro.3-4", "id": 3000303, "na": true }],
-        "ascension": 2,
-        "bond": 3
-      }
-    },
-    "servant": {
-      "id": 503600,
-      "name": "Avicebron",
-      "search": "avicebron",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_5036000.png",
-      "className": "caster",
-      "na": true
-    }
-  },
-  {
-    "target": "np",
-    "initial": {
       "name": "Wish Upon the Stars",
       "type": "arts",
       "border": "black",
@@ -9405,49 +9309,6 @@
     }
   },
   {
-    "target": "skill",
-    "initial": {
-      "name": "Battle Continuation A+",
-      "num": 3,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "鬼の首 EX",
-      "num": 3,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 91602102,
-      "name": "酔うも我、狂うも我、滾り嗤うも我なれば",
-      "search": "酔うも我、狂うも我、滾り嗤うも我なれは",
-      "open": 1600074000,
-      "type": "interlude",
-      "unlock": {
-        "quest": [
-          { "name": "Grand Order", "id": 1000011, "na": true },
-          {
-            "name": "Drunkenness, Madness, and Rage",
-            "id": 91602101,
-            "na": true
-          }
-        ],
-        "ascension": 3,
-        "bond": 5
-      }
-    },
-    "servant": {
-      "id": 602100,
-      "name": "Shuten-Douji",
-      "search": "shuten-douji",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_6021000.png",
-      "className": "assassin",
-      "na": true
-    }
-  },
-  {
     "target": "np",
     "initial": {
       "name": "Multicolored Poison - Shinpen Kidoku",
@@ -10014,29 +9875,6 @@
       "name": "Li Shuwen (Assassin)",
       "search": "li shuwen",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_6036000.png",
-      "className": "assassin",
-      "na": true
-    }
-  },
-  {
-    "target": "sq",
-    "quest": {
-      "id": 91603701,
-      "name": "愛／堕落はいつでもあなたの側に",
-      "search": "愛／堕落はいつてもあなたの側に",
-      "open": 1600074000,
-      "type": "interlude",
-      "unlock": {
-        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
-        "ascension": 3,
-        "bond": 4
-      }
-    },
-    "servant": {
-      "id": 603700,
-      "name": "Kama (Assassin)",
-      "search": "kama",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_6037000.png",
       "className": "assassin",
       "na": true
     }
@@ -11810,42 +11648,6 @@
       "name": "Penthesilea",
       "search": "penthesilea",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_7027000.png",
-      "className": "berserker",
-      "na": true
-    }
-  },
-  {
-    "target": "skill",
-    "initial": {
-      "name": "Self Evolution EX",
-      "num": 1,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00311.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "魔性馴化 EX",
-      "num": 1,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00311.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 91703001,
-      "name": "疼く獣心と封じる倫理",
-      "search": "疼く獣心と封しる倫理",
-      "open": 1600074000,
-      "type": "interlude",
-      "unlock": {
-        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
-        "ascension": 2,
-        "bond": 3
-      }
-    },
-    "servant": {
-      "id": 703000,
-      "name": "Atalante (Alter)",
-      "search": "atalante (alter)",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_7030000.png",
       "className": "berserker",
       "na": true
     }
@@ -16611,6 +16413,218 @@
       "search": "ibuki-douji",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_1046000.png",
       "className": "saber"
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Divine Power B",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00306.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Divine Power (High Schooler) B+ ",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00306.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 91103002,
+      "name": "I Think of Ears, Therefore I Have Ears",
+      "search": "i think of ears, therefore i have ears",
+      "open": 1660708800,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          { "name": "Grand Order", "id": 1000011, "na": true },
+          {
+            "name": "A High School Girl Stroll in Chaldea",
+            "id": 91103001,
+            "na": true
+          }
+        ],
+        "ascension": 2,
+        "bond": 5
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 103000,
+      "name": "Suzuka Gozen",
+      "search": "suzuka gozen",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_1030000.png",
+      "className": "saber",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91403101,
+      "name": "The Other Lu Bu's Identity Is...",
+      "search": "the other lu bu's identity is...",
+      "open": 1660708800,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
+        "ascension": 2,
+        "bond": 5
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 403100,
+      "name": "Red Hare",
+      "search": "red hare",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_4031000.png",
+      "className": "rider",
+      "na": true
+    }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Golem Keter Malkuth",
+      "type": "buster",
+      "border": "black",
+      "na": true
+    },
+    "np": {
+      "name": "Golem Keter Malkuth",
+      "type": "buster",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 91503601,
+      "name": "First Clash of History's Mightiest Robots",
+      "search": "first clash of history's mightiest robots",
+      "open": 1660708800,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "intro.3-4", "id": 3000303, "na": true }],
+        "ascension": 2,
+        "bond": 3
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 503600,
+      "name": "Avicebron",
+      "search": "avicebron",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_5036000.png",
+      "className": "caster",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Battle Continuation A+",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Oni's Head EX",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 91602102,
+      "name": "I Revel, Rave, and Raucously Rampage",
+      "search": "i revel, rave, and raucously rampage",
+      "open": 1660708800,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          { "name": "Grand Order", "id": 1000011, "na": true },
+          {
+            "name": "Drunkenness, Madness, and Rage",
+            "id": 91602101,
+            "na": true
+          }
+        ],
+        "ascension": 3,
+        "bond": 5
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 602100,
+      "name": "Shuten-Douji",
+      "search": "shuten-douji",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_6021000.png",
+      "className": "assassin",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91603701,
+      "name": "Love/Depravity Is Ever by Your Side",
+      "search": "love/depravity is ever by your side",
+      "open": 1660708800,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
+        "ascension": 3,
+        "bond": 4
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 603700,
+      "name": "Kama (Assassin)",
+      "search": "kama",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_6037000.png",
+      "className": "assassin",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Self Evolution EX",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00311.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Demonic Acclimatization EX",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00311.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 91703001,
+      "name": "Bound Morals and a  Beast's Aching Heart",
+      "search": "bound morals and a beast's aching heart",
+      "open": 1660708800,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
+        "ascension": 2,
+        "bond": 3
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 703000,
+      "name": "Atalante (Alter)",
+      "search": "atalante (alter)",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_7030000.png",
+      "className": "berserker",
+      "na": true
     }
   }
 ]
