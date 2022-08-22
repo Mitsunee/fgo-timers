@@ -3930,38 +3930,6 @@
     }
   },
   {
-    "target": "skill",
-    "initial": {
-      "name": "Primordial Rune",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00304.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "Primordial Rune",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00304.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94052690,
-      "name": "強化クエスト スカサハ",
-      "search": "強化クエスト スカサハ",
-      "open": 1600419600,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
-    },
-    "servant": {
-      "id": 301300,
-      "name": "Scáthach",
-      "search": "scathach",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_3013000.png",
-      "className": "lancer",
-      "na": true
-    }
-  },
-  {
     "target": "sq",
     "quest": {
       "id": 91301401,
@@ -16628,6 +16596,40 @@
       "search": "wu zetian",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_6027000.png",
       "className": "assassin",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Primordial Rune",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00304.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Primordial Rune",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00304.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94052690,
+      "name": "Rank Up Quest: Scáthach",
+      "search": "rank up quest: scathach",
+      "open": 1661140800,
+      "type": "rankup",
+      "unlock": { "ascension": 4 },
+      "na": true
+    },
+    "servant": {
+      "id": 301300,
+      "name": "Scáthach",
+      "search": "scathach",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_3013000.png",
+      "className": "lancer",
       "na": true
     }
   }
