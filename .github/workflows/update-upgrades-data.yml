@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           ref: main
       - name: AtlasAcademy API Cache
@@ -17,7 +17,7 @@ jobs:
           path: ".next/cache/atlasacademy"
           key: atlas-cache
       - name: Install Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 16
           cache: yarn
@@ -28,5 +28,5 @@ jobs:
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "Update Upgrades Data"
+          commit_message: "update: Upgrades Data"
           branch: main
