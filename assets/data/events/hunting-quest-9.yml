@@ -15,7 +15,8 @@ description: >-
   Note: Hunting Quests are Events and use the Event Support setup! Make sure to
   remove your Lotto CEs or switch your general setup to display in Events.
 
-  Material Information from Fandom Wiki, subject to change.
+  Material Information from Fandom Wiki, subject to change. The rare spawn in
+  every node drops Soundless Bells.
 times:
   - title: Rotation
     times:
@@ -23,13 +24,13 @@ times:
         date: 2022-09-04 21:00 PDT
       - title: Bells & Medals
         date: 2022-09-05 21:00 PDT
-      - title: Octuplets & Aurora Steel
+      - title: Bells, Octuplets & Aurora Steel
         date: 2022-09-06 21:00 PDT
-      - title: Reactors & Gears
+      - title: Bells, Reactors & Gears
         date: 2022-09-07 21:00 PDT
-      - title: Hearts & Fluids
+      - title: Bells, Hearts & Fluids
         date: 2022-09-08 21:00 PDT
-      - title: Wine & Horseshoes
+      - title: Bells, Wine & Horseshoes
         date: 2022-09-09 21:00 PDT
       - title: Hunting Quests End
         date: 2022-09-11 20:59 PDT
