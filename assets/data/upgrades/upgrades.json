@@ -1349,38 +1349,6 @@
     }
   },
   {
-    "target": "skill",
-    "initial": {
-      "name": "Shukuchi B",
-      "num": 1,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00304.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "縮地 B+",
-      "num": 1,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00304.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94053190,
-      "name": "強化クエスト 沖田総司",
-      "search": "強化クエスト 沖田総司",
-      "open": 1601629200,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
-    },
-    "servant": {
-      "id": 102700,
-      "name": "Okita Souji",
-      "search": "okita souji",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_1027000.png",
-      "className": "saber",
-      "na": true
-    }
-  },
-  {
     "target": "np",
     "initial": {
       "name": "Amalavijñāna - Boundary of Emptiness",
@@ -11507,38 +11475,6 @@
     }
   },
   {
-    "target": "skill",
-    "initial": {
-      "name": "Disengage C",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00608.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "凄烈たる道行き B+",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00608.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94053191,
-      "name": "強化クエスト 土方歳三",
-      "search": "強化クエスト 土方歳三",
-      "open": 1601629200,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
-    },
-    "servant": {
-      "id": 702500,
-      "name": "Hijikata Toshizo",
-      "search": "hijikata toshizo",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_7025000.png",
-      "className": "berserker",
-      "na": true
-    }
-  },
-  {
     "target": "sq",
     "quest": {
       "id": 91702701,
@@ -16630,6 +16566,74 @@
       "search": "scathach",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_3013000.png",
       "className": "lancer",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Shukuchi B",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00304.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Shukuchi B+",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00304.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94053190,
+      "name": "Rank Up Quest: Okita Souji",
+      "search": "rank up quest: okita souji",
+      "open": 1662350400,
+      "type": "rankup",
+      "unlock": { "ascension": 4 },
+      "na": true
+    },
+    "servant": {
+      "id": 102700,
+      "name": "Okita Souji",
+      "search": "okita souji",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_1027000.png",
+      "className": "saber",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Disengage C",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00608.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Harsh Road To Travel B+",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94053191,
+      "name": "Rank Up Quest: Hijikata Toshizo",
+      "search": "rank up quest: hijikata toshizo",
+      "open": 1662350400,
+      "type": "rankup",
+      "unlock": { "ascension": 4 },
+      "na": true
+    },
+    "servant": {
+      "id": 702500,
+      "name": "Hijikata Toshizo",
+      "search": "hijikata toshizo",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_7025000.png",
+      "className": "berserker",
       "na": true
     }
   }
