@@ -16636,5 +16636,136 @@
       "className": "berserker",
       "na": true
     }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Gwalior's Resistance A",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "グワーリヤルの抵抗 A+",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94075901,
+      "name": "強化クエスト ラクシュミー・バーイー",
+      "search": "強化クエスト ラクシュミ・ハイ",
+      "open": 1662541200,
+      "type": "rankup",
+      "unlock": { "ascension": 4 }
+    },
+    "servant": {
+      "id": 103900,
+      "name": "Lakshmi Bai",
+      "search": "lakshmi bai",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_1039000.png",
+      "className": "saber",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Protection of Tathāgata B",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00311.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "神将・中壇元帥 A",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00311.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94075902,
+      "name": "強化クエスト 哪吒 2",
+      "search": "強化クエスト 哪吒 2",
+      "open": 1662541200,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          { "name": "Rank Up Quest: Nezha", "id": 94052289, "na": true }
+        ]
+      }
+    },
+    "servant": {
+      "id": 303100,
+      "name": "Nezha",
+      "search": "nezha",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_3031000.png",
+      "className": "lancer",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91703301,
+      "name": "魂の灯火について",
+      "search": "魂の灯火について",
+      "open": 1662541200,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          { "name": "A World Where the Cycle ■■s", "id": 3000421, "na": true }
+        ],
+        "ascension": 3,
+        "bond": 3
+      }
+    },
+    "servant": {
+      "id": 703300,
+      "name": "Arjuna (Alter)",
+      "search": "arjuna (alter)",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_7033000.png",
+      "className": "berserker",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Vinayaka EX",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00403.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Vinayaka EX",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00403.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 912300301,
+      "name": "Watcher from far(near) side-",
+      "search": "watcher from far(near) side-",
+      "open": 1662541200,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          { "name": "A World Where the Cycle ■■s", "id": 3000421, "na": true }
+        ],
+        "ascension": 3,
+        "bond": 3
+      }
+    },
+    "servant": {
+      "id": 2300300,
+      "name": "Great Stone Statue God",
+      "search": "great stone statue god",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_23003000.png",
+      "className": "moonCancer",
+      "na": true
+    }
   }
 ]
