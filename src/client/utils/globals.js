@@ -6,6 +6,6 @@ export const JP_TO_NA_ESTIMATE = 63133200;
 export const WEEKLY_MM_LEN = 604800;
 export const WEEKLY_MM_OFFSET = 345600;
 export const SERVER_DAY_MS_LEN = 8640000;
-export const SERVER_DAY_MS_OFFSET = 3729600;
+export const SERVER_DAY_MS_OFFSET = 3643200;
 export const SERVER_DAY_ZERO = 1498449600;
 export const ATLAS_API = "https://api.atlasacademy.io/";
