@@ -716,15 +716,17 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@nanostores/persistent@^0.5.3":
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/@nanostores/persistent/-/persistent-0.5.3.tgz#fcdc5bada249eb81fdb19c2243bfd6282304e168"
-  integrity sha512-WhMef3q382OUZnNYAoQzbAXN2Q3ECFYAJoWDDn+EgJS5wB/2cPduaUd77v2Yy04RnSwgKMr3SZydTNLXHFAffw==
+"@nanostores/persistent@^0.7.0":
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/@nanostores/persistent/-/persistent-0.7.0.tgz#7c919cbf102770190ed55cea13401a77bfde741e"
+  integrity sha512-4PAInL/T1hbftZUJ0cmgdFHBMalUoq7BUXFBy7QfyMv/8X3LPTYNh/yxspL7+J+XM3UNvVI7IFRMMs6FBasjhQ==
 
-"@nanostores/react@0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@nanostores/react/-/react-0.2.0.tgz#592e68672a4c7fd4abbdae79713a677dd1e89740"
-  integrity sha512-8kR6Ke8KAacAuBvodGrMNtLof8xF44WkfqtWWMZffP0TZsXEePdIWEQ6MDmCvVzbFAwOKvF71YjVAJ660NYCAw==
+"@nanostores/react@0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@nanostores/react/-/react-0.4.0.tgz#41b8eebd11aa85bd05ab1e3e632d5c5dff09e100"
+  integrity sha512-u7Y3s1B4hwsBxpIxClx0F/Q7TF1AsCU/F7Tt3n+tWeCebQ0cs2spthmskJY689XIMTRJXfBZF83kJDaDZeavVA==
+  dependencies:
+    use-sync-external-store "^1.2.0"
 
 "@next/env@12.3.0":
   version "12.3.0"
@@ -3453,10 +3455,10 @@ nanoid@^3.3.4:
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.4.tgz#730b67e3cd09e2deacf03c027c81c9d9dbc5e8ab"
   integrity sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==
 
-nanostores@^0.5.12:
-  version "0.5.13"
-  resolved "https://registry.yarnpkg.com/nanostores/-/nanostores-0.5.13.tgz#81b6a3b1cbb3f099bcb1c002a78859b03b7c0a9d"
-  integrity sha512-UxC2eZsCbbcHZ1Z/hwFQ1C4gy8Tkhzskvmu6wOsAhOMAOd72HmVX1Nxs96DSDUcd7V1x0IdRtsl+zAm7rg7slA==
+nanostores@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/nanostores/-/nanostores-0.7.0.tgz#e49a43dfa738d3aa91073235f2a88b69bf2a9ef9"
+  integrity sha512-y+ma9MVXuPzXKEXaRYW/iL/xG/HtMwB8fmFcMfUqt5fCNR/na2kDubbZGV4furUMTgmxfySJs0cQjORWhaPDyA==
 
 natural-compare@^1.4.0:
   version "1.4.0"
@@ -3746,10 +3748,10 @@ path-type@^4.0.0:
   resolved "https://registry.yarnpkg.com/path-type/-/path-type-4.0.0.tgz#84ed01c0a7ba380afe09d90a8c180dcd9d03043b"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
 
-picoapi@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/picoapi/-/picoapi-0.1.2.tgz#adb9e8c9c346c3b35d94e0010e3494162a539cf2"
-  integrity sha512-4+MlN1zcbrOijmwbZ7cHiOTA4d6tN/aKSH6K06UsF74VmT1V5IAHOKTKBwAjRdMOEVPSEiomR75Zk3uQRBTqMw==
+picoapi@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/picoapi/-/picoapi-0.2.0.tgz#ca98945a4157344a30fff7f91e08c64d241f80c0"
+  integrity sha512-qQqDENvEAef/ksrgYT4tYokIQ1KSfl6NDF7Gi7+ZAWk5bQ06aOBSZZwBKxvxUC8D8h5u5+he0MCSOyD6WQCrXA==
 
 picocolors@^1.0.0:
   version "1.0.0"
@@ -4700,7 +4702,7 @@ url-parse@^1.5.3:
     querystringify "^2.1.1"
     requires-port "^1.0.0"
 
-use-sync-external-store@1.2.0:
+use-sync-external-store@1.2.0, use-sync-external-store@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/use-sync-external-store/-/use-sync-external-store-1.2.0.tgz#7dbefd6ef3fe4e767a0cf5d7287aacfb5846928a"
   integrity sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==
