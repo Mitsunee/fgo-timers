@@ -18,8 +18,8 @@ export default function ButtonLink({
   // ignores targetBlank
   if (nextLink) {
     return (
-      <Link href={href}>
-        <a {...commonProps}>{children}</a>
+      <Link href={href} {...commonProps}>
+        {children}
       </Link>
     );
   }

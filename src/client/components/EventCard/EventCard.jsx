@@ -14,14 +14,12 @@ export default function EventCard({
   end
 }) {
   return (
-    <Link href={`/events/${slug}/`} passHref>
-      <a className={styles.card} title={title}>
-        <img src={`/assets/events/${banner}`} alt={slug} />
-        <Overlay title={title} shortTitle={shortTitle} />
-        <NoSSR>
-          <TimeDisplay start={start} end={end} />
-        </NoSSR>
-      </a>
+    <Link href={`/events/${slug}/`} className={styles.card} title={title}>
+      <img src={`/assets/events/${banner}`} alt={slug} />
+      <Overlay title={title} shortTitle={shortTitle} />
+      <NoSSR>
+        <TimeDisplay start={start} end={end} />
+      </NoSSR>
     </Link>
   );
 }

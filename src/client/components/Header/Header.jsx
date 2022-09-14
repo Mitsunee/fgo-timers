@@ -16,13 +16,8 @@ export default function Header({ showHamburger }) {
   return (
     <>
       <header className={styles.header}>
-        <Link href="/">
-          <a title="FGO Tools">
-            <img
-              src={`/icon-${isPadoru ? "padoru" : 64}.png`}
-              alt="FGO Tools"
-            />
-          </a>
+        <Link href="/" title="FGO Tools">
+          <img src={`/icon-${isPadoru ? "padoru" : 64}.png`} alt="FGO Tools" />
         </Link>
         <section>
           <h1>{meta.title}</h1>

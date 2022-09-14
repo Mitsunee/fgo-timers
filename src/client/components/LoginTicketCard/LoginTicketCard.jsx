@@ -36,8 +36,10 @@ export default function LoginTicketCard({ items, next }) {
           <br />
           {nextMonthDelta} ({nextMonthDate})
           <br />
-          <Link href={`/exchange-tickets/${nextMonth.year()}`} passHref>
-            <a style={{ textDecoration: "underline" }}>More Information</a>
+          <Link
+            href={`/exchange-tickets/${nextMonth.year()}`}
+            style={{ textDecoration: "underline" }}>
+            More Information
           </Link>
         </p>
         <NextServerMilestone />

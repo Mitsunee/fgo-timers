@@ -1,7 +1,11 @@
 const config = {
   reactStrictMode: true,
-  browsersListForSwc: true,
-  eslint: { ignoreDuringBuilds: true }
+  eslint: { ignoreDuringBuilds: true },
+  experimental: {
+    browsersListForSwc: true,
+    legacyBrowsers: false,
+    newNextLinkBehavior: true
+  }
 };
 
 export default config;
