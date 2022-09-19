@@ -2,21 +2,51 @@
 
 This file contains general information for getting started working with the code in this repository.
 
-## Getting Started
+## Contribution Guidelines
 
-First make sure you have nodejs, yarn and redis installed, then clone and install the repository:
+**Open an issue or ask to be assigned to an issue before sending a Pull Request. When you have been assigned an Issue follow the steps below.**
+
+Create a fork of this repository on GitHub and clone it. Then use the following commands to create a dev branch on your fork:
 
 ```shell
-git clone git@github.com:mitsunee/fgo-tools.git
-cd fgo-tools
-yarn install
+# Add upstream remote:
+git remote add upstream git@github.com/mitsunee/fgo-timers.git
+git fetch upstream
+
+# Updating your fork:
+git fetch upstream
+git checkout main
+git rebase upstream/main
+git push -u origin main
+yarn
+
+# Creating a branch (replace BRANCH_NAME accordingly):
+# update your fork first!
+git branch BRANCH_NAME
+git checkout BRANCH_NAME
+git push -u origin BRANCH_NAME
+
+# Rebasing dev branch:
+git checkout BRANCH_NAME
+git fetch upstream
+git rebase upstream/main # follow instructions if merge conflicts appear
 ```
 
-This project uses [redis](https://redis.io/) for caching. To set up redis copy the `.env.example` file to `.env.local` and edit the `REDIS_URL` key to point to your testing instance. Feel free to make a directory `.dev` to store your redis config and `dump.rdb` files.
+After pushing changes to your dev branch you can open a Pull Request on GitHub.
+
+## Getting Started
+
+First make sure you have Node.js 16.x and yarn (or corepack) installed, then clone and install the repository:
+
+```shell
+yarn install
+cp .env.example .env.local
+YOUR_EDITOR .env.local # adjust values if needed
+```
 
 ## Development Server Startup
 
-Start your redis server and then run `yarn dev:data` and `yarn dev` in separate terminals to start the development servers locally on your system, then visit [http://localhost:3000](http://localhost:3000) with your browser to see the result. If you do not intend to edit data assets (in `./assets/`) you may choose to run `yarn prebuild` once instead of keeping `yarn dev:data` open.
+Start the devServer with `yarn dev` locally on your system, then visit [http://localhost:3000](http://localhost:3000) with your browser to see the result. `yarn prebuild` is run automatically. You can re-run it in a differnt terminal to update the data.
 
 ## Directories in this repository
 
@@ -25,24 +55,18 @@ Start your redis server and then run `yarn dev:data` and `yarn dev` in separate 
 - assets: Contains all data assets, images in original resolution and currently unused images
 - pages: Contains all pages and api routes
 - public: Contains files that will get served in `/` alongside the app
-- scripts: (deprecated) old nodejs scripts that haven't been ported yet
 - src:
-  - components: Contains React components. Note that as a convention only the `index.js` of each component is meant to be imported
-  - scripts: MJS scripts for various tasks in this repository (such as build data bundles)
-  - server: new location for all SSG, SSR and related util functions
-  - stores: Contains all stores and their logic
-  - styles: Contains CSS Modules for all pages, the global stylesheet and theme configs
-  - utils: Contains utility functions
-    - hooks: contains React hooks
-    - server: old SSG utils (currently getting rewritten)
+  - client: Frontend Components and stores
+  - scripts: Scripts for various tasks in this repository (such as build data bundles)
+  - server: SSG, ISR and related util functions
 - tests:
   - \_\_mockups\_\_: Contains mock assets used in tests
   - scripts: Contains all tests for utils used by scripts in `./src/scripts`. Uses `uvu` test runner via `yarn test:scripts`
+  - server: Contains all tests for SSG and ISR functions
 
 ## Environment Variables
 
-- `REDIS_URL`: `redis://` or `rediss://` url to the redis server to be used for caching.
-- `NEXT_PUBLIC_DOMAIN`: Domain name used for meta images. Do not include any preceeding or following slashes or protocols. The protocol `https://` will be used by the Meta component. (not used in development)
+- `NEXT_PUBLIC_DOMAIN`: Domain name used for meta images. Do not include any preceeding or following slashes or protocols. The protocol `https://` will be used by the Meta component.
 
 ## Code Guidelines
 
@@ -50,12 +74,14 @@ Start your redis server and then run `yarn dev:data` and `yarn dev` in separate 
 - As a general rule of thumb default exports are only used in React Components, NextJS API Routes and NextJS Pages. All other exports should be named exports.
 - All files using JSX should use the `*.jsx` file extension.
 - Try to keep functions small (and thus their purpose obvious and readable). If you absolutely need larger functions divide your code into sections and use comments to give them headlines such as `// handle args`.
+- Deployments are static thus files in `./assets` should only be written to during the prebuild step! (this means there is currently no way to update upgrades other then redeployment)
 
 ## Further Information
 
-### Data Formats
-
 **NOTE**: The backend is currently undergoing a major rewrite, documentation may be deprecated!
 
-- Event Data: [events](events.md)
-- Upgrades Data: [upgrades](upgrades.md)
+[News Post Scraping](news-post-scraping.md) contains information for scraping data from official news posts.
+
+[Atlas Academy DB](https://apps.atlasacademy.io/db/) can be used to find Servant and Craft Essence IDs more quickly. Usually both ID and collectionNo are supported, but scripts prefer using the ID.
+
+Refer to the [Atlas Academy API Documentation](https://api.atlasacademy.io/docs#/) for data types. (Going to migrate to `@atlasacademy/api-connector` soon-ish)

@@ -1,6 +1,6 @@
-# Gacha Rotation Scraping
+# News Post Scraping
 
-Copying of data from gacha banner rotation tables can be somewhat automated with the following steps:
+Copying of data from time tables in official news posts can be somewhat automated with the following steps:
 
 ## Inspect tbody
 
