@@ -41,7 +41,7 @@
     }
   }
 
-  svg {
+  & svg {
     display: inline-block;
     fill: theme(colors.primary);
     content: "";

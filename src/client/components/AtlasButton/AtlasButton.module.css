@@ -8,7 +8,7 @@
   & > div {
     gap: 0.33em;
   }
-  svg {
+  & svg {
     fill: theme(colors.primary);
   }
   &:hover svg {

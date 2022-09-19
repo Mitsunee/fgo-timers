@@ -5,7 +5,7 @@
   grid-auto-rows: [32px, 48px];
   margin-bottom: 0.66em;
 
-  h1 {
+  & h1 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,7 +19,7 @@
   justify-content: center;
   align-items: center;
 
-  svg {
+  & svg {
     fill: theme(colors.primary);
   }
 
@@ -35,7 +35,7 @@
   }
 
   &:hover:not(:disabled) {
-    svg {
+    & svg {
       fill: theme(colors.hover);
     }
   }

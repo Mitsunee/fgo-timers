@@ -24,7 +24,7 @@
   justify-content: center;
   gap: 0.33em;
 
-  button {
+  & button {
     &.selected {
       border: 1px solid theme(colors.hover);
       color: hover;
@@ -52,21 +52,21 @@
 }
 
 .arrow {
-  svg {
+  & svg {
     fill: theme(colors.primary);
   }
   &.up {
-    svg {
+    & svg {
       transform: rotate(180deg);
     }
   }
   &.left {
-    svg {
+    & svg {
       transform: rotate(90deg);
     }
   }
   &.right {
-    svg {
+    & svg {
       transform: rotate(-90deg);
     }
   }

@@ -8,7 +8,7 @@ section.section {
   justify-content: space-between;
   align-items: center;
 
-  .icon {
+  & .icon {
     height: 2.66em;
     width: auto;
   }

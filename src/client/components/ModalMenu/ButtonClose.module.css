@@ -3,7 +3,7 @@
   top: 0.5em;
   right: 0.5em;
 
-  svg {
+  & svg {
     fill: theme(colors.primary);
   }
   &:hover svg {

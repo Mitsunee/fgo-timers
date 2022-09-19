@@ -5,8 +5,8 @@
   align-items: center;
   gap: 0.66em;
 
-  h1,
-  h2 {
+  & h1,
+  & h2 {
     width: 100%;
     margin: 0px;
     padding: 0px;

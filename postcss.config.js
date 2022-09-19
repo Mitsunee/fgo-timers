@@ -2,25 +2,22 @@ const picocolors = require("picocolors");
 const theme = require("./src/client/styles/theme");
 
 const plugins = [
-  "postcss-nested",
   ["postcss-theme-ui", theme],
-  "postcss-focus"
-];
-
-if (process.env.NODE_ENV === "production") {
-  plugins.push([
+  "postcss-focus",
+  [
     "postcss-preset-env",
     {
       autoprefixer: {
         flexbox: "no-2009"
       },
-      stage: 3,
+      stage: 2,
       features: {
-        "custom-properties": false
+        "custom-properties": false,
+        "nesting-rules": true
       }
     }
-  ]);
-}
+  ]
+];
 
 console.log(
   `${picocolors.cyan("info")}  - Using PostCSS Plugins: ${plugins

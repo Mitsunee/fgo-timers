@@ -11,18 +11,18 @@
   padding: 0.45em 0.33em;
   font-size: [24px, 48px];
 
-  section {
+  & section {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
 
-    h1 {
+    & h1 {
       font-size: 1em;
       margin: 0px;
     }
-    h1,
-    h2 {
+    & h1,
+    & h2 {
       white-space: nowrap;
     }
   }
@@ -52,7 +52,7 @@
   cursor: pointer;
   transition: 0.125s ease-in-out;
 
-  svg {
+  & svg {
     fill: theme(colors.primary);
   }
 

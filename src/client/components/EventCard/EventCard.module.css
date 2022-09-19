@@ -10,7 +10,7 @@
     border-color: hover;
   }
 
-  img {
+  & img {
     display: block;
     width: 100%;
     height: auto;
