@@ -16767,5 +16767,77 @@
       "className": "moonCancer",
       "na": true
     }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Blood-Soaked Brute A",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00515.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "血濡れの蛮勇 A+",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00515.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94074902,
+      "name": "強化クエスト 森長可",
+      "search": "強化クエスト 森長可",
+      "open": 1663405200,
+      "type": "rankup",
+      "unlock": { "ascension": 4 }
+    },
+    "servant": {
+      "id": 703500,
+      "name": "Mori Nagayoshi",
+      "search": "mori nagayoshi",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_7035000.png",
+      "className": "berserker",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Kyokuchi A",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00316.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "極地 A+",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00316.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94074901,
+      "name": "強化クエスト 沖田総司〔オルタ〕 2",
+      "search": "強化クエスト 沖田総司〔オルタ〕 2",
+      "open": 1663405200,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          {
+            "name": "Rank Up Quest: Okita Souji (Alter)",
+            "id": 94048898,
+            "na": true
+          }
+        ]
+      }
+    },
+    "servant": {
+      "id": 1000700,
+      "name": "Okita Souji (Alter) (Alter Ego)",
+      "search": "okita souji (alter)",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_10007000.png",
+      "className": "alterEgo",
+      "na": true
+    }
   }
 ]
