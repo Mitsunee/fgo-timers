@@ -1,8 +1,8 @@
 .navWrapper {
   display: grid;
   width: 100%;
-  grid-template-columns: [32px, 48px] auto [32px, 48px];
-  grid-auto-rows: [32px, 48px];
+  grid-template-columns: 32px auto 32px;
+  grid-auto-rows: 32px;
   margin-bottom: 0.66em;
 
   & h1 {
@@ -11,6 +11,11 @@
     align-items: center;
     margin: 0px;
     font-size: 1.5em;
+  }
+
+  @media (--mq-small) {
+    grid-template-columns: 48px auto 48px;
+    grid-auto-rows: 48px;
   }
 }
 
@@ -48,18 +53,33 @@
   align-items: flex-start;
   justify-content: space-between;
   margin: 0.66em 0px;
-}
 
-.wrapper > article {
-  flex-basis: [100%, 100%, 48.5%, 100%, 48.5%];
+  & > article {
+    flex-basis: 100%;
+    @media (--mq-medium) {
+      flex-basis: 48.5%;
+    }
+    @media (--mq-large) {
+      flex-basis: 100%;
+    }
+    @media (--mq-x-large) {
+      flex-basis: 48.5%;
+    }
+  }
 }
 
 .section {
   display: flex;
-  flex-direction: [column, row];
+  flex-direction: column;
   justify-content: space-around;
-  align-items: [center, flex-start];
-  gap: [0.66em, unset];
+  align-items: center;
+  gap: 0.66em;
+
+  @media (--mq-small) {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: unset;
+  }
 
   & > div {
     /* item wrapper */

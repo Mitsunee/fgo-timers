@@ -31,10 +31,15 @@
 .classSelect {
   & > div {
     display: flex;
-    justify-content: [space-around, space-between];
+    justify-content: space-around;
     align-items: center;
-    flex-wrap: [wrap, nowrap];
+    flex-wrap: wrap;
     gap: 0.66em;
+
+    @media (--mq-small) {
+      justify-content: space-between;
+      flex-wrap: nowrap;
+    }
 
     & button {
       background: transparent;

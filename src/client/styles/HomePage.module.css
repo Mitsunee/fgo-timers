@@ -2,7 +2,11 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  gap: [0.66em, null, 1.33em];
+  gap: 0.66em;
+
+  @media (--mq-medium) {
+    gap: 1.33em;
+  }
 }
 
 .body {

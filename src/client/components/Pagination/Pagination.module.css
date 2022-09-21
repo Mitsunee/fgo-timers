@@ -42,13 +42,20 @@
 
 .infoCell,
 .orderCell {
-  flex-basis: [100%, 45%];
+  flex-basis: 100%;
+  justify-content: center;
 }
 .infoCell {
-  justify-content: [center, flex-start];
+  @media (--mq-small) {
+    flex-basis: 45%;
+    justify-content: flex-start;
+  }
 }
 .orderCell {
-  justify-content: [center, flex-end];
+  @media (--mq-small) {
+    flex-basis: 45%;
+    justify-content: flex-end;
+  }
 }
 
 .arrow {

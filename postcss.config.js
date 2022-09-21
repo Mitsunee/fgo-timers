@@ -13,7 +13,10 @@ const plugins = [
       stage: 2,
       features: {
         "custom-properties": false,
-        "nesting-rules": true
+        "nesting-rules": true,
+        "custom-media-queries": {
+          importFrom: "src/client/styles/media.css"
+        }
       }
     }
   ]

@@ -1,6 +1,10 @@
 .grid {
   display: grid;
-  grid-template-columns: [1fr, 1fr 1fr];
+  grid-template-columns: 1fr;
   gap: 0.66em;
   margin: 0.66em 0px;
+
+  @media (--mq-small) {
+    grid-template-columns: 1fr 1fr;
+  }
 }
