@@ -6,7 +6,7 @@
   padding: 12px;
   background: linear-gradient(
     to bottom,
-    theme(colors.background-blue) 56px,
+    var(--bg-primary) 56px,
     transparent 58px
   );
 }

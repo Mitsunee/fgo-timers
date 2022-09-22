@@ -1,8 +1,6 @@
 const picocolors = require("picocolors");
-const theme = require("./src/client/styles/theme");
 
 const plugins = [
-  ["postcss-theme-ui", theme],
   "postcss-focus",
   [
     "postcss-preset-env",

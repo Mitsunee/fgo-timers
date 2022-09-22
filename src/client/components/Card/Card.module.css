@@ -1,21 +1,21 @@
 .card {
   font-size: 14px;
-  border: 2px solid theme(colors.ui-light);
+  border: 2px solid var(--light);
   border-radius: 1.5em;
   overflow: hidden;
-  background-color: background-blue;
+  background-color: var(--bg-primary);
   background-image: radial-gradient(
       ellipse at bottom,
-      theme(colors.background-blue),
+      var(--bg-primary),
       transparent
     ),
     linear-gradient(
       to bottom,
-      theme(colors.background-blue),
-      theme(colors.background-blue) 85px,
-      theme(colors.background-light-blue)
+      var(--bg-primary),
+      var(--bg-primary) 85px,
+      var(--bg-light)
     );
-  box-shadow: 3px 3px 7px theme(colors.background-dark);
+  box-shadow: 3px 3px 7px var(--dark);
 
   & p {
     margin: 0.33em 0px;

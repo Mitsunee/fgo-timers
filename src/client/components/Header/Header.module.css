@@ -3,7 +3,7 @@
   top: 0px;
   left: 0px;
   z-index: 1000;
-  background-color: background-dark;
+  background-color: var(--dark);
   display: flex;
   grid-gap: 0.33em;
   width: 100%;
@@ -66,10 +66,10 @@
   transition: 0.125s ease-in-out;
 
   & svg {
-    fill: theme(colors.primary);
+    fill: var(--primary);
   }
 
   &:hover svg {
-    fill: theme(colors.hover);
+    fill: var(--hover);
   }
 }

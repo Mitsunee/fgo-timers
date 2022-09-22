@@ -14,7 +14,7 @@
     border: 0px;
 
     & svg {
-      fill: theme(colors.primary);
+      fill: var(--primary);
       transition: transform 0.125s ease-in-out;
     }
     &.open {
@@ -28,8 +28,8 @@
       top: 1.33em;
     }
     &.inline {
-      color: primary;
-      font-family: title;
+      color: var(--primary);
+      font-family: var(--title);
       font-weight: 700;
       font-size: 1.5em;
     }

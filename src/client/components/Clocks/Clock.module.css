@@ -25,7 +25,7 @@
 
   & h2 {
     font-size: 32px;
-    font-family: sans;
+    font-family: var(--sans);
     font-weight: 400;
     font-variant-numeric: tabular-nums;
     @media (--mq-small) {

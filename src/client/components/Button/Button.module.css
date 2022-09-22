@@ -1,23 +1,23 @@
 .button {
   display: block;
-  border: 1px solid theme(colors.ui-light);
+  border: 1px solid var(--light);
   border-radius: 0.5em;
   padding: 0.33em 0.66em;
-  background-color: background-blue;
+  background-color: var(--bg-primary);
   background-image: radial-gradient(
     ellipse at bottom,
-    theme(colors.background-dark),
+    var(--dark),
     transparent
   );
-  color: primary;
+  color: var(--primary);
 
   &:not(:disabled) {
     cursor: pointer;
   }
 
   &:hover:not(:disabled) {
-    border-color: hover;
-    color: hover;
+    border-color: var(--hover);
+    color: var(--hover);
   }
 
   &:disabled {

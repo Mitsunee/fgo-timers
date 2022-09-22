@@ -15,6 +15,6 @@
   &.background,
   & th,
   & tr:hover > td {
-    background-color: background-dark;
+    background-color: var(--dark);
   }
 }

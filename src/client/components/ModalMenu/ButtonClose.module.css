@@ -4,9 +4,9 @@
   right: 0.5em;
 
   & svg {
-    fill: theme(colors.primary);
+    fill: var(--primary);
   }
   &:hover svg {
-    fill: theme(colors.hover);
+    fill: var(--hover);
   }
 }

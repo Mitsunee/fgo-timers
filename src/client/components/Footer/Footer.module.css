@@ -2,11 +2,11 @@
   width: 100%;
   margin-top: 1.5rem;
   padding: 1.66em 0.66em;
-  color: primary;
+  color: var(--primary);
   font-size: 0.8em;
-  background-color: background-dark;
+  background-color: var(--dark);
   backdrop-filter: blur(5px);
-  box-shadow: 0px -2px 4px theme(colors.background-dark);
+  box-shadow: 0px -2px 4px var(--dark);
   user-select: none;
 
   @media (--mq-small) {
@@ -25,6 +25,6 @@
   }
 
   & a {
-    color: hover;
+    color: var(--hover);
   }
 }

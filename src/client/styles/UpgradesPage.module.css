@@ -1,6 +1,6 @@
 .atlas {
   display: inline-block;
-  fill: theme(colors.primary);
+  fill: var(--primary);
   height: 1em;
   width: 1em;
   margin: 0px 0.33ch;

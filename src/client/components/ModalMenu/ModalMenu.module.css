@@ -3,20 +3,16 @@
   min-width: 90vw;
   padding: 0.66em;
   padding-top: 0px;
-  background-color: background-blue;
+  background-color: var(--bg-primary);
   background-image: radial-gradient(
       ellipse at top,
-      theme(colors.background-blue),
+      var(--bg-primary),
       transparent
     ),
-    linear-gradient(
-      to bottom,
-      theme(colors.background-light-blue),
-      theme(colors.background-blue)
-    );
-  border: 1px solid theme(colors.ui-light);
+    linear-gradient(to bottom, var(--bg-light), var(--bg-primary));
+  border: 1px solid var(--light);
   border-radius: 0.5em;
-  box-shadow: 3px 3px 3px theme(colors.background-dark);
+  box-shadow: 3px 3px 3px var(--dark);
 
   @media (--mq-small) {
     min-width: 50vw;

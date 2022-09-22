@@ -7,7 +7,7 @@
   user-select: none;
 
   &:hover {
-    border-color: hover;
+    border-color: var(--hover);
   }
 
   & img {

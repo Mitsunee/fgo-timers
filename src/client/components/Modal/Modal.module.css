@@ -9,7 +9,7 @@
   overflow-x: hidden;
   overflow-y: auto;
   &.background {
-    background-color: background-dark;
+    background-color: var(--dark);
     backdrop-filter: blur(5px);
   }
 }
