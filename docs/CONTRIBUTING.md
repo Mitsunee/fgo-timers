@@ -80,8 +80,7 @@ Start the devServer with `yarn dev` locally on your system, then visit [http://l
 
 **NOTE**: The backend is currently undergoing a major rewrite, documentation may be deprecated!
 
-[News Post Scraping](news-post-scraping.md) contains information for scraping data from official news posts.
-
-[Atlas Academy DB](https://apps.atlasacademy.io/db/) can be used to find Servant and Craft Essence IDs more quickly. Usually both ID and collectionNo are supported, but scripts prefer using the ID.
-
-Refer to the [Atlas Academy API Documentation](https://api.atlasacademy.io/docs#/) for data types. (Going to migrate to `@atlasacademy/api-connector` soon-ish)
+- [News Post Scraping](news-post-scraping.md) contains information for scraping data from official news posts.
+- [Atlas Academy DB](https://apps.atlasacademy.io/db/) can be used to find Servant and Craft Essence IDs more quickly. Usually both ID and collectionNo are supported, but scripts prefer using the ID.
+- Refer to the [Atlas Academy API Documentation](https://api.atlasacademy.io/docs#/) for data types. (Going to migrate to `@atlasacademy/api-connector` soon-ish)
+- See [Themeing and Responsive Design](theme.md) for information on global css properties used for Themeing.
