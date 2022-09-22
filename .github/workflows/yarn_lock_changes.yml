@@ -5,26 +5,7 @@ on:
       - "yarn.lock"
 
 jobs:
-  browserslist:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: yarn
-      - name: Install dependencies
-        run: yarn install --ignore-scripts
-      - name: Update browserslist
-        run: yarn browserslist --update-db
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "update: Browserslist Database"
   check:
-    needs: browserslist
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
