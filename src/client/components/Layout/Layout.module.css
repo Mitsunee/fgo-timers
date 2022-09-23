@@ -19,15 +19,19 @@
   max-width: 100%;
   grid-template-columns: auto;
 
-  &.desktop {
-    grid-template-columns: 360px auto;
-  }
-
   & main {
     user-select: text;
   }
 
-  @media (--mq-medium) {
+  & nav {
+    display: none;
+  }
+
+  @media (--mq-large) {
+    grid-template-columns: 360px auto;
     max-width: 1600px;
+    & nav {
+      display: block;
+    }
   }
 }

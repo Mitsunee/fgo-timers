@@ -26,10 +26,10 @@ Nested media queries are supported. Please use any of the following custom media
 
 - `--mq-small`: Larger phone screens that can support multi-columns for smaller elements
 - `--mq-medium`: Tablet Screens and smaller Desktops
-- `--mq-large`
-- `--mq-x-large`: Desktops
+- `--mq-large`: Desktops
+- `--mq-x-large`: Larger Desktops
 
-Unless media queries are used all elements should display correctly at even tiny screen sizes. The desktop navigation is displayed for devices meeting the `--mq-medium` query, otherwise a hamburger button is displayed in the header.
+Unless media queries are used all elements should display correctly at even tiny screen sizes. The desktop navigation is displayed for devices meeting the `--mq-large` query, otherwise a hamburger button is displayed in the header.
 
 ## References
 

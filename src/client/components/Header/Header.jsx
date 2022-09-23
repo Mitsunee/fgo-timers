@@ -8,7 +8,7 @@ import { setMobileNavOpen } from "@stores/uiStore";
 import { Button } from "@components/Button";
 import { IconHamburger } from "@components/icons";
 
-export default function Header({ showHamburger }) {
+export default function Header() {
   const meta = useStore(metaStore);
   const s = spacetime.now();
   const isPadoru = s.format("month-short") === "Dec" && s.date() <= 27;
@@ -23,14 +23,12 @@ export default function Header({ showHamburger }) {
           <h1>{meta.title}</h1>
           <h2>{meta.description}</h2>
         </section>
-        {showHamburger && (
-          <Button
-            onClick={() => setMobileNavOpen(state => !state)}
-            iconComponent={IconHamburger}
-            disableDefaultStyle
-            className={styles.button}
-          />
-        )}
+        <Button
+          onClick={() => setMobileNavOpen(state => !state)}
+          iconComponent={IconHamburger}
+          disableDefaultStyle
+          className={styles.button}
+        />
       </header>
     </>
   );

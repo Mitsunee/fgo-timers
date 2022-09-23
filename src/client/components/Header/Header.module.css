@@ -72,4 +72,8 @@
   &:hover svg {
     fill: var(--hover);
   }
+
+  @media (--mq-large) {
+    display: none;
+  }
 }
