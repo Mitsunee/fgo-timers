@@ -75,6 +75,7 @@ Start the devServer with `yarn dev` locally on your system, then visit [http://l
 - All files using JSX should use the `*.jsx` file extension.
 - Try to keep functions small (and thus their purpose obvious and readable). If you absolutely need larger functions divide your code into sections and use comments to give them headlines such as `// handle args`.
 - Deployments are static thus files in `./assets` should only be written to during the prebuild step! (this means there is currently no way to update upgrades other then redeployment)
+- Should you need to add or update dependencies please also run `yarn browserslist --update-db` and `yarn-deduplicate` before committing.
 
 ## Further Information
 
