@@ -5,7 +5,7 @@ import cc from "classcat";
 
 import styles from "./Pagination.module.css";
 import { settingsStore } from "@stores/settingsStore";
-import { useThemeBreakpoint } from "@utils/hooks/useThemeBreakpoint";
+import { useMediaQuery } from "@utils/hooks/useMediaQuery";
 import { usePaginationSlice } from "@utils/hooks/usePaginationSlice";
 import { Button } from "@components/Button";
 import { IconArrow } from "@components/icons";
@@ -21,15 +21,13 @@ export default function Pagination({
   top = false
 }) {
   const { perPage } = useStore(settingsStore);
-  const [currentBreakpoint, breakpoints] = useThemeBreakpoint();
   const [display, setDisplay] = useState([]);
   const [startSlice, endSlice] = usePaginationSlice(elements, currentPage);
   const pageCount = Math.ceil(elements / perPage);
+  const isMedium = useMediaQuery("medium"); // show direct siblings of current page
+  const isLarge = useMediaQuery("large"); // also show direct siblings of first and last page
 
   useEffect(() => {
-    const isMedium = currentBreakpoint > breakpoints[0]; // show direct siblings of current page
-    const isLarge = currentBreakpoint > breakpoints[1]; // also show direct siblings of first and last page
-
     // can show all pages
     if (
       pageCount <= 3 ||
@@ -85,7 +83,7 @@ export default function Pagination({
     }
 
     setDisplay([...startSection, ...midSection, ...endSection]);
-  }, [currentBreakpoint, breakpoints, pageCount, currentPage]);
+  }, [isMedium, isLarge, pageCount, currentPage]);
 
   return (
     <div className={cc([styles.wrapper, top && styles.top])}>
