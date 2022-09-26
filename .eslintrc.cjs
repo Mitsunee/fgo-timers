@@ -18,6 +18,13 @@ module.exports = {
     {
       files: ["tests/server/**/*.test.js", "tests/client/**/*.test.js?(x)"],
       env: { jest: true }
+    },
+    {
+      files: ["**/*.ts?(x)"],
+      rules: {
+        "no-undef": "off",
+        "no-redeclare": "off"
+      }
     }
   ]
 };

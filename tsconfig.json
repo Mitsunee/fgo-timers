@@ -5,6 +5,7 @@
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
+    "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "incremental": true,
@@ -25,6 +26,12 @@
       "@utils/*": ["src/client/utils/*"]
     }
   },
-  "include": ["src/types/*.d.ts", "next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "src/types/*.d.ts",
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.mts"
+  ],
   "exclude": ["node_modules"]
 }
