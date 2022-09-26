@@ -17,7 +17,7 @@
     "test:types": "tsc --noEmit",
     "test:server": "jest --testMatch **/tests/server/**/*.test.js",
     "test:scripts": "uvu tests/scripts",
-    "test:data": "node src/scripts/check/check.mjs",
+    "test:data": "node out/check/check.mjs",
     "test": "yarn test:types && yarn test:server && yarn test:scripts && yarn test:data --all"
   },
   "simple-git-hooks": {
@@ -35,10 +35,10 @@
       "svgo"
     ],
     "assets/data/{events,login-tickets}/*.yml": [
-      "node src/scripts/check/check.mjs --silent --file"
+      "node out/check/check.mjs --silent --file"
     ],
     "assets/data/{mana,rare}PrismShop.yml": [
-      "node src/scripts/check/check.mjs --silent --file"
+      "node out/check/check.mjs --silent --file"
     ]
   },
   "browserslist": [

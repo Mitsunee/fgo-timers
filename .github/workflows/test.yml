@@ -64,16 +64,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - uses: dorny/paths-filter@v2
-        id: changes
-        with:
-          filters: |
-            server:
-              - 'src/server/**'
-            scripts:
-              - 'src/scripts/**'
-            assets:
-              - 'assets/**'
       - name: AtlasAcademy API Cache
         id: atlas-cache
         uses: actions/cache@v3
@@ -87,12 +77,7 @@ jobs:
           cache: yarn
       - name: Install dependencies
         run: yarn install --frozen-lockfile --ignore-scripts
-      - name: Test Server Modules
-        if: steps.changes.outputs.server == 'true'
-        run: yarn test:server
-      - name: Test Scripts
-        if: steps.changes.outputs.scripts == 'true'
-        run: yarn test:scripts
-      - name: Test Data
-        if: steps.changes.outputs.assets == 'true'
-        run: yarn test:data --all
+      - name: Build Scripts
+        run: yarn build:scripts
+      - name: Run Tests Data
+        run: yarn test
