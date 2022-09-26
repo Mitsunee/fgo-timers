@@ -1,4 +1,4 @@
-import { prepareAtlasCache } from "../utils/atlasacademy/prepareCache.mjs";
+import { prepareAtlasCache } from "../utils/atlasacademy/prepareCache.ts";
 import { bundleBackgrounds } from "./bundleBackgrounds.mjs";
 import { bundleEvents } from "./bundleEvents.mjs";
 import { bundleLoginTickets } from "./bundleLoginTickets.mjs";

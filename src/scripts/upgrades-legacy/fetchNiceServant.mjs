@@ -4,8 +4,8 @@ import { die } from "./die.mjs";
 
 export async function fetchNiceServant() {
   const [niceServant, niceServantNA] = await Promise.all([
-    readFileJson(".next/cache/atlasacademy/JP/nice_servant_lang_en.json"),
-    readFileJson(".next/cache/atlasacademy//NA/nice_servant.json")
+    readFileJson(".next/cache/atlasacademy/JP/nice_servant.json"),
+    readFileJson(".next/cache/atlasacademy/NA/nice_servant.json")
   ]);
 
   if (!niceServant || !niceServantNA) {

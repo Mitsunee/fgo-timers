@@ -1,14 +1,14 @@
 import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 
-import { readFromCache } from "../atlasacademy/cache.mjs";
+import { readFromCache } from "../atlasacademy/cache.ts";
 import { parseTicketMonth } from "./parseTicketMonth.mjs";
 
 let niceItem = null;
 async function prepareNiceItem() {
   if (niceItem == null) {
-    niceItem = await readFromCache("JP", "nice_item_lang_en.json");
+    niceItem = await readFromCache("JP", "nice_item.json");
     if (!niceItem) {
-      throw new Error("Could not read nice_item_lang_en from cache");
+      throw new Error("Could not read nice_item from cache");
     }
   }
 }
