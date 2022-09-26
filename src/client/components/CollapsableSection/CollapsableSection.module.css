@@ -8,17 +8,17 @@
     margin: 0.83em 0px;
   }
 
-  .button {
+  & .button {
     display: block;
     background: transparent;
     border: 0px;
 
-    svg {
-      fill: theme(colors.primary);
+    & svg {
+      fill: var(--primary);
       transition: transform 0.125s ease-in-out;
     }
     &.open {
-      svg {
+      & svg {
         transform: rotate(-90deg);
       }
     }
@@ -28,14 +28,14 @@
       top: 1.33em;
     }
     &.inline {
-      color: primary;
-      font-family: title;
+      color: var(--primary);
+      font-family: var(--title);
       font-weight: 700;
       font-size: 1.5em;
     }
   }
 
-  .headline {
+  & .headline {
     margin-top: 0px;
   }
 }

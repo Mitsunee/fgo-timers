@@ -8,10 +8,10 @@
   & > div {
     gap: 0.33em;
   }
-  svg {
-    fill: theme(colors.primary);
+  & svg {
+    fill: var(--primary);
   }
   &:hover svg {
-    fill: theme(colors.hover);
+    fill: var(--hover);
   }
 }

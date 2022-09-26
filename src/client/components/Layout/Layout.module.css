@@ -3,22 +3,35 @@
   flex-direction: column;
   align-items: center;
   grid-gap: 0.66em;
-  padding: 20px [20px, 40px];
+  padding: 20px;
   user-select: none;
+
+  @media (--mq-small) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
 }
 
 .inner {
   display: grid;
   grid-gap: 1.66em;
   width: 100%;
-  max-width: [100%, 100%, 1600px];
+  max-width: 100%;
   grid-template-columns: auto;
 
-  &.desktop {
-    grid-template-columns: 360px auto;
+  & main {
+    user-select: text;
   }
 
-  main {
-    user-select: text;
+  & nav {
+    display: none;
+  }
+
+  @media (--mq-large) {
+    grid-template-columns: 360px auto;
+    max-width: 1600px;
+    & nav {
+      display: block;
+    }
   }
 }

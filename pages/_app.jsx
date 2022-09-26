@@ -3,7 +3,7 @@ import "modern-normalize/modern-normalize.css";
 
 import "@styles/globals.css";
 import { useRouterLoading } from "@utils/hooks/useRouterLoading";
-import { useThemeBreakpoint } from "@utils/hooks/useThemeBreakpoint";
+import { useMediaQuery } from "@utils/hooks/useMediaQuery";
 import { setMobileNavOpen } from "@stores/uiStore";
 import Header from "@components/Header";
 import Loading from "@components/Loading";
@@ -11,25 +11,22 @@ import Layout from "@components/Layout";
 import Footer from "@components/Footer";
 import SettingsMenu from "@components/SettingsMenu";
 
-function MyApp({ Component, pageProps }) {
+export default function App({ Component, pageProps }) {
   const loading = useRouterLoading();
-  const [currentBreakpoint, breakpoints] = useThemeBreakpoint();
-  const isDesktop = currentBreakpoint > breakpoints[2];
+  const isDesktop = useMediaQuery("large");
 
   // close mobile navigation when navigating or when screensize changes to desktop
   useEffect(() => {
-    if (loading || isDesktop) {
-      setMobileNavOpen(false);
-    }
+    if (loading || isDesktop) setMobileNavOpen(false);
   }, [loading, isDesktop]);
 
   return (
     <>
-      <Header showHamburger={!isDesktop} />
+      <Header />
       {loading ? (
         <Loading />
       ) : (
-        <Layout isDesktop={isDesktop}>
+        <Layout>
           <Component {...pageProps} />
         </Layout>
       )}
@@ -38,5 +35,3 @@ function MyApp({ Component, pageProps }) {
     </>
   );
 }
-
-export default MyApp;

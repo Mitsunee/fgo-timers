@@ -1,11 +1,11 @@
 .card {
   user-select: text;
 
-  h1 {
+  & h1 {
     font-size: 1.75em;
   }
 
-  h2 {
+  & h2 {
     font-size: 1.2em;
   }
 }

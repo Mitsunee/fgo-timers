@@ -1,11 +1,10 @@
 .input {
   padding: 0.33em;
-  background-color: background-blue;
-  border: 1px solid theme(colors.ui-light);
+  background-color: var(--bg-primary);
+  border: 1px solid var(--light);
   border-radius: 0.33em;
   color: inherit;
-  box-shadow: inset 1px 1px 4px theme(colors.background-dark),
-    0px 0px 4px theme(colors.background-dark);
+  box-shadow: inset 1px 1px 4px var(--dark), 0px 0px 4px var(--dark);
 
   &.invalid {
     color: #f00;

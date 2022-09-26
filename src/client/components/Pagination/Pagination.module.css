@@ -24,10 +24,10 @@
   justify-content: center;
   gap: 0.33em;
 
-  button {
+  & button {
     &.selected {
-      border: 1px solid theme(colors.hover);
-      color: hover;
+      border: 1px solid var(--hover);
+      color: var(--hover);
     }
     &.noFilter {
       opacity: 1;
@@ -42,35 +42,42 @@
 
 .infoCell,
 .orderCell {
-  flex-basis: [100%, 45%];
+  flex-basis: 100%;
+  justify-content: center;
 }
 .infoCell {
-  justify-content: [center, flex-start];
+  @media (--mq-small) {
+    flex-basis: 45%;
+    justify-content: flex-start;
+  }
 }
 .orderCell {
-  justify-content: [center, flex-end];
+  @media (--mq-small) {
+    flex-basis: 45%;
+    justify-content: flex-end;
+  }
 }
 
 .arrow {
-  svg {
-    fill: theme(colors.primary);
+  & svg {
+    fill: var(--primary);
   }
   &.up {
-    svg {
+    & svg {
       transform: rotate(180deg);
     }
   }
   &.left {
-    svg {
+    & svg {
       transform: rotate(90deg);
     }
   }
   &.right {
-    svg {
+    & svg {
       transform: rotate(-90deg);
     }
   }
   &:hover:not(:disabled) svg {
-    fill: theme(colors.hover);
+    fill: var(--hover);
   }
 }

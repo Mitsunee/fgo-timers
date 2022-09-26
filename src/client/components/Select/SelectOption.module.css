@@ -1,6 +1,6 @@
 .option {
   border-radius: 0px;
-  box-shadow: 0px 0px 4px theme(colors.background-dark);
+  box-shadow: 0px 0px 4px var(--dark);
   transition: 0.2s ease-in-out;
 
   &:first-child {
@@ -13,32 +13,24 @@
   }
 
   &.selected {
-    color: hover;
-    border-color: ui-light;
-    background-image: linear-gradient(
-      to bottom,
-      theme(colors.ui-light),
-      transparent 50%
-    );
+    color: var(--hover);
+    border-color: var(--light);
+    background-image: linear-gradient(to bottom, var(--light), transparent 50%);
   }
 
   &.unselected {
-    background-image: linear-gradient(
-      to bottom,
-      theme(colors.background-dark),
-      transparent 75%
-    );
+    background-image: linear-gradient(to bottom, var(--dark), transparent 75%);
     opacity: 0.75;
 
     &:hover {
       opacity: 1;
       background-image: linear-gradient(
         to bottom,
-        theme(colors.ui-light),
+        var(--light),
         transparent,
-        theme(colors.ui-light)
+        var(--light)
       );
-      box-shadow: 0px 0px 4px theme(colors.hover);
+      box-shadow: 0px 0px 4px var(--hover);
     }
   }
 }

@@ -2,7 +2,7 @@
   margin: 0.66em 0px;
   font-size: 2.5em;
   font-weight: 700;
-  font-family: title;
+  font-family: var(--title);
   text-align: center;
 
   &:first-child {

@@ -1,6 +1,6 @@
 .atlas {
   display: inline-block;
-  fill: theme(colors.primary);
+  fill: var(--primary);
   height: 1em;
   width: 1em;
   margin: 0px 0.33ch;
@@ -23,7 +23,7 @@
   align-items: center;
   gap: 0.33em;
 
-  label {
+  & label {
     font-size: 1.2em;
   }
 }
@@ -31,12 +31,17 @@
 .classSelect {
   & > div {
     display: flex;
-    justify-content: [space-around, space-between];
+    justify-content: space-around;
     align-items: center;
-    flex-wrap: [wrap, nowrap];
+    flex-wrap: wrap;
     gap: 0.66em;
 
-    button {
+    @media (--mq-small) {
+      justify-content: space-between;
+      flex-wrap: nowrap;
+    }
+
+    & button {
       background: transparent;
       padding: 0px;
       border: 0px;

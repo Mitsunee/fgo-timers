@@ -9,12 +9,12 @@
   flex-direction: column;
   justify-content: flex-end;
 
-  h1 {
+  & h1 {
     display: block;
     width: 100%;
     margin: 0px;
     padding: 0.66rem;
-    font-size: [1em, 1.5em];
+    font-size: 1em;
     background-image: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 80%),
@@ -23,5 +23,9 @@
     );
     backdrop-filter: blur(2px);
     user-select: text;
+
+    @media (--mq-small) {
+      font-size: 1.5em;
+    }
   }
 }

@@ -1,4 +1,6 @@
-# Events
+# Events **(DEPRECATED)**
+
+_DEPRECATED_: Events are planned to be rewritten soon and this document will need to be rewritten accordingly. There will likely be no major changes to the data format, but some breaking changes will happen (potential removal of `hideWhenDone`, maybe new data structure for times) as well as new features being added (displaying servants/CEs).
 
 Event pages are automatically generated from any `.yml` file `./assets/data/events/`.
 

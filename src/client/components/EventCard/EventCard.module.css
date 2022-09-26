@@ -7,10 +7,10 @@
   user-select: none;
 
   &:hover {
-    border-color: hover;
+    border-color: var(--hover);
   }
 
-  img {
+  & img {
     display: block;
     width: 100%;
     height: auto;

@@ -6,27 +6,36 @@ body,
   min-height: 100vh;
 }
 
+:root {
+  /* ui colors */
+  --primary: #ffffff;
+  --light: #dfdfff30;
+  --dark: #00000070;
+
+  /* themeable colors */
+  --hover: #f0ce02;
+  --bg-primary: #2e2c6a;
+  --bg-light: #2e627a;
+  --bg-dark: #680c5f;
+
+  /* font families */
+  --sans: "Noto Sans", sans-serif;
+  --title: Dosis, sans-serif;
+}
+
 body {
-  background-color: background-blue;
+  background-color: var(--bg-primary);
   background-image: radial-gradient(
       ellipse at top,
-      theme(colors.background-blue),
+      var(--bg-primary),
       transparent
     ),
-    radial-gradient(
-      ellipse at bottom,
-      theme(colors.background-purple),
-      transparent
-    ),
-    linear-gradient(
-      to top,
-      theme(colors.background-light-blue),
-      theme(colors.background-light-blue)
-    );
+    radial-gradient(ellipse at bottom, var(--bg-dark), transparent),
+    linear-gradient(to top, var(--bg-light), var(--bg-light));
   background-size: 100%;
   background-attachment: fixed;
-  font-family: sans;
-  color: primary;
+  font-family: var(--sans);
+  color: var(--primary);
 }
 
 #next {
@@ -37,7 +46,7 @@ a {
   color: inherit;
   text-decoration: none;
   &:hover {
-    color: hover;
+    color: var(--hover);
     text-decoration: underline;
   }
 }
@@ -45,7 +54,7 @@ a {
 h1,
 h2,
 h3 {
-  font-family: title;
+  font-family: var(--title);
   font-weight: 700;
 }
 
