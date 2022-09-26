@@ -5,17 +5,20 @@
   "packageMananger": "yarn",
   "scripts": {
     "prepare": "simple-git-hooks",
-    "dev": "node src/scripts/prebuild/prebuild.mjs && next dev",
+    "dev:scripts": "tsc --watch -p tsconfig_scripts.json",
+    "build:scripts": "tsc -p tsconfig_scripts.json",
     "upgrades:legacy": "node src/scripts/upgrades-legacy/update-upgrades-data.mjs",
-    "prebuild": "node --version && node src/scripts/prebuild/prebuild.mjs",
-    "build": "next build",
+    "prebuild": "yarn build:scripts && node out/prebuild/prebuild.mjs",
+    "build": "node --version && next build",
+    "dev": "yarn prebuild && next dev",
     "start": "next start",
     "lint": "eslint .",
     "format": "prettier -w .",
+    "test:types": "tsc --noEmit",
     "test:server": "jest --testMatch **/tests/server/**/*.test.js",
     "test:scripts": "uvu tests/scripts",
     "test:data": "node src/scripts/check/check.mjs",
-    "test": "yarn run test:server && yarn run test:scripts && yarn run test:data --all"
+    "test": "yarn test:types && yarn test:server && yarn test:scripts && yarn test:data --all"
   },
   "simple-git-hooks": {
     "pre-commit": "yarn nano-staged"
@@ -43,6 +46,8 @@
     ">0.2% and not dead"
   ],
   "dependencies": {
+    "@atlasacademy/api-connector": "^3.0.124",
+    "@atlasacademy/api-descriptor": "^1.0.137",
     "@babel/core": "^7.19.1",
     "@foxkit/node-util": "^0.4.0",
     "@nanostores/persistent": "^0.7.0",
@@ -71,9 +76,11 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "13.4.0",
+    "@typescript-eslint/eslint-plugin": "^5.38.0",
+    "@typescript-eslint/parser": "^5.38.0",
     "commander": "^9.3.0",
     "confusing-browser-globals": "^1.0.11",
-    "eslint": "8.23.1",
+    "eslint": "8.24.0",
     "eslint-config-foxkit": "^1.1.1",
     "eslint-config-next": "12.3.1",
     "eslint-config-prettier": "^8.5.0",

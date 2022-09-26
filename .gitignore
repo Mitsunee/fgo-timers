@@ -9,3 +9,4 @@
 !.env.example
 .vercel
 /assets/static/
+next-env.d.ts
