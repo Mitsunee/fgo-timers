@@ -1,7 +1,7 @@
 import { sleep } from "foxkit/sleep";
 import { readFileJson, writeFile } from "@foxkit/node-util/fs";
 
-import { prepareAtlasCache } from "../utils/atlasacademy/prepareCache.ts";
+import { prepareCache } from "@atlas-api/prepare.ts";
 import * as log from "../utils/log.mjs";
 import { die } from "./die.mjs";
 import { fetchNiceServant } from "./fetchNiceServant.mjs";
@@ -21,7 +21,7 @@ async function main() {
   }
 
   // fetch nice servant data and rearrange for describeUpgrade
-  await prepareAtlasCache();
+  await prepareCache();
   const niceServant = await fetchNiceServant();
   const niceData = {
     skills: arrangeSkills(niceServant),

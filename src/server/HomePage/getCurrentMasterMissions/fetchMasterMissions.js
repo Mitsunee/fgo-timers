@@ -1,10 +1,8 @@
-import {
-  atlasExport,
-  readCacheInfo,
-  readFromCache
-} from "src/server/utils/atlasacademy";
-import { tsToSpacetime, spacetimeToTs } from "src/server/utils/time";
-import { info } from "src/server/utils/log";
+import { getMasterMissions } from "@atlas-api/cache.ts";
+import { getLocalCacheInfo } from "@atlas-api/validation.ts";
+import { atlasNa } from "@atlas-api/api.ts";
+import { tsToSpacetime, spacetimeToTs } from "@server/utils/time";
+import { info } from "@server/utils/log";
 
 function splitMissionsByType(masterMissions) {
   const weeklyMissions = masterMissions.filter(
@@ -23,17 +21,17 @@ function getNextDay(now) {
 }
 
 export async function fetchMasterMissions(now) {
-  const cacheInfo = await readCacheInfo();
+  const cacheInfo = await getLocalCacheInfo();
   const cacheMaxAge = getNextDay(cacheInfo.lastChecked);
   let masterMissions;
 
   // depending on if the cache is from today use cache or API to fetch missions data
   if (now < cacheMaxAge) {
     info("Reading Master Missions from local cache");
-    masterMissions = await readFromCache("NA", "nice_master_mission.json");
+    masterMissions = await getMasterMissions("NA");
   } else {
     info("Fetching Master Missions from API");
-    masterMissions = await atlasExport.NA("nice_master_mission.json");
+    masterMissions = await atlasNa.masterMissionList();
   }
 
   return splitMissionsByType(masterMissions);

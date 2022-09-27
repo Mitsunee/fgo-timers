@@ -1,4 +1,4 @@
-import { prepareAtlasCache } from "../utils/atlasacademy/prepareCache.ts";
+import { prepareCache } from "../../atlas-api/prepare.ts";
 import { bundleBackgrounds } from "./bundleBackgrounds.mjs";
 import { bundleEvents } from "./bundleEvents.mjs";
 import { bundleLoginTickets } from "./bundleLoginTickets.mjs";
@@ -7,7 +7,7 @@ import { buildSVGComponents } from "./buildSVGComponents.mjs";
 
 (async function main() {
   // update cache
-  await prepareAtlasCache();
+  await prepareCache();
 
   // run bundlers
   const success = await Promise.all([

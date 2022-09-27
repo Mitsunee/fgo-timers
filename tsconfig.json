@@ -18,20 +18,14 @@
     "tsBuildInfoFile": ".next/cache/tsbuildinfo",
     "baseUrl": "./",
     "paths": {
+      "@atlas-api/*": ["src/atlas-api/*"],
       "@components/*": ["src/client/components/*"],
-      "@scripts": ["src/scripts/*"],
       "@server/*": ["src/server/*"],
       "@stores/*": ["src/client/stores/*"],
       "@styles/*": ["src/client/styles/*"],
       "@utils/*": ["src/client/utils/*"]
     }
   },
-  "include": [
-    "src/types/*.d.ts",
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.mts"
-  ],
+  "include": ["src/types/*.d.ts", "next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }

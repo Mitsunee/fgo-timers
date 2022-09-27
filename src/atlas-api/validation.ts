@@ -1,16 +1,16 @@
 import { readFileJson } from "@foxkit/node-util/fs";
 
 import { atlasApi } from "./api";
-import { getCurrentTime } from "../getCurrentTime.mjs";
-import * as log from "../log.mjs";
-import { cachePath, cacheVersion } from "./cache.js";
+import { getCurrentTime } from "../scripts/utils/getCurrentTime.mjs";
+import * as log from "../scripts/utils/log.mjs";
+import { cachePath, cacheVersion } from "./cache";
 
 async function fetchApiInfo() {
   const [NA, JP] = await Promise.all([atlasApi.NA.info(), atlasApi.JP.info()]);
   return { NA: NA.timestamp, JP: JP.timestamp };
 }
 
-async function getLocalCacheInfo(): Promise<AtlasCacheInfo | null> {
+export async function getLocalCacheInfo(): Promise<AtlasCacheInfo | null> {
   const infoLocal = await readFileJson<AtlasCacheInfo>(
     `${cachePath}/info.json`
   );

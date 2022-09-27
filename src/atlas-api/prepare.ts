@@ -1,11 +1,11 @@
 import { Region } from "@atlasacademy/api-connector";
 import { writeFile } from "@foxkit/node-util/fs";
 
-import * as log from "../log.mjs";
+import * as log from "../scripts/utils/log.mjs";
 import { cachePath, updateCache } from "./cache";
-import { getCacheStatus } from "./cache-validation";
+import { getCacheStatus } from "./validation";
 
-export async function prepareAtlasCache() {
+export async function prepareCache() {
   const { newInfo, updateNa, updateJp } = await getCacheStatus();
 
   if (updateNa) {

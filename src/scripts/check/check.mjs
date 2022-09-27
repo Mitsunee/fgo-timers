@@ -3,7 +3,7 @@ import { readdir } from "fs/promises";
 import { resolvePath, joinPath } from "@foxkit/node-util/path";
 import { fileExists } from "@foxkit/node-util/fs";
 
-import { prepareAtlasCache } from "../utils/atlasacademy/prepareCache.ts";
+import { prepareCache } from "../../atlas-api/prepare.ts";
 import {
   isEventFile,
   isTicketFile,
@@ -23,7 +23,7 @@ program.option("-S, --silent", "Run without logging to cli");
 
 async function main(options) {
   // update cache
-  await prepareAtlasCache();
+  await prepareCache();
 
   const targets = new Set();
   const startedAt = Date.now();
