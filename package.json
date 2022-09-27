@@ -16,7 +16,7 @@
     "format": "prettier -w .",
     "test:types": "tsc --noEmit",
     "test:server": "jest --testMatch **/tests/server/**/*.test.js",
-    "test:scripts": "uvu -r tsm tests/scripts",
+    "test:scripts": "uvu -r tsm tests/scripts-uvu",
     "test:data": "tsm --require=./nowarn.js src/scripts/check/check.mjs",
     "test": "yarn test:types && yarn test:server && yarn test:scripts && yarn test:data --all"
   },
@@ -72,6 +72,7 @@
     "react-dom": "18.2.0",
     "spacetime": "^7.2.0",
     "svgo": "^2.7.0",
+    "tsm": "^2.2.2",
     "typescript": "4.8.3",
     "yaml": "^2.1.1"
   },
@@ -90,7 +91,6 @@
     "jest-environment-jsdom": "^29.0.3",
     "nano-staged": "^0.8.0",
     "simple-git-hooks": "^2.8.0",
-    "tsm": "^2.2.2",
     "uvu": "^0.5.4"
   },
   "engines": {
