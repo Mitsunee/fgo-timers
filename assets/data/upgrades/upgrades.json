@@ -16839,5 +16839,26 @@
       "className": "alterEgo",
       "na": true
     }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91704401,
+      "name": "霊基解放クエスト 千利休",
+      "search": "霊基解放クエスト 千利休",
+      "open": 1663750800,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "余談「ぐだぐだ茶の湯譚」", "id": 94074512 }],
+        "ascension": 3
+      }
+    },
+    "servant": {
+      "id": 704400,
+      "name": "Sen no Rikyū",
+      "search": "sen no rikyu",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_7044000.png",
+      "className": "berserker"
+    }
   }
 ]
