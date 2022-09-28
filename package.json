@@ -7,7 +7,6 @@
     "prepare": "simple-git-hooks",
     "dev:scripts": "tsc --watch -p tsconfig_scripts.json",
     "build:scripts": "tsc -p tsconfig_scripts.json",
-    "upgrades:legacy": "tsm src/scripts/upgrades-legacy/update-upgrades-data.mjs",
     "prebuild": "tsm src/scripts/prebuild/prebuild.mjs",
     "build": "node --version && next build",
     "dev": "yarn prebuild && next dev",
