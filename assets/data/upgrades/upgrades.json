@@ -16860,5 +16860,130 @@
       "icon": "https://static.atlasacademy.io/JP/Faces/f_7044000.png",
       "className": "berserker"
     }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Astrápste Argo",
+      "type": "arts",
+      "border": "black",
+      "na": true
+    },
+    "np": { "name": "Astrápste Argo", "type": "arts", "border": "gold" },
+    "quest": {
+      "id": 91103801,
+      "name": "第二、あるいは三回アルゴノーツ乗員募集大会",
+      "search": "第二、あるいは三回アルコノツ乗員募集大会",
+      "open": 1664355600,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          {
+            "name": "Final Showdown: The Hollow Sea God",
+            "id": 3000531,
+            "na": true
+          }
+        ],
+        "ascension": 3,
+        "bond": 3
+      }
+    },
+    "servant": {
+      "id": 103800,
+      "name": "Jason",
+      "search": "jason",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_1038000.png",
+      "className": "saber",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91203801,
+      "name": "超人オリオン、未体験の感覚に戸惑う",
+      "search": "超人オリオン、未体験の感覚に戸惑う",
+      "open": 1664355600,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          {
+            "name": "Final Showdown: The Hollow Sea God",
+            "id": 3000531,
+            "na": true
+          }
+        ],
+        "ascension": 3,
+        "bond": 3
+      }
+    },
+    "servant": {
+      "id": 203800,
+      "name": "Super Orion",
+      "search": "super orion",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_2038000.png",
+      "className": "archer",
+      "na": true
+    }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Troias Tragōidia",
+      "type": "quick",
+      "border": "black",
+      "na": true
+    },
+    "np": { "name": "Troias Tragōidia", "type": "quick", "border": "gold" },
+    "quest": {
+      "id": 94077001,
+      "name": "強化クエスト アキレウス",
+      "search": "強化クエスト アキレウス",
+      "open": 1664355600,
+      "type": "rankup",
+      "unlock": { "ascension": 4 }
+    },
+    "servant": {
+      "id": 402900,
+      "name": "Achilles",
+      "search": "achilles",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_4029000.png",
+      "className": "rider",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Curse (Shrine Maiden) C",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00512.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "呪術（巫） C++",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00512.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94077002,
+      "name": "強化クエスト 望月千代女 2",
+      "search": "強化クエスト 望月千代女 2",
+      "open": 1664355600,
+      "type": "rankup",
+      "unlock": {
+        "quest": [{ "name": "強化クエスト 望月千代女", "id": 94058502 }]
+      }
+    },
+    "servant": {
+      "id": 602900,
+      "name": "Mochizuki Chiyome",
+      "search": "mochizuki chiyome",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_6029000.png",
+      "className": "assassin",
+      "na": true
+    }
   }
 ]
