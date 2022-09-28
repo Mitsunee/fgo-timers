@@ -6,7 +6,7 @@ process.on("warning", warning => {
   const { name, message } = warning;
   if (
     (name === "ExperimentalWarning" &&
-      message.indexOf("--experimental-loader") > -1) ||
+      message.indexOf("Custom ESM Loaders is an experimental feature") > -1) ||
     (name === "DeprecationWarning" &&
       message.indexOf("Obsolete loader hook") > -1)
   ) {
