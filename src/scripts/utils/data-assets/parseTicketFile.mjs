@@ -1,19 +1,19 @@
 import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 
-import { getNiceItem } from "../../../atlas-api/cache.ts";
+import { atlasCacheNA, atlasCacheJP } from "../../../atlas-api/cache.ts";
 import { parseTicketMonth } from "./parseTicketMonth.mjs";
 
 let niceItem = null;
 async function prepareNiceItem() {
   if (niceItem == null) {
-    niceItem = await getNiceItem("JP");
+    niceItem = await atlasCacheJP.getNiceItem();
   }
 }
 
 let niceItemNa = null;
 async function prepareNiceItemNa() {
   if (niceItemNa == null) {
-    niceItemNa = await getNiceItem("NA");
+    niceItemNa = await atlasCacheNA.getNiceItem();
   }
 }
 

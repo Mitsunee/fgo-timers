@@ -15,21 +15,21 @@
     "@jridgewell/gen-mapping" "^0.1.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@atlasacademy/api-connector@^3.0.124":
-  version "3.0.124"
-  resolved "https://registry.yarnpkg.com/@atlasacademy/api-connector/-/api-connector-3.0.124.tgz#5f9a3c1bb78e6352c334fcf9565b14719955258b"
-  integrity sha512-njIktnAsiv3r3lt+fQM9VoIjXVIWr+UWQ5+AnyekxGl1UqJOt3ew8lC1RTO9Dn81ZQy2AA8qzFchLf3DbM/93w==
+"@atlasacademy/api-connector@^3.0.124", "@atlasacademy/api-connector@^3.0.126":
+  version "3.0.126"
+  resolved "https://registry.yarnpkg.com/@atlasacademy/api-connector/-/api-connector-3.0.126.tgz#f63f75286fdaf0706f532b8258cf2d120f172021"
+  integrity sha512-cXRSdzgVpC8DwPN4X+FnHWvtgN5Z58H3mh7e/4ww8fV0+SqRrd+46TYewGAzCAWh26a2H7vqqmnqXP0hnRqEag==
   dependencies:
     axios "^0.27.2"
     install "^0.13.0"
     only "0.0.2"
 
 "@atlasacademy/api-descriptor@^1.0.137":
-  version "1.0.137"
-  resolved "https://registry.yarnpkg.com/@atlasacademy/api-descriptor/-/api-descriptor-1.0.137.tgz#261c43aee16dc5e2a9abf4219fed1f17b9bcba30"
-  integrity sha512-ftSNetsnu9rYiMSvVPwTzwSMOyWkTMnzvEAI2K9fniwnCh9BKJrhhxCpnnQcqFPMNLMFRZhTGa0UvFz5IkJK0g==
+  version "1.0.139"
+  resolved "https://registry.yarnpkg.com/@atlasacademy/api-descriptor/-/api-descriptor-1.0.139.tgz#71bbe12780e19b7bbd1193bb221b6d677e0790f3"
+  integrity sha512-s1xF2sputX7/eXUUWkalUl6Gcx5OzXpYzuBtgj88t2J4e5C8upUSdrRxH/v4aBPDFtkMgp+VBCqQF2xoagl+bA==
   dependencies:
-    "@atlasacademy/api-connector" "^3.0.124"
+    "@atlasacademy/api-connector" "^3.0.126"
     install "^0.13.0"
     only "0.0.2"
 
@@ -465,6 +465,11 @@
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/@foxkit/node-util/-/node-util-0.4.0.tgz#986efd532e4d9139af5460402ae16c9b62f2090d"
   integrity sha512-l6Pj1QBFYh3wyGr5TuAW10mEQ8imCb9QtC6lDBcaNveIale36iyQfz8GrFhX7KjTuRSyCRd1m5U7Jp9hBWqYSQ==
+
+"@foxkit/util@^0.6.1":
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/@foxkit/util/-/util-0.6.2.tgz#2ffc5c4472a7e2fbde93b9e03d75b7f6a0b34b7d"
+  integrity sha512-KfQYLizA3Mh5hw+70UaWcJJuuGwI7MBKXn5HuT27uqJGWOWkhvE2SSnvi+md1NJDU/NJxXYwFtDk0yKAuN/DPQ==
 
 "@humanwhocodes/config-array@^0.10.5":
   version "0.10.5"

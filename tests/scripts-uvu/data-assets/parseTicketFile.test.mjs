@@ -2,7 +2,7 @@ import { test } from "uvu";
 import { equal, unreachable } from "uvu/assert";
 import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 import { prepareCache } from "../../../src/atlas-api/prepare.ts";
-import { getNiceItem } from "../../../src/atlas-api/cache.ts";
+import { atlasCacheNA, atlasCacheJP } from "../../../src/atlas-api/cache.ts";
 import { parseTicketMonth } from "../../../src/scripts/utils/data-assets/parseTicketMonth.mjs";
 import { parseTicketFile } from "../../../src/scripts/utils/data-assets/parseTicketFile.mjs";
 
@@ -12,8 +12,8 @@ let itemIdMap;
 
 test.before(async () => {
   await prepareCache();
-  niceItem = await getNiceItem("JP");
-  niceItemNa = await getNiceItem("NA");
+  niceItem = await atlasCacheJP.getNiceItem();
+  niceItemNa = await atlasCacheNA.getNiceItem();
   itemIdMap = await readFileYaml("assets/data/itemIdMap.yml");
 });
 

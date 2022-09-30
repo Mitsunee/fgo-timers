@@ -49,6 +49,7 @@
     "@atlasacademy/api-descriptor": "^1.0.137",
     "@babel/core": "^7.19.1",
     "@foxkit/node-util": "^0.4.0",
+    "@foxkit/util": "^0.6.1",
     "@nanostores/persistent": "^0.7.0",
     "@nanostores/react": "0.4.0",
     "@svgo/jsx": "^0.3.0",

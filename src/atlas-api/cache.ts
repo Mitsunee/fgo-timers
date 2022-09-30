@@ -3,78 +3,99 @@ import { join } from "path";
 import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
 import type { Item } from "@atlasacademy/api-connector/dist/Schema/Item";
 import type { MasterMission } from "@atlasacademy/api-connector/dist/Schema/MasterMission";
-import { atlasApi } from "./api";
+import type { War } from "@atlasacademy/api-connector/dist/Schema/War";
+import { atlasApi, SupportedRegion } from "./api";
 
 export const cachePath = ".next/cache/atlasacademy";
-export const cacheVersion = "0.0.1b"; // NOTE: bump when adding new things to cache
-enum cacheFile {
+export const cacheVersion = "0.1.0"; // NOTE: bump when adding new things to cache
+
+enum CacheFile {
   SERVANT = "nice_servant.json",
   ITEM = "nice_item.json",
-  MASTERMISSION = "nice_master_mission.json"
+  MASTERMISSION = "nice_master_mission.json",
+  WAR = "nice_war.json"
 }
 
-export async function getNiceServant(region: "NA" | "JP"): Promise<Servant[]> {
-  const data = await readFileJson<Servant[]>(
-    join(cachePath, region, cacheFile.SERVANT)
-  );
+class AtlasApiCache {
+  region: SupportedRegion;
+  private servant?: Servant[];
+  private item?: Item[];
+  private masterMission?: MasterMission[];
+  private war?: War[];
 
-  if (!data) {
-    throw new Error(
-      `Could not read ${cacheFile.SERVANT} from cache for region ${region}`
+  constructor(region: SupportedRegion) {
+    this.region = region;
+  }
+
+  private resetCache() {
+    this.servant = undefined;
+    this.item = undefined;
+    this.masterMission = undefined;
+    this.war = undefined;
+  }
+
+  private createError(file: CacheFile) {
+    return new Error(
+      `Could not read ${file} from cache for region ${this.region}`
     );
   }
 
-  return data;
-}
-
-export async function getNiceItem(region: "NA" | "JP"): Promise<Item[]> {
-  const data = await readFileJson<Item[]>(
-    join(cachePath, region, cacheFile.ITEM)
-  );
-
-  if (!data) {
-    throw new Error(
-      `Could not read ${cacheFile.ITEM} from cache for region ${region}`
-    );
+  private async readFile<T>(file: CacheFile): Promise<T> {
+    const data = await readFileJson<T>(join(cachePath, this.region, file));
+    if (!data) throw this.createError(file);
+    return data;
   }
 
-  return data;
-}
-
-export async function getMasterMissions(
-  region: "NA"
-): Promise<MasterMission[]> {
-  const data = await readFileJson<MasterMission[]>(
-    join(cachePath, region, cacheFile.MASTERMISSION)
-  );
-
-  if (!data) {
-    throw new Error(
-      `Could not read ${cacheFile.MASTERMISSION} for region ${region}`
-    );
+  private async writeFile<T extends object>(file: CacheFile, data: T) {
+    return writeFile(join(cachePath, this.region, file), data);
   }
 
-  return data;
-}
+  async getNiceServant(): Promise<Servant[]> {
+    return (this.servant ||= await this.readFile<Servant[]>(CacheFile.SERVANT));
+  }
 
-export async function updateCache(region: "NA" | "JP") {
-  const api = atlasApi[region];
+  async getNiceItem(): Promise<Item[]> {
+    return (this.item ||= await this.readFile<Item[]>(CacheFile.ITEM));
+  }
 
-  const [servantData, itemData] = await Promise.all([
-    api.servantListNice(),
-    api.itemList()
-  ]);
+  async getNiceWar(): Promise<War[]> {
+    return (this.war ||= await this.readFile<War[]>(CacheFile.WAR));
+  }
 
-  await Promise.all([
-    writeFile(join(cachePath, region, cacheFile.SERVANT), servantData),
-    writeFile(join(cachePath, region, cacheFile.ITEM), itemData)
-  ]);
+  async getMasterMissions(): Promise<MasterMission[]> {
+    if (this.region != "NA") {
+      throw new Error("MasterMissions are currently only cached for NA");
+    }
 
-  if (region === "NA") {
-    const masterMissionData = await api.masterMissionList();
-    await writeFile(
-      join(cachePath, region, cacheFile.MASTERMISSION),
-      masterMissionData
-    );
+    return (this.masterMission ||= await this.readFile<MasterMission[]>(
+      CacheFile.MASTERMISSION
+    ));
+  }
+
+  async updateCache() {
+    const api = atlasApi[this.region];
+
+    const [servantData, itemData, warData] = await Promise.all([
+      api.servantListNice(),
+      api.itemList(),
+      api.warListNice()
+    ]);
+
+    await Promise.all([
+      this.writeFile(CacheFile.SERVANT, servantData),
+      this.writeFile(CacheFile.ITEM, itemData),
+      this.writeFile(CacheFile.WAR, warData)
+    ]);
+
+    if (this.region == "NA") {
+      const masterMissionData = await api.masterMissionList();
+      await this.writeFile(CacheFile.MASTERMISSION, masterMissionData);
+    }
+
+    this.resetCache();
   }
 }
+
+export const atlasCacheNA = new AtlasApiCache("NA");
+export const atlasCacheJP = new AtlasApiCache("JP");
+export const atlasCache = { NA: atlasCacheNA, JP: atlasCacheJP };
