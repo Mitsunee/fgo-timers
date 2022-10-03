@@ -1,6 +1,6 @@
 import { atlasCacheNA } from "@atlas-api/cache.ts";
 import { getLocalCacheInfo } from "@atlas-api/validation.ts";
-import { atlasNa } from "@atlas-api/api.ts";
+import { atlasApiNA } from "@atlas-api/api.ts";
 import { tsToSpacetime, spacetimeToTs } from "@server/utils/time";
 import { info } from "@server/utils/log";
 
@@ -31,7 +31,7 @@ export async function fetchMasterMissions(now) {
     masterMissions = await atlasCacheNA.getMasterMissions("NA");
   } else {
     info("Fetching Master Missions from API");
-    masterMissions = await atlasNa.masterMissionList();
+    masterMissions = await atlasApiNA.masterMissionList();
   }
 
   return splitMissionsByType(masterMissions);
