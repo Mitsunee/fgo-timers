@@ -18,6 +18,7 @@ enum CacheFile {
 
 class AtlasApiCache {
   region: SupportedRegion;
+  api: typeof atlasApi[SupportedRegion];
   private servant?: Servant[];
   private item?: Item[];
   private masterMission?: MasterMission[];
@@ -25,6 +26,7 @@ class AtlasApiCache {
 
   constructor(region: SupportedRegion) {
     this.region = region;
+    this.api = atlasApi[region];
   }
 
   private resetCache() {
@@ -72,13 +74,16 @@ class AtlasApiCache {
     ));
   }
 
-  async updateCache() {
-    const api = atlasApi[this.region];
+  async getInfo() {
+    const info = await this.api.info();
+    return info.timestamp;
+  }
 
+  async updateCache() {
     const [servantData, itemData, warData] = await Promise.all([
-      api.servantListNice(),
-      api.itemList(),
-      api.warListNice()
+      this.api.servantListNice(),
+      this.api.itemList(),
+      this.api.warListNice()
     ]);
 
     await Promise.all([
@@ -88,7 +93,7 @@ class AtlasApiCache {
     ]);
 
     if (this.region == "NA") {
-      const masterMissionData = await api.masterMissionList();
+      const masterMissionData = await this.api.masterMissionList();
       await this.writeFile(CacheFile.MASTERMISSION, masterMissionData);
     }
 
