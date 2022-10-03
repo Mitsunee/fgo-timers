@@ -1,4 +1,4 @@
-import { getMasterMissions } from "@atlas-api/cache.ts";
+import { atlasCacheNA } from "@atlas-api/cache.ts";
 import { getLocalCacheInfo } from "@atlas-api/validation.ts";
 import { atlasNa } from "@atlas-api/api.ts";
 import { tsToSpacetime, spacetimeToTs } from "@server/utils/time";
@@ -28,7 +28,7 @@ export async function fetchMasterMissions(now) {
   // depending on if the cache is from today use cache or API to fetch missions data
   if (now < cacheMaxAge) {
     info("Reading Master Missions from local cache");
-    masterMissions = await getMasterMissions("NA");
+    masterMissions = await atlasCacheNA.getMasterMissions("NA");
   } else {
     info("Fetching Master Missions from API");
     masterMissions = await atlasNa.masterMissionList();

@@ -13,9 +13,7 @@ export async function getStaticProps(context) {
 
   if (!event) return { notFound: true };
 
-  if (event.description) {
-    event.description = event.description.trim().split("\n");
-  }
+  event.description &&= event.description.trim().split("\n");
 
   // NOTE: possibly implement autohiding for times here in the future?
 

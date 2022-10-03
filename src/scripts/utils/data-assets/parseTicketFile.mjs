@@ -5,16 +5,12 @@ import { parseTicketMonth } from "./parseTicketMonth.mjs";
 
 let niceItem = null;
 async function prepareNiceItem() {
-  if (niceItem == null) {
-    niceItem = await atlasCacheJP.getNiceItem();
-  }
+  niceItem ??= await atlasCacheJP.getNiceItem();
 }
 
 let niceItemNa = null;
 async function prepareNiceItemNa() {
-  if (niceItemNa == null) {
-    niceItemNa = await atlasCacheNA.getNiceItem();
-  }
+  niceItemNa ??= await atlasCacheNA.getNiceItem();
 }
 
 let itemIdMap = null;

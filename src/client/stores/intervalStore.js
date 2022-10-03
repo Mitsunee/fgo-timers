@@ -9,7 +9,7 @@ class Timestamp {
     return Math.trunc(this.interval / 1000);
   }
   get s() {
-    if (!this._s) this._s = spacetime(this.interval);
+    this._s ||= spacetime(this.interval);
 
     return this._s;
   }

@@ -43,7 +43,7 @@ export function withSpoilerLevel(subject, level, type = "servant") {
       clone.name = getSpoilerName(subject, type);
     // break omitted
     case "some":
-      if (clone.icon) clone.icon = getSpoilerIcon(type);
+      clone.icon &&= getSpoilerIcon(type);
   }
 
   return clone;
