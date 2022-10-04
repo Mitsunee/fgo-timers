@@ -14,8 +14,8 @@
     "lint": "eslint .",
     "format": "prettier -w .",
     "test:types": "tsc --noEmit",
-    "test:server": "jest --testMatch **/tests/server/**/*.test.js",
-    "test:scripts": "uvu -r tsm tests/scripts-uvu",
+    "test:server": "jest tests/server/*.test.js",
+    "test:scripts": "uvu -r tsm tests/scripts-uvu && jest tests/upgrades/*.test.ts",
     "test:data": "tsm --require=./nowarn.js src/scripts/check/check.mjs",
     "test": "yarn test:types && yarn test:server && yarn test:scripts && yarn test:data --all"
   },
