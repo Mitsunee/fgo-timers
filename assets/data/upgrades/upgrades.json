@@ -16985,5 +16985,28 @@
       "className": "assassin",
       "na": true
     }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91403801,
+      "name": "ドリーム・オデッセイ",
+      "search": "トリム・オテッセイ",
+      "open": 1664528400,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
+        "ascension": 3,
+        "bond": 5
+      }
+    },
+    "servant": {
+      "id": 403800,
+      "name": "Odysseus",
+      "search": "odysseus",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_4038000.png",
+      "className": "rider",
+      "na": true
+    }
   }
 ]
