@@ -7,14 +7,12 @@ const niceQuestMap: {
   JP?: Quest[];
 } = {};
 
-export async function getQuestData(id: number, region: SupportedRegion) {
-  if (!niceQuestMap[region]) {
-    const niceWar = await atlasCache[region].getNiceWar();
-    niceQuestMap[region] = niceWar.flatMap(war =>
-      war.spots.flatMap(spot => spot.quests)
-    );
-  }
+async function flatMapWar(region: SupportedRegion) {
+  const niceWar = await atlasCache[region].getNiceWar();
+  return niceWar.flatMap(war => war.spots.flatMap(spot => spot.quests));
+}
 
-  const niceQuest = niceQuestMap[region] as Quest[];
-  return niceQuest.find(quest => quest.id === id);
+export async function getQuestData(id: number, region: SupportedRegion) {
+  niceQuestMap[region] ??= await flatMapWar(region);
+  return niceQuestMap[region]?.find(quest => quest.id === id);
 }
