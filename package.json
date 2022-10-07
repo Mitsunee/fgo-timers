@@ -14,10 +14,10 @@
     "lint": "eslint .",
     "format": "prettier -w .",
     "test:types": "tsc --noEmit",
-    "test:server": "jest tests/server/*.test.js",
-    "test:scripts": "uvu -r tsm tests/scripts-uvu && jest tests/upgrades/*.test.ts",
+    "test:legacy": "uvu -r tsm tests/scripts-uvu",
+    "test:code": "jest --verbose",
     "test:data": "tsm --require=./nowarn.js src/scripts/check/check.mjs",
-    "test": "yarn test:types && yarn test:server && yarn test:scripts && yarn test:data --all"
+    "test": "yarn test:types && yarn test:legacy && yarn test:code && yarn test:data --all"
   },
   "simple-git-hooks": {
     "pre-commit": "yarn nano-staged"
