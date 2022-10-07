@@ -3,6 +3,7 @@ import type { SupportedRegion } from "../atlas-api/api";
 import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
 import type { Skill } from "@atlasacademy/api-connector/dist/Schema/Skill";
 import type { NoblePhantasm } from "@atlasacademy/api-connector/dist/Schema/NoblePhantasm";
+import { decensorEoRNP } from "./decensorEoRNP";
 
 export async function getRelatedServant(
   questId: number,
@@ -31,7 +32,15 @@ export async function getRelatedNP(
   const niceServant = await atlasCache[region].getNiceServant();
   const servant = niceServant.find(servant => servant.id == servantId);
   if (!servant) return;
-  // BUG: could possibly return typechanged NP. Test Emiya and Spishtar to confirm
-  // BUG: could possibly return EoR-censored NP. Test Tomoe and Wu Zetian to confirm
-  return servant.noblePhantasms.find(np => np.condQuestId == questId);
+  // TODO: test typechanged NP. Test Emiya and Spishtar to confirm
+  // TODO: test EoR-censored NP. Test Tomoe and Wu Zetian to confirm
+  const np = servant.noblePhantasms.find(
+    np => np.condQuestId == questId && np.priority > 0
+  );
+
+  if (np && np.name == "???") {
+    return decensorEoRNP(np, servant);
+  }
+
+  return np;
 }
