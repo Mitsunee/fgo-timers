@@ -15,7 +15,8 @@ beforeAll(async () => {
     niceServantNA.find(servant => servant.id == 200100), // 2 - Emiya Archer
     niceServantNA.find(servant => servant.id == 1100900), // 3 - Space Ishtar
     niceServant.find(servant => servant.id == 100800), // 4 - Siegfried (Golden Rule upgrade not yet released on NA)
-    niceServant.find(servant => servant.id == 700700) // 5 - 5* Vlad (2nd NP upgrade not yet released on NA)
+    niceServant.find(servant => servant.id == 700700), // 5 - 5* Vlad (2nd NP upgrade not yet released on NA)
+    niceServantNA.find(servant => servant.id == 100500) // 6 - Nero 4* Saber
   ];
   if (res.some(servant => !servant)) throw new Error("Invalid test data");
   servants = res as Servant[];
@@ -131,5 +132,11 @@ describe("getUpgradeLevel", () => {
     expect(
       getUpgradeLevel(vlad, vlad.noblePhantasms.find(np => np.id == 700703)!)
     ).toBe(2);
+  });
+  it("handles edgecase: 3rd skill unlocked by upgrade", () => {
+    const nero = servants[6];
+    expect(
+      getUpgradeLevel(nero, nero.skills.find(skill => skill.id == 154550)!)
+    ).toBe(0);
   });
 });

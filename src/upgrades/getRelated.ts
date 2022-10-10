@@ -32,8 +32,7 @@ export async function getRelatedNP(
   const niceServant = await atlasCache[region].getNiceServant();
   const servant = niceServant.find(servant => servant.id == servantId);
   if (!servant) return;
-  // TODO: test typechanged NP. Test Emiya and Spishtar to confirm
-  // TODO: test EoR-censored NP. Test Tomoe and Wu Zetian to confirm
+
   const np = servant.noblePhantasms.find(
     np => np.condQuestId == questId && np.priority > 0
   );
