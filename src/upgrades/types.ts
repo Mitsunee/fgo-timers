@@ -1,5 +1,5 @@
 import { ClassName } from "@atlasacademy/api-connector";
-import { FGOSkillBorder } from "./borders";
+import { FGOSkillBorder } from "../types/borders";
 
 export enum UpgradeQuestType {
   INTERLUDE = "interlude",
@@ -48,6 +48,7 @@ export interface RankUpQuest extends QuestBase {
 
 type UpgradesQuest = SkippedQuest | InterludeQuest | RankUpQuest;
 
+// WIP: maybe just extend BasicServant to add na prop?
 export interface UpgradesServant {
   name: string;
   search: string; // search subject
@@ -56,14 +57,14 @@ export interface UpgradesServant {
   na?: true;
 }
 
-export interface UpgradesSkill {
+export interface BasicSkill {
   name: string;
   icon: string;
   border?: FGOSkillBorder;
   na?: true;
 }
 
-export interface UpgradesNP {
+export interface BasicNP {
   name: string;
   type: "buster" | "quick" | "arts";
   border?: FGOSkillBorder;
@@ -77,7 +78,7 @@ export interface UpgradesData {
   data: {
     quests: IDMap<UpgradesQuest>;
     servants: IDMap<UpgradesServant>;
-    skills: IDMap<UpgradesSkill>;
-    nps: IDMap<UpgradesNP>;
+    skills: IDMap<BasicSkill>;
+    nps: IDMap<BasicNP>;
   };
 }

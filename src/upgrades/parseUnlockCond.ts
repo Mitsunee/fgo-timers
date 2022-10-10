@@ -1,6 +1,6 @@
 import CondType from "@atlasacademy/api-connector/dist/Enum/Cond";
 import type { Quest } from "@atlasacademy/api-connector/dist/Schema/Quest";
-import type { QuestUnlockCondition } from "../types/upgrades";
+import type { QuestUnlockCondition } from "./types";
 
 export function parseUnlockCond(quest: Quest): QuestUnlockCondition {
   const unlock: QuestUnlockCondition = {};

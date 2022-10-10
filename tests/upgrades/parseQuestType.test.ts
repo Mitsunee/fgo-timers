@@ -1,5 +1,5 @@
 import type { Quest } from "@atlasacademy/api-connector/dist/Schema/Quest";
-import { UpgradeQuestType } from "src/types/upgrades";
+import { UpgradeQuestType } from "src/upgrades/types";
 import { getQuestData } from "src/upgrades/getQuestData";
 import { parseQuestType } from "src/upgrades/parseQuestType";
 

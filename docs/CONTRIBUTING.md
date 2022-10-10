@@ -56,13 +56,15 @@ Start the devServer with `yarn dev` locally on your system, then visit [http://l
 - pages: Contains all pages and api routes
 - public: Contains files that will get served in `/` alongside the app
 - src:
+  - atlas-api: Atlas Academy API Connector adapter and cache management
   - client: Frontend Components and stores
-  - scripts: Scripts for various tasks in this repository (such as build data bundles)
+  - scripts: Legacy Location for scripts to do various tasks in this repository (such as build data bundles)
   - server: SSG, ISR and related util functions
-- tests:
-  - \_\_mockups\_\_: Contains mock assets used in tests
-  - scripts: Contains all tests for utils used by scripts in `./src/scripts`. Uses `uvu` test runner via `yarn test:scripts`
-  - server: Contains all tests for SSG and ISR functions
+  - types: globally used types and Enums (note that there may also be files matching `src/*/types(.d)?.ts`)
+  - upgrades: utils related to Interludes and Rank Ups
+- tests (mirrors src unless specified here):
+  - \_\_mockups\_\_: Contains mock assets used in legacy tests (ignored by jest config)
+  - scripts-uvu: Contains all legacy tests (ignored by jest config)
 
 ## Environment Variables
 
@@ -77,11 +79,22 @@ Start the devServer with `yarn dev` locally on your system, then visit [http://l
 - Deployments are static thus files in `./assets` should only be written to during the prebuild step! (this means there is currently no way to update upgrades other then redeployment)
 - Should you need to add or update dependencies please also run `yarn browserslist --update-db` and `yarn-deduplicate` before committing.
 
+## Workflow and Testing
+
+The build process has the following steps:
+
+- Typechecks `yarn test:types`
+- Legacy Tests (deprecated tests that will be rewritten) `yarn test:legacy`
+- Testing `yarn test:code`
+- Data Testing `yarn test:data` (tests data in `./assets/` using the check script, see `--help` for more information)
+- Prebuild `yarn prebuild` (runs prebuild script)
+- Build `yarn build` (builds next app)
+
 ## Further Information
 
 **NOTE**: The backend is currently undergoing a major rewrite, documentation may be deprecated!
 
 - [News Post Scraping](news-post-scraping.md) contains information for scraping data from official news posts.
 - [Atlas Academy DB](https://apps.atlasacademy.io/db/) can be used to find Servant and Craft Essence IDs more quickly. Usually both ID and collectionNo are supported, but scripts prefer using the ID.
-- Refer to the [Atlas Academy API Documentation](https://api.atlasacademy.io/docs#/) for data types. (Going to migrate to `@atlasacademy/api-connector` soon-ish)
+- [Atlas Academy API Documentation](https://api.atlasacademy.io/docs#/)
 - See [Themeing and Responsive Design](theme.md) for information on global css properties used for Themeing.
