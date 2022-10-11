@@ -3,7 +3,6 @@ import { bundleBackgrounds } from "./bundleBackgrounds.mjs";
 import { bundleEvents } from "./bundleEvents.mjs";
 import { bundleLoginTickets } from "./bundleLoginTickets.mjs";
 import { bundlePrismShops } from "./bundlePrismShops.mjs";
-import { buildSVGComponents } from "./buildSVGComponents.mjs";
 
 (async function main() {
   // update cache
@@ -11,7 +10,6 @@ import { buildSVGComponents } from "./buildSVGComponents.mjs";
 
   // run bundlers
   const success = await Promise.all([
-    buildSVGComponents(),
     bundleBackgrounds(),
     bundleEvents(),
     bundleLoginTickets(),
