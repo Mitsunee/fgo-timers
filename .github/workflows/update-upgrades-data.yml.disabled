@@ -12,7 +12,7 @@ jobs:
           ref: main
       - name: Get Date
         id: get-date
-        run: echo "::set-output name=date::$(/bin/date -u "date -u +%Y%m%d")"
+        run: echo "::set-output name=date::$(/bin/date -u "+%Y%m%d")"
         shell: bash
       - name: AtlasAcademy API Cache
         id: atlas-cache
