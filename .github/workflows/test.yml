@@ -77,7 +77,12 @@ jobs:
           cache: yarn
       - name: Install dependencies
         run: yarn install --frozen-lockfile --ignore-scripts
-      - name: Build Scripts
-        run: yarn build:scripts
-      - name: Run Tests
-        run: yarn test
+      # Build Scripts step not yet needed, currently using tsm as a workaround
+      #- name: Build Scripts
+      #  run: yarn build:scripts
+      - name: Run Legacy Tests
+        run: yarn test:legacy
+      - name: Run Code Tests
+        run: yarn test:code
+      - name: Run Data Tests
+        run: yarn test:data --all
