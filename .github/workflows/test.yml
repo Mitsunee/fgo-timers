@@ -64,12 +64,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Get Date
+        id: get-date
+        run: echo "::set-output name=date::$(/bin/date -u "date -u +%Y%m%d")"
+        shell: bash
       - name: AtlasAcademy API Cache
         id: atlas-cache
         uses: actions/cache@v3
         with:
           path: ".next/cache/atlasacademy"
-          key: atlas-cache
+          key: atlas-cache-${{ steps.get-date.outputs.date }}
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
