@@ -3,9 +3,9 @@ import { readdir } from "fs/promises";
 import { writeFile } from "@foxkit/node-util/fs";
 import { resolvePath, getFileName } from "@foxkit/node-util/path";
 
-import { isTicketFile } from "../utils/data-assets/isDataFile.mjs";
-import { parseTicketFile } from "../utils/data-assets/parseTicketFile.mjs";
-import { ready } from "../utils/log.mjs";
+import { isTicketFile } from "../scripts/utils/data-assets/isDataFile.mjs";
+import { parseTicketFile } from "../scripts/utils/data-assets/parseTicketFile.mjs";
+import { ready } from "../scripts/utils/log.mjs";
 
 export async function bundleLoginTickets() {
   const path = resolvePath("assets/data/login-tickets/");

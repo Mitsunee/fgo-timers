@@ -8,7 +8,7 @@
     "build:svgo": "node src/svgo/build.mjs --force",
     "dev:scripts": "tsc --watch -p tsconfig_scripts.json",
     "build:scripts": "tsc -p tsconfig_scripts.json",
-    "prebuild": "tsm --require=./nowarn.js src/scripts/prebuild/prebuild.mjs && yarn build:svgo",
+    "prebuild": "tsm --require=./nowarn.js src/prebuild/prebuild.ts && yarn build:svgo",
     "build": "node --version && next build",
     "dev": "yarn prebuild && next dev",
     "dev:types": "tsc --watch",
