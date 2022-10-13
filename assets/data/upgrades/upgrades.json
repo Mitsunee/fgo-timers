@@ -17008,5 +17008,69 @@
       "className": "rider",
       "na": true
     }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Abolishing Thieves B",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "悪漢打破 A",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94076501,
+      "name": "強化クエスト 秦良玉",
+      "search": "強化クエスト 秦良玉",
+      "open": 1665572400,
+      "type": "rankup",
+      "unlock": { "ascension": 4 }
+    },
+    "servant": {
+      "id": 303500,
+      "name": "Qin Liangyu",
+      "search": "qin liangyu",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_3035000.png",
+      "className": "lancer",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Chinese Boxing EX",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00311.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "燕青拳 EX",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00311.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94076502,
+      "name": "強化クエスト 燕青 2",
+      "search": "強化クエスト 燕青 2",
+      "open": 1665572400,
+      "type": "rankup",
+      "unlock": { "quest": [{ "name": "強化クエスト 燕青", "id": 94058606 }] }
+    },
+    "servant": {
+      "id": 602600,
+      "name": "Yan Qing",
+      "search": "yan qing",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_6026000.png",
+      "className": "assassin",
+      "na": true
+    }
   }
 ]
