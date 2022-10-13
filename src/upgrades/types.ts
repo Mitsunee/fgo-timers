@@ -1,11 +1,9 @@
 import { ClassName } from "@atlasacademy/api-connector";
-import { FGOSkillBorder } from "../types/borders";
 
 export enum UpgradeQuestType {
-  INTERLUDE = "interlude",
+  INTERLUDE = "intld",
   RANKUP = "rankup",
-  MAIN = "main",
-  UNKNOWN = "unknown"
+  OTHER = "other"
 }
 
 export interface QuestUnlockCondition {
@@ -17,38 +15,42 @@ export interface QuestUnlockCondition {
 interface QuestBase {
   name: string;
   search: string; // search subject
-  open: number; // opening date as timestamp
+  open?: number; // opening date as timestamp
   type: UpgradeQuestType;
   na?: true;
   unlock?: QuestUnlockCondition;
 }
 
-export interface SkippedQuest extends QuestBase {
-  type: UpgradeQuestType.MAIN | UpgradeQuestType.UNKNOWN;
+export interface QuestOther extends QuestBase {
+  type: UpgradeQuestType.OTHER;
+  open?: undefined;
   unlock?: undefined;
 }
 
-export interface UpgradeMap {
-  type: "np" | "skill";
-  id: number;
-  newId: number;
-}
+export type UpgradeMap =
+  | {
+      type: "skill";
+      id?: number;
+      newId: number;
+    }
+  | { type: "np"; id: number; newId: number };
 
-export interface InterludeQuest extends QuestBase {
+export interface QuestInterlude extends QuestBase {
   type: UpgradeQuestType.INTERLUDE;
+  open: number;
   servant: number;
-  upgrade?: UpgradeMap;
 }
 
-export interface RankUpQuest extends QuestBase {
+export interface QuestRankup extends QuestBase {
   type: UpgradeQuestType.RANKUP;
+  open: number;
   servant: number;
   upgrade: UpgradeMap;
 }
 
-type UpgradesQuest = SkippedQuest | InterludeQuest | RankUpQuest;
+export type BasicQuest = QuestOther | QuestInterlude | QuestRankup;
 
-// WIP: maybe just extend BasicServant to add na prop?
+// WIP: maybe just extend BasicServant?
 export interface UpgradesServant {
   name: string;
   search: string; // search subject
@@ -57,28 +59,23 @@ export interface UpgradesServant {
   na?: true;
 }
 
-export interface BasicSkill {
-  name: string;
-  icon: string;
-  border?: FGOSkillBorder;
+//export interface BasicSkill {
+//  name: string;
+//  icon: string;
+//  border?: FGOSkillBorder;
+//  na?: true;
+//}
+//
+//export interface BasicNP {
+//  name: string;
+//  type: "buster" | "quick" | "arts";
+//  border?: FGOSkillBorder;
+//  na?: true;
+//}
+
+export interface Upgrade {
+  quest: number; // quest id
+  servant: number; // servant id
+  upgrades?: UpgradeMap;
   na?: true;
-}
-
-export interface BasicNP {
-  name: string;
-  type: "buster" | "quick" | "arts";
-  border?: FGOSkillBorder;
-  na?: true;
-}
-
-type IDMap<T> = { [key: number]: T | undefined };
-
-export interface UpgradesData {
-  lastUpdated: number;
-  data: {
-    quests: IDMap<UpgradesQuest>;
-    servants: IDMap<UpgradesServant>;
-    skills: IDMap<BasicSkill>;
-    nps: IDMap<BasicNP>;
-  };
 }

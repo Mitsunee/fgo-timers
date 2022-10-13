@@ -41,49 +41,41 @@ describe("getRelatedServant", () => {
 describe("getRelatedSkill", () => {
   it("maps skill when available", () => {
     const suzuka = servants[0];
-    expect(getRelatedSkill(suzuka.id, quests[0], "NA")).resolves.toEqual(
+    expect(getRelatedSkill(suzuka, quests[0])).toEqual(
       suzuka.skills.find(skill => skill.id == 787451)
     );
   });
   it("returns undefined when no related skill is found", () => {
     const suzuka = servants[0];
-    expect(getRelatedSkill(suzuka.id, quests[2], "NA")).resolves.toBe(
-      undefined
-    );
-  });
-  it("return undefined when servant was not found", () => {
-    expect(getRelatedSkill(0, quests[0], "NA")).resolves.toBe(undefined);
+    expect(getRelatedSkill(suzuka, quests[2])).toBe(undefined);
   });
 });
 
 describe("getRelatedNP", () => {
   it("maps NP when available", () => {
     const suzuka = servants[0];
-    expect(getRelatedNP(suzuka.id, quests[1], "NA")).resolves.toEqual(
+    expect(getRelatedNP(suzuka, quests[1])).toEqual(
       suzuka.noblePhantasms.find(np => np.id == 103002)
     );
   });
   it("returns undefined when no related NP is found", () => {
     const suzuka = servants[0];
-    expect(getRelatedNP(suzuka.id, quests[2], "NA")).resolves.toBe(undefined);
-  });
-  it("return undefined when servant was not found", () => {
-    expect(getRelatedNP(0, quests[1], "NA")).resolves.toBe(undefined);
+    expect(getRelatedNP(suzuka, quests[2])).toBe(undefined);
   });
   it("handles edgecase: type-changed NP", async () => {
     const emiya = servants[1];
-    const relatedNP = await getRelatedNP(emiya.id, quests[3], "NA");
+    const relatedNP = getRelatedNP(emiya, quests[3]);
     expect(relatedNP).toBeDefined();
     expect(relatedNP!.id).toBe(200102);
   });
   it("handles edgecase: EoR NP", async () => {
     const tomoe = servants[2];
     const columbus = servants[3];
-    let relatedNP = await getRelatedNP(tomoe.id, quests[4], "NA");
+    let relatedNP = getRelatedNP(tomoe, quests[4]);
     expect(relatedNP).toBeDefined();
     expect(relatedNP!.id).toBe(202102);
     expect(relatedNP!.name).toBe("On Arorikya Sowaka");
-    relatedNP = await getRelatedNP(columbus.id, quests[5], "NA");
+    relatedNP = getRelatedNP(columbus, quests[5]);
     expect(relatedNP).toBeDefined();
     expect(relatedNP!.id).toBe(402503);
     expect(relatedNP!.name).toBe("Santa María Drop Anchor");

@@ -84,6 +84,11 @@ export class Log {
     this.console("error", "error", "red", ...messages);
   }
 
+  static die(...messages: any[]): never {
+    this.error(...messages);
+    process.exit(1);
+  }
+
   static ready(...messages: any[]) {
     this.console("log", "ready", "green", ...messages);
   }

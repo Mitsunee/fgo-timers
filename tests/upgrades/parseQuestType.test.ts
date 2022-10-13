@@ -24,11 +24,8 @@ describe("parseQuestType", () => {
   it("maps Rank Up Quests", () => {
     expect(parseQuestType(quests[1])).toBe(UpgradeQuestType.RANKUP);
   });
-  it("maps Main Quests", () => {
-    expect(parseQuestType(quests[2])).toBe(UpgradeQuestType.MAIN);
-  });
-  it("maps other Quests as unknown", () => {
-    expect(parseQuestType(quests[3])).toBe(UpgradeQuestType.UNKNOWN);
-    expect(parseQuestType(quests[4])).toBe(UpgradeQuestType.UNKNOWN);
+  it("maps other Quests as other", () => {
+    expect(parseQuestType(quests[3])).toBe(UpgradeQuestType.OTHER);
+    expect(parseQuestType(quests[4])).toBe(UpgradeQuestType.OTHER);
   });
 });

@@ -13,26 +13,17 @@ export async function getRelatedServant(
   return niceServant.find(servant => servant.relateQuestIds.includes(questId));
 }
 
-export async function getRelatedSkill(
-  servantId: number,
-  questId: number,
-  region: SupportedRegion
-): Promise<Skill | undefined> {
-  const niceServant = await atlasCache[region].getNiceServant();
-  const servant = niceServant.find(servant => servant.id == servantId);
-  if (!servant) return;
+export function getRelatedSkill(
+  servant: Servant,
+  questId: number
+): Skill | undefined {
   return servant.skills.find(skill => skill.condQuestId == questId);
 }
 
-export async function getRelatedNP(
-  servantId: number,
-  questId: number,
-  region: SupportedRegion
-): Promise<NoblePhantasm | undefined> {
-  const niceServant = await atlasCache[region].getNiceServant();
-  const servant = niceServant.find(servant => servant.id == servantId);
-  if (!servant) return;
-
+export function getRelatedNP(
+  servant: Servant,
+  questId: number
+): NoblePhantasm | undefined {
   const np = servant.noblePhantasms.find(
     np => np.condQuestId == questId && np.priority > 0
   );
