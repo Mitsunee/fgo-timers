@@ -4,6 +4,7 @@ import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
 import type { Item } from "@atlasacademy/api-connector/dist/Schema/Item";
 import type { MasterMission } from "@atlasacademy/api-connector/dist/Schema/MasterMission";
 import type { War } from "@atlasacademy/api-connector/dist/Schema/War";
+
 import { atlasApi, SupportedRegion } from "./api";
 
 export const cachePath = ".next/cache/atlasacademy";
