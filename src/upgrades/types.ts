@@ -27,31 +27,16 @@ export interface QuestOther extends QuestBase {
   unlock?: undefined;
 }
 
-export type UpgradeMap =
-  | {
-      type: "skill";
-      id?: number;
-      newId: number;
-    }
-  | { type: "np"; id: number; newId: number };
-
-export interface QuestInterlude extends QuestBase {
-  type: UpgradeQuestType.INTERLUDE;
+export interface QuestUpgrade extends QuestBase {
+  // kinda want a better name for this, but couldn't come up with one
+  type: UpgradeQuestType.INTERLUDE | UpgradeQuestType.RANKUP;
   open: number;
-  servant: number;
 }
 
-export interface QuestRankup extends QuestBase {
-  type: UpgradeQuestType.RANKUP;
-  open: number;
-  servant: number;
-  upgrade: UpgradeMap;
-}
-
-export type BasicQuest = QuestOther | QuestInterlude | QuestRankup;
+export type BasicQuest = QuestOther | QuestUpgrade;
 
 // WIP: maybe just extend BasicServant?
-export interface UpgradesServant {
+interface _UpgradesServant {
   name: string;
   search: string; // search subject
   className: ClassName;
@@ -59,19 +44,23 @@ export interface UpgradesServant {
   na?: true;
 }
 
-//export interface BasicSkill {
+// interface _BasicSkill {
 //  name: string;
 //  icon: string;
 //  border?: FGOSkillBorder;
 //  na?: true;
 //}
 //
-//export interface BasicNP {
+// interface _BasicNP {
 //  name: string;
 //  type: "buster" | "quick" | "arts";
 //  border?: FGOSkillBorder;
 //  na?: true;
 //}
+
+export type UpgradeMap =
+  | { type: "skill"; id?: number; newId: number }
+  | { type: "np"; id: number; newId: number };
 
 export interface Upgrade {
   quest: number; // quest id

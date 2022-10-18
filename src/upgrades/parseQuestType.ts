@@ -1,5 +1,5 @@
-import type { Quest } from "@atlasacademy/api-connector/dist/Schema/Quest";
-import { QuestType } from "@atlasacademy/api-connector/dist/Schema/Quest";
+import type { Quest } from "@atlasacademy/api-connector/dist/Schema/Quest.js";
+import { QuestType } from "@atlasacademy/api-connector/dist/Schema/Quest.js";
 import { UpgradeQuestType } from "./types";
 
 export function parseQuestType(quest: Quest): UpgradeQuestType {
