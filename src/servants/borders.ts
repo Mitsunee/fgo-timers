@@ -13,6 +13,7 @@ export type FGOSkillBorder =
   | FGOBorders.RED;
 
 export type FGOItemBorder =
+  | FGOBorders.BRONZE
   | FGOBorders.SILVER
   | FGOBorders.GOLD
   | FGOBorders.BLUE;

@@ -12,6 +12,13 @@ async function fetchApiInfo() {
   return { NA, JP };
 }
 
+interface AtlasCacheInfo {
+  NA: number;
+  JP: number;
+  version: string;
+  lastChecked: number;
+}
+
 export async function getLocalCacheInfo(): Promise<AtlasCacheInfo | null> {
   const infoLocal = await readFileJson<AtlasCacheInfo>(
     `${cachePath}/info.json`
