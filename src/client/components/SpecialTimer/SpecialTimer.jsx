@@ -25,8 +25,6 @@ export default function SpecialTimer({
         {text}: {delta} ({date})
       </span>
       {icon && <img src={icon} alt="Icon" className={styles.icon} />}
-    </Section> /* : null*/
-    /*: null*/
-    /*: null*/
-   /*: null*/);
+    </Section> // : null
+  );
 }
