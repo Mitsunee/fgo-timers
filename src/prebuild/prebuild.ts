@@ -4,10 +4,10 @@ import { bundleBackgrounds } from "./bundleBackgrounds";
 import { bundleEvents } from "./bundleEvents.mjs";
 import { bundleLoginTickets } from "./bundleLoginTickets.mjs";
 import { bundlePrismShops } from "./bundlePrismShops.mjs";
-import { PrebuildBundler, runLegacyBundler, writeBundle } from "./bundlers";
+import { PrebuildBundlersRes, runLegacyBundler, writeBundle } from "./bundlers";
 import { bundleUpgrades } from "./bundleUpgrades";
 import { bundleQuestsData } from "./bundleQuestsData";
-import { DataBundler, writeDataBundle } from "./dataBundlers";
+import { DataBundlersRes, writeDataBundle } from "./dataBundlers";
 
 function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
   return arr.every(el => el !== false);
@@ -31,8 +31,9 @@ function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
 
   // Phase 2 - bundlers
   Log.info("Running Bundlers");
-  const bundlersRes: Awaited<ReturnType<PrebuildBundler<object>>>[] =
-    await Promise.all([bundleUpgrades()]);
+  const bundlersRes: PrebuildBundlersRes = await Promise.all([
+    bundleUpgrades()
+  ]);
   if (!isSuccessful(bundlersRes)) {
     Log.die("Quitting early because of error in bundler");
   }
@@ -43,11 +44,11 @@ function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
   }
 
   // Phase 3 - static data bundles
-  // TODO: data bundles: quests, servants, ces, skills, nps
+  // TODO: data bundles: ces, skills, nps, items
   Log.info("Running Data Bundlers");
-  const dataRes: Awaited<ReturnType<DataBundler<object>>>[] = await Promise.all(
-    [bundleQuestsData(bundlersRes)]
-  );
+  const dataRes: DataBundlersRes = await Promise.all([
+    bundleQuestsData(bundlersRes)
+  ]);
   if (!isSuccessful(dataRes)) {
     Log.die("Quitting early because of error in data bundler");
   }
@@ -57,6 +58,6 @@ function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
     process.exit(1);
   }
   Log.die("Static Data Bundlers not yet fully implemented", {
-    Missing: ["servants", "skills", "nps", "ces"]
+    Missing: ["skills", "nps", "ces", "items"]
   });
 })();

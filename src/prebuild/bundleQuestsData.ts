@@ -13,6 +13,8 @@ import { parseQuestType } from "../upgrades/parseQuestType";
 import { parseUnlockCond } from "../upgrades/parseUnlockCond";
 import { latinize } from "../utils/latinize";
 
+// TODO: Re-implement open time overrides (See https://github.com/Mitsunee/fgo-timers/blob/main/src/scripts/upgrades-legacy/questDatesMap.mjs)
+
 export const bundleQuestsData: DataBundler<BasicQuest> = async bundles => {
   const questQueue = new List<number>(); // to be processed
   const knownQuests = new Set<number>(); // are queued or processed

@@ -1,7 +1,6 @@
 import { writeFile } from "@foxkit/node-util/fs";
 import { resolvePath } from "@foxkit/node-util/path";
 import { join } from "path";
-
 import { PrebuildBundle } from "./bundlers";
 import { Log } from "../utils/log";
 
@@ -14,6 +13,8 @@ export interface DataBundle<T extends object> {
 export type DataBundler<T extends object> = (
   bundles: PrebuildBundle<object>[]
 ) => DataBundle<T> | false | Promise<DataBundle<T> | false>;
+
+export type DataBundlersRes = Array<false | DataBundle<object>>;
 
 export async function writeDataBundle<K extends object>(
   bundle: DataBundle<K>

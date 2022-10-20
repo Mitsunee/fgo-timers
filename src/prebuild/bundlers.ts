@@ -1,7 +1,6 @@
 import { writeFile } from "@foxkit/node-util/fs";
 import { resolvePath } from "@foxkit/node-util/path";
 import { join } from "path";
-
 import { Log } from "../utils/log";
 
 // BUG: types accept Set, WeakMap, Map and such, but should only accept serializable types
@@ -15,12 +14,15 @@ export interface PrebuildBundle<T extends object> {
   skills?: number[]; // as ID
   nps?: number[]; // as ID
   ces?: number[]; // as ID
+  items?: number[]; // as ID
 }
 
 export type PrebuildBundler<T extends object> = () =>
   | PrebuildBundle<T>
   | false
   | Promise<PrebuildBundle<T> | false>;
+
+export type PrebuildBundlersRes = Array<false | PrebuildBundle<object>>;
 
 export async function runLegacyBundler(
   bundler: () => Promise<boolean>
