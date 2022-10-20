@@ -1,25 +1,30 @@
-export enum FGOBorders {
-  BLACK,
-  BRONZE,
-  SILVER,
-  GOLD,
-  RED,
-  BLUE
+import { Borders } from "../types/borders";
+import { ServantBorder, SkillBorder } from "./types";
+
+export function mapServantRarityToBorder(rarity: number): ServantBorder {
+  switch (rarity) {
+    case 0:
+      return Borders.BLACK;
+    case 1:
+    case 2:
+      return Borders.BRONZE;
+    case 3:
+      return Borders.SILVER;
+    case 4:
+    case 5:
+    default:
+      return Borders.GOLD;
+  }
 }
 
-export type FGOSkillBorder =
-  | FGOBorders.BLACK
-  | FGOBorders.GOLD
-  | FGOBorders.RED;
-
-export type FGOItemBorder =
-  | FGOBorders.BRONZE
-  | FGOBorders.SILVER
-  | FGOBorders.GOLD
-  | FGOBorders.BLUE;
-
-export type FGOServantBorder =
-  | FGOBorders.BLACK
-  | FGOBorders.BRONZE
-  | FGOBorders.SILVER
-  | FGOBorders.GOLD;
+export function mapUpgradeLevelToSkillBorder(level: number): SkillBorder {
+  switch (level) {
+    case 0:
+      return Borders.BLACK;
+    case 1:
+      return Borders.GOLD;
+    case 2:
+    default:
+      return Borders.RED;
+  }
+}

@@ -1,5 +1,3 @@
-import { ClassName } from "@atlasacademy/api-connector";
-
 export enum UpgradeQuestType {
   INTERLUDE = "intld",
   RANKUP = "rankup",
@@ -33,24 +31,9 @@ export interface QuestUpgrade extends QuestBase {
   open: number;
 }
 
-export type BasicQuest = QuestOther | QuestUpgrade;
+export type BasicQuest = QuestOther | QuestUpgrade; // TODO: Rename BundledQuest
 
-// WIP: maybe just extend BasicServant?
-interface _UpgradesServant {
-  name: string;
-  search: string; // search subject
-  className: ClassName;
-  icon: string;
-  na?: true;
-}
-
-// interface _BasicSkill {
-//  name: string;
-//  icon: string;
-//  border?: FGOSkillBorder;
-//  na?: true;
-//}
-//
+// TODO: implement below
 // interface _BasicNP {
 //  name: string;
 //  type: "buster" | "quick" | "arts";

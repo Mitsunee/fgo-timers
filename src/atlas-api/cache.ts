@@ -1,6 +1,9 @@
 import { readFileJson, writeFile } from "@foxkit/node-util/fs";
 import { join } from "path";
-import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
+import type {
+  Servant,
+  ServantBasic
+} from "@atlasacademy/api-connector/dist/Schema/Servant";
 import type { Item } from "@atlasacademy/api-connector/dist/Schema/Item";
 import type { MasterMission } from "@atlasacademy/api-connector/dist/Schema/MasterMission";
 import type { War } from "@atlasacademy/api-connector/dist/Schema/War";
@@ -8,10 +11,11 @@ import type { War } from "@atlasacademy/api-connector/dist/Schema/War";
 import { atlasApi, SupportedRegion } from "./api";
 
 export const cachePath = ".next/cache/atlasacademy";
-export const cacheVersion = "0.1.0"; // NOTE: bump when adding new things to cache
+export const cacheVersion = "0.2.0"; // NOTE: bump when adding new things to cache
 
 enum CacheFile {
   SERVANT = "nice_servant.json",
+  SERVANT_BASIC = "basic_servant.json",
   ITEM = "nice_item.json",
   MASTERMISSION = "nice_master_mission.json",
   WAR = "nice_war.json"
@@ -21,6 +25,7 @@ class AtlasApiCache {
   region: SupportedRegion;
   api: typeof atlasApi[SupportedRegion];
   private servant?: Servant[];
+  private servantBasic?: ServantBasic[];
   private item?: Item[];
   private masterMission?: MasterMission[];
   private war?: War[];
@@ -57,6 +62,12 @@ class AtlasApiCache {
     return (this.servant ||= await this.readFile<Servant[]>(CacheFile.SERVANT));
   }
 
+  async getBasicServant(): Promise<ServantBasic[]> {
+    return (this.servantBasic ||= await this.readFile<ServantBasic[]>(
+      CacheFile.SERVANT_BASIC
+    ));
+  }
+
   async getNiceItem(): Promise<Item[]> {
     return (this.item ||= await this.readFile<Item[]>(CacheFile.ITEM));
   }
@@ -81,14 +92,17 @@ class AtlasApiCache {
   }
 
   async updateCache() {
-    const [servantData, itemData, warData] = await Promise.all([
-      this.api.servantListNice(),
-      this.api.itemList(),
-      this.api.warListNice()
-    ]);
+    const [servantData, servantDataBasic, itemData, warData] =
+      await Promise.all([
+        this.api.servantListNice(),
+        this.api.servantList(),
+        this.api.itemList(),
+        this.api.warListNice()
+      ]);
 
     await Promise.all([
       this.writeFile(CacheFile.SERVANT, servantData),
+      this.writeFile(CacheFile.SERVANT_BASIC, servantDataBasic),
       this.writeFile(CacheFile.ITEM, itemData),
       this.writeFile(CacheFile.WAR, warData)
     ]);
