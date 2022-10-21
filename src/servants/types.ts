@@ -11,6 +11,15 @@ export type ServantBorder =
   | Borders.SILVER
   | Borders.GOLD;
 
+export enum ServantCard {
+  BUSTER,
+  ARTS,
+  QUICK,
+  EXTRA
+}
+
+export type NPType = ServantCard.BUSTER | ServantCard.ARTS | ServantCard.QUICK;
+
 export interface BundledServant {
   name: string;
   search: string;
@@ -24,6 +33,13 @@ export interface BundledSkill {
   name: string;
   num: number;
   icon: string;
+  border: SkillBorder;
+  na?: true;
+}
+
+export interface BundledNP {
+  name: string;
+  type: NPType;
   border: SkillBorder;
   na?: true;
 }
