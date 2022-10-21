@@ -9,7 +9,7 @@ import { bundleUpgrades } from "./bundleUpgrades";
 import { bundleQuestsData } from "./bundleQuestsData";
 import { DataBundlersRes, writeDataBundle } from "./dataBundlers";
 import { bundleServantsData } from "./bundleServantsData";
-//import { bundleSkillsData } from "./bundleSkillsData";
+import { bundleSkillsData } from "./bundleSkillsData";
 
 function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
   return arr.every(el => el !== false);
@@ -50,8 +50,8 @@ function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
   Log.info("Running Data Bundlers");
   const dataRes: DataBundlersRes = await Promise.all([
     bundleQuestsData(bundlersRes),
-    bundleServantsData(bundlersRes)
-    //,bundleSkillsData(bundlersRes)
+    bundleServantsData(bundlersRes),
+    bundleSkillsData(bundlersRes)
   ]);
   if (!isSuccessful(dataRes)) {
     Log.die("Quitting early because of error in data bundler");
@@ -62,7 +62,7 @@ function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
     process.exit(1);
   }
   Log.die("Static Data Bundlers not yet fully implemented", {
-    Missing: ["skills", "nps", "ces", "items"]
+    Missing: ["nps", "ces", "items"]
   });
 
   // TODO: Phase 4 - build info
