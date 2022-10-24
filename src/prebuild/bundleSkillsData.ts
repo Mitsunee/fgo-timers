@@ -47,7 +47,7 @@ export const bundleSkillsData: DataBundler<BundledSkill> = async bundles => {
       return false;
     }
 
-    const servant = await getOwner(skill);
+    const servant = await getOwner(skill); // BUG: skills are reused on multiple servants
     if (!servant) {
       Log.error(`Could not find owner of skill id ${skillId}`);
       return false;
@@ -58,9 +58,9 @@ export const bundleSkillsData: DataBundler<BundledSkill> = async bundles => {
 
     const data: BundledSkill = {
       name: skillNA?.name || skill.name,
-      num: skill.num ?? 1,
-      icon: shortenAtlasUrl(skill.icon || PLACEHOLDER_SKILL.icon),
-      border: mapUpgradeLevelToSkillBorder(upgradeLevel)
+      num: skill.num ?? 1, // BUG: this is possibly inconsistent between servants, but can be assumed to be defined (tested)
+      icon: shortenAtlasUrl(skill.icon!), // can be assumed (tested)
+      border: mapUpgradeLevelToSkillBorder(upgradeLevel) // can be assumed (tested)
     };
 
     if (skillNA) data.na = true;

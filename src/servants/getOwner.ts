@@ -11,7 +11,7 @@ export async function getOwner(
 
   return niceServant.find(
     isSkill(subject)
-      ? servant => servant.skills.some(skill => skill.id == subject.id)
+      ? servant => servant.skills.some(skill => skill.id == subject.id) // BUG: skills are reused
       : servant => servant.noblePhantasms.some(np => np.id == subject.id)
   );
 }
