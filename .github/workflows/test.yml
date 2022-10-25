@@ -67,7 +67,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Get Date
-        run: echo "date=$(/bin/data -u "+%Y%m%d")" >> $GITHUB_ENV
+        run: echo "date=$(/bin/date -u "+%Y%m%d")" >> $GITHUB_ENV
       - name: AtlasAcademy API Cache
         id: atlas-cache
         uses: actions/cache@v3
