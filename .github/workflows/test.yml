@@ -55,6 +55,8 @@ jobs:
           cache: yarn
       - name: Install dependencies
         run: yarn install --frozen-lockfile --ignore-scripts
+      - name: Build SVG Components
+        run: node src/svgo/build.mjs
       - name: Check Types
         run: yarn test:types
 
@@ -65,15 +67,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Get Date
-        id: get-date
-        run: echo "::set-output name=date::$(/bin/date -u "+%Y%m%d")"
-        shell: bash
+        run: echo "date=$(/bin/data -u "+%Y%m%d")" >> $GITHUB_ENV
       - name: AtlasAcademy API Cache
         id: atlas-cache
         uses: actions/cache@v3
         with:
           path: ".next/cache/atlasacademy"
-          key: atlas-cache-${{ steps.get-date.outputs.date }}
+          key: atlas-cache-${{ env.date }}
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
