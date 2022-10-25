@@ -14,3 +14,7 @@ export function expandAtlasUrl(url: string): string {
     .replace(new RegExp(`^${URLs.API.short}`), URLs.API.long)
     .replace(new RegExp(`^${URLs.STATIC.short}`), URLs.STATIC.long);
 }
+
+export function faceToBordered(url: string): string {
+  return url.replace(/f_(\d+)\.png$/, "f_$1_bordered.png");
+}

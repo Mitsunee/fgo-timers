@@ -12,6 +12,7 @@ import { bundleServantsData } from "./bundleServantsData";
 import { bundleSkillsData } from "./bundleSkillsData";
 import { bundleNPsData } from "./bundleNPsData";
 import { bundleCEsData } from "./bundleCEsData";
+import { bundleCustomItems } from "./bundleCustomItems";
 
 function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
   return arr.every(el => el !== false);
@@ -36,7 +37,8 @@ function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
   // Phase 2 - bundlers
   Log.info("Running Bundlers");
   const bundlersRes: PrebuildBundlersRes = await Promise.all([
-    bundleUpgrades()
+    bundleUpgrades(),
+    bundleCustomItems()
   ]);
   if (!isSuccessful(bundlersRes)) {
     Log.die("Quitting early because of error in bundler");
