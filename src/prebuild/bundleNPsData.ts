@@ -3,7 +3,7 @@ import type { SupportedRegion } from "../atlas-api/api";
 import { atlasCache } from "../atlas-api/cache";
 import { Log } from "../utils/log";
 import type { BundledNP } from "../servants/types";
-import { getOwner } from "../servants/getOwner";
+import { getNPOwner } from "../servants/getOwner";
 import { mapUpgradeLevelToSkillBorder } from "../servants/borders";
 import { getNPType } from "../servants/getNPType";
 import { getUpgradeLevel } from "../upgrades/getUpgradeLevel";
@@ -40,7 +40,7 @@ export const bundleNPsData: DataBundler<BundledNP> = async bundles => {
       return false;
     }
 
-    const servant = await getOwner(np);
+    const servant = await getNPOwner(np);
     if (!servant) {
       Log.error(`Could not find owner of NP id ${npId}`);
       return false;
