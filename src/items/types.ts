@@ -1,3 +1,5 @@
+import { CustomItemSchema } from "src/schema/CustomItem";
+import { z } from "zod";
 import { ServantBorder } from "../servants/types";
 import { Borders } from "../types/borders";
 
@@ -21,16 +23,10 @@ export interface BundledItem extends ItemBase {
   border: ItemBorder;
 }
 
-type CustomItemRarity = "bronze" | "silver" | "gold" | "blue";
-
-export interface CustomItem extends ItemBase {
-  id: number;
-  rarity: CustomItemRarity;
-  na?: undefined;
-}
+export type CustomItem = z.infer<typeof CustomItemSchema>;
 
 export function mapCustomItemRarityToBorder(
-  rarity: CustomItemRarity
+  rarity: CustomItem["rarity"]
 ): ItemBorder {
   switch (rarity) {
     case "bronze":

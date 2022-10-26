@@ -1,5 +1,6 @@
 import picocolors from "picocolors";
 import { typeOf } from "@foxkit/util/typeOf";
+import { z } from "zod";
 
 type Colour =
   | Exclude<
@@ -82,6 +83,15 @@ export class Log {
       return;
     }
     this.console("error", "error", "red", ...messages);
+  }
+
+  static zodError(Error: z.ZodError, parent: string) {
+    this.error(
+      `Schema validation error${
+        Error.errors.length > 1 ? "s" : ""
+      } ${this.styleParent(parent)}`,
+      ...Error.errors.map(error => `${error.path.join(".")}: ${error.message}`)
+    );
   }
 
   static die(...messages: any[]): never {
