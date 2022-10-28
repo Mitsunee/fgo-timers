@@ -31,15 +31,7 @@ export interface QuestUpgrade extends QuestBase {
   open: number;
 }
 
-export type BasicQuest = QuestOther | QuestUpgrade; // TODO: Rename BundledQuest
-
-// TODO: implement below
-// interface _BasicNP {
-//  name: string;
-//  type: "buster" | "quick" | "arts";
-//  border?: FGOSkillBorder;
-//  na?: true;
-//}
+export type BundledQuest = QuestOther | QuestUpgrade;
 
 export type UpgradeMap =
   | { type: "skill"; id?: number; newId: number }

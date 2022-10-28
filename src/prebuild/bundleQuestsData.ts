@@ -2,7 +2,7 @@ import { List } from "@foxkit/util/object";
 
 import { DataBundler } from "./dataBundlers";
 import {
-  BasicQuest,
+  BundledQuest,
   QuestUpgrade,
   QuestOther,
   UpgradeQuestType
@@ -15,10 +15,10 @@ import { latinize } from "../utils/latinize";
 
 // TODO: Re-implement open time overrides (See https://github.com/Mitsunee/fgo-timers/blob/main/src/scripts/upgrades-legacy/questDatesMap.mjs)
 
-export const bundleQuestsData: DataBundler<BasicQuest> = async bundles => {
+export const bundleQuestsData: DataBundler<BundledQuest> = async bundles => {
   const questQueue = new List<number>(); // to be processed
   const knownQuests = new Set<number>(); // are queued or processed
-  const res = new Map<number, BasicQuest>(); // result of processing
+  const res = new Map<number, BundledQuest>(); // result of processing
 
   for (const bundle of bundles) {
     if (!bundle.quests) continue;
