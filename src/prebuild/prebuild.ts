@@ -13,6 +13,7 @@ import { bundleSkillsData } from "./bundleSkillsData";
 import { bundleNPsData } from "./bundleNPsData";
 import { bundleCEsData } from "./bundleCEsData";
 import { bundleCustomItems } from "./bundleCustomItems";
+import { bundleItemsData } from "./bundleItemsData";
 
 function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
   return arr.every(el => el !== false);
@@ -50,15 +51,14 @@ function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
   }
 
   // Phase 3 - static data bundles
-  // TODO: data bundles: materials
-  // TODO: figure out something for embers and fous
   Log.info("Running Data Bundlers");
   const dataRes: DataBundlersRes = await Promise.all([
     bundleQuestsData(bundlersRes),
     bundleServantsData(bundlersRes),
     bundleSkillsData(bundlersRes),
     bundleNPsData(bundlersRes),
-    bundleCEsData(bundlersRes)
+    bundleCEsData(bundlersRes),
+    bundleItemsData(bundlersRes)
   ]);
   if (!isSuccessful(dataRes)) {
     Log.die("Quitting early because of error in data bundler");
@@ -68,10 +68,8 @@ function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
     Log.warn("Current static bundles may be in an invalid state");
     process.exit(1);
   }
-  Log.die("Static Data Bundlers not yet fully implemented", {
-    Missing: ["materials"]
-  });
 
   // TODO: Phase 4 - build info
   // TODO: print build date and maybe checksums of bundles into a file
+  Log.warn("Build info not yet saved");
 })();

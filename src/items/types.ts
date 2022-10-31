@@ -1,4 +1,5 @@
-import { CustomItemSchema } from "src/schema/CustomItem";
+import { ItemBackgroundType } from "@atlasacademy/api-connector/dist/Schema/Item.js";
+import { CustomItemSchema } from "../schema/CustomItem";
 import { z } from "zod";
 import { ServantBorder } from "../servants/types";
 import { Borders } from "../types/borders";
@@ -37,5 +38,22 @@ export function mapCustomItemRarityToBorder(
       return Borders.GOLD;
     default:
       return Borders.BLUE;
+  }
+}
+
+export function mapItemBackgroundToBorder(
+  background: ItemBackgroundType
+): ItemBorder {
+  switch (background) {
+    case ItemBackgroundType.BRONZE:
+      return Borders.BRONZE;
+    case ItemBackgroundType.GOLD:
+      return Borders.GOLD;
+    case ItemBackgroundType.QUEST_CLEAR_QP_REWARD:
+      return Borders.BLUE;
+    case ItemBackgroundType.SILVER:
+    case ItemBackgroundType.ZERO:
+    default:
+      return Borders.SILVER;
   }
 }
