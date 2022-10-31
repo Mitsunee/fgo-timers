@@ -12,7 +12,7 @@ describe("makeBuildVer", () => {
       lastChecked: 1667209812
     };
     const ver = makeBuildVer(sample);
-    expect(ver).toBe("m129:lnd6.30");
+    expect(ver).toBe("rkm129:lnd6.30");
     expect(ver).toMatch(buildVerReg);
   });
 
