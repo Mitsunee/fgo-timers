@@ -1,6 +1,6 @@
 import { readFileJson } from "@foxkit/node-util/fs";
 
-import { Log } from "../utils/log.js";
+import { Log } from "../utils/log";
 import { getCurrentTime } from "../scripts/utils/getCurrentTime.mjs";
 import { atlasCache, cachePath, cacheVersion } from "./cache";
 
