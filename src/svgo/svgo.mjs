@@ -23,17 +23,15 @@ async function getConfig() {
   return config;
 }
 
-function isOptimizedSvg(optimized) {
-  return !optimized.error;
-}
-
 export async function svgo(fileContent) {
   config ??= await getConfig();
-  const optimized = optimize(fileContent, config.svgo);
-  if (!isOptimizedSvg(optimized)) {
-    throw new Error(`Failed to optimize SVG: ${optimized.error}`);
+  try {
+    const optimized = optimize(fileContent, config.svgo);
+    return optimized.data;
+  } catch (e) {
+    console.error(e.name == "SvgoParserError" ? e.toString() : e);
+    process.exit(1);
   }
-  return optimized.data;
 }
 
 export async function svgToJsx(svg) {
