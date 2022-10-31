@@ -12,7 +12,7 @@ async function fetchApiInfo() {
   return { NA, JP };
 }
 
-interface AtlasCacheInfo {
+export interface AtlasCacheInfo {
   NA: number;
   JP: number;
   version: string;

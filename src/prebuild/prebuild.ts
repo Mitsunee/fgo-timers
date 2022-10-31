@@ -14,6 +14,7 @@ import { bundleNPsData } from "./bundleNPsData";
 import { bundleCEsData } from "./bundleCEsData";
 import { bundleCustomItems } from "./bundleCustomItems";
 import { bundleItemsData } from "./bundleItemsData";
+import { saveBuildInfo } from "./saveBuildInfo";
 
 function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
   return arr.every(el => el !== false);
@@ -21,7 +22,7 @@ function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
 
 (async function main() {
   // Phase 0 - Prepare Cache
-  await prepareCache();
+  const cacheInfo = await prepareCache();
 
   // Phase 1 - Run legacy bundlers
   Log.info("Running Legacy Bundlers");
@@ -69,7 +70,6 @@ function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
     process.exit(1);
   }
 
-  // TODO: Phase 4 - build info
-  // TODO: print build date and maybe checksums of bundles into a file
-  Log.warn("Build info not yet saved");
+  // Phase 4 - build info
+  await saveBuildInfo(cacheInfo);
 })();

@@ -27,4 +27,6 @@ export async function prepareCache() {
     await writeFile(join(cachePath, "info.json"), newInfo);
     Log.info("Updated AtlasAcademy API Cache Info");
   }
+
+  return newInfo;
 }
