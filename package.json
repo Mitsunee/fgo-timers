@@ -35,7 +35,7 @@
     "**/!(*inkscape).svg": [
       "svgo"
     ],
-    "assets/data/{events,login-tickets}/*.yml": [
+    "assets/data/{events,login-tickets,items}/*.yml": [
       "tsm --require=./nowarn.js src/schema/check.ts --silent --file"
     ],
     "assets/data/{mana,rare}PrismShop.yml": [

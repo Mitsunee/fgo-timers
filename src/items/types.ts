@@ -27,7 +27,7 @@ export interface BundledItem extends ItemBase {
 export type CustomItem = z.infer<typeof CustomItemSchema>;
 
 export function mapCustomItemRarityToBorder(
-  rarity: CustomItem["rarity"]
+  rarity: CustomItem[number]["rarity"]
 ): ItemBorder {
   switch (rarity) {
     case "bronze":

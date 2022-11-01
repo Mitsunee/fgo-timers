@@ -5,7 +5,7 @@ import { getDataFileType } from "./isDataFile.mjs";
 
 export const parserMap = new Map();
 
-export function findParser(filePath) {
+export function findLegacyParser(filePath) {
   // attempt to get from map
   if (parserMap.has(filePath)) return parserMap.get(filePath);
 

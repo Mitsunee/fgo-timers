@@ -10,6 +10,7 @@ import {
   isShopFile,
   isDataFile
 } from "../scripts/utils/data-assets/isDataFile.mjs";
+import { checkCustomItemPath } from "../schema/CustomItem";
 import { checkDataFile } from "../scripts/utils/data-assets/checkDataFile.mjs";
 import { Log } from "../utils/log";
 
@@ -26,6 +27,9 @@ program
     new Option("-s, --shops", "Check all Prism Shop files").conflicts("all")
   )
   .addOption(
+    new Option("-i, --items", "Check all Custom Item files").conflicts("all")
+  )
+  .addOption(
     new Option(
       "-f, --file <files...>",
       "Parse only specific file(s)"
@@ -38,6 +42,7 @@ interface ProgramOptions {
   events?: boolean;
   tickets?: boolean;
   shops?: boolean;
+  items?: boolean;
   file?: string[];
   silent?: boolean;
 }
@@ -88,6 +93,18 @@ async function main(options: ProgramOptions) {
     for (const file of dir) {
       const filePath = joinPath(path, file);
       if (!isShopFile(filePath)) continue;
+      targets.add(filePath);
+    }
+  }
+
+  // handle --items
+  if (options.all || options.items) {
+    if (showGroupInfo) Log.info("Checking all custom item data files");
+    const path = resolvePath("assets/data/items");
+    const dir = await readdir(path);
+    for (const file of dir) {
+      const filePath = joinPath(path, file);
+      if (!checkCustomItemPath(filePath)) continue;
       targets.add(filePath);
     }
   }

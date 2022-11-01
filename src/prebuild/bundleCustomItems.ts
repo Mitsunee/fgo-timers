@@ -21,14 +21,14 @@ export const bundleCustomItems: PrebuildBundler<
 
   for (const fileName of files) {
     const filePath = join("assets", "data", "items", fileName);
-    const items = await readFileYaml<Partial<CustomItem>[]>(filePath);
+    const items = await readFileYaml<CustomItem>(filePath);
     if (!items) {
       Log.warn(`Could not parse file '${fileName}'. Skipping...`);
       continue;
     }
+    if (!verifySchema(items, CustomItemSchema, filePath)) return false;
 
     for (const item of items) {
-      if (!verifySchema(item, CustomItemSchema, filePath)) return false;
       const data: BundledItem = {
         name: item.name,
         icon: shortenAtlasUrl(item.icon),

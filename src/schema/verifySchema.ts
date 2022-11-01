@@ -2,7 +2,7 @@ import { z, ZodSchema } from "zod";
 import { Log } from "../utils/log";
 
 export function verifySchema<T>(
-  data: Partial<T>,
+  data: Partial<T> | undefined | false,
   Schema: ZodSchema<T>,
   parent: string
 ): data is T {
