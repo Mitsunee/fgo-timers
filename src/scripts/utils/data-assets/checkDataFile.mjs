@@ -5,7 +5,6 @@ import {
   CustomItemSchema
 } from "../../../schema/CustomItem";
 import { readFileYaml } from "@foxkit/node-util/fs-yaml";
-import { z } from "zod";
 
 export async function checkDataFile(filePath) {
   // handle legacy files
