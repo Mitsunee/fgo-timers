@@ -53,15 +53,20 @@ Start the devServer with `yarn dev` locally on your system, then visit [http://l
 **Note:** Directory Structure is currently changing, docs will be updated later
 
 - assets: Contains all data assets, images in original resolution and currently unused images
-- pages: Contains all pages and api routes
+- pages: Contains all pages and api routes (may adopt Next.js 13 app directory in the future)
 - public: Contains files that will get served in `/` alongside the app
 - src:
   - atlas-api: Atlas Academy API Connector adapter and cache management
   - client: Frontend Components and stores
-  - scripts: Legacy Location for scripts to do various tasks in this repository (such as build data bundles)
+  - items: Utils for Craft Essences, Items and Custom Items
+  - prebuild: Prebuild script that handles API data caching and reformatting into optimized data set
+  - schema: Schema files and validation script
+  - scripts: Legacy Location for scripts that have not been fully migrated to zod/typescript
+  - servants: Utils for Servants, Noble Phantasms and Skills
   - server: SSG, ISR and related util functions
   - types: globally used types and Enums (note that there may also be files matching `src/*/types(.d)?.ts`)
-  - upgrades: utils related to Interludes and Rank Ups
+  - upgrades: utils related to Quests and Upgrades (Interludes and Rank Ups)
+  - utils: generic utils
 - tests (mirrors src unless specified here):
   - \_\_mockups\_\_: Contains mock assets used in legacy tests (ignored by jest config)
   - scripts-uvu: Contains all legacy tests (ignored by jest config)
@@ -72,9 +77,10 @@ Start the devServer with `yarn dev` locally on your system, then visit [http://l
 
 ## Code Guidelines
 
+- New code should use typescript - migration from esm to ts is currently in progress
 - Use the included ESLint and Prettier configuations. `simple-git-hooks` will run all committed code through both tools as well.
 - As a general rule of thumb default exports are only used in React Components, NextJS API Routes and NextJS Pages. All other exports should be named exports.
-- All files using JSX should use the `*.jsx` file extension.
+- All files using JSX should use the `*.jsx` or `*.tsx` file extension.
 - Try to keep functions small (and thus their purpose obvious and readable). If you absolutely need larger functions divide your code into sections and use comments to give them headlines such as `// handle args`.
 - Deployments are static thus files in `./assets` should only be written to during the prebuild step! (this means there is currently no way to update upgrades other then redeployment)
 - Should you need to add or update dependencies please also run `yarn browserslist --update-db` and `yarn-deduplicate` before committing.
