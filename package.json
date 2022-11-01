@@ -18,7 +18,7 @@
     "test:types": "tsc --noEmit",
     "test:legacy": "uvu -r tsm tests/scripts-uvu",
     "test:code": "jest --verbose",
-    "test:data": "tsm --require=./nowarn.js src/scripts/check/check.mjs",
+    "test:data": "tsm --require=./nowarn.js src/schema/check.ts",
     "test": "yarn test:types && yarn test:legacy && yarn test:code && yarn test:data --all"
   },
   "simple-git-hooks": {
@@ -36,10 +36,10 @@
       "svgo"
     ],
     "assets/data/{events,login-tickets}/*.yml": [
-      "tsm --require=./nowarn.js src/scripts/check/check.mjs --silent --file"
+      "tsm --require=./nowarn.js src/schema/check.ts --silent --file"
     ],
     "assets/data/{mana,rare}PrismShop.yml": [
-      "tsm --require=./nowarn.js src/scripts/check/check.mjs --silent --file"
+      "tsm --require=./nowarn.js src/schema/check.ts --silent --file"
     ]
   },
   "browserslist": [

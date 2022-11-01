@@ -1,27 +1,48 @@
-import { program } from "commander";
+import { Command, Option } from "commander";
 import { readdir } from "fs/promises";
 import { resolvePath, joinPath } from "@foxkit/node-util/path";
 import { fileExists } from "@foxkit/node-util/fs";
 
-import { prepareCache } from "../../atlas-api/prepare.ts";
+import { prepareCache } from "../atlas-api/prepare";
 import {
   isEventFile,
   isTicketFile,
   isShopFile,
   isDataFile
-} from "../utils/data-assets/isDataFile.mjs";
-import * as log from "../utils/log.mjs";
-import { checkDataFile } from "../utils/data-assets/checkDataFile.mjs";
+} from "../scripts/utils/data-assets/isDataFile.mjs";
+import { checkDataFile } from "../scripts/utils/data-assets/checkDataFile.mjs";
+import { Log } from "../utils/log";
 
-program.version("0.0.1");
-program.option("-a, --all", "Check all Data Files");
-program.option("-e, --events", "Check all Event files");
-program.option("-t, --tickets", "Check all Login Ticket files");
-program.option("-s, --shops", "Check all Prism Shop files");
-program.option("-f, --file <files...>", "Parse only specific file(s)");
-program.option("-S, --silent", "Run without logging to cli");
+const program = new Command();
+program
+  .option("-a, --all", "Check all Data Files")
+  .addOption(
+    new Option("-e, --events", "Check all Event files").conflicts("all")
+  )
+  .addOption(
+    new Option("-t, --tickets", "Check all Login Ticket files").conflicts("all")
+  )
+  .addOption(
+    new Option("-s, --shops", "Check all Prism Shop files").conflicts("all")
+  )
+  .addOption(
+    new Option(
+      "-f, --file <files...>",
+      "Parse only specific file(s)"
+    ).conflicts("all")
+  )
+  .option("-S, --silent", "Run without logging to cli");
 
-async function main(options) {
+interface ProgramOptions {
+  all?: boolean;
+  events?: boolean;
+  tickets?: boolean;
+  shops?: boolean;
+  file?: string[];
+  silent?: boolean;
+}
+
+async function main(options: ProgramOptions) {
   // update cache
   await prepareCache();
 
@@ -33,11 +54,11 @@ async function main(options) {
   let passed = 0;
 
   // handle --all
-  if (!silent && options.all) log.info("Checking all data files");
+  if (!silent && options.all) Log.info("Checking all data files");
 
   // handle --events
   if (options.all || options.events) {
-    if (showGroupInfo) log.info("Checking all event data files");
+    if (showGroupInfo) Log.info("Checking all event data files");
     const path = resolvePath("assets/data/events/");
     const dir = await readdir(path);
     for (const file of dir) {
@@ -49,7 +70,7 @@ async function main(options) {
 
   // handle --tickets
   if (options.all || options.tickets) {
-    if (showGroupInfo) log.info("Checking all login ticket data files");
+    if (showGroupInfo) Log.info("Checking all login ticket data files");
     const path = resolvePath("assets/data/login-tickets/");
     const dir = await readdir(path);
     for (const file of dir) {
@@ -61,7 +82,7 @@ async function main(options) {
 
   // handle --shops
   if (options.all || options.shops) {
-    if (showGroupInfo) log.info("Checking all prism shop data files");
+    if (showGroupInfo) Log.info("Checking all prism shop data files");
     const path = resolvePath("assets/data/");
     const dir = await readdir(path);
     for (const file of dir) {
@@ -72,18 +93,19 @@ async function main(options) {
   }
 
   // handle --file
-  if (options.file?.length > 0) {
+  if (options.file && options.file?.length > 0) {
     for (const file of options.file) {
       const filePath = resolvePath(file);
       const exists = await fileExists(filePath);
 
       if (!exists) {
-        if (!silent) log.error("File does not exist", filePath);
+        if (!silent) Log.error("File does not exist", filePath);
         skipped++;
         continue;
       }
+
       if (!isDataFile(filePath)) {
-        if (!silent) log.error("File is not a recognized data file", filePath);
+        if (!silent) Log.error("File is not a recognized data file", filePath);
         skipped++;
         continue;
       }
@@ -95,7 +117,7 @@ async function main(options) {
   // die if no files selected
   if (targets.size < 1) {
     if (!silent) {
-      log.error("No valid data file paths found");
+      Log.error("No valid data file paths found");
       program.help({ error: true });
     }
     process.exit(1);
@@ -103,7 +125,7 @@ async function main(options) {
 
   // run checks
   const total = targets.size;
-  for (const file of targets) {
+  for (const file of Array.from(targets)) {
     const result = await checkDataFile(file);
     if (result) passed++;
   }
