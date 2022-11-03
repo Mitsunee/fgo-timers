@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import path from "path";
+import type { ResponseError, ResponseData } from "src/server/DataApi";
 import {
   getBundledNPs,
   getBundledServants,
@@ -13,15 +14,6 @@ path.join(process.cwd(), "assets/static/data/quests.json");
 path.join(process.cwd(), "assets/static/data/servants.json");
 path.join(process.cwd(), "assets/static/data/skills.json");
 
-type ResponseError = { success: false; error: string };
-interface ResponseData {
-  success: true;
-  servants?: Awaited<ReturnType<typeof getBundledServants>>;
-  quests?: Awaited<ReturnType<typeof getBundledQuests>>;
-  skills?: Awaited<ReturnType<typeof getBundledSkills>>;
-  nps?: Awaited<ReturnType<typeof getBundledNPs>>;
-}
-
 const error: ResponseError = {
   success: false,
   error: "Internal Server Error"
@@ -32,20 +24,20 @@ export default async function handler(
   res: NextApiResponse<ResponseData | ResponseError>
 ) {
   const { query } = req;
-  const response: ResponseData = { success: true };
+  const response: ResponseData = { success: true, data: {} };
 
   try {
     if (query.servants != undefined) {
-      response.servants = await getBundledServants();
+      response.data.servants = await getBundledServants();
     }
     if (query.quests != undefined) {
-      response.quests = await getBundledQuests();
+      response.data.quests = await getBundledQuests();
     }
     if (query.skills != undefined) {
-      response.skills = await getBundledSkills();
+      response.data.skills = await getBundledSkills();
     }
     if (query.nps != undefined) {
-      response.nps = await getBundledNPs();
+      response.data.nps = await getBundledNPs();
     }
   } catch {
     return res.status(500).json(error);

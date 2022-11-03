@@ -33,6 +33,7 @@ export default function UpgradeCard({
 
   return (
     <Card
+      // NOTE: Card shows CardHero if icon||color are set. Not setting these enabled custom stuff
       title={cardTitle}
       icon={servantSpoilered.icon}
       forceRoundIcon
