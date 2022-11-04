@@ -17,7 +17,13 @@ description: >-
   Animation Skip for Enhancement Level Up Displays and a "Receive All" button for
   Master Missions. You can see the full list of every update in the Updates tab
   in the ingame News menu or on the official website.
+
+  Update: A second Summoning Banner featuring limited SSR Abigail Williams, and
+  limited SRs Osakabehime (Archer) and Mysterious Alter Ego Λ, as well as the
+  same set of Event Craft Essences as the first Banner, has been added.
 times:
+  - title: Pre-Release Campaign
+    date: 2022-10-23 21:00 PDT - 11-06 19:59 PST
   - title: Story
     times:
       - title: Prologue & Act 1
@@ -36,5 +42,9 @@ times:
     date: 2022-10-27 02:00 PDT - 11-16 19:59 PST
   - title: Rank Up Quest added for Gilles De Rais (Caster)
     date: 2022-10-27 02:00 PDT
-  - title: Summoning Banner
+  - title: Summoning Banner (Pre-Release)
+    date: 2022-10-23 21:00 PDT - 11-07 19:59 PST
+  - title: Summoning Banner 1
     date: 2022-10-27 02:00 PDT - 11-09 19:59 PST
+  - title: Summoning Banner 2
+    date: 2022-11-03 21:00 PDT - 11-13 19:59 PST
