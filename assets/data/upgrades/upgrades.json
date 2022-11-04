@@ -6037,46 +6037,6 @@
     }
   },
   {
-    "target": "skill",
-    "initial": {
-      "name": "Aesthetic Appreciation E-",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00506.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "冒涜審美 C+++",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00506.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94053799,
-      "name": "強化クエスト ジル・ド・レェ 2",
-      "search": "強化クエスト シル・ト・レェ 2",
-      "open": 1605094200,
-      "type": "rankup",
-      "unlock": {
-        "quest": [
-          {
-            "name": "Rank Up Quest: Gilles de Rais",
-            "id": 94003402,
-            "na": true
-          }
-        ]
-      }
-    },
-    "servant": {
-      "id": 500200,
-      "name": "Gilles de Rais (Caster)",
-      "search": "gilles de rais",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_5002000.png",
-      "className": "caster",
-      "na": true
-    }
-  },
-  {
     "target": "np",
     "initial": {
       "name": "Eightfold Blessing of Amaterasu",
@@ -12472,38 +12432,6 @@
   {
     "target": "skill",
     "initial": {
-      "name": "Faithful Prayer C",
-      "num": 1,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00607.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "深淵にて光となれり A",
-      "num": 1,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00607.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94053430,
-      "name": "強化クエスト アビゲイル・ウィリアムズ",
-      "search": "強化クエスト アヒケイル・ウィリアムス",
-      "open": 1604480400,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
-    },
-    "servant": {
-      "id": 2500100,
-      "name": "Abigail Williams",
-      "search": "abigail williams",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_25001000.png",
-      "className": "foreigner",
-      "na": true
-    }
-  },
-  {
-    "target": "skill",
-    "initial": {
       "name": "Pseudonym \"Iseidako\" B",
       "num": 3,
       "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00325.png",
@@ -12531,58 +12459,6 @@
       "icon": "https://static.atlasacademy.io/JP/Faces/f_25002000.png",
       "className": "foreigner",
       "na": true
-    }
-  },
-  {
-    "target": "np",
-    "initial": {
-      "name": "Etherspace, Yet Lawful",
-      "type": "arts",
-      "border": "black",
-      "na": true
-    },
-    "np": {
-      "name": "Etherspace, Yet Lawful",
-      "type": "arts",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94053432,
-      "name": "強化クエスト 謎のヒロインXX",
-      "search": "強化クエスト 謎のヒロインxx",
-      "open": 1604480400,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
-    },
-    "servant": {
-      "id": 2500300,
-      "name": "Mysterious Heroine XX",
-      "search": "mysterious heroine xx",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_25003000.png",
-      "className": "foreigner",
-      "na": true
-    }
-  },
-  {
-    "target": "sq",
-    "quest": {
-      "id": 912500601,
-      "name": "インタビュー・ウィズ・マイスター",
-      "search": "インタヒュ・ウィス・マイスタ",
-      "open": 1632906000,
-      "type": "interlude",
-      "unlock": {
-        "quest": [{ "name": "intro.3-4", "id": 3000303, "na": true }],
-        "ascension": 3,
-        "bond": 4
-      }
-    },
-    "servant": {
-      "id": 2500600,
-      "name": "Van Gogh",
-      "search": "van gogh",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_25006000.png",
-      "className": "foreigner"
     }
   },
   {
@@ -13174,38 +13050,6 @@
         "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
         "bond": 5
       }
-    },
-    "servant": {
-      "id": 2500400,
-      "name": "Yang Guifei",
-      "search": "yang guifei",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_25004000.png",
-      "className": "foreigner",
-      "na": true
-    }
-  },
-  {
-    "target": "skill",
-    "initial": {
-      "name": "Favors of Three Thousand Concentrated to One A",
-      "num": 1,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00403.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "三千寵愛在一身 A+",
-      "num": 1,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00403.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94053431,
-      "name": "強化クエスト 楊貴妃",
-      "search": "強化クエスト 楊貴妃",
-      "open": 1604480400,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 2500400,
@@ -17070,6 +16914,231 @@
       "search": "yan qing",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_6026000.png",
       "className": "assassin",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Aesthetic Appreciation E-",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00506.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Sacrilegious Appreciation C+++",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00506.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94053799,
+      "name": "Rank Up Quest: Gilles de Rais 2",
+      "search": "rank up quest: gilles de rais 2",
+      "open": 1666843200,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          {
+            "name": "Rank Up Quest: Gilles de Rais",
+            "id": 94003402,
+            "na": true
+          }
+        ]
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 500200,
+      "name": "Gilles de Rais (Caster)",
+      "search": "gilles de rais",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_5002000.png",
+      "className": "caster",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 911100302,
+      "name": "うたかたの夢を抱いて、そして眠るの",
+      "search": "うたかたの夢を抱いて、そして眠るの",
+      "open": 1667034000,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          {
+            "name": "Great Detectives' Great Deduction",
+            "id": 2000118,
+            "na": true
+          },
+          {
+            "name": "That Which Must Be Corrected",
+            "id": 911100301,
+            "na": true
+          }
+        ],
+        "ascension": 4,
+        "bond": 5
+      }
+    },
+    "servant": {
+      "id": 1100300,
+      "name": "Jeanne d'Arc (Alter)",
+      "search": "jeanne d'arc (alter)",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_11003000.png",
+      "className": "avenger",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Faithful Prayer C",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00607.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Light in the Abyss A",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00607.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94053430,
+      "name": "Rank Up Quest: Abigail Williams",
+      "search": "rank up quest: abigail williams",
+      "open": 1666584000,
+      "type": "rankup",
+      "unlock": { "ascension": 4 },
+      "na": true
+    },
+    "servant": {
+      "id": 2500100,
+      "name": "Abigail Williams",
+      "search": "abigail williams",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_25001000.png",
+      "className": "foreigner",
+      "na": true
+    }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Etherspace, Yet Lawful",
+      "type": "arts",
+      "border": "black",
+      "na": true
+    },
+    "np": {
+      "name": "Etherspace, Yet Lawful",
+      "type": "arts",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94053432,
+      "name": "Rank Up Quest: Mysterious Heroine XX",
+      "search": "rank up quest: mysterious heroine xx",
+      "open": 1666584000,
+      "type": "rankup",
+      "unlock": { "ascension": 4 },
+      "na": true
+    },
+    "servant": {
+      "id": 2500300,
+      "name": "Mysterious Heroine XX",
+      "search": "mysterious heroine xx",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_25003000.png",
+      "className": "foreigner",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Favors of Three Thousand Concentrated to One A",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00403.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Favors of Three Thousand Concentrated to One A+",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00403.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94053431,
+      "name": "Rank Up Quest: Yang Guifei",
+      "search": "rank up quest: yang guifei",
+      "open": 1666584000,
+      "type": "rankup",
+      "unlock": { "ascension": 4 },
+      "na": true
+    },
+    "servant": {
+      "id": 2500400,
+      "name": "Yang Guifei",
+      "search": "yang guifei",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_25004000.png",
+      "className": "foreigner",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 912500601,
+      "name": "インタビュー・ウィズ・マイスター",
+      "search": "インタヒュ・ウィス・マイスタ",
+      "open": 1632906000,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "intro.3-4", "id": 3000303, "na": true }],
+        "ascension": 3,
+        "bond": 4
+      }
+    },
+    "servant": {
+      "id": 2500600,
+      "name": "Van Gogh",
+      "search": "van gogh",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_25006000.png",
+      "className": "foreigner",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 912500602,
+      "name": "「題材と○○の問題」",
+      "search": "「題材と○○の問題」",
+      "open": 1666947600,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          { "name": "intro.3-4", "id": 3000303, "na": true },
+          { "name": "インタビュー・ウィズ・マイスター", "id": 912500601 }
+        ],
+        "ascension": 3,
+        "bond": 4
+      }
+    },
+    "servant": {
+      "id": 2500600,
+      "name": "Van Gogh",
+      "search": "van gogh",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_25006000.png",
+      "className": "foreigner",
       "na": true
     }
   }
