@@ -1,5 +1,10 @@
 import useSWR from "swr";
-import { DataApiResponse, DataSets, fetcher } from "src/server/DataApi";
+import {
+  DataApiResponse,
+  DataSets,
+  fetcher,
+  makeDataApiUrl
+} from "src/server/DataApi";
 
 export function useDataApi<
   Fallback extends Partial<DataSets>,
@@ -13,7 +18,7 @@ export function useDataApi<
   error: boolean;
   loading: boolean;
 } {
-  const url = `/api/data?${[...sets.sort(), `_=${cacheKey}`].join("&")}`;
+  const url = makeDataApiUrl(sets, cacheKey);
   const res = useSWR<DataApiResponse<Keys>>(url, fetcher);
 
   return {

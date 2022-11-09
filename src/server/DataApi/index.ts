@@ -32,3 +32,10 @@ export const fetcher = async (url: URL) => {
 
   return res.json();
 };
+
+export function makeDataApiUrl(
+  sets: readonly (keyof DataSets)[] | (keyof DataSets)[],
+  cacheKey: string
+): string {
+  return `/api/data?${[...sets, `_=${cacheKey}`].sort().join("&")}`;
+}
