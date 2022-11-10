@@ -9475,36 +9475,6 @@
     }
   },
   {
-    "target": "np",
-    "initial": {
-      "name": "Karakuri Genpou, Dongyu",
-      "type": "buster",
-      "border": "black",
-      "na": true
-    },
-    "np": {
-      "name": "Karakuri Genpou, Dongyu",
-      "type": "buster",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94054488,
-      "name": "強化クエスト 加藤段蔵",
-      "search": "強化クエスト 加藤段蔵",
-      "open": 1606467600,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
-    },
-    "servant": {
-      "id": 603000,
-      "name": "Katou \"Black Kite\" Danzo",
-      "search": "katou \"black kite\" danzo",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_6030000.png",
-      "className": "assassin",
-      "na": true
-    }
-  },
-  {
     "target": "skill",
     "initial": {
       "name": "Morph A+",
@@ -10183,32 +10153,6 @@
         "bond": 5
       },
       "na": true
-    },
-    "servant": {
-      "id": 700600,
-      "name": "Sakata Kintoki",
-      "search": "sakata kintoki",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_7006000.png",
-      "className": "berserker",
-      "na": true
-    }
-  },
-  {
-    "target": "np",
-    "initial": {
-      "name": "Golden Spark",
-      "type": "buster",
-      "border": "black",
-      "na": true
-    },
-    "np": { "name": "Golden Spark", "type": "buster", "border": "gold" },
-    "quest": {
-      "id": 94054487,
-      "name": "強化クエスト 坂田金時",
-      "search": "強化クエスト 坂田金時",
-      "open": 1606467600,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 700600,
@@ -11171,38 +11115,6 @@
         "bond": 3
       },
       "na": true
-    },
-    "servant": {
-      "id": 702200,
-      "name": "Ibaraki-Douji",
-      "search": "ibaraki-douji",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_7022000.png",
-      "className": "berserker",
-      "na": true
-    }
-  },
-  {
-    "target": "skill",
-    "initial": {
-      "name": "Disengage A",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00608.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "大江の鬼あばれ A+",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00608.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94054489,
-      "name": "強化クエスト 茨木童子",
-      "search": "強化クエスト 茨木童子",
-      "open": 1606467600,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
     },
     "servant": {
       "id": 702200,
@@ -17139,6 +17051,134 @@
       "search": "van gogh",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_25006000.png",
       "className": "foreigner",
+      "na": true
+    }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Karakuri Genpou, Dongyu",
+      "type": "buster",
+      "border": "black",
+      "na": true
+    },
+    "np": {
+      "name": "Karakuri Genpou, Dongyu",
+      "type": "buster",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94054488,
+      "name": "Rank Up Quest: Katou \"Black Kite\" Danzo",
+      "search": "rank up quest: katou \"black kite\" danzo",
+      "open": 1668052800,
+      "type": "rankup",
+      "unlock": { "ascension": 4 },
+      "na": true
+    },
+    "servant": {
+      "id": 603000,
+      "name": "Katou \"Black Kite\" Danzo",
+      "search": "katou \"black kite\" danzo",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_6030000.png",
+      "className": "assassin",
+      "na": true
+    }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Golden Spark",
+      "type": "buster",
+      "border": "black",
+      "na": true
+    },
+    "np": {
+      "name": "Golden Spark",
+      "type": "buster",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94054487,
+      "name": "Rank Up Quest: Sakata Kintoki",
+      "search": "rank up quest: sakata kintoki",
+      "open": 1668052800,
+      "type": "rankup",
+      "unlock": { "ascension": 4 },
+      "na": true
+    },
+    "servant": {
+      "id": 700600,
+      "name": "Sakata Kintoki",
+      "search": "sakata kintoki",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_7006000.png",
+      "className": "berserker",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Disengage A",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00608.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Violent Oni of Ooe A+",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00608.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94054489,
+      "name": "Rank Up Quest: Ibaraki-Douji",
+      "search": "rank up quest: ibaraki-douji",
+      "open": 1668052800,
+      "type": "rankup",
+      "unlock": { "ascension": 4 },
+      "na": true
+    },
+    "servant": {
+      "id": 702200,
+      "name": "Ibaraki-Douji",
+      "search": "ibaraki-douji",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_7022000.png",
+      "className": "berserker",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 911100202,
+      "name": "夢の終わり、或いは恩讐の果て",
+      "search": "夢の終わり、或いは恩讐の果て",
+      "open": 1668070800,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          { "name": "旅立ち", "id": 3001101 },
+          {
+            "name": "Nightmare; or, the Call of Love and Hate",
+            "id": 911100201,
+            "na": true
+          }
+        ],
+        "ascension": 3,
+        "bond": 5
+      }
+    },
+    "servant": {
+      "id": 1100200,
+      "name": "Edmond Dantès",
+      "search": "edmond dantes",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_11002000.png",
+      "className": "avenger",
       "na": true
     }
   }
