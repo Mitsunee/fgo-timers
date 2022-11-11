@@ -8,7 +8,8 @@ export type ItemBorder =
   | Borders.BRONZE
   | Borders.SILVER
   | Borders.GOLD
-  | Borders.BLUE;
+  | Borders.BLUE
+  | Borders.ZERO;
 
 interface ItemBase {
   name: string;
@@ -51,8 +52,9 @@ export function mapItemBackgroundToBorder(
       return Borders.GOLD;
     case ItemBackgroundType.QUEST_CLEAR_QP_REWARD:
       return Borders.BLUE;
-    case ItemBackgroundType.SILVER:
     case ItemBackgroundType.ZERO:
+      return Borders.ZERO;
+    case ItemBackgroundType.SILVER:
     default:
       return Borders.SILVER;
   }

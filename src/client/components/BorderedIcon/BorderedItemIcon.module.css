@@ -1,0 +1,13 @@
+.bg,
+.item {
+  position: absolute;
+  inset: 0px;
+}
+
+.bg {
+  object-fit: cover;
+}
+
+.item {
+  object-fit: contain;
+}
