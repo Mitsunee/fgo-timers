@@ -1,7 +1,7 @@
 import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
 import { latinize } from "../utils/latinize";
 import { atlasCache } from "../atlas-api/cache";
-import { nameServantClass } from "./nameServantClass";
+import { nameServantClass } from "./classNames";
 
 interface ServantName {
   name: string;

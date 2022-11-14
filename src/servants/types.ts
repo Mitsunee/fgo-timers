@@ -20,13 +20,23 @@ export enum ServantCard {
 
 export type NPType = ServantCard.BUSTER | ServantCard.ARTS | ServantCard.QUICK;
 
+export enum ServantAvailability {
+  PERMANENT,
+  STORYLOCKED,
+  LIMITED,
+  WELFARE,
+  FP_POOL
+}
+
 export interface BundledServant {
   name: string;
   search: string;
   icon: string;
-  className: ClassName;
+  classId: ClassName;
   border: ServantBorder;
+  rarity: number;
   na?: true;
+  availability?: ServantAvailability;
 }
 
 export interface BundledSkill {

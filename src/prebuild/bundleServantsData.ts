@@ -42,11 +42,13 @@ export const bundleServantsData: DataBundler<
       name,
       search,
       icon: shortenAtlasUrl(servant.face),
-      className: servant.className,
-      border: mapServantRarityToBorder(servant.rarity)
+      classId: servant.className,
+      border: mapServantRarityToBorder(servant.rarity),
+      rarity: servant.rarity
     };
 
     if (servantNA) data.na = true;
+    // TODO: implement availability lookup
 
     res.set(servantId, data);
   }
