@@ -19,29 +19,10 @@ export const ItemBackgroundPath: Record<ItemBackgrounds, string> = {
   [ItemBackgrounds.ZERO]: `${basePath}zero.png`
 };
 
-// TODO: make sure the fallbacks look good (some are a bit dark right now)
-export const ItemBackgroundFromBorder: Record<
-  ItemBorder,
-  { path: string; fallback: string }
-> = {
-  [Borders.BRONZE]: {
-    path: ItemBackgroundPath[ItemBackgrounds.BRONZE],
-    fallback: "#56361d"
-  },
-  [Borders.SILVER]: {
-    path: ItemBackgroundPath[ItemBackgrounds.SILVER],
-    fallback: "#6d6d6d"
-  },
-  [Borders.GOLD]: {
-    path: ItemBackgroundPath[ItemBackgrounds.GOLD],
-    fallback: "#f9e677"
-  },
-  [Borders.BLUE]: {
-    path: ItemBackgroundPath[ItemBackgrounds.BLUE],
-    fallback: "#366baf"
-  },
-  [Borders.ZERO]: {
-    path: ItemBackgroundPath[ItemBackgrounds.ZERO],
-    fallback: "#82b1c3"
-  }
+export const ItemBackgroundFromBorder: Record<ItemBorder, string> = {
+  [Borders.BRONZE]: ItemBackgroundPath[ItemBackgrounds.BRONZE],
+  [Borders.SILVER]: ItemBackgroundPath[ItemBackgrounds.SILVER],
+  [Borders.GOLD]: ItemBackgroundPath[ItemBackgrounds.GOLD],
+  [Borders.BLUE]: ItemBackgroundPath[ItemBackgrounds.BLUE],
+  [Borders.ZERO]: ItemBackgroundPath[ItemBackgrounds.ZERO]
 };

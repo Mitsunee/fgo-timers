@@ -11,7 +11,6 @@ interface BorderedItemIconProps extends ComponentPropsCC<"div">, BundledItem {
 
 export function BorderedItemIcon({
   children,
-  style,
   icon,
   name,
   na,
@@ -20,14 +19,14 @@ export function BorderedItemIcon({
   const item: BundledItem = { name, icon, border: props.border };
   if (na) item.na = true;
   const background = ItemBackgroundFromBorder[item.border];
-  const styleExtended: BorderedItemIconProps["style"] = {
-    ...style,
-    backgroundColor: background.fallback
-  };
+
   return (
-    <BorderedIcon {...props} style={styleExtended} title={item.name}>
-      <img src={background.path} alt={item.name} className={styles.bg} />
-      {/* TODO: IconFace component with spoiler support */}
+    <BorderedIcon
+      {...props}
+      title={item.name} // TODO: consider spoilers
+    >
+      <img src={background} alt={item.name} className={styles.bg} />
+      {/* TODO: BorderedIconFace component with spoiler support */}
       <img src={expandAtlasUrl(icon)} alt={name} className={styles.item} />
       {children}
     </BorderedIcon>

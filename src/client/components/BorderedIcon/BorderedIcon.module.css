@@ -6,4 +6,10 @@
   aspect-ratio: 1;
   border: 2px solid var(--border, transparent);
   border-radius: 12px;
+  background-color: var(--bg, transparent);
+
+  &.big {
+    min-width: 2em;
+    min-height: 2em;
+  }
 }
