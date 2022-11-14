@@ -1,0 +1,9 @@
+.icon {
+  position: absolute;
+  aspect-ratio: 1;
+  width: 80px;
+  max-width: 33%;
+  height: auto;
+  top: 2px;
+  left: 2px;
+}
