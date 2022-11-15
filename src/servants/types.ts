@@ -25,7 +25,9 @@ export enum ServantAvailability {
   STORYLOCKED,
   LIMITED,
   WELFARE,
-  FP_POOL
+  FP_POOL,
+  FP_LIMITED,
+  FP_LOCKED
 }
 
 export interface BundledServant {

@@ -24,26 +24,26 @@ export function getClassIconPath(className: ClassName): string {
     case ClassName.AVENGER:
       return `${basePath}/avenger.png`;
     case ClassName.BERSERKER:
-      return `${basePath}berserker.png`;
+      return `${basePath}/berserker.png`;
     case ClassName.CASTER:
-      return `${basePath}caster.png`;
+      return `${basePath}/caster.png`;
     case ClassName.FOREIGNER:
-      return `${basePath}foreigner.png`;
+      return `${basePath}/foreigner.png`;
     case ClassName.LANCER:
-      return `${basePath}lancer.png`;
+      return `${basePath}/lancer.png`;
     case ClassName.MOON_CANCER:
-      return `${basePath}mooncancer.png`;
+      return `${basePath}/mooncancer.png`;
     case ClassName.PRETENDER:
-      return `${basePath}pretender.png`;
+      return `${basePath}/pretender.png`;
     case ClassName.RIDER:
-      return `${basePath}rider.png`;
+      return `${basePath}/rider.png`;
     case ClassName.RULER:
-      return `${basePath}ruler.png`;
+      return `${basePath}/ruler.png`;
     case ClassName.SABER:
-      return `${basePath}saber.png`;
+      return `${basePath}/saber.png`;
     case ClassName.SHIELDER:
-      return `${basePath}shielder.png`;
+      return `${basePath}/shielder.png`;
     default:
-      return `${basePath}extra.png`;
+      return `${basePath}/extra.png`;
   }
 }
