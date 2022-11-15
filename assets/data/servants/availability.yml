@@ -1,0 +1,250 @@
+storylocked:
+  - 100200 # Altria Pendragon (Alter) (Saber)
+  - 100500 # Nero Claudius (Saber)
+  - 500200 # Gilles de Rais (Caster)
+  - 502100 # Cú Chulainn (Caster)
+  - 501700 # Medea (Lily)
+  - 201100 # Nikola Tesla
+  - 301900 # Altria Pendragon (Alter) (Lancer)
+  - 702000 # Cú Chulainn (Alter)
+  - 401300 # Queen Medb
+  - 301700 # Li Shuwen (Lancer)
+  - 502500 # Thomas Edison
+  - 302000 # Altria Pendragon (Lancer)
+  - 200800 # Tristan
+  - 100700 # Gawain
+  - 101200 # Bedivere
+  - 401800 # Quetzalcoatl
+  - 1100400 # Gorgon
+  - 302800 # Jaguar Warrior
+  - 201600 # Emiya (Alter)
+  - 402500 # Christopher Columbus
+  - 103200 # Yagyu Tajima-no-kami Munenori
+  - 603000 # Katou "Black Kite" Danzo
+  - 503400 # Queen of Sheba
+  - 1100600 # Antonio Salieri
+  - 1000800 # Sitonai
+  - 603500 # Yu Mei-ren (Assassin)
+  - 403100 # Red Hare
+  - 603600 # Li Shuwen (Assassin)
+  - 203300 # Aśvatthāman
+  - 504300 # Asclepius
+  - 304100 # Caenis (Lancer)
+  - 105000 # Fairy Knight Gawain
+  - 204300 # Fairy Knight Tristan
+  - 704200 # Kriemhild
+  - 305100 # Don Quixote
+
+fp_pool:
+  - 100300 # Altria Pendragon (Lily)
+  - 201300 # Arash
+  - 300600 # Musashibou Benkei
+  - 300900 # Leonidas I
+  - 400600 # Georgios
+  - 400800 # Edward Teach
+  - 500500 # Hans Christian Andersen
+  - 500700 # William Shakespeare
+  - 501500 # Wolfgang Amadeus Mozart
+  - 600100 # Sasaki Kojirou
+  - 600200 # Hassan of the Cursed Arm
+  - 601200 # Charles-Henri Sanson
+  - 601300 # Phantom of the Opera
+  - 601400 # Mata Hari
+  - 700500 # Spartacus
+  - 700900 # Asterios
+  - 701000 # Caligula
+  - 701500 # Eric Bloodaxe
+  - 1100100 # Aŋra Mainiiu
+  - 103800 # Jason
+  - 203500 # Paris
+  - 303900 # Gareth (Lancer)
+  - 403400 # Bartholomew Roberts
+  - 504400 # Chen Gong
+  - 603800 # Charlotte Corday (Assassin)
+  - 703400 # Salome
+
+limited:
+  - 200200 # Gilgamesh (Archer)
+  - 700600 # Sakata Kintoki (Berserker)
+  - 102700 # Okita Souji
+  - 301300 # Scáthach (Lancer)
+  - 601800 # Mysterious Heroine X
+  - 301200 # Brynhild (Lancer)
+  - 100600 # Nero Claudius (Bride)
+  - 102800 # Ryougi Shiki (Saber)
+  - 900200 # Amakusa Shirou
+  - 1100200 # Edmond Dantès
+  - 1100300 # Jeanne d'Arc (Alter) (Avenger)
+  - 400200 # Iskandar
+  - 602100 # Shuten-Douji (Assassin)
+  - 702300 # Minamoto-no-Raikou (Berserker)
+  - 500900 # Leonardo da Vinci (Caster)
+  - 302400 # Tamamo-no-Mae (Lancer)
+  - 202600 # Altria Pendragon (Archer)
+  - 502700 # Marie Antoinette (Caster)
+  - 202500 # Anne Bonny & Mary Read (Archer)
+  - 402400 # Mordred (Rider)
+  - 302500 # Kiyohime (Lancer)
+  - 900400 # Martha (Ruler)
+  - 502800 # Illyasviel von Einzbern (Caster)
+  - 600800 # Cleopatra
+  - 202000 # Ishtar (Archer)
+  - 500800 # Merlin
+  - 101700 # Miyamoto Musashi (Saber)
+  - 602500 # "First Hassan"
+  - 702400 # Mysterious Heroine X (Alter)
+  - 202300 # James Moriarty (Archer)
+  - 102900 # Arthur Pendragon (Prototype)
+  - 702500 # Hijikata Toshizo
+  - 1000200 # Meltryllis
+  - 1000100 # Passionlip
+  - 1000300 # Sessyoin Kiara (Alter Ego)
+  - 900500 # Sherlock Holmes
+  - 503200 # Nero Claudius (Caster)
+  - 103100 # Frankenstein (Saber)
+  - 602800 # Nitocris (Assassin)
+  - 702900 # Oda Nobunaga (Berserker)
+  - 402700 # Altria Pendragon (Alter) (Rider)
+  - 202800 # Helena Blavatsky (Archer)
+  - 302900 # Minamoto-no-Raikou (Lancer)
+  - 2500100 # Abigail Williams
+  - 303200 # Ereshkigal
+  - 2500200 # Katsushika Hokusai (Foreigner)
+  - 603200 # Semiramis
+  - 202900 # Asagami Fujino
+  - 402800 # Ivan the Terrible
+  - 1000700 # Okita Souji (Alter) (Alter Ego)
+  - 603300 # Okada Izo
+  - 103300 # Sigurd
+  - 503900 # Scáthach-Skadi (Caster)
+  - 203200 # Jeanne d'Arc (Archer)
+  - 303400 # Ibaraki-Douji (Lancer)
+  - 603400 # Ushiwakamaru (Assassin)
+  - 2300200 # BB (5* Moon Cancer)
+  - 103400 # Medb
+  - 2500300 # Mysterious Heroine XX
+  - 900600 # Qin Shi Huang
+  - 103700 # Beni-Enma
+  - 504100 # Miyu Edelfelt
+  - 504200 # Murasaki Shikibu (Caster)
+  - 1000900 # Kingprotea
+  - 603700 # Kama (Assassin)
+  - 403200 # Sima Yi (Reines)
+  - 703300 # Arjuna (Alter)
+  - 1100700 # Oda Nobunaga (Avenger)
+  - 703500 # Mori Nagayoshi
+  - 403500 # Leonardo da Vinci (Rider)
+  - 703600 # Miyamoto Musashi (Berserker)
+  - 203600 # Osakabehime (Archer)
+  - 403600 # Carmilla (Rider)
+  - 900900 # Altria Pendragon (Ruler)
+  - 304000 # Mysterious (Alter) Ego Λ
+  - 604000 # Okita J. Souji
+  - 1100900 # Space Ishtar
+  - 203700 # Calamity Jane
+  - 104100 # Astolfo (Saber)
+  - 203800 # Super Orion
+  - 2500400 # Yang Guifei
+  - 204000 # Sei Shounagon (Archer)
+  - 304200 # Romulus=Quirinus
+  - 2500500 # Voyager
+  - 703700 # Kijyo Koyo
+  - 504500 # Altria Caster
+  - 2300400 # Sessyoin Kiara (Moon Cancer)
+  - 204200 # Illyasviel von Einzbern (Archer)
+  - 703800 # Brynhild (Berserker)
+  - 2500700 # Abigail Williams (Summer)
+  - 104500 # Tomoe Gozen (Saber)
+  - 404100 # Murasaki Shikibu (Rider)
+  - 901000 # Himiko
+  - 104400 # Saito Hajime
+  - 2500600 # Van Gogh
+  - 1001000 # Ashiya Douman
+  - 104600 # Ibuki-Douji (Saber)
+  - 104900 # Senji Muramasa
+  - 1101000 # Taira no Kagekiyo
+  - 901100 # Amor (Caren)
+  - 504600 # Miss Crane
+  - 704000 # Morgan
+  - 304800 # Fairy Knight Lancelot
+  - 604200 # Koyanskaya of Light
+  - 2800100 # Oberon
+  - 105100 # Okita Souji (Alter) (Saber)
+  - 204400 # Anastasia & Viy
+  - 504800 # Charlotte Corday (Caster)
+  - 1101100 # Kama (Avenger)
+  - 404500 # Caenis (Rider)
+  - 704100 # Sei Shounagon (Berserker)
+  - 2501000 # Jacques de Molay
+  - 504900 # Izumo no Okuni
+  - 305000 # Sakamoto Ryouma (Lancer)
+  - 2500900 # Koyanskaya of Darkness
+  - 1001100 # Manannán mac Lir (Bazett)
+  - 105300 # Trưng Sisters
+  - 1001300 # Super Bunyan
+  - 504700 # Daikokuten
+  - 404700 # Constantine XI
+  - 105200 # Charlemagne
+  - 901300 # James Moriarty (Ruler)
+  - 404800 # Kyokutei Bakin
+  - 2300500 # Archetype: Earth
+  - 2800300 # Lady Avalon
+  - 105400 # Gareth (Saber)
+  - 704300 # Ibuki-Douji (Berserker)
+  - 1101400 # Utsumi Erice (Avenger)
+  - 901400 # Scáthach-Skadi (Ruler)
+  - 505200 # Wu Zetian (Caster)
+  - 704400 # Sen no Rikyū
+  - 105500 # Yamanami Keisuke
+  - 604600 # Huyan Zhuo
+  - 305300 # Britomart
+
+welfare:
+  - 502600 # Elisabeth Báthory (Halloween)
+  - 202400 # Oda Nobunaga (Archer)
+  - 402200 # Altria Pendragon (Santa (Alter))
+  - 602300 # Ryougi Shiki (Assassin)
+  - 502000 # Irisviel (Holy Grail)
+  - 402300 # Sakata Kintoki (Rider)
+  - 602400 # Scáthach (Assassin)
+  - 202700 # Chloe von Einzbern
+  - 101000 # Elisabeth Báthory (Brave)
+  - 302600 # Jeanne d'Arc (Alter) Santa Lily
+  - 702600 # Chacha
+  - 2300100 # BB (4* Moon Cancer)
+  - 702800 # Paul Bunyan
+  - 402600 # Ishtar (Rider)
+  - 1000400 # Mecha Eli-chan
+  - 1000500 # Mecha Eli-chan Mk.II
+  - 202200 # Attila the San(ta)
+  - 503800 # Sieg
+  - 403000 # Sakamoto Ryouma (Rider)
+  - 703100 # Jeanne d'Arc (Alter) (Berserker)
+  - 504000 # Shuten-Douji (Caster)
+  - 900700 # Quetzalcoatl (Samba/Santa)
+  - 603900 # Gray
+  - 303800 # Nagao Kagetora
+  - 104000 # Katsushika Hokusai (Saber)
+  - 203900 # Florence Nightingale (Santa)
+  - 304300 # Utsumi Erice (Lancer)
+  - 304400 # Yu Mei-ren (Lancer)
+  - 104800 # Karna (Santa)
+  - 604100 # Kiichi Hougen
+  - 2500800 # Mysterious Idol X (Alter)
+  - 901200 # Leonardo da Vinci (Ruler)
+  - 404600 # Elisabeth Báthory (Cinderella)
+  - 1101200 # Mysterious Ranmaru X
+  - 505000 # Martha (Santa)
+  - 1001200 # Taisui Xingjun
+  - 604500 # Thrúd
+  - 604400 # Hildr
+  - 604300 # Ortlinde
+  - 901500 # Iyo
+  - 2800400 # Nine-Tattoo Dragon Eliza
+
+fp_limited:
+  - 204100 # Oda Nobukatsu
+  - 304900 # Mary Anning
+
+fp_storylocked:
+  - 404200 # Habetrot
