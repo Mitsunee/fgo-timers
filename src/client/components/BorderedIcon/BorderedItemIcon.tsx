@@ -1,12 +1,13 @@
-import { expandAtlasUrl } from "src/atlas-api/urls";
 import { ItemBackgroundFromBorder } from "src/items/itemBackgrounds";
 import type { BundledItem } from "src/items/types";
 import { ComponentPropsCC } from "src/types/ComponentProps";
 import { BorderedIcon } from "./BorderedIcon";
 import styles from "./BorderedItemIcon.module.css";
+import { IconFace } from "./IconFace";
 
 interface BorderedItemIconProps extends ComponentPropsCC<"div">, BundledItem {
   title?: undefined;
+  itemId: number;
 }
 
 export function BorderedItemIcon({
@@ -14,6 +15,7 @@ export function BorderedItemIcon({
   icon,
   name,
   na,
+  itemId,
   ...props
 }: BorderedItemIconProps) {
   const item: BundledItem = { name, icon, border: props.border };
@@ -26,8 +28,13 @@ export function BorderedItemIcon({
       title={item.name} // TODO: consider spoilers
     >
       <img src={background} alt={item.name} className={styles.bg} />
-      {/* TODO: BorderedIconFace component with spoiler support */}
-      <img src={expandAtlasUrl(icon)} alt={name} className={styles.item} />
+      <IconFace
+        id={itemId}
+        name={item.name}
+        src={item.icon}
+        placeholder="Item"
+        na={item.na}
+      />
       {children}
     </BorderedIcon>
   );

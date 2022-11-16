@@ -1,0 +1,12 @@
+.face {
+  position: absolute;
+  inset: 0px;
+  object-fit: contain;
+
+  transition: filter 0.2ms ease-in-out;
+}
+
+.hidden,
+.prerendered:not(:hover) {
+  filter: blur(12px);
+}

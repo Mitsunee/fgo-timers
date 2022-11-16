@@ -6,6 +6,8 @@ interface BorderedIconClassProps {
   classId: ClassName;
 }
 
+// TODO: support rarity
+
 export function BorderedIconClass({ classId }: BorderedIconClassProps) {
   const name = nameServantClass(classId);
   const path = getClassIconPath(classId);
