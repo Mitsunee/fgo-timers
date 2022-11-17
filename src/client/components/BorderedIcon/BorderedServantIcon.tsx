@@ -16,6 +16,7 @@ interface BorderedServantIconProps
 }
 
 export function BorderedServantIcon({
+  children,
   showRarity,
   //showAvailability, // TODO
   showClass,
@@ -29,21 +30,20 @@ export function BorderedServantIcon({
   availability,
   ...props
 }: BorderedServantIconProps) {
-  const servant = {
+  const servant: BundledServant = {
     name,
     search,
     icon,
     classId,
     border: props.border,
     rarity,
-    na,
     availability
   };
+  if (na) servant.na = true;
 
   return (
     <BorderedIcon
       {...props}
-      title={servant.name} // TODO: consider spoilers
       forceBig={showRarity /*|| showAvailability*/ || showClass}>
       <IconFace
         id={servantId}
@@ -55,6 +55,7 @@ export function BorderedServantIcon({
       {/* TODO: BorderedIconAvailability component*/}
       {showClass && <BorderedIconClass classId={servant.classId} />}
       {showRarity && <BorderedIconRarity rarity={servant.rarity} />}
+      {children}
     </BorderedIcon>
   );
 }

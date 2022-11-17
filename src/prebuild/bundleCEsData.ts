@@ -6,6 +6,8 @@ import { mapServantRarityToBorder } from "../servants/borders";
 import type { DataBundler } from "./dataBundlers";
 import { BundledCE } from "src/items/types";
 
+// TODO: implement availability and maybe rarity? (see servants)
+
 export const bundleCEsData: DataBundler<BundledCE> = async bundles => {
   const [basicCE, basicCENA] = await Promise.all([
     atlasCache.JP.getBasicCE(),

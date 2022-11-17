@@ -12,10 +12,10 @@ interface BorderedItemIconProps extends ComponentPropsCC<"div">, BundledItem {
 
 export function BorderedItemIcon({
   children,
-  icon,
-  name,
-  na,
   itemId,
+  name,
+  icon,
+  na,
   ...props
 }: BorderedItemIconProps) {
   const item: BundledItem = { name, icon, border: props.border };
@@ -23,10 +23,7 @@ export function BorderedItemIcon({
   const background = ItemBackgroundFromBorder[item.border];
 
   return (
-    <BorderedIcon
-      {...props}
-      title={item.name} // TODO: consider spoilers
-    >
+    <BorderedIcon {...props}>
       <img src={background} alt={item.name} className={styles.bg} />
       <IconFace
         id={itemId}
