@@ -1,4 +1,5 @@
-.face {
+.face,
+.spoiler {
   position: absolute;
   inset: 0px;
   object-fit: contain;
@@ -6,7 +7,27 @@
   transition: filter 0.2ms ease-in-out;
 }
 
+.spoiler,
+div:hover > .prerendered + .spoiler {
+  display: none;
+}
+
 .hidden,
-.prerendered:not(:hover) {
+.prerendered {
   filter: blur(12px);
+
+  & + .spoiler {
+    display: block;
+    content: "";
+    position: absolute;
+    inset: 0px;
+    background-image: url("/assets/spoiler.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+}
+
+div:hover > .prerendered {
+  filter: blur(0px);
 }

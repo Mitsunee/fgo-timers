@@ -45,7 +45,6 @@ export function BorderedServantIcon({
       {...props}
       title={servant.name} // TODO: consider spoilers
       forceBig={showRarity /*|| showAvailability*/ || showClass}>
-      {/* TODO: BorderedIconFace component*/}
       <IconFace
         id={servantId}
         name={servant.name}

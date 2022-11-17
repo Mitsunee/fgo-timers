@@ -88,7 +88,7 @@ const formDefaults = {
 const sortAsc = (a, b) => a.quest.open - b.quest.open;
 const sortDesc = (a, b) => b.quest.open - a.quest.open;
 
-export default function UpgradesPage({ upgradesData }) {
+export default function UpgradesPage({ upgradesData = [] }) {
   const [formState, setFormState] = useReducer(formUpdateReducer, formDefaults);
   const { perPage } = useStore(settingsStore);
 

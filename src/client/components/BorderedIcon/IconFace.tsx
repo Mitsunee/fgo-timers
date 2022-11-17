@@ -29,21 +29,22 @@ export function IconFace({
   const [hidden, toggleHidden] = useSpoilerState(id);
   const fullSrc = expandAtlasUrl(src);
 
-  // TODO: overlay if hidden
-
   if (!na) {
     switch (level) {
       case SpoilerLevels.PRERENDER: {
         const displayName = `${placeholder} (Hover to reveal)`;
 
         return (
-          <img
-            {...props}
-            src={fullSrc}
-            className={cc([styles.face, styles.prerendered, className])}
-            alt={displayName}
-            title={displayName}
-          />
+          <>
+            <img
+              {...props}
+              src={fullSrc}
+              className={cc([styles.face, styles.prerendered, className])}
+              alt={displayName}
+              title={displayName}
+            />
+            <img src="/assets/spoiler.png" alt={displayName} />
+          </>
         );
       }
       case SpoilerLevels.SOME:
@@ -53,17 +54,20 @@ export function IconFace({
         } (Click to ${hidden ? "reveal" : "hide"})`;
 
         return (
-          <img
-            {...props}
-            src={fullSrc}
-            className={cc([styles.face, hidden && styles.hidden, className])}
-            alt={displayName}
-            title={displayName}
-            onClick={(...args) => {
-              toggleHidden();
-              props.onClick?.(...args);
-            }}
-          />
+          <>
+            <img
+              {...props}
+              src={fullSrc}
+              className={cc([styles.face, hidden && styles.hidden, className])}
+              alt={displayName}
+              title={displayName}
+              onClick={(...args) => {
+                toggleHidden();
+                props.onClick?.(...args);
+              }}
+            />
+            <img src="/assets/spoiler.png" alt={displayName} />
+          </>
         );
       }
     }

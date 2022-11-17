@@ -12,5 +12,5 @@ export function useSpoilerLevel() {
     setLevel(showSpoiler);
   }, [showSpoiler]);
 
-  return [level, setSpoilerLevel];
+  return [level, setSpoilerLevel] as [SpoilerLevels, typeof setSpoilerLevel];
 }
