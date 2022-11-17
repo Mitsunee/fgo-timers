@@ -40,18 +40,24 @@ export function IconFace({
               {...props}
               src={fullSrc}
               className={cc([styles.face, styles.prerendered, className])}
-              alt={displayName}
+              alt={placeholder}
               title={displayName}
             />
-            <img src="/assets/spoiler.png" alt={displayName} />
+            <img
+              src="/assets/spoiler.png"
+              className={styles.spoiler}
+              alt={placeholder}
+            />
           </>
         );
       }
       case SpoilerLevels.SOME:
       case SpoilerLevels.STRICT: {
-        const displayName = `${
-          hidden && level == SpoilerLevels.STRICT ? placeholder : name
-        } (Click to ${hidden ? "reveal" : "hide"})`;
+        const displayAlt =
+          hidden && level == SpoilerLevels.STRICT ? placeholder : name;
+        const displayTitle = `${displayAlt} (Click to ${
+          hidden ? "reveal" : "hide"
+        })`;
 
         return (
           <>
@@ -59,14 +65,25 @@ export function IconFace({
               {...props}
               src={fullSrc}
               className={cc([styles.face, hidden && styles.hidden, className])}
-              alt={displayName}
-              title={displayName}
+              alt={displayAlt}
+              title={displayTitle}
               onClick={(...args) => {
                 toggleHidden();
                 props.onClick?.(...args);
               }}
             />
-            <img src="/assets/spoiler.png" alt={displayName} />
+            {hidden && (
+              <img
+                src="/assets/spoiler.png"
+                className={styles.spoiler}
+                alt={displayAlt}
+                title={displayTitle}
+                onClick={(...args) => {
+                  toggleHidden();
+                  props.onClick?.(...args);
+                }}
+              />
+            )}
           </>
         );
       }
