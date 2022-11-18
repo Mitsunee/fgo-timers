@@ -1,6 +1,8 @@
+import { nameServantClass } from "src/servants/classNames";
 import type { BundledServant } from "src/servants/types";
 import type { ComponentPropsCC } from "src/types/ComponentProps";
 import { BorderedIcon } from "./BorderedIcon";
+import { BorderedIconAvailability } from "./BorderedIconAvailability";
 import { BorderedIconClass } from "./BorderedIconClass";
 import { BorderedIconRarity } from "./BorderedIconRarity";
 import { IconFace } from "./IconFace";
@@ -9,7 +11,7 @@ interface BorderedServantIconProps
   extends ComponentPropsCC<"div">,
     BundledServant {
   showRarity?: boolean;
-  //showAvailablity?: boolean;
+  showAvailability?: boolean;
   showClass?: boolean;
   title?: undefined;
   servantId: number;
@@ -18,7 +20,7 @@ interface BorderedServantIconProps
 export function BorderedServantIcon({
   children,
   showRarity,
-  //showAvailability, // TODO
+  showAvailability,
   showClass,
   servantId,
   name,
@@ -36,23 +38,26 @@ export function BorderedServantIcon({
     icon,
     classId,
     border: props.border,
-    rarity,
-    availability
+    rarity
   };
   if (na) servant.na = true;
+  if (availability) servant.availability = availability;
+  const classDisplay = nameServantClass(servant.classId);
 
   return (
     <BorderedIcon
       {...props}
-      forceBig={showRarity /*|| showAvailability*/ || showClass}>
+      forceBig={showRarity || showAvailability || showClass}>
       <IconFace
         id={servantId}
         name={servant.name}
         src={servant.icon}
-        placeholder="Servant"
+        placeholder={`${servant.rarity}* ${classDisplay} Servant`}
         na={servant.na}
       />
-      {/* TODO: BorderedIconAvailability component*/}
+      {showAvailability && (
+        <BorderedIconAvailability availability={servant.availability} />
+      )}
       {showClass && <BorderedIconClass classId={servant.classId} />}
       {showRarity && <BorderedIconRarity rarity={servant.rarity} />}
       {children}

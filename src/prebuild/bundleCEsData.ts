@@ -1,18 +1,27 @@
 import { List } from "@foxkit/util/object";
+import { join } from "path";
 import { atlasCache } from "../atlas-api/cache";
 import { shortenAtlasUrl } from "../atlas-api/urls";
 import { Log } from "../utils/log";
+import { getAvailabilityMap } from "../utils/availabilityMaps";
 import { mapServantRarityToBorder } from "../servants/borders";
 import type { DataBundler } from "./dataBundlers";
-import { BundledCE } from "src/items/types";
+import { BundledCE } from "../items/types";
 
-// TODO: implement availability and maybe rarity? (see servants)
+const avMapPath = join("assets", "data", "ces", "availability.yml");
 
 export const bundleCEsData: DataBundler<BundledCE> = async bundles => {
-  const [basicCE, basicCENA] = await Promise.all([
+  const [basicCE, basicCENA, availabilityMap] = await Promise.all([
     atlasCache.JP.getBasicCE(),
-    atlasCache.NA.getBasicCE()
+    atlasCache.NA.getBasicCE(),
+    getAvailabilityMap(avMapPath)
   ]);
+
+  if (!availabilityMap) {
+    Log.error(`Could not find availability map at '${avMapPath}'`);
+    return false;
+  }
+
   const ceQueue = new List<number>(); // to be processed
   const knownCEs = new Set<number>(); // are queued or processed
   const res = new Map<number, BundledCE>(); // result of processing
@@ -29,19 +38,22 @@ export const bundleCEsData: DataBundler<BundledCE> = async bundles => {
   while (ceQueue.length > 0) {
     const ceId = ceQueue.shift()!;
     const ce = basicCE.find(ce => ce.id == ceId);
-    const ceNA = basicCENA.find(ceNA => ceNA.id == ceId);
     if (!ce) {
       Log.error(`Could not find ce id ${ceId}`);
       return false;
     }
 
+    const ceNA = basicCENA.find(ceNA => ceNA.id == ceId);
+    const availability = availabilityMap.match(ceId);
     const data: BundledCE = {
       name: ceNA?.name || ce.name,
       icon: shortenAtlasUrl(ce.face),
-      border: mapServantRarityToBorder(ce.rarity)
+      border: mapServantRarityToBorder(ce.rarity),
+      rarity: ce.rarity
     };
 
     if (ceNA) data.na = true;
+    if (availability) data.availability = availability;
 
     res.set(ceId, data);
   }

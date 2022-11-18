@@ -1,28 +1,16 @@
 import { List } from "@foxkit/util/object";
 import { EntityType } from "@atlasacademy/api-connector/dist/Schema/Entity.js";
 import { join } from "path";
-import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 import { Log } from "../utils/log";
-import { BundledServant, ServantAvailability } from "../servants/types";
+import { getAvailabilityMap } from "../utils/availabilityMaps";
+import { BundledServant } from "../servants/types";
 import { nameServant } from "../servants/nameServant";
 import { mapServantRarityToBorder } from "../servants/borders";
 import { atlasCache } from "../atlas-api/cache";
 import { shortenAtlasUrl } from "../atlas-api/urls";
-import {
-  ServantAvailabilityMap,
-  ServantAvailabilitySchema
-} from "../schema/ServantAvailabilityMap";
-import { verifySchema } from "../schema/verifySchema";
 import type { DataBundler } from "./dataBundlers";
 
-async function getAvailabilityMap() {
-  const filePath = join("assets", "data", "servants", "availability.yml");
-  const data = await readFileYaml<Partial<ServantAvailabilityMap>>(filePath);
-  if (!data || !verifySchema(data, ServantAvailabilitySchema, filePath)) {
-    return false;
-  }
-  return data;
-}
+const avMapPath = join("assets", "data", "servants", "availability.yml");
 
 export const bundleServantsData: DataBundler<
   BundledServant
@@ -30,10 +18,13 @@ export const bundleServantsData: DataBundler<
   const [basicServant, basicServantNA, availabilityMap] = await Promise.all([
     atlasCache.JP.getBasicServant(),
     atlasCache.NA.getBasicServant(),
-    getAvailabilityMap()
+    getAvailabilityMap(avMapPath)
   ]);
 
-  if (!availabilityMap) return false;
+  if (!availabilityMap) {
+    Log.error(`Could not find availability map at '${avMapPath}'`);
+    return false;
+  }
 
   const servantQueue = new List<number>(); // to be processed
   const knownServants = new Set<number>(); // are queued or processed
@@ -58,6 +49,7 @@ export const bundleServantsData: DataBundler<
 
     const servantNA = basicServantNA.find(servant => servant.id == servantId);
     const { name, search } = await nameServant(servant.id);
+    const availability = availabilityMap.match(servantId);
     const data: BundledServant = {
       name,
       search,
@@ -68,20 +60,7 @@ export const bundleServantsData: DataBundler<
     };
 
     if (servantNA) data.na = true;
-
-    if (availabilityMap.storylocked.includes(servant.id)) {
-      data.availability = ServantAvailability.STORYLOCKED;
-    } else if (availabilityMap.limited.includes(servant.id)) {
-      data.availability = ServantAvailability.LIMITED;
-    } else if (availabilityMap.welfare.includes(servant.id)) {
-      data.availability = ServantAvailability.WELFARE;
-    } else if (availabilityMap.fp_pool.includes(servant.id)) {
-      data.availability = ServantAvailability.FP_POOL;
-    } else if (availabilityMap.fp_limited.includes(servant.id)) {
-      data.availability = ServantAvailability.FP_LIMITED;
-    } else if (availabilityMap.fp_storylocked.includes(servant.id)) {
-      data.availability = ServantAvailability.FP_LOCKED;
-    }
+    if (availability) data.availability = availability;
 
     res.set(servantId, data);
   }

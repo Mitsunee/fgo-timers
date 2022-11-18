@@ -3,6 +3,7 @@ import { CustomItemSchema } from "../schema/CustomItem";
 import { z } from "zod";
 import { ServantBorder } from "../servants/types";
 import { Borders } from "../types/borders";
+import { Availability } from "../types/enum";
 
 export type ItemBorder =
   | Borders.BRONZE
@@ -19,6 +20,8 @@ interface ItemBase {
 
 export interface BundledCE extends ItemBase {
   border: ServantBorder;
+  rarity: number;
+  availability?: Availability;
 }
 
 export interface BundledItem extends ItemBase {

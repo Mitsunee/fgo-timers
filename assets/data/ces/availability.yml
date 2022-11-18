@@ -1,0 +1,15 @@
+fp_pool:
+  - 9403040 # Combat
+  - 9403050 # Linkage
+  - 9403060 # Barrier
+  - 9403070 # Awakening
+  - 9403080 # Starvation
+  - 9403090 # Mercy
+  - 9403100 # Prosperity
+  - 9403110 # Deception
+  - 9403120 # Synchronization
+  - 9403130 # Gloom
+
+#limited: []
+
+#fp_limited: []

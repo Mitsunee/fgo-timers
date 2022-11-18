@@ -2,6 +2,7 @@ import type { NoblePhantasm } from "@atlasacademy/api-connector/dist/Schema/Nobl
 import type { Skill } from "@atlasacademy/api-connector/dist/Schema/Skill";
 import { ClassName } from "@atlasacademy/api-connector";
 import { Borders } from "../types/borders";
+import { Availability } from "../types/enum";
 
 export type SkillBorder = Borders.BLACK | Borders.GOLD | Borders.RED;
 
@@ -20,16 +21,6 @@ export enum ServantCard {
 
 export type NPType = ServantCard.BUSTER | ServantCard.ARTS | ServantCard.QUICK;
 
-export enum ServantAvailability {
-  PERMANENT,
-  STORYLOCKED,
-  LIMITED,
-  WELFARE,
-  FP_POOL,
-  FP_LIMITED,
-  FP_LOCKED
-}
-
 export interface BundledServant {
   name: string;
   search: string;
@@ -38,7 +29,7 @@ export interface BundledServant {
   border: ServantBorder;
   rarity: number;
   na?: true;
-  availability?: ServantAvailability;
+  availability?: Availability;
 }
 
 export interface BundledSkill {
