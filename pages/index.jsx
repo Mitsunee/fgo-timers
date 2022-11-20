@@ -4,8 +4,8 @@ import styles from "@styles/HomePage.module.css";
 import { useRecurringEvent } from "@utils/hooks/useRecurringEvent";
 import Meta from "@components/Meta";
 import Clocks from "@components/Clocks";
-import NoSSR from "@components/NoSSR";
-import SpecialTimer from "@components/SpecialTimer";
+//import NoSSR from "@components/NoSSR";
+//import SpecialTimer from "@components/SpecialTimer";
 import Headline from "@components/Headline";
 import EventCard from "@components/EventCard";
 import { CardGrid } from "@components/Card";
@@ -69,13 +69,13 @@ export default function HomePage({
         noTitleSuffix
       />
       <Clocks />
-      <NoSSR>
+      {/*<NoSSR>
         <SpecialTimer
           startsAt={1668901500000}
           text={"Fate/Grand Order Anime NYC 2022 Panel"}
           icon={"/assets/icon_game.png"}
         />
-      </NoSSR>
+      </NoSSR>*/}
       <Headline>Current Events</Headline>
       <section className={styles.grid}>
         {events.map(event => (
