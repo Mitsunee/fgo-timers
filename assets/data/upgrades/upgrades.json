@@ -12004,24 +12004,6 @@
     }
   },
   {
-    "target": "sq",
-    "quest": {
-      "id": 911001001,
-      "name": "霊基解放クエスト 蘆屋道満",
-      "search": "霊基解放クエスト 蘆屋道満",
-      "open": 1607072400,
-      "type": "interlude",
-      "unlock": { "ascension": 3 }
-    },
-    "servant": {
-      "id": 1001000,
-      "name": "Ashiya Douman",
-      "search": "ashiya douman",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_10010000.png",
-      "className": "alterEgo"
-    }
-  },
-  {
     "target": "skill",
     "initial": {
       "name": "Annihilation Wish A",
@@ -17179,6 +17161,26 @@
       "search": "edmond dantes",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_11002000.png",
       "className": "avenger",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 911001001,
+      "name": "Spirit Origin Release Quest: Ashiya Douman",
+      "search": "spirit origin release quest: ashiya douman",
+      "open": 1669003200,
+      "type": "interlude",
+      "unlock": { "ascension": 3 },
+      "na": true
+    },
+    "servant": {
+      "id": 1001000,
+      "name": "Ashiya Douman",
+      "search": "ashiya douman",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_10010000.png",
+      "className": "alterEgo",
       "na": true
     }
   }
