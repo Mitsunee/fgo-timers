@@ -48,5 +48,5 @@ export interface BundledNP {
 }
 
 export function isSkill(subject: Skill | NoblePhantasm): subject is Skill {
-  return !Object.keys(subject).includes("card");
+  return !Object.hasOwn(subject, "card");
 }
