@@ -2,16 +2,14 @@ import spacetime from "spacetime";
 import { atom, action, onMount } from "nanostores";
 
 class Timestamp {
+  interval: number;
+  seconds: number;
+  s: ReturnType<typeof spacetime>;
+
   constructor() {
     this.interval = Date.now();
-  }
-  get seconds() {
-    return Math.trunc(this.interval / 1000);
-  }
-  get s() {
-    this._s ||= spacetime(this.interval);
-
-    return this._s;
+    this.seconds = Math.trunc(this.interval / 1000);
+    this.s = spacetime(this.interval);
   }
 }
 

@@ -1,6 +1,11 @@
 import styles from "./Clock.module.css";
 
-export default function Clock({ children, title }) {
+interface ClockProps {
+  children: string;
+  title: string;
+}
+
+export default function Clock({ children, title }: ClockProps) {
   return (
     <div className={styles.clock}>
       <h1>{title}</h1>

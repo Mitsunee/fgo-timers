@@ -1,3 +1,4 @@
+// TODO: refactor to enum
 export const timeFormatsMap = new Map([
   ["clock-12", "{hour-pad}:{minute-pad}{ampm}"],
   ["clock-24", "{hour-24-pad}:{minute-pad}"],
