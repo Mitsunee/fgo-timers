@@ -14,3 +14,8 @@ export enum Availability {
   FP_LIMITED,
   FP_LOCKED
 }
+
+export enum GlobalStyles {
+  BUTTON = "button",
+  BUTTON_DECORATED = "decorated"
+}

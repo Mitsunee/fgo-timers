@@ -1,27 +1,64 @@
 import cc from "classcat";
 import Link from "next/link";
 import type { ComponentWithRefCC } from "src/types/ComponentProps";
+import {
+  InlineIcon,
+  IconProps,
+  OptionalIconProps
+} from "src/client/components/InlineIcon";
+import { GlobalStyles } from "src/types/enum";
 
 interface LinkButtonProps extends ComponentWithRefCC<"a"> {
-  // TODO: implement icon
+  decorated?: boolean;
   href: string;
-  onClick: undefined; // use ActionButton instead!
+  onClick?: undefined; // use ActionButton instead!
+  fill?: undefined; // style color instead
+  hover?: undefined; // style :hover color instead
 }
 
-// TODO: styles
+export function LinkButton({
+  children,
+  className,
+  decorated = true,
+  rel,
+  icon,
+  fill,
+  hover,
+  title,
+  ...props
+}: LinkButtonProps & OptionalIconProps) {
+  const classNameExtended = cc([
+    GlobalStyles.BUTTON,
+    decorated && GlobalStyles.BUTTON_DECORATED,
+    className
+  ]);
+  const iconProps = icon ? ({ icon, fill, hover, title } as IconProps) : false;
+  const Inner = (
+    <>
+      {iconProps && <InlineIcon {...iconProps} />}
+      {iconProps && typeof children == "string" ? (
+        <span>{children}</span>
+      ) : (
+        children
+      )}
+    </>
+  );
+  let relProp = rel;
 
-export function LinkButton({ children, className, ...props }: LinkButtonProps) {
-  if (props.href.startsWith("/")) {
-    return (
-      <Link {...props} className={cc([className])}>
-        {children}
-      </Link>
-    );
+  if (props.target == "_blank") {
+    relProp ??= "";
+    if (relProp.indexOf("noopener") < 0) relProp += " noopener";
+    if (relProp.indexOf("noreferrer") < 0) relProp += " noreferrer";
+    relProp = relProp.trim();
   }
 
-  return (
-    <a {...props} className={cc([className])}>
-      {children}
+  return props.href.startsWith("/") ? (
+    <Link {...props} rel={relProp} className={classNameExtended}>
+      {Inner}
+    </Link>
+  ) : (
+    <a {...props} rel={relProp} className={classNameExtended}>
+      {Inner}
     </a>
   );
 }

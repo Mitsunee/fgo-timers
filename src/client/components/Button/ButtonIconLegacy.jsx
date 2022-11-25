@@ -1,4 +1,4 @@
-import styles from "./ButtonIcon.module.css";
+import styles from "./ButtonIconLegacy.module.css";
 
 export default function ButtonIcon({ icon, Component, iconSize }) {
   const iconSizeStyle = iconSize

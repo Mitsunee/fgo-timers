@@ -4,7 +4,7 @@
   inset: 0px;
   object-fit: contain;
 
-  transition: filter 0.2ms ease-in-out;
+  transition: filter 0.2ms ease-in-out; /* BUG: doesn't seem to work? */
 }
 
 .spoiler,
@@ -14,7 +14,7 @@ div:hover > .prerendered + .spoiler {
 
 .hidden,
 .prerendered {
-  filter: blur(12px);
+  filter: blur(12px); /* NOTE: maybe add partial greyscale filter? */
 
   & + .spoiler {
     display: block;

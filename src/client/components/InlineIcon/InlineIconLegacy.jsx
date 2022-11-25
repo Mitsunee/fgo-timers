@@ -1,6 +1,6 @@
 import cc from "classcat";
 
-import styles from "./InlineIcon.module.css";
+import styles from "./InlineIconLegacy.module.css";
 
 export default function InlineIcon({ icon, className }) {
   return (

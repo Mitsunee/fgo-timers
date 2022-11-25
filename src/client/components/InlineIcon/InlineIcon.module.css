@@ -1,9 +1,14 @@
 .icon {
   display: inline-block;
   margin: -0.15em 0px -0.18em;
-  width: 1.33em;
   height: 1.33em;
-  background-size: contain !important;
-  background-repeat: no-repeat !important;
-  background-position: center center !important;
+  width: 1.33em;
+}
+
+svg.icon {
+  fill: var(--icon-fill, currentColor);
+  transition: fill 250ms ease-in-out;
+  &:hover {
+    fill: var(--icon-hover, currentColor);
+  }
 }

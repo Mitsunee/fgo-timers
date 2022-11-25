@@ -1,0 +1,9 @@
+.icon {
+  display: inline-block;
+  margin: -0.15em 0px -0.18em;
+  width: 1.33em;
+  height: 1.33em;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+}
