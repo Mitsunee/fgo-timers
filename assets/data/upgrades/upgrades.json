@@ -6584,42 +6584,6 @@
     }
   },
   {
-    "target": "skill",
-    "initial": {
-      "name": "Overload D",
-      "num": 3,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00302.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "蒸気機関出力上昇 B",
-      "num": 3,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00302.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94054499,
-      "name": "強化クエスト バベッジ 2",
-      "search": "強化クエスト ハヘッシ 2",
-      "open": 1607677200,
-      "type": "rankup",
-      "unlock": {
-        "quest": [
-          { "name": "Rank Up Quest: Babbage", "id": 94014403, "na": true }
-        ]
-      }
-    },
-    "servant": {
-      "id": 501100,
-      "name": "Charles Babbage",
-      "search": "charles babbage",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_5011000.png",
-      "className": "caster",
-      "na": true
-    }
-  },
-  {
     "target": "np",
     "initial": {
       "name": "Anpu Neb Ta Djeser",
@@ -15858,28 +15822,6 @@
     }
   },
   {
-    "target": "sq",
-    "quest": {
-      "id": 91104601,
-      "name": "我が身、憶えはなかれども…",
-      "search": "我か身、憶えはなかれとも…",
-      "open": 1632906000,
-      "type": "interlude",
-      "unlock": {
-        "quest": [{ "name": "つわものどもが、夢の跡", "id": 3000716 }],
-        "ascension": 3,
-        "bond": 5
-      }
-    },
-    "servant": {
-      "id": 104600,
-      "name": "Ibuki-Douji (Saber)",
-      "search": "ibuki-douji",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_1046000.png",
-      "className": "saber"
-    }
-  },
-  {
     "target": "skill",
     "initial": {
       "name": "Divine Power B",
@@ -17181,6 +17123,183 @@
       "search": "ashiya douman",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_10010000.png",
       "className": "alterEgo",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Fifth Force A",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00323.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "第五勢 A+",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00323.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94078401,
+      "name": "強化クエスト 宮本武蔵 2",
+      "search": "強化クエスト 宮本武蔵 2",
+      "open": 1669453200,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          {
+            "name": "Rank Up Quest: Miyamoto Musashi",
+            "id": 94052293,
+            "na": true
+          }
+        ]
+      }
+    },
+    "servant": {
+      "id": 101700,
+      "name": "Miyamoto Musashi",
+      "search": "miyamoto musashi",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_1017000.png",
+      "className": "saber",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91104601,
+      "name": "我が身、憶えはなかれども…",
+      "search": "我か身、憶えはなかれとも…",
+      "open": 1632906000,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          {
+            "name": "Warriors' Dreams Are All That Remains",
+            "id": 3000716,
+            "na": true
+          }
+        ],
+        "ascension": 3,
+        "bond": 5
+      }
+    },
+    "servant": {
+      "id": 104600,
+      "name": "Ibuki-Douji (Saber)",
+      "search": "ibuki-douji",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_1046000.png",
+      "className": "saber",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91202302,
+      "name": "或る名探偵と或る悪党の生と死",
+      "search": "或る名探偵と或る悪党の生と死",
+      "open": 1669280400,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          { "name": "そして、あなたたちは応報を見る", "id": 3001222 },
+          { "name": "Seeking Quieter Times", "id": 91202301, "na": true }
+        ],
+        "ascension": 3,
+        "bond": 5
+      }
+    },
+    "servant": {
+      "id": 202300,
+      "name": "James Moriarty (Archer)",
+      "search": "james moriarty",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_2023000.png",
+      "className": "archer",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Overload D",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00302.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Increase Steam Engine Output B",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00302.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94054499,
+      "name": "Rank Up Quest: Babbage 2",
+      "search": "rank up quest: babbage 2",
+      "open": 1669608000,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          { "name": "Rank Up Quest: Babbage", "id": 94014403, "na": true }
+        ]
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 501100,
+      "name": "Charles Babbage",
+      "search": "charles babbage",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_5011000.png",
+      "className": "caster",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Charisma B-",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00300.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "女王の霊香 A",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00300.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 91503402,
+      "name": "三匹のジンのレポート",
+      "search": "三匹のシンのレホト",
+      "open": 1669539600,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          { "name": "Chaldea", "id": 2000410, "na": true },
+          { "name": "了", "id": 3001009 },
+          {
+            "name": "Harder Than Going Through the Eye of a Needle",
+            "id": 91503401,
+            "na": true
+          }
+        ],
+        "ascension": 4,
+        "bond": 5
+      }
+    },
+    "servant": {
+      "id": 503400,
+      "name": "Queen of Sheba",
+      "search": "queen of sheba",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_5034000.png",
+      "className": "caster",
       "na": true
     }
   }
