@@ -4,13 +4,12 @@ import styles from "./BorderedIconClass.module.css";
 
 interface BorderedIconClassProps {
   classId: ClassName;
+  rarity?: number;
 }
 
-// TODO: support rarity
-
-export function BorderedIconClass({ classId }: BorderedIconClassProps) {
+export function BorderedIconClass({ classId, rarity }: BorderedIconClassProps) {
   const name = nameServantClass(classId);
-  const path = getClassIconPath(classId);
+  const path = getClassIconPath(classId, rarity);
 
   return <img src={path} className={styles.icon} alt={name} title={name} />;
 }

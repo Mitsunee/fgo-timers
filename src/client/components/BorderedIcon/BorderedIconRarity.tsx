@@ -5,8 +5,8 @@ interface IconRarityProps {
 }
 
 export function BorderedIconRarity({ rarity }: IconRarityProps) {
-  if (rarity < 0 || rarity > 5) return null;
-  const title: string = `${rarity}* Rarity`;
+  if (rarity < 1 || rarity > 5) return null;
+  const title: string = `${Math.floor(rarity)}* Rarity`;
 
   return (
     <img

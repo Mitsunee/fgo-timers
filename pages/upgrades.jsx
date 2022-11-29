@@ -234,7 +234,9 @@ export default function UpgradesPage({ upgradesData = [] }) {
               {Object.keys(formState.classes).map(className => (
                 <Button
                   key={className}
-                  icon={`/assets/classes/${className}.png`}
+                  icon={`/assets/classes/${className}${
+                    className == "extra" ? "" : "_g"
+                  }.png`}
                   iconSize="2em"
                   onClick={event => {
                     event.target.blur();

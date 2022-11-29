@@ -58,7 +58,9 @@ export function BorderedServantIcon({
       {showAvailability && (
         <BorderedIconAvailability availability={servant.availability} />
       )}
-      {showClass && <BorderedIconClass classId={servant.classId} />}
+      {showClass && (
+        <BorderedIconClass classId={servant.classId} rarity={rarity} />
+      )}
       {showRarity && <BorderedIconRarity rarity={servant.rarity} />}
       {children}
     </BorderedIcon>

@@ -13,37 +13,56 @@ export function nameServantClass(className: ClassName): string {
 
 const basePath = "/assets/classes";
 
-export function getClassIconPath(className: ClassName): string {
+export function getClassIconPath(
+  className: ClassName,
+  rarity: number = 5
+): string {
+  let rarityStr = "_g";
+  switch (rarity) {
+    case 0:
+      if (className == ClassName.AVENGER) rarityStr = "_0";
+      break;
+    case 1:
+    case 2:
+      rarityStr = "_b";
+      break;
+    case 3:
+      rarityStr = "_s";
+      break;
+  }
+
   switch (className) {
     case ClassName.ALTER_EGO:
-      return `${basePath}/alterEgo.png`;
+      return `${basePath}/alterEgo${rarityStr}.png`;
     case ClassName.ARCHER:
-      return `${basePath}/archer.png`;
+      return `${basePath}/archer${rarityStr}.png`;
     case ClassName.ASSASSIN:
-      return `${basePath}/assassin.png`;
+      return `${basePath}/assassin${rarityStr}.png`;
     case ClassName.AVENGER:
-      return `${basePath}/avenger.png`;
+      return `${basePath}/avenger${rarityStr}.png`;
     case ClassName.BERSERKER:
-      return `${basePath}/berserker.png`;
+      return `${basePath}/berserker${rarityStr}.png`;
     case ClassName.CASTER:
-      return `${basePath}/caster.png`;
+      return `${basePath}/caster${rarityStr}.png`;
     case ClassName.FOREIGNER:
-      return `${basePath}/foreigner.png`;
+      return `${basePath}/foreigner${rarityStr}.png`;
     case ClassName.LANCER:
-      return `${basePath}/lancer.png`;
+      return `${basePath}/lancer${rarityStr}.png`;
     case ClassName.MOON_CANCER:
-      return `${basePath}/mooncancer.png`;
+      return `${basePath}/mooncancer${rarityStr}.png`;
     case ClassName.PRETENDER:
-      return `${basePath}/pretender.png`;
+      return `${basePath}/pretender${rarityStr}.png`;
     case ClassName.RIDER:
-      return `${basePath}/rider.png`;
+      return `${basePath}/rider${rarityStr}.png`;
     case ClassName.RULER:
-      return `${basePath}/ruler.png`;
+      return `${basePath}/ruler${rarityStr}.png`;
     case ClassName.SABER:
-      return `${basePath}/saber.png`;
+      return `${basePath}/saber${rarityStr}.png`;
     case ClassName.SHIELDER:
-      return `${basePath}/shielder.png`;
-    default:
+      return `${basePath}/shielder${rarityStr}.png`;
+    case ClassName.EXTRA:
       return `${basePath}/extra.png`;
+    default:
+      return `${basePath}/question${rarityStr}.png`;
   }
 }
