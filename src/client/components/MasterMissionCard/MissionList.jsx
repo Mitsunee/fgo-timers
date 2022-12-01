@@ -1,13 +1,9 @@
-//import styles from "./MissionList.module.css";
-import { useFormattedDelta } from "@utils/hooks/useFormattedDelta";
-import { useFormattedTimestamp } from "@utils/hooks/useFormattedTimestamp";
+import { NoSSR } from "src/client/components/NoSSR";
+import { DisplayDelta, DisplayDate } from "src/client/components/TimeDisplay";
 import MissionListItem from "./MissionListItem";
-import NoSSR from "@components/NoSSR";
 
-export default function MissionList({ data }) {
+export function MissionList({ data }) {
   const timestamp = data.end * 1000;
-  const delta = useFormattedDelta(timestamp);
-  const date = useFormattedTimestamp(timestamp, "short");
 
   return (
     <>
@@ -20,7 +16,8 @@ export default function MissionList({ data }) {
         <p>
           Available until:
           <br />
-          {date} ({delta === "---" ? "Ended" : delta})
+          <DisplayDate time={timestamp} format="short" /> (
+          <DisplayDelta time={timestamp} endedText="Ended" />)
         </p>
       </NoSSR>
     </>

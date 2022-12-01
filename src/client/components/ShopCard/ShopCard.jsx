@@ -1,21 +1,13 @@
-import { useMemo } from "react";
-import spacetime from "spacetime";
-
-//import styles from "./ShopCard.module.css";
-import { useFormattedSpacetime } from "@utils/hooks/useFormattedSpacetime";
-import { useFormattedDelta } from "@utils/hooks/useFormattedDelta";
-import { Card } from "@components/Card";
-import { FGOItemList } from "@components/FGOItemList";
-import NoSSR from "@components/NoSSR";
+import { Card } from "src/client/components/Card";
+import { FGOItemList } from "src/client/components/FGOItemList";
+import { NoSSR } from "src/client/components/NoSSR";
+import { DisplayDelta, DisplayDate } from "src/client/components/TimeDisplay";
 import ShopCardListItem from "./ShopCardListItem";
 import ShopCardLimitedItem from "./ShopCardLimitedItem";
 
 export default function ShopCard({ shopData, endsAt }) {
   const { inventory, limited, icon, ...cardProps } = shopData;
   const currency = `https://static.atlasacademy.io/${icon}`;
-  const endsAtSpaceTime = useMemo(() => spacetime(endsAt), [endsAt]);
-  const nextMonthDate = useFormattedSpacetime(endsAtSpaceTime || null, "short");
-  const nextMonthDelta = useFormattedDelta(endsAtSpaceTime || null);
 
   return (
     <Card {...cardProps} icon={currency}>
@@ -30,7 +22,8 @@ export default function ShopCard({ shopData, endsAt }) {
           <p>
             Next shop rotation:
             <br />
-            {nextMonthDelta} ({nextMonthDate})
+            <DisplayDelta time={endsAt} /> (
+            <DisplayDate time={endsAt} format="short" />)
           </p>
         </NoSSR>
       )}

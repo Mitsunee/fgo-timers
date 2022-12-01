@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 import styles from "./EventCard.module.css";
+import { NoSSR } from "src/client/components/NoSSR";
 import Overlay from "./Overlay";
-import NoSSR from "@components/NoSSR";
 import TimeDisplay from "./TimeDisplay";
 
 export default function EventCard({

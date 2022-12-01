@@ -1,17 +1,16 @@
 import { useStore } from "@nanostores/react";
 
 import styles from "./Clocks.module.css";
-import { timeFormatsMap } from "@utils/timeFormatsMap";
-import { settingsStore } from "@stores/settingsStore";
-import { intervalStore } from "@stores/intervalStore";
+import { settingsStore } from "src/client/stores/settingsStore";
+import { intervalStore } from "src/client/stores/intervalStore";
 import Clock from "./Clock";
 
 export default function Clocks() {
   const { alternativeClockFormat } = useStore(settingsStore);
   const { s } = useStore(intervalStore);
-  const format = timeFormatsMap.get(
-    `clock-${alternativeClockFormat ? 12 : 24}`
-  )!;
+  const format = alternativeClockFormat
+    ? "{hour-pad}:{minute-pad}{ampm}"
+    : "{hour-24-pad}:{minute-pad}";
 
   return (
     <section className={styles.wrapper}>
