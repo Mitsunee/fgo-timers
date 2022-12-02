@@ -1,7 +1,12 @@
-import { BundledNP, BundledServant, BundledSkill } from "src/servants/types";
-import { BundledQuest } from "src/upgrades/types";
+import type {
+  BundledNP,
+  BundledServant,
+  BundledSkill
+} from "src/servants/types";
+import type { BundledQuest, Upgrade } from "src/upgrades/types";
 
-export interface DataSets {
+export interface UpgradesPageData {
+  upgrades: Upgrade[];
   servants: IDMap<BundledServant>;
   quests: IDMap<BundledQuest>;
   skills: IDMap<BundledSkill>;
@@ -9,33 +14,28 @@ export interface DataSets {
 }
 
 export type ResponseError = { data?: undefined; success: false; error: string };
-
-export interface ResponseData<Keys extends keyof DataSets = any> {
+export interface ResponseData<T extends {}> {
   success: true;
-  data: Pick<DataSets, Keys>;
+  data: T;
+  error?: undefined;
 }
-
-export type DataApiResponse<Keys extends keyof DataSets = any> =
-  | ResponseError
-  | ResponseData<Keys>;
-
-export const fetcher = async (url: URL) => {
-  const res = await fetch(url);
-  if (!res.ok) {
-    try {
-      const { error } = await res.json();
-      throw new Error(error);
-    } catch {
-      throw new Error("Unexpected Error");
-    }
-  }
-
-  return res.json();
+export type DataApiResponse<T extends {}> = ResponseError | ResponseData<T>;
+export type DataApiFallback<U extends string, T extends {}> = {
+  fallback: Pick<Record<U, T>, U>;
 };
 
-export function makeDataApiUrl(
-  sets: readonly (keyof DataSets)[] | (keyof DataSets)[],
-  cacheKey: string
-): string {
-  return `/api/data?${[...sets, `_=${cacheKey}`].sort().join("&")}`;
+function isSuccess<T extends {}>(
+  data: DataApiResponse<T>
+): data is ResponseData<T> {
+  return data.success == true;
 }
+
+export const fetcher = async <T extends {}>(url: URL | string) => {
+  const res = await fetch(url);
+  const data: DataApiResponse<T> = await res.json();
+  if (!res.ok || !isSuccess(data)) {
+    throw new Error(data.error);
+  }
+
+  return data.data;
+};

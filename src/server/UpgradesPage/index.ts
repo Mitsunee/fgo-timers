@@ -6,39 +6,32 @@ import {
   getBundledSkills
 } from "src/servants/getBundles";
 import { getBundledQuests, getBundledUpgrades } from "src/upgrades/getBundles";
-import type { Upgrade } from "src/upgrades/types";
+import type { QuestUpgrade } from "src/upgrades/types";
 import { JP_TO_NA_ESTIMATE } from "src/types/constants";
 import { Log } from "src/utils/log";
-import { DataSets, makeDataApiUrl } from "src/server/DataApi";
-import { getBuildInfo } from "src/utils/getBuildInfo";
+import { DataApiFallback, UpgradesPageData } from "src/server/DataApi";
 
-const sets = ["servants", "quests", "skills", "nps"] as const;
-type UpgradesPageFallback = Record<string, Pick<DataSets, typeof sets[number]>>;
-
-interface UpgradesPageProps {
-  info: BuildInfo;
-  upgrades: Upgrade[];
-  fallback: UpgradesPageFallback;
-}
+const apiUrl = "/api/data/upgrades" as const;
+type UpgradesPageProps = DataApiFallback<typeof apiUrl, UpgradesPageData>;
 
 export const getStaticProps: GetStaticProps<UpgradesPageProps> = async () => {
-  const [upgrades, quests, servants, nps, skills, buildInfo] =
-    await Promise.all([
-      getBundledUpgrades(),
-      getBundledQuests(),
-      getBundledServants(),
-      getBundledNPs(),
-      getBundledSkills(),
-      getBuildInfo()
-    ]);
+  const [upgrades, quests, servants, nps, skills] = await Promise.all([
+    getBundledUpgrades(),
+    getBundledQuests(),
+    getBundledServants(),
+    getBundledNPs(),
+    getBundledSkills()
+  ]);
 
-  upgrades.sort(
-    (a, b) =>
-      quests[a.quest]!.open! +
-      (a.na ? 0 : JP_TO_NA_ESTIMATE) -
-      quests[b.quest]!.open! -
-      (b.na ? 0 : JP_TO_NA_ESTIMATE)
-  );
+  upgrades.sort((upgradeA, upgradeB) => {
+    const questA = quests[upgradeA.quest] as QuestUpgrade;
+    const questB = quests[upgradeB.quest] as QuestUpgrade;
+    const offset =
+      (upgradeA.na ? 0 : JP_TO_NA_ESTIMATE) -
+      (upgradeB.na ? 0 : JP_TO_NA_ESTIMATE);
+
+    return questA.open - questB.open + offset;
+  });
 
   const prebuiltSlice = upgrades.filter(upgrade => upgrade.na).slice(0, 10);
   const includedServants = new Set<number>();
@@ -66,14 +59,11 @@ export const getStaticProps: GetStaticProps<UpgradesPageProps> = async () => {
     }
   }
 
-  const apiUrl = makeDataApiUrl(sets, buildInfo.version);
-
   return {
     props: {
-      info: buildInfo,
-      upgrades,
       fallback: {
         [apiUrl]: {
+          upgrades: prebuiltSlice,
           servants: Object.fromEntries(
             Array.from(includedServants, servantId => {
               const servant = servants[servantId];

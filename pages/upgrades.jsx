@@ -2,7 +2,7 @@ import { useReducer, useEffect } from "react";
 import { useStore } from "@nanostores/react";
 import { latinize } from "modern-diacritics";
 
-import styles from "@styles/UpgradesPage.module.css";
+import styles from "@styles/UpgradesPageLegacy.module.css";
 import { settingsStore } from "@stores/settingsStore";
 import { matchClassName } from "@utils/matchClassName";
 import { usePaginationSlice } from "@utils/hooks/usePaginationSlice";
@@ -18,7 +18,7 @@ import { IconAtlas } from "@components/icons";
 import { CardGrid } from "@components/Card";
 import UpgradeCard from "@components/UpgradeCard";
 
-export { getStaticProps } from "@server/UpgradesPage/";
+//export { getStaticProps } from "@server/UpgradesPage/";
 //export const config = {
 //  unstable_includeFiles: ["assets/data/upgrades/upgrades.json"]
 //};
@@ -87,8 +87,9 @@ const formDefaults = {
 
 const sortAsc = (a, b) => a.quest.open - b.quest.open;
 const sortDesc = (a, b) => b.quest.open - a.quest.open;
+const upgradesData = [];
 
-export default function UpgradesPage({ upgradesData = [] }) {
+export default function UpgradesPageLegacy() {
   const [formState, setFormState] = useReducer(formUpdateReducer, formDefaults);
   const { perPage } = useStore(settingsStore);
 
