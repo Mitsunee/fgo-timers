@@ -2,8 +2,9 @@ import {
   QuestFlag,
   QuestType
 } from "@atlasacademy/api-connector/dist/Schema/Quest.js";
+import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
 
-import { Upgrade } from "../upgrades/types";
+import { Upgrade, UpgradeMap } from "../upgrades/types";
 import type { PrebuildBundler } from "./bundlers";
 import { atlasCache } from "../atlas-api/cache";
 import {
@@ -13,6 +14,38 @@ import {
 } from "../upgrades/getRelated";
 import { Log } from "../utils/log";
 import { getPreviousNP, getPreviousSkill } from "../upgrades/getPrevious";
+
+function getUpgradeMap(servant: Servant, questId: number): UpgradeMap | false {
+  // describe upgrade type if applicable
+  let relatedSkill: ReturnType<typeof getRelatedSkill>;
+  let relatedNP: ReturnType<typeof getRelatedNP>;
+
+  if ((relatedSkill = getRelatedSkill(servant, questId))) {
+    // upgrades skill
+    const upgradeMap: UpgradeMap = {
+      type: "skill",
+      newId: relatedSkill.id
+    };
+
+    const previousSkill = getPreviousSkill(servant, relatedSkill);
+    if (previousSkill) {
+      upgradeMap.id = previousSkill.id;
+    }
+
+    return upgradeMap;
+  } else if ((relatedNP = getRelatedNP(servant, questId))) {
+    // upgrades NP
+    const previousNP = getPreviousNP(servant, relatedNP);
+
+    return {
+      type: "np",
+      id: previousNP.id,
+      newId: relatedNP.id
+    };
+  }
+
+  return false;
+}
 
 export const bundleUpgrades: PrebuildBundler<Upgrade[]> = async function () {
   const [niceWar, niceWarNA] = await Promise.all([
@@ -63,34 +96,16 @@ export const bundleUpgrades: PrebuildBundler<Upgrade[]> = async function () {
     };
     if (interludeNA) upgrade.na = true;
 
-    // describe upgrade type if applicable
-    let relatedSkill: ReturnType<typeof getRelatedSkill>;
-    let relatedNP: ReturnType<typeof getRelatedNP>;
-
-    if ((relatedSkill = getRelatedSkill(servant, interlude.id))) {
-      // upgrades skill
-      skills.add(relatedSkill.id);
-      upgrade.upgrades = {
-        type: "skill",
-        newId: relatedSkill.id
-      };
-
-      const previousSkill = getPreviousSkill(servant, relatedSkill);
-      if (previousSkill) {
-        skills.add(previousSkill.id);
-        upgrade.upgrades.id = previousSkill.id;
+    const upgradeMap = getUpgradeMap(servant, interlude.id);
+    if (upgradeMap) {
+      upgrade.upgrades = upgradeMap;
+      if (upgradeMap.type == "np") {
+        nps.add(upgradeMap.id);
+        nps.add(upgradeMap.newId);
+      } else {
+        if (upgradeMap.id) skills.add(upgradeMap.id);
+        skills.add(upgradeMap.newId);
       }
-    } else if ((relatedNP = getRelatedNP(servant, interlude.id))) {
-      // upgrades NP
-      nps.add(relatedNP.id);
-      const previousNP = getPreviousNP(servant, relatedNP);
-      nps.add(previousNP.id);
-
-      upgrade.upgrades = {
-        type: "np",
-        id: previousNP.id,
-        newId: relatedNP.id
-      };
     }
 
     upgrades.push(upgrade);
@@ -100,7 +115,7 @@ export const bundleUpgrades: PrebuildBundler<Upgrade[]> = async function () {
   const rankupsJP = niceWar
     .find(war => war.id == 1001)!
     .spots.flatMap(spot => spot.quests);
-  const rankupsNA = niceWar
+  const rankupsNA = niceWarNA
     .find(war => war.id == 1001)!
     .spots.flatMap(spot => spot.quests);
 
@@ -125,34 +140,16 @@ export const bundleUpgrades: PrebuildBundler<Upgrade[]> = async function () {
     };
     if (rankupNA) upgrade.na = true;
 
-    // describe upgrade type if applicable
-    let relatedSkill: ReturnType<typeof getRelatedSkill>;
-    let relatedNP: ReturnType<typeof getRelatedNP>;
-
-    if ((relatedSkill = getRelatedSkill(servant, rankup.id))) {
-      // upgrades skill
-      skills.add(relatedSkill.id);
-      upgrade.upgrades = {
-        type: "skill",
-        newId: relatedSkill.id
-      };
-
-      const previousSkill = getPreviousSkill(servant, relatedSkill);
-      if (previousSkill) {
-        skills.add(previousSkill.id);
-        upgrade.upgrades.id = previousSkill.id;
+    const upgradeMap = getUpgradeMap(servant, rankup.id);
+    if (upgradeMap) {
+      upgrade.upgrades = upgradeMap;
+      if (upgradeMap.type == "np") {
+        nps.add(upgradeMap.id);
+        nps.add(upgradeMap.newId);
+      } else {
+        if (upgradeMap.id) skills.add(upgradeMap.id);
+        skills.add(upgradeMap.newId);
       }
-    } else if ((relatedNP = getRelatedNP(servant, rankup.id))) {
-      // upgrades NP
-      nps.add(relatedNP.id);
-      const previousNP = getPreviousNP(servant, relatedNP);
-      nps.add(previousNP.id);
-
-      upgrade.upgrades = {
-        type: "np",
-        id: previousNP.id,
-        newId: relatedNP.id
-      };
     } else {
       Log.error(
         `Could not find related Skill or NP for rankup quest id ${rankup.id}`
