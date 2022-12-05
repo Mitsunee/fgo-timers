@@ -1,0 +1,46 @@
+.select {
+  display: inline-flex;
+}
+
+.select {
+  flex-direction: row;
+  padding: 0.33em 0px;
+}
+
+.button {
+  border-radius: 0px;
+
+  &:first-child {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+  }
+  &:last-child {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+  }
+
+  &.selected,
+  &.selected:hover,
+  &.selected:active {
+    color: var(--hover);
+    border-top-color: var(--light);
+    border-left-color: var(--light);
+    box-shadow: 0px 2px var(--dark);
+    background-image: linear-gradient(to bottom, var(--light), transparent 50%);
+  }
+
+  &.unselected {
+    opacity: 0.75;
+    border-left-color: var(--bg-primary);
+    border-top-color: var(--bg-primary);
+
+    &:active {
+      box-shadow: 0px 2px var(--dark), inset 0px 2px 3px var(--dark);
+    }
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+  }
+}

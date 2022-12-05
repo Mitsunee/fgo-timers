@@ -6,7 +6,7 @@ import { settingsStore, setSetting } from "@stores/settingsStore";
 import Modal from "@components/Modal";
 import ModalMenu from "@components/ModalMenu";
 import Headline from "@components/Headline";
-import { Select, SelectOption } from "@components/Select";
+import { Select, SelectOption } from "@components/Selector";
 import DebugInfo from "./DebugInfo";
 
 const handleClockFormatChange = ({ value, event }) => {

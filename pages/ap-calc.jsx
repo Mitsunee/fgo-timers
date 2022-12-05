@@ -16,7 +16,7 @@ import {
 import Meta from "@components/Meta";
 import Clocks from "@components/Clocks";
 import Section from "@components/Section";
-import { Select, SelectOption } from "@components/Select";
+import { Select, SelectOption } from "@components/Selector";
 import { FormField, Results } from "@components/ApCalc";
 import InputNumber from "@components/InputNumber";
 import Input from "@components/Input";

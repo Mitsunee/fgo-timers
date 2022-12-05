@@ -69,11 +69,11 @@ img {
 }
 
 :where(a.button),
-a.button.decorated {
+a.button-decorated {
   text-decoration: none;
 }
 
-.button.decorated {
+.button-decorated {
   padding: 6px 0.75em;
   border: 1px solid transparent;
   border-top-color: var(--light);
@@ -109,6 +109,7 @@ a.button.decorated {
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
+  user-select: none;
 
   &:focus-visible {
     outline: 1px solid var(--hover);

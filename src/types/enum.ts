@@ -17,5 +17,5 @@ export enum Availability {
 
 export enum GlobalStyles {
   BUTTON = "button",
-  BUTTON_DECORATED = "decorated"
+  BUTTON_DECORATED = "button-decorated"
 }

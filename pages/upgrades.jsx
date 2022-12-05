@@ -10,7 +10,7 @@ import { withAddedProps } from "@utils/withAddedProps";
 import Pagination from "@components/Pagination";
 import Meta from "@components/Meta";
 import Section from "@components/Section";
-import { Select, SelectOption } from "@components/Select";
+import { Select, SelectOption } from "@components/Selector";
 import Input from "@components/Input";
 import { Button } from "@components/Button";
 import CollapsableSection from "@components/CollapsableSection";
