@@ -5,3 +5,4 @@ export { Button, ButtonRow };
 
 export { ActionButton } from "./ActionButton";
 export { LinkButton } from "./LinkButton";
+export type { ButtonIconProps, OptionalButtonIconProps } from "./types";
