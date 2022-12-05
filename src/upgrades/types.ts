@@ -14,7 +14,6 @@ export interface QuestUnlockCondition {
 
 interface QuestBase {
   name: string;
-  search: string; // search subject
   open?: number; // opening date as timestamp
   type: UpgradeQuestType;
   na?: true;

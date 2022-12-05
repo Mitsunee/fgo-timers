@@ -1,12 +1,6 @@
 import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
-import { latinize } from "../utils/latinize";
 import { atlasCache } from "../atlas-api/cache";
 import { nameServantClass } from "./classNames";
-
-interface ServantName {
-  name: string;
-  search: string;
-}
 
 const baseNameCache = new Map<number, string>();
 
@@ -43,13 +37,12 @@ function getBaseName(servant: Servant): string {
   return cached;
 }
 
-export async function nameServant(servantId: number): Promise<ServantName> {
+export async function nameServant(servantId: number): Promise<string> {
   niceServant ??= await atlasCache.JP.getNiceServant();
   niceServantNA ??= await atlasCache.NA.getNiceServant();
 
   const servant = niceServant.find(servant => servant.id == servantId)!;
   const baseName = getBaseName(servant);
-  const searchName = latinize(baseName.replace(/\(|\)/g, ""));
   let overrideName: string | undefined;
 
   if (
@@ -64,8 +57,5 @@ export async function nameServant(servantId: number): Promise<ServantName> {
     )})`;
   }
 
-  return {
-    name: overrideName || baseName,
-    search: searchName
-  };
+  return overrideName || baseName;
 }

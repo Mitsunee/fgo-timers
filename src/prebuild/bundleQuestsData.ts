@@ -15,7 +15,6 @@ import { getQuestData } from "../upgrades/getQuestData";
 import { Log } from "../utils/log";
 import { parseQuestType } from "../upgrades/parseQuestType";
 import { parseUnlockCond } from "../upgrades/parseUnlockCond";
-import { latinize } from "../utils/latinize";
 import { verifySchema } from "../schema/verifySchema";
 
 const overridesFilePath = join(
@@ -83,7 +82,6 @@ export const bundleQuestsData: DataBundler<BundledQuest> = async bundles => {
         const data: QuestUpgrade = {
           type,
           name,
-          search: latinize(name),
           open
         };
 
@@ -110,8 +108,7 @@ export const bundleQuestsData: DataBundler<BundledQuest> = async bundles => {
         const name = questNA?.name || quest.name;
         const data: QuestOther = {
           type,
-          name,
-          search: latinize(name)
+          name
         };
 
         if (questNA) data.na = true;

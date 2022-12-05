@@ -23,7 +23,6 @@ export type NPType = ServantCard.BUSTER | ServantCard.ARTS | ServantCard.QUICK;
 
 export interface BundledServant {
   name: string;
-  search: string;
   icon: string;
   classId: ClassName;
   border: ServantBorder;

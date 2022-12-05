@@ -48,11 +48,10 @@ export const bundleServantsData: DataBundler<
     }
 
     const servantNA = basicServantNA.find(servant => servant.id == servantId);
-    const { name, search } = await nameServant(servant.id);
+    const name = await nameServant(servant.id);
     const availability = availabilityMap.match(servantId);
     const data: BundledServant = {
       name,
-      search,
       icon: shortenAtlasUrl(servant.face),
       classId: servant.className,
       border: mapServantRarityToBorder(servant.rarity),

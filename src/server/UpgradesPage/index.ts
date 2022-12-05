@@ -26,7 +26,7 @@ export const getStaticProps: GetStaticProps<UpgradesPageProps> = async () => {
   upgrades.sort((upgradeA, upgradeB) => {
     const questA = quests[upgradeA.quest] as QuestUpgrade;
     const questB = quests[upgradeB.quest] as QuestUpgrade;
-    const offset =
+    const offset: number =
       (upgradeA.na ? 0 : JP_TO_NA_ESTIMATE) -
       (upgradeB.na ? 0 : JP_TO_NA_ESTIMATE);
 

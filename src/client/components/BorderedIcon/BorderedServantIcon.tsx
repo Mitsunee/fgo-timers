@@ -24,7 +24,6 @@ export function BorderedServantIcon({
   showClass,
   servantId,
   name,
-  search,
   icon,
   classId,
   rarity,
@@ -34,7 +33,6 @@ export function BorderedServantIcon({
 }: BorderedServantIconProps) {
   const servant: BundledServant = {
     name,
-    search,
     icon,
     classId,
     border: props.border,
