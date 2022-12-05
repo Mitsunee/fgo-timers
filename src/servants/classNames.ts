@@ -66,3 +66,18 @@ export function getClassIconPath(
       return `${basePath}/question${rarityStr}.png`;
   }
 }
+
+export function classIsExtra(classId: ClassName): boolean {
+  switch (classId) {
+    case ClassName.SABER:
+    case ClassName.ARCHER:
+    case ClassName.LANCER:
+    case ClassName.RIDER:
+    case ClassName.CASTER:
+    case ClassName.ASSASSIN:
+    case ClassName.BERSERKER:
+      return false;
+    default:
+      return true;
+  }
+}
