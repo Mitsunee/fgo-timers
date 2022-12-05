@@ -2846,29 +2846,6 @@
   {
     "target": "sq",
     "quest": {
-      "id": 91203501,
-      "name": "英雄かくあるべし、と少年は思う",
-      "search": "英雄かくあるへし、と少年は思う",
-      "open": 1607936400,
-      "type": "interlude",
-      "unlock": {
-        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
-        "ascension": 2,
-        "bond": 3
-      }
-    },
-    "servant": {
-      "id": 203500,
-      "name": "Paris",
-      "search": "paris",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_2035000.png",
-      "className": "archer",
-      "na": true
-    }
-  },
-  {
-    "target": "sq",
-    "quest": {
       "id": 91300101,
       "name": "The Taboo",
       "search": "the taboo",
@@ -5885,29 +5862,6 @@
       "name": "Altria Pendragon Alter (Rider)",
       "search": "altria pendragon alter (rider)",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_4027000.png",
-      "className": "rider",
-      "na": true
-    }
-  },
-  {
-    "target": "sq",
-    "quest": {
-      "id": 91403401,
-      "name": "ドリーム・トレジャー",
-      "search": "トリム・トレシャ",
-      "open": 1607936400,
-      "type": "interlude",
-      "unlock": {
-        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
-        "ascension": 2,
-        "bond": 3
-      }
-    },
-    "servant": {
-      "id": 403400,
-      "name": "Bartholomew Roberts",
-      "search": "bartholomew roberts",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_4034000.png",
       "className": "rider",
       "na": true
     }
@@ -9619,39 +9573,6 @@
     }
   },
   {
-    "target": "np",
-    "initial": {
-      "name": "Wu Er Da",
-      "type": "arts",
-      "border": "black",
-      "na": true
-    },
-    "np": { "name": "Wu Er Da", "type": "arts", "border": "gold" },
-    "quest": {
-      "id": 91603602,
-      "name": "受け継がれるもの",
-      "search": "受け継かれるもの",
-      "open": 1607936400,
-      "type": "interlude",
-      "unlock": {
-        "quest": [
-          { "name": "Grand Order", "id": 1000011, "na": true },
-          { "name": "Perseverance Will Prevail", "id": 91603601, "na": true }
-        ],
-        "ascension": 3,
-        "bond": 5
-      }
-    },
-    "servant": {
-      "id": 603600,
-      "name": "Li Shuwen (Assassin)",
-      "search": "li shuwen",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_6036000.png",
-      "className": "assassin",
-      "na": true
-    }
-  },
-  {
     "target": "sq",
     "quest": {
       "id": 91603801,
@@ -11658,36 +11579,6 @@
     }
   },
   {
-    "target": "np",
-    "initial": {
-      "name": "Custos Morum",
-      "type": "arts",
-      "border": "black",
-      "na": true
-    },
-    "np": { "name": "Custos Morum", "type": "arts", "border": "gold" },
-    "quest": {
-      "id": 91900801,
-      "name": "裁くもの 裁かれるもの",
-      "search": "裁くもの 裁かれるもの",
-      "open": 1607936400,
-      "type": "interlude",
-      "unlock": {
-        "quest": [{ "name": "intro.3-4", "id": 3000303, "na": true }],
-        "ascension": 2,
-        "bond": 4
-      }
-    },
-    "servant": {
-      "id": 900800,
-      "name": "Astraea",
-      "search": "astraea",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_9008000.png",
-      "className": "ruler",
-      "na": true
-    }
-  },
-  {
     "target": "skill",
     "initial": {
       "name": "Masochistic Nature A",
@@ -13155,29 +13046,6 @@
   {
     "target": "sq",
     "quest": {
-      "id": 91204001,
-      "name": "エモーショナルな私達",
-      "search": "エモショナルな私達",
-      "open": 1607936400,
-      "type": "interlude",
-      "unlock": {
-        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
-        "ascension": 3,
-        "bond": 4
-      }
-    },
-    "servant": {
-      "id": 204000,
-      "name": "Sei Shounagon (Archer)",
-      "search": "sei shounagon",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_2040000.png",
-      "className": "archer",
-      "na": true
-    }
-  },
-  {
-    "target": "sq",
-    "quest": {
       "id": 91204002,
       "name": "白い月を仰いで",
       "search": "白い月を仰いて",
@@ -13495,29 +13363,6 @@
     }
   },
   {
-    "target": "sq",
-    "quest": {
-      "id": 91104201,
-      "name": "導きの星をさがして",
-      "search": "導きの星をさかして",
-      "open": 1607936400,
-      "type": "interlude",
-      "unlock": {
-        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
-        "ascension": 2,
-        "bond": 5
-      }
-    },
-    "servant": {
-      "id": 104200,
-      "name": "Dioscuri",
-      "search": "dioscuri",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_1042000.png",
-      "className": "saber",
-      "na": true
-    }
-  },
-  {
     "target": "skill",
     "initial": {
       "name": "Pillaging Spear B",
@@ -13551,29 +13396,6 @@
       "name": "Caenis (Lancer)",
       "search": "caenis",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_3041000.png",
-      "className": "lancer",
-      "na": true
-    }
-  },
-  {
-    "target": "sq",
-    "quest": {
-      "id": 91304201,
-      "name": "我が手のもたらす罪",
-      "search": "我か手のもたらす罪",
-      "open": 1607936400,
-      "type": "interlude",
-      "unlock": {
-        "quest": [{ "name": "Return", "id": 1000822, "na": true }],
-        "ascension": 3,
-        "bond": 5
-      }
-    },
-    "servant": {
-      "id": 304200,
-      "name": "Romulus=Quirinus",
-      "search": "romulus=quirinus",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_3042000.png",
       "className": "lancer",
       "na": true
     }
@@ -17300,6 +17122,196 @@
       "search": "queen of sheba",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_5034000.png",
       "className": "caster",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91104201,
+      "name": "In Search of a Guiding Star",
+      "search": "in search of a guiding star",
+      "open": 1669953600,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
+        "ascension": 2,
+        "bond": 5
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 104200,
+      "name": "Dioscuri",
+      "search": "dioscuri",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_1042000.png",
+      "className": "saber",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91203501,
+      "name": "What a Hero Should Be, According to a Boy",
+      "search": "what a hero should be, according to a boy",
+      "open": 1669953600,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
+        "ascension": 2,
+        "bond": 3
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 203500,
+      "name": "Paris",
+      "search": "paris",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_2035000.png",
+      "className": "archer",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91204001,
+      "name": "We Are So Emotional",
+      "search": "we are so emotional",
+      "open": 1669953600,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
+        "ascension": 3,
+        "bond": 4
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 204000,
+      "name": "Sei Shounagon (Archer)",
+      "search": "sei shounagon",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_2040000.png",
+      "className": "archer",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91304201,
+      "name": "Sins My Hands Wrought",
+      "search": "sins my hands wrought",
+      "open": 1669953600,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "Return", "id": 1000822, "na": true }],
+        "ascension": 3,
+        "bond": 5
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 304200,
+      "name": "Romulus=Quirinus",
+      "search": "romulus=quirinus",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_3042000.png",
+      "className": "lancer",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91403401,
+      "name": "Dream Treasure",
+      "search": "dream treasure",
+      "open": 1669953600,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
+        "ascension": 2,
+        "bond": 3
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 403400,
+      "name": "Bartholomew Roberts",
+      "search": "bartholomew roberts",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_4034000.png",
+      "className": "rider",
+      "na": true
+    }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Wu Er Da",
+      "type": "arts",
+      "border": "black",
+      "na": true
+    },
+    "np": { "name": "Wu Er Da", "type": "arts", "border": "gold", "na": true },
+    "quest": {
+      "id": 91603602,
+      "name": "Inheritor",
+      "search": "inheritor",
+      "open": 1669953600,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          { "name": "Grand Order", "id": 1000011, "na": true },
+          { "name": "Perseverance Will Prevail", "id": 91603601, "na": true }
+        ],
+        "ascension": 3,
+        "bond": 5
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 603600,
+      "name": "Li Shuwen (Assassin)",
+      "search": "li shuwen",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_6036000.png",
+      "className": "assassin",
+      "na": true
+    }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Custos Morum",
+      "type": "arts",
+      "border": "black",
+      "na": true
+    },
+    "np": {
+      "name": "Custos Morum",
+      "type": "arts",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 91900801,
+      "name": "The Judge and the Judged",
+      "search": "the judge and the judged",
+      "open": 1669953600,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "intro.3-4", "id": 3000303, "na": true }],
+        "ascension": 2,
+        "bond": 4
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 900800,
+      "name": "Astraea",
+      "search": "astraea",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_9008000.png",
+      "className": "ruler",
       "na": true
     }
   }
