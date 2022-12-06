@@ -10,10 +10,21 @@ import { ClassName } from "@atlasacademy/api-connector";
 import {
   BundledServant /*,BundledSkill, BundledNP */
 } from "src/servants/types";
-import { classIsExtra } from "src/servants/classNames";
+import {
+  classIsExtra,
+  getClassIconPath,
+  nameServantClass
+} from "src/servants/classNames";
 import Section from "src/client/components/Section";
-import { Selector, SelectorOption } from "@components/Selector/Selector";
-//import styles from "src/client/styles/UpgradesPage.module.css";
+import {
+  Selector,
+  SelectorOption
+} from "src/client/components/Selector/Selector";
+import { ActionButton } from "src/client/components/Button";
+import Meta from "src/client/components/Meta";
+import styles from "src/client/styles/UpgradesPage.module.css";
+import FlagEN from "flag-icons/flags/4x3/gb.svg";
+import FlagJP from "flag-icons/flags/4x3/jp.svg";
 
 export { getStaticProps };
 type UpgradesPageProps = InferGetStaticPropsType<typeof getStaticProps>;
@@ -28,6 +39,17 @@ type SelectableClassId =
   | ClassName.BERSERKER
   | ClassName.EXTRA;
 
+const selectableClasses: SelectableClassId[] = [
+  ClassName.SABER,
+  ClassName.ARCHER,
+  ClassName.LANCER,
+  ClassName.RIDER,
+  ClassName.CASTER,
+  ClassName.ASSASSIN,
+  ClassName.BERSERKER,
+  ClassName.EXTRA
+];
+
 interface FormFilterState {
   region: null | SupportedRegion;
   target: null | "skill" | "np" | "sq";
@@ -39,24 +61,18 @@ const formFiltersDefault: FormFilterState = {
   region: "JP",
   target: null,
   type: null,
-  classId: {
-    [ClassName.SABER]: false,
-    [ClassName.ARCHER]: false,
-    [ClassName.LANCER]: false,
-    [ClassName.RIDER]: false,
-    [ClassName.CASTER]: false,
-    [ClassName.ASSASSIN]: false,
-    [ClassName.BERSERKER]: false,
-    [ClassName.EXTRA]: false
-  }
+  classId: Object.fromEntries(
+    Array.from(selectableClasses, id => [id, false])
+  ) as FormFilterState["classId"]
 };
 
 type FormFilterAction =
-  | { type: "region"; value: FormFilterState["region"]; key?: undefined }
-  | { type: "target"; value: FormFilterState["target"]; key?: undefined }
-  | { type: "type"; value: FormFilterState["type"]; key?: undefined }
-  | { type: "classId"; key: SelectableClassId; value: boolean };
+  | { type: "region"; value: FormFilterState["region"] }
+  | { type: "target"; value: FormFilterState["target"] }
+  | { type: "type"; value: FormFilterState["type"] }
+  | { type: "classId"; value: SelectableClassId };
 
+// BUG: prevent impossible states such as target:sq & type:rankup
 function filtersReducer(
   state: FormFilterState,
   action: FormFilterAction
@@ -69,8 +85,14 @@ function filtersReducer(
     case "classId":
       return {
         ...state,
-        classId: { ...state.classId, [action.key]: action.value }
+        classId: {
+          ...state.classId,
+          [action.value]: !state.classId[action.value]
+        }
       };
+    default:
+      // return same object for unknown action to prevent rerender
+      return state;
   }
 }
 
@@ -81,20 +103,83 @@ interface FiltersFormProps extends PropsWithChildren {
 
 const regionSelectOptions: SelectorOption<FormFilterState["region"]>[] = [
   { value: null, label: "All" },
-  { value: "NA", label: "NA-only" },
-  { value: "JP", label: "JP-only" }
+  { value: "NA", label: "EN", icon: FlagEN.src as string, title: "EN" },
+  { value: "JP", label: "JP", icon: FlagJP.src as string, title: "JP" }
+];
+const targetSelectOptions: SelectorOption<FormFilterState["target"]>[] = [
+  { value: null, label: "All" },
+  {
+    value: "skill",
+    label: "Skill",
+    icon: "https://static.atlasacademy.io/JP/Items/9.png",
+    title: "Skill Upgrade"
+  },
+  {
+    value: "np",
+    label: "NPs",
+    icon: "https://static.atlasacademy.io/JP/Items/8.png",
+    title: "NP Upgrade"
+  },
+  {
+    value: "sq",
+    label: "SQ Interludes",
+    icon: "https://static.atlasacademy.io/JP/Items/6.png",
+    title: "Saint Quartz"
+  }
+];
+const typeSelectOptions: SelectorOption<FormFilterState["type"]>[] = [
+  { value: null, label: "All" },
+  { value: UpgradeQuestType.INTERLUDE, label: "Interludes" },
+  { value: UpgradeQuestType.RANKUP, label: "Rank Ups" }
 ];
 
 function FiltersForm({ children, filters, setFilter }: FiltersFormProps) {
   return (
     <Section background="blue">
-      <form onSubmit={ev => ev.preventDefault()}>
-        Region:{" "}
-        <Selector
-          value={filters.region}
-          onChange={value => setFilter({ type: "region", value })}
-          options={regionSelectOptions}
-        />
+      <form onSubmit={ev => ev.preventDefault()} className={styles.formSection}>
+        <fieldset>
+          <legend>Region</legend>
+          <Selector
+            value={filters.region}
+            onChange={value => setFilter({ type: "region", value })}
+            options={regionSelectOptions}
+          />
+        </fieldset>
+        <fieldset>
+          <legend>Upgrade Type</legend>
+          <Selector
+            value={filters.target}
+            onChange={value => setFilter({ type: "target", value })}
+            options={targetSelectOptions}
+          />
+        </fieldset>
+        <fieldset>
+          <legend>Quest Type</legend>
+          <Selector
+            value={filters.type}
+            onChange={value => setFilter({ type: "type", value })}
+            options={typeSelectOptions}
+          />
+        </fieldset>
+        <fieldset>
+          <legend>Class</legend>
+          {selectableClasses.map(classId => {
+            const name = nameServantClass(classId);
+            return (
+              <ActionButton
+                key={name}
+                onClick={() => setFilter({ type: "classId", value: classId })}
+                decorated={false}
+                icon={getClassIconPath(classId)}
+                title={name}
+                className={[
+                  styles.classSel,
+                  !filters.classId[classId] && styles.unselected
+                ]}
+              />
+            );
+          })}
+        </fieldset>
         {children}
       </form>
     </Section>
@@ -110,7 +195,7 @@ function Page() {
   const [searchQuery, _setSearchQuery] = useState<string>("");
 
   const upgrades = res.data!.upgrades;
-  const questMap = res.data!.quests as Record<number, BundledQuest>;
+  //const questMap = res.data!.quests as Record<number, BundledQuest>;
   //const servantMap = res.data!.servants as Record<number, BundledServant>;
   //const skillMap = res.data!.skills as Record<number, BundledSkill>;
   //const npMap = res.data!.nps as Record<number, BundledNP>;
@@ -205,9 +290,6 @@ function Page() {
               filters,
               filterResults: filteredUpgrades.length,
               totalNum: upgrades.length,
-              upgradeJP: upgrades.filter(upgrade => !upgrade.na).length,
-              questJP: upgrades.filter(upgrade => !questMap[upgrade.quest].na)
-                .length,
               searchQuery,
               upgrades: filteredUpgrades.slice(0, 10)
             },
@@ -222,8 +304,15 @@ function Page() {
 
 export default function UpgradesPage(fallback: UpgradesPageProps) {
   return (
-    <SWRConfig value={fallback}>
-      <Page />
-    </SWRConfig>
+    <>
+      <Meta
+        title="Upgrades"
+        description="Explore the Interludes and Rank Up Quests of Fate/Grand Order"
+        image="/assets/meta/upgrades.jpg"
+      />
+      <SWRConfig value={fallback}>
+        <Page />
+      </SWRConfig>
+    </>
   );
 }

@@ -1,0 +1,28 @@
+.formSection {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.66em;
+  margin: 0.66em 0px;
+
+  & fieldset {
+    border: none;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+  }
+
+  & button.classSel {
+    font-size: 1.5em;
+    margin: 0px;
+    padding: 0px 4px;
+    & > img {
+      margin: 0px;
+    }
+    &.unselected {
+      opacity: 0.5;
+    }
+  }
+}
