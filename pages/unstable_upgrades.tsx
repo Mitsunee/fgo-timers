@@ -2,11 +2,14 @@ import type { InferGetStaticPropsType } from "next";
 import useSWR, { SWRConfig } from "swr";
 import { PropsWithChildren, useMemo, useReducer, useState } from "react";
 import { Searcher } from "fast-fuzzy";
+import { ClassName } from "@atlasacademy/api-connector";
+import FlagEN from "flag-icons/flags/4x3/gb.svg";
+import FlagJP from "flag-icons/flags/4x3/jp.svg";
+
 import type { SupportedRegion } from "src/atlas-api/api";
 import { getStaticProps } from "src/server/UpgradesPage";
 import { fetcher, UpgradesPageData } from "src/server/DataApi";
 import { BundledQuest, Upgrade, UpgradeQuestType } from "src/upgrades/types";
-import { ClassName } from "@atlasacademy/api-connector";
 import {
   BundledServant /*,BundledSkill, BundledNP */
 } from "src/servants/types";
@@ -23,8 +26,7 @@ import {
 import { ActionButton } from "src/client/components/Button";
 import Meta from "src/client/components/Meta";
 import styles from "src/client/styles/UpgradesPage.module.css";
-import FlagEN from "flag-icons/flags/4x3/gb.svg";
-import FlagJP from "flag-icons/flags/4x3/jp.svg";
+import Input from "@components/Input";
 
 export { getStaticProps };
 type UpgradesPageProps = InferGetStaticPropsType<typeof getStaticProps>;
@@ -192,11 +194,11 @@ function Page() {
     revalidateOnReconnect: false
   });
   const [filters, setFilter] = useReducer(filtersReducer, formFiltersDefault);
-  const [searchQuery, _setSearchQuery] = useState<string>("");
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   const upgrades = res.data!.upgrades;
-  //const questMap = res.data!.quests as Record<number, BundledQuest>;
-  //const servantMap = res.data!.servants as Record<number, BundledServant>;
+  const questMap = res.data!.quests as Record<number, BundledQuest>;
+  const servantMap = res.data!.servants as Record<number, BundledServant>;
   //const skillMap = res.data!.skills as Record<number, BundledSkill>;
   //const npMap = res.data!.nps as Record<number, BundledNP>;
 
@@ -207,6 +209,7 @@ function Page() {
       - how to handle reset to page 1 when dataset changes?
 
     - fast-fuzzy
+      - Searcher.search("") gives no results, how to map filteredResults?
       - highlight search subjects based on returnMatchData?
         - returntype does return the string that matched (servant or quest name) + match index and length
       - is it possible to search servant name AND quest name? yes!
@@ -215,9 +218,10 @@ function Page() {
 
     - What to print during res.isValidating instead of filter form to describe fallback data?
     - What should fallback data be? (filters must match in getStaticProps and formStateDefault!)
+    - How to sort and slice the output?
   */
 
-  const [_searcher, filteredUpgrades] = useMemo(() => {
+  const [searcher, filteredUpgrades] = useMemo(() => {
     // redefining res.data stuff in this scope so they aren't needed in dependecy array
     const upgrades = res.data!.upgrades;
     const questMap = res.data!.quests as Record<number, BundledQuest>;
@@ -273,15 +277,30 @@ function Page() {
     return [searcher, filteredUpgrades] as [typeof searcher, Upgrade[]];
   }, [res.isValidating, res.data, filters]);
 
-  // TODO: slice output?
-
   if (res.error) {
+    // TODO: nicer error
     return <h1>ERROR: {res.error}</h1>;
   }
 
+  // TODO: type properly?
+  const results = // TODO: sort and slice output
+    res.isValidating || searchQuery == ""
+      ? filteredUpgrades.map(upgrade => ({ item: upgrade }))
+      : searcher.search(searchQuery);
+
   return (
     <>
-      <FiltersForm filters={filters} setFilter={setFilter}></FiltersForm>
+      <FiltersForm filters={filters} setFilter={setFilter}>
+        <fieldset>
+          <legend>Search</legend>
+          <Input
+            type="text"
+            value={searchQuery}
+            onChange={ev => setSearchQuery(ev.target.value)}
+            placeholder="Servant or Quest name"
+          />
+        </fieldset>
+      </FiltersForm>
       <code>
         <pre>
           {JSON.stringify(
@@ -291,7 +310,16 @@ function Page() {
               filterResults: filteredUpgrades.length,
               totalNum: upgrades.length,
               searchQuery,
-              upgrades: filteredUpgrades.slice(0, 10)
+              upgrades: results
+                .slice(0, 10)
+                .map(
+                  ({ item: upgrade }) =>
+                    `${servantMap[upgrade.servant].name}: [${
+                      questMap[upgrade.quest].type
+                    }] ${questMap[upgrade.quest].name} (${
+                      upgrade.upgrades?.type || "sq"
+                    })`
+                )
             },
             null,
             2
