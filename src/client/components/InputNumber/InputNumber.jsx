@@ -1,5 +1,5 @@
+// TODO: phase out this component in favour of new typed component in ../Input
 import { useState, useEffect } from "react";
-
 //import styles from "./InputNumber.module.css";
 import Input from "@components/Input";
 

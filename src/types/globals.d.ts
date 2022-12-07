@@ -4,3 +4,4 @@ interface BuildInfo {
   date: number;
   version: string;
 }
+type Stringable = string | number | { toString(): string };
