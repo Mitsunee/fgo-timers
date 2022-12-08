@@ -3,14 +3,16 @@ import useSWR, { SWRConfig } from "swr";
 import { PropsWithChildren, useMemo, useReducer, useState } from "react";
 import { Searcher } from "fast-fuzzy";
 import { ClassName } from "@atlasacademy/api-connector";
+// @ts-ignore
 import FlagEN from "flag-icons/flags/4x3/gb.svg";
+// @ts-ignore
 import FlagJP from "flag-icons/flags/4x3/jp.svg";
 
 import type { SupportedRegion } from "src/atlas-api/api";
 import { getStaticProps } from "src/server/UpgradesPage";
 import { fetcher, UpgradesPageData } from "src/server/DataApi";
 import { BundledQuest, Upgrade, UpgradeQuestType } from "src/upgrades/types";
-import {
+import type {
   BundledServant /*,BundledSkill, BundledNP */
 } from "src/servants/types";
 import {
@@ -214,14 +216,13 @@ function Page() {
         - returntype does return the string that matched (servant or quest name) + match index and length
       - is it possible to search servant name AND quest name? yes!
         - returntype includes item property with related upgrade object
-      - using fast-fuzzy removes the need for the "search" props, they can be removed
 
     - What to print during res.isValidating instead of filter form to describe fallback data?
     - What should fallback data be? (filters must match in getStaticProps and formStateDefault!)
     - How to sort and slice the output?
     - Selectors look a bit awkward on mobile right now
     - onChange happens for dead keys, can be be prevented?
-    - flag-icons is causing type errors in CI, dunno why...
+      - there's no prop on events to check such as of right now.
   */
 
   const [searcher, filteredUpgrades] = useMemo(() => {
