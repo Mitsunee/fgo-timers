@@ -3,6 +3,7 @@ import { useStore } from "@nanostores/react";
 
 import { settingsStore } from "@stores/settingsStore";
 
+// WIP: phase out in favour of new typed Hook
 export function usePaginationSlice(elements, page) {
   const { perPage } = useStore(settingsStore);
   const [out, setOut] = useState([0, 0]);

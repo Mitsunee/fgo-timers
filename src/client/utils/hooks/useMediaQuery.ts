@@ -1,19 +1,26 @@
 import { useState, useEffect } from "react";
 
+//type DimensionQuery = `(${"min"|"max"}-${"width"|"height"}: ${number}px)`;
+
 /* please keep in sync with styles/media.css */
-const queryMap = new Map([
+const queries = [
   ["x-large", "(min-width: 1280px)"],
   ["large", "(min-width: 992px)"],
   ["medium", "(min-width: 768px)"],
   ["small", "(min-width: 512px)"]
-]);
+] as const;
+type Queries = typeof queries[number][0];
+const queryMap = new Map<string, string /*DimensionQuery*/>(queries);
 
-export function useMediaQuery(queryName, assumeTrue = false) {
-  const [matches, setMatches] = useState(assumeTrue);
+export function useMediaQuery(
+  queryName: Queries | (string & {}),
+  assumeTrue: boolean = false
+) {
+  const [matches, setMatches] = useState<boolean>(assumeTrue);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const query = queryMap.get(queryName) || queryName;
+    const query: string = queryMap.get(queryName) || queryName;
     const media = window.matchMedia(query);
     const listener = () => setMatches(media.matches);
     listener();

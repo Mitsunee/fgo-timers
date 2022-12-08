@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 import spacetime from "spacetime";
 
+// TODO: phase out in favour of new typed Component
 export function useFormattedDeltaFrom(from, target) {
   const [output, setOutput] = useState("");
 

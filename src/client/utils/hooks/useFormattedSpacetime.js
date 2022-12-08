@@ -4,6 +4,7 @@ import { useStore } from "@nanostores/react";
 import { settingsStore } from "@stores/settingsStore";
 import { timeFormatsMap } from "@utils/timeFormatsMap";
 
+// TODO: phase out in favour of new typed Component
 export function useFormattedSpacetime(spacetime, formatName, ignoreSettings) {
   const [output, setOutput] = useState("");
   const { alternativeClockFormat, showServerTimes } = useStore(settingsStore);

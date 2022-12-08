@@ -3,7 +3,7 @@ import { useStore } from "@nanostores/react";
 
 import { clientStore } from "@stores/clientStore";
 
-function makeObserver(fn) {
+function makeObserver(fn: ResizeObserverCallback) {
   try {
     return new ResizeObserver(fn);
   } catch {
@@ -22,9 +22,9 @@ export const useFooterFixed = () => {
   // mount observer
   useEffect(() => {
     const { current: observer } = observerRef;
-    if (observer.current === null || typeof document === "undefined") return;
+    if (observer == null || typeof document === "undefined") return;
 
-    observer.observe(document.querySelector("#__next"));
+    observer.observe(document.querySelector("#__next")!);
 
     // Remove the observer as soon as the component is unmounted
     return () => observer.disconnect();

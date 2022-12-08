@@ -10,6 +10,7 @@ function spacetimeBuilder(timestamp, serverTime) {
     : spacetime(timestamp);
 }
 
+// TODO: phase out in favour of new typed Component
 export function useFormattedEstimate(timestamp) {
   const { showServerTimes } = useStore(settingsStore);
   const [output, setOutput] = useState("");

@@ -219,6 +219,9 @@ function Page() {
     - What to print during res.isValidating instead of filter form to describe fallback data?
     - What should fallback data be? (filters must match in getStaticProps and formStateDefault!)
     - How to sort and slice the output?
+    - Selectors look a bit awkward on mobile right now
+    - onChange happens for dead keys, can be be prevented?
+    - flag-icons is causing type errors in CI, dunno why...
   */
 
   const [searcher, filteredUpgrades] = useMemo(() => {
