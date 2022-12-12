@@ -76,28 +76,42 @@ type FormFilterAction =
   | { type: "type"; value: FormFilterState["type"] }
   | { type: "classId"; value: SelectableClassId };
 
-// BUG: prevent impossible states such as target:sq & type:rankup
 function filtersReducer(
   state: FormFilterState,
   action: FormFilterAction
 ): FormFilterState {
+  // skip useless rerender
+  if (state[action.type] == action.value) return state;
+
+  // deepClone state
+  const newState: FormFilterState = { ...state, classId: { ...state.classId } };
   switch (action.type) {
     case "region":
+      newState.region = action.value;
+      break;
     case "target":
+      newState.target = action.value;
+      // if new target is "sq" and current type is RANKUP reset type
+      if (action.value == "sq" && newState.type == UpgradeQuestType.RANKUP) {
+        newState.type = null;
+      }
+      break;
     case "type":
-      return { ...state, [action.type]: action.value };
+      newState.type = action.value;
+      // if new type is RANKUP and current target is sq reset target
+      if (action.value == UpgradeQuestType.RANKUP && newState.target == "sq") {
+        newState.target = null;
+      }
+      break;
     case "classId":
-      return {
-        ...state,
-        classId: {
-          ...state.classId,
-          [action.value]: !state.classId[action.value]
-        }
-      };
+      // boolean toggle selected class
+      newState.classId[action.value] = !newState.classId[action.value];
+      break;
     default:
-      // return same object for unknown action to prevent rerender
+      // return old state for unknown action to prevent rerender
       return state;
   }
+  return newState;
 }
 
 interface FiltersFormProps extends PropsWithChildren {
