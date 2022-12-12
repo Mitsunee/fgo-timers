@@ -4296,28 +4296,6 @@
   {
     "target": "sq",
     "quest": {
-      "id": 91304601,
-      "name": "邪竜さん、ストレス解消する",
-      "search": "邪竜さん、ストレス解消する",
-      "open": 1632906000,
-      "type": "interlude",
-      "unlock": {
-        "quest": [{ "name": "intro.3-4", "id": 3000303, "na": true }],
-        "ascension": 2,
-        "bond": 3
-      }
-    },
-    "servant": {
-      "id": 304600,
-      "name": "Vritra",
-      "search": "vritra",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_3046000.png",
-      "className": "lancer"
-    }
-  },
-  {
-    "target": "sq",
-    "quest": {
       "id": 91400101,
       "name": "Gorgon's Bride",
       "search": "gorgon's bride",
@@ -10215,42 +10193,6 @@
       "type": "rankup",
       "unlock": { "ascension": 4 },
       "na": true
-    },
-    "servant": {
-      "id": 700800,
-      "name": "Beowulf",
-      "search": "beowulf",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_7008000.png",
-      "className": "berserker",
-      "na": true
-    }
-  },
-  {
-    "target": "skill",
-    "initial": {
-      "name": "Battle Continuation B",
-      "num": 3,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "堅忍の老境 A",
-      "num": 3,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94055799,
-      "name": "強化クエスト ベオウルフ 2",
-      "search": "強化クエスト ヘオウルフ 2",
-      "open": 1608109200,
-      "type": "rankup",
-      "unlock": {
-        "quest": [
-          { "name": "Rank Up Quest: Beowulf", "id": 94035604, "na": true }
-        ]
-      }
     },
     "servant": {
       "id": 700800,
@@ -17312,6 +17254,103 @@
       "search": "astraea",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_9008000.png",
       "className": "ruler",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91304601,
+      "name": "邪竜さん、ストレス解消する",
+      "search": "邪竜さん、ストレス解消する",
+      "open": 1632906000,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "intro.3-4", "id": 3000303, "na": true }],
+        "ascension": 2,
+        "bond": 3
+      }
+    },
+    "servant": {
+      "id": 304600,
+      "name": "Vritra",
+      "search": "vritra",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_3046000.png",
+      "className": "lancer",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Battle Continuation B",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Persevering Old Age A",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94055799,
+      "name": "Rank Up Quest: Beowulf 2",
+      "search": "rank up quest: beowulf 2",
+      "open": 1670817600,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          { "name": "Rank Up Quest: Beowulf", "id": 94035604, "na": true }
+        ]
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 700800,
+      "name": "Beowulf",
+      "search": "beowulf",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_7008000.png",
+      "className": "berserker",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Golden Rule A",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00602.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "モンテ・クリストの秘宝 A+",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00602.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94081201,
+      "name": "強化クエスト 巌窟王 2",
+      "search": "強化クエスト 巌窟王 2",
+      "open": 1670835600,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          { "name": "Rank Up Quest: Edmond Dantès", "id": 94026512, "na": true }
+        ]
+      }
+    },
+    "servant": {
+      "id": 1100200,
+      "name": "Edmond Dantès",
+      "search": "edmond dantes",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_11002000.png",
+      "className": "avenger",
       "na": true
     }
   }
