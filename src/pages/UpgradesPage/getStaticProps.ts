@@ -6,12 +6,12 @@ import {
   getBundledSkills
 } from "src/servants/getBundles";
 import { getBundledQuests, getBundledUpgrades } from "src/upgrades/getBundles";
-import type { QuestUpgrade } from "src/upgrades/types";
-import { JP_TO_NA_ESTIMATE } from "src/types/constants";
-import { Log } from "src/utils/log";
 import { DataApiFallback, UpgradesPageData } from "src/server/DataApi";
+import { createUpgradeFilter, createUpgradeSorter } from "./filters";
+import { safeProxyIDMap } from "src/utils/proxyIDMap";
+import { apiUrl } from "./constants";
+import { formFiltersDefault } from "./FiltersForm";
 
-const apiUrl = "/api/data/upgrades" as const;
 type UpgradesPageProps = DataApiFallback<typeof apiUrl, UpgradesPageData>;
 
 export const getStaticProps: GetStaticProps<UpgradesPageProps> = async () => {
@@ -23,17 +23,30 @@ export const getStaticProps: GetStaticProps<UpgradesPageProps> = async () => {
     getBundledSkills()
   ]);
 
-  upgrades.sort((upgradeA, upgradeB) => {
-    const questA = quests[upgradeA.quest] as QuestUpgrade;
-    const questB = quests[upgradeB.quest] as QuestUpgrade;
-    const offset: number =
-      (upgradeA.na ? 0 : JP_TO_NA_ESTIMATE) -
-      (upgradeB.na ? 0 : JP_TO_NA_ESTIMATE);
+  // create safe proxy maps for data
+  const questMap = safeProxyIDMap(
+    quests,
+    "Could not find quest id %KEY% in prebuild data"
+  );
+  const servantMap = safeProxyIDMap(
+    servants,
+    "Could not find servant id %KEY% in prebuild data"
+  );
+  const npMap = safeProxyIDMap(
+    nps,
+    "Could not find NP id %KEY% in prebuild data"
+  );
+  const skillMap = safeProxyIDMap(
+    skills,
+    "Could not find skill %KEY% in prebuild data"
+  );
 
-    return questA.open - questB.open + offset;
-  });
+  // sort and filter upgrades
+  const sorter = createUpgradeSorter(questMap);
+  const filter = createUpgradeFilter(formFiltersDefault, servantMap, questMap);
+  const prebuiltSlice = upgrades.sort(sorter).filter(filter).slice(0, 10);
 
-  const prebuiltSlice = upgrades.filter(upgrade => upgrade.na).slice(0, 10);
+  // collect IDs to include
   const includedServants = new Set<number>();
   const includedQuests = new Set<number>();
   const includedSkills = new Set<number>();
@@ -42,11 +55,7 @@ export const getStaticProps: GetStaticProps<UpgradesPageProps> = async () => {
   for (const upgrade of prebuiltSlice) {
     includedServants.add(upgrade.servant);
     includedQuests.add(upgrade.quest);
-    const quest = quests[upgrade.quest];
-    if (!quest) {
-      Log.error(`Could not find quest id ${upgrade.quest} in prebuild data`);
-      throw new Error("Invalid data");
-    }
+    const quest = questMap[upgrade.quest];
     quest.unlock?.quests?.forEach(quest => includedQuests.add(quest));
     if (upgrade.upgrades) {
       if (upgrade.upgrades.type == "skill") {
@@ -66,47 +75,25 @@ export const getStaticProps: GetStaticProps<UpgradesPageProps> = async () => {
           upgrades: prebuiltSlice,
           servants: Object.fromEntries(
             Array.from(includedServants, servantId => {
-              const servant = servants[servantId];
-              if (!servant) {
-                Log.error(
-                  `Could not find servant id ${servantId} in prebuild data`
-                );
-                throw new Error("Invalid data");
-              }
+              const servant = servantMap[servantId];
               return [servantId, servant];
             })
           ),
           quests: Object.fromEntries(
             Array.from(includedQuests, questId => {
-              const quest = quests[questId];
-              if (!quest) {
-                Log.error(
-                  `Could not find quest id ${questId} in prebuild data`
-                );
-                throw new Error("Invalid data");
-              }
+              const quest = questMap[questId];
               return [questId, quest];
             })
           ),
           skills: Object.fromEntries(
             Array.from(includedSkills, skillId => {
-              const skill = skills[skillId];
-              if (!skill) {
-                Log.error(
-                  `Could not find skill id ${skillId} in prebuild data`
-                );
-                throw new Error("Invalid data");
-              }
+              const skill = skillMap[skillId];
               return [skillId, skill];
             })
           ),
           nps: Object.fromEntries(
             Array.from(includedNPs, npId => {
-              const np = nps[npId];
-              if (!np) {
-                Log.error(`Could not find NP id ${npId} in prebuild data`);
-                throw new Error("Invalid data");
-              }
+              const np = npMap[npId];
               return [npId, np];
             })
           )

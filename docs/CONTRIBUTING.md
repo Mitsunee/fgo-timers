@@ -59,17 +59,20 @@ Start the devServer with `yarn dev` locally on your system, then visit [http://l
   - atlas-api: Atlas Academy API Connector adapter and cache management
   - client: Frontend Components and stores
   - items: Utils for Craft Essences, Items and Custom Items
+  - pages: Temporary Location for SSG, page-specific utils and page-specific components (will be moved to `./app` when migrating to that)
   - prebuild: Prebuild script that handles API data caching and reformatting into optimized data set
   - schema: Schema files and validation script
   - scripts: Legacy Location for scripts that have not been fully migrated to zod/typescript
   - servants: Utils for Servants, Noble Phantasms and Skills
-  - server: SSG, ISR and related util functions
+  - server: Legacy Location for SSG, ISR and related util functions
   - types: globally used types and Enums (note that there may also be files matching `src/*/types(.d)?.ts`)
   - upgrades: utils related to Quests and Upgrades (Interludes and Rank Ups)
   - utils: generic utils
 - tests (mirrors src unless specified here):
   - \_\_mockups\_\_: Contains mock assets used in legacy tests (ignored by jest config)
   - scripts-uvu: Contains all legacy tests (ignored by jest config)
+
+Note: As of Next.js 13 the `./app` directory will not yet be used, but complex pages may use `./src/pages` to hold their specific styles, components and utils.
 
 ## Environment Variables
 
