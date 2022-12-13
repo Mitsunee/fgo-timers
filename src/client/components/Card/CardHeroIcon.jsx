@@ -7,6 +7,8 @@ export default function CardHeroIcon({ icon, alt, forceRoundIcon }) {
     <div className={styles.wrapper}>
       <img
         src={icon}
+        width="100"
+        height="100"
         alt={alt}
         className={cc(forceRoundIcon && styles.forceRound)}
       />
