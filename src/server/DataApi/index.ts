@@ -1,3 +1,4 @@
+//import { sleep } from "@foxkit/util/sleep";
 import type {
   BundledNP,
   BundledServant,
@@ -31,6 +32,7 @@ function isSuccess<T extends {}>(
 }
 
 export const fetcher = async <T extends {}>(url: URL | string) => {
+  //await sleep(5000);
   const res = await fetch(url);
   const data: DataApiResponse<T> = await res.json();
   if (!res.ok || !isSuccess(data)) {

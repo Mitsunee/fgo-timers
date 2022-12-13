@@ -1,3 +1,4 @@
+import cc from "classcat";
 import { ClassName } from "@atlasacademy/api-connector";
 import type { PropsWithChildren } from "react";
 // @ts-ignore
@@ -13,6 +14,7 @@ import {
 } from "src/client/components/Selector/Selector";
 import { ActionButton } from "src/client/components/Button";
 import styles from "./FiltersForm.module.css";
+import Pending from "@components/Pending/Pending";
 
 export type SelectableClassId =
   | ClassName.SABER
@@ -98,6 +100,7 @@ export function filtersReducer(
 interface FiltersFormProps extends PropsWithChildren {
   filters: FormFilterState;
   setFilter: (action: FormFilterAction) => void;
+  isPending: boolean;
 }
 
 const regionSelectOptions: SelectorOption<FormFilterState["region"]>[] = [
@@ -135,10 +138,13 @@ const typeSelectOptions: SelectorOption<FormFilterState["type"]>[] = [
 export function FiltersForm({
   children,
   filters,
-  setFilter
+  setFilter,
+  isPending
 }: FiltersFormProps) {
   return (
-    <form onSubmit={ev => ev.preventDefault()} className={styles.formSection}>
+    <form
+      onSubmit={ev => ev.preventDefault()}
+      className={cc([styles.formSection, isPending && styles.isPending])}>
       <fieldset>
         <legend>Region</legend>
         <Selector
@@ -183,6 +189,7 @@ export function FiltersForm({
         })}
       </fieldset>
       {children}
+      {isPending && <Pending className={styles.pending} />}
     </form>
   );
 }

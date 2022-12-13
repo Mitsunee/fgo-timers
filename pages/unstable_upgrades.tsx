@@ -116,7 +116,10 @@ function Page() {
   return (
     <>
       <Section background="blue">
-        <FiltersForm filters={filters} setFilter={setFilter}>
+        <FiltersForm
+          filters={filters}
+          setFilter={setFilter}
+          isPending={res.isValidating}>
           <fieldset>
             <legend>Search</legend>
             <Input

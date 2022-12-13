@@ -5,7 +5,24 @@
   justify-content: space-between;
   align-items: center;
   gap: 0.66em;
+  position: relative;
   margin: 0.66em 0px;
+  min-height: 160px;
+
+  &.isPending {
+    & > :not(.pending) {
+      opacity: 0;
+    }
+
+    & > .pending {
+      position: absolute;
+      inset: 0px;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: space-around;
+    }
+  }
 
   & fieldset {
     border: none;
