@@ -4,7 +4,12 @@ import {
 } from "@atlasacademy/api-connector/dist/Schema/Quest.js";
 import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
 
-import { Upgrade, UpgradeMap } from "../upgrades/types";
+import {
+  Upgrade,
+  UpgradeMap,
+  UpgradeMapNP,
+  UpgradeMapSkill
+} from "../upgrades/types";
 import type { PrebuildBundler } from "./bundlers";
 import { atlasCache } from "../atlas-api/cache";
 import {
@@ -15,14 +20,17 @@ import {
 import { Log } from "../utils/log";
 import { getPreviousNP, getPreviousSkill } from "../upgrades/getPrevious";
 
-function getUpgradeMap(servant: Servant, questId: number): UpgradeMap | false {
+function getUpgradeMap(
+  servant: Servant,
+  questId: number
+): UpgradeMap | undefined {
   // describe upgrade type if applicable
   let relatedSkill: ReturnType<typeof getRelatedSkill>;
   let relatedNP: ReturnType<typeof getRelatedNP>;
 
   if ((relatedSkill = getRelatedSkill(servant, questId))) {
     // upgrades skill
-    const upgradeMap: UpgradeMap = {
+    const upgradeMap: UpgradeMapSkill = {
       type: "skill",
       newId: relatedSkill.id
     };
@@ -41,10 +49,10 @@ function getUpgradeMap(servant: Servant, questId: number): UpgradeMap | false {
       type: "np",
       id: previousNP.id,
       newId: relatedNP.id
-    };
+    } as UpgradeMapNP; // TODO: change to `satisfies` when TypeScript 4.9 is supported?
   }
 
-  return false;
+  return;
 }
 
 export const bundleUpgrades: PrebuildBundler<Upgrade[]> = async function () {
@@ -93,7 +101,7 @@ export const bundleUpgrades: PrebuildBundler<Upgrade[]> = async function () {
     const upgrade: Upgrade = {
       quest: interlude.id,
       servant: servant.id
-    };
+    } as Upgrade; // I blame typescript for this.
     if (interludeNA) upgrade.na = true;
 
     const upgradeMap = getUpgradeMap(servant, interlude.id);
@@ -137,7 +145,7 @@ export const bundleUpgrades: PrebuildBundler<Upgrade[]> = async function () {
     const upgrade: Upgrade = {
       quest: rankup.id,
       servant: servant.id
-    };
+    } as Upgrade;
     if (rankupNA) upgrade.na = true;
 
     const upgradeMap = getUpgradeMap(servant, rankup.id);

@@ -27,22 +27,41 @@ export interface QuestOther extends QuestBase {
 }
 
 export interface QuestUpgrade extends QuestBase {
-  // kinda want a better name for this, but couldn't come up with one
   type: UpgradeQuestType.INTERLUDE | UpgradeQuestType.RANKUP;
   open: number;
 }
 
 export type BundledQuest = QuestOther | QuestUpgrade;
 
-export type UpgradeMap =
-  | { type: "skill"; id?: number; newId: number }
-  | { type: "np"; id: number; newId: number };
+export type UpgradeMapSkill = { type: "skill"; id?: number; newId: number };
+export type UpgradeMapNP = { type: "np"; id: number; newId: number };
+export type UpgradeMap = UpgradeMapSkill | UpgradeMapNP;
 
-export interface Upgrade {
+interface UpgradeBase {
   quest: number; // quest id
   servant: number; // servant id
   upgrades?: UpgradeMap;
   na?: true;
+}
+
+// need to split this into two types to make typeguards work properly
+export type Upgrade = UpgradeBase &
+  (
+    | { upgrades: UpgradeMapSkill }
+    | { upgrades: UpgradeMapNP }
+    | { upgrades?: undefined }
+  );
+
+export function upgradeIsSkillUpgrade(
+  upgrade: Upgrade
+): upgrade is UpgradeBase & { upgrades: UpgradeMapSkill } {
+  return upgrade.upgrades?.type == "skill";
+}
+
+export function upgradeIsNPUpgrade(
+  upgrade: Upgrade
+): upgrade is UpgradeBase & { upgrades: UpgradeMapNP } {
+  return upgrade.upgrades?.type == "np";
 }
 
 const _zOverrideKey = z
