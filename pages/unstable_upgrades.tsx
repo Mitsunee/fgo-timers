@@ -34,7 +34,7 @@ function Page() {
     revalidateOnFocus: false,
     revalidateOnReconnect: false
   });
-  const { perPage /*, autoInfiniteScroll*/ } = useStore(settingsStore);
+  const { perPage /*, autoInfiniteScroll*/ } = useStore(settingsStore); // TODO: implement autoInfiniteScroll
   const [filters, setFilter] = useReducer(filtersReducer, formFiltersDefault);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [page, setPage] = useState<number>(1);
@@ -80,11 +80,17 @@ function Page() {
     return [searcher, filteredUpgrades] as [typeof searcher, Upgrade[]];
   }, [res.isValidating, res.data, filters]);
 
+  const results: SemiRequired<MatchData<Upgrade>, "item">[] =
+    res.isValidating || searchQuery == ""
+      ? filteredUpgrades.sort(sorter).map(upgrade => ({ item: upgrade }))
+      : searcher.search(searchQuery);
+
+  const maxPage = Math.ceil(results.length / perPage);
   const handleShowMore = () => {
     setPage(page =>
       clamp({
         value: page + 1,
-        max: Math.ceil(filteredUpgrades.length / perPage)
+        max: maxPage
       })
     );
   };
@@ -97,24 +103,19 @@ function Page() {
     setPage(page =>
       clamp({
         value: page,
-        max: Math.ceil(filteredUpgrades.length / perPage)
+        max: maxPage
       })
     );
-  }, [perPage, filteredUpgrades.length]);
+  }, [perPage, maxPage]);
 
   if (res.error) {
     // TODO: nicer error
     return <h1>ERROR: {res.error}</h1>;
   }
 
-  const results: SemiRequired<MatchData<Upgrade>, "item">[] = (
-    res.isValidating || searchQuery == ""
-      ? filteredUpgrades.sort(sorter).map(upgrade => ({ item: upgrade }))
-      : searcher.search(searchQuery)
-  ).slice(0, page * perPage);
-
   return (
     <>
+      {/* TODO: help button? */}
       <Section background="blue">
         <FiltersForm
           filters={filters}
@@ -140,22 +141,33 @@ function Page() {
               filterResults: filteredUpgrades.length,
               totalNum: upgrades.length,
               searchQuery,
-              upgrades: results.map(
-                ({ item: upgrade }) =>
-                  `${servantMap[upgrade.servant].name}: [${
-                    questMap[upgrade.quest].type
-                  }] ${questMap[upgrade.quest].name} (${
-                    upgrade.upgrades?.type || "sq"
-                  })`
-              )
+              upgrades: results
+                .slice(0, page * perPage)
+                .map(
+                  ({ item: upgrade }) =>
+                    `${servantMap[upgrade.servant].name}: [${
+                      questMap[upgrade.quest].type
+                    }] ${questMap[upgrade.quest].name} (${
+                      upgrade.upgrades?.type || "sq"
+                    })`
+                )
             },
             null,
             2
           )}
         </pre>
       </code>
-      {/* PLACEHOLDER: for debugging purposes */}
-      <ActionButton onClick={handleShowMore}>Show More</ActionButton>
+      {/* PLACEHOLDER: until automatic infinite scroll is implemented */}
+      {!res.isValidating && page < maxPage && (
+        <>
+          <ActionButton onClick={handleShowMore}>
+            Show More ({page})
+          </ActionButton>
+          <ActionButton onClick={() => setPage(maxPage)}>
+            Show All ({maxPage})
+          </ActionButton>
+        </>
+      )}
     </>
   );
 }
