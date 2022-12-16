@@ -59,7 +59,7 @@ export const getStaticProps: GetStaticProps<UpgradesPageProps> = async () => {
     quest.unlock?.quests?.forEach(quest => includedQuests.add(quest));
     if (upgrade.upgrades) {
       if (upgrade.upgrades.type == "skill") {
-        if (upgrade.upgrades.id) includedSkills.add(upgrade.upgrades.id);
+        includedSkills.add(upgrade.upgrades.id ?? 0);
         includedSkills.add(upgrade.upgrades.newId);
       } else {
         includedNPs.add(upgrade.upgrades.id);

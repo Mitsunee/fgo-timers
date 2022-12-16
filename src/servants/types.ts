@@ -19,7 +19,7 @@ export enum ServantCard {
   EXTRA
 }
 
-export type NPType = ServantCard.BUSTER | ServantCard.ARTS | ServantCard.QUICK;
+export type NPType = Exclude<ServantCard, ServantCard.EXTRA>;
 
 export interface BundledServant {
   name: string;
