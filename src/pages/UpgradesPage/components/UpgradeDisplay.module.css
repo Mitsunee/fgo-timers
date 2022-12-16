@@ -1,0 +1,25 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1.33em 1fr;
+  grid-template-rows: 64px auto;
+
+  & .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & > div {
+      width: 48px;
+      height: 48px;
+    }
+
+    & > img {
+      width: 42px;
+      height: 47px;
+    }
+  }
+
+  & .text {
+    text-align: center;
+  }
+}

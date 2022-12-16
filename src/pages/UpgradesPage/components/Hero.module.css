@@ -1,0 +1,25 @@
+.header {
+  & section {
+    background-color: var(--bg);
+    position: relative;
+    width: 100%;
+    height: 75px;
+    margin-bottom: 25px;
+
+    & img {
+      position: absolute;
+      left: 12px;
+      top: 20px;
+      border-radius: 100%;
+      border: 12px solid var(--bg-primary);
+    }
+  }
+
+  & h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 1.75em;
+    margin: 0px;
+    padding: 0px 1em 0px 120px;
+  }
+}
