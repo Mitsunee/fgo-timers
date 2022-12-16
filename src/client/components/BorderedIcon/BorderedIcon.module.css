@@ -3,6 +3,8 @@
   overflow: hidden;
   min-width: 1em;
   min-height: 1em;
+  max-width: 128px;
+  max-height: 128px;
   aspect-ratio: 1;
   border: 2px solid var(--border, transparent);
   border-radius: 12px;
