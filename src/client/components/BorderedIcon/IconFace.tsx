@@ -14,6 +14,7 @@ interface IconFaceProps extends Omit<ComponentPropsCC<"img">, "id"> {
   title?: undefined;
   placeholder: string;
   na?: true;
+  forceIcon?: true;
 }
 
 export function IconFace({
@@ -22,6 +23,7 @@ export function IconFace({
   name,
   na,
   placeholder,
+  forceIcon,
   className,
   ...props
 }: IconFaceProps) {
@@ -39,15 +41,22 @@ export function IconFace({
             <img
               {...props}
               src={fullSrc}
-              className={cc([styles.face, styles.prerendered, className])}
+              className={cc([
+                styles.face,
+                styles.prerendered,
+                forceIcon && styles.forced,
+                className
+              ])}
               alt={placeholder}
               title={displayName}
             />
-            <img
-              src="/assets/spoiler.png"
-              className={styles.spoiler}
-              alt={placeholder}
-            />
+            {!forceIcon && (
+              <img
+                src="/assets/spoiler.png"
+                className={styles.spoiler}
+                alt={placeholder}
+              />
+            )}
           </>
         );
       }
@@ -64,7 +73,11 @@ export function IconFace({
             <img
               {...props}
               src={fullSrc}
-              className={cc([styles.face, hidden && styles.hidden, className])}
+              className={cc([
+                styles.face,
+                hidden && !forceIcon && styles.hidden,
+                className
+              ])}
               alt={displayAlt}
               title={displayTitle}
               onClick={(...args) => {
@@ -72,7 +85,7 @@ export function IconFace({
                 props.onClick?.(...args);
               }}
             />
-            {hidden && (
+            {hidden && !forceIcon && (
               <img
                 src="/assets/spoiler.png"
                 className={styles.spoiler}

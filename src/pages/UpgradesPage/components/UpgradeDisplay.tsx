@@ -1,5 +1,8 @@
-import { BorderedNPIcon, BorderedSkillIcon } from "@components/BorderedIcon";
-import { SpoileredText } from "@components/SpoileredText/SpoileredText";
+import {
+  BorderedNPIcon,
+  BorderedSkillIcon
+} from "src/client/components/BorderedIcon";
+import { SpoileredText } from "src/client/components/Text";
 import type { BundledNP, BundledSkill } from "src/servants/types";
 import styles from "./UpgradeDisplay.module.css";
 

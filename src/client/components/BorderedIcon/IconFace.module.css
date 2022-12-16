@@ -29,6 +29,7 @@ div:hover > .prerendered + .spoiler {
   }
 }
 
-div:hover > .prerendered {
+div:hover > .prerendered,
+.prerendered.forced {
   filter: blur(0px);
 }

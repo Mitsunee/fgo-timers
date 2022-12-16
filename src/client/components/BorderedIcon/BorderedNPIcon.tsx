@@ -42,7 +42,8 @@ export function BorderedNPIcon({
         name={np.name}
         src={icon}
         placeholder={`Noble Phantasm`}
-        na={true} // FIXME: this leaks the name in strict mode I think
+        na={np.na}
+        forceIcon
       />
       {children}
     </BorderedIcon>
