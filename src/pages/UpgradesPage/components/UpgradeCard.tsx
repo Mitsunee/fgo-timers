@@ -16,8 +16,10 @@ import styles from "./UpgradeCard.module.css";
 import { Hero } from "./Hero";
 import { BorderColours, Borders } from "src/types/borders";
 import { NPUpgrade, SkillUpgrade } from "./UpgradeDisplay";
+import { Highlight } from "./types";
+import { Subtitle, Title } from "./Title";
 
-type PropsBase = { servant: BundledServant; quest: QuestUpgrade };
+type PropsBase = { servant: BundledServant; quest: QuestUpgrade } & Highlight;
 type WithSkillUpgrade = {
   upgrade: Upgrade & { upgrades: UpgradeMapSkill };
   from: BundledSkill;
@@ -50,12 +52,15 @@ function isNPUpgrade(
 
 export function UpgradeCard(props: UpgradeCardProps) {
   const { servant, quest } = props;
-  const questName =
+  const questPrefix =
     quest.type === UpgradeQuestType.RANKUP && quest.na
-      ? quest.name
+      ? ""
       : `${
           quest.type == UpgradeQuestType.INTERLUDE ? "Interlude" : "Rank Up"
-        }: ${quest.name}`;
+        }: `;
+  const highlight: Highlight = props.match
+    ? { match: props.match, index: props.index, length: props.length }
+    : {};
 
   if (isSkillUpgrade(props)) {
     const { from, to, upgrade } = props;
@@ -66,7 +71,20 @@ export function UpgradeCard(props: UpgradeCardProps) {
 
     return (
       <article className={styles.card} style={style}>
-        <Hero icon={servant.icon} title={questName} border={to.border} />
+        <Hero
+          border={to.border}
+          id={upgrade.servant}
+          name={servant.name}
+          icon={servant.icon}
+          na={servant.na}
+        />
+        <Title
+          id={upgrade.servant}
+          servant={servant}
+          suffix={`Skill ${to.num}`}
+          {...highlight}
+        />
+        <Subtitle prefix={questPrefix} name={quest.name} {...highlight} />
         <SkillUpgrade
           id={skillId}
           from={from}
@@ -85,7 +103,21 @@ export function UpgradeCard(props: UpgradeCardProps) {
 
     return (
       <article className={styles.card} style={style}>
-        <Hero icon={servant.icon} title={questName} border={to.border} />
+        <Hero
+          border={to.border}
+          //title="NP"
+          id={upgrade.servant}
+          name={servant.name}
+          icon={servant.icon}
+          na={servant.na}
+        />
+        <Title
+          id={upgrade.servant}
+          servant={servant}
+          suffix="NP"
+          {...highlight}
+        />
+        <Subtitle prefix={questPrefix} name={quest.name} {...highlight} />
         <NPUpgrade
           id={upgrade.upgrades.id}
           from={from}
@@ -98,7 +130,20 @@ export function UpgradeCard(props: UpgradeCardProps) {
 
   return (
     <article className={styles.card}>
-      <Hero icon={servant.icon} title={questName} border={Borders.BLUE} />
+      <Hero
+        border={Borders.BLUE}
+        id={props.upgrade.servant}
+        name={servant.name}
+        icon={servant.icon}
+        na={servant.na}
+      />
+      <Title
+        id={props.upgrade.servant}
+        servant={servant}
+        suffix=""
+        {...highlight}
+      />
+      <Subtitle prefix={questPrefix} name={quest.name} {...highlight} />
       <section>SQ INTLD {/* PLACEHOLDER */}</section>
     </article>
   );

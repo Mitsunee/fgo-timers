@@ -2,29 +2,39 @@ import type { InferGetStaticPropsType } from "next";
 import useSWR, { SWRConfig } from "swr";
 import { useEffect, useMemo, useReducer, useState } from "react";
 import { MatchData, Searcher } from "fast-fuzzy";
+import { clamp } from "@foxkit/util/clamp";
+import { useStore } from "@nanostores/react";
 import { getStaticProps } from "src/pages/UpgradesPage/getStaticProps";
 import { fetcher, UpgradesPageData } from "src/server/DataApi";
-import { BundledQuest, Upgrade } from "src/upgrades/types";
+import {
+  BundledQuest,
+  QuestUpgrade,
+  Upgrade,
+  upgradeIsNPUpgrade,
+  upgradeIsSkillUpgrade
+} from "src/upgrades/types";
 import type {
-  BundledServant /*,BundledSkill, BundledNP */
+  BundledServant,
+  BundledSkill,
+  BundledNP
 } from "src/servants/types";
 import Section from "src/client/components/Section";
 import { ActionButton } from "src/client/components/Button";
 import Meta from "src/client/components/Meta";
 import Input from "src/client/components/Input";
-import { clamp } from "@foxkit/util/clamp";
-import { useStore } from "@nanostores/react";
-import { settingsStore } from "@stores/settingsStore";
+import { CardGrid } from "src/client/components/Card";
+import { settingsStore } from "src/client/stores/settingsStore";
 import {
   FiltersForm,
   filtersReducer,
   formFiltersDefault
-} from "src/pages/UpgradesPage/FiltersForm";
+} from "src/pages/UpgradesPage/FiltersForm"; // TODO: move to ./components
 import {
   createUpgradeFilter,
   createUpgradeSorter
 } from "src/pages/UpgradesPage/filters";
 import { apiUrl } from "src/pages/UpgradesPage/constants";
+import { Highlight, UpgradeCard } from "src/pages/UpgradesPage/components";
 
 export { getStaticProps };
 type UpgradesPageProps = InferGetStaticPropsType<typeof getStaticProps>;
@@ -42,8 +52,8 @@ function Page() {
   const upgrades = res.data!.upgrades;
   const questMap = res.data!.quests as Record<number, BundledQuest>;
   const servantMap = res.data!.servants as Record<number, BundledServant>;
-  //const skillMap = res.data!.skills as Record<number, BundledSkill>;
-  //const npMap = res.data!.nps as Record<number, BundledNP>;
+  const skillMap = res.data!.skills as Record<number, BundledSkill>;
+  const npMap = res.data!.nps as Record<number, BundledNP>;
   const sorter = createUpgradeSorter(questMap);
 
   /* NOTE:
@@ -57,6 +67,7 @@ function Page() {
 
     - What to print during res.isValidating instead of filter form to describe fallback data?
     - Selectors look a bit awkward on mobile right now
+    - EoR NPs are broken again...
   */
 
   const [searcher, filteredUpgrades] = useMemo(() => {
@@ -139,24 +150,61 @@ function Page() {
               request: res.isValidating ? "FETCHING" : "DONE",
               filters,
               filterResults: filteredUpgrades.length,
-              totalNum: upgrades.length,
-              searchQuery,
-              upgrades: results
-                .slice(0, page * perPage)
-                .map(
-                  ({ item: upgrade }) =>
-                    `${servantMap[upgrade.servant].name}: [${
-                      questMap[upgrade.quest].type
-                    }] ${questMap[upgrade.quest].name} (${
-                      upgrade.upgrades?.type || "sq"
-                    })`
-                )
+              totalNum: upgrades.length
             },
             null,
             2
           )}
         </pre>
       </code>
+      {/* WIP */}
+      <CardGrid>
+        {results.slice(0, page * perPage).map(({ item, match, original }) => {
+          const highlight: Highlight = match
+            ? { index: match.index, length: match.length, match: original! }
+            : {};
+
+          if (upgradeIsSkillUpgrade(item)) {
+            const { id: skillId, newId } = item.upgrades;
+            return (
+              <UpgradeCard
+                key={item.quest}
+                upgrade={item}
+                servant={servantMap[item.servant]}
+                quest={questMap[item.quest] as QuestUpgrade}
+                from={skillMap[skillId ?? 0]}
+                to={skillMap[newId]}
+                {...highlight}
+              />
+            );
+          }
+
+          if (upgradeIsNPUpgrade(item)) {
+            const { id: npId, newId } = item.upgrades;
+            return (
+              <UpgradeCard
+                key={item.quest}
+                upgrade={item}
+                servant={servantMap[item.servant]}
+                quest={questMap[item.quest] as QuestUpgrade}
+                from={npMap[npId]}
+                to={npMap[newId]}
+                {...highlight}
+              />
+            );
+          }
+
+          return (
+            <UpgradeCard
+              key={item.quest}
+              upgrade={item}
+              servant={servantMap[item.servant]}
+              quest={questMap[item.quest] as QuestUpgrade}
+              {...highlight}
+            />
+          );
+        })}
+      </CardGrid>
       {/* PLACEHOLDER: until automatic infinite scroll is implemented */}
       {!res.isValidating && page < maxPage && (
         <>

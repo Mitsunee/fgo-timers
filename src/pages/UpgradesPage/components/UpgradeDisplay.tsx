@@ -18,6 +18,8 @@ function Arrow() {
   );
 }
 
+// TODO: Atlas DB links
+
 export function SkillUpgrade({ id, from, newId, to }: SkillUpgradeProps) {
   return (
     <section className={styles.grid}>

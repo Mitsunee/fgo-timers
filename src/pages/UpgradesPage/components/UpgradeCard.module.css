@@ -18,6 +18,18 @@
     );
   box-shadow: 3px 3px 7px var(--dark);
 
+  & h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 1.75em;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  & h2 {
+    padding: 0px 1.33em;
+  }
+
   & > section {
     padding: 1.33em;
     & p {
