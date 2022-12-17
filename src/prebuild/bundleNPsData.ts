@@ -7,6 +7,7 @@ import { getNPOwner } from "../servants/getOwner";
 import { mapUpgradeLevelToSkillBorder } from "../servants/borders";
 import { getNPType } from "../servants/getNPType";
 import { getUpgradeLevel } from "../upgrades/getUpgradeLevel";
+import { decensorEoRNP } from "../upgrades/decensorEoRNP";
 import type { DataBundler } from "./dataBundlers";
 
 async function flatMapNPs(region: SupportedRegion) {
@@ -40,17 +41,21 @@ export const bundleNPsData: DataBundler<BundledNP> = async bundles => {
       return false;
     }
 
-    const servant = await getNPOwner(np);
+    const servant = await getNPOwner(np, "JP");
     if (!servant) {
       Log.error(`Could not find owner of NP id ${npId}`);
       return false;
     }
 
     const npNA = niceNoblePhantasmNA.find(np => np.id == npId);
+    const servantNA = npNA ? await getNPOwner(npNA, "NA") : undefined;
+    const { name } = servantNA
+      ? decensorEoRNP(npNA!, servantNA)
+      : decensorEoRNP(np, servant);
     const upgradeLevel = getUpgradeLevel(servant, np);
 
     const data: BundledNP = {
-      name: npNA?.name || np.name,
+      name,
       type: getNPType(np),
       border: mapUpgradeLevelToSkillBorder(upgradeLevel)
     };

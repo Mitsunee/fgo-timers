@@ -22,7 +22,16 @@ export function getUpgradeLevel(
 
   // handle NP
   const relatedNPs = servant.noblePhantasms
-    .filter(np => np.priority > 0 && np.name !== "???") // priority 0 are type changed NPs, "???" are EoR-censored
+    .filter(np => np.priority > 0) // priority 0 are type changed NPs
+    .filter(np => {
+      // "???" are EoR-censored
+      if (subject.name == "???") {
+        // if subject is EoR NP, only return those
+        return np.name == "???";
+      }
+      // otherwise filter out EoR NPs
+      return np.name !== "???";
+    })
     .sort((a, b) => a.id - b.id);
   return relatedNPs.findIndex(np => np.id == subject.id);
 }
