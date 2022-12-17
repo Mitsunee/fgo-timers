@@ -23,6 +23,7 @@ import { ActionButton } from "src/client/components/Button";
 import Meta from "src/client/components/Meta";
 import Input from "src/client/components/Input";
 import { CardGrid } from "src/client/components/Card";
+import { Scroller } from "src/client/components/Scroller";
 import { settingsStore } from "src/client/stores/settingsStore";
 import {
   FiltersForm,
@@ -150,7 +151,10 @@ function Page() {
               request: res.isValidating ? "FETCHING" : "DONE",
               filters,
               filterResults: filteredUpgrades.length,
-              totalNum: upgrades.length
+              results: results.length,
+              totalNum: upgrades.length,
+              page,
+              maxPage
             },
             null,
             2
@@ -207,14 +211,14 @@ function Page() {
       </CardGrid>
       {/* PLACEHOLDER: until automatic infinite scroll is implemented */}
       {!res.isValidating && page < maxPage && (
-        <>
+        <Scroller handler={handleShowMore}>
           <ActionButton onClick={handleShowMore}>
             Show More ({page})
           </ActionButton>
           <ActionButton onClick={() => setPage(maxPage)}>
             Show All ({maxPage})
           </ActionButton>
-        </>
+        </Scroller>
       )}
     </>
   );

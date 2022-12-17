@@ -18,6 +18,7 @@ type SettingsStored = {
   userMaxCost: `${number}`;
   perPage: `${PageSize}`;
   showSpoiler: SpoilerLevelSelectable;
+  autoInfiniteScroll: `${boolean}`;
 };
 
 export const settingsMap = persistentMap<SettingsStored>("fgoTools:", {
@@ -27,7 +28,8 @@ export const settingsMap = persistentMap<SettingsStored>("fgoTools:", {
   userNodeCost: "40",
   userMaxCost: "113",
   perPage: "10",
-  showSpoiler: SpoilerLevels.SOME
+  showSpoiler: SpoilerLevels.SOME,
+  autoInfiniteScroll: "false"
 });
 
 export const settingsStore = computed(settingsMap, store => ({
@@ -37,7 +39,8 @@ export const settingsStore = computed(settingsMap, store => ({
   userNodeCost: Number(store.userNodeCost),
   userMaxCost: Number(store.userMaxCost),
   perPage: Number(store.perPage) as PageSize,
-  showSpoiler: store.showSpoiler
+  showSpoiler: store.showSpoiler,
+  autoInfiniteScroll: store.autoInfiniteScroll === "true"
 }));
 
 // WIP: Phase out setSetting in favour of properly typed actions
@@ -50,5 +53,15 @@ export const setSpoilerLevel = action(
   "Set Spoiler Level",
   (store, value: SpoilerLevelSelectable) => {
     store.setKey("showSpoiler", value);
+  }
+);
+
+export const toggleInfiniteScrollMode = action(
+  settingsMap,
+  "Toggle automatic Infinite Scroll",
+  store => {
+    const { autoInfiniteScroll: oldStateStr } = store.get();
+    const oldState = oldStateStr === "true";
+    store.setKey("autoInfiniteScroll", `${!oldState}`);
   }
 );
