@@ -17,6 +17,10 @@ description: >-
   System there is no more rotations, it is not known if there will be separate
   banners for each SR Servant. The featured Servant Beowulf will also get a new
   Rank Up Quest that upgrades his third skill.
+
+  Update: A second Summoning Campaign featuring two banners has been added. The
+  banners feature permanent SSRs Karna (Lancer) and Arjuna (Archer), with both
+  also featuring SR Lancer Parvati and the Craft Essences from Banner 1.
 times:
   - title: Maintenance
     date: 2022-12-11 20:00 - 12-12 00:00 PST
@@ -46,5 +50,7 @@ times:
     date: 2022-12-12 00:00 - 12-25 19:59 PST
   - title: Rank Up Quest Beowulf 2 added
     date: 2022-12-12 00:00 PST
-  - title: Summoning Banner
+  - title: Summoning Banner 1 (Vritra)
     date: 2022-12-12 00:00 - 12-25 19:59 PST
+  - title: Summoning Banner 2 (Karna & Arjuna)
+    date: 2022-12-18 20:00 - 12-26 19:59 PST
