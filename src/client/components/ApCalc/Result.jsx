@@ -9,7 +9,7 @@ export default function Result({ text, time, from }) {
       {text} in:
       <br />
       <DisplayDeltaBetween from={from} time={time} /> (
-      <DisplayDate time={time} format="withSec" ignoreServerTime />)
+      <DisplayDate time={time} format="withSec" serverTz="never" />)
     </p>
   );
 }

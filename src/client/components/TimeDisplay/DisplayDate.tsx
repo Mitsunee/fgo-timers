@@ -26,20 +26,20 @@ function getFormat(alias: Formats, altClockFormat: boolean) {
 interface DisplayDateProps {
   time: number;
   format?: Formats;
-  ignoreServerTime?: true;
+  serverTz?: "never" | "always";
 }
 
 export function DisplayDate({
   time,
   format: formatAlias = "short",
-  ignoreServerTime
+  serverTz
 }: DisplayDateProps) {
   const settings = useStore(settingsStore);
   const format = getFormat(formatAlias, settings.alternativeClockFormat);
-
-  // TODO: refactor this override so you can force any tz, then refactor Clocks component
-  let tz: undefined | typeof SERVER_TZ = undefined;
-  if (!ignoreServerTime && settings.showServerTimes) tz = SERVER_TZ;
+  const tz: undefined | typeof SERVER_TZ =
+    serverTz == "always" || (serverTz != "never" && settings.showServerTimes)
+      ? SERVER_TZ
+      : undefined;
 
   return <NoSSR>{spacetime(time, tz).format(format)}</NoSSR>;
 }

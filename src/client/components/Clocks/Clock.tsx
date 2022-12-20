@@ -1,7 +1,8 @@
+import { RequiredChildren } from "src/types/ComponentProps";
 import styles from "./Clock.module.css";
 
 interface ClockProps {
-  children: string;
+  children: RequiredChildren;
   title: string;
 }
 
