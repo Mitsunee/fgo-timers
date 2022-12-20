@@ -74,10 +74,10 @@ describe("getRelatedNP", () => {
     let relatedNP = getRelatedNP(tomoe, quests[4]);
     expect(relatedNP).toBeDefined();
     expect(relatedNP!.id).toBe(202102);
-    expect(relatedNP!.name).toBe("On Arorikya Sowaka");
+    expect(relatedNP!.name).toBe("???");
     relatedNP = getRelatedNP(columbus, quests[5]);
     expect(relatedNP).toBeDefined();
     expect(relatedNP!.id).toBe(402503);
-    expect(relatedNP!.name).toBe("Santa María Drop Anchor");
+    expect(relatedNP!.name).toBe("???");
   });
 });

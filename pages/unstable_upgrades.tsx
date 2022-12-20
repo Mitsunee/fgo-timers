@@ -45,7 +45,7 @@ function Page() {
     revalidateOnFocus: false,
     revalidateOnReconnect: false
   });
-  const { perPage /*, autoInfiniteScroll*/ } = useStore(settingsStore); // TODO: implement autoInfiniteScroll
+  const { perPage } = useStore(settingsStore);
   const [filters, setFilter] = useReducer(filtersReducer, formFiltersDefault);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [page, setPage] = useState<number>(1);
@@ -68,7 +68,9 @@ function Page() {
 
     - What to print during res.isValidating instead of filter form to describe fallback data?
     - Selectors look a bit awkward on mobile right now
-    - EoR NPs are broken again...
+    - is scroller good now? also remove debug info from buttons
+    - maybe try autoanimate
+    - why is this page 170kB first load?!
   */
 
   const [searcher, filteredUpgrades] = useMemo(() => {

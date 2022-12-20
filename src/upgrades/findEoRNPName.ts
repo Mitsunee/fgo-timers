@@ -1,14 +1,11 @@
 import type { NoblePhantasm } from "@atlasacademy/api-connector/dist/Schema/NoblePhantasm";
 import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
 
-export function decensorEoRNP(
-  np: NoblePhantasm,
-  servant: Servant
-): NoblePhantasm {
-  if (np.name !== "???") return np;
+export function findEoRNPName(np: NoblePhantasm, servant: Servant): string {
+  if (np.name !== "???") return np.name;
   const realname = servant.noblePhantasms
-    .filter(_np => {
-      return _np.name !== "???" && _np.strengthStatus == np.strengthStatus;
+    .filter(({ name, strengthStatus }) => {
+      return name !== "???" && strengthStatus == np.strengthStatus;
     })
     .sort((a, b) => b.priority - a.priority)
     .at(0)?.name;
@@ -19,8 +16,5 @@ export function decensorEoRNP(
     );
   }
 
-  return {
-    ...np,
-    name: realname
-  };
+  return realname;
 }

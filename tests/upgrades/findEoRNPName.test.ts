@@ -1,6 +1,6 @@
 import { atlasCache } from "src/atlas-api/cache";
 import { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
-import { decensorEoRNP } from "src/upgrades/decensorEoRNP";
+import { findEoRNPName } from "src/upgrades/findEoRNPName";
 
 let eorServants: { NA: Servant[]; JP: Servant[] };
 
@@ -26,16 +26,14 @@ beforeAll(async () => {
   }
 });
 
-describe("decensorEoRNP", () => {
+describe("findEoRNPName", () => {
   it("decensors all EoR NPs for JP", () => {
     for (const servant of eorServants.JP) {
       const censoredNPs = servant.noblePhantasms.filter(np => np.name == "???");
       for (const censoredNP of censoredNPs) {
-        const uncensoredNP = decensorEoRNP(censoredNP, servant);
+        const uncensoredNP = findEoRNPName(censoredNP, servant);
         expect(uncensoredNP).toBeDefined();
-        expect(uncensoredNP.name).toBeDefined();
-        expect(uncensoredNP.name).not.toBe("???");
-        expect(uncensoredNP.id).toBe(censoredNP.id);
+        expect(uncensoredNP).not.toBe("???");
       }
     }
   });
@@ -43,11 +41,9 @@ describe("decensorEoRNP", () => {
     for (const servant of eorServants.NA) {
       const censoredNPs = servant.noblePhantasms.filter(np => np.name == "???");
       for (const censoredNP of censoredNPs) {
-        const uncensoredNP = decensorEoRNP(censoredNP, servant);
+        const uncensoredNP = findEoRNPName(censoredNP, servant);
         expect(uncensoredNP).toBeDefined();
-        expect(uncensoredNP.name).toBeDefined();
-        expect(uncensoredNP.name).not.toBe("???");
-        expect(uncensoredNP.id).toBe(censoredNP.id);
+        expect(uncensoredNP).not.toBe("???");
       }
     }
   });

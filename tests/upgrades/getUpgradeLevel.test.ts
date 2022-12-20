@@ -68,10 +68,13 @@ describe("getUpgradeLevel", () => {
     const tomoe = servants[1];
     expect(
       getUpgradeLevel(tomoe, tomoe.noblePhantasms.find(np => np.id == 202100)!)
-    ).toBe(-1);
+    ).toBe(0);
     expect(
       getUpgradeLevel(tomoe, tomoe.noblePhantasms.find(np => np.id == 202101)!)
     ).toBe(0);
+    expect(
+      getUpgradeLevel(tomoe, tomoe.noblePhantasms.find(np => np.id == 202102)!)
+    ).toBe(1);
     expect(
       getUpgradeLevel(tomoe, tomoe.noblePhantasms.find(np => np.id == 202103)!)
     ).toBe(1);

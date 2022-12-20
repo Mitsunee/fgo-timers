@@ -18,7 +18,6 @@ function ScrollBoundary({ height, handler }: ScrollBoundaryProps) {
     if (typeof window === "undefined" || !ref.current) return;
     const div = ref.current;
     const cb: IntersectionObserverCallback = ([entry]) => {
-      console.log("DEBUG", div);
       if (entry.isIntersecting) handler();
     };
     const opt: IntersectionObserverInit = {

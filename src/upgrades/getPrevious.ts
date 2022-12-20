@@ -1,7 +1,6 @@
 import { NoblePhantasm } from "@atlasacademy/api-connector/dist/Schema/NoblePhantasm";
 import { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
 import { Skill } from "@atlasacademy/api-connector/dist/Schema/Skill";
-import { decensorEoRNP } from "./decensorEoRNP";
 
 export function getPreviousSkill(
   servant: Servant,
@@ -35,5 +34,5 @@ export function getPreviousNP(
     np => np.strengthStatus == strengthStatus && np.name == "???"
   );
 
-  return eor ? decensorEoRNP(eor, servant) : nps[0];
+  return eor ?? nps[0];
 }

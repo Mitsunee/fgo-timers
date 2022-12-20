@@ -75,7 +75,7 @@ describe("getPreviousNP", () => {
       tomoe.noblePhantasms.find(np => np.id == 202102)!
     );
     expect(result.id).toBe(202100);
-    expect(result.name).toBe("On Arorikya Sowaka");
+    expect(result.name).toBe("???");
   });
   it("handles edgecase: multi-type np", () => {
     const emiya = servants[2];
