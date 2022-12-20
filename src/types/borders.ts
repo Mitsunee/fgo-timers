@@ -1,4 +1,4 @@
-export enum Borders {
+export const enum Borders {
   BLACK,
   BRONZE,
   SILVER,

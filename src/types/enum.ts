@@ -1,11 +1,11 @@
-export enum SpoilerLevels {
+export const enum SpoilerLevels {
   PRERENDER = "ssg",
   STRICT = "strict",
   SOME = "some",
   ALL = "all"
 }
 
-export enum Availability {
+export const enum Availability {
   PERMANENT,
   STORYLOCKED,
   LIMITED,
@@ -15,7 +15,7 @@ export enum Availability {
   FP_LOCKED
 }
 
-export enum GlobalStyles {
+export const enum GlobalStyles {
   BUTTON = "button",
   BUTTON_DECORATED = "button-decorated"
 }

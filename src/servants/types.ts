@@ -12,7 +12,7 @@ export type ServantBorder =
   | Borders.SILVER
   | Borders.GOLD;
 
-export enum ServantCard {
+export const enum ServantCard {
   BUSTER,
   ARTS,
   QUICK,

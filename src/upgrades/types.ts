@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export enum UpgradeQuestType {
+export const enum UpgradeQuestType {
   INTERLUDE = "intld",
   RANKUP = "rankup",
   OTHER = "other"

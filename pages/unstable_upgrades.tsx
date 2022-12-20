@@ -58,19 +58,10 @@ function Page() {
   const sorter = createUpgradeSorter(questMap);
 
   /* NOTE:
-    - fast-fuzzy
-      - Searcher.search("") gives no results, how to map filteredResults?
-        - Currently using SemiRequired, will need to use typeguard to check if keys other than item exist
-      - highlight search subjects based on returnMatchData?
-        - returntype does return the string that matched (servant or quest name) + match index and length
-      - is it possible to search servant name AND quest name? yes!
-        - returntype includes item property with related upgrade object
-
-    - What to print during res.isValidating instead of filter form to describe fallback data?
     - Selectors look a bit awkward on mobile right now
     - is scroller good now? also remove debug info from buttons
-    - maybe try autoanimate
     - why is this page 170kB first load?!
+      - components are shipping the entire api-connector package due to the enum exports
   */
 
   const [searcher, filteredUpgrades] = useMemo(() => {
@@ -163,7 +154,6 @@ function Page() {
           )}
         </pre>
       </code>
-      {/* WIP */}
       <CardGrid>
         {results.slice(0, page * perPage).map(({ item, match, original }) => {
           const highlight: Highlight = match
@@ -211,16 +201,18 @@ function Page() {
           );
         })}
       </CardGrid>
-      {/* PLACEHOLDER: until automatic infinite scroll is implemented */}
       {!res.isValidating && page < maxPage && (
-        <Scroller handler={handleShowMore}>
-          <ActionButton onClick={handleShowMore}>
-            Show More ({page})
-          </ActionButton>
-          <ActionButton onClick={() => setPage(maxPage)}>
-            Show All ({maxPage})
-          </ActionButton>
-        </Scroller>
+        <>
+          {/* TODO: Result x of y text here and at top of Page */}
+          <Scroller handler={handleShowMore}>
+            <ActionButton onClick={handleShowMore}>
+              Show More ({page})
+            </ActionButton>
+            <ActionButton onClick={() => setPage(maxPage)}>
+              Show All ({maxPage})
+            </ActionButton>
+          </Scroller>
+        </>
       )}
     </>
   );

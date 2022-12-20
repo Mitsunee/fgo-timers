@@ -1,7 +1,7 @@
 import { Borders } from "src/types/borders";
 import { ItemBorder } from "./types";
 
-export enum ItemBackgrounds {
+export const enum ItemBackgrounds {
   BRONZE,
   SILVER,
   GOLD,
