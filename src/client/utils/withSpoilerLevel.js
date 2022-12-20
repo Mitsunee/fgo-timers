@@ -1,9 +1,5 @@
 import { capitalize } from "@utils/capitalize";
 
-//const spoilerIconMap = new Map([
-//  ["skill", "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png"]
-//]);
-
 function getSpoilerName(subject, type) {
   switch (type) {
     case "skill":
@@ -22,10 +18,6 @@ function getSpoilerName(subject, type) {
 
 function getSpoilerIcon(type) {
   let ret = "/assets/icon_spoiler.png";
-  //if (spoilerIconMap.has(type)) ret = spoilerIconMap.get(type);
-
-  // TEMP: temporarily just doing a direct check until there's more
-  //       than one thing in spoilerIconMap
   if (type === "skill") {
     ret = "https://static.atlasacademy.io/NA/SkillIcons/skill_999999.png";
   }
@@ -33,6 +25,9 @@ function getSpoilerIcon(type) {
   return ret;
 }
 
+/**
+ * !DEPRECATED!
+ */
 export function withSpoilerLevel(subject, level, type = "servant") {
   if (subject.na) return subject;
 

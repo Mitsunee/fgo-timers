@@ -1,3 +1,5 @@
+// TODO: remove or move into ./src/types/constants.ts
+
 export const MAX_AP_MIN_VALUE = 20;
 export const MAX_AP_MAX_VALUE = 142;
 export const NODE_COST_MIN_VALUE = 3;

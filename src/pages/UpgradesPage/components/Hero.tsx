@@ -16,28 +16,14 @@ export function Hero({ border, id, name, icon, na }: HeroProps) {
 
   return (
     <header className={styles.hero} style={vars}>
-      <section>
-        {/* BUG: border doesn't work, needs to be a wrapper with gradient like in prod */}
+      <div className={styles.icon}>
         <img
           src={expandAtlasUrl(icon)}
           alt={!na && hidden ? "Servant" : name}
-          width="100"
-          height="100"
+          width="76"
+          height="76"
         />
-      </section>
-      {/*
-      <h1>
-        {
-          <SpoileredText id={id} placeholder="Servant" na={na}>
-            {length ? (
-              <SearchMatch text={name} index={index} length={length} />
-            ) : (
-              name
-            )}
-          </SpoileredText>
-        }{" "}
-        {title}
-      </h1>*/}
+      </div>
     </header>
   );
 }

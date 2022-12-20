@@ -1,3 +1,6 @@
+/**
+ * !DEPRECATED!
+ */
 export const baseClasses = new Set([
   "saber",
   "archer",
@@ -8,6 +11,9 @@ export const baseClasses = new Set([
   "berserker"
 ]);
 
+/**
+ * !DEPRECATED!
+ */
 export const extraClasses = new Set([
   "shielder",
   "ruler",
@@ -18,6 +24,9 @@ export const extraClasses = new Set([
   "pretender"
 ]);
 
+/**
+ * !DEPRECATED!
+ */
 export const classes = new Set([
   ...baseClasses.values(),
   ...extraClasses.values()
