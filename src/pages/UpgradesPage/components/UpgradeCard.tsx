@@ -84,7 +84,12 @@ export function UpgradeCard(props: UpgradeCardProps) {
           suffix={`Skill ${to.num}`}
           {...highlight}
         />
-        <Subtitle prefix={questPrefix} name={quest.name} {...highlight} />
+        <Subtitle
+          icon="skill"
+          prefix={questPrefix}
+          name={quest.name}
+          {...highlight}
+        />
         <SkillUpgrade
           id={skillId}
           from={from}
@@ -117,7 +122,12 @@ export function UpgradeCard(props: UpgradeCardProps) {
           suffix="NP"
           {...highlight}
         />
-        <Subtitle prefix={questPrefix} name={quest.name} {...highlight} />
+        <Subtitle
+          icon="np"
+          prefix={questPrefix}
+          name={quest.name}
+          {...highlight}
+        />
         <NPUpgrade
           id={upgrade.upgrades.id}
           from={from}
@@ -143,26 +153,13 @@ export function UpgradeCard(props: UpgradeCardProps) {
         suffix=""
         {...highlight}
       />
-      <Subtitle prefix={questPrefix} name={quest.name} {...highlight} />
+      <Subtitle
+        icon="sq"
+        prefix={questPrefix}
+        name={quest.name}
+        {...highlight}
+      />
       <section>SQ INTLD {/* PLACEHOLDER */}</section>
     </article>
   );
 }
-
-/* TODO: implement nice icons in title?
-          <InlineIcon
-            icon="https://static.atlasacademy.io/JP/Items/9.png"
-            title="Skill Upgrade"
-            className={styles.quest}
-          />
-          <InlineIcon
-            icon="https://static.atlasacademy.io/JP/Items/8.png"
-            title="NP Upgrade"
-            className={styles.quest}
-          />
-        <InlineIcon
-          icon="https://static.atlasacademy.io/JP/Items/6.png"
-          title="SQ Interlude"
-          className={styles.quest}
-        />
-    */

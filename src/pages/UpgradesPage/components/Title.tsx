@@ -1,3 +1,4 @@
+import { InlineIcon } from "src/client/components/InlineIcon";
 import { SearchMatch, SpoileredText } from "src/client/components/Text";
 import { nameServantClass } from "src/servants/classNames";
 import type { BundledServant } from "src/servants/types";
@@ -10,6 +11,7 @@ type TitleProps = {
 } & Highlight;
 
 type SubtitleProps = {
+  icon: "skill" | "np" | "sq";
   prefix: string;
   name: string;
 } & Highlight;
@@ -50,7 +52,14 @@ export function Title({
   );
 }
 
+const icons = {
+  np: { id: 8, title: "Noble Phantasm Upgrade" },
+  skill: { id: 9, title: "Skill Upgrade" },
+  sq: { id: 6, title: "Saint Quartz Interlude" }
+} as const; // satisfies Record<SubtitleProps["icon"],{id:number,title:string}> in Typescript 4.9
+
 export function Subtitle({
+  icon,
   prefix,
   name,
   match,
@@ -70,7 +79,11 @@ export function Subtitle({
         />
       ) : (
         name
-      )}
+      )}{" "}
+      <InlineIcon
+        icon={`https://static.atlasacademy.io/JP/Items/${icons[icon].id}.png`}
+        title={icons[icon].title}
+      />
     </h2>
   );
 }

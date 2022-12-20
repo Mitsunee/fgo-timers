@@ -27,6 +27,10 @@
 
   & h2 {
     padding: 0px 1.33em;
+    font-size: 1.2em;
+    & img {
+      vertical-align: middle;
+    }
   }
 
   & > section {
