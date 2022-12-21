@@ -15,7 +15,7 @@ import styles from "./UpgradeCard.module.css";
 import { Hero } from "./Hero";
 import { BorderColours, Borders } from "src/types/borders";
 import { NPUpgrade, SkillUpgrade } from "./UpgradeDisplay";
-import { Highlight } from "./types";
+import { Highlight } from "../types";
 import { Subtitle, Title } from "./Title";
 import type { MappedBundledQuest } from "../mapQuestUnlocks";
 

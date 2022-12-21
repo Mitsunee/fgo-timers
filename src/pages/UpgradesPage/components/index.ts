@@ -1,2 +1,2 @@
 export { UpgradeCard } from "./UpgradeCard";
-export type { Highlight } from "./types";
+export type { Highlight } from "../types";

@@ -3,7 +3,7 @@ import { classIsExtra } from "src/servants/classNames";
 import type { BundledServant } from "src/servants/types";
 import { JP_TO_NA_ESTIMATE } from "src/types/constants";
 import type { BundledQuest, Upgrade } from "src/upgrades/types";
-import type { FormFilterState, SelectableClassId } from "./FiltersForm";
+import type { FormFilterState, SelectableClassId } from "./filtersReducer";
 
 export function createUpgradeFilter(
   filters: FormFilterState,

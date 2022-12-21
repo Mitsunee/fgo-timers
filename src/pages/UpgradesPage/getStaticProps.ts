@@ -10,7 +10,7 @@ import { DataApiFallback, UpgradesPageData } from "src/server/DataApi";
 import { createUpgradeFilter, createUpgradeSorter } from "./filters";
 import { safeProxyIDMap } from "src/utils/proxyIDMap";
 import { apiUrl } from "./constants";
-import { formFiltersDefault } from "./FiltersForm";
+import { formFiltersDefault } from "./filtersReducer";
 
 type UpgradesPageProps = DataApiFallback<typeof apiUrl, UpgradesPageData>;
 

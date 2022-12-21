@@ -20,15 +20,15 @@ import type {
 import Section from "src/client/components/Section";
 import { ActionButton } from "src/client/components/Button";
 import Meta from "src/client/components/Meta";
-import Input from "src/client/components/Input";
+import { Input } from "src/client/components/Input";
 import { CardGrid } from "src/client/components/Card";
 import { Scroller } from "src/client/components/Scroller";
 import { settingsStore } from "src/client/stores/settingsStore";
 import {
-  FiltersForm,
   filtersReducer,
   formFiltersDefault
-} from "src/pages/UpgradesPage/FiltersForm"; // TODO: move to ./components
+} from "src/pages/UpgradesPage/filtersReducer";
+import { FiltersForm } from "src/pages/UpgradesPage/components/FiltersForm";
 import {
   createUpgradeFilter,
   createUpgradeSorter

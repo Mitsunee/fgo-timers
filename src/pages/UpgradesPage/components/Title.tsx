@@ -2,7 +2,7 @@ import { InlineIcon } from "src/client/components/InlineIcon";
 import { SearchMatch, SpoileredText } from "src/client/components/Text";
 import { nameServantClass } from "src/servants/classNames";
 import type { BundledServant } from "src/servants/types";
-import type { Highlight } from "./types";
+import type { Highlight } from "../types";
 
 type TitleProps = {
   id: number;
