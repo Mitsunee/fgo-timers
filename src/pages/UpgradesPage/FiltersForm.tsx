@@ -1,5 +1,5 @@
 import cc from "classcat";
-import { ClassName } from "@atlasacademy/api-connector";
+import ClassName from "@atlasacademy/api-connector/dist/Enum/ClassName.js";
 import type { PropsWithChildren } from "react";
 // @ts-ignore
 import FlagEN from "flag-icons/flags/4x3/gb.svg";

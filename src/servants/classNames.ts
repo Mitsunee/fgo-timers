@@ -1,4 +1,4 @@
-import { ClassName } from "@atlasacademy/api-connector";
+import ClassName from "@atlasacademy/api-connector/dist/Enum/ClassName.js";
 
 export function nameServantClass(className: ClassName): string {
   switch (className) {

@@ -1,4 +1,4 @@
-import { ClassName } from "@atlasacademy/api-connector";
+import ClassName from "@atlasacademy/api-connector/dist/Enum/ClassName.js";
 import { classIsExtra } from "src/servants/classNames";
 import type { BundledServant } from "src/servants/types";
 import { JP_TO_NA_ESTIMATE } from "src/types/constants";

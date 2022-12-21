@@ -1,4 +1,4 @@
-import { ClassName } from "@atlasacademy/api-connector";
+import ClassName from "@atlasacademy/api-connector/dist/Enum/ClassName.js";
 import { getClassIconPath, nameServantClass } from "src/servants/classNames";
 import styles from "./BorderedIconClass.module.css";
 
