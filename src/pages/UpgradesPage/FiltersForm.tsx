@@ -1,6 +1,5 @@
 import cc from "classcat";
 import ClassName from "@atlasacademy/api-connector/dist/Enum/ClassName.js";
-import type { PropsWithChildren } from "react";
 // @ts-ignore
 import FlagEN from "flag-icons/flags/4x3/gb.svg";
 // @ts-ignore
@@ -97,7 +96,7 @@ export function filtersReducer(
   return newState;
 }
 
-interface FiltersFormProps extends PropsWithChildren {
+interface FiltersFormProps extends React.PropsWithChildren {
   filters: FormFilterState;
   setFilter: (action: FormFilterAction) => void;
   isPending: boolean;

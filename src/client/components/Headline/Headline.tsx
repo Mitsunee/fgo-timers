@@ -1,10 +1,9 @@
 import cc from "classcat";
-import { PropsWithChildren } from "react";
 import { CC } from "src/types/ComponentProps";
 
 import styles from "./Headline.module.css";
 
-interface HeadlineProps extends CC, PropsWithChildren {
+interface HeadlineProps extends CC, React.PropsWithChildren {
   id?: string;
 }
 

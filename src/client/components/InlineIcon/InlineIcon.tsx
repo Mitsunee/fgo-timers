@@ -1,10 +1,9 @@
 import cc from "classcat";
-import type { ComponentProps, CSSProperties } from "react";
 import type { CC } from "src/types/ComponentProps";
 import styles from "./InlineIcon.module.css";
 
-type SvgProps = Omit<ComponentProps<"svg">, "className">;
-type SvgComponent = (props: ComponentProps<"svg">) => JSX.Element;
+type SvgProps = Omit<React.ComponentProps<"svg">, "className">;
+type SvgComponent = (props: React.ComponentProps<"svg">) => JSX.Element;
 type SvgIconProps = {
   icon: SvgComponent;
   fill?: string;
@@ -12,12 +11,12 @@ type SvgIconProps = {
   title?: undefined;
 };
 type InlineSvgProps = SvgProps & SvgIconProps & CC;
-interface InlineSvgStyle extends CSSProperties {
+interface InlineSvgStyle extends React.CSSProperties {
   "--icon-fill"?: string;
   "--icon-hover"?: string;
 }
 
-type ImgProps = Omit<ComponentProps<"img">, "src" | "className" | "alt">;
+type ImgProps = Omit<React.ComponentProps<"img">, "src" | "className" | "alt">;
 type ImgIconProps = {
   icon: string;
   fill?: undefined;

@@ -13,8 +13,7 @@ export async function buildSVGComponent(filePath, componentName) {
   await writeFile(
     `src/client/components/icons/${componentName}.tsx`,
     await format(`
-      import type { ComponentProps } from "react";
-      export function ${componentName}(props: ComponentProps<"svg">) {
+      export function ${componentName}(props: React.ComponentProps<"svg">) {
         return ${jsx}
       }
     `)

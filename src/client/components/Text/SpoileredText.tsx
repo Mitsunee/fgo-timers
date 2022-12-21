@@ -1,5 +1,4 @@
 import cc from "classcat";
-import type { PropsWithChildren } from "react";
 import type {
   ComponentPropsCC,
   RequiredChildren
@@ -10,7 +9,7 @@ import { SpoilerLevels } from "src/types/enum";
 import styles from "./SpoileredText.module.css";
 
 interface SpoileredTextProps
-  extends PropsWithChildren,
+  extends React.PropsWithChildren,
     Omit<ComponentPropsCC<"span">, "title" | "id"> {
   children: RequiredChildren;
   id: number;
