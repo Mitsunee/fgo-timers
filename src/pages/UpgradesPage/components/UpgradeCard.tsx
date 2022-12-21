@@ -18,6 +18,7 @@ import { NPUpgrade, SkillUpgrade } from "./UpgradeDisplay";
 import { Highlight } from "../types";
 import { Subtitle, Title } from "./Title";
 import type { MappedBundledQuest } from "../mapQuestUnlocks";
+import { UpgradeInfo } from "./UpgradeInfo";
 
 type PropsBase = {
   servant: BundledServant;
@@ -99,10 +100,12 @@ export function UpgradeCard(props: UpgradeCardProps) {
           newId={upgrade.upgrades.newId}
           to={to}
         />
-        DEBUG:{" "}
-        {quest.unlock?.quests
-          ?.map(quest => `[${quest.id}] ${quest.name}`)
-          .join(", ") || "No QuestClear Cond"}
+        <UpgradeInfo
+          quest={quest}
+          questId={upgrade.quest}
+          servant={servant}
+          servantId={upgrade.servant}
+        />
       </article>
     );
   }
@@ -140,10 +143,12 @@ export function UpgradeCard(props: UpgradeCardProps) {
           newId={upgrade.upgrades.newId}
           to={to}
         />
-        DEBUG:{" "}
-        {quest.unlock?.quests
-          ?.map(quest => `[${quest.id}] ${quest.name}`)
-          .join(", ") || "No QuestClear Cond"}
+        <UpgradeInfo
+          quest={quest}
+          questId={upgrade.quest}
+          servant={servant}
+          servantId={upgrade.servant}
+        />
       </article>
     );
   }
@@ -169,11 +174,12 @@ export function UpgradeCard(props: UpgradeCardProps) {
         name={quest.name}
         {...highlight}
       />
-      <section>SQ INTLD {/* PLACEHOLDER */}</section>
-      DEBUG:{" "}
-      {quest.unlock?.quests
-        ?.map(quest => `[${quest.id}] ${quest.name}`)
-        .join(", ") || "No QuestClear Cond"}
+      <UpgradeInfo
+        quest={quest}
+        questId={props.upgrade.quest}
+        servant={servant}
+        servantId={props.upgrade.servant}
+      />
     </article>
   );
 }

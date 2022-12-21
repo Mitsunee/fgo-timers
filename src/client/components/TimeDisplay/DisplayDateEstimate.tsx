@@ -1,7 +1,4 @@
 import spacetime from "spacetime";
-import { useStore } from "@nanostores/react";
-import { settingsStore } from "src/client/stores/settingsStore";
-import { useIsClient } from "src/client/utils/hooks/useIsClient";
 import { SERVER_TZ } from "src/types/constants";
 import { NoSSR } from "src/client/components/NoSSR";
 
@@ -10,12 +7,7 @@ interface DisplayDateEstimateProps {
 }
 
 export function DisplayDateEstimate({ time }: DisplayDateEstimateProps) {
-  const settings = useStore(settingsStore);
-  const isClient = useIsClient();
-  const s = spacetime(
-    time,
-    settings.showServerTimes || !isClient ? SERVER_TZ : undefined
-  );
+  const s = spacetime(time, SERVER_TZ);
   const d = s.date();
 
   return (
