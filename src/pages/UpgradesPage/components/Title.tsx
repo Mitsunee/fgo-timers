@@ -70,7 +70,7 @@ export function Subtitle({
 
   return (
     <h2>
-      {prefix}
+      {prefix}{" "}
       {highlight.match && highlight.match == name ? (
         <SearchMatch
           text={name}

@@ -15,6 +15,7 @@ interface IconFaceProps extends Omit<ComponentPropsCC<"img">, "id"> {
   placeholder: string;
   na?: true;
   forceIcon?: true;
+  lazy?: true; // TODO: implement lazyloading
 }
 
 export function IconFace({

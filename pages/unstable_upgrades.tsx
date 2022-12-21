@@ -8,7 +8,6 @@ import { getStaticProps } from "src/pages/UpgradesPage/getStaticProps";
 import { fetcher, UpgradesPageData } from "src/server/DataApi";
 import {
   BundledQuest,
-  QuestUpgrade,
   Upgrade,
   upgradeIsNPUpgrade,
   upgradeIsSkillUpgrade
@@ -36,6 +35,7 @@ import {
 } from "src/pages/UpgradesPage/filters";
 import { apiUrl } from "src/pages/UpgradesPage/constants";
 import { Highlight, UpgradeCard } from "src/pages/UpgradesPage/components";
+import { createQuestUnlockMapper } from "src/pages/UpgradesPage/mapQuestUnlocks";
 
 export { getStaticProps };
 type UpgradesPageProps = InferGetStaticPropsType<typeof getStaticProps>;
@@ -56,6 +56,7 @@ function Page() {
   const skillMap = res.data!.skills as Record<number, BundledSkill>;
   const npMap = res.data!.nps as Record<number, BundledNP>;
   const sorter = createUpgradeSorter(questMap);
+  const questMapper = createQuestUnlockMapper(questMap);
 
   /* NOTE:
     - Selectors look a bit awkward on mobile right now
@@ -167,7 +168,7 @@ function Page() {
                 key={item.quest}
                 upgrade={item}
                 servant={servantMap[item.servant]}
-                quest={questMap[item.quest] as QuestUpgrade}
+                quest={questMapper(item.quest)}
                 from={skillMap[skillId ?? 0]}
                 to={skillMap[newId]}
                 {...highlight}
@@ -182,7 +183,7 @@ function Page() {
                 key={item.quest}
                 upgrade={item}
                 servant={servantMap[item.servant]}
-                quest={questMap[item.quest] as QuestUpgrade}
+                quest={questMapper(item.quest)}
                 from={npMap[npId]}
                 to={npMap[newId]}
                 {...highlight}
@@ -195,7 +196,7 @@ function Page() {
               key={item.quest}
               upgrade={item}
               servant={servantMap[item.servant]}
-              quest={questMap[item.quest] as QuestUpgrade}
+              quest={questMapper(item.quest)}
               {...highlight}
             />
           );

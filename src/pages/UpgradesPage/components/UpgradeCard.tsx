@@ -4,7 +4,6 @@ import type {
   BundledSkill
 } from "src/servants/types";
 import {
-  QuestUpgrade,
   Upgrade,
   upgradeIsNPUpgrade,
   upgradeIsSkillUpgrade,
@@ -18,8 +17,12 @@ import { BorderColours, Borders } from "src/types/borders";
 import { NPUpgrade, SkillUpgrade } from "./UpgradeDisplay";
 import { Highlight } from "./types";
 import { Subtitle, Title } from "./Title";
+import type { MappedBundledQuest } from "../mapQuestUnlocks";
 
-type PropsBase = { servant: BundledServant; quest: QuestUpgrade } & Highlight;
+type PropsBase = {
+  servant: BundledServant;
+  quest: MappedBundledQuest;
+} & Highlight;
 type WithSkillUpgrade = {
   upgrade: Upgrade & { upgrades: UpgradeMapSkill };
   from: BundledSkill;
@@ -53,11 +56,11 @@ function isNPUpgrade(
 export function UpgradeCard(props: UpgradeCardProps) {
   const { servant, quest } = props;
   const questPrefix =
-    quest.type === UpgradeQuestType.RANKUP && quest.na
+    quest.type === UpgradeQuestType.INTERLUDE
+      ? "Interlude"
+      : quest.na
       ? ""
-      : `${
-          quest.type == UpgradeQuestType.INTERLUDE ? "Interlude" : "Rank Up"
-        }: `;
+      : "Rank Up";
   const highlight: Highlight = props.match
     ? { match: props.match, index: props.index, length: props.length }
     : {};
@@ -96,6 +99,10 @@ export function UpgradeCard(props: UpgradeCardProps) {
           newId={upgrade.upgrades.newId}
           to={to}
         />
+        DEBUG:{" "}
+        {quest.unlock?.quests
+          ?.map(quest => `[${quest.id}] ${quest.name}`)
+          .join(", ") || "No QuestClear Cond"}
       </article>
     );
   }
@@ -110,7 +117,6 @@ export function UpgradeCard(props: UpgradeCardProps) {
       <article className={styles.card} style={style}>
         <Hero
           border={to.border}
-          //title="NP"
           id={upgrade.servant}
           name={servant.name}
           icon={servant.icon}
@@ -134,6 +140,10 @@ export function UpgradeCard(props: UpgradeCardProps) {
           newId={upgrade.upgrades.newId}
           to={to}
         />
+        DEBUG:{" "}
+        {quest.unlock?.quests
+          ?.map(quest => `[${quest.id}] ${quest.name}`)
+          .join(", ") || "No QuestClear Cond"}
       </article>
     );
   }
@@ -160,6 +170,10 @@ export function UpgradeCard(props: UpgradeCardProps) {
         {...highlight}
       />
       <section>SQ INTLD {/* PLACEHOLDER */}</section>
+      DEBUG:{" "}
+      {quest.unlock?.quests
+        ?.map(quest => `[${quest.id}] ${quest.name}`)
+        .join(", ") || "No QuestClear Cond"}
     </article>
   );
 }
