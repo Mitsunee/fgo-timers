@@ -3,12 +3,23 @@ import {
   BorderedSkillIcon
 } from "src/client/components/BorderedIcon";
 import { SpoileredText } from "src/client/components/Text";
+import { AtlasLink } from "src/client/components/AtlasLink";
 import type { BundledNP, BundledSkill } from "src/servants/types";
+import type {
+  Upgrade,
+  UpgradeMap,
+  UpgradeMapNP,
+  UpgradeMapSkill
+} from "src/upgrades/types";
 import styles from "./UpgradeDisplay.module.css";
 
-type Props<T> = { id: number; from: T; newId: number; to: T };
-type SkillUpgradeProps = Props<BundledSkill>;
-type NPUpgradeProps = Props<BundledNP>;
+type Props<T, U extends UpgradeMap> = {
+  from: T;
+  to: T;
+  upgrade: Upgrade & { upgrades: U };
+};
+type SkillUpgradeProps = Props<BundledSkill, UpgradeMapSkill>;
+type NPUpgradeProps = Props<BundledNP, UpgradeMapNP>;
 
 function Arrow() {
   return (
@@ -18,9 +29,12 @@ function Arrow() {
   );
 }
 
-// TODO: Atlas DB links
+export function SkillUpgrade({ upgrade, from, to }: SkillUpgradeProps) {
+  const {
+    servant,
+    upgrades: { id = 0, newId }
+  } = upgrade;
 
-export function SkillUpgrade({ id, from, newId, to }: SkillUpgradeProps) {
   return (
     <section className={styles.grid}>
       <div className={styles.icon}>
@@ -32,21 +46,41 @@ export function SkillUpgrade({ id, from, newId, to }: SkillUpgradeProps) {
       </div>
       <div className={styles.text}>
         {id > 1 && (
-          <SpoileredText id={id} placeholder={`Skill ${from.num}`} na={from.na}>
-            {from.name}
-          </SpoileredText>
+          <>
+            <SpoileredText
+              id={id}
+              placeholder={`Skill ${from.num}`}
+              na={from.na}>
+              {from.name}
+            </SpoileredText>{" "}
+            <AtlasLink
+              link={`servant/${servant}/skill-${from.num}`}
+              na={from.na}
+              targetBlank
+            />
+          </>
         )}
       </div>
       <div className={styles.text}>
         <SpoileredText id={newId} placeholder={`Skill ${to.num}`} na={to.na}>
           {to.name}
-        </SpoileredText>
+        </SpoileredText>{" "}
+        <AtlasLink
+          link={`servant/${servant}/skill-${to.num}`}
+          na={to.na}
+          targetBlank
+        />
       </div>
     </section>
   );
 }
 
-export function NPUpgrade({ id, from, newId, to }: NPUpgradeProps) {
+export function NPUpgrade({ upgrade, from, to }: NPUpgradeProps) {
+  const {
+    servant,
+    upgrades: { id, newId }
+  } = upgrade;
+
   return (
     <section className={styles.grid}>
       <div className={styles.icon}>
@@ -59,12 +93,22 @@ export function NPUpgrade({ id, from, newId, to }: NPUpgradeProps) {
       <div className={styles.text}>
         <SpoileredText id={id} placeholder="Noble Phantasm" na={from.na}>
           {from.name}
-        </SpoileredText>
+        </SpoileredText>{" "}
+        <AtlasLink
+          link={`servant/${servant}/noble-phantasms`}
+          na={from.na}
+          targetBlank
+        />
       </div>
       <div className={styles.text}>
         <SpoileredText id={newId} placeholder="Noble Phantasm" na={to.na}>
           {to.name}
-        </SpoileredText>
+        </SpoileredText>{" "}
+        <AtlasLink
+          link={`servant/${servant}/noble-phantasms`}
+          na={to.na}
+          targetBlank
+        />
       </div>
     </section>
   );

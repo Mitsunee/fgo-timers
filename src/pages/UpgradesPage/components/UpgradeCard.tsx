@@ -68,7 +68,6 @@ export function UpgradeCard(props: UpgradeCardProps) {
 
   if (isSkillUpgrade(props)) {
     const { from, to, upgrade } = props;
-    const skillId = upgrade.upgrades.id ?? 0;
     const style = {
       "--border": BorderColours[to.border]
     } as React.CSSProperties;
@@ -94,12 +93,7 @@ export function UpgradeCard(props: UpgradeCardProps) {
           name={quest.name}
           {...highlight}
         />
-        <SkillUpgrade
-          id={skillId}
-          from={from}
-          newId={upgrade.upgrades.newId}
-          to={to}
-        />
+        <SkillUpgrade upgrade={upgrade} from={from} to={to} />
         <UpgradeInfo
           quest={quest}
           questId={upgrade.quest}
@@ -137,12 +131,7 @@ export function UpgradeCard(props: UpgradeCardProps) {
           name={quest.name}
           {...highlight}
         />
-        <NPUpgrade
-          id={upgrade.upgrades.id}
-          from={from}
-          newId={upgrade.upgrades.newId}
-          to={to}
-        />
+        <NPUpgrade upgrade={upgrade} from={from} to={to} />
         <UpgradeInfo
           quest={quest}
           questId={upgrade.quest}

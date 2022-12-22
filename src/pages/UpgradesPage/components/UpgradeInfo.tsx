@@ -1,8 +1,10 @@
-import { InlineSvg } from "src/client/components/InlineIcon";
-import { IconAtlas } from "src/client/components/icons";
+import { AtlasLink } from "src/client/components/AtlasLink";
+import {
+  DisplayDate,
+  DisplayDateEstimate
+} from "src/client/components/TimeDisplay";
 import type { BundledServant } from "src/servants/types";
 import type { MappedBundledQuest } from "../mapQuestUnlocks";
-import { DisplayDate, DisplayDateEstimate } from "@components/TimeDisplay";
 
 interface UpgradeInfoProps {
   quest: MappedBundledQuest;
@@ -33,12 +35,12 @@ export function UpgradeInfo({
             {quest.unlock.quests?.map(requiredQuest => (
               <li key={requiredQuest.id}>
                 Completed Quest:{" "}
-                <a
-                  href={`https://apps.atlasacademy.io/db/${
-                    requiredQuest.na ? "NA" : "JP"
-                  }/quest/${requiredQuest.id}/1`}>
-                  {requiredQuest.name} <InlineSvg icon={IconAtlas} />
-                </a>
+                <AtlasLink
+                  link={`quest/${requiredQuest.id}/1`}
+                  na={requiredQuest.na}
+                  targetBlank>
+                  {requiredQuest.name}
+                </AtlasLink>
               </li>
             ))}
           </ul>
@@ -52,19 +54,13 @@ export function UpgradeInfo({
           <DisplayDateEstimate time={time} />
         )}
         <br />
-        <a
-          href={`https://apps.atlasacademy.io/db/${
-            quest.na ? "NA" : "JP"
-          }/quest/${questId}/1`}>
-          Quest Info on Atlas Academy DB <InlineSvg icon={IconAtlas} />
-        </a>
+        <AtlasLink link={`quest/${questId}/1`} na={quest.na} targetBlank>
+          Quest Info on Atlas Academy DB
+        </AtlasLink>
         <br />
-        <a
-          href={`https://apps.atlasacademy.io/db/${
-            servant.na ? "NA" : "JP"
-          }/servant/${servantId}/1`}>
-          Servant Info on Atlas Academy DB <InlineSvg icon={IconAtlas} />
-        </a>
+        <AtlasLink link={`servant/${servantId}`} na={servant.na}>
+          Servant Info on Atlas Academy DB
+        </AtlasLink>
       </p>
     </section>
   );
