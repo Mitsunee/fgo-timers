@@ -1,0 +1,11 @@
+.close {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  font-size: 1em;
+
+  & svg {
+    width: 1em;
+    height: 1em;
+  }
+}

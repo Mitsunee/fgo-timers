@@ -1,7 +1,11 @@
 import styles from "./ModalMenu.module.css";
 import ButtonClose from "./ButtonClose";
 
-export default function ModalMenu({ children, handleClose }) {
+interface ModalMenuProps extends React.PropsWithChildren {
+  handleClose: Parameters<typeof ButtonClose>[0]["onClick"];
+}
+
+export function ModalMenu({ children, handleClose }: ModalMenuProps) {
   return (
     <section className={styles.menu}>
       <ButtonClose onClick={handleClose} />

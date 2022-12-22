@@ -117,8 +117,11 @@ a.button-decorated {
 
   & img:first-child,
   & svg:first-child {
-    display: block;
-    margin-right: 0.5ch;
+    display: inline-block;
+
+    &:not(:last-child) {
+      margin-right: 0.5ch;
+    }
   }
 }
 
