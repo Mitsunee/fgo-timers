@@ -17,12 +17,17 @@ import type {
   BundledSkill,
   BundledNP
 } from "src/servants/types";
-import Section from "src/client/components/Section";
-import { ActionButton } from "src/client/components/Button";
 import Meta from "src/client/components/Meta";
+import Section from "src/client/components/Section";
+import { NoSSR } from "src/client/components/NoSSR";
+import { ActionButton } from "src/client/components/Button";
 import { Input } from "src/client/components/Input";
 import { CardGrid } from "src/client/components/Card";
 import { Scroller } from "src/client/components/Scroller";
+import { Modal, ModalMenu } from "src/client/components/Modal";
+import Headline from "src/client/components/Headline";
+import { InlineSvg } from "src/client/components/InlineIcon";
+import { IconHelp, IconAtlas } from "src/client/components/icons";
 import { settingsStore } from "src/client/stores/settingsStore";
 import {
   filtersReducer,
@@ -49,8 +54,8 @@ function Page() {
   const [filters, setFilter] = useReducer(filtersReducer, formFiltersDefault);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [page, setPage] = useState<number>(1);
+  const [showHelp, setShowHelp] = useState(false);
 
-  const upgrades = res.data!.upgrades;
   const questMap = res.data!.quests as Record<number, BundledQuest>;
   const servantMap = res.data!.servants as Record<number, BundledServant>;
   const skillMap = res.data!.skills as Record<number, BundledSkill>;
@@ -58,12 +63,7 @@ function Page() {
   const sorter = createUpgradeSorter(questMap);
   const questMapper = createQuestUnlockMapper(questMap);
 
-  /* NOTE:
-    - Selectors look a bit awkward on mobile right now
-    - is scroller good now? also remove debug info from buttons
-    - why is this page 170kB first load?!
-      - components are shipping the entire api-connector package due to the enum exports
-  */
+  /* FIXME: Selectors look a bit awkward on mobile right now */
 
   const [searcher, filteredUpgrades] = useMemo(() => {
     // redefining res.data stuff in this scope so they aren't needed in dependecy array
@@ -115,13 +115,16 @@ function Page() {
   }, [perPage, maxPage]);
 
   if (res.error) {
-    // TODO: nicer error
-    return <h1>ERROR: {res.error}</h1>;
+    return (
+      <Section background>
+        <Headline>Internal Server Error</Headline>
+        <p>An Error occured while fetching the data for this page</p>
+      </Section>
+    );
   }
 
   return (
     <>
-      {/* TODO: help button? */}
       <Section background="blue">
         <FiltersForm
           filters={filters}
@@ -138,23 +141,13 @@ function Page() {
           </fieldset>
         </FiltersForm>
       </Section>
-      <code>
-        <pre>
-          {JSON.stringify(
-            {
-              request: res.isValidating ? "FETCHING" : "DONE",
-              filters,
-              filterResults: filteredUpgrades.length,
-              results: results.length,
-              totalNum: upgrades.length,
-              page,
-              maxPage
-            },
-            null,
-            2
-          )}
-        </pre>
-      </code>
+      <div style={{ height: 34, display: "flex", justifyContent: "flex-end" }}>
+        <NoSSR>
+          <ActionButton onClick={() => setShowHelp(true)} icon={IconHelp}>
+            Help
+          </ActionButton>
+        </NoSSR>
+      </div>
       <CardGrid>
         {results.slice(0, page * perPage).map(({ item, match, original }) => {
           const highlight: Highlight = match
@@ -214,6 +207,26 @@ function Page() {
             </ActionButton>
           </Scroller>
         </>
+      )}
+      {showHelp && (
+        <Modal labelledBy="help-modal">
+          <ModalMenu handleClose={() => setShowHelp(false)}>
+            <Headline id="help-modal">Help</Headline>
+            <p>
+              This page contains information on all Interlude and Rank Up
+              Quests. Use the filters and search field to find specific
+              Upgrades. The results are either ordered chronologically (oldest
+              to newest) or by how closely they match the search query. Use the{" "}
+              <InlineSvg icon={IconAtlas} /> buttons to get more info on things
+              on the Atlas Academy DB website.
+            </p>
+            <p>
+              The Spoiler System (see Settings) is in effect here and may censor
+              names and icons according to your settings. Note that Quest names
+              are exempt from this.
+            </p>
+          </ModalMenu>
+        </Modal>
       )}
     </>
   );
