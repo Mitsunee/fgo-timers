@@ -2,4 +2,5 @@
 @custom-media --mq-large (min-width: 992px);
 @custom-media --mq-medium (min-width: 768px);
 @custom-media --mq-small (min-width: 512px);
+@custom-media --mq-only-small (max-width: 511.99999px);
 /* please keep in sync with utils/hooks/useMediaQuery.js */

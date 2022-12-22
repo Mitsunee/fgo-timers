@@ -22,7 +22,7 @@
     width: 100%;
     text-align: center;
     font-size: 1.75em;
-    padding: 0px;
+    padding: 0px 0.33em;
   }
 
   & h2 {

@@ -45,14 +45,29 @@ const targetSelectOptions: SelectorOption<FormFilterState["target"]>[] = [
   },
   {
     value: "sq",
-    label: "SQ Interludes",
+    label: (
+      <>
+        SQ Inter
+        <wbr />
+        ludes
+      </>
+    ),
     icon: "https://static.atlasacademy.io/JP/Items/6.png",
     title: "Saint Quartz"
   }
 ];
 const typeSelectOptions: SelectorOption<FormFilterState["type"]>[] = [
   { value: null, label: "All" },
-  { value: UpgradeQuestType.INTERLUDE, label: "Interludes" },
+  {
+    value: UpgradeQuestType.INTERLUDE,
+    label: (
+      <>
+        Inter
+        <wbr />
+        ludes
+      </>
+    )
+  },
   { value: UpgradeQuestType.RANKUP, label: "Rank Ups" }
 ];
 

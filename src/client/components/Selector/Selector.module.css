@@ -10,6 +10,15 @@
 .button {
   border-radius: 0px;
 
+  @media (--mq-only-small) {
+    flex-flow: column;
+    justify-content: flex-start;
+    gap: 8px;
+    & > img:first-child {
+      margin-right: 0px;
+    }
+  }
+
   &:first-child {
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;

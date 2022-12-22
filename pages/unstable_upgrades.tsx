@@ -63,8 +63,6 @@ function Page() {
   const sorter = createUpgradeSorter(questMap);
   const questMapper = createQuestUnlockMapper(questMap);
 
-  /* FIXME: Selectors look a bit awkward on mobile right now */
-
   const [searcher, filteredUpgrades] = useMemo(() => {
     // redefining res.data stuff in this scope so they aren't needed in dependecy array
     const upgrades = res.data!.upgrades;

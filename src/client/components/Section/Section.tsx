@@ -2,10 +2,10 @@ import cc from "classcat";
 import type { ComponentPropsCC } from "src/types/ComponentProps";
 import styles from "./Section.module.css";
 
-// TODO: maybe Backgrounds enum?
+type Background = "blue" | "black";
 
 interface SectionProps extends ComponentPropsCC<"section"> {
-  background?: boolean | "blue";
+  background?: boolean | Background;
   padding?: null | boolean;
 }
 

@@ -4,7 +4,7 @@
   inset: 0px;
   object-fit: contain;
 
-  transition: filter 0.2ms ease-in-out; /* BUG: doesn't seem to work? */
+  transition: filter 0.1s ease-in;
 }
 
 .spoiler,
@@ -14,7 +14,7 @@ div:hover > .prerendered + .spoiler {
 
 .hidden,
 .prerendered {
-  filter: blur(12px); /* NOTE: maybe add partial greyscale filter? */
+  filter: blur(12px) grayscale(0.1);
 
   & + .spoiler {
     display: block;
@@ -25,6 +25,16 @@ div:hover > .prerendered + .spoiler {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
+    animation-name: fadein;
+    animation-duration: 0.1s;
+  }
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
     opacity: 0.75;
   }
 }

@@ -1,7 +1,7 @@
 import spacetime from "spacetime";
 import { useStore } from "@nanostores/react";
 import { settingsStore } from "src/client/stores/settingsStore";
-import { SERVER_TZ } from "src/types/constants";
+import { Global } from "src/types/enum";
 import { NoSSR } from "src/client/components/NoSSR";
 
 type Formats = "full" | "withSec" | "short" | "time" | "date";
@@ -36,9 +36,9 @@ export function DisplayDate({
 }: DisplayDateProps) {
   const settings = useStore(settingsStore);
   const format = getFormat(formatAlias, settings.alternativeClockFormat);
-  const tz: undefined | typeof SERVER_TZ =
+  const tz: undefined | string =
     serverTz == "always" || (serverTz != "never" && settings.showServerTimes)
-      ? SERVER_TZ
+      ? Global.SERVER_TZ
       : undefined;
 
   return <NoSSR>{spacetime(time, tz).format(format)}</NoSSR>;

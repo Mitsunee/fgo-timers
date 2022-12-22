@@ -7,7 +7,8 @@ const queries = [
   ["x-large", "(min-width: 1280px)"],
   ["large", "(min-width: 992px)"],
   ["medium", "(min-width: 768px)"],
-  ["small", "(min-width: 512px)"]
+  ["small", "(min-width: 512px)"],
+  ["only-small", "(max-width: 511.99999px)"]
 ] as const;
 type Queries = typeof queries[number][0];
 const queryMap = new Map<string, string /*DimensionQuery*/>(queries);
