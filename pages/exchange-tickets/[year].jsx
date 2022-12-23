@@ -73,6 +73,17 @@ export default function LoginTicketPage({ tickets, years, self }) {
           </p>
         </CollapsableSection>
       )}
+      {self >= 2024 && (
+        <CollapsableSection background closeable>
+          <p>
+            <b>Note:</b> As of September 2022 the tickets on the JP version have
+            had more than 3 items. This is currently not supported in the layout
+            of this page. Future tickets will thus not be updated until I can
+            rewrite this page to accomodate for this change. Thanks for
+            understanding.
+          </p>
+        </CollapsableSection>
+      )}
       <div className={styles.wrapper}>
         {tickets.map(({ month, items }) => (
           <article key={month}>

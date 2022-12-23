@@ -1,31 +1,30 @@
 //import { isClamped } from "foxkit/clamp";
+//import { useStore } from "@nanostores/react";
 
 import styles from "./SpecialTimer.module.css";
 //import { useRecurringDaily } from "@utils/hooks/useRecurringDaily";
+//import { intervalStore } from "@stores/intervalStore";
 import { useFormattedTimestamp } from "@utils/hooks/useFormattedTimestamp";
 import { useFormattedDelta } from "@utils/hooks/useFormattedDelta";
 import Section from "@components/Section";
 // import InlineIcon from "@components/InlineIcon";
 
-export default function SpecialTimer(/*{ endsAt, startsAt }*/) {
-  // const nextPayout = useRecurringDaily({ hour: 10 });
-  const tz = 1657612800000;
-  const date = useFormattedTimestamp(tz, "short");
-  const delta = useFormattedDelta(tz);
+export default function SpecialTimer({
+  /*endsAt, */ startsAt,
+  text,
+  icon = false
+}) {
+  //const { interval } = useStore(intervalStore);
+  const date = useFormattedTimestamp(startsAt, "short");
+  const delta = useFormattedDelta(startsAt);
 
   return (
-    /*isClamped({ value: tz, max: endsAt, min: startsAt }) ?*/ <Section
-      className={styles.section}
-      background>
+    /*isClamped({ value: interval, max: startsAt }) ? */
+    <Section className={styles.section} background>
       <span>
-        FGO Summer Event 2022 - Servant Summer Camp: {delta} ({date})
+        {text}: {delta} ({date})
       </span>
-      <img
-        src="/assets/events/summer5_logo.png"
-        alt="Summer 5"
-        title="Summer 5 Event"
-        className={styles.icon}
-      />
-    </Section>
-  ); /* : null;*/
+      {icon && <img src={icon} alt="Icon" className={styles.icon} />}
+    </Section> // : null
+  );
 }

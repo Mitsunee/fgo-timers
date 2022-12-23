@@ -2846,29 +2846,6 @@
   {
     "target": "sq",
     "quest": {
-      "id": 91203501,
-      "name": "英雄かくあるべし、と少年は思う",
-      "search": "英雄かくあるへし、と少年は思う",
-      "open": 1607936400,
-      "type": "interlude",
-      "unlock": {
-        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
-        "ascension": 2,
-        "bond": 3
-      }
-    },
-    "servant": {
-      "id": 203500,
-      "name": "Paris",
-      "search": "paris",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_2035000.png",
-      "className": "archer",
-      "na": true
-    }
-  },
-  {
-    "target": "sq",
-    "quest": {
       "id": 91300101,
       "name": "The Taboo",
       "search": "the taboo",
@@ -4314,28 +4291,6 @@
       "icon": "https://static.atlasacademy.io/JP/Faces/f_3032000.png",
       "className": "lancer",
       "na": true
-    }
-  },
-  {
-    "target": "sq",
-    "quest": {
-      "id": 91304601,
-      "name": "邪竜さん、ストレス解消する",
-      "search": "邪竜さん、ストレス解消する",
-      "open": 1632906000,
-      "type": "interlude",
-      "unlock": {
-        "quest": [{ "name": "intro.3-4", "id": 3000303, "na": true }],
-        "ascension": 2,
-        "bond": 3
-      }
-    },
-    "servant": {
-      "id": 304600,
-      "name": "Vritra",
-      "search": "vritra",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_3046000.png",
-      "className": "lancer"
     }
   },
   {
@@ -5890,29 +5845,6 @@
     }
   },
   {
-    "target": "sq",
-    "quest": {
-      "id": 91403401,
-      "name": "ドリーム・トレジャー",
-      "search": "トリム・トレシャ",
-      "open": 1607936400,
-      "type": "interlude",
-      "unlock": {
-        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
-        "ascension": 2,
-        "bond": 3
-      }
-    },
-    "servant": {
-      "id": 403400,
-      "name": "Bartholomew Roberts",
-      "search": "bartholomew roberts",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_4034000.png",
-      "className": "rider",
-      "na": true
-    }
-  },
-  {
     "target": "np",
     "initial": {
       "name": "Rule Breaker",
@@ -6026,46 +5958,6 @@
       "type": "rankup",
       "unlock": { "ascension": 4 },
       "na": true
-    },
-    "servant": {
-      "id": 500200,
-      "name": "Gilles de Rais (Caster)",
-      "search": "gilles de rais",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_5002000.png",
-      "className": "caster",
-      "na": true
-    }
-  },
-  {
-    "target": "skill",
-    "initial": {
-      "name": "Aesthetic Appreciation E-",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00506.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "冒涜審美 C+++",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00506.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94053799,
-      "name": "強化クエスト ジル・ド・レェ 2",
-      "search": "強化クエスト シル・ト・レェ 2",
-      "open": 1605094200,
-      "type": "rankup",
-      "unlock": {
-        "quest": [
-          {
-            "name": "Rank Up Quest: Gilles de Rais",
-            "id": 94003402,
-            "na": true
-          }
-        ]
-      }
     },
     "servant": {
       "id": 500200,
@@ -6613,42 +6505,6 @@
       "type": "rankup",
       "unlock": { "ascension": 4 },
       "na": true
-    },
-    "servant": {
-      "id": 501100,
-      "name": "Charles Babbage",
-      "search": "charles babbage",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_5011000.png",
-      "className": "caster",
-      "na": true
-    }
-  },
-  {
-    "target": "skill",
-    "initial": {
-      "name": "Overload D",
-      "num": 3,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00302.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "蒸気機関出力上昇 B",
-      "num": 3,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00302.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94054499,
-      "name": "強化クエスト バベッジ 2",
-      "search": "強化クエスト ハヘッシ 2",
-      "open": 1607677200,
-      "type": "rankup",
-      "unlock": {
-        "quest": [
-          { "name": "Rank Up Quest: Babbage", "id": 94014403, "na": true }
-        ]
-      }
     },
     "servant": {
       "id": 501100,
@@ -9515,36 +9371,6 @@
     }
   },
   {
-    "target": "np",
-    "initial": {
-      "name": "Karakuri Genpou, Dongyu",
-      "type": "buster",
-      "border": "black",
-      "na": true
-    },
-    "np": {
-      "name": "Karakuri Genpou, Dongyu",
-      "type": "buster",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94054488,
-      "name": "強化クエスト 加藤段蔵",
-      "search": "強化クエスト 加藤段蔵",
-      "open": 1606467600,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
-    },
-    "servant": {
-      "id": 603000,
-      "name": "Katou \"Black Kite\" Danzo",
-      "search": "katou \"black kite\" danzo",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_6030000.png",
-      "className": "assassin",
-      "na": true
-    }
-  },
-  {
     "target": "skill",
     "initial": {
       "name": "Morph A+",
@@ -9714,39 +9540,6 @@
         "bond": 5
       },
       "na": true
-    },
-    "servant": {
-      "id": 603600,
-      "name": "Li Shuwen (Assassin)",
-      "search": "li shuwen",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_6036000.png",
-      "className": "assassin",
-      "na": true
-    }
-  },
-  {
-    "target": "np",
-    "initial": {
-      "name": "Wu Er Da",
-      "type": "arts",
-      "border": "black",
-      "na": true
-    },
-    "np": { "name": "Wu Er Da", "type": "arts", "border": "gold" },
-    "quest": {
-      "id": 91603602,
-      "name": "受け継がれるもの",
-      "search": "受け継かれるもの",
-      "open": 1607936400,
-      "type": "interlude",
-      "unlock": {
-        "quest": [
-          { "name": "Grand Order", "id": 1000011, "na": true },
-          { "name": "Perseverance Will Prevail", "id": 91603601, "na": true }
-        ],
-        "ascension": 3,
-        "bond": 5
-      }
     },
     "servant": {
       "id": 603600,
@@ -10236,32 +10029,6 @@
   {
     "target": "np",
     "initial": {
-      "name": "Golden Spark",
-      "type": "buster",
-      "border": "black",
-      "na": true
-    },
-    "np": { "name": "Golden Spark", "type": "buster", "border": "gold" },
-    "quest": {
-      "id": 94054487,
-      "name": "強化クエスト 坂田金時",
-      "search": "強化クエスト 坂田金時",
-      "open": 1606467600,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
-    },
-    "servant": {
-      "id": 700600,
-      "name": "Sakata Kintoki",
-      "search": "sakata kintoki",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_7006000.png",
-      "className": "berserker",
-      "na": true
-    }
-  },
-  {
-    "target": "np",
-    "initial": {
       "name": "Kazikli Bey",
       "type": "arts",
       "border": "black",
@@ -10426,42 +10193,6 @@
       "type": "rankup",
       "unlock": { "ascension": 4 },
       "na": true
-    },
-    "servant": {
-      "id": 700800,
-      "name": "Beowulf",
-      "search": "beowulf",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_7008000.png",
-      "className": "berserker",
-      "na": true
-    }
-  },
-  {
-    "target": "skill",
-    "initial": {
-      "name": "Battle Continuation B",
-      "num": 3,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "堅忍の老境 A",
-      "num": 3,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94055799,
-      "name": "強化クエスト ベオウルフ 2",
-      "search": "強化クエスト ヘオウルフ 2",
-      "open": 1608109200,
-      "type": "rankup",
-      "unlock": {
-        "quest": [
-          { "name": "Rank Up Quest: Beowulf", "id": 94035604, "na": true }
-        ]
-      }
     },
     "servant": {
       "id": 700800,
@@ -11222,38 +10953,6 @@
     }
   },
   {
-    "target": "skill",
-    "initial": {
-      "name": "Disengage A",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00608.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "大江の鬼あばれ A+",
-      "num": 2,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00608.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94054489,
-      "name": "強化クエスト 茨木童子",
-      "search": "強化クエスト 茨木童子",
-      "open": 1606467600,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
-    },
-    "servant": {
-      "id": 702200,
-      "name": "Ibaraki-Douji",
-      "search": "ibaraki-douji",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_7022000.png",
-      "className": "berserker",
-      "na": true
-    }
-  },
-  {
     "target": "sq",
     "quest": {
       "id": 91702301,
@@ -11822,36 +11521,6 @@
     }
   },
   {
-    "target": "np",
-    "initial": {
-      "name": "Custos Morum",
-      "type": "arts",
-      "border": "black",
-      "na": true
-    },
-    "np": { "name": "Custos Morum", "type": "arts", "border": "gold" },
-    "quest": {
-      "id": 91900801,
-      "name": "裁くもの 裁かれるもの",
-      "search": "裁くもの 裁かれるもの",
-      "open": 1607936400,
-      "type": "interlude",
-      "unlock": {
-        "quest": [{ "name": "intro.3-4", "id": 3000303, "na": true }],
-        "ascension": 2,
-        "bond": 4
-      }
-    },
-    "servant": {
-      "id": 900800,
-      "name": "Astraea",
-      "search": "astraea",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_9008000.png",
-      "className": "ruler",
-      "na": true
-    }
-  },
-  {
     "target": "skill",
     "initial": {
       "name": "Masochistic Nature A",
@@ -12129,24 +11798,6 @@
       "icon": "https://static.atlasacademy.io/JP/Faces/f_10007000.png",
       "className": "alterEgo",
       "na": true
-    }
-  },
-  {
-    "target": "sq",
-    "quest": {
-      "id": 911001001,
-      "name": "霊基解放クエスト 蘆屋道満",
-      "search": "霊基解放クエスト 蘆屋道満",
-      "open": 1607072400,
-      "type": "interlude",
-      "unlock": { "ascension": 3 }
-    },
-    "servant": {
-      "id": 1001000,
-      "name": "Ashiya Douman",
-      "search": "ashiya douman",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_10010000.png",
-      "className": "alterEgo"
     }
   },
   {
@@ -12472,38 +12123,6 @@
   {
     "target": "skill",
     "initial": {
-      "name": "Faithful Prayer C",
-      "num": 1,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00607.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "深淵にて光となれり A",
-      "num": 1,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00607.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94053430,
-      "name": "強化クエスト アビゲイル・ウィリアムズ",
-      "search": "強化クエスト アヒケイル・ウィリアムス",
-      "open": 1604480400,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
-    },
-    "servant": {
-      "id": 2500100,
-      "name": "Abigail Williams",
-      "search": "abigail williams",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_25001000.png",
-      "className": "foreigner",
-      "na": true
-    }
-  },
-  {
-    "target": "skill",
-    "initial": {
       "name": "Pseudonym \"Iseidako\" B",
       "num": 3,
       "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00325.png",
@@ -12531,58 +12150,6 @@
       "icon": "https://static.atlasacademy.io/JP/Faces/f_25002000.png",
       "className": "foreigner",
       "na": true
-    }
-  },
-  {
-    "target": "np",
-    "initial": {
-      "name": "Etherspace, Yet Lawful",
-      "type": "arts",
-      "border": "black",
-      "na": true
-    },
-    "np": {
-      "name": "Etherspace, Yet Lawful",
-      "type": "arts",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94053432,
-      "name": "強化クエスト 謎のヒロインXX",
-      "search": "強化クエスト 謎のヒロインxx",
-      "open": 1604480400,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
-    },
-    "servant": {
-      "id": 2500300,
-      "name": "Mysterious Heroine XX",
-      "search": "mysterious heroine xx",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_25003000.png",
-      "className": "foreigner",
-      "na": true
-    }
-  },
-  {
-    "target": "sq",
-    "quest": {
-      "id": 912500601,
-      "name": "インタビュー・ウィズ・マイスター",
-      "search": "インタヒュ・ウィス・マイスタ",
-      "open": 1632906000,
-      "type": "interlude",
-      "unlock": {
-        "quest": [{ "name": "intro.3-4", "id": 3000303, "na": true }],
-        "ascension": 3,
-        "bond": 4
-      }
-    },
-    "servant": {
-      "id": 2500600,
-      "name": "Van Gogh",
-      "search": "van gogh",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_25006000.png",
-      "className": "foreigner"
     }
   },
   {
@@ -13185,38 +12752,6 @@
     }
   },
   {
-    "target": "skill",
-    "initial": {
-      "name": "Favors of Three Thousand Concentrated to One A",
-      "num": 1,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00403.png",
-      "border": "black",
-      "na": true
-    },
-    "skill": {
-      "name": "三千寵愛在一身 A+",
-      "num": 1,
-      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00403.png",
-      "border": "gold"
-    },
-    "quest": {
-      "id": 94053431,
-      "name": "強化クエスト 楊貴妃",
-      "search": "強化クエスト 楊貴妃",
-      "open": 1604480400,
-      "type": "rankup",
-      "unlock": { "ascension": 4 }
-    },
-    "servant": {
-      "id": 2500400,
-      "name": "Yang Guifei",
-      "search": "yang guifei",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_25004000.png",
-      "className": "foreigner",
-      "na": true
-    }
-  },
-  {
     "target": "np",
     "initial": {
       "name": "Unspoken Formation",
@@ -13447,29 +12982,6 @@
       "search": "gaius julius caesar",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_1013000.png",
       "className": "saber",
-      "na": true
-    }
-  },
-  {
-    "target": "sq",
-    "quest": {
-      "id": 91204001,
-      "name": "エモーショナルな私達",
-      "search": "エモショナルな私達",
-      "open": 1607936400,
-      "type": "interlude",
-      "unlock": {
-        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
-        "ascension": 3,
-        "bond": 4
-      }
-    },
-    "servant": {
-      "id": 204000,
-      "name": "Sei Shounagon (Archer)",
-      "search": "sei shounagon",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_2040000.png",
-      "className": "archer",
       "na": true
     }
   },
@@ -13793,29 +13305,6 @@
     }
   },
   {
-    "target": "sq",
-    "quest": {
-      "id": 91104201,
-      "name": "導きの星をさがして",
-      "search": "導きの星をさかして",
-      "open": 1607936400,
-      "type": "interlude",
-      "unlock": {
-        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
-        "ascension": 2,
-        "bond": 5
-      }
-    },
-    "servant": {
-      "id": 104200,
-      "name": "Dioscuri",
-      "search": "dioscuri",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_1042000.png",
-      "className": "saber",
-      "na": true
-    }
-  },
-  {
     "target": "skill",
     "initial": {
       "name": "Pillaging Spear B",
@@ -13849,29 +13338,6 @@
       "name": "Caenis (Lancer)",
       "search": "caenis",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_3041000.png",
-      "className": "lancer",
-      "na": true
-    }
-  },
-  {
-    "target": "sq",
-    "quest": {
-      "id": 91304201,
-      "name": "我が手のもたらす罪",
-      "search": "我か手のもたらす罪",
-      "open": 1607936400,
-      "type": "interlude",
-      "unlock": {
-        "quest": [{ "name": "Return", "id": 1000822, "na": true }],
-        "ascension": 3,
-        "bond": 5
-      }
-    },
-    "servant": {
-      "id": 304200,
-      "name": "Romulus=Quirinus",
-      "search": "romulus=quirinus",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_3042000.png",
       "className": "lancer",
       "na": true
     }
@@ -16120,28 +15586,6 @@
     }
   },
   {
-    "target": "sq",
-    "quest": {
-      "id": 91104601,
-      "name": "我が身、憶えはなかれども…",
-      "search": "我か身、憶えはなかれとも…",
-      "open": 1632906000,
-      "type": "interlude",
-      "unlock": {
-        "quest": [{ "name": "つわものどもが、夢の跡", "id": 3000716 }],
-        "ascension": 3,
-        "bond": 5
-      }
-    },
-    "servant": {
-      "id": 104600,
-      "name": "Ibuki-Douji (Saber)",
-      "search": "ibuki-douji",
-      "icon": "https://static.atlasacademy.io/JP/Faces/f_1046000.png",
-      "className": "saber"
-    }
-  },
-  {
     "target": "skill",
     "initial": {
       "name": "Divine Power B",
@@ -16837,6 +16281,1076 @@
       "search": "okita souji (alter)",
       "icon": "https://static.atlasacademy.io/JP/Faces/f_10007000.png",
       "className": "alterEgo",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91704401,
+      "name": "霊基解放クエスト 千利休",
+      "search": "霊基解放クエスト 千利休",
+      "open": 1663750800,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "余談「ぐだぐだ茶の湯譚」", "id": 94074512 }],
+        "ascension": 3
+      }
+    },
+    "servant": {
+      "id": 704400,
+      "name": "Sen no Rikyū",
+      "search": "sen no rikyu",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_7044000.png",
+      "className": "berserker"
+    }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Astrápste Argo",
+      "type": "arts",
+      "border": "black",
+      "na": true
+    },
+    "np": { "name": "Astrápste Argo", "type": "arts", "border": "gold" },
+    "quest": {
+      "id": 91103801,
+      "name": "第二、あるいは三回アルゴノーツ乗員募集大会",
+      "search": "第二、あるいは三回アルコノツ乗員募集大会",
+      "open": 1664355600,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          {
+            "name": "Final Showdown: The Hollow Sea God",
+            "id": 3000531,
+            "na": true
+          }
+        ],
+        "ascension": 3,
+        "bond": 3
+      }
+    },
+    "servant": {
+      "id": 103800,
+      "name": "Jason",
+      "search": "jason",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_1038000.png",
+      "className": "saber",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91203801,
+      "name": "超人オリオン、未体験の感覚に戸惑う",
+      "search": "超人オリオン、未体験の感覚に戸惑う",
+      "open": 1664355600,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          {
+            "name": "Final Showdown: The Hollow Sea God",
+            "id": 3000531,
+            "na": true
+          }
+        ],
+        "ascension": 3,
+        "bond": 3
+      }
+    },
+    "servant": {
+      "id": 203800,
+      "name": "Super Orion",
+      "search": "super orion",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_2038000.png",
+      "className": "archer",
+      "na": true
+    }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Troias Tragōidia",
+      "type": "quick",
+      "border": "black",
+      "na": true
+    },
+    "np": { "name": "Troias Tragōidia", "type": "quick", "border": "gold" },
+    "quest": {
+      "id": 94077001,
+      "name": "強化クエスト アキレウス",
+      "search": "強化クエスト アキレウス",
+      "open": 1664355600,
+      "type": "rankup",
+      "unlock": { "ascension": 4 }
+    },
+    "servant": {
+      "id": 402900,
+      "name": "Achilles",
+      "search": "achilles",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_4029000.png",
+      "className": "rider",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Curse (Shrine Maiden) C",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00512.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "呪術（巫） C++",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00512.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94077002,
+      "name": "強化クエスト 望月千代女 2",
+      "search": "強化クエスト 望月千代女 2",
+      "open": 1664355600,
+      "type": "rankup",
+      "unlock": {
+        "quest": [{ "name": "強化クエスト 望月千代女", "id": 94058502 }]
+      }
+    },
+    "servant": {
+      "id": 602900,
+      "name": "Mochizuki Chiyome",
+      "search": "mochizuki chiyome",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_6029000.png",
+      "className": "assassin",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91403801,
+      "name": "ドリーム・オデッセイ",
+      "search": "トリム・オテッセイ",
+      "open": 1664528400,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
+        "ascension": 3,
+        "bond": 5
+      }
+    },
+    "servant": {
+      "id": 403800,
+      "name": "Odysseus",
+      "search": "odysseus",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_4038000.png",
+      "className": "rider",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Abolishing Thieves B",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "悪漢打破 A",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94076501,
+      "name": "強化クエスト 秦良玉",
+      "search": "強化クエスト 秦良玉",
+      "open": 1665572400,
+      "type": "rankup",
+      "unlock": { "ascension": 4 }
+    },
+    "servant": {
+      "id": 303500,
+      "name": "Qin Liangyu",
+      "search": "qin liangyu",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_3035000.png",
+      "className": "lancer",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Chinese Boxing EX",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00311.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "燕青拳 EX",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00311.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94076502,
+      "name": "強化クエスト 燕青 2",
+      "search": "強化クエスト 燕青 2",
+      "open": 1665572400,
+      "type": "rankup",
+      "unlock": { "quest": [{ "name": "強化クエスト 燕青", "id": 94058606 }] }
+    },
+    "servant": {
+      "id": 602600,
+      "name": "Yan Qing",
+      "search": "yan qing",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_6026000.png",
+      "className": "assassin",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Aesthetic Appreciation E-",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00506.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Sacrilegious Appreciation C+++",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00506.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94053799,
+      "name": "Rank Up Quest: Gilles de Rais 2",
+      "search": "rank up quest: gilles de rais 2",
+      "open": 1666843200,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          {
+            "name": "Rank Up Quest: Gilles de Rais",
+            "id": 94003402,
+            "na": true
+          }
+        ]
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 500200,
+      "name": "Gilles de Rais (Caster)",
+      "search": "gilles de rais",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_5002000.png",
+      "className": "caster",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 911100302,
+      "name": "うたかたの夢を抱いて、そして眠るの",
+      "search": "うたかたの夢を抱いて、そして眠るの",
+      "open": 1667034000,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          {
+            "name": "Great Detectives' Great Deduction",
+            "id": 2000118,
+            "na": true
+          },
+          {
+            "name": "That Which Must Be Corrected",
+            "id": 911100301,
+            "na": true
+          }
+        ],
+        "ascension": 4,
+        "bond": 5
+      }
+    },
+    "servant": {
+      "id": 1100300,
+      "name": "Jeanne d'Arc (Alter)",
+      "search": "jeanne d'arc (alter)",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_11003000.png",
+      "className": "avenger",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Faithful Prayer C",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00607.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Light in the Abyss A",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00607.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94053430,
+      "name": "Rank Up Quest: Abigail Williams",
+      "search": "rank up quest: abigail williams",
+      "open": 1666584000,
+      "type": "rankup",
+      "unlock": { "ascension": 4 },
+      "na": true
+    },
+    "servant": {
+      "id": 2500100,
+      "name": "Abigail Williams",
+      "search": "abigail williams",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_25001000.png",
+      "className": "foreigner",
+      "na": true
+    }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Etherspace, Yet Lawful",
+      "type": "arts",
+      "border": "black",
+      "na": true
+    },
+    "np": {
+      "name": "Etherspace, Yet Lawful",
+      "type": "arts",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94053432,
+      "name": "Rank Up Quest: Mysterious Heroine XX",
+      "search": "rank up quest: mysterious heroine xx",
+      "open": 1666584000,
+      "type": "rankup",
+      "unlock": { "ascension": 4 },
+      "na": true
+    },
+    "servant": {
+      "id": 2500300,
+      "name": "Mysterious Heroine XX",
+      "search": "mysterious heroine xx",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_25003000.png",
+      "className": "foreigner",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Favors of Three Thousand Concentrated to One A",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00403.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Favors of Three Thousand Concentrated to One A+",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00403.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94053431,
+      "name": "Rank Up Quest: Yang Guifei",
+      "search": "rank up quest: yang guifei",
+      "open": 1666584000,
+      "type": "rankup",
+      "unlock": { "ascension": 4 },
+      "na": true
+    },
+    "servant": {
+      "id": 2500400,
+      "name": "Yang Guifei",
+      "search": "yang guifei",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_25004000.png",
+      "className": "foreigner",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 912500601,
+      "name": "インタビュー・ウィズ・マイスター",
+      "search": "インタヒュ・ウィス・マイスタ",
+      "open": 1632906000,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "intro.3-4", "id": 3000303, "na": true }],
+        "ascension": 3,
+        "bond": 4
+      }
+    },
+    "servant": {
+      "id": 2500600,
+      "name": "Van Gogh",
+      "search": "van gogh",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_25006000.png",
+      "className": "foreigner",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 912500602,
+      "name": "「題材と○○の問題」",
+      "search": "「題材と○○の問題」",
+      "open": 1666947600,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          { "name": "intro.3-4", "id": 3000303, "na": true },
+          { "name": "インタビュー・ウィズ・マイスター", "id": 912500601 }
+        ],
+        "ascension": 3,
+        "bond": 4
+      }
+    },
+    "servant": {
+      "id": 2500600,
+      "name": "Van Gogh",
+      "search": "van gogh",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_25006000.png",
+      "className": "foreigner",
+      "na": true
+    }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Karakuri Genpou, Dongyu",
+      "type": "buster",
+      "border": "black",
+      "na": true
+    },
+    "np": {
+      "name": "Karakuri Genpou, Dongyu",
+      "type": "buster",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94054488,
+      "name": "Rank Up Quest: Katou \"Black Kite\" Danzo",
+      "search": "rank up quest: katou \"black kite\" danzo",
+      "open": 1668052800,
+      "type": "rankup",
+      "unlock": { "ascension": 4 },
+      "na": true
+    },
+    "servant": {
+      "id": 603000,
+      "name": "Katou \"Black Kite\" Danzo",
+      "search": "katou \"black kite\" danzo",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_6030000.png",
+      "className": "assassin",
+      "na": true
+    }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Golden Spark",
+      "type": "buster",
+      "border": "black",
+      "na": true
+    },
+    "np": {
+      "name": "Golden Spark",
+      "type": "buster",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94054487,
+      "name": "Rank Up Quest: Sakata Kintoki",
+      "search": "rank up quest: sakata kintoki",
+      "open": 1668052800,
+      "type": "rankup",
+      "unlock": { "ascension": 4 },
+      "na": true
+    },
+    "servant": {
+      "id": 700600,
+      "name": "Sakata Kintoki",
+      "search": "sakata kintoki",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_7006000.png",
+      "className": "berserker",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Disengage A",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00608.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Violent Oni of Ooe A+",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00608.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94054489,
+      "name": "Rank Up Quest: Ibaraki-Douji",
+      "search": "rank up quest: ibaraki-douji",
+      "open": 1668052800,
+      "type": "rankup",
+      "unlock": { "ascension": 4 },
+      "na": true
+    },
+    "servant": {
+      "id": 702200,
+      "name": "Ibaraki-Douji",
+      "search": "ibaraki-douji",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_7022000.png",
+      "className": "berserker",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 911100202,
+      "name": "夢の終わり、或いは恩讐の果て",
+      "search": "夢の終わり、或いは恩讐の果て",
+      "open": 1668070800,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          { "name": "旅立ち", "id": 3001101 },
+          {
+            "name": "Nightmare; or, the Call of Love and Hate",
+            "id": 911100201,
+            "na": true
+          }
+        ],
+        "ascension": 3,
+        "bond": 5
+      }
+    },
+    "servant": {
+      "id": 1100200,
+      "name": "Edmond Dantès",
+      "search": "edmond dantes",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_11002000.png",
+      "className": "avenger",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 911001001,
+      "name": "Spirit Origin Release Quest: Ashiya Douman",
+      "search": "spirit origin release quest: ashiya douman",
+      "open": 1669003200,
+      "type": "interlude",
+      "unlock": { "ascension": 3 },
+      "na": true
+    },
+    "servant": {
+      "id": 1001000,
+      "name": "Ashiya Douman",
+      "search": "ashiya douman",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_10010000.png",
+      "className": "alterEgo",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Fifth Force A",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00323.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "第五勢 A+",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00323.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94078401,
+      "name": "強化クエスト 宮本武蔵 2",
+      "search": "強化クエスト 宮本武蔵 2",
+      "open": 1669453200,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          {
+            "name": "Rank Up Quest: Miyamoto Musashi",
+            "id": 94052293,
+            "na": true
+          }
+        ]
+      }
+    },
+    "servant": {
+      "id": 101700,
+      "name": "Miyamoto Musashi",
+      "search": "miyamoto musashi",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_1017000.png",
+      "className": "saber",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91104601,
+      "name": "我が身、憶えはなかれども…",
+      "search": "我か身、憶えはなかれとも…",
+      "open": 1632906000,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          {
+            "name": "Warriors' Dreams Are All That Remains",
+            "id": 3000716,
+            "na": true
+          }
+        ],
+        "ascension": 3,
+        "bond": 5
+      }
+    },
+    "servant": {
+      "id": 104600,
+      "name": "Ibuki-Douji (Saber)",
+      "search": "ibuki-douji",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_1046000.png",
+      "className": "saber",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91202302,
+      "name": "或る名探偵と或る悪党の生と死",
+      "search": "或る名探偵と或る悪党の生と死",
+      "open": 1669280400,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          { "name": "そして、あなたたちは応報を見る", "id": 3001222 },
+          { "name": "Seeking Quieter Times", "id": 91202301, "na": true }
+        ],
+        "ascension": 3,
+        "bond": 5
+      }
+    },
+    "servant": {
+      "id": 202300,
+      "name": "James Moriarty (Archer)",
+      "search": "james moriarty",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_2023000.png",
+      "className": "archer",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Overload D",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00302.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Increase Steam Engine Output B",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00302.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94054499,
+      "name": "Rank Up Quest: Babbage 2",
+      "search": "rank up quest: babbage 2",
+      "open": 1669608000,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          { "name": "Rank Up Quest: Babbage", "id": 94014403, "na": true }
+        ]
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 501100,
+      "name": "Charles Babbage",
+      "search": "charles babbage",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_5011000.png",
+      "className": "caster",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Charisma B-",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00300.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "女王の霊香 A",
+      "num": 1,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00300.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 91503402,
+      "name": "三匹のジンのレポート",
+      "search": "三匹のシンのレホト",
+      "open": 1669539600,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          { "name": "Chaldea", "id": 2000410, "na": true },
+          { "name": "了", "id": 3001009 },
+          {
+            "name": "Harder Than Going Through the Eye of a Needle",
+            "id": 91503401,
+            "na": true
+          }
+        ],
+        "ascension": 4,
+        "bond": 5
+      }
+    },
+    "servant": {
+      "id": 503400,
+      "name": "Queen of Sheba",
+      "search": "queen of sheba",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_5034000.png",
+      "className": "caster",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91104201,
+      "name": "In Search of a Guiding Star",
+      "search": "in search of a guiding star",
+      "open": 1669953600,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
+        "ascension": 2,
+        "bond": 5
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 104200,
+      "name": "Dioscuri",
+      "search": "dioscuri",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_1042000.png",
+      "className": "saber",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91203501,
+      "name": "What a Hero Should Be, According to a Boy",
+      "search": "what a hero should be, according to a boy",
+      "open": 1669953600,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
+        "ascension": 2,
+        "bond": 3
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 203500,
+      "name": "Paris",
+      "search": "paris",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_2035000.png",
+      "className": "archer",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91204001,
+      "name": "We Are So Emotional",
+      "search": "we are so emotional",
+      "open": 1669953600,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
+        "ascension": 3,
+        "bond": 4
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 204000,
+      "name": "Sei Shounagon (Archer)",
+      "search": "sei shounagon",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_2040000.png",
+      "className": "archer",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91304201,
+      "name": "Sins My Hands Wrought",
+      "search": "sins my hands wrought",
+      "open": 1669953600,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "Return", "id": 1000822, "na": true }],
+        "ascension": 3,
+        "bond": 5
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 304200,
+      "name": "Romulus=Quirinus",
+      "search": "romulus=quirinus",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_3042000.png",
+      "className": "lancer",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91403401,
+      "name": "Dream Treasure",
+      "search": "dream treasure",
+      "open": 1669953600,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "Grand Order", "id": 1000011, "na": true }],
+        "ascension": 2,
+        "bond": 3
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 403400,
+      "name": "Bartholomew Roberts",
+      "search": "bartholomew roberts",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_4034000.png",
+      "className": "rider",
+      "na": true
+    }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Wu Er Da",
+      "type": "arts",
+      "border": "black",
+      "na": true
+    },
+    "np": { "name": "Wu Er Da", "type": "arts", "border": "gold", "na": true },
+    "quest": {
+      "id": 91603602,
+      "name": "Inheritor",
+      "search": "inheritor",
+      "open": 1669953600,
+      "type": "interlude",
+      "unlock": {
+        "quest": [
+          { "name": "Grand Order", "id": 1000011, "na": true },
+          { "name": "Perseverance Will Prevail", "id": 91603601, "na": true }
+        ],
+        "ascension": 3,
+        "bond": 5
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 603600,
+      "name": "Li Shuwen (Assassin)",
+      "search": "li shuwen",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_6036000.png",
+      "className": "assassin",
+      "na": true
+    }
+  },
+  {
+    "target": "np",
+    "initial": {
+      "name": "Custos Morum",
+      "type": "arts",
+      "border": "black",
+      "na": true
+    },
+    "np": {
+      "name": "Custos Morum",
+      "type": "arts",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 91900801,
+      "name": "The Judge and the Judged",
+      "search": "the judge and the judged",
+      "open": 1669953600,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "intro.3-4", "id": 3000303, "na": true }],
+        "ascension": 2,
+        "bond": 4
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 900800,
+      "name": "Astraea",
+      "search": "astraea",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_9008000.png",
+      "className": "ruler",
+      "na": true
+    }
+  },
+  {
+    "target": "sq",
+    "quest": {
+      "id": 91304601,
+      "name": "邪竜さん、ストレス解消する",
+      "search": "邪竜さん、ストレス解消する",
+      "open": 1632906000,
+      "type": "interlude",
+      "unlock": {
+        "quest": [{ "name": "intro.3-4", "id": 3000303, "na": true }],
+        "ascension": 2,
+        "bond": 3
+      }
+    },
+    "servant": {
+      "id": 304600,
+      "name": "Vritra",
+      "search": "vritra",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_3046000.png",
+      "className": "lancer",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Battle Continuation B",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "Persevering Old Age A",
+      "num": 3,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00404.png",
+      "border": "gold",
+      "na": true
+    },
+    "quest": {
+      "id": 94055799,
+      "name": "Rank Up Quest: Beowulf 2",
+      "search": "rank up quest: beowulf 2",
+      "open": 1670817600,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          { "name": "Rank Up Quest: Beowulf", "id": 94035604, "na": true }
+        ]
+      },
+      "na": true
+    },
+    "servant": {
+      "id": 700800,
+      "name": "Beowulf",
+      "search": "beowulf",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_7008000.png",
+      "className": "berserker",
+      "na": true
+    }
+  },
+  {
+    "target": "skill",
+    "initial": {
+      "name": "Golden Rule A",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00602.png",
+      "border": "black",
+      "na": true
+    },
+    "skill": {
+      "name": "モンテ・クリストの秘宝 A+",
+      "num": 2,
+      "icon": "https://static.atlasacademy.io/JP/SkillIcons/skill_00602.png",
+      "border": "gold"
+    },
+    "quest": {
+      "id": 94081201,
+      "name": "強化クエスト 巌窟王 2",
+      "search": "強化クエスト 巌窟王 2",
+      "open": 1670835600,
+      "type": "rankup",
+      "unlock": {
+        "quest": [
+          { "name": "Rank Up Quest: Edmond Dantès", "id": 94026512, "na": true }
+        ]
+      }
+    },
+    "servant": {
+      "id": 1100200,
+      "name": "Edmond Dantès",
+      "search": "edmond dantes",
+      "icon": "https://static.atlasacademy.io/JP/Faces/f_11002000.png",
+      "className": "avenger",
       "na": true
     }
   }
