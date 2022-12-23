@@ -13,6 +13,12 @@ interface ActionButtonProps extends ComponentPropsCC<"button"> {
   hover?: undefined; // style :hover color instead
 }
 
+type ActionButtonIconProps =
+  | (Partial<Record<Exclude<keyof OptionalIconProps, "title">, undefined>> & {
+      title: string;
+    })
+  | OptionalIconProps;
+
 export function ActionButton({
   children,
   className,
@@ -22,7 +28,7 @@ export function ActionButton({
   hover,
   title,
   ...props
-}: ActionButtonProps & OptionalIconProps) {
+}: ActionButtonProps & ActionButtonIconProps) {
   const classNameExtended = cc([
     GlobalStyles.BUTTON,
     decorated && GlobalStyles.BUTTON_DECORATED,
@@ -31,7 +37,10 @@ export function ActionButton({
   const iconProps = icon ? ({ icon, fill, hover, title } as IconProps) : false;
 
   return (
-    <button className={classNameExtended} {...props}>
+    <button
+      className={classNameExtended}
+      {...props}
+      title={title && !iconProps ? title : undefined}>
       {iconProps && <InlineIcon {...iconProps} />}
       {iconProps && typeof children == "string" ? (
         <span>{children}</span>

@@ -59,9 +59,9 @@ export const setSpoilerLevel = action(
 export const toggleInfiniteScrollMode = action(
   settingsMap,
   "Toggle automatic Infinite Scroll",
-  store => {
+  (store, state?: boolean) => {
     const { autoInfiniteScroll: oldStateStr } = store.get();
     const oldState = oldStateStr === "true";
-    store.setKey("autoInfiniteScroll", `${!oldState}`);
+    store.setKey("autoInfiniteScroll", `${state ?? !oldState}`);
   }
 );

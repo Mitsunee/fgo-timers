@@ -15,6 +15,11 @@ interface LinkButtonProps extends ComponentWithRefCC<"a"> {
   fill?: undefined; // style color instead
   hover?: undefined; // style :hover color instead
 }
+type LinkButtonIconProps =
+  | (Partial<Record<Exclude<keyof OptionalIconProps, "title">, undefined>> & {
+      title: string;
+    })
+  | OptionalIconProps;
 
 export function LinkButton({
   children,
@@ -26,7 +31,7 @@ export function LinkButton({
   hover,
   title,
   ...props
-}: LinkButtonProps & OptionalIconProps) {
+}: LinkButtonProps & LinkButtonIconProps) {
   const classNameExtended = cc([
     GlobalStyles.BUTTON,
     decorated && GlobalStyles.BUTTON_DECORATED,
@@ -53,11 +58,19 @@ export function LinkButton({
   }
 
   return props.href.startsWith("/") ? (
-    <Link {...props} rel={relProp} className={classNameExtended}>
+    <Link
+      {...props}
+      title={title && !iconProps ? title : undefined}
+      rel={relProp}
+      className={classNameExtended}>
       {Inner}
     </Link>
   ) : (
-    <a {...props} rel={relProp} className={classNameExtended}>
+    <a
+      {...props}
+      title={title && !iconProps ? title : undefined}
+      rel={relProp}
+      className={classNameExtended}>
       {Inner}
     </a>
   );

@@ -1,7 +1,10 @@
 import { ElementRef, useLayoutEffect, useRef } from "react";
 import { useStore } from "@nanostores/react";
-import { settingsStore } from "src/client/stores/settingsStore";
-import type { RequiredChildren } from "src/types/ComponentProps";
+import {
+  settingsStore,
+  toggleInfiniteScrollMode
+} from "src/client/stores/settingsStore";
+import { ActionButton } from "src/client/components/Button";
 
 type Handler = () => void;
 type Height = React.CSSProperties["height"];
@@ -33,18 +36,32 @@ function ScrollBoundary({ height, handler }: ScrollBoundaryProps) {
 }
 
 interface ScrollerProps {
-  children: RequiredChildren;
   height?: Height;
   handler: Handler;
+  handlerMax?: Handler;
 }
 
 /**
  * Handles infinite scrolling with a ScrollBoundary component.
- * children prop is used as fallback while autoInfiniteScroll is disabled
  */
-export function Scroller({ children, height = 100, handler }: ScrollerProps) {
+export function Scroller({ height = 100, handler, handlerMax }: ScrollerProps) {
   const { autoInfiniteScroll } = useStore(settingsStore);
 
-  if (!autoInfiniteScroll) return <>{children}</>;
+  if (!autoInfiniteScroll)
+    return (
+      <>
+        <ActionButton onClick={handler}>Show more</ActionButton>{" "}
+        {handlerMax && (
+          <>
+            <ActionButton onClick={handlerMax}>Show all</ActionButton>{" "}
+          </>
+        )}
+        <ActionButton
+          onClick={() => toggleInfiniteScrollMode(true)}
+          title="Activates the Automatic Infinite Scrolling option in the Settings Menu">
+          Show more automatically
+        </ActionButton>
+      </>
+    );
   return <ScrollBoundary height={height} handler={handler} />;
 }

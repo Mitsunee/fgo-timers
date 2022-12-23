@@ -139,7 +139,17 @@ function Page() {
           </fieldset>
         </FiltersForm>
       </Section>
-      <div style={{ height: 34, display: "flex", justifyContent: "flex-end" }}>
+      <div
+        style={{
+          height: 34,
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center"
+        }}>
+        <span>
+          Results 1 to {Math.min(page * perPage, results.length)} of{" "}
+          {results.length}
+        </span>
         <NoSSR>
           <ActionButton onClick={() => setShowHelp(true)} icon={IconHelp}>
             Help
@@ -193,18 +203,15 @@ function Page() {
           );
         })}
       </CardGrid>
+      <p>
+        Results 1 to {Math.min(page * perPage, results.length)} of{" "}
+        {results.length}
+      </p>
       {!res.isValidating && page < maxPage && (
-        <>
-          {/* TODO: Result x of y text here and at top of Page */}
-          <Scroller handler={handleShowMore}>
-            <ActionButton onClick={handleShowMore}>
-              Show More ({page})
-            </ActionButton>
-            <ActionButton onClick={() => setPage(maxPage)}>
-              Show All ({maxPage})
-            </ActionButton>
-          </Scroller>
-        </>
+        <Scroller
+          handler={handleShowMore}
+          handlerMax={() => setPage(maxPage)}
+        />
       )}
       {showHelp && (
         <Modal labelledBy="help-modal">
