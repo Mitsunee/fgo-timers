@@ -56,7 +56,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile --ignore-scripts
       - name: Build SVG Components
-        run: node src/svgo/build.mjs
+        run: yarn build:svgo
       - name: Check Types
         run: yarn test:types
 
@@ -84,8 +84,8 @@ jobs:
       # Build Scripts step not yet needed, currently using tsm as a workaround
       #- name: Build Scripts
       #  run: yarn build:scripts
-      - name: Run Legacy Tests
-        run: yarn test:legacy
+      - name: Run Prepare and Prebuild
+        run: yarn build:svgo && yarn prebuild
       - name: Run Code Tests
         run: yarn test:code
       - name: Run Data Tests
