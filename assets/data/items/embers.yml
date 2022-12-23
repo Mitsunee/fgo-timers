@@ -1,0 +1,197 @@
+# Saber
+- id: 9701100
+  name: Ember of Wisdom (Saber)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97011000.png
+  rarity: bronze
+- id: 9701200
+  name: Light of Wisdom (Saber)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97012000.png
+  rarity: bronze
+- id: 9701300
+  name: Fire of Wisdom (Saber)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97013000.png
+  rarity: silver
+- id: 9701400
+  name: Blaze of Wisdom (Saber)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97014000.png
+  rarity: gold
+- id: 9701500
+  name: Hellfire of Wisdom (Saber)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97015000.png
+  rarity: gold
+
+# Lancer
+- id: 9702100
+  name: Ember of Wisdom (Lancer)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97021000.png
+  rarity: bronze
+- id: 9702200
+  name: Light of Wisdom (Lancer)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97022000.png
+  rarity: bronze
+- id: 9702300
+  name: Fire of Wisdom (Lancer)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97023000.png
+  rarity: silver
+- id: 9702400
+  name: Blaze of Wisdom (Lancer)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97024000.png
+  rarity: gold
+- id: 9702500
+  name: Hellfire of Wisdom (Lancer)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97025000.png
+  rarity: gold
+
+# Archer
+- id: 9703100
+  name: Ember of Wisdom (Archer)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97031000.png
+  rarity: bronze
+- id: 9703200
+  name: Light of Wisdom (Archer)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97032000.png
+  rarity: bronze
+- id: 9703300
+  name: Fire of Wisdom (Archer)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97033000.png
+  rarity: silver
+- id: 9703400
+  name: Blaze of Wisdom (Archer)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97034000.png
+  rarity: gold
+- id: 9703500
+  name: Hellfire of Wisdom (Archer)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97035000.png
+  rarity: gold
+
+# Rider
+- id: 9704100
+  name: Ember of Wisdom (Rider)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97041000.png
+  rarity: bronze
+- id: 9704200
+  name: Light of Wisdom (Rider)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97042000.png
+  rarity: bronze
+- id: 9704300
+  name: Fire of Wisdom (Rider)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97043000.png
+  rarity: silver
+- id: 9704400
+  name: Blaze of Wisdom (Rider)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97044000.png
+  rarity: gold
+- id: 9704500
+  name: Hellfire of Wisdom (Rider)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97045000.png
+  rarity: gold
+
+# Caster
+- id: 9705100
+  name: Ember of Wisdom (Caster)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97051000.png
+  rarity: bronze
+- id: 9705200
+  name: Light of Wisdom (Caster)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97052000.png
+  rarity: bronze
+- id: 9705300
+  name: Fire of Wisdom (Caster)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97053000.png
+  rarity: silver
+- id: 9705400
+  name: Blaze of Wisdom (Caster)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97054000.png
+  rarity: gold
+- id: 9705500
+  name: Hellfire of Wisdom (Caster)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97055000.png
+  rarity: gold
+
+# Assassin
+- id: 9706100
+  name: Ember of Wisdom (Assassin)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97061000.png
+  rarity: bronze
+- id: 9706200
+  name: Light of Wisdom (Assassin)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97062000.png
+  rarity: bronze
+- id: 9706300
+  name: Fire of Wisdom (Assassin)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97063000.png
+  rarity: silver
+- id: 9706400
+  name: Blaze of Wisdom (Assassin)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97064000.png
+  rarity: gold
+- id: 9706500
+  name: Hellfire of Wisdom (Assassin)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97065000.png
+  rarity: gold
+
+# Berserker
+- id: 9707100
+  name: Ember of Wisdom (Berserker)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97071000.png
+  rarity: bronze
+- id: 9707200
+  name: Light of Wisdom (Berserker)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97072000.png
+  rarity: bronze
+- id: 9707300
+  name: Fire of Wisdom (Berserker)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97073000.png
+  rarity: silver
+- id: 9707400
+  name: Blaze of Wisdom (Berserker)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97074000.png
+  rarity: gold
+- id: 9707500
+  name: Hellfire of Wisdom (Berserker)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97075000.png
+  rarity: gold
+
+# All
+- id: 9770100
+  name: Ember of Wisdom (All)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97701000.png
+  rarity: bronze
+- id: 9770200
+  name: Light of Wisdom (All)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97702000.png
+  rarity: bronze
+- id: 9770300
+  name: Fire of Wisdom (All)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97703000.png
+  rarity: silver
+- id: 9770400
+  name: Blaze of Wisdom (All)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97704000.png
+  rarity: gold
+- id: 9770500
+  name: Hellfire of Wisdom (All)
+  icon: https://static.atlasacademy.io/JP/Faces/f_97705000.png
+  rarity: gold
+
+# Random
+- id: 90101
+  name: Ember of Wisdom (Random)
+  icon: /assets/items/f_90101.png
+  rarity: bronze
+- id: 90102
+  name: Light of Wisdom (Random)
+  icon: /assets/items/f_90102.png
+  rarity: bronze
+- id: 90103
+  name: Fire of Wisdom (Random)
+  icon: /assets/items/f_90103.png
+  rarity: silver
+- id: 90104
+  name: Blaze of Wisdom (Random)
+  icon: /assets/items/f_90104.png
+  rarity: gold
+- id: 90105
+  name: Hellfire of Wisdom (Random)
+  icon: /assets/items/f_90105.png
+  rarity: gold

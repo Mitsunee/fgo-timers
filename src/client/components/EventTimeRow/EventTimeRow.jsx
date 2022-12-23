@@ -1,16 +1,15 @@
-//import styles from "./EventTimeRow.module.css";
-import { useFormattedDelta } from "@utils/hooks/useFormattedDelta";
-import { useFormattedTimestamp } from "@utils/hooks/useFormattedTimestamp";
+import { DisplayDelta, DisplayDate } from "src/client/components/TimeDisplay";
 
 export default function EventTimeRow({ title, target }) {
-  const delta = useFormattedDelta(target * 1000);
-  const date = useFormattedTimestamp(target * 1000, "full");
-
   return (
     <tr>
       <td>{title}</td>
-      <td>{delta}</td>
-      <td>{date}</td>
+      <td>
+        <DisplayDelta time={target * 1000} />
+      </td>
+      <td>
+        <DisplayDate time={target * 1000} format="full" />
+      </td>
     </tr>
   );
 }

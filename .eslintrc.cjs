@@ -2,7 +2,14 @@ const restrictedGlobals = require("confusing-browser-globals");
 
 module.exports = {
   parserOptions: { sourceType: "module" },
-  extends: ["eslint:recommended", "foxkit", "foxkit/react", "next", "prettier"],
+  extends: [
+    "eslint:recommended",
+    "foxkit",
+    "foxkit/react",
+    "foxkit/ts",
+    "next",
+    "prettier"
+  ],
   rules: {
     "no-restricted-globals": ["error"].concat(restrictedGlobals),
     "@next/next/no-img-element": "off"
@@ -11,6 +18,13 @@ module.exports = {
     {
       files: ["tests/server/**/*.test.js", "tests/client/**/*.test.js?(x)"],
       env: { jest: true }
+    },
+    {
+      files: ["**/*.ts?(x)"],
+      rules: {
+        "no-undef": "off",
+        "no-redeclare": "off"
+      }
     }
   ]
 };

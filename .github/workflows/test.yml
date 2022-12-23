@@ -40,30 +40,14 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile --ignore-scripts
       - name: Check Formatting
-        run: yarn prettier -c pages src
+        run: yarn prettier -c .
 
-  test:
+  types:
     runs-on: ubuntu-latest
     needs: lint
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - uses: dorny/paths-filter@v2
-        id: changes
-        with:
-          filters: |
-            server:
-              - 'src/server/**'
-            scripts:
-              - 'src/scripts/**'
-            assets:
-              - 'assets/**'
-      - name: AtlasAcademy API Cache
-        id: atlas-cache
-        uses: actions/cache@v3
-        with:
-          path: ".next/cache/atlasacademy"
-          key: atlas-cache
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
@@ -71,12 +55,38 @@ jobs:
           cache: yarn
       - name: Install dependencies
         run: yarn install --frozen-lockfile --ignore-scripts
-      - name: Test Server Modules
-        if: steps.changes.outputs.server == 'true'
-        run: yarn test:server
-      - name: Test Scripts
-        if: steps.changes.outputs.scripts == 'true'
-        run: yarn test:scripts
-      - name: Test Data
-        if: steps.changes.outputs.assets == 'true'
+      - name: Build SVG Components
+        run: yarn build:svgo
+      - name: Check Types
+        run: yarn test:types
+
+  test:
+    runs-on: ubuntu-latest
+    needs: types
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Get Date
+        run: echo "date=$(/bin/date -u "+%Y%m%d")" >> $GITHUB_ENV
+      - name: AtlasAcademy API Cache
+        id: atlas-cache
+        uses: actions/cache@v3
+        with:
+          path: ".next/cache/atlasacademy"
+          key: atlas-cache-${{ env.date }}
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: yarn
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile --ignore-scripts
+      # Build Scripts step not yet needed, currently using tsm as a workaround
+      #- name: Build Scripts
+      #  run: yarn build:scripts
+      - name: Run Prepare and Prebuild
+        run: yarn build:svgo && yarn prebuild
+      - name: Run Code Tests
+        run: yarn test:code
+      - name: Run Data Tests
         run: yarn test:data --all

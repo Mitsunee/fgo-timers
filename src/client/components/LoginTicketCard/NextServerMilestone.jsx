@@ -1,14 +1,11 @@
 import { useMemo } from "react";
-
-//import styles from "./NextServerMilestone.module.css";
-import { useRecurringInterval } from "@utils/hooks/useRecurringInterval";
+import { useRecurringInterval } from "src/client/utils/hooks/useRecurringInterval";
 import {
   SERVER_DAY_MS_LEN,
   SERVER_DAY_MS_OFFSET,
   SERVER_DAY_ZERO
-} from "@utils/globals";
-import { useFormattedTimestamp } from "@utils/hooks/useFormattedTimestamp";
-import { useFormattedDelta } from "@utils/hooks/useFormattedDelta";
+} from "src/client/utils/globals";
+import { DisplayDelta, DisplayDate } from "src/client/components/TimeDisplay";
 
 export default function NextServerMilestone() {
   const next = useRecurringInterval({
@@ -19,14 +16,12 @@ export default function NextServerMilestone() {
     const s = Math.trunc(next / 1000);
     return Math.trunc((s - SERVER_DAY_ZERO) / SERVER_DAY_MS_LEN) * 100;
   }, [next]);
-  const date = useFormattedTimestamp(next, "short");
-  const delta = useFormattedDelta(next);
 
   return (
     <p>
       Server Day {day} Milestone:
       <br />
-      {delta} ({date})
+      <DisplayDelta time={next} /> (<DisplayDate time={next} format="short" />)
     </p>
   );
 }

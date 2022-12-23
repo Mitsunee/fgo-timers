@@ -3,7 +3,7 @@ export const servantClasses = new Map([
     "saber",
     {
       class: "Saber",
-      icon: "/assets/classes/saber.png",
+      icon: "/assets/classes/saber_g.png",
       piece: "https://static.atlasacademy.io/NA/Items/7001.png",
       monument: "https://static.atlasacademy.io/NA/Items/7101.png",
       ember: "https://static.atlasacademy.io/NA/Faces/f_97014000_bordered.png"
@@ -13,7 +13,7 @@ export const servantClasses = new Map([
     "archer",
     {
       class: "Archer",
-      icon: "/assets/classes/archer.png",
+      icon: "/assets/classes/archer_g.png",
       piece: "https://static.atlasacademy.io/NA/Items/7002.png",
       monument: "https://static.atlasacademy.io/NA/Items/7102.png",
       ember: "https://static.atlasacademy.io/NA/Faces/f_97034000_bordered.png"
@@ -23,7 +23,7 @@ export const servantClasses = new Map([
     "lancer",
     {
       class: "Lancer",
-      icon: "/assets/classes/lancer.png",
+      icon: "/assets/classes/lancer_g.png",
       piece: "https://static.atlasacademy.io/NA/Items/7003.png",
       monument: "https://static.atlasacademy.io/NA/Items/7103.png",
       ember: "https://static.atlasacademy.io/NA/Faces/f_97024000_bordered.png"
@@ -33,7 +33,7 @@ export const servantClasses = new Map([
     "rider",
     {
       class: "Rider",
-      icon: "/assets/classes/rider.png",
+      icon: "/assets/classes/rider_g.png",
       piece: "https://static.atlasacademy.io/NA/Items/7004.png",
       monument: "https://static.atlasacademy.io/NA/Items/7104.png",
       ember: "https://static.atlasacademy.io/NA/Faces/f_97044000_bordered.png"
@@ -43,7 +43,7 @@ export const servantClasses = new Map([
     "caster",
     {
       class: "Caster",
-      icon: "/assets/classes/caster.png",
+      icon: "/assets/classes/caster_g.png",
       piece: "https://static.atlasacademy.io/NA/Items/7005.png",
       monument: "https://static.atlasacademy.io/NA/Items/7105.png",
       ember: "https://static.atlasacademy.io/NA/Faces/f_97054000_bordered.png"
@@ -53,7 +53,7 @@ export const servantClasses = new Map([
     "assassin",
     {
       class: "Assassin",
-      icon: "/assets/classes/assassin.png",
+      icon: "/assets/classes/assassin_g.png",
       piece: "https://static.atlasacademy.io/NA/Items/7006.png",
       monument: "https://static.atlasacademy.io/NA/Items/7106.png",
       ember: "https://static.atlasacademy.io/NA/Faces/f_97064000_bordered.png"
@@ -63,7 +63,7 @@ export const servantClasses = new Map([
     "berserker",
     {
       class: "Berserker",
-      icon: "/assets/classes/berserker.png",
+      icon: "/assets/classes/berserker_g.png",
       piece: "https://static.atlasacademy.io/NA/Items/7007.png",
       monument: "https://static.atlasacademy.io/NA/Items/7107.png",
       ember: "https://static.atlasacademy.io/NA/Faces/f_97074000_bordered.png"
@@ -73,7 +73,7 @@ export const servantClasses = new Map([
     "random",
     {
       class: "Random",
-      icon: "/assets/classes/question.png",
+      icon: "/assets/classes/question_g.png",
       piece: null,
       monument: null,
       ember: "/assets/randomEmber.png"

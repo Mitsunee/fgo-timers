@@ -1,8 +1,7 @@
-//import styles from "./ShopCardLimitedItem.module.css";
-import { useIsClient } from "@utils/hooks/useIsClient";
-import { useFormattedTimestamp } from "@utils/hooks/useFormattedTimestamp";
-import { FGOItemListItem } from "@components/FGOItemList";
-import InlineIcon from "@components/InlineIcon";
+import { useIsClient } from "src/client/utils/hooks/useIsClient";
+import { FGOItemListItem } from "src/client/components/FGOItemList";
+import { DisplayDate } from "src/client/components/TimeDisplay";
+import InlineIcon from "src/client/components/InlineIcon";
 
 export default function ShopCardLimitedItem({ currency, data }) {
   const { cost, amount, stack, ends, icon, ...itemData } = data;
@@ -12,7 +11,6 @@ export default function ShopCardLimitedItem({ currency, data }) {
   };
   const { name } = itemData;
   const isClient = useIsClient();
-  const endDate = useFormattedTimestamp(ends * 1000, "short");
 
   return (
     <FGOItemListItem data={listData}>
@@ -20,8 +18,12 @@ export default function ShopCardLimitedItem({ currency, data }) {
       {name} ({amount}
       {stack ? ` stacks` : `x`}, {isClient ? cost.toLocaleString() : cost}{" "}
       <InlineIcon icon={currency} /> each)
-      <br />
-      {isClient && <>Available until {endDate}</>}
+      {isClient && (
+        <>
+          <br />
+          Available until <DisplayDate time={ends * 1000} format="short" />
+        </>
+      )}
     </FGOItemListItem>
   );
 }

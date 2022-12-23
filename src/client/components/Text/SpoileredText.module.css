@@ -1,0 +1,27 @@
+.hidden,
+.prerendered {
+  white-space: nowrap;
+}
+
+.hidden {
+  cursor: pointer;
+}
+
+.hidden,
+.prerendered:not(:hover) {
+  color: #666;
+  background-color: currentColor;
+  user-select: none;
+  position: relative;
+
+  &:after {
+    content: "***";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    color: var(--primary);
+  }
+}

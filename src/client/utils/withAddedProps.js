@@ -1,5 +1,8 @@
 import { cloneElement } from "react";
 
+/**
+ * !DEPRECATED!
+ */
 export function withAddedProps(subject, { props, propsFn, keyFn }) {
   if (subject instanceof Array) {
     // backup key indexer

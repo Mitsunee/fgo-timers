@@ -1,6 +1,5 @@
-//import styles from "./LimitedMissionCard.module.css";
-import { Card } from "@components/Card";
-import MissionList from "./MissionList";
+import { Card } from "src/client/components/Card";
+import { MissionList } from "./MissionList";
 
 export default function LimitedMissionCard({ data }) {
   return (

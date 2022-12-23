@@ -9,3 +9,5 @@
 !.env.example
 .vercel
 /assets/static/
+/src/client/components/icons/
+next-env.d.ts

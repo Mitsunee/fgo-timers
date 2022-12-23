@@ -1,3 +1,8 @@
+// TODO: phase out this and useFormatted* hooks with new TimeDisplay components
+
+/**
+ * !DEPRECATED!
+ */
 export const timeFormatsMap = new Map([
   ["clock-12", "{hour-pad}:{minute-pad}{ampm}"],
   ["clock-24", "{hour-24-pad}:{minute-pad}"],

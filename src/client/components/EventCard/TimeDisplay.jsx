@@ -1,23 +1,26 @@
 import { useStore } from "@nanostores/react";
-
 import styles from "./TimeDisplay.module.css";
-import { intervalStore } from "@stores/intervalStore";
-import { useFormattedDelta } from "@utils/hooks/useFormattedDelta";
-import { IconHourglass } from "@components/icons";
+import { intervalStore } from "src/client/stores/intervalStore";
+import { IconHourglass } from "src/client/components/icons";
+import { DisplayDelta } from "src/client/components/TimeDisplay";
 
-export default function TimeDisplay({ start, end = false }) {
-  const { seconds: interval } = useStore(intervalStore);
-  const target = interval > start ? end || null : start;
-  const delta = useFormattedDelta(target * 1000);
+export default function TimeDisplay({ start, end = undefined }) {
+  const { seconds: current } = useStore(intervalStore);
+  const target = current > start ? end || null : start;
 
   return (
     <div className={styles.time}>
       <IconHourglass className={styles.icon} />
-      {end && end < interval
-        ? "Ended"
-        : target
-        ? `${interval > start ? "Ends:" : "Starts:"} ${delta}`
-        : "---"}
+      {end && end < current ? (
+        "Ended"
+      ) : target ? (
+        <>
+          {current > start ? "Ends: " : "Starts: "}
+          <DisplayDelta time={target * 1000} />
+        </>
+      ) : (
+        "---"
+      )}
     </div>
   );
 }

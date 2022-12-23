@@ -1,0 +1,295 @@
+# Saber
+## HP
+- id: 9501100
+  name: "Hero Crystal: Twilight Fou (Saber)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_95011000.png
+  rarity: bronze
+- id: 9501200
+  name: "Hero Crystal: Radiant Fou (Saber)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_95012000.png
+  rarity: bronze
+- id: 9501300
+  name: "Hero Crystal: Star Fou (Saber)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_95013000.png
+  rarity: silver
+- id: 9501400
+  name: "Hero Crystal: Meteor Fou (Saber)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_95014000.png
+  rarity: gold
+
+## ATK
+- id: 9601100
+  name: "Hero Crystal: Dawn Fou (Saber)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_96011000.png
+  rarity: bronze
+- id: 9601200
+  name: "Hero Crystal: Shining Fou (Saber)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_96012000.png
+  rarity: bronze
+- id: 9601300
+  name: "Hero Crystal: Sun Fou (Saber)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_96013000.png
+  rarity: silver
+- id: 9601400
+  name: "Hero Crystal: Corona Fou (Saber)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_96014000.png
+  rarity: gold
+
+# Lancer
+## HP
+- id: 9502100
+  name: "Hero Crystal: Twilight Fou (Lancer)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_95021000.png
+  rarity: bronze
+- id: 9502200
+  name: "Hero Crystal: Radiant Fou (Lancer)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_95022000.png
+  rarity: bronze
+- id: 9502300
+  name: "Hero Crystal: Star Fou (Lancer)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_95023000.png
+  rarity: silver
+- id: 9502400
+  name: "Hero Crystal: Meteor Fou (Lancer)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_95024000.png
+  rarity: gold
+
+## ATK
+- id: 9602100
+  name: "Hero Crystal: Dawn Fou (Lancer)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_96021000.png
+  rarity: bronze
+- id: 9602200
+  name: "Hero Crystal: Shining Fou (Lancer)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_96022000.png
+  rarity: bronze
+- id: 9602300
+  name: "Hero Crystal: Sun Fou (Lancer)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_96023000.png
+  rarity: silver
+- id: 9602400
+  name: "Hero Crystal: Corona Fou (Lancer)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_96024000.png
+  rarity: gold
+
+# Archer
+## HP
+- id: 9503100
+  name: "Hero Crystal: Twilight Fou (Archer)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_95031000.png
+  rarity: bronze
+- id: 9503200
+  name: "Hero Crystal: Radiant Fou (Archer)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_95032000.png
+  rarity: bronze
+- id: 9503300
+  name: "Hero Crystal: Star Fou (Archer)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_95033000.png
+  rarity: silver
+- id: 9503400
+  name: "Hero Crystal: Meteor Fou (Archer)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_95034000.png
+  rarity: gold
+
+## ATK
+- id: 9603100
+  name: "Hero Crystal: Dawn Fou (Archer)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_96031000.png
+  rarity: bronze
+- id: 9603200
+  name: "Hero Crystal: Shining Fou (Archer)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_96032000.png
+  rarity: bronze
+- id: 9603300
+  name: "Hero Crystal: Sun Fou (Archer)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_96033000.png
+  rarity: silver
+- id: 9603400
+  name: "Hero Crystal: Corona Fou (Archer)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_96034000.png
+  rarity: gold
+
+# Rider
+## HP
+- id: 9504100
+  name: "Hero Crystal: Twilight Fou (Rider)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_95041000.png
+  rarity: bronze
+- id: 9504200
+  name: "Hero Crystal: Radiant Fou (Rider)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_95042000.png
+  rarity: bronze
+- id: 9504300
+  name: "Hero Crystal: Star Fou (Rider)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_95043000.png
+  rarity: silver
+- id: 9504400
+  name: "Hero Crystal: Meteor Fou (Rider)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_95044000.png
+  rarity: gold
+
+## ATK
+- id: 9604100
+  name: "Hero Crystal: Dawn Fou (Rider)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_96041000.png
+  rarity: bronze
+- id: 9604200
+  name: "Hero Crystal: Shining Fou (Rider)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_96042000.png
+  rarity: bronze
+- id: 9604300
+  name: "Hero Crystal: Sun Fou (Rider)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_96043000.png
+  rarity: silver
+- id: 9604400
+  name: "Hero Crystal: Corona Fou (Rider)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_96044000.png
+  rarity: gold
+
+# Caster
+## HP
+- id: 9505100
+  name: "Hero Crystal: Twilight Fou (Caster)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_95051000.png
+  rarity: bronze
+- id: 9505200
+  name: "Hero Crystal: Radiant Fou (Caster)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_95052000.png
+  rarity: bronze
+- id: 9505300
+  name: "Hero Crystal: Star Fou (Caster)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_95053000.png
+  rarity: silver
+- id: 9505400
+  name: "Hero Crystal: Meteor Fou (Caster)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_95054000.png
+  rarity: gold
+
+## ATK
+- id: 9605100
+  name: "Hero Crystal: Dawn Fou (Caster)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_96051000.png
+  rarity: bronze
+- id: 9605200
+  name: "Hero Crystal: Shining Fou (Caster)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_96052000.png
+  rarity: bronze
+- id: 9605300
+  name: "Hero Crystal: Sun Fou (Caster)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_96053000.png
+  rarity: silver
+- id: 9605400
+  name: "Hero Crystal: Corona Fou (Caster)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_96054000.png
+  rarity: gold
+
+# Assassin
+## HP
+- id: 9506100
+  name: "Hero Crystal: Twilight Fou (Assassin)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_95061000.png
+  rarity: bronze
+- id: 9506200
+  name: "Hero Crystal: Radiant Fou (Assassin)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_95062000.png
+  rarity: bronze
+- id: 9506300
+  name: "Hero Crystal: Star Fou (Assassin)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_95063000.png
+  rarity: silver
+- id: 9506400
+  name: "Hero Crystal: Meteor Fou (Assassin)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_95064000.png
+  rarity: gold
+
+## ATK
+- id: 9606100
+  name: "Hero Crystal: Dawn Fou (Assassin)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_96061000.png
+  rarity: bronze
+- id: 9606200
+  name: "Hero Crystal: Shining Fou (Assassin)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_96062000.png
+  rarity: bronze
+- id: 9606300
+  name: "Hero Crystal: Sun Fou (Assassin)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_96063000.png
+  rarity: silver
+- id: 9606400
+  name: "Hero Crystal: Corona Fou (Assassin)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_96064000.png
+  rarity: gold
+
+# Berserker
+## HP
+- id: 9507100
+  name: "Hero Crystal: Twilight Fou (Berserker)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_95071000.png
+  rarity: bronze
+- id: 9507200
+  name: "Hero Crystal: Radiant Fou (Berserker)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_95072000.png
+  rarity: bronze
+- id: 9507300
+  name: "Hero Crystal: Star Fou (Berserker)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_95073000.png
+  rarity: silver
+- id: 9507400
+  name: "Hero Crystal: Meteor Fou (Berserker)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_95074000.png
+  rarity: gold
+
+## ATK
+- id: 9607100
+  name: "Hero Crystal: Dawn Fou (Berserker)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_96071000.png
+  rarity: bronze
+- id: 9607200
+  name: "Hero Crystal: Shining Fou (Berserker)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_96072000.png
+  rarity: bronze
+- id: 9607300
+  name: "Hero Crystal: Sun Fou (Berserker)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_96073000.png
+  rarity: silver
+- id: 9607400
+  name: "Hero Crystal: Corona Fou (Berserker)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_96074000.png
+  rarity: gold
+
+# All
+## HP
+- id: 9570100
+  name: "Hero Crystal: Twilight Fou (All)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_95701000.png
+  rarity: bronze
+- id: 9570200
+  name: "Hero Crystal: Radiant Fou (All)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_95702000.png
+  rarity: bronze
+- id: 9570300
+  name: "Hero Crystal: Star Fou (All)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_95703000.png
+  rarity: silver
+- id: 9570400
+  name: "Hero Crystal: Meteor Fou (All)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_95704000.png
+  rarity: gold
+
+## ATK
+- id: 9670100
+  name: "Hero Crystal: Dawn Fou (All)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_96701000.png
+  rarity: bronze
+- id: 9670200
+  name: "Hero Crystal: Shining Fou (All)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_96702000.png
+  rarity: bronze
+- id: 9670300
+  name: "Hero Crystal: Sun Fou (All)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_96703000.png
+  rarity: silver
+- id: 9670400
+  name: "Hero Crystal: Corona Fou (All)"
+  icon: https://static.atlasacademy.io/JP/Faces/f_96704000.png
+  rarity: gold

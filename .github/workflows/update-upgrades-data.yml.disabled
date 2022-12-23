@@ -1,0 +1,36 @@
+name: update-upgrades-data
+on:
+  schedule:
+    - cron: "10 8 * * *"
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: main
+      - name: Get Date
+        id: get-date
+        run: echo "::set-output name=date::$(/bin/date -u "+%Y%m%d")"
+        shell: bash
+      - name: AtlasAcademy API Cache
+        id: atlas-cache
+        uses: actions/cache@v3
+        with:
+          path: ".next/cache/atlasacademy"
+          key: atlas-cache-${{ steps.get-date.outputs.date }}
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: yarn
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Run update script
+        run: yarn upgrades:legacy
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "update: Upgrades Data"
+          branch: main

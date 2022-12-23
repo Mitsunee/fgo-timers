@@ -4,6 +4,7 @@ import spacetime from "spacetime";
 
 import { intervalStore } from "@stores/intervalStore";
 
+// TODO: phase out in favour of new typed Component
 export function useFormattedDelta(target) {
   const { s: now } = useStore(intervalStore);
   const [output, setOutput] = useState("");

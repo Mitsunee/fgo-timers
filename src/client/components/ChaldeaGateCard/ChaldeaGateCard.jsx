@@ -1,26 +1,21 @@
 import { useStore } from "@nanostores/react";
 
 //import styles from "./ChaldeaGateCard.module.css";
-import { intervalStore } from "@stores/intervalStore";
-import { useRecurringDaily } from "@utils/hooks/useRecurringDaily";
-import { useFormattedDelta } from "@utils/hooks/useFormattedDelta";
-import { useFormattedTimestamp } from "@utils/hooks/useFormattedTimestamp";
+import { intervalStore } from "src/client/stores/intervalStore";
+import { useRecurringDaily } from "src/client/utils/hooks/useRecurringDaily";
 import { findScheduleByDay } from "./schedules";
-import { Card } from "@components/Card";
+import { Card } from "src/client/components/Card";
+import { NoSSR } from "src/client/components/NoSSR";
+import { DisplayDelta, DisplayDate } from "src/client/components/TimeDisplay";
 import TrainingLootList from "./TrainingLootList";
 import EmberLootList from "./EmberLootList";
 import ScheduleTable from "./ScheduleTable";
-import NoSSR from "@components/NoSSR";
-
-// TODO: Check for SSR missmatches
 
 export default function ChaldeaGateCard() {
   const { s } = useStore(intervalStore);
   const weekday = s.goto("utc").format("day-short");
   const currentDay = findScheduleByDay(weekday);
   const nextRotation = useRecurringDaily({ hour: 0, tz: "utc" });
-  const nextRotationDelta = useFormattedDelta(nextRotation);
-  const nextRotationDate = useFormattedTimestamp(nextRotation, "short");
 
   return (
     <Card
@@ -33,10 +28,11 @@ export default function ChaldeaGateCard() {
         <p>
           Next Daily Quest Rotation in:
           <br />
-          {nextRotationDelta} ({nextRotationDate})
+          <DisplayDelta time={nextRotation} /> (
+          <DisplayDate time={nextRotation} format="short" />)
         </p>
+        <ScheduleTable weekday={weekday} />
       </NoSSR>
-      <ScheduleTable weekday={weekday} />
     </Card>
   );
 }
