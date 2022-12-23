@@ -21,6 +21,11 @@ export const enum GlobalStyles {
 }
 
 export const enum Global {
-  JP_TO_NA_ESTIMATE = 63133200,
   SERVER_TZ = "America/Los_Angeles"
+}
+
+export const enum GlobalNums {
+  AP_MIN = 20,
+  AP_MAX = 144,
+  JP_TO_NA_ESTIMATE = 63133200
 }

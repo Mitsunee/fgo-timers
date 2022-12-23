@@ -43,10 +43,57 @@ export const settingsStore = computed(settingsMap, store => ({
   autoInfiniteScroll: store.autoInfiniteScroll === "true"
 }));
 
-// WIP: Phase out setSetting in favour of properly typed actions
-export const setSetting = (key: keyof SettingsStored, value: any) => {
-  settingsMap.setKey(key, `${value}`);
-};
+export const toggleClockFormat = action(
+  settingsMap,
+  "Toggle alternativeClockFormat",
+  (store, state?: boolean) => {
+    const { alternativeClockFormat: oldStateStr } = store.get();
+    const oldState = oldStateStr === "true";
+    store.setKey("alternativeClockFormat", `${state ?? !oldState}`);
+  }
+);
+
+export const toggleServerTimes = action(
+  settingsMap,
+  "Toggle showServerTimes",
+  (store, state?: boolean) => {
+    const { showServerTimes: oldStateStr } = store.get();
+    const oldState = oldStateStr === "true";
+    store.setKey("showServerTimes", `${state ?? !oldState}`);
+  }
+);
+
+export const setUserMaxAP = action(
+  settingsMap,
+  "Set user max AP",
+  (store, value: number) => {
+    store.setKey("userMaxAP", `${value}`);
+  }
+);
+
+export const setUserNodeCost = action(
+  settingsMap,
+  "Set user node cost",
+  (store, value: number) => {
+    store.setKey("userNodeCost", `${value}`);
+  }
+);
+
+export const setUserMaxCost = action(
+  settingsMap,
+  "Set user max cost",
+  (store, value: number) => {
+    store.setKey("userMaxCost", `${value}`);
+  }
+);
+
+export const setPageSize = action(
+  settingsMap,
+  "Set Page size",
+  (store, value: PageSize) => {
+    store.setKey("perPage", `${value}`);
+  }
+);
 
 export const setSpoilerLevel = action(
   settingsMap,

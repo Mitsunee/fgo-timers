@@ -1,6 +1,12 @@
 import { atom, action } from "nanostores";
+import type { ElementRef } from "react";
 
-export const uiStore = atom({
+type UiStore = {
+  mobileOpen: boolean;
+  settingsMenuOpen: boolean;
+};
+
+export const uiStore = atom<UiStore>({
   mobileOpen: false,
   settingsMenuOpen: false
 });
@@ -8,10 +14,10 @@ export const uiStore = atom({
 export const setMobileNavOpen = action(
   uiStore,
   "set mobileOpen state",
-  (store, open) => {
+  (store, open: BooleanOrFn) => {
     const value = store.get();
-    const mobileOpen =
-      typeof open === "function" ? open(value.mobileOpen) : open;
+    const mobileOpen: boolean =
+      typeof open == "function" ? open(value.mobileOpen) : open;
 
     store.set({
       ...value,
@@ -28,17 +34,19 @@ export const setMobileNavOpen = action(
 export const setSettingsMenuOpen = action(
   uiStore,
   "set settingsMenuOpen state",
-  (store, open) => {
+  (store, open: BooleanOrFn) => {
     const value = store.get();
-    const settingsMenuOpen =
-      typeof open === "function" ? open(value.settingsMenuOpen) : open;
+    const settingsMenuOpen: boolean =
+      typeof open == "function" ? open(value.settingsMenuOpen) : open;
 
-    if (typeof document !== "undefined") {
+    if (typeof document != "undefined") {
       // this fixes a bug in HomePage where the backdropFilter breaks fixed
       // positioning of the Modal component, causing inoperable ui.
-      document.querySelector("#__next").style.backdropFilter = open
-        ? "unset"
-        : "";
+      const next = document.querySelector<ElementRef<"div">>("#__next")!;
+      next.style.setProperty(
+        "backdrop-filter",
+        settingsMenuOpen ? "unset" : ""
+      );
     }
 
     store.set({

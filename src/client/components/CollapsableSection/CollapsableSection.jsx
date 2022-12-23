@@ -7,6 +7,8 @@ import { Button } from "@components/Button";
 import { IconClose, IconArrow } from "@components/icons";
 import Headline from "@components/Headline";
 
+// TODO: rewrite with new ActionButton component
+
 export default function CollapsableSection({
   children,
   background,
@@ -30,6 +32,8 @@ export default function CollapsableSection({
       setOpen(state => !state);
     }
   };
+
+  if (!visible) return null; // TEMP: temporary fix
 
   return (
     visible && (

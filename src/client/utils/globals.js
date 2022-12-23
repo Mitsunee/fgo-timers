@@ -1,7 +1,7 @@
 // TODO: move into GLOBAL enum
 
-export const MAX_AP_MIN_VALUE = 20;
-export const MAX_AP_MAX_VALUE = 142;
+export const MAX_AP_MIN_VALUE = 20; // NOTE: already moved as AP_MAX, this var is deprecated
+export const MAX_AP_MAX_VALUE = 144; // NOTE: already moved as AP_MAX, this var is deprecated
 export const NODE_COST_MIN_VALUE = 3;
 export const NODE_COST_MAX_VALUE = 40;
 export const WEEKLY_MM_LEN = 604800;

@@ -3,7 +3,7 @@ import spacetime from "spacetime";
 import styles from "./DebugInfo.module.css";
 import CollapsableSection from "@components/CollapsableSection";
 
-export default function DebugInfo() {
+export function DebugInfo() {
   const userTimezone = spacetime.now().timezone();
   const { offset } = userTimezone.current;
   const offsetTime = `UTC${offset < 0 ? "" : "+"}${Math.trunc(
@@ -11,7 +11,7 @@ export default function DebugInfo() {
   )}:${`${Math.abs((offset * 60) % 60)}`.padStart(2, "0")}`;
 
   return (
-    <CollapsableSection summary="Debug Info">
+    <CollapsableSection background={undefined} summary="Debug Info">
       <div className={styles.infoGrid}>
         <span>
           <b>Detected Timezone</b>

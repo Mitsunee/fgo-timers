@@ -4,7 +4,11 @@ import { clamp, isClamped } from "foxkit/clamp";
 import cc from "classcat";
 
 import styles from "@styles/APCalcPage.module.css";
-import { settingsStore, setSetting } from "@stores/settingsStore";
+import {
+  settingsStore,
+  setUserMaxAP,
+  setUserNodeCost
+} from "src/client/stores/settingsStore";
 import { useIsClient } from "@utils/hooks/useIsClient";
 import { useInputNumberValue } from "@utils/hooks/useInputNumberValue";
 import {
@@ -104,7 +108,7 @@ export default function APCalcPage() {
       const runs = Array(possibleRuns)
         .fill(1)
         .map((one, index) => ({
-          text: `Run #${index + one}`, // variable is used, you happy now eslint?
+          text: `Run #${index + one}`,
           time: calcTime(userNodeCost * (index + one) - currentAp),
           from: renderedAt
         }));
@@ -130,11 +134,11 @@ export default function APCalcPage() {
   };
 
   const handleMaxAP = ev => {
-    setSetting("userMaxAP", ev.target.value);
+    setUserMaxAP("userMaxAP", +ev.target.value);
   };
 
   const handleNodeCost = ev => {
-    setSetting("userNodeCost", ev.target.value);
+    setUserNodeCost("userNodeCost", +ev.target.value);
   };
 
   const sanitizeApOffset = ev => {
