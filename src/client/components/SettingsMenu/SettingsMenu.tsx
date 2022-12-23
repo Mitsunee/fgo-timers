@@ -7,7 +7,8 @@ import {
   toggleClockFormat,
   toggleServerTimes,
   setPageSize,
-  setSpoilerLevel
+  setSpoilerLevel,
+  toggleInfiniteScrollMode
 } from "src/client/stores/settingsStore";
 import { Modal, ModalMenu } from "src/client/components/Modal";
 import Headline from "src/client/components/Headline";
@@ -40,10 +41,20 @@ const spoilerLevelOptions: SelectorOption<Levels>[] = [
   { value: SpoilerLevels.ALL, label: "All" }
 ];
 
+const autoScrollOptions: SelectorOption<boolean>[] = [
+  { value: false, label: "Off" },
+  { value: true, label: "On" }
+];
+
 export function SettingsMenu() {
   const { settingsMenuOpen } = useStore(uiStore);
-  const { alternativeClockFormat, showServerTimes, perPage, showSpoiler } =
-    useStore(settingsStore);
+  const {
+    alternativeClockFormat,
+    showServerTimes,
+    perPage,
+    showSpoiler,
+    autoInfiniteScroll
+  } = useStore(settingsStore);
 
   return (
     <>
@@ -73,6 +84,14 @@ export function SettingsMenu() {
                 options={pageSizeOptions}
                 value={perPage}
                 onChange={value => setPageSize(value)}
+              />
+            </section>
+            <section className={styles.section}>
+              <h2>Automatic Infinite Scrolling</h2>
+              <Selector
+                options={autoScrollOptions}
+                value={autoInfiniteScroll}
+                onChange={value => toggleInfiniteScrollMode(value)}
               />
             </section>
             <section className={styles.section}>
