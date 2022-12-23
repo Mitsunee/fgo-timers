@@ -7,11 +7,7 @@ interface ModalProps extends React.PropsWithChildren {
   background?: boolean;
 }
 
-export default function Modal({
-  children,
-  labelledBy,
-  background = true
-}: ModalProps) {
+export function Modal({ children, labelledBy, background = true }: ModalProps) {
   useEffect(() => {
     if (typeof document == "undefined") return;
 

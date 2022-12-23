@@ -1,6 +1,2 @@
-// TODO: phase out default export
-import Modal from "./Modal";
-export default Modal;
-
-export { Modal };
+export { Modal } from "./Modal";
 export { ModalMenu } from "./ModalMenu";

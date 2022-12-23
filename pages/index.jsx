@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import styles from "@styles/HomePage.module.css";
 import { useRecurringEvent } from "@utils/hooks/useRecurringEvent";
 import Meta from "@components/Meta";
-import Clocks from "@components/Clocks";
+import { Clocks } from "@components/Clocks";
 // import NoSSR from "@components/NoSSR";
 // import SpecialTimer from "@components/SpecialTimer";
 import Headline from "@components/Headline";

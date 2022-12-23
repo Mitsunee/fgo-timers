@@ -4,13 +4,13 @@ import { useStore } from "@nanostores/react";
 import styles from "@styles/EventPage.module.css";
 import { intervalStore } from "@stores/intervalStore";
 import Meta from "@components/Meta";
-import Clocks from "@components/Clocks";
+import { Clocks } from "@components/Clocks";
 import Headline from "@components/Headline";
 import Section from "@components/Section";
 import NoSSR from "@components/NoSSR";
 import { InfoTable } from "@components/InfoTable";
 import EventTimeRow from "@components/EventTimeRow";
-import Modal from "@components/Modal";
+import { Modal } from "@components/Modal";
 import { Button } from "@components/Button";
 import { IconClose } from "@components/icons";
 

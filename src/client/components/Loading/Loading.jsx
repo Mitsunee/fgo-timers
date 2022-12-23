@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import styles from "./Loading.module.css";
 import { useIsClient } from "@utils/hooks/useIsClient";
-import Modal from "@components/Modal";
+import { Modal } from "@components/Modal";
 
 export default function Loading() {
   const [dots, setDots] = useState(0);

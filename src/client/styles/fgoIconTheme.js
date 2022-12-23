@@ -1,3 +1,8 @@
+/**
+ * !DEPRECATED!
+ * removal blocked by FGOIcon and Card
+ */
+
 const BLUE = "#9db5b5";
 export const borderColors = new Map([
   ["black", "#000000"],

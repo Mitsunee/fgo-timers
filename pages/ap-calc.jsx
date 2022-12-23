@@ -14,12 +14,11 @@ import {
   NODE_COST_MIN_VALUE
 } from "@utils/globals.js";
 import Meta from "@components/Meta";
-import Clocks from "@components/Clocks";
+import { Clocks } from "@components/Clocks";
 import Section from "@components/Section";
 import { Select, SelectOption } from "@components/Selector";
 import { FormField, Results } from "@components/ApCalc";
-import InputNumber from "@components/InputNumber";
-import Input from "@components/Input";
+import { Input, InputNumber } from "@components/Input";
 
 const validateApOffset = value =>
   /^(0:(0[1-9]|[1-5]\d)|[1-4]:[0-5]\d)$/.test(value);

@@ -6,7 +6,7 @@ interface ClockProps {
   title: string;
 }
 
-export default function Clock({ children, title }: ClockProps) {
+export function Clock({ children, title }: ClockProps) {
   return (
     <div className={styles.clock}>
       <h1>{title}</h1>
