@@ -1,4 +1,4 @@
-import { isClamped } from "foxkit/clamp";
+import { isClamped } from "@foxkit/util/clamp";
 
 import { fetchMasterMissions } from "./fetchMasterMissions";
 import { parseMasterMission } from "./parseMasterMission";

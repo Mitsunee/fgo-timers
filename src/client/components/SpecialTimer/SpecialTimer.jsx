@@ -1,4 +1,4 @@
-//import { isClamped } from "foxkit/clamp";
+//import { isClamped } from "@foxkit/util/clamp";
 //import { useStore } from "@nanostores/react";
 
 import styles from "./SpecialTimer.module.css";

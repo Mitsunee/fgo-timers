@@ -2571,11 +2571,6 @@ form-data@^4.0.0:
     combined-stream "^1.0.8"
     mime-types "^2.1.12"
 
-foxkit@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/foxkit/-/foxkit-0.3.0.tgz#40f4c67232092eb1c9512d2491d67714d5e817a6"
-  integrity sha512-fYJxi3Z08fzscDHjguWYtG8wgdEa9lAec61By6B+g1Yi2upV13/rVxcGUAa1v6B4UqytQEYe02NOxJECRn6Irg==
-
 fraction.js@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/fraction.js/-/fraction.js-4.2.0.tgz#448e5109a313a3527f5a3ab2119ec4cf0e0e2950"

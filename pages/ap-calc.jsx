@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useStore } from "@nanostores/react";
-import { clamp, isClamped } from "foxkit/clamp";
+import { clamp, isClamped } from "@foxkit/util/clamp";
 import cc from "classcat";
 
 import styles from "@styles/APCalcPage.module.css";
