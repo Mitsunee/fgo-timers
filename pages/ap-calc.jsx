@@ -134,11 +134,11 @@ export default function APCalcPage() {
   };
 
   const handleMaxAP = ev => {
-    setUserMaxAP("userMaxAP", +ev.target.value);
+    setUserMaxAP(+ev.target.value);
   };
 
   const handleNodeCost = ev => {
-    setUserNodeCost("userNodeCost", +ev.target.value);
+    setUserNodeCost(+ev.target.value);
   };
 
   const sanitizeApOffset = ev => {

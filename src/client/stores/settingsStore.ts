@@ -36,7 +36,7 @@ export const settingsStore = computed(settingsMap, store => ({
   alternativeClockFormat: store.alternativeClockFormat === "true",
   showServerTimes: store.showServerTimes === "true",
   userMaxAP: Number(store.userMaxAP),
-  userNodeCost: Number(store.userNodeCost),
+  userNodeCost: Number(store.userNodeCost) || 3,
   userMaxCost: Number(store.userMaxCost),
   perPage: Number(store.perPage) as PageSize,
   showSpoiler: store.showSpoiler,
