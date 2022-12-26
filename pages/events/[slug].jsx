@@ -7,7 +7,7 @@ import Meta from "@components/Meta";
 import { Clocks } from "@components/Clocks";
 import Headline from "@components/Headline";
 import Section from "@components/Section";
-import NoSSR from "@components/NoSSR";
+import { NoSSR } from "@components/NoSSR";
 import { InfoTable } from "@components/InfoTable";
 import EventTimeRow from "@components/EventTimeRow";
 import { Modal } from "@components/Modal";

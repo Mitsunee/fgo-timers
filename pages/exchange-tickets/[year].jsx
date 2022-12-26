@@ -10,7 +10,7 @@ import { Button } from "@components/Button";
 import { IconArrow } from "@components/icons";
 import CollapsableSection from "@components/CollapsableSection";
 import Section from "@components/Section";
-import NoSSR from "@components/NoSSR";
+import { NoSSR } from "@components/NoSSR";
 import FGOIcon from "@components/FGOIcon";
 
 export { getStaticPaths, getStaticProps } from "@server/LoginTicketPage";
