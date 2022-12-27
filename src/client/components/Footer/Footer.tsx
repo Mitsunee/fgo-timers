@@ -1,13 +1,8 @@
-import cc from "classcat";
-
 import styles from "./Footer.module.css";
-import { useFooterFixed } from "@utils/hooks/useFooterFixed";
 
 export default function Footer() {
-  const fixed = useFooterFixed();
-
   return (
-    <footer className={cc([styles.footer, fixed && styles.fixed])}>
+    <footer className={styles.footer}>
       {"Made by "}
       <a
         href="https://www.mitsunee.com/"

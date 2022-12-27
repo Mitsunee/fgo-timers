@@ -3,7 +3,7 @@ body,
 #__next {
   min-width: 100%;
   max-width: 100%;
-  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 :root {
@@ -38,8 +38,10 @@ body {
   color: var(--primary);
 }
 
-#next {
-  min-height: 100%;
+#__next {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
 }
 
 a {

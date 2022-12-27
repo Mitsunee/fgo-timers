@@ -17,13 +17,6 @@
     font-size: 0.66em;
   }
 
-  &.fixed {
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-  }
-
   & a {
     color: var(--hover);
   }

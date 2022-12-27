@@ -5,11 +5,7 @@ import "@styles/globals.css";
 import { useRouterLoading } from "@utils/hooks/useRouterLoading";
 import { useMediaQuery } from "@utils/hooks/useMediaQuery";
 import { setMobileNavOpen } from "@stores/uiStore";
-import Header from "@components/Header";
-import Loading from "@components/Loading";
 import Layout from "@components/Layout";
-import Footer from "@components/Footer";
-import SettingsMenu from "@components/SettingsMenu";
 
 export default function App({ Component, pageProps }) {
   const loading = useRouterLoading();
@@ -21,17 +17,8 @@ export default function App({ Component, pageProps }) {
   }, [loading, isDesktop]);
 
   return (
-    <>
-      <Header />
-      {loading ? (
-        <Loading />
-      ) : (
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      )}
-      <Footer />
-      <SettingsMenu />
-    </>
+    <Layout loading={loading}>
+      <Component {...pageProps} />
+    </Layout>
   );
 }
