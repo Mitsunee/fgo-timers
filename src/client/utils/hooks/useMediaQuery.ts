@@ -1,17 +1,7 @@
+import { Queries, queryMap } from "src/client/styles/media";
 import { useState, useEffect } from "react";
 
 //type DimensionQuery = `(${"min"|"max"}-${"width"|"height"}: ${number}px)`;
-
-/* please keep in sync with styles/media.css */
-const queries = [
-  ["x-large", "(min-width: 1280px)"],
-  ["large", "(min-width: 992px)"],
-  ["medium", "(min-width: 768px)"],
-  ["small", "(min-width: 512px)"],
-  ["only-small", "(max-width: 511.99999px)"]
-] as const;
-type Queries = typeof queries[number][0];
-const queryMap = new Map<string, string /*DimensionQuery*/>(queries);
 
 export function useMediaQuery(
   queryName: Queries | (string & {}),

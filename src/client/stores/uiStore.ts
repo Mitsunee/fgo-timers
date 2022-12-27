@@ -1,4 +1,6 @@
-import { atom, action } from "nanostores";
+import { queryMap } from "@styles/media";
+import { atom, action, onMount } from "nanostores";
+import Router from "next/router";
 import type { ElementRef } from "react";
 
 type UiStore = {
@@ -55,3 +57,31 @@ export const setSettingsMenuOpen = action(
     });
   }
 );
+
+onMount(uiStore, () => {
+  if (typeof window == "undefined") return;
+
+  const hideNav = () => setMobileNavOpen(false);
+  const query = queryMap.get("large")!;
+  const media = window.matchMedia(query);
+  const listener = () => {
+    if (media.matches) hideNav();
+  };
+
+  Router.events.on("routeChangeStart", hideNav);
+
+  if (media.addEventListener) {
+    media.addEventListener("change", listener);
+  } else {
+    media.addListener(listener);
+  }
+
+  return () => {
+    if (media.removeEventListener) {
+      media.removeEventListener("change", listener);
+    } else {
+      media.removeListener(listener);
+    }
+    Router.events.off("routeChangeStart", hideNav);
+  };
+});
