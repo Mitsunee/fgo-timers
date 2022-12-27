@@ -1,6 +1,6 @@
 .menu {
   position: relative;
-  width: 90vw;
+  width: 80vw;
   padding: 0.66em;
   padding-top: 0px;
   background-color: var(--bg-primary);
@@ -16,6 +16,7 @@
 
   @media (--mq-small) {
     width: 50vw;
+    min-width: 410px;
   }
 
   @media (--mq-medium) {

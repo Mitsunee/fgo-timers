@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 
 import styles from "./Navigation.module.css";
 import { navRoutes } from "@utils/navRoutes";
-import { setSettingsMenuOpen } from "@stores/uiStore";
+import { setMobileNavOpen, setSettingsMenuOpen } from "@stores/uiStore";
 import NavigationItem from "./NavigationItem";
 import { IconSettings, IconDiscord, IconGithub } from "@components/icons";
 
@@ -29,7 +29,10 @@ export default function Navigation() {
           );
         })}
         <NavigationItem
-          onClick={() => setSettingsMenuOpen(true)}
+          onClick={() => {
+            setMobileNavOpen(false);
+            setSettingsMenuOpen(true);
+          }}
           icon={IconSettings}>
           Settings
         </NavigationItem>

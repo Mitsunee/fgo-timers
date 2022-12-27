@@ -33,38 +33,10 @@
   }
 }
 
-/*
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  grid-gap: 0.66em;
-  padding: 20px;
-  user-select: none;
-
+.close {
+  position: fixed;
+  font-size: 1.5em;
+  right: 1rem;
+  top: 21px;
+  height: 32px;
 }
-
-.inner {
-  display: grid;
-  grid-gap: 1.66em;
-  width: 100%;
-  max-width: 100%;
-  grid-template-columns: auto;
-
-  & main {
-    user-select: text;
-  }
-
-  & nav {
-    display: none;
-  }
-
-  @media (--mq-large) {
-    grid-template-columns: 360px auto;
-    max-width: 1600px;
-    & nav {
-      display: block;
-    }
-  }
-}
-*/
