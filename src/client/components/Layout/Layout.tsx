@@ -1,17 +1,17 @@
 import { useStore } from "@nanostores/react";
-import { useRouterLoading } from "@utils/hooks/useRouterLoading";
-import { setMobileNavOpen, uiStore } from "@stores/uiStore";
-import Header from "@components/Header"; // TODO: move these components into here and fix paths
-import { Pending } from "@components/Pending";
-import Navigation from "@components/Navigation";
-import Footer from "@components/Footer";
-import SettingsMenu from "@components/SettingsMenu";
-import { Modal } from "@components/Modal";
+import { useRouterLoading } from "src/client/utils/hooks/useRouterLoading";
+import { setMobileNavOpen, uiStore } from "src/client/stores/uiStore";
+import { Pending } from "src/client/components/Pending";
+import SettingsMenu from "src/client/components/SettingsMenu";
+import { Modal } from "src/client/components/Modal";
+import { ActionButton } from "src/client/components/Button";
+import { IconClose } from "src/client/components/icons";
+import { Header } from "./Header";
+import { Navigation } from "./Navigation";
+import { Footer } from "./Footer";
 import styles from "./Layout.module.css";
-import { ActionButton } from "@components/Button";
-import { IconClose } from "@components/icons";
 
-export default function Layout({ children }: React.PropsWithChildren) {
+export function Layout({ children }: React.PropsWithChildren) {
   const loading = useRouterLoading();
   const { mobileOpen } = useStore(uiStore);
 

@@ -5,10 +5,10 @@ import spacetime from "spacetime";
 import styles from "./Header.module.css";
 import { metaStore } from "@stores/metaStore";
 import { setMobileNavOpen } from "@stores/uiStore";
-import { Button } from "@components/Button";
+import { ActionButton } from "@components/Button";
 import { IconHamburger } from "@components/icons";
 
-export default function Header() {
+export function Header() {
   const meta = useStore(metaStore);
   const s = spacetime.now();
   const isPadoru = s.format("month-short") === "Dec" && s.date() <= 27;
@@ -23,10 +23,10 @@ export default function Header() {
           <h1>{meta.title}</h1>
           <h2>{meta.description}</h2>
         </section>
-        <Button
-          onClick={() => setMobileNavOpen(state => !state)}
-          iconComponent={IconHamburger}
-          disableDefaultStyle
+        <ActionButton
+          onClick={() => setMobileNavOpen(true)}
+          icon={IconHamburger}
+          decorated={false}
           className={styles.button}
         />
       </header>
