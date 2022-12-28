@@ -5,15 +5,15 @@ import styles from "./Pending.module.css";
 import { useIsClient } from "@utils/hooks/useIsClient";
 import { CC } from "src/types/ComponentProps";
 
-export default function Pending({ className }: CC) {
+export function Pending({ className }: CC) {
   const [dots, setDots] = useState(0);
   const isClient = useIsClient();
 
   useEffect(() => {
     if (!isClient) return;
-    const timeout = setTimeout(() => setDots((dots + 1) % 4), 500);
-    return () => clearTimeout(timeout);
-  }, [isClient, dots]);
+    const interval = setInterval(() => setDots(dots => (dots + 1) % 4), 500);
+    return () => clearInterval(interval);
+  }, [isClient]);
 
   return (
     <div className={cc(className)}>

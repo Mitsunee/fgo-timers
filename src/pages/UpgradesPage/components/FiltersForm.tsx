@@ -7,7 +7,7 @@ import { UpgradeQuestType } from "src/upgrades/types";
 import { getClassIconPath, nameServantClass } from "src/servants/classNames";
 import { Selector, SelectorOption } from "src/client/components/Selector";
 import { ActionButton } from "src/client/components/Button";
-import Pending from "src/client/components/Pending/Pending";
+import { Pending } from "src/client/components/Pending";
 import {
   FormFilterAction,
   FormFilterState,
