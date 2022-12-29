@@ -20,7 +20,8 @@ export const config = {
     "assets/static/backgrounds.json",
     "assets/static/events.json",
     "assets/static/loginTickets.json",
-    "assets/static/prismShops.json"
+    "assets/static/prismShops.json",
+    "assets/static/info.json"
   ]
 };
 
