@@ -21,7 +21,8 @@ export const config = {
     "assets/static/events.json",
     "assets/static/loginTickets.json",
     "assets/static/prismShops.json",
-    "assets/static/info.json"
+    ".next/cache/atlasacademy/info.json",
+    ".next/cache/atlasacademy/NA/nice_master_mission.json"
   ]
 };
 
