@@ -1,6 +1,6 @@
 import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 
-import { shortenStaticUrl } from "./shortenStaticUrl.mjs";
+import { shortenAtlasUrl } from "../../../atlas-api/urls.ts";
 import { parseShopInventory } from "./parseShopInventory.mjs";
 
 const requiredProps = new Map([
@@ -25,7 +25,7 @@ export async function parseShopFile(filePath) {
 
     switch (prop) {
       case "icon":
-        parsedData.icon = shortenStaticUrl(rawData.icon);
+        parsedData.icon = shortenAtlasUrl(rawData.icon);
         break;
       case "inventory":
         parsedData.inventory = parseShopInventory(rawData.inventory);

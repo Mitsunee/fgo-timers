@@ -2,7 +2,7 @@
  * Parses inventory and limitedInventory props of Prism Exchange Shop data for parsePrismShopData
  */
 
-import { shortenStaticUrl } from "./shortenStaticUrl.mjs";
+import { shortenAtlasUrl } from "../../../atlas-api/urls.js";
 import { parseDate } from "./parseDate.mjs";
 
 const baseProps = new Map([
@@ -32,7 +32,7 @@ export function parseShopInventory(data, limited = false) {
 
       switch (prop) {
         case "icon":
-          parsedItem.icon = shortenStaticUrl(rawItem.icon);
+          parsedItem.icon = shortenAtlasUrl(rawItem.icon);
           break;
         case "endsAt":
           parsedItem.ends = parseDate(rawItem.endsAt, {

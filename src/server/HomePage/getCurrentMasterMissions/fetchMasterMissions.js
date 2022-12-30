@@ -22,7 +22,7 @@ function getNextDay(now) {
 
 export async function fetchMasterMissions(now) {
   const cacheInfo = await getLocalCacheInfo();
-  const cacheMaxAge = getNextDay(cacheInfo.lastChecked);
+  const cacheMaxAge = getNextDay(cacheInfo.lastChecked * 1000);
   let masterMissions = await atlasCacheNA.getMasterMissions("NA");
 
   // depending on if the cache is from today use cache or API to fetch missions data

@@ -1,4 +1,5 @@
 import { useIsClient } from "src/client/utils/hooks/useIsClient";
+import { expandAtlasUrl } from "src/atlas-api/urls";
 import { FGOItemListItem } from "src/client/components/FGOItemList";
 import { DisplayDate } from "src/client/components/TimeDisplay";
 import InlineIcon from "src/client/components/InlineIcon";
@@ -7,7 +8,7 @@ export default function ShopCardLimitedItem({ currency, data }) {
   const { cost, amount, stack, ends, icon, ...itemData } = data;
   const listData = {
     ...itemData,
-    icon: `https://static.atlasacademy.io/${icon}`
+    icon: expandAtlasUrl(icon)
   };
   const { name } = itemData;
   const isClient = useIsClient();

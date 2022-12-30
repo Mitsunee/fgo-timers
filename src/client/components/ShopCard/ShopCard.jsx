@@ -1,3 +1,4 @@
+import { expandAtlasUrl } from "src/atlas-api/urls";
 import { Card } from "src/client/components/Card";
 import { FGOItemList } from "src/client/components/FGOItemList";
 import { NoSSR } from "src/client/components/NoSSR";
@@ -7,7 +8,7 @@ import ShopCardLimitedItem from "./ShopCardLimitedItem";
 
 export default function ShopCard({ shopData, endsAt }) {
   const { inventory, limited, icon, ...cardProps } = shopData;
-  const currency = `https://static.atlasacademy.io/${icon}`;
+  const currency = expandAtlasUrl(icon);
 
   return (
     <Card {...cardProps} icon={currency}>
