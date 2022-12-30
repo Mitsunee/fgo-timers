@@ -45,3 +45,9 @@ limitedInventory:
     cost: 1000
     amount: 5
     endsAt: 2023-03-31 16:59 PDT
+  - name: New Years 2023 Special Inventory
+    icon: /assets/icon_grabbag.png
+    background: gold
+    cost: 1570
+    amount: 1
+    endsAt: 2023-01-10 19:59 PST

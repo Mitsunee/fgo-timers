@@ -38,4 +38,10 @@ inventory:
     cost: 1
     amount: 5
     stack: 20000
-limitedInventory: []
+limitedInventory: #[]
+  - name: New Years 2023 Special Inventory
+    icon: /assets/icon_grabbag.png
+    background: gold
+    cost: 23
+    amount: 1
+    endsAt: 2023-01-10 19:59 PST
