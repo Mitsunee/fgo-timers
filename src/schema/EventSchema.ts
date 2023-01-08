@@ -35,7 +35,10 @@ const EventBanner = Related.extend({ date: zDurationStrict }).transform(
 export const EventSchema = z.object({
   title: z.string(),
   shortTitle: z.string().max(50),
+  banner: z.string().regex(/\d{4}_[a-z0-9_-]+\.png/),
   date: zDuration,
+  url: z.string(),
+  requires: z.string().optional(),
   description: z.string(),
   schedules: z
     .array(EventSchedule)
@@ -63,8 +66,15 @@ export const EventSchema = z.object({
     .array(EventBanner)
     .transform(banners => banners.sort((a, b) => a.date[0] - b.date[0]))
     .optional(),
-  upgrades: z.array(z.number()).optional()
+  upgrades: z
+    .array(z.object({ id: z.number(), date: zDate }))
+    .transform(upgrades => upgrades.sort((a, b) => a.date - b.date))
+    .optional()
 });
 
-export type EventData = z.output<typeof EventSchema>;
 export type EventDataRaw = Partial<z.input<typeof EventSchema>>;
+export type EventDataParsed = z.output<typeof EventSchema>;
+
+export function checkEventPath(path: string): boolean {
+  return /assets\/data\/events-new\/[\w-]+\.yml$/.test(path); // PLACEHOLDER: change to events when migrating prod
+}
