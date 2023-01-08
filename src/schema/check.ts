@@ -5,7 +5,6 @@ import { fileExists } from "@foxkit/node-util/fs";
 
 import { prepareCache } from "../atlas-api/prepare";
 import {
-  isEventFile,
   isTicketFile,
   isShopFile,
   isDataFile
@@ -64,13 +63,9 @@ async function main(options: ProgramOptions) {
   // handle --events
   if (options.all || options.events) {
     if (showGroupInfo) Log.info("Checking all event data files");
-    const path = resolvePath("assets/data/events/");
-    const dir = await readdir(path);
-    for (const file of dir) {
-      const filePath = joinPath(path, file);
-      if (!isEventFile(filePath)) continue;
-      targets.add(filePath);
-    }
+    Log.warn("Event files are currently disabled due to ongoing rewrite");
+    //const path = resolvePath("assets/data/events/");
+    //const dir = await readdir(path);
   }
 
   // handle --tickets

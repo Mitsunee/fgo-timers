@@ -1,4 +1,3 @@
-import { parseEventFile } from "./parseEventFile.mjs";
 import { parseShopFile } from "./parseShopFile.mjs";
 import { parseTicketFile } from "./parseTicketFile.mjs";
 import { getDataFileType } from "./isDataFile.mjs";
@@ -13,9 +12,6 @@ export function findLegacyParser(filePath) {
   let parser;
   const fileType = getDataFileType(filePath);
   switch (fileType) {
-    case "event":
-      parser = parseEventFile;
-      break;
     case "shopFile":
       parser = parseShopFile;
       break;
