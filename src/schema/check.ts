@@ -11,6 +11,7 @@ import {
 } from "../scripts/utils/data-assets/isDataFile.mjs";
 import { checkDataFile } from "../scripts/utils/data-assets/checkDataFile.mjs";
 import { Log } from "../utils/log";
+import { EventAssetsDir } from "../pages/EventPage/constants";
 import { checkCustomItemPath } from "./CustomItem";
 import { checkEventPath } from "./EventSchema";
 
@@ -64,7 +65,7 @@ async function main(options: ProgramOptions) {
   // handle --events
   if (options.all || options.events) {
     if (showGroupInfo) Log.info("Checking all event data files");
-    const path = resolvePath("assets/data/events-new/"); // PLACEHOLDER: change to events when migrating prod
+    const path = resolvePath(EventAssetsDir);
     const dir = await readdir(path);
     for (const file of dir) {
       const filePath = joinPath(path, file);

@@ -2,8 +2,10 @@ import { join } from "path";
 import { readdir } from "fs/promises";
 import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 import { fileExists } from "@foxkit/node-util/fs";
+import { getFileName } from "@foxkit/node-util/path";
 import type { BundledEvent } from "src/events/types";
 import { createEventSorter } from "../events/sortEvents";
+import { EventAssetsDir } from "../pages/EventPage/constants";
 import { EventDataRaw, EventSchema } from "../schema/EventSchema";
 import { parseSchema } from "../schema/verifySchema";
 import { Log } from "../utils/log";
@@ -13,13 +15,12 @@ export const bundleEvents: PrebuildBundler<BundledEvent[]> = async () => {
   const events = new Array<BundledEvent>();
   const servants = new Set<number>();
   const ces = new Set<number>();
-  const dir = await readdir(
-    join(process.cwd(), "assets", "data", "events-new") // PLACEHOLDER: change to events when migrating prod
-  );
+  const dir = await readdir(join(process.cwd(), EventAssetsDir));
   const files = dir.filter(file => file.endsWith(".yml"));
 
   for (const fileName of files) {
-    const filePath = join("assets", "data", "events-new", fileName);
+    const filePath = join(EventAssetsDir, fileName);
+    const slug = getFileName(fileName, false);
     const fileContent = await readFileYaml<EventDataRaw>(filePath);
     if (!fileContent) {
       Log.warn(`Could not parse file '${fileName}'. Skipping...`);
@@ -71,6 +72,7 @@ export const bundleEvents: PrebuildBundler<BundledEvent[]> = async () => {
 
     const event: BundledEvent = {
       ...fileParsed,
+      slug,
       hideAt
     };
 

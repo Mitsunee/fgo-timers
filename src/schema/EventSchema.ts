@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { EventAssetsDir } from "../pages/EventPage/constants";
 import { zDate, zDuration, zDurationStrict } from "./zDate";
 
 const Related = z.object({
@@ -76,5 +77,6 @@ export type EventDataRaw = Partial<z.input<typeof EventSchema>>;
 export type EventDataParsed = z.output<typeof EventSchema>;
 
 export function checkEventPath(path: string): boolean {
-  return /assets\/data\/events-new\/[\w-]+\.yml$/.test(path); // PLACEHOLDER: change to events when migrating prod
+  const reg = new RegExp(`${EventAssetsDir}/[\\w-]+\\.yml$`);
+  return reg.test(path);
 }
