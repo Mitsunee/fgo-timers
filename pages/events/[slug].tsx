@@ -22,6 +22,8 @@ export default function EventPage({
   servants,
   ces */
 }: EventPageProps) {
+  const metaDesc = event.description.split("\n")[0];
+
   return (
     <>
       <Meta
@@ -29,9 +31,7 @@ export default function EventPage({
         headerTitle="Events"
         image={`/assets/events/${event.banner}`}
         description={
-          event.description[0].length > 250
-            ? `${event.description[0].slice(0, 250)}...`
-            : event.description[0]
+          metaDesc.length > 250 ? `${metaDesc.slice(0, 250)}...` : metaDesc
         }
         headerDescription={`Event Timers for ${event.shortTitle}`}
       />

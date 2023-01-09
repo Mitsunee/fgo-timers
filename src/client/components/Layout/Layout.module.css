@@ -16,6 +16,9 @@
   & > main {
     user-select: text;
     flex-grow: 1;
+    & pre {
+      white-space: pre-wrap;
+    }
   }
 
   & > nav {
