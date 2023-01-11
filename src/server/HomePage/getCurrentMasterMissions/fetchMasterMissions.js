@@ -2,7 +2,7 @@ import { atlasCacheNA } from "@atlas-api/cache.ts";
 import { getLocalCacheInfo } from "@atlas-api/validation.ts";
 import { atlasApiNA } from "@atlas-api/api.ts";
 import { tsToSpacetime, spacetimeToTs } from "@server/utils/time";
-import { info, warn } from "@server/utils/log";
+import { Log } from "src/utils/log";
 
 function splitMissionsByType(masterMissions) {
   const weeklyMissions = masterMissions.filter(
@@ -22,16 +22,16 @@ function getNextDay(now) {
 
 export async function fetchMasterMissions(now) {
   const cacheInfo = await getLocalCacheInfo();
-  const cacheMaxAge = getNextDay(cacheInfo.lastChecked * 1000);
+  const cacheMaxAge = getNextDay(cacheInfo.lastChecked);
   let masterMissions = await atlasCacheNA.getMasterMissions("NA");
 
   // depending on if the cache is from today use cache or API to fetch missions data
   if (now >= cacheMaxAge) {
     try {
-      info("Fetching Master Missions from API");
+      Log.info("Fetching Master Missions from API");
       masterMissions = await atlasApiNA.masterMissionList();
     } catch {
-      warn("Could not reach Atlas Academy API");
+      Log.warn("Could not reach Atlas Academy API");
     }
   }
 
