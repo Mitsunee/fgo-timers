@@ -1,7 +1,13 @@
 import { z } from "zod";
 import { createTRPCRouter, publicProcedure } from "../trpc";
-import type { StaticBundles } from "../utils/getBundle";
-import { getBundle } from "../utils/getBundle";
+import type { StaticBundles } from "src/utils/getBundles";
+import {
+  getBundledUpgrades,
+  getBundledQuestMap,
+  getBundledServantMap,
+  getBundledSkillMap,
+  getBundledNPMap
+} from "src/utils/getBundles";
 
 type ExpandedUpgrades = Pick<
   StaticBundles,
@@ -13,10 +19,10 @@ async function expandUpgrades(
   upgrades: ExpandedUpgrades["upgrades"]
 ): Promise<ExpandedUpgrades> {
   const [questMap, servantMap, skillMap, npMap] = await Promise.all([
-    getBundle.quests(),
-    getBundle.servants(),
-    getBundle.skills(),
-    getBundle.nps()
+    getBundledQuestMap(),
+    getBundledServantMap(),
+    getBundledSkillMap(),
+    getBundledNPMap()
   ]);
 
   const quests: ExpandedUpgrades["quests"] = {};
@@ -57,7 +63,7 @@ export const upgradesRouter = createTRPCRouter({
         Array.isArray(input.id) ? input.id : [input.id]
       );
 
-      const upgradesList = await getBundle.upgrades();
+      const upgradesList = await getBundledUpgrades();
       const upgrades: ExpandedUpgrades["upgrades"] = upgradesList.filter(
         upgrade => targetIds.has(upgrade.quest)
       );
@@ -65,7 +71,7 @@ export const upgradesRouter = createTRPCRouter({
       return expandUpgrades(upgrades);
     }),
   all: publicProcedure.query(async () => {
-    const upgrades = await getBundle.upgrades();
+    const upgrades = await getBundledUpgrades();
     return expandUpgrades(upgrades);
   })
 });
