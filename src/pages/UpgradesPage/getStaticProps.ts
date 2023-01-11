@@ -3,9 +3,10 @@ import type { GetStaticProps } from "next";
 import {
   getBundledNPs,
   getBundledServants,
-  getBundledSkills
-} from "src/servants/getBundles";
-import { getBundledQuests, getBundledUpgrades } from "src/upgrades/getBundles";
+  getBundledSkills,
+  getBundledQuests,
+  getBundledUpgrades
+} from "src/utils/getBundles";
 import { DataApiFallback, UpgradesPageData } from "src/server/DataApi";
 import { createUpgradeFilter, createUpgradeSorter } from "./filters";
 import { safeProxyIDMap } from "src/utils/proxyIDMap";

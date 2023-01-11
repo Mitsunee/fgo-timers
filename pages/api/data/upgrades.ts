@@ -8,9 +8,10 @@ import type {
 import {
   getBundledNPs,
   getBundledServants,
-  getBundledSkills
-} from "src/servants/getBundles";
-import { getBundledQuests, getBundledUpgrades } from "src/upgrades/getBundles";
+  getBundledSkills,
+  getBundledQuests,
+  getBundledUpgrades
+} from "src/utils/getBundles";
 
 // unstable_includeFiles:
 path.join(process.cwd(), "assets/static/upgrades.json");

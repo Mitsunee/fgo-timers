@@ -99,6 +99,15 @@ export class Log {
     process.exit(1);
   }
 
+  static throw(...messages: any[]): never {
+    this.error(...messages);
+    throw new Error(
+      this.format("error", false, ...messages)
+        .slice(isObject(messages[0]) ? 6 : 7)
+        .trim()
+    );
+  }
+
   static ready(...messages: any[]) {
     this.console("log", "ready", "green", ...messages);
   }

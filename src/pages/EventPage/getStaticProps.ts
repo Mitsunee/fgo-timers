@@ -5,11 +5,13 @@ import type {
 } from "next";
 import type { ParsedUrlQuery } from "querystring";
 import type { BundledEvent } from "src/events/types";
-import { getBundledEvents } from "src/events/getBundle";
 import type { BundledCE } from "src/items/types";
-import { getBundledCEs } from "src/items/getBundles";
 import type { BundledServant } from "src/servants/types";
-import { getBundledServants } from "src/servants/getBundles";
+import {
+  getBundledEvents,
+  getBundledCEs,
+  getBundledServants
+} from "src/utils/getBundles";
 import { safeProxyIDMap } from "src/utils/proxyIDMap";
 
 interface PageContext extends Partial<ParsedUrlQuery> {
