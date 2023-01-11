@@ -1,18 +1,4 @@
 //import { sleep } from "@foxkit/util/sleep";
-import type {
-  BundledNP,
-  BundledServant,
-  BundledSkill
-} from "src/servants/types";
-import type { BundledQuest, Upgrade } from "src/upgrades/types";
-
-export interface UpgradesPageData {
-  upgrades: Upgrade[];
-  servants: IDMap<BundledServant>;
-  quests: IDMap<BundledQuest>;
-  skills: IDMap<BundledSkill>;
-  nps: IDMap<BundledNP>;
-}
 
 export type ResponseError = { data?: undefined; success: false; error: string };
 export interface ResponseData<T extends {}> {

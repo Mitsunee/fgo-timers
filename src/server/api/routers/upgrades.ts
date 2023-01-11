@@ -8,15 +8,19 @@ import {
   getBundledSkillMap,
   getBundledNPMap
 } from "src/utils/getBundles";
+import {
+  createUpgradeFilter,
+  createUpgradeSorter
+} from "src/pages/UpgradesPage/filters";
+import { formFiltersDefault } from "src/pages/UpgradesPage/filtersReducer";
 
-type ExpandedUpgrades = Pick<
+export type ExpandedUpgrades = Pick<
   StaticBundles,
   "upgrades" | "quests" | "servants" | "skills" | "nps"
 >;
 
-// TODO: sort upgrades
 async function expandUpgrades(
-  upgrades: ExpandedUpgrades["upgrades"]
+  upgradesList: ExpandedUpgrades["upgrades"]
 ): Promise<ExpandedUpgrades> {
   const [questMap, servantMap, skillMap, npMap] = await Promise.all([
     getBundledQuestMap(),
@@ -25,6 +29,8 @@ async function expandUpgrades(
     getBundledNPMap()
   ]);
 
+  const sorter = createUpgradeSorter(questMap);
+  const upgrades = [...upgradesList].sort(sorter);
   const quests: ExpandedUpgrades["quests"] = {};
   const servants: ExpandedUpgrades["servants"] = {};
   const skills: ExpandedUpgrades["skills"] = {};
@@ -41,8 +47,8 @@ async function expandUpgrades(
     // map upgrade targets
     if (upgrade.upgrades) {
       if (upgrade.upgrades.type == "skill") {
-        const { id, newId } = upgrade.upgrades;
-        if (id) skills[id] ??= skillMap[id];
+        const { id = 0, newId } = upgrade.upgrades;
+        skills[id] ??= skillMap[id];
         skills[newId] ??= skillMap[newId];
       } else {
         const { id, newId } = upgrade.upgrades;
@@ -72,6 +78,23 @@ export const upgradesRouter = createTRPCRouter({
     }),
   all: publicProcedure.query(async () => {
     const upgrades = await getBundledUpgrades();
+    return expandUpgrades(upgrades);
+  }),
+  ssgFallback: publicProcedure.query(async () => {
+    const [upgradesList, questMap, servantMap] = await Promise.all([
+      getBundledUpgrades(),
+      getBundledQuestMap(),
+      getBundledServantMap()
+    ]);
+
+    const sorter = createUpgradeSorter(questMap);
+    const filter = createUpgradeFilter(
+      formFiltersDefault,
+      servantMap,
+      questMap
+    );
+    const upgrades = upgradesList.sort(sorter).filter(filter).slice(0, 10);
+
     return expandUpgrades(upgrades);
   })
 });
