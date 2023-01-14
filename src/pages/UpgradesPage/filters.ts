@@ -51,9 +51,14 @@ export function createUpgradeFilter(
 }
 
 export function createUpgradeSorter(questMap: Record<number, BundledQuest>) {
-  return (a: Upgrade, b: Upgrade) =>
-    (questMap[a.quest].open ?? 0) +
-    (a.na ? 0 : GlobalNums.JP_TO_NA_ESTIMATE) -
-    (questMap[b.quest].open ?? 0) -
-    (b.na ? 0 : GlobalNums.JP_TO_NA_ESTIMATE);
+  return (a: Upgrade, b: Upgrade) => {
+    const questA = questMap[a.quest];
+    const questB = questMap[b.quest];
+    return (
+      (questA.open ?? 0) +
+      (questA.na ? 0 : GlobalNums.JP_TO_NA_ESTIMATE) -
+      (questB.open ?? 0) -
+      (questB.na ? 0 : GlobalNums.JP_TO_NA_ESTIMATE)
+    );
+  };
 }
