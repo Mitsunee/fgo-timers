@@ -2,6 +2,7 @@ import Meta from "src/client/components/Meta";
 import { Clocks } from "src/client/components/Clocks";
 import Headline from "src/client/components/Headline";
 import type { EventPageProps } from "src/pages/EventPage/getStaticProps";
+import { RelatedUpgrades } from "src/pages/EventPage/components/RelatedUpgrades";
 // import styles from "src/pages/EventPage/styles.module.css";
 
 // Next Page configs
@@ -42,6 +43,8 @@ export default function EventPage({
       <pre>
         <code>{JSON.stringify(event, null, 2)}</code>
       </pre>
+      {/* TODO: Make this not automatically display (show button first) */}
+      {event.upgrades && <RelatedUpgrades upgrades={event.upgrades} />}
     </>
   );
 }
