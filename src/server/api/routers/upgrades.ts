@@ -8,11 +8,7 @@ import {
   getBundledSkillMap,
   getBundledNPMap
 } from "src/utils/getBundles";
-import {
-  createUpgradeFilter,
-  createUpgradeSorter
-} from "src/pages/UpgradesPage/filters";
-import { formFiltersDefault } from "src/pages/UpgradesPage/filtersReducer";
+import { createUpgradeSorter } from "src/pages/UpgradesPage/filters";
 
 export type ExpandedUpgrades = Pick<
   StaticBundles,
@@ -78,23 +74,6 @@ export const upgradesRouter = createTRPCRouter({
     }),
   all: publicProcedure.query(async () => {
     const upgrades = await getBundledUpgrades();
-    return expandUpgrades(upgrades);
-  }),
-  ssgFallback: publicProcedure.query(async () => {
-    const [upgradesList, questMap, servantMap] = await Promise.all([
-      getBundledUpgrades(),
-      getBundledQuestMap(),
-      getBundledServantMap()
-    ]);
-
-    const sorter = createUpgradeSorter(questMap);
-    const filter = createUpgradeFilter(
-      formFiltersDefault,
-      servantMap,
-      questMap
-    );
-    const upgrades = upgradesList.sort(sorter).filter(filter).slice(0, 10);
-
     return expandUpgrades(upgrades);
   })
 });
