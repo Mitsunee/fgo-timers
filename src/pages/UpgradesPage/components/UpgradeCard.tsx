@@ -23,6 +23,7 @@ import { UpgradeInfo } from "./UpgradeInfo";
 type PropsBase = {
   servant: BundledServant;
   quest: MappedBundledQuest;
+  // TODO: prop to override NA props where applicable (not in quest)
 } & Highlight;
 type WithSkillUpgrade = {
   upgrade: Upgrade & { upgrades: UpgradeMapSkill };

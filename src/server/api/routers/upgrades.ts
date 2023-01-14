@@ -15,8 +15,19 @@ export type ExpandedUpgrades = Pick<
   "upgrades" | "quests" | "servants" | "skills" | "nps"
 >;
 
+/**
+ * Force-sets na prop on an entity (Upgrade, Servants, Skills, ...). Do not use on Quests, as those use their NA prop for sorting!
+ */
+function unSpoilerEntity<T extends { na?: true }>(entity: T): T {
+  return {
+    ...entity,
+    na: true as const
+  };
+}
+
 async function expandUpgrades(
-  upgradesList: ExpandedUpgrades["upgrades"]
+  upgradesList: ExpandedUpgrades["upgrades"],
+  disableSpoilers?: boolean
 ): Promise<ExpandedUpgrades> {
   const [questMap, servantMap, skillMap, npMap] = await Promise.all([
     getBundledQuestMap(),
@@ -26,7 +37,12 @@ async function expandUpgrades(
   ]);
 
   const sorter = createUpgradeSorter(questMap);
-  const upgrades = [...upgradesList].sort(sorter);
+  const upgrades = (
+    disableSpoilers
+      ? upgradesList.map(upgrade => unSpoilerEntity(upgrade))
+      : // clone array, don't modify original
+        [...upgradesList]
+  ).sort(sorter);
   const quests: ExpandedUpgrades["quests"] = {};
   const servants: ExpandedUpgrades["servants"] = {};
   const skills: ExpandedUpgrades["skills"] = {};
@@ -38,18 +54,26 @@ async function expandUpgrades(
     quest.unlock?.quests?.forEach(id => (quests[id] ??= questMap[id]));
 
     // map servant
-    servants[upgrade.servant] ??= servantMap[upgrade.servant];
+    servants[upgrade.servant] ??= disableSpoilers
+      ? unSpoilerEntity(servantMap[upgrade.servant])
+      : servantMap[upgrade.servant];
 
     // map upgrade targets
     if (upgrade.upgrades) {
       if (upgrade.upgrades.type == "skill") {
         const { id = 0, newId } = upgrade.upgrades;
-        skills[id] ??= skillMap[id];
-        skills[newId] ??= skillMap[newId];
+        skills[id] ??= disableSpoilers
+          ? unSpoilerEntity(skillMap[id])
+          : skillMap[id];
+        skills[newId] ??= disableSpoilers
+          ? unSpoilerEntity(skillMap[newId])
+          : skillMap[newId];
       } else {
         const { id, newId } = upgrade.upgrades;
-        nps[id] ??= npMap[id];
-        nps[newId] ??= npMap[newId];
+        nps[id] ??= disableSpoilers ? unSpoilerEntity(npMap[id]) : npMap[id];
+        nps[newId] ??= disableSpoilers
+          ? unSpoilerEntity(npMap[newId])
+          : npMap[newId];
       }
     }
   }
@@ -59,18 +83,22 @@ async function expandUpgrades(
 
 export const upgradesRouter = createTRPCRouter({
   select: publicProcedure
-    .input(z.object({ id: z.union([z.number(), z.array(z.number())]) }))
+    .input(
+      z.object({
+        id: z.union([z.number(), z.array(z.number())]),
+        disableSpoilers: z.boolean().optional()
+      })
+    )
     .query(async ({ input }): Promise<ExpandedUpgrades> => {
-      const targetIds = new Set(
-        Array.isArray(input.id) ? input.id : [input.id]
-      );
+      const { id, disableSpoilers = false } = input;
+      const targetIds = new Set(Array.isArray(id) ? id : [id]);
 
       const upgradesList = await getBundledUpgrades();
       const upgrades: ExpandedUpgrades["upgrades"] = upgradesList.filter(
         upgrade => targetIds.has(upgrade.quest)
       );
 
-      return expandUpgrades(upgrades);
+      return expandUpgrades(upgrades, disableSpoilers);
     }),
   all: publicProcedure.query(async () => {
     const upgrades = await getBundledUpgrades();
