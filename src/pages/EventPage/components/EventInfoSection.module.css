@@ -1,0 +1,40 @@
+.section {
+  margin-top: 1.66em;
+
+  & h1:first-child {
+    margin: 0.66em;
+  }
+
+  & p {
+    padding-left: 1.33em;
+    padding-right: 1.33em;
+
+    &:last-child {
+      padding-bottom: 1.33em;
+    }
+  }
+}
+
+.flexbar {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.66em;
+  gap: 0.66em;
+
+  border-top: 1px solid var(--light);
+  background-image: radial-gradient(ellipse at top, var(--light), transparent);
+  box-shadow: 0px 2px 2px var(--dark);
+
+  & span,
+  & button {
+    text-align: center;
+    max-width: 320px;
+  }
+
+  & span {
+    width: 100%;
+  }
+}

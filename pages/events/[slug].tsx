@@ -1,9 +1,12 @@
+import { useState } from "react";
 import Meta from "src/client/components/Meta";
 import { Clocks } from "src/client/components/Clocks";
-import Headline from "src/client/components/Headline";
+import { ActionButton } from "src/client/components/Button";
 import type { EventPageProps } from "src/pages/EventPage/getStaticProps";
 import { RelatedUpgrades } from "src/pages/EventPage/components/RelatedUpgrades";
-// import styles from "src/pages/EventPage/styles.module.css";
+import { EventHero } from "src/pages/EventPage/components/EventHero";
+import { EventInfoSection } from "src/pages/EventPage/components/EventInfoSection";
+import { EventNewsModal } from "src/pages/EventPage/components/EventNewsModal";
 
 // Next Page configs
 export {
@@ -24,6 +27,8 @@ export default function EventPage({
   ces */
 }: EventPageProps) {
   const metaDesc = event.description.split("\n")[0];
+  const [showUpgrades, setShowUpgrades] = useState(false);
+  const [showEmbed, setShowEmbed] = useState(false);
 
   return (
     <>
@@ -37,14 +42,31 @@ export default function EventPage({
         headerDescription={`Event Timers for ${event.shortTitle}`}
       />
       <Clocks />
-      {/* PLACEHOLDER */}
-      <Headline>PLACEHOLDER</Headline>
+      <EventHero banner={event.banner} title={event.shortTitle} />
+      <EventInfoSection
+        title={event.title}
+        date={event.date}
+        description={event.description}
+        requires={event.requires}
+        modalCallback={() => setShowEmbed(true)}
+      />
       {/* DEBUG */}
       <pre>
         <code>{JSON.stringify(event, null, 2)}</code>
       </pre>
-      {/* TODO: Make this not automatically display (show button first) */}
-      {event.upgrades && <RelatedUpgrades upgrades={event.upgrades} />}
+      {event.upgrades && showUpgrades ? (
+        <RelatedUpgrades upgrades={event.upgrades} />
+      ) : (
+        <ActionButton onClick={() => setShowUpgrades(true)}>
+          Show related Upgrades
+        </ActionButton>
+      )}
+      {showEmbed && (
+        <EventNewsModal
+          url={event.url}
+          closeCallback={() => setShowEmbed(false)}
+        />
+      )}
     </>
   );
 }

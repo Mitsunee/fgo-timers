@@ -1,0 +1,9 @@
+.wrapper {
+  text-align: center;
+  width: 100%;
+  max-height: 300px;
+
+  & img {
+    object-fit: contain;
+  }
+}
