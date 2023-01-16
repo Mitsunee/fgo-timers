@@ -17,10 +17,16 @@ type MappedBundledQuest = ReturnType<
 >;
 
 export function RelatedUpgrades({ upgrades }: RelatedUpgradesProps) {
-  const data = api.upgrades.select.useQuery({
-    id: upgrades.map(upgrade => upgrade.id),
-    disableSpoilers: true
-  });
+  const data = api.upgrades.select.useQuery(
+    {
+      id: upgrades.map(upgrade => upgrade.id),
+      disableSpoilers: true
+    },
+    {
+      refetchOnReconnect: false,
+      refetchOnWindowFocus: false
+    }
+  );
 
   const quests = useMemo(() => {
     const mappedQuests: Record<number, MappedBundledQuest> = {};

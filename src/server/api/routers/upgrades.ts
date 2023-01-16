@@ -86,7 +86,8 @@ export const upgradesRouter = createTRPCRouter({
     .input(
       z.object({
         id: z.union([z.number(), z.array(z.number())]),
-        disableSpoilers: z.boolean().optional()
+        disableSpoilers: z.boolean().optional() // TEMP
+        // TODO: prop to override quest open dates? Probably a z.record(z.number(),z.number())?
       })
     )
     .query(async ({ input }): Promise<ExpandedUpgrades> => {
