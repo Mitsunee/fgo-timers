@@ -71,13 +71,13 @@ export function UpgradeCard(props: UpgradeCardProps) {
   let suffix = "";
   let subtitleIcon: Parameters<typeof Subtitle>[0]["icon"] = "sq";
   let UpgradeDisplay: null | React.ReactNode = null;
-  const style: React.CSSProperties & { "--border"?: string } = {};
+  let border: Borders = Borders.BLUE;
 
   // handle Skill Upgrade Properties
   if (isSkillUpgrade(props)) {
     suffix = `Skill ${props.to.num}`;
     subtitleIcon = "skill";
-    style["--border"] = BorderColours[props.to.border];
+    border = props.to.border;
     UpgradeDisplay = (
       <SkillUpgrade upgrade={props.upgrade} from={props.from} to={props.to} />
     );
@@ -86,16 +86,18 @@ export function UpgradeCard(props: UpgradeCardProps) {
   else if (isNPUpgrade(props)) {
     suffix = "NP";
     subtitleIcon = "np";
-    style["--border"] = BorderColours[props.to.border];
+    border = props.to.border;
     UpgradeDisplay = (
       <NPUpgrade upgrade={props.upgrade} from={props.from} to={props.to} />
     );
   }
 
   return (
-    <article className={styles.card} style={style}>
+    <article
+      className={styles.card}
+      style={{ "--border": BorderColours[border] } as React.CSSProperties}>
       <Hero
-        border={Borders.BLUE}
+        border={border}
         id={props.upgrade.servant}
         name={servant.name}
         icon={servant.icon}
