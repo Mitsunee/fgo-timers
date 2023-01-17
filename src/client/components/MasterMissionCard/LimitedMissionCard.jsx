@@ -6,7 +6,7 @@ export default function LimitedMissionCard({ data }) {
     <Card
       title="Limited Master Missions"
       icon="/assets/icon_mm.png"
-      color="gold">
+      color={3 /* gold */}>
       <MissionList key={data.id} data={data} />
     </Card>
   );

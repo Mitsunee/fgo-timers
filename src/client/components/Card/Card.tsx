@@ -1,0 +1,63 @@
+import cc from "classcat";
+
+import { BgColours, BorderColours, Borders } from "src/types/borders";
+import type { ComponentPropsCC } from "src/types/ComponentProps";
+import Headline from "src/client/components/Headline";
+import CardHero from "./CardHero";
+import styles from "./Card.module.css";
+
+type CardHeroProps = React.ComponentProps<typeof CardHero>;
+
+interface CardStyle extends React.CSSProperties {
+  "--border": string;
+  "--bg": string;
+}
+
+interface CardProps
+  extends Omit<ComponentPropsCC<"article">, "color" | "style" | "title">,
+    CardHeroProps {
+  color?: Borders;
+  style?: Partial<CardStyle>;
+}
+
+type CustomCardProps = Omit<CardProps, keyof CardHeroProps> &
+  Partial<Record<keyof CardHeroProps, undefined>>;
+
+export function Card({
+  children,
+  className,
+  style: styleProp,
+  color = Borders.BLUE,
+  title,
+  icon,
+  loading,
+  forceRound,
+  ...props
+}: CardProps | CustomCardProps) {
+  const style: CardStyle = {
+    "--border": BorderColours[color],
+    "--bg": BgColours[color],
+    ...styleProp // may override color properties
+  };
+  const heroProps: CardHeroProps | null = icon
+    ? { icon, title, loading, forceRound }
+    : null;
+
+  return (
+    <div className={styles.card}>
+      <article {...props} className={cc(className)} style={style}>
+        {heroProps ? (
+          <>
+            <CardHero {...heroProps} />
+            <main>
+              <Headline>{heroProps.title}</Headline>
+              {children}
+            </main>
+          </>
+        ) : (
+          children
+        )}
+      </article>
+    </div>
+  );
+}

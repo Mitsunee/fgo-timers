@@ -7,11 +7,14 @@ import ShopCardListItem from "./ShopCardListItem";
 import ShopCardLimitedItem from "./ShopCardLimitedItem";
 
 export default function ShopCard({ shopData, endsAt }) {
-  const { inventory, limited, icon, ...cardProps } = shopData;
+  const { inventory, limited, icon, color, ...cardProps } = shopData;
   const currency = expandAtlasUrl(icon);
 
   return (
-    <Card {...cardProps} icon={currency}>
+    <Card
+      {...cardProps}
+      color={color == "green" ? 7 : 3 /* green || gold */}
+      icon={currency}>
       <h2>Monthly Inventory</h2>
       <FGOItemList>
         {inventory.map(data => (
