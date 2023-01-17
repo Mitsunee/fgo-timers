@@ -7,6 +7,8 @@ import { RelatedUpgrades } from "src/pages/EventPage/components/RelatedUpgrades"
 import { EventHero } from "src/pages/EventPage/components/EventHero";
 import { EventInfoSection } from "src/pages/EventPage/components/EventInfoSection";
 import { EventNewsModal } from "src/pages/EventPage/components/EventNewsModal";
+import { CardGrid } from "@components/Card";
+import { EventTimesCard } from "src/pages/EventPage/components/EventTimesCard";
 
 // Next Page configs
 export {
@@ -21,11 +23,7 @@ export const config = {
   ]
 };
 
-export default function EventPage({
-  event /*,
-  servants,
-  ces */
-}: EventPageProps) {
+export default function EventPage({ event, servants, ces }: EventPageProps) {
   const metaDesc = event.description.split("\n")[0];
   const [showUpgrades, setShowUpgrades] = useState(false);
   const [showEmbed, setShowEmbed] = useState(false);
@@ -50,17 +48,29 @@ export default function EventPage({
         requires={event.requires}
         modalCallback={() => setShowEmbed(true)}
       />
+
+      {(event.schedules || event.times) && (
+        <CardGrid>
+          {/* TODO: Schedules cards */}
+          {event.times && (
+            <EventTimesCard times={event.times} servants={servants} ces={ces} />
+          )}
+        </CardGrid>
+      )}
+
       {/* DEBUG */}
       <pre>
         <code>{JSON.stringify(event, null, 2)}</code>
       </pre>
-      {event.upgrades && showUpgrades ? (
-        <RelatedUpgrades upgrades={event.upgrades} />
-      ) : (
-        <ActionButton onClick={() => setShowUpgrades(true)}>
-          Show related Upgrades
-        </ActionButton>
-      )}
+
+      {event.upgrades &&
+        (showUpgrades ? (
+          <RelatedUpgrades upgrades={event.upgrades} />
+        ) : (
+          <ActionButton onClick={() => setShowUpgrades(true)}>
+            Show related Upgrades
+          </ActionButton>
+        ))}
       {showEmbed && (
         <EventNewsModal
           url={event.url}
