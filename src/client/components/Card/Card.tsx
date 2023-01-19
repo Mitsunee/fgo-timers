@@ -14,7 +14,10 @@ interface CardStyle extends React.CSSProperties {
 }
 
 interface CardProps
-  extends Omit<ComponentPropsCC<"article">, "color" | "style" | "title">,
+  extends Omit<
+      ComponentPropsCC<"article">,
+      "color" | "style" | "title" | "placeholder" | "id"
+    >,
     CardHeroProps {
   color?: Borders;
   style?: Partial<CardStyle>;
@@ -28,10 +31,13 @@ export function Card({
   className,
   style: styleProp,
   color = Borders.BLUE,
+  id,
   title,
+  placeholder,
   icon,
   loading,
   forceRound,
+  bypassSpoilers,
   ...props
 }: CardProps | CustomCardProps) {
   const style: CardStyle = {
@@ -40,7 +46,7 @@ export function Card({
     ...styleProp // may override color properties
   };
   const heroProps: CardHeroProps | null = icon
-    ? { icon, title, loading, forceRound }
+    ? { icon, title, loading, forceRound, placeholder, id, bypassSpoilers }
     : null;
 
   return (

@@ -15,11 +15,14 @@ export function EventTimesCard({
     <Card
       icon="https://static.atlasacademy.io/JP/Faces/f_4014000.png" // PLACEHOLDER
       title="Timers"
-      forceRound>
+      forceRound
+      bypassSpoilers>
       <ul>
         {times.map((time, i) => (
           // PLACEHOLDER
-          <li key={i}>{JSON.stringify(time.date)}</li>
+          <li key={i}>
+            {time.title}: {JSON.stringify(time.date)}
+          </li>
         ))}
       </ul>
     </Card>
