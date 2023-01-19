@@ -3,30 +3,29 @@
   position: absolute;
   inset: 0px;
   object-fit: contain;
+  display: block;
+}
 
+.face {
   transition: filter 0.1s ease-in;
+
+  &.hidden,
+  &.prerendered {
+    filter: blur(12px) grayscale(0.1);
+  }
 }
 
-.spoiler,
-div:hover > .prerendered + .spoiler {
-  display: none;
+.spoiler {
+  animation-name: fadein;
+  animation-duration: 0.1s;
 }
 
-.hidden,
-.prerendered {
-  filter: blur(12px) grayscale(0.1);
-
-  & + .spoiler {
-    display: block;
-    content: "";
-    position: absolute;
-    inset: 0px;
-    background-image: url("/assets/spoiler.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center center;
-    animation-name: fadein;
-    animation-duration: 0.1s;
+div:hover {
+  & > span .face.prerendered {
+    filter: blur(0px);
+  }
+  & > .spoiler.prerendered {
+    display: none;
   }
 }
 
@@ -37,9 +36,4 @@ div:hover > .prerendered + .spoiler {
   100% {
     opacity: 0.75;
   }
-}
-
-div:hover > .prerendered,
-.prerendered.forced {
-  filter: blur(0px);
 }

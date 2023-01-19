@@ -1,4 +1,5 @@
 import cc from "classcat";
+import Image from "next/image";
 import { expandAtlasUrl } from "src/atlas-api/urls";
 import { useSpoilerLevel } from "src/client/utils/hooks/useSpoilerLevel";
 import { useSpoilerState } from "src/client/utils/hooks/useSpoilerState";
@@ -6,111 +7,111 @@ import { ComponentPropsCC } from "src/types/ComponentProps";
 import { SpoilerLevels } from "src/types/enum";
 import styles from "./IconFace.module.css";
 
-interface IconFaceProps extends Omit<ComponentPropsCC<"img">, "id"> {
+type ImageProps = Omit<ComponentPropsCC<typeof Image>, "id" | "placeholder">;
+type ImageLayout =
+  | Required<Pick<ImageProps, "width" | "height">>
+  | { layout: "fill" };
+
+interface IconFaceProps extends ImageProps {
   id: number;
   name: string;
+  /**
+   * May be shortened url
+   */
   src: string;
+  /**
+   * Set name instead
+   */
   alt?: undefined;
+  /**
+   * Set name instead
+   */
   title?: undefined;
-  placeholder: string;
+  /**
+   * Shown in place of name if mode is strict and during prerender
+   */
+  placeholder?: string;
   na?: true;
-  forceIcon?: true;
-  lazy?: true; // TODO: implement lazyloading
+  /**
+   * Bypasses spoiler system
+   */
+  forceIcon?: boolean;
 }
 
 export function IconFace({
-  id,
+  id = 0,
   src,
   name,
   na,
   placeholder,
   forceIcon,
   className,
+  width,
+  height,
+  loading = "lazy",
   ...props
 }: IconFaceProps) {
   const [level] = useSpoilerLevel();
   const [hidden, toggleHidden] = useSpoilerState(id);
   const fullSrc = expandAtlasUrl(src);
+  const isForced = na || forceIcon || level == SpoilerLevels.ALL;
+  const showsName = isForced || level == SpoilerLevels.SOME || !hidden;
+  const showsIcon = isForced || !hidden;
 
-  if (!na) {
-    switch (level) {
-      case SpoilerLevels.PRERENDER: {
-        const displayName = `${placeholder} (Hover to reveal)`;
+  const alt = isForced ? name : `${showsName ? name : placeholder ?? name}`;
+  const title = isForced
+    ? name
+    : `${alt} (${level == SpoilerLevels.PRERENDER ? "Hover" : "Click"} to ${
+        hidden ? "reveal" : "hide"
+      })`.trim();
 
-        return (
-          <>
-            <img
-              {...props}
-              src={fullSrc}
-              className={cc([
-                styles.face,
-                styles.prerendered,
-                forceIcon && styles.forced,
-                className
-              ])}
-              alt={placeholder}
-              title={displayName}
-            />
-            {!forceIcon && (
-              <img
-                src="/assets/spoiler.png"
-                className={styles.spoiler}
-                alt={placeholder}
-              />
-            )}
-          </>
-        );
-      }
-      case SpoilerLevels.SOME:
-      case SpoilerLevels.STRICT: {
-        const displayAlt =
-          hidden && level == SpoilerLevels.STRICT ? placeholder : name;
-        const displayTitle = `${displayAlt} (Click to ${
-          hidden ? "reveal" : "hide"
-        })`;
+  const handleClick: React.MouseEventHandler<React.ElementRef<"img">> = (
+    ...args
+  ) => {
+    toggleHidden();
+    props.onClick?.(...args);
+  };
 
-        return (
-          <>
-            <img
-              {...props}
-              src={fullSrc}
-              className={cc([
-                styles.face,
-                hidden && !forceIcon && styles.hidden,
-                className
-              ])}
-              alt={displayAlt}
-              title={displayTitle}
-              onClick={(...args) => {
-                toggleHidden();
-                props.onClick?.(...args);
-              }}
-            />
-            {hidden && !forceIcon && (
-              <img
-                src="/assets/spoiler.png"
-                className={styles.spoiler}
-                alt={displayAlt}
-                title={displayTitle}
-                onClick={(...args) => {
-                  toggleHidden();
-                  props.onClick?.(...args);
-                }}
-              />
-            )}
-          </>
-        );
-      }
-    }
-  }
+  const imgLayout: ImageLayout =
+    props.layout == "fill" || width == undefined || height == undefined
+      ? { layout: "fill" }
+      : { width, height };
 
   return (
-    <img
-      {...props}
-      src={fullSrc}
-      className={cc([styles.face, className])}
-      alt={name}
-      title={name}
-    />
+    <>
+      <Image
+        {...props}
+        {...imgLayout}
+        loading={loading}
+        src={fullSrc}
+        alt={alt}
+        title={title}
+        className={cc([
+          styles.face,
+          !showsIcon &&
+            (level == SpoilerLevels.PRERENDER
+              ? !isForced && styles.prerendered
+              : styles.hidden),
+          className
+        ])}
+        onClick={
+          !isForced && level != SpoilerLevels.PRERENDER
+            ? handleClick
+            : undefined
+        }
+      />
+      {!showsIcon && (
+        <img
+          src="/assets/spoiler.png"
+          alt={alt}
+          title={title}
+          className={cc([
+            styles.spoiler,
+            level == SpoilerLevels.PRERENDER && styles.prerendered
+          ])}
+          onClick={level != SpoilerLevels.PRERENDER ? handleClick : undefined}
+        />
+      )}
+    </>
   );
 }
