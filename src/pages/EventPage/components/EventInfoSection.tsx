@@ -4,7 +4,7 @@ import { useIsClient } from "src/client/utils/hooks/useIsClient";
 import { intervalStore } from "src/client/stores/intervalStore";
 import Section from "src/client/components/Section";
 import Headline from "src/client/components/Headline";
-import { DisplayDate, DisplayDelta } from "src/client/components/TimeDisplay";
+import { DisplayDate } from "src/client/components/TimeDisplay";
 import type { BundledEvent } from "src/events/types";
 import styles from "./EventInfoSection.module.css";
 import { ActionButton } from "@components/Button";
@@ -27,7 +27,7 @@ export function EventInfoSection({
   const { seconds: current, s } = useStore(intervalStore);
   const [start, end = 0] = Array.isArray(date) ? date : [date];
   const hasStarted = current >= start;
-  const hasEnded = end > 0 ? current >= end : !hasStarted;
+  const hasEnded = end > 0 ? current >= end : hasStarted;
   let progressText: false | string = false;
 
   if (isClient && end > 0) {
@@ -52,53 +52,41 @@ export function EventInfoSection({
         {requires && <span>Requires: {requires}</span>}
         <ActionButton onClick={modalCallback}>Official News Post</ActionButton>
       </aside>
-      {description
-        .split("\n")
-        .filter(seg => seg.length > 0)
-        .map((seg, i) => (
-          <p key={i}>{seg}</p>
-        ))}
-      {isClient ? (
-        <>
-          <p>
-            <b>Start{hasStarted ? "ed" : "s"}:</b>{" "}
-            <DisplayDate time={start * 1000} format="full" />
-            {start > current && (
-              <>
-                {" ("}
-                <DisplayDelta time={start * 1000} />
-                {")"}
-              </>
+      <Section background padding={false}>
+        {description
+          .split("\n")
+          .filter(seg => seg.length > 0)
+          .map((seg, i) => (
+            <p key={i}>{seg}</p>
+          ))}
+      </Section>
+      <div className={styles.times}>
+        {isClient ? (
+          <>
+            <p>
+              <b>Start{hasStarted ? "ed" : "s"}:</b>{" "}
+              <DisplayDate time={start * 1000} format="full" />
+            </p>
+            {end > 0 && (
+              <p>
+                <b>End{hasEnded ? "ed" : "s"}:</b>{" "}
+                <DisplayDate time={end * 1000} format="full" />
+              </p>
             )}
-          </p>
-          {end > 0 && (
+          </>
+        ) : (
+          <>
             <p>
-              <b>End{hasEnded ? "ed" : "s"}:</b>{" "}
-              <DisplayDate time={end * 1000} format="full" />
-              {end > current && (
-                <>
-                  {" ("}
-                  <DisplayDelta time={end * 1000} />
-                  {")"}
-                </>
-              )}
+              <b>Start:</b> <DisplayDate time={start * 1000} format="full" />
             </p>
-          )}
-        </>
-      ) : (
-        <>
-          <p>
-            <b>Start:</b> <DisplayDate time={start * 1000} format="full" />
-          </p>
-          {end > 0 && (
-            <p>
-              <b>
-                End: <DisplayDate time={end * 1000} format="full" />
-              </b>
-            </p>
-          )}
-        </>
-      )}
+            {end > 0 && (
+              <p>
+                <b>End:</b> <DisplayDate time={end * 1000} format="full" />
+              </p>
+            )}
+          </>
+        )}
+      </div>
     </Section>
   );
 }

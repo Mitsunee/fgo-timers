@@ -5,12 +5,30 @@
     margin: 0.66em;
   }
 
-  & p {
-    padding-left: 1.33em;
-    padding-right: 1.33em;
+  & > section {
+    /* padding hack */
+    border: 1px solid transparent;
 
-    &:last-child {
-      padding-bottom: 1.33em;
+    & p,
+    & p:first-child,
+    & p:last-child {
+      margin: 1.33em 0px;
+      padding: 0px 1.33em;
+    }
+  }
+
+  & .times {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.33rem;
+    font-size: 14px;
+    gap: 1.33rem;
+
+    & p {
+      margin: 0px;
+      padding: 0px;
     }
   }
 }
