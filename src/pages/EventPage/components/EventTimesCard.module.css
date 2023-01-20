@@ -1,0 +1,37 @@
+.list {
+  margin: 0px;
+  padding: 0.66em;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.33em 0.66em;
+  list-style-type: none;
+
+  & li {
+    flex-basis: 100%;
+    min-width: min(100%, 150px);
+    list-style-type: none;
+
+    @media (--mq-medium) {
+      flex-basis: 45%;
+    }
+
+    &.wide {
+      flex-basis: 100%;
+    }
+  }
+}
+
+.servants {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.33em;
+
+  & > div {
+    width: 3em;
+    height: 3em;
+  }
+}

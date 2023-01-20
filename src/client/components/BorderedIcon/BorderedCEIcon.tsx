@@ -5,7 +5,7 @@ import { BorderedIconAvailability } from "./BorderedIconAvailability";
 import { IconFace } from "./IconFace";
 
 interface BorderedCEIconProps extends ComponentPropsCC<"div">, BundledCE {
-  showAvailability: boolean;
+  showAvailability?: boolean;
   title?: undefined;
   ceId: number;
 }

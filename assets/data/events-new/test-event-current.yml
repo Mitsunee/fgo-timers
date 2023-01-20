@@ -21,12 +21,12 @@ times:
     date: 2023-01-04 20:00 - 01-05 00:00 PST
   - title: Event Shop Exchange Period
     date: 2023-01-05 00:00 - 12-25 19:59 PST
-  - title: Summoning Banner
-    date: 2023-01-05 00:00 - 12-18 19:59 PST
-  - title: idk look at spishtar
+  - title: test related entity
     date: 2023-01-05 00:00 - 12-18 19:59 PST
     servants:
       - 1100900
+    ces:
+      - 9404130
 banners:
   - date: 2023-01-05 00:00 - 12-18 19:59 PST
     servants:
