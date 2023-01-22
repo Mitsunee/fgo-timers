@@ -22,11 +22,15 @@ times:
   - title: Event Shop Exchange Period
     date: 2023-01-05 00:00 - 12-25 19:59 PST
   - title: test related entity
-    date: 2023-01-05 00:00 - 12-18 19:59 PST
+    date: 2023-01-05 00:00 PST
     servants:
       - 1100900
     ces:
       - 9404130
+  - title: no end time in future
+    date: 2023-07-07 00:00 PST
+    servants:
+      - 204300
 banners:
   - date: 2023-01-05 00:00 - 12-18 19:59 PST
     servants:
