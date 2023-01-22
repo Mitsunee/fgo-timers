@@ -19,7 +19,8 @@ const EventSchedule = z.object({
   times: z
     .array(EventTimeDate.pick({ title: true, date: true }))
     .transform(times => times.sort((a, b) => a.date - b.date)),
-  ends: zDate.optional()
+  ends: zDate.optional(),
+  icon: z.string().optional()
 });
 
 const EventBanner = Related.extend({ date: zDurationStrict }).transform(

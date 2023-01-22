@@ -9,6 +9,7 @@ import { EventInfoSection } from "src/pages/EventPage/components/EventInfoSectio
 import { EventNewsModal } from "src/pages/EventPage/components/EventNewsModal";
 import { CardGrid } from "@components/Card";
 import { EventTimesCard } from "src/pages/EventPage/components/EventTimesCard";
+import { EventSchedulesCard } from "src/pages/EventPage/components/EventSchedulesCard";
 
 // Next Page configs
 export {
@@ -23,10 +24,15 @@ export const config = {
   ]
 };
 
+// TODO: maybe more info in info section such as amount of banners or upgrades?
 export default function EventPage({ event, servants, ces }: EventPageProps) {
   const metaDesc = event.description.split("\n")[0];
   const [showUpgrades, setShowUpgrades] = useState(false);
   const [showEmbed, setShowEmbed] = useState(false);
+  const hasCardGrid = Boolean(
+    event.schedules || event.times /* || event.banners || showUpgrades */
+  );
+  const end = Array.isArray(event.date) ? event.date[1] : event.date;
 
   return (
     <>
@@ -49,20 +55,23 @@ export default function EventPage({ event, servants, ces }: EventPageProps) {
         modalCallback={() => setShowEmbed(true)}
       />
 
-      {(event.schedules || event.times) && (
+      {hasCardGrid && (
         <CardGrid>
-          {/* TODO: Schedules cards */}
           {event.times && (
             <EventTimesCard times={event.times} servants={servants} ces={ces} />
           )}
+          {event.schedules?.map(schedule => (
+            <EventSchedulesCard
+              key={schedule.title}
+              {...schedule}
+              eventEnd={end}
+            />
+          ))}
+          {/* TODO: Event Banners */}
         </CardGrid>
       )}
 
-      {/* DEBUG */}
-      <pre>
-        <code>{JSON.stringify(event, null, 2)}</code>
-      </pre>
-
+      {/* TODO: merge into grid above? */}
       {event.upgrades &&
         (showUpgrades ? (
           <RelatedUpgrades upgrades={event.upgrades} />
@@ -71,6 +80,12 @@ export default function EventPage({ event, servants, ces }: EventPageProps) {
             Show related Upgrades
           </ActionButton>
         ))}
+
+      {/* DEBUG */}
+      <h1>DEBUG</h1>
+      <pre>
+        <code>{JSON.stringify(event, null, 2)}</code>
+      </pre>
       {showEmbed && (
         <EventNewsModal
           url={event.url}

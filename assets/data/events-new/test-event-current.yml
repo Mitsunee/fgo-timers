@@ -15,6 +15,8 @@ schedules:
         date: 2023-01-05 00:00 PST
       - title: CQ
         date: 2023-01-11 20:00 PST
+      - title: Future Event Time
+        date: 2023-04-03 18:18 PST
     ends: 2023-12-18 19:59 PST
 times:
   - title: Maintenance

@@ -55,7 +55,7 @@ export function EventInfoSection({
       <Section background padding={false}>
         {description
           .split("\n")
-          .filter(seg => seg.length > 0)
+          .filter(seg => seg.trim().length > 0)
           .map((seg, i) => (
             <p key={i}>{seg}</p>
           ))}
