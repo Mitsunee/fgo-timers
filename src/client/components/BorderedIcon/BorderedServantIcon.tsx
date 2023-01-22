@@ -15,6 +15,7 @@ interface BorderedServantIconProps
   showClass?: boolean;
   title?: undefined;
   servantId: number;
+  disableSpoilers?: boolean;
 }
 
 export function BorderedServantIcon({
@@ -28,6 +29,7 @@ export function BorderedServantIcon({
   classId,
   rarity,
   na,
+  disableSpoilers,
   availability,
   ...props
 }: BorderedServantIconProps) {
@@ -52,6 +54,7 @@ export function BorderedServantIcon({
         src={servant.icon}
         placeholder={`${servant.rarity}* ${classDisplay} Servant`}
         na={servant.na}
+        forceIcon={disableSpoilers}
       />
       {showAvailability && (
         <BorderedIconAvailability availability={servant.availability} />

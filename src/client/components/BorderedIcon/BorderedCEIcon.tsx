@@ -8,6 +8,7 @@ interface BorderedCEIconProps extends ComponentPropsCC<"div">, BundledCE {
   showAvailability?: boolean;
   title?: undefined;
   ceId: number;
+  disableSpoilers?: boolean;
 }
 
 export function BorderedCEIcon({
@@ -18,6 +19,7 @@ export function BorderedCEIcon({
   icon,
   rarity,
   na,
+  disableSpoilers,
   availability,
   ...props
 }: BorderedCEIconProps) {
@@ -33,6 +35,7 @@ export function BorderedCEIcon({
         src={ce.icon}
         placeholder={`${ce.rarity}* Craft Essence`}
         na={ce.na}
+        forceIcon={disableSpoilers}
       />
       {showAvailability && (
         <BorderedIconAvailability availability={ce.availability} />
