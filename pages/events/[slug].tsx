@@ -11,6 +11,7 @@ import { CardGrid } from "@components/Card";
 import { EventTimesCard } from "src/pages/EventPage/components/EventTimesCard";
 import { EventSchedulesCard } from "src/pages/EventPage/components/EventSchedulesCard";
 import styles from "src/pages/EventPage/EventPage.module.css";
+import { EventBannerCard } from "src/pages/EventPage/components/EventBannerCard";
 
 // Next Page configs
 export {
@@ -68,23 +69,34 @@ export default function EventPage({ event, servants, ces }: EventPageProps) {
         </CardGrid>
       )}
 
-      {/* TODO: Event Banners section */}
+      {event.banners && (
+        <>
+          <h1>Summoning Banners</h1>
+          <CardGrid className={styles.cardgrid}>
+            {event.banners.map((banner, idx) => (
+              <EventBannerCard
+                key={idx}
+                banner={banner}
+                servants={servants}
+                ces={ces}
+              />
+            ))}
+          </CardGrid>
+        </>
+      )}
 
       {event.upgrades &&
-        // TODO: section title
         (showUpgrades ? (
-          <RelatedUpgrades upgrades={event.upgrades} />
+          <>
+            <h1>Upgrades</h1>
+            <RelatedUpgrades upgrades={event.upgrades} />
+          </>
         ) : (
           <ActionButton onClick={() => setShowUpgrades(true)}>
             Show related Upgrades
           </ActionButton>
         ))}
 
-      {/* DEBUG */}
-      <h1>DEBUG</h1>
-      <pre>
-        <code>{JSON.stringify(event, null, 2)}</code>
-      </pre>
       {showEmbed && (
         <EventNewsModal
           url={event.url}

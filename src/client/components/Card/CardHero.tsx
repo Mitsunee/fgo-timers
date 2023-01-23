@@ -8,7 +8,7 @@ interface CardHeroProps
   > {
   title: string;
   icon: string;
-  forceRound?: true;
+  forceRound?: boolean;
   id?: number;
   bypassSpoilers?: true;
 }
