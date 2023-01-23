@@ -1,40 +1,13 @@
-.details {
-  & h2 {
-    margin: 0px;
-    font-size: 16px;
-  }
+li.wide {
+  flex-basis: 100% !important;
+}
 
-  & ul {
-    margin: 0px;
-    padding: 0.66em;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0.33em 0.66em;
-    list-style-type: none;
+.ended {
+  opacity: 0.5;
+  transition: opacity 250ms ease-in-out;
 
-    & li {
-      flex-basis: 100%;
-      min-width: min(100%, 150px);
-      list-style-type: none;
-
-      @media (--mq-medium) {
-        flex-basis: 45%;
-      }
-
-      &.wide {
-        flex-basis: 100%;
-      }
-    }
-  }
-
-  &.ended {
-    opacity: 0.5;
-    &:hover {
-      transition: opacity 250ms ease-in-out;
-      opacity: 1;
-    }
+  &:hover {
+    opacity: 1;
   }
 }
 
@@ -48,26 +21,5 @@
   & > div {
     width: 3em;
     height: 3em;
-  }
-}
-
-.list {
-  margin: 0px;
-  padding: 0.66em;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: flex-start;
-  list-style-type: none;
-
-  & > li {
-    width: 100%;
-    padding: 0.33em;
-    list-style-type: none;
-    background-color: transparent;
-    transition: background-color 250ms ease-in-out;
-
-    &:hover {
-      background-color: var(--dark);
-    }
   }
 }

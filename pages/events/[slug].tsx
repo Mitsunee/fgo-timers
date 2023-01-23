@@ -10,6 +10,7 @@ import { EventNewsModal } from "src/pages/EventPage/components/EventNewsModal";
 import { CardGrid } from "@components/Card";
 import { EventTimesCard } from "src/pages/EventPage/components/EventTimesCard";
 import { EventSchedulesCard } from "src/pages/EventPage/components/EventSchedulesCard";
+import styles from "src/pages/EventPage/EventPage.module.css";
 
 // Next Page configs
 export {
@@ -29,9 +30,6 @@ export default function EventPage({ event, servants, ces }: EventPageProps) {
   const metaDesc = event.description.split("\n")[0];
   const [showUpgrades, setShowUpgrades] = useState(false);
   const [showEmbed, setShowEmbed] = useState(false);
-  const hasCardGrid = Boolean(
-    event.schedules || event.times /* || event.banners || showUpgrades */
-  );
   const end = Array.isArray(event.date) ? event.date[1] : event.date;
 
   return (
@@ -55,8 +53,8 @@ export default function EventPage({ event, servants, ces }: EventPageProps) {
         modalCallback={() => setShowEmbed(true)}
       />
 
-      {hasCardGrid && (
-        <CardGrid>
+      {(event.schedules || event.times) && (
+        <CardGrid className={styles.cardgrid}>
           {event.times && (
             <EventTimesCard times={event.times} servants={servants} ces={ces} />
           )}
@@ -67,12 +65,13 @@ export default function EventPage({ event, servants, ces }: EventPageProps) {
               eventEnd={end}
             />
           ))}
-          {/* TODO: Event Banners */}
         </CardGrid>
       )}
 
-      {/* TODO: merge into grid above? */}
+      {/* TODO: Event Banners section */}
+
       {event.upgrades &&
+        // TODO: section title
         (showUpgrades ? (
           <RelatedUpgrades upgrades={event.upgrades} />
         ) : (

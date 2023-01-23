@@ -1,4 +1,3 @@
-import cc from "classcat";
 import { useStore } from "@nanostores/react";
 import type { BundledEvent } from "src/events/types";
 import { useIsClient } from "src/client/utils/hooks/useIsClient";
@@ -35,7 +34,7 @@ function EventListItem({ time, servants, ces }: EventListItemProps) {
   const hasEnded = end > 0 ? current >= end : hasStarted;
 
   return (
-    <li className={cc([styles.details, hasEnded && styles.ended])}>
+    <li className={hasEnded ? styles.ended : ""}>
       <h2>{time.title}</h2>
       <ul>
         {isClient ? (
@@ -102,7 +101,7 @@ function EventListItem({ time, servants, ces }: EventListItemProps) {
 export function EventTimesCard({ times, servants, ces }: EventTimesCardProps) {
   return (
     <Card icon="/assets/icon_times.png" title="Timers" bypassSpoilers>
-      <ul className={styles.list}>
+      <ul>
         {times.map((time, i) => (
           <EventListItem key={i} time={time} servants={servants} ces={ces} />
         ))}

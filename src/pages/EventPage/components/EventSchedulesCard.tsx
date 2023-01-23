@@ -1,4 +1,3 @@
-import cc from "classcat";
 import { useStore } from "@nanostores/react";
 import { useIsClient } from "src/client/utils/hooks/useIsClient";
 import { intervalStore } from "src/client/stores/intervalStore";
@@ -26,7 +25,7 @@ function EventScheduleItem({ start, end, title }: EventScheduleItemProps) {
   const hasEnded = current >= end;
 
   return (
-    <li className={cc([styles.details, hasEnded && styles.ended])}>
+    <li className={hasEnded ? styles.ended : ""}>
       <h2>{title}</h2>
       <ul>
         <li>
@@ -61,7 +60,7 @@ export function EventSchedulesCard({
         .map((seg, i) => (
           <p key={i}>{seg}</p>
         ))}
-      <ul className={styles.list}>
+      <ul>
         {times.map(({ title, date }, idx, self) => {
           const next = idx == self.length - 1 ? end : self[idx + 1].date;
           return (

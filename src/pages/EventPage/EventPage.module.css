@@ -1,80 +1,51 @@
-.header {
-  width: 100%;
-  margin: 0px auto 1.66em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  & > a {
-    position: relative;
-
-    & img {
-      display: block;
-      max-width: 100%;
-      width: 800px;
-      height: auto;
-      aspect-ratio: 8 / 3;
+.cardgrid {
+  & main {
+    & h2 {
+      margin: 0px;
+      font-size: 16px;
     }
 
-    & .hint {
-      position: absolute;
-      right: 0.75%;
-      bottom: 2%;
-      padding: 0.33em;
-      max-width: 98.5%;
-      background-image: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 80%),
-        rgba(0, 0, 0, 55%) 66%,
-        rgba(0, 0, 0, 80%)
-      );
-      backdrop-filter: blur(2px);
+    & li,
+    & ul {
+      list-style-type: none;
     }
-  }
-}
 
-.table {
-  & tr > td {
-    text-align: center;
-    &:first-child {
-      width: 50%;
+    & ul {
+      margin: 0px;
+      padding: 0.66em;
+      display: flex;
     }
-    &:not(:first-child) {
-      width: 25%;
-    }
-  }
-  & .headerRow {
-    font-size: 1.25em;
-  }
-}
 
-.iframeWrapper {
-  position: relative;
-  width: 700px;
-  max-width: 95vw;
-  height: 95vh;
+    & > ul {
+      flex-flow: column nowrap;
+      align-items: flex-start;
 
-  & iframe {
-    width: 100%;
-    height: 100%;
-    border: 1px solid var(--light);
-    border-radius: 1em;
-    overflow: hidden;
-    box-shadow: 2px 2px 8px 3px var(--dark);
-    background-color: #fff;
-  }
+      & > li {
+        width: 100%;
+        padding: 0.33em;
+        background-color: transparent;
+        transition: background-color 250ms ease-in-out;
 
-  & .close {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    transform: translate(33%, -33%);
+        &:hover {
+          background-color: var(--dark);
+        }
 
-    & svg {
-      fill: var(--primary);
-    }
-    &:hover svg {
-      fill: var(--hover);
+        & > ul {
+          flex-flow: row wrap;
+          justify-content: space-between;
+          align-items: center;
+          gap: 0.33em 0.66em;
+
+          & > li {
+            flex-basis: 100%;
+            min-width: min(100%, 150px);
+
+            @media (--mq-medium) {
+              flex-basis: 45%;
+            }
+          }
+        }
+      }
     }
   }
 }
