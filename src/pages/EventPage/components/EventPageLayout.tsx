@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import Meta from "src/client/components/Meta";
 import { Tabber } from "src/client/components/Tabber";
 import type { Tabs } from "src/client/components/Tabber";
@@ -59,6 +59,13 @@ export function EventPageLayout({
   const metaDesc = description || event.description.split("\n")[0];
   const tabs = useMemo<Tabs>(() => mapRouteTabs(event), [event]);
 
+  useEffect(() => {
+    if (typeof window == "undefined") return;
+    if (window.location.hash == "#tabs") {
+      document.getElementById("tabs")?.scrollIntoView();
+    }
+  }, []);
+
   return (
     <>
       <Meta
@@ -78,7 +85,7 @@ export function EventPageLayout({
         requires={event.requires}
         modalCallback={() => setShowEmbed(true)}
       />
-      <Tabber tabs={tabs} current={current} />
+      <Tabber tabs={tabs} current={current} id="tabs" />
       {children}
       {showEmbed && (
         <EventNewsModal

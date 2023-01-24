@@ -29,8 +29,9 @@ export function Tabber<T extends Tabs>({
       {tabsFiltered.map(({ path, label }) => (
         <LinkButton
           key={path}
-          href={path}
-          className={cc([styles.tab, label == current && styles.current])}>
+          href={`${path}#tabs`}
+          className={cc([styles.tab, label == current && styles.current])}
+          replace>
           {label}
         </LinkButton>
       ))}
