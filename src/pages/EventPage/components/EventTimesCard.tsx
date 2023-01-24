@@ -8,7 +8,7 @@ import {
   BorderedCEIcon,
   BorderedServantIcon
 } from "src/client/components/BorderedIcon";
-import type { EventPageProps } from "../getStaticProps";
+import type { EventPageProps } from "../static";
 import styles from "./EventTimesCard.module.css";
 
 type EventTime = Exclude<BundledEvent["times"], undefined>;

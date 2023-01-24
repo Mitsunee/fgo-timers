@@ -2,7 +2,7 @@ import { useState } from "react";
 import Clocks from "src/client/components/Clocks";
 import Meta from "src/client/components/Meta";
 import { RequiredChildren } from "src/types/ComponentProps";
-import type { EventPageProps } from "../getStaticProps";
+import type { EventPageProps } from "../static";
 import { EventHero } from "./EventHero";
 import { EventInfoSection } from "./EventInfoSection";
 import { EventNewsModal } from "./EventNewsModal";
