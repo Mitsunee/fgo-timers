@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: stretch;
+  border: 1px solid var(--light);
+}
+
+a.tab {
+  flex-grow: 1;
+  justify-content: center;
+  min-width: min(100%, 150px);
+  padding: 0.66em;
+  margin: 0px;
+  border: 1px solid transparent;
+  border-bottom: 4px solid var(--light);
+  border-radius: 0px;
+  color: var(--primary);
+  transition: color 250ms ease-in-out, border-color 250ms ease-in-out;
+
+  &.current,
+  &:hover {
+    color: var(--hover);
+    border-bottom-color: var(--hover);
+  }
+
+  &.current {
+    font-weight: bold;
+  }
+}

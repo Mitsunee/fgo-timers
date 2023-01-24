@@ -20,7 +20,7 @@ export default function EventPage({ event, servants, ces }: EventPageProps) {
   const end = Array.isArray(event.date) ? event.date[1] : event.date;
 
   return (
-    <EventPageLayout event={event}>
+    <EventPageLayout event={event} current="Timers">
       {(event.schedules || event.times) && (
         <CardGrid className={styles.cardgrid}>
           {event.times && (
