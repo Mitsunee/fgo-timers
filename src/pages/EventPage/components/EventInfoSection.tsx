@@ -4,11 +4,12 @@ import { useIsClient } from "src/client/utils/hooks/useIsClient";
 import { intervalStore } from "src/client/stores/intervalStore";
 import Section from "src/client/components/Section";
 import Headline from "src/client/components/Headline";
+import { Progress } from "src/client/components/Progress";
+import { ActionButton } from "src/client/components/Button";
+import { DiscordTSButton } from "src/client/components/DiscordTSButton";
 import { DisplayDate } from "src/client/components/TimeDisplay";
 import type { BundledEvent } from "src/events/types";
 import styles from "./EventInfoSection.module.css";
-import { ActionButton } from "@components/Button";
-import { Progress } from "@components/Progress";
 import { formatDiff } from "src/utils/formatDiff";
 
 type EventInfoSectionProps = Pick<
@@ -51,6 +52,7 @@ export function EventInfoSection({
       <aside className={styles.flexbar}>
         {requires && <span>Requires: {requires}</span>}
         <ActionButton onClick={modalCallback}>Official News Post</ActionButton>
+        <DiscordTSButton time={date}>Copy Timestamp</DiscordTSButton>
       </aside>
       <Section background padding={false}>
         {description
