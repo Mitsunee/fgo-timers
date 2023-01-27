@@ -3,30 +3,13 @@ import type {
   GetStaticProps,
   InferGetStaticPropsType
 } from "next";
-import type { ParsedUrlQuery } from "querystring";
-import type { BundledEvent } from "src/events/types";
-import type { BundledCE } from "src/items/types";
-import type { BundledServant } from "src/servants/types";
 import {
   getBundledEvents,
-  getBundledCEs,
-  getBundledServants
+  getBundledCEMap,
+  getBundledServantMap
 } from "src/utils/getBundles";
-import { safeProxyIDMap } from "src/utils/proxyIDMap";
-
-interface PageContext extends Partial<ParsedUrlQuery> {
-  slug: string;
-}
-
-interface PageProps {
-  event: BundledEvent;
-  servants: Record<number, BundledServant>;
-  ces: Record<number, BundledCE>;
-}
-
-interface StaticPath {
-  params: PageContext;
-}
+import { getEventProps } from "./getEventProps";
+import type { PageContext, PageProps, StaticPath } from "./types";
 
 export const getStaticPaths: GetStaticPaths<PageContext> = async () => {
   const events = await getBundledEvents();
@@ -39,22 +22,12 @@ export const getStaticProps: GetStaticProps<PageProps, PageContext> = async ({
   params
 }) => {
   const { slug } = params!;
-  const [events, _servantMap, _ceMap] = await Promise.all([
-    getBundledEvents(),
-    getBundledServants(),
-    getBundledCEs()
+  const [servantMap, ceMap] = await Promise.all([
+    getBundledServantMap(),
+    getBundledCEMap()
   ]);
 
-  const servantMap = safeProxyIDMap(
-    _servantMap,
-    "Could not find servant id %KEY% in prebuild data"
-  );
-  const ceMap = safeProxyIDMap(
-    _ceMap,
-    "Could not find CE id %KEY% in prebuild data"
-  );
-
-  const event: PageProps["event"] = events.find(event => event.slug == slug)!;
+  const event = await getEventProps(slug);
   const servants: PageProps["servants"] = {};
   const ces: PageProps["ces"] = {};
 

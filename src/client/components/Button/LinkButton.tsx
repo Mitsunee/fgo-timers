@@ -14,6 +14,7 @@ interface LinkButtonProps extends ComponentWithRefCC<"a"> {
   onClick?: undefined; // use ActionButton instead!
   fill?: undefined; // style color instead
   hover?: undefined; // style :hover color instead
+  replace?: boolean;
 }
 type LinkButtonIconProps =
   | (Partial<Record<Exclude<keyof OptionalIconProps, "title">, undefined>> & {
@@ -30,6 +31,7 @@ export function LinkButton({
   fill,
   hover,
   title,
+  replace,
   ...props
 }: LinkButtonProps & LinkButtonIconProps) {
   const classNameExtended = cc([
@@ -62,7 +64,8 @@ export function LinkButton({
       {...props}
       title={title && !iconProps ? title : undefined}
       rel={relProp}
-      className={classNameExtended}>
+      className={classNameExtended}
+      replace={replace}>
       {Inner}
     </Link>
   ) : (

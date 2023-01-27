@@ -7,7 +7,7 @@ import { useIsClient } from "@utils/hooks/useIsClient";
 import cc from "classcat";
 import type { BundledEvent } from "src/events/types";
 import { Borders } from "src/types/borders";
-import type { EventPageProps } from "../getStaticProps";
+import type { EventPageProps } from "../static";
 import styles from "./EventBannerCard.module.css";
 
 type EventBanner = Exclude<BundledEvent["banners"], undefined>[number];
