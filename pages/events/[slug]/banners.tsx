@@ -23,7 +23,12 @@ export default function EventBannersPage({
   ces
 }: EventPageProps) {
   return (
-    <EventPageLayout event={event} current="Banners">
+    <EventPageLayout
+      event={event}
+      current="Banners"
+      description={`Summoning Banner${
+        event.banners.length > 1 ? "s" : ""
+      } for ${event.title}`}>
       <h1>Summoning Banners</h1>
       <CardGrid className={styles.cardgrid}>
         {event.banners.map((banner, idx) => (

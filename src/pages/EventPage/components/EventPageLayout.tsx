@@ -59,7 +59,6 @@ export function EventPageLayout({
   children,
   event,
   current,
-  // TODO: actually use this prop in the pages :)
   description
 }: LayoutProps) {
   const [showEmbed, setShowEmbed] = useState(false);
@@ -76,7 +75,7 @@ export function EventPageLayout({
   return (
     <>
       <Meta
-        title={event.title}
+        title={`${event.title} | ${current}`}
         headerTitle="Events"
         image={`/assets/events/${event.banner}`}
         description={

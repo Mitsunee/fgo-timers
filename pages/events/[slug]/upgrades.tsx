@@ -26,7 +26,10 @@ export default function EventUpgradesPage({
   skills
 }: EventPageProps) {
   return (
-    <EventPageLayout event={event} current="Upgrades">
+    <EventPageLayout
+      event={event}
+      current="Upgrades"
+      description={`Rank Up Quests and Interludes released during ${event.title}`}>
       <h1>Upgrades</h1>
       <CardGrid>
         {upgrades.map(upgrade => {

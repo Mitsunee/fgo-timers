@@ -17,10 +17,11 @@ export const config = {
 
 export default function EventPage({ event, servants, ces }: EventPageProps) {
   const end = Array.isArray(event.date) ? event.date[1] : event.date;
+  const hasGrid = Boolean(event.schedules || event.times);
 
   return (
     <EventPageLayout event={event} current="Timers">
-      {event.schedules || event.times ? (
+      {hasGrid ? (
         <CardGrid className={styles.cardgrid}>
           {event.times && (
             <EventTimesCard times={event.times} servants={servants} ces={ces} />
@@ -34,7 +35,7 @@ export default function EventPage({ event, servants, ces }: EventPageProps) {
           ))}
         </CardGrid>
       ) : (
-        "" // TODO: fallback for events with no timers?
+        "This Event has no timers"
       )}
     </EventPageLayout>
   );
