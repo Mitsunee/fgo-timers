@@ -11,7 +11,7 @@ import { EventNewsModal } from "./EventNewsModal";
 
 const RouteTabs = [
   { path: "/events/[slug]", label: "Timers" },
-  //{ path: "/events/[slug]/banners", label: "Banners" },
+  { path: "/events/[slug]/banners", label: "Banners" },
   { path: "/events/[slug]/upgrades", label: "Upgrades" }
 ] as const;
 
@@ -33,6 +33,12 @@ function mapRouteTabs(event: BundledEvent): Tabs {
           path: mapPath(path),
           enabled: true
         };
+      case "Banners":
+        return {
+          label,
+          path: mapPath(path),
+          enabled: checkArr(event.banners)
+        };
       case "Upgrades":
         return {
           label,
@@ -53,6 +59,7 @@ export function EventPageLayout({
   children,
   event,
   current,
+  // TODO: actually use this prop in the pages :)
   description
 }: LayoutProps) {
   const [showEmbed, setShowEmbed] = useState(false);

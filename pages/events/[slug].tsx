@@ -2,7 +2,6 @@ import type { EventPageProps } from "src/pages/EventPage/static";
 import { CardGrid } from "src/client/components/Card";
 import { EventTimesCard } from "src/pages/EventPage/components/EventTimesCard";
 import { EventSchedulesCard } from "src/pages/EventPage/components/EventSchedulesCard";
-import { EventBannerCard } from "src/pages/EventPage/components/EventBannerCard";
 import { EventPageLayout } from "src/pages/EventPage/components/EventPageLayout";
 import styles from "src/pages/EventPage/EventPage.module.css";
 
@@ -21,7 +20,7 @@ export default function EventPage({ event, servants, ces }: EventPageProps) {
 
   return (
     <EventPageLayout event={event} current="Timers">
-      {(event.schedules || event.times) && (
+      {event.schedules || event.times ? (
         <CardGrid className={styles.cardgrid}>
           {event.times && (
             <EventTimesCard times={event.times} servants={servants} ces={ces} />
@@ -34,22 +33,8 @@ export default function EventPage({ event, servants, ces }: EventPageProps) {
             />
           ))}
         </CardGrid>
-      )}
-
-      {event.banners && (
-        <>
-          <h1>Summoning Banners</h1>
-          <CardGrid className={styles.cardgrid}>
-            {event.banners.map((banner, idx) => (
-              <EventBannerCard
-                key={idx}
-                banner={banner}
-                servants={servants}
-                ces={ces}
-              />
-            ))}
-          </CardGrid>
-        </>
+      ) : (
+        "" // TODO: fallback for events with no timers?
       )}
     </EventPageLayout>
   );
