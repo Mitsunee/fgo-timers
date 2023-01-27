@@ -9,6 +9,7 @@
     "dev:scripts": "tsc --watch -p tsconfig_scripts.json",
     "build:scripts": "tsc -p tsconfig_scripts.json",
     "check-event": "tsm --require=./nowarn.js src/events/check-event-script.ts",
+    "find": "tsm --require=./nowarn.js src/utils/find-script.ts",
     "prebuild": "tsm --require=./nowarn.js src/prebuild/prebuild.ts && yarn build:svgo",
     "build": "node --version && next build",
     "dev": "yarn prebuild && next dev",
