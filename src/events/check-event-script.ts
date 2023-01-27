@@ -1,9 +1,12 @@
 #!/usr/bin/env node
+import { join } from "path";
 import { z } from "zod";
 import picocolors from "picocolors";
 import { CondType } from "@atlasacademy/api-connector";
+import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 import { atlasApiNA } from "../atlas-api/api";
-import { getBundledEvents } from "../utils/getBundles";
+import { EventAssetsDir } from "../pages/EventPage/constants";
+import { EventSchema } from "../schema/EventSchema";
 import { parseSchema } from "../schema/verifySchema";
 import { Log } from "../utils/log";
 
@@ -18,15 +21,21 @@ const ArgsSchema = z.tuple([
 type Args = z.output<typeof ArgsSchema>;
 type Main = (...args: Args) => Promise<any>;
 
-async function getBundledEvent(slug: string) {
-  const event = await getBundledEvents().then(events =>
-    events.find(event => event.slug == slug)
-  );
-  if (!event) {
-    Log.error(`Could not find event '${slug}'`);
-    return;
+async function getEventBySlug(slug: string) {
+  const filePath = join(EventAssetsDir, `${slug}.yml`);
+  const fileContent = await readFileYaml<z.input<typeof EventSchema>>(filePath);
+  if (!fileContent) {
+    Log.error(`Could not read EventFile at '${filePath}'`);
+    return false;
   }
-  return event;
+
+  const data = parseSchema(fileContent, EventSchema, filePath);
+  if (!data) {
+    Log.error(`Error parsing EventFile at '${filePath}'`);
+    return false;
+  }
+
+  return data;
 }
 
 async function getEventNA(id: number) {
@@ -60,7 +69,7 @@ function printMissedTimestamp(time: number, location: string) {
 
 const main: Main = async (slug, id) => {
   const [bundledEvent, eventData] = await Promise.all([
-    getBundledEvent(slug),
+    getEventBySlug(slug),
     getEventNA(id)
   ]);
   const timestampsKnown = new Set<number>();
