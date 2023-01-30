@@ -1,10 +1,13 @@
-import { BorderedCEIcon, BorderedServantIcon } from "@components/BorderedIcon";
-import { Card } from "@components/Card";
-import { DisplayDate, DisplayDelta } from "@components/TimeDisplay";
-import { useStore } from "@nanostores/react";
-import { intervalStore } from "@stores/intervalStore";
-import { useIsClient } from "@utils/hooks/useIsClient";
 import cc from "classcat";
+import { useStore } from "@nanostores/react";
+import { intervalStore } from "src/client/stores/intervalStore";
+import { useIsClient } from "src/client/utils/hooks/useIsClient";
+import {
+  BorderedCEIcon,
+  BorderedServantIcon
+} from "src/client/components/BorderedIcon";
+import { Card } from "src/client/components/Card";
+import { DisplayDate, DisplayDelta } from "src/client/components/TimeDisplay";
 import type { BundledEvent } from "src/events/types";
 import { Borders } from "src/types/borders";
 import type { EventPageProps } from "../static";
@@ -50,7 +53,7 @@ function TimeDetails({ banner }: Pick<EventBannerProps, "banner">) {
           <b>End{isClient && hasEnded ? "ed" : "s"}:</b>{" "}
           <DisplayDate time={end * 1000} />
         </li>
-        {!hasEnded && (
+        {isClient && !hasEnded && (
           <li className={styles.wide}>
             <b>{hasStarted ? "End" : "Start"}s in:</b>{" "}
             <DisplayDelta time={(hasStarted ? end : start) * 1000} />

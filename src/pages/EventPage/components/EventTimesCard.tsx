@@ -50,7 +50,7 @@ function EventListItem({ time, servants, ces }: EventListItemProps) {
                 <DisplayDate time={end * 1000} />
               </li>
             )}
-            {!hasEnded && (
+            {isClient && !hasEnded && (
               <li className={styles.wide}>
                 <b>
                   {end > 0 ? `${hasStarted ? "End" : "Start"}s in:` : "In:"}
