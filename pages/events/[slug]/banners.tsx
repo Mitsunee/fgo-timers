@@ -1,7 +1,7 @@
 import { CardGrid } from "@components/Card";
 import { EventBannerCard } from "src/pages/EventPage/components/EventBannerCard";
 import { EventPageLayout } from "src/pages/EventPage/components/EventPageLayout";
-import type { EventPageProps } from "src/pages/EventPage/static/banners";
+import type { EventBannersPageProps } from "src/pages/EventPage/static/banners";
 import styles from "src/pages/EventPage/EventPage.module.css";
 
 // Next Page configs
@@ -21,7 +21,7 @@ export default function EventBannersPage({
   event,
   servants,
   ces
-}: EventPageProps) {
+}: EventBannersPageProps) {
   return (
     <EventPageLayout
       event={event}

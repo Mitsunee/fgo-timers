@@ -1,6 +1,6 @@
 import { CardGrid } from "src/client/components/Card";
 import { EventPageLayout } from "src/pages/EventPage/components/EventPageLayout";
-import type { EventPageProps } from "src/pages/EventPage/static/upgrades";
+import type { EventUpgradesPageProps } from "src/pages/EventPage/static/upgrades";
 import { UpgradeCard } from "src/pages/UpgradesPage/components";
 import { upgradeIsNPUpgrade, upgradeIsSkillUpgrade } from "src/upgrades/types";
 
@@ -24,7 +24,7 @@ export default function EventUpgradesPage({
   servants,
   nps,
   skills
-}: EventPageProps) {
+}: EventUpgradesPageProps) {
   return (
     <EventPageLayout
       event={event}

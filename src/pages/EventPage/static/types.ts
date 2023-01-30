@@ -7,7 +7,7 @@ export interface PageContext extends Partial<ParsedUrlQuery> {
   slug: string;
 }
 
-export interface PageProps {
+export interface EventPageProps {
   event: BundledEvent;
   servants: Record<number, BundledServant>;
   ces: Record<number, BundledCE>;

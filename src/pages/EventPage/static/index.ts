@@ -1,15 +1,13 @@
-import type {
-  GetStaticPaths,
-  GetStaticProps,
-  InferGetStaticPropsType
-} from "next";
+import type { GetStaticPaths, GetStaticProps } from "next";
 import {
   getBundledEvents,
   getBundledCEMap,
   getBundledServantMap
 } from "src/utils/getBundles";
 import { getEventProps } from "./getEventProps";
-import type { PageContext, PageProps, StaticPath } from "./types";
+import type { PageContext, EventPageProps, StaticPath } from "./types";
+
+export type { EventPageProps };
 
 export const getStaticPaths: GetStaticPaths<PageContext> = async () => {
   const events = await getBundledEvents();
@@ -18,18 +16,19 @@ export const getStaticPaths: GetStaticPaths<PageContext> = async () => {
   return { paths, fallback: false };
 };
 
-export const getStaticProps: GetStaticProps<PageProps, PageContext> = async ({
-  params
-}) => {
+export const getStaticProps: GetStaticProps<
+  EventPageProps,
+  PageContext
+> = async ({ params }) => {
   const { slug } = params!;
-  const [servantMap, ceMap] = await Promise.all([
+  const [servantMap, ceMap, event] = await Promise.all([
     getBundledServantMap(),
-    getBundledCEMap()
+    getBundledCEMap(),
+    getEventProps(slug)
   ]);
 
-  const event = await getEventProps(slug);
-  const servants: PageProps["servants"] = {};
-  const ces: PageProps["ces"] = {};
+  const servants: EventPageProps["servants"] = {};
+  const ces: EventPageProps["ces"] = {};
 
   // browse event data for related servants and ces
   event.times?.forEach(time => {
@@ -40,16 +39,6 @@ export const getStaticProps: GetStaticProps<PageProps, PageContext> = async ({
       ces[id] = ceMap[id];
     });
   });
-  event.banners?.forEach(banner => {
-    banner.servants?.forEach(id => {
-      servants[id] = servantMap[id];
-    });
-    banner.ces?.forEach(id => {
-      ces[id] = ceMap[id];
-    });
-  });
 
   return { props: { event, servants, ces } };
 };
-
-export type EventPageProps = InferGetStaticPropsType<typeof getStaticProps>;
