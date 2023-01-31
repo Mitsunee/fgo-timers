@@ -6,6 +6,7 @@ import type { Item } from "@atlasacademy/api-connector/dist/Schema/Item";
 import picocolors from "picocolors";
 import { Searcher } from "fast-fuzzy";
 import type { MatchData } from "fast-fuzzy";
+import { prepareCache } from "../atlas-api/prepare";
 import { atlasCacheJP } from "../atlas-api/cache";
 import { Log } from "./log";
 
@@ -187,6 +188,7 @@ async function main() {
 (async () => {
   let status: 0 | 1 = 0;
   try {
+    await prepareCache();
     const res: any = await main();
     if (res === false) status = 1;
     if (res instanceof Error) {
