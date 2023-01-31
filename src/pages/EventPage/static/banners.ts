@@ -12,7 +12,7 @@ type EventWithBanners = BundledEvent & {
   banners: Exclude<BundledEvent["banners"], undefined>;
 };
 
-export interface EventBannersPageProps extends EventPageProps {
+export interface EventBannersPageProps extends Omit<EventPageProps, "items"> {
   event: EventWithBanners;
 }
 

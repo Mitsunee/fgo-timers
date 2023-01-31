@@ -2,7 +2,8 @@ import type { GetStaticPaths, GetStaticProps } from "next";
 import {
   getBundledEvents,
   getBundledCEMap,
-  getBundledServantMap
+  getBundledServantMap,
+  getBundledItemMap
 } from "src/utils/getBundles";
 import { getEventProps } from "./getEventProps";
 import type { PageContext, EventPageProps, StaticPath } from "./types";
@@ -21,16 +22,18 @@ export const getStaticProps: GetStaticProps<
   PageContext
 > = async ({ params }) => {
   const { slug } = params!;
-  const [servantMap, ceMap, event] = await Promise.all([
+  const [servantMap, ceMap, itemMap, event] = await Promise.all([
     getBundledServantMap(),
     getBundledCEMap(),
+    getBundledItemMap(),
     getEventProps(slug)
   ]);
 
   const servants: EventPageProps["servants"] = {};
   const ces: EventPageProps["ces"] = {};
+  const items: EventPageProps["items"] = {};
 
-  // browse event data for related servants and ces
+  // browse event times for related entities
   event.times?.forEach(time => {
     time.servants?.forEach(id => {
       servants[id] = servantMap[id];
@@ -38,7 +41,25 @@ export const getStaticProps: GetStaticProps<
     time.ces?.forEach(id => {
       ces[id] = ceMap[id];
     });
+    time.items?.forEach(id => {
+      items[id] = itemMap[id];
+    });
   });
 
-  return { props: { event, servants, ces } };
+  // browse schedule for related entities
+  event.schedules?.forEach(schedule => {
+    schedule.times.forEach(time => {
+      time.servants?.forEach(id => {
+        servants[id] = servantMap[id];
+      });
+      time.ces?.forEach(id => {
+        ces[id] = ceMap[id];
+      });
+      time.items?.forEach(id => {
+        items[id] = itemMap[id];
+      });
+    });
+  });
+
+  return { props: { event, servants, ces, items } };
 };

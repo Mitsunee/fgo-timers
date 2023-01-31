@@ -14,7 +14,8 @@ import type { PageContext, EventPageProps, StaticPath } from "./types";
 type EventWithUpgrades = BundledEvent & {
   upgrades: Exclude<BundledEvent["upgrades"], undefined>;
 };
-export interface EventUpgradesPageProps extends Omit<EventPageProps, "ces"> {
+export interface EventUpgradesPageProps
+  extends Omit<EventPageProps, "ces" | "items"> {
   event: EventWithUpgrades;
   upgrades: Upgrade[];
   quests: Record<number, MappedBundledQuest>;

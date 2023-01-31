@@ -15,7 +15,12 @@ export const config = {
   ]
 };
 
-export default function EventPage({ event, servants, ces }: EventPageProps) {
+export default function EventPage({
+  event,
+  servants,
+  ces,
+  items
+}: EventPageProps) {
   const end = Array.isArray(event.date) ? event.date[1] : event.date;
   const hasGrid = Boolean(event.schedules || event.times);
 
@@ -24,13 +29,21 @@ export default function EventPage({ event, servants, ces }: EventPageProps) {
       {hasGrid ? (
         <CardGrid className={styles.cardgrid}>
           {event.times && (
-            <EventTimesCard times={event.times} servants={servants} ces={ces} />
+            <EventTimesCard
+              times={event.times}
+              servants={servants}
+              ces={ces}
+              items={items}
+            />
           )}
           {event.schedules?.map(schedule => (
             <EventSchedulesCard
               key={schedule.title}
               {...schedule}
               eventEnd={end}
+              servants={servants}
+              ces={ces}
+              items={items}
             />
           ))}
         </CardGrid>

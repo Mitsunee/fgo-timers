@@ -4,7 +4,8 @@ import { zDate, zDuration, zDurationStrict } from "./zDate";
 
 const Related = z.object({
   servants: z.array(z.number()).optional(),
-  ces: z.array(z.number()).optional()
+  ces: z.array(z.number()).optional(),
+  items: z.array(z.number()).optional()
 });
 
 const EventTimeDate = Related.extend({ title: z.string(), date: zDate });
@@ -17,22 +18,22 @@ const EventSchedule = z.object({
   title: z.string(),
   description: z.string().optional(),
   times: z
-    .array(EventTimeDate.pick({ title: true, date: true }))
+    .array(EventTimeDate)
     .transform(times => times.sort((a, b) => a.date - b.date)),
   ends: zDate.optional(),
   icon: z.string().optional()
 });
 
-const EventBanner = Related.extend({ date: zDurationStrict }).transform(
-  ({ date, ...props }, { addIssue }) => {
+const EventBanner = Related.omit({ items: true })
+  .extend({ date: zDurationStrict })
+  .transform(({ date, ...props }, { addIssue }) => {
     if (Array.isArray(date)) return { date, ...props };
     addIssue({
       code: z.ZodIssueCode.custom,
       message: "Banner Duration must contain end date"
     });
     return z.NEVER;
-  }
-);
+  });
 
 export const EventSchema = z.object({
   title: z.string(),

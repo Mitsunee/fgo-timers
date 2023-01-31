@@ -15,6 +15,7 @@ export const bundleEvents: PrebuildBundler<BundledEvent[]> = async () => {
   const events = new Array<BundledEvent>();
   const servants = new Set<number>();
   const ces = new Set<number>();
+  const items = new Set<number>();
   const dir = await readdir(join(process.cwd(), EventAssetsDir));
   const files = dir.filter(file => file.endsWith(".yml"));
 
@@ -45,7 +46,7 @@ export const bundleEvents: PrebuildBundler<BundledEvent[]> = async () => {
       ? fileParsed.date[1]
       : fileParsed.date;
 
-    // browse schedules that may contain later times
+    // browse schedules for later times and used entities
     fileParsed.schedules?.forEach(schedule => {
       if (schedule.ends && schedule.ends > hideAt) {
         hideAt = schedule.ends;
@@ -53,17 +54,23 @@ export const bundleEvents: PrebuildBundler<BundledEvent[]> = async () => {
 
       const final = schedule.times[schedule.times.length - 1].date;
       if (final > hideAt) hideAt = final;
+      schedule.times.forEach(time => {
+        time.servants?.forEach(servant => servants.add(servant));
+        time.ces?.forEach(ce => ces.add(ce));
+        time.items?.forEach(item => items.add(item));
+      });
     });
 
-    // browse times for later times and used servants and ces
+    // browse times for later times and used entities
     fileParsed.times?.forEach(time => {
       const ends = Array.isArray(time.date) ? time.date[1] : time.date;
       if (ends > hideAt) hideAt = ends;
       time.servants?.forEach(servant => servants.add(servant));
       time.ces?.forEach(ce => ces.add(ce));
+      time.items?.forEach(item => items.add(item));
     });
 
-    // browse banners for later times and used servants and ces
+    // browse banners for later times and used entities
     fileParsed.banners?.forEach(banner => {
       if (banner.date[1] > hideAt) hideAt = banner.date[1];
       banner.servants?.forEach(servant => servants.add(servant));
@@ -88,6 +95,7 @@ export const bundleEvents: PrebuildBundler<BundledEvent[]> = async () => {
     path: "events.json",
     data: events,
     servants: Array.from(servants),
-    ces: Array.from(ces)
+    ces: Array.from(ces),
+    items: Array.from(items)
   };
 };
