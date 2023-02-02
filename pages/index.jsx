@@ -7,14 +7,13 @@ import Clocks from "@components/Clocks";
 //import { NoSSR } from "@components/NoSSR";
 //import { SpecialTimer } from "@components/SpecialTimer";
 import Headline from "@components/Headline";
-import EventCard from "@components/EventCard";
 import { CardGrid } from "@components/Card";
 import LoginTicketCard from "@components/LoginTicketCard";
 import MasterMissionCard from "@components/MasterMissionCard";
 import ChaldeaGateCard from "@components/ChaldeaGateCard";
 import ShopCard from "@components/ShopCard";
 
-export { getStaticProps } from "@server/HomePage/";
+export { getStaticProps } from "src/pages/HomePage/static";
 export const config = {
   unstable_includeFiles: [
     "assets/static/backgrounds.json",
@@ -78,12 +77,7 @@ export default function HomePage({
           icon={"/assets/icon_game.png"}
         />
       </NoSSR>*/}
-      <Headline>Current Events</Headline>
-      <section className={styles.grid}>
-        {events.map(event => (
-          <EventCard key={event.shortTitle} {...event} />
-        ))}
-      </section>
+      <Headline id="#events">Current Events</Headline>
       <Headline>Timers</Headline>
       <CardGrid>
         <LoginTicketCard items={loginTicket.data} next={loginTicket.next} />
