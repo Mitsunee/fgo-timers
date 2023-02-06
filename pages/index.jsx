@@ -12,6 +12,8 @@ import LoginTicketCard from "@components/LoginTicketCard";
 import MasterMissionCard from "@components/MasterMissionCard";
 import ChaldeaGateCard from "@components/ChaldeaGateCard";
 import ShopCard from "@components/ShopCard";
+import { EventList } from "src/pages/HomePage/components/EventList";
+// import type { HomePageProps } from "src/pages/HomePage/static";
 
 export { getStaticProps } from "src/pages/HomePage/static";
 export const config = {
@@ -77,7 +79,7 @@ export default function HomePage({
           icon={"/assets/icon_game.png"}
         />
       </NoSSR>*/}
-      <Headline id="#events">Current Events</Headline>
+      <EventList events={events} />
       <Headline>Timers</Headline>
       <CardGrid>
         <LoginTicketCard items={loginTicket.data} next={loginTicket.next} />
