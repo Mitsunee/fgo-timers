@@ -27,6 +27,8 @@ export function EventListItem({
   const [start, end = 0] = Array.isArray(date) ? date : [date];
   const hasStarted = current >= start;
   const hasEnded = current >= end;
+  const startMs = start * 1000;
+  const endMs = (end || start) * 1000;
 
   return (
     <Link href={`/events/${slug}`} className={styles.link} title={title}>
@@ -43,15 +45,19 @@ export function EventListItem({
         <div className={styles.timer}>
           <InlineIcon icon={IconHourglass} />
           {isClient ? (
-            <>
-              {hasEnded ? "Ended" : hasStarted ? "Ends: " : "Starts: "}
-              {!hasEnded && (
-                <DisplayDelta time={(hasStarted ? end : start) * 1000} />
-              )}
-            </>
+            hasEnded ? (
+              <>
+                Ended: <DisplayDate time={endMs} />
+              </>
+            ) : (
+              <>
+                {`${hasStarted ? "End" : "Start"}s: `}
+                <DisplayDelta time={hasStarted ? endMs : startMs} />
+              </>
+            )
           ) : (
             <>
-              Starts: <DisplayDate time={start} />
+              Starts: <DisplayDate time={startMs} />
             </>
           )}
         </div>
