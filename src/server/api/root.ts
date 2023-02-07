@@ -1,5 +1,6 @@
 import { createTRPCRouter } from "./trpc";
 import { upgradesRouter } from "./routers/upgrades";
+import { eventsRouter } from "./routers/events";
 
 /**
  * This is the primary router for your server.
@@ -7,7 +8,8 @@ import { upgradesRouter } from "./routers/upgrades";
  * All routers added in /api/routers should be manually added here
  */
 export const appRouter = createTRPCRouter({
-  upgrades: upgradesRouter
+  upgrades: upgradesRouter,
+  events: eventsRouter
 });
 
 // export type definition of API
