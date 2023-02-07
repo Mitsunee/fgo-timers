@@ -4,7 +4,7 @@ import { formatTS } from "./formatTS";
 import { handleCopy } from "./handleCopy";
 
 interface DiscordTSButtonProps extends React.PropsWithChildren {
-  time: number | number[];
+  time: number | [number, number];
 }
 
 export function DiscordTSButton({ children, time }: DiscordTSButtonProps) {
