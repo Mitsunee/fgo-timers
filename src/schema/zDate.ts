@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { parseDate, parseDuration } from "../utils/parseDate";
+import { parseDate, parseDuration } from "../time/parseDate";
 
 export const zDate = z.string().transform((date, { addIssue }) => {
   try {

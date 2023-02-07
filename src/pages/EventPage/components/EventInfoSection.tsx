@@ -2,6 +2,8 @@ import { useStore } from "@nanostores/react";
 import spacetime from "spacetime";
 import { useIsClient } from "src/client/utils/hooks/useIsClient";
 import { intervalStore } from "src/client/stores/intervalStore";
+import { normalizeDate } from "src/time/normalizeDate";
+import { formatDiff } from "src/time/formatDiff";
 import Section from "src/client/components/Section";
 import Headline from "src/client/components/Headline";
 import { Progress } from "src/client/components/Progress";
@@ -10,7 +12,6 @@ import { DiscordTSButton } from "src/client/components/DiscordTSButton";
 import { DisplayDate } from "src/client/components/TimeDisplay";
 import type { BundledEvent } from "src/events/types";
 import styles from "./EventInfoSection.module.css";
-import { formatDiff } from "src/utils/formatDiff";
 
 type EventInfoSectionProps = Pick<
   BundledEvent,
@@ -26,7 +27,7 @@ export function EventInfoSection({
 }: EventInfoSectionProps) {
   const isClient = useIsClient();
   const { seconds: current, s } = useStore(intervalStore);
-  const [start, end = 0] = Array.isArray(date) ? date : [date];
+  const [start, end] = normalizeDate(date);
   const hasStarted = current >= start;
   const hasEnded = end > 0 ? current >= end : hasStarted;
   let progressText: false | string = false;

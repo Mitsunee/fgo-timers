@@ -1,4 +1,4 @@
-import { parseDuration, parseDate } from "src/utils/parseDate";
+import { parseDuration, parseDate } from "src/time/parseDate";
 /***
 example values for testing:
 2022-03-01 19:00 PST

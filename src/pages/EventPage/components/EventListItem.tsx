@@ -1,6 +1,7 @@
 import { useStore } from "@nanostores/react";
 import { useIsClient } from "src/client/utils/hooks/useIsClient";
 import { intervalStore } from "src/client/stores/intervalStore";
+import { normalizeDate } from "src/time/normalizeDate";
 import { DisplayDate, DisplayDelta } from "src/client/components/TimeDisplay";
 import {
   BorderedCEIcon,
@@ -27,7 +28,7 @@ export function EventListItem({
   hideEnd = false
 }: EventListItemProps) {
   const isClient = useIsClient();
-  const [start, end = 0] = Array.isArray(time.date) ? time.date : [time.date];
+  const [start, end] = normalizeDate(time.date);
   const { seconds: current } = useStore(intervalStore);
   const hasStarted = current >= start;
   const hasEnd = end > 0 && !hideEnd;

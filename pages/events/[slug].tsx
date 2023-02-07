@@ -4,6 +4,7 @@ import { EventTimesCard } from "src/pages/EventPage/components/EventTimesCard";
 import { EventSchedulesCard } from "src/pages/EventPage/components/EventSchedulesCard";
 import { EventPageLayout } from "src/pages/EventPage/components/EventPageLayout";
 import styles from "src/pages/EventPage/EventPage.module.css";
+import { normalizeDate } from "src/time/normalizeDate";
 
 // Next Page configs
 export { getStaticPaths, getStaticProps } from "src/pages/EventPage/static";
@@ -21,7 +22,7 @@ export default function EventPage({
   ces,
   items
 }: EventPageProps) {
-  const end = Array.isArray(event.date) ? event.date[1] : event.date;
+  const end = normalizeDate(event.date)[1];
   const hasGrid = Boolean(event.schedules || event.times);
 
   return (

@@ -3,11 +3,12 @@ import { readdir } from "fs/promises";
 import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 import { fileExists } from "@foxkit/node-util/fs";
 import { getFileName } from "@foxkit/node-util/path";
-import type { BundledEvent } from "src/events/types";
+import type { BundledEvent } from "../events/types";
 import { createEventSorter } from "../events/sortEvents";
 import { EventAssetsDir } from "../pages/EventPage/constants";
 import { EventDataRaw, EventSchema } from "../schema/EventSchema";
 import { parseSchema } from "../schema/verifySchema";
+import { normalizeDate } from "../time/normalizeDate";
 import { Log } from "../utils/log";
 import type { PrebuildBundler } from "./bundlers";
 
@@ -63,7 +64,7 @@ export const bundleEvents: PrebuildBundler<BundledEvent[]> = async () => {
 
     // browse times for later times and used entities
     fileParsed.times?.forEach(time => {
-      const ends = Array.isArray(time.date) ? time.date[1] : time.date;
+      const ends = normalizeDate(time.date)[1];
       if (ends > hideAt) hideAt = ends;
       time.servants?.forEach(servant => servants.add(servant));
       time.ces?.forEach(ce => ces.add(ce));

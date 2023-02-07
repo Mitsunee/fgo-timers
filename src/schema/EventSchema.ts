@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { EventAssetsDir } from "../pages/EventPage/constants";
+import { normalizeDate } from "../time/normalizeDate";
 import { zDate, zDuration, zDurationStrict } from "./zDate";
 
 const Related = z.object({
@@ -59,8 +60,8 @@ export const EventSchema = z.object({
     .array(z.union([EventTimeDate, EventTimeDuration]))
     .transform(times =>
       times.sort((_a, _b) => {
-        const a: number = Array.isArray(_a.date) ? _a.date[0] : _a.date;
-        const b: number = Array.isArray(_b.date) ? _b.date[0] : _b.date;
+        const [a] = normalizeDate(_a.date);
+        const [b] = normalizeDate(_b.date);
         return a - b;
       })
     )

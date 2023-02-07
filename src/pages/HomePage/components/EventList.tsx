@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useStore } from "@nanostores/react";
+import { normalizeDate } from "src/time/normalizeDate";
 import Headline from "src/client/components/Headline";
 import { useIsClient } from "src/client/utils/hooks/useIsClient";
 import { intervalStore } from "src/client/stores/intervalStore";
@@ -24,7 +25,7 @@ export function EventListItem({
 }: EventListItemProps) {
   const isClient = useIsClient();
   const { seconds: current } = useStore(intervalStore);
-  const [start, end = 0] = Array.isArray(date) ? date : [date];
+  const [start, end] = normalizeDate(date);
   const hasStarted = current >= start;
   const hasEnded = current >= end;
   const startMs = start * 1000;
