@@ -1,4 +1,5 @@
 import { createEventSorter } from "src/events/sortEvents";
+import { toBasicEvent } from "src/events/toBasicEvent";
 import { getBundledEvents } from "src/utils/getBundles";
 
 export async function getEventProps() {
@@ -8,11 +9,5 @@ export async function getEventProps() {
   return events
     .filter(event => event.hideAt > now)
     .sort(createEventSorter(now))
-    .map(event => ({
-      title: event.title,
-      shortTitle: event.shortTitle,
-      slug: event.slug,
-      date: event.date,
-      banner: event.banner
-    }));
+    .map(toBasicEvent);
 }
