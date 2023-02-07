@@ -1,6 +1,12 @@
 import { createTRPCRouter } from "./trpc";
 import { upgradesRouter } from "./routers/upgrades";
 import { eventsRouter } from "./routers/events";
+import path from "path";
+
+/**
+ * This is just here to convince node file trace that we need this folder
+ */
+path.join(process.cwd(), "assets/static");
 
 /**
  * This is the primary router for your server.
