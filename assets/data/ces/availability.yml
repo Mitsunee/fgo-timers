@@ -10,6 +10,12 @@ fp_pool:
   - 9403120 # Synchronization
   - 9403130 # Gloom
 
-#limited: []
+limited:
+  - 9404880 # new years 2023 5*
+  - 9404890 # new years 2023 4*
+  - 9404900 # new years 2023 3*
+  - 9404130 # saber wars II 5*
+  - 9404140 # saber wars II 4*
+  - 9404150 # saber wars II 3*
 
 #fp_limited: []

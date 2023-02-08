@@ -11,8 +11,6 @@ description: >-
   Pendragon Alter (Rider), Tamamo-no-Mae (Lancer), Semiramis, Super Orion,
   Illyasviel von Einzbern (Caster) and Abigail Williams. All Banners also
   feature rateups for a set of limited Craft Essences.
-
-  Note: Events prior to 2023 New Years have not been updated to include all details.
 times:
   - title: SQ Gift Distribution Period
     date: 2022-12-31 20:00 - 2023-01-03 19:59 PST
@@ -24,13 +22,32 @@ times:
     date: 2023-01-01 16:00 - 01-08 15:59 PST
   - title: Senji Muramasa Trial Quest Availability Period
     date: 2022-12-31 20:00 - 2023-01-10 19:59 PST
+    servants: [104900]
   - title: Limited MP/RP Shop Inventory Availability Period
     date: 2022-12-31 20:00 - 2023-01-10 19:59 PST
   - title: EXP Cards added to Main Quest Rewards
     date: 2022-12-31 20:00 PST
   - title: GSSR Banner
     date: 2022-12-31 20:00 - 2023-01-10 19:59 PST
-  - title: Summoning Banner - Muramasa
-    date: 2022-12-31 20:00 - 2023-01-10 19:59 PST
-  - title: Summoning Banner 2
-    date: 2023-01-02 20:00 - 01-09 19:59 PST
+banners:
+  - date: 2022-12-31 20:00 - 2023-01-10 19:59 PST
+    servants: [104900]
+    ces: [9404880, 9404890, 9404900]
+  - date: 2023-01-02 20:00 - 01-04 19:59 PST
+    servants: [402700]
+    ces: [9404880, 9404890, 9404900]
+  - date: 2023-01-03 20:00 - 01-05 19:59 PST
+    servants: [302400]
+    ces: [9404880, 9404890, 9404900]
+  - date: 2023-01-04 20:00 - 01-06 19:59 PST
+    servants: [603200]
+    ces: [9404880, 9404890, 9404900]
+  - date: 2023-01-05 20:00 - 01-07 19:59 PST
+    servants: [203800]
+    ces: [9404880, 9404890, 9404900]
+  - date: 2023-01-06 20:00 - 01-08 19:59 PST
+    servants: [502800]
+    ces: [9404880, 9404890, 9404900]
+  - date: 2023-01-07 20:00 - 01-09 19:59 PST
+    servants: [2500100]
+    ces: [9404880, 9404890, 9404900]

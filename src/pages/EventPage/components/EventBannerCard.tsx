@@ -44,7 +44,7 @@ function TimeDetails({ banner }: Pick<EventBannerProps, "banner">) {
   return (
     <li>
       <ul style={{ padding: 0 }}>
-        {isClient && hasEnded && <li>Has Ended</li>}
+        {isClient && hasEnded && <li className={styles.wide}>Has Ended</li>}
         <li>
           <b>Start{isClient && hasStarted ? "ed" : "s"}:</b>{" "}
           <DisplayDate time={start * 1000} />

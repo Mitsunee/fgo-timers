@@ -52,9 +52,6 @@ export default function EventsPage({ fallback }: EventsPageProps) {
         title="Events"
         description="List of current and past events of Fate/Grand Order"
       />
-      <p>
-        Note: Still need to update 2023 events to include all the new details
-      </p>
       {/* DEBUG */}
       <Headline>Debug</Headline>
       <p>
