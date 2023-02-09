@@ -12,7 +12,7 @@ import LoginTicketCard from "@components/LoginTicketCard";
 import MasterMissionCard from "@components/MasterMissionCard";
 import ChaldeaGateCard from "@components/ChaldeaGateCard";
 import ShopCard from "@components/ShopCard";
-import { EventList } from "src/pages/HomePage/components/EventList";
+import { EventList } from "src/client/components/EventList";
 // import type { HomePageProps } from "src/pages/HomePage/static";
 
 export { getStaticProps } from "src/pages/HomePage/static";

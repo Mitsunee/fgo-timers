@@ -5,13 +5,14 @@
   gap: 0.66em;
 
   @media (--mq-medium) {
-    gap: 1.33em;
+    gap: 1.33rem;
   }
 }
 
 .link {
   display: block;
-  max-width: min(100%, 600px);
+  min-width: min(300px, 100%);
+  max-width: calc(50% - 1.33rem);
   flex: 1 1 300px;
   &:hover {
     text-decoration: none;
@@ -21,7 +22,7 @@
 .item {
   display: flex;
   flex-flow: column;
-  max-width: inherit;
+  width: 100%;
   background-color: var(--bg-primary);
   background-image: linear-gradient(
       to bottom,

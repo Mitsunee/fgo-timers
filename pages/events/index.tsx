@@ -8,6 +8,7 @@ import Section from "@components/Section";
 import Headline from "@components/Headline";
 import { Scroller } from "@components/Scroller";
 import Meta from "@components/Meta";
+import { EventList } from "@components/EventList";
 export { getStaticProps } from "src/pages/EventsPage/static";
 
 const noOp = {};
@@ -52,16 +53,11 @@ export default function EventsPage({ fallback }: EventsPageProps) {
         title="Events"
         description="List of current and past events of Fate/Grand Order"
       />
-      {/* DEBUG */}
-      <Headline>Debug</Headline>
-      <p>
-        Results 1 to {lastItemNum} of {events.length}
-      </p>
-      <code>
-        <pre>
-          {JSON.stringify({ isLoading, isError, events: eventsShown }, null, 2)}
-        </pre>
-      </code>
+      <EventList events={eventsShown} title="Events">
+        <p>
+          Results 1 to {lastItemNum} of {events.length}
+        </p>
+      </EventList>
       <p>
         Results 1 to {lastItemNum} of {events.length}
       </p>

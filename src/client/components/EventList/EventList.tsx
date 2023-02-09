@@ -8,20 +8,22 @@ import { intervalStore } from "src/client/stores/intervalStore";
 import { InlineIcon } from "src/client/components/InlineIcon";
 import { IconHourglass } from "src/client/components/icons";
 import { DisplayDate, DisplayDelta } from "src/client/components/TimeDisplay";
-import type { HomePageProps } from "../static";
+import type { BasicEvent } from "src/events/types";
 import styles from "./EventList.module.css";
 
-type EventListItemProps = HomePageProps["events"][number] & {
-  priority: boolean;
-};
+type EventListItemProps = BasicEvent;
+
+interface EventListProps extends React.PropsWithChildren {
+  events: BasicEvent[];
+  title?: string;
+}
 
 export function EventListItem({
   slug,
   title,
   shortTitle,
   date,
-  banner,
-  priority
+  banner
 }: EventListItemProps) {
   const isClient = useIsClient();
   const { seconds: current } = useStore(intervalStore);
@@ -41,7 +43,6 @@ export function EventListItem({
           className={styles.img}
           width={800}
           height={300}
-          priority={priority}
         />
         <div className={styles.timer}>
           <InlineIcon icon={IconHourglass} />
@@ -67,15 +68,18 @@ export function EventListItem({
   );
 }
 
-export function EventList({ events }: { events: HomePageProps["events"] }) {
+export function EventList({ children, events, title }: EventListProps) {
+  if (events.length < 1) return null;
+
   return (
-    <>
-      <Headline id="events">Current Events</Headline>
-      <section className={styles.grid} aria-labelledby="events">
-        {events.map((event, idx) => (
-          <EventListItem key={event.shortTitle} {...event} priority={idx < 5} />
+    <section>
+      <Headline>{title || "Current Events"}</Headline>
+      {children}
+      <div className={styles.grid}>
+        {events.map(event => (
+          <EventListItem key={event.shortTitle} {...event} />
         ))}
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
