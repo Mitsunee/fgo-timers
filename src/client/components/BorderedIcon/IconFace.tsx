@@ -83,6 +83,7 @@ export function IconFace({
         {...props}
         {...imgLayout}
         loading={loading}
+        unoptimized
         src={fullSrc}
         alt={alt}
         title={title}
