@@ -5,7 +5,8 @@ export const enum Borders {
   GOLD,
   RED,
   BLUE,
-  ZERO
+  ZERO,
+  GREEN
 }
 
 export const BorderColours: Record<Borders, string> = {
@@ -15,7 +16,8 @@ export const BorderColours: Record<Borders, string> = {
   [Borders.GOLD]: "#f0ce02",
   [Borders.RED]: "#a00920",
   [Borders.BLUE]: "#5aa8c3",
-  [Borders.ZERO]: "#9db5b5"
+  [Borders.ZERO]: "#9db5b5",
+  [Borders.GREEN]: "#1e7552"
 };
 
 // TODO: make sure the colours look good (some are a bit dark right now)
@@ -26,5 +28,6 @@ export const BgColours: Record<Borders, string> = {
   [Borders.GOLD]: "#f9e677",
   [Borders.RED]: "#e22b52",
   [Borders.BLUE]: "#366baf",
-  [Borders.ZERO]: "#82b1c3"
+  [Borders.ZERO]: "#82b1c3",
+  [Borders.GREEN]: "#71ca8a"
 };

@@ -19,6 +19,7 @@
   }
 
   &:after {
+    /** BUG: this moves from right to somewhere in left column instead of disappearing on hover **/
     content: "***";
     position: absolute;
     left: 50%;
@@ -28,4 +29,8 @@
     overflow: hidden;
     color: var(--primary);
   }
+}
+
+.prerendered:not(:focus) {
+  /** trap postcss-focus **/
 }

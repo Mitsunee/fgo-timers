@@ -3,7 +3,7 @@ shortTitle: CE Recollection 2023
 banner: 2023_ce-recollection.png
 url: 2023/0125_ce_recollection_2023/
 date: 2023-01-26 20:00 - 02-09 19:59 PST
-hideWhenDone: auto
+requires: Clear Fuyuki
 description: >-
   This Summoning Banner Campaign features a new limited CE Aquisition Quest and
   rateups for past Event Craft Essences incl. the ones from the following Events:
@@ -15,8 +15,11 @@ description: >-
 times:
   - title: CE Aquisition Quest Period
     date: 2023-01-26 20:00 - 02-09 19:59 PST
+    ces: [9305470]
   - title: CE Recollection II Quest added to RP Shop
     date: 2023-01-26 20:00 PST
+    ces: [9304290]
+schedules:
   - title: Summoning Banners
     times:
       - title: All Featured Craft Essences

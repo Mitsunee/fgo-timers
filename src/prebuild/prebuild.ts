@@ -1,7 +1,6 @@
 import { Log } from "../utils/log";
 import { prepareCache } from "../atlas-api/prepare";
 import { bundleBackgrounds } from "./bundleBackgrounds";
-import { bundleEvents } from "./bundleEvents.mjs";
 import { bundleLoginTickets } from "./bundleLoginTickets.mjs";
 import { bundlePrismShops } from "./bundlePrismShops.mjs";
 import { PrebuildBundlersRes, runLegacyBundler, writeBundle } from "./bundlers";
@@ -15,6 +14,7 @@ import { bundleCEsData } from "./bundleCEsData";
 import { bundleCustomItems } from "./bundleCustomItems";
 import { bundleItemsData } from "./bundleItemsData";
 import { saveBuildInfo } from "./saveBuildInfo";
+import { bundleEvents } from "./bundleEvents";
 
 function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
   return arr.every(el => el !== false);
@@ -28,7 +28,6 @@ function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
   Log.info("Running Legacy Bundlers");
   const resLegacy: boolean[] = await Promise.all([
     runLegacyBundler(bundleBackgrounds),
-    runLegacyBundler(bundleEvents),
     runLegacyBundler(bundleLoginTickets),
     runLegacyBundler(bundlePrismShops)
   ]);
@@ -40,7 +39,8 @@ function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
   Log.info("Running Bundlers");
   const bundlersRes: PrebuildBundlersRes = await Promise.all([
     bundleUpgrades(),
-    bundleCustomItems()
+    bundleCustomItems(),
+    bundleEvents()
   ]);
   if (!isSuccessful(bundlersRes)) {
     Log.die("Quitting early because of error in bundler");

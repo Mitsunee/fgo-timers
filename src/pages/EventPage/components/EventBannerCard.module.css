@@ -1,0 +1,29 @@
+li.wide {
+  flex-basis: 100% !important;
+}
+
+.entities {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.33em;
+  margin-top: 0.33em;
+
+  & > a {
+    width: 100%;
+    & > div {
+      min-width: unset;
+      width: 100%;
+      aspect-ratio: 1;
+    }
+  }
+
+  &.servants > a {
+    max-width: min(100%, 80px);
+  }
+
+  &.ces > a {
+    max-width: min(100%, 64px);
+  }
+}

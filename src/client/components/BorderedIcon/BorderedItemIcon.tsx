@@ -8,6 +8,7 @@ import { IconFace } from "./IconFace";
 interface BorderedItemIconProps extends ComponentPropsCC<"div">, BundledItem {
   title?: undefined;
   itemId: number;
+  disableSpoilers?: boolean;
 }
 
 export function BorderedItemIcon({
@@ -16,6 +17,7 @@ export function BorderedItemIcon({
   name,
   icon,
   na,
+  disableSpoilers,
   ...props
 }: BorderedItemIconProps) {
   const item: BundledItem = { name, icon, border: props.border };
@@ -31,6 +33,7 @@ export function BorderedItemIcon({
         src={item.icon}
         placeholder="Item"
         na={item.na}
+        forceIcon={disableSpoilers}
       />
       {children}
     </BorderedIcon>

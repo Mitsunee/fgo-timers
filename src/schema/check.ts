@@ -5,14 +5,15 @@ import { fileExists } from "@foxkit/node-util/fs";
 
 import { prepareCache } from "../atlas-api/prepare";
 import {
-  isEventFile,
   isTicketFile,
-  isShopFile,
-  isDataFile
+  isShopFile
+  //isDataFile
 } from "../scripts/utils/data-assets/isDataFile.mjs";
-import { checkCustomItemPath } from "../schema/CustomItem";
 import { checkDataFile } from "../scripts/utils/data-assets/checkDataFile.mjs";
 import { Log } from "../utils/log";
+import { EventAssetsDir } from "../pages/EventPage/constants";
+import { checkCustomItemPath } from "./CustomItem";
+import { checkEventPath } from "./EventSchema";
 
 const program = new Command();
 program
@@ -64,11 +65,11 @@ async function main(options: ProgramOptions) {
   // handle --events
   if (options.all || options.events) {
     if (showGroupInfo) Log.info("Checking all event data files");
-    const path = resolvePath("assets/data/events/");
+    const path = resolvePath(EventAssetsDir);
     const dir = await readdir(path);
     for (const file of dir) {
       const filePath = joinPath(path, file);
-      if (!isEventFile(filePath)) continue;
+      if (!checkEventPath(filePath)) continue;
       targets.add(filePath);
     }
   }
@@ -121,11 +122,12 @@ async function main(options: ProgramOptions) {
         continue;
       }
 
-      if (!isDataFile(filePath)) {
+      // FIXME: doesn't consider new parsers
+      /* if (!isDataFile(filePath)) {
         if (!silent) Log.error("File is not a recognized data file", filePath);
         skipped++;
         continue;
-      }
+      } */
 
       targets.add(filePath);
     }

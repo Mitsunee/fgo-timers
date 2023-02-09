@@ -1,3 +1,6 @@
+/**
+ * @type {import('next').NextConfig}
+ */
 const config = {
   reactStrictMode: true,
   eslint: { ignoreDuringBuilds: true },
@@ -5,6 +8,9 @@ const config = {
     browsersListForSwc: true,
     legacyBrowsers: false,
     newNextLinkBehavior: true
+  },
+  images: {
+    remotePatterns: [{ protocol: "https", hostname: "static.atlasacademy.io" }]
   }
 };
 

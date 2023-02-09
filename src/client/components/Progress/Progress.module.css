@@ -1,0 +1,29 @@
+.progress {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 2.5em;
+  background-color: var(--dark);
+
+  & div {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: var(--w, 0%);
+    height: 100%;
+    background-color: var(--hover);
+    box-shadow: inset 0px -3px 8px var(--dark);
+    z-index: 0;
+    color: black;
+  }
+
+  & span {
+    z-index: 1;
+    text-shadow: 1px 1px var(--dark), -1px -1px var(--dark);
+    max-width: 90%;
+    padding: 0.33em;
+    mix-blend-mode: difference;
+  }
+}

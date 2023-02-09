@@ -1,10 +1,11 @@
-import { findLegacyParser } from "./findLegacyParser.mjs";
+import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 import { Log } from "../../../utils/log";
 import {
   checkCustomItemPath,
   CustomItemSchema
 } from "../../../schema/CustomItem";
-import { readFileYaml } from "@foxkit/node-util/fs-yaml";
+import { checkEventPath, EventSchema } from "../../../schema/EventSchema.js";
+import { findLegacyParser } from "./findLegacyParser.mjs";
 
 export async function checkDataFile(filePath) {
   // handle legacy files
@@ -30,7 +31,20 @@ export async function checkDataFile(filePath) {
 
     const res = CustomItemSchema.safeParse(data);
     if (res.success) return true;
-    Log.zodError(res.error);
+    Log.zodError(res.error, filePath);
+    return false;
+  }
+
+  if (checkEventPath(filePath)) {
+    const data = await readFileYaml(filePath);
+    if (!data) {
+      Log.error(`Could not read data file ${Log.styleParent(filePath)}`);
+      return false;
+    }
+
+    const res = EventSchema.safeParse(data);
+    if (res.success) return true;
+    Log.zodError(res.error, filePath);
     return false;
   }
 

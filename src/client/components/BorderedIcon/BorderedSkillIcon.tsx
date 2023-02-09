@@ -6,6 +6,7 @@ import { IconFace } from "./IconFace";
 interface BorderedSkillIconProps extends ComponentPropsCC<"div">, BundledSkill {
   skillId: number;
   title?: undefined;
+  disableSpoilers?: boolean;
 }
 
 export function BorderedSkillIcon({
@@ -14,6 +15,7 @@ export function BorderedSkillIcon({
   num,
   icon,
   na,
+  disableSpoilers,
   skillId,
   ...props
 }: BorderedSkillIconProps) {
@@ -33,6 +35,7 @@ export function BorderedSkillIcon({
         src={skill.icon}
         placeholder={`Skill ${skill.num}`}
         na={skill.na}
+        forceIcon={disableSpoilers}
       />
       {children}
     </BorderedIcon>

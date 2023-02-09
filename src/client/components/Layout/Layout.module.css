@@ -14,8 +14,12 @@
   gap: 0.66em;
 
   & > main {
+    min-width: 0px;
     user-select: text;
     flex-grow: 1;
+    & pre {
+      white-space: pre-wrap;
+    }
   }
 
   & > nav {

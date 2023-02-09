@@ -1,4 +1,6 @@
-//import { sleep } from "@foxkit/util/sleep";
+/**
+ * ! DEPRECATED !
+ */
 import type {
   BundledNP,
   BundledServant,

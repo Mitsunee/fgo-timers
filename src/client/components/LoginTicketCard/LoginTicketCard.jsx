@@ -19,7 +19,8 @@ export default function LoginTicketCard({ items, next }) {
   return (
     <Card
       title="Login Exchange Tickets"
-      icon="https://static.atlasacademy.io/NA/Items/10000.png">
+      icon="https://static.atlasacademy.io/NA/Items/10000.png"
+      style={{ "--border": "var(--light)", "--bg": "white" }}>
       <FGOItemList>
         {items.map(item => {
           const data = {

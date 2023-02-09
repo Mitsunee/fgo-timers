@@ -6,7 +6,7 @@ export default function WeeklyMissionCard({ data }) {
     <Card
       title="Weekly Master Missions"
       icon="/assets/icon_mm.png"
-      color="blue">
+      color={5 /* blue */}>
       <MissionList data={data} />
     </Card>
   );

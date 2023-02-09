@@ -3,21 +3,20 @@ shortTitle: Hunting Quest 9
 banner: 2022_hq9.png
 url: 2022/0901_huntingquest9/
 date: 2022-09-04 21:00 - 09-11 20:59 PDT
-hideWhenDone: auto
 description: >-
-  Hunting Quest Part 9 features a daily rotation of material farming nodes and
-  introduces 90+ difficulty to this event format. There is also a Summoning
-  Banner featuring limited Servants from GUDAGUDA: SSRs Okita Souji (Saber),
-  Hijikata Toshizo (Berserker) and Rare Assassin Okada Izo. The SSRs are on a
-  rotating schedule, while Izo is always on rateup. The featured SSR Servants
-  also receive new Rank Up Quests!
+  Hunting Quest Part 9 features a daily rotation of material farming
+  nodes and introduces 90+ difficulty to this event format. There is also a
+  Summoning Banner featuring limited Servants from GUDAGUDA: SSRs Okita Souji
+  (Saber), Hijikata Toshizo (Berserker) and Rare Assassin Okada Izo. The SSRs
+  are on a rotating schedule, while Izo is always on rateup. The featured SSR
+  Servants also receive new Rank Up Quests!
 
-  Note: Hunting Quests are Events and use the Event Support setup! Make sure to
-  remove your Lotto CEs or switch your general setup to display in Events.
+  Note: Hunting Quests are Events and use the Event Support setup! Make sure to remove your Lotto CEs or switch your general setup to display in Events.
 
-  Material Information from Fandom Wiki, subject to change. The rare spawn in
-  every node drops Soundless Bells.
-times:
+  Material Information from Fandom Wiki, subject to change. The rare spawn in every node drops Soundless Bells.
+
+  Note: Events prior to 2023 New Years have not been updated to include all details.
+schedules:
   - title: Rotation
     times:
       - title: Bells & Chains
@@ -34,6 +33,7 @@ times:
         date: 2022-09-09 21:00 PDT
       - title: Hunting Quests End
         date: 2022-09-11 20:59 PDT
+times:
   - title: Okita & Hijikata Rank Up Quests added
     date: 2022-09-04 21:00 PDT
   - title: Summoning Banner

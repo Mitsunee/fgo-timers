@@ -1,0 +1,54 @@
+.section {
+  margin-top: 1.66em;
+
+  & h1:first-child {
+    margin: 0.66em;
+  }
+
+  & > section {
+    /* padding hack */
+    border: 1px solid transparent;
+
+    & p,
+    & p:first-child,
+    & p:last-child {
+      margin: 1.33em 0px;
+      padding: 0px 1.33em;
+    }
+  }
+
+  & .times {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.33rem;
+    font-size: 14px;
+    gap: 1.33rem;
+
+    & p {
+      margin: 0px;
+      padding: 0px;
+    }
+  }
+}
+
+.flexbar {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.66em;
+  gap: 0.66em;
+
+  border-top: 1px solid var(--light);
+  background-image: radial-gradient(ellipse at top, var(--light), transparent);
+  box-shadow: 0px 2px 2px var(--dark);
+
+  & span,
+  & button {
+    text-align: center;
+    max-width: 320px;
+  }
+}

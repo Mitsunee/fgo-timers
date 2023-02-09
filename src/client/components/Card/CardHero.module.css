@@ -3,4 +3,26 @@
   width: 100%;
   height: 75px;
   margin-bottom: 25px;
+  background-color: var(--bg);
+}
+
+.icon {
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  transform: translate(20%, 20%);
+  padding: 12px;
+  background: linear-gradient(
+    to bottom,
+    var(--bg-primary) 56px,
+    transparent 58px
+  );
+  border-radius: 100%;
+  overflow: hidden;
+
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }

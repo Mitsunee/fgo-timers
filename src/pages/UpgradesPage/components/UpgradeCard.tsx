@@ -23,6 +23,7 @@ import { UpgradeInfo } from "./UpgradeInfo";
 type PropsBase = {
   servant: BundledServant;
   quest: MappedBundledQuest;
+  // TODO: prop to override NA props where applicable (not in quest)
 } & Highlight;
 type WithSkillUpgrade = {
   upgrade: Upgrade & { upgrades: UpgradeMapSkill };
@@ -66,86 +67,37 @@ export function UpgradeCard(props: UpgradeCardProps) {
     ? { match: props.match, index: props.index, length: props.length }
     : {};
 
-  if (isSkillUpgrade(props)) {
-    const { from, to, upgrade } = props;
-    const style = {
-      "--border": BorderColours[to.border]
-    } as React.CSSProperties;
+  // set SQ Interlude Properties as default
+  let suffix = "";
+  let subtitleIcon: Parameters<typeof Subtitle>[0]["icon"] = "sq";
+  let UpgradeDisplay: null | React.ReactNode = null;
+  let border: Borders = Borders.BLUE;
 
-    return (
-      <article className={styles.card} style={style}>
-        <Hero
-          border={to.border}
-          id={upgrade.servant}
-          name={servant.name}
-          icon={servant.icon}
-          na={servant.na}
-        />
-        <Title
-          id={upgrade.servant}
-          servant={servant}
-          suffix={`Skill ${to.num}`}
-          {...highlight}
-        />
-        <Subtitle
-          icon="skill"
-          prefix={questPrefix}
-          name={quest.name}
-          {...highlight}
-        />
-        <SkillUpgrade upgrade={upgrade} from={from} to={to} />
-        <UpgradeInfo
-          quest={quest}
-          questId={upgrade.quest}
-          servant={servant}
-          servantId={upgrade.servant}
-        />
-      </article>
+  // handle Skill Upgrade Properties
+  if (isSkillUpgrade(props)) {
+    suffix = `Skill ${props.to.num}`;
+    subtitleIcon = "skill";
+    border = props.to.border;
+    UpgradeDisplay = (
+      <SkillUpgrade upgrade={props.upgrade} from={props.from} to={props.to} />
     );
   }
-
-  if (isNPUpgrade(props)) {
-    const { from, to, upgrade } = props;
-    const style = {
-      "--border": BorderColours[to.border]
-    } as React.CSSProperties;
-
-    return (
-      <article className={styles.card} style={style}>
-        <Hero
-          border={to.border}
-          id={upgrade.servant}
-          name={servant.name}
-          icon={servant.icon}
-          na={servant.na}
-        />
-        <Title
-          id={upgrade.servant}
-          servant={servant}
-          suffix="NP"
-          {...highlight}
-        />
-        <Subtitle
-          icon="np"
-          prefix={questPrefix}
-          name={quest.name}
-          {...highlight}
-        />
-        <NPUpgrade upgrade={upgrade} from={from} to={to} />
-        <UpgradeInfo
-          quest={quest}
-          questId={upgrade.quest}
-          servant={servant}
-          servantId={upgrade.servant}
-        />
-      </article>
+  // handle NP Upgrade Properties
+  else if (isNPUpgrade(props)) {
+    suffix = "NP";
+    subtitleIcon = "np";
+    border = props.to.border;
+    UpgradeDisplay = (
+      <NPUpgrade upgrade={props.upgrade} from={props.from} to={props.to} />
     );
   }
 
   return (
-    <article className={styles.card}>
+    <article
+      className={styles.card}
+      style={{ "--border": BorderColours[border] } as React.CSSProperties}>
       <Hero
-        border={Borders.BLUE}
+        border={border}
         id={props.upgrade.servant}
         name={servant.name}
         icon={servant.icon}
@@ -154,15 +106,16 @@ export function UpgradeCard(props: UpgradeCardProps) {
       <Title
         id={props.upgrade.servant}
         servant={servant}
-        suffix=""
+        suffix={suffix}
         {...highlight}
       />
       <Subtitle
-        icon="sq"
+        icon={subtitleIcon}
         prefix={questPrefix}
         name={quest.name}
         {...highlight}
       />
+      {UpgradeDisplay}
       <UpgradeInfo
         quest={quest}
         questId={props.upgrade.quest}
