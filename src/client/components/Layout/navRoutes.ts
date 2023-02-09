@@ -10,6 +10,7 @@ export type NavRoute = {
 
 export const navRoutes: NavRoute[] = [
   { route: "/", label: "Timers", test: /^\/$/ },
+  { route: "/events", label: "Events", test: /^\/events.*/ },
   {
     route: `/exchange-tickets/${currentYear}`,
     label: "Login Exchange Tickets",
