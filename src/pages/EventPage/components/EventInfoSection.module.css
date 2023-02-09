@@ -51,8 +51,4 @@
     text-align: center;
     max-width: 320px;
   }
-
-  & span {
-    width: 100%;
-  }
 }
