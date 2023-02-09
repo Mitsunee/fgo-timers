@@ -3,18 +3,17 @@ shortTitle: Land of Shadows
 banner: 2022_bunnyfest.png
 url: 2022/0818_landofshadows/
 date: 2022-08-22 01:00 - 09-04 20:59 PDT
-hideWhenDone: auto
 description: >-
-  This year's first Lotto Event features Scáthach as the lead character in a new
-  Bunnygirl costume and the new Grail Front game mode as a sidequest. In addition
-  to the costume available during the event Scáthach also gets a Rank Up Quest
-  and is features on the Summoning Banner alongside Diarmuid (Saber), Fionn and
-  Tamamo Cat, plus a set of Event Craft Essences.
+  This year's first Lotto Event features Scáthach as the lead
+  character in a new Bunnygirl costume and the new Grail Front game mode as a
+  sidequest. In addition to the costume available during the event Scáthach also
+  gets a Rank Up Quest and is features on the Summoning Banner alongside
+  Diarmuid (Saber), Fionn and Tamamo Cat, plus a set of Event Craft Essences.
 
-  For a quick overview of the new Grail Front game mode see the official News
-  Post above. The Summoning Banner has Scáthach always on rateup, with the SRs
-  on a rotating schedule.
-times:
+  For a quick overview of the new Grail Front game mode see the official News Post above. The Summoning Banner has Scáthach always on rateup, with the SRs on a rotating schedule.
+
+  Note: Events prior to 2023 New Years have not been updated to include all details.
+schedules:
   - title: Rounds
     times:
       - title: Round 1
@@ -39,6 +38,7 @@ times:
         date: 2022-08-26 21:00 PDT
       - title: Grail Front 7
         date: 2022-08-27 21:00 PDT
+times:
   - title: Lotto & Event Shop Exchange Period
     date: 2022-08-22 01:00 - 09-11 20:59 PDT
   - title: Scáthach Rank Up Quest added

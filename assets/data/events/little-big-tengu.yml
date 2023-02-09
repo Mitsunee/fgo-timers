@@ -3,7 +3,7 @@ shortTitle: Little Big Tengu
 banner: 2023_littlebigtengu.png
 url: 2023/0120_little-big-tengu/
 date: 2023-01-20 00:00 - 02-02 19:59 PST
-hideWhenDone: auto
+requires: Clear Fuyuki
 description: >-
   The Farewell to Kamakura - Little Big Tengu Event features the new welfare Assassin Kiichi Hougen in a Mission Event.
   The Summoning Banner feature the release of the new limited SSR Avenger Taira-no-Kagekiyo, as well as rerun Banners
@@ -16,6 +16,18 @@ description: >-
 times:
   - title: Maintenance
     date: 2023-01-19 20:00 - 01-20 00:00 PST
+  - title: Kiichi Hougen permanently unlockable
+    date: 2023-01-24 20:00 PST
+    servants: [604100]
+  - title: 2x EXP for Kiichi Hougen
+    date: 2023-01-20 00:00 - 02-02 19:59 PST
+    servants: [604100]
+  - title: Event Shop Exchange Period
+    date: 2023-01-20 00:00 - 02-09 19:59 PST
+  - title: Queen Medb Costume available in RP Shop
+    date: 2023-01-20 00:00 PST
+    servants: [401300]
+schedules:
   - title: Story
     times:
       - title: Section 1 & 2
@@ -32,17 +44,18 @@ times:
         date: 2023-01-24 20:00 PST
       - title: Final Missions
         date: 2023-01-26 20:00 PST
-  - title: Kiichi Hougen permanently unlockable
-    date: 2023-01-24 20:00 PST
-  - title: 2x EXP for Kiichi Hougen
-    date: 2023-01-20 00:00 - 02-02 19:59 PST
-  - title: Event Shop Exchange Period
-    date: 2023-01-20 00:00 - 02-09 19:59 PST
-  - title: Queen Medb Costume available in RP Shop
+banners:
+  - date: 2023-01-20 00:00 - 02-02 19:59 PST
+    servants: [1101000, 401400] # taira
+    ces: [9404910, 9404920, 9404930]
+  - date: 2023-01-21 20:00 - 02-02 19:59 PST
+    servants: [401300, 401400] # medb
+    ces: [9404910, 9404920, 9404930]
+  - date: 2023-01-21 20:00 - 02-02 19:59 PST
+    servants: [702000, 401400] # cu alter
+    ces: [9404910, 9404920, 9404930]
+upgrades:
+  - id: 94055580 # Ushi
     date: 2023-01-20 00:00 PST
-  - title: Rank Up Quests Ushiwakamaru & Benkei
+  - id: 94055581 # benkei
     date: 2023-01-20 00:00 PST
-  - title: Summoning Banner Taira
-    date: 2023-01-20 00:00 - 02-02 19:59 PST
-  - title: Summoning Banners Cu Alter & Medb
-    date: 2023-01-20 20:00 - 02-02 19:59 PST

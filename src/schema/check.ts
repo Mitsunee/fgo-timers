@@ -6,8 +6,8 @@ import { fileExists } from "@foxkit/node-util/fs";
 import { prepareCache } from "../atlas-api/prepare";
 import {
   isTicketFile,
-  isShopFile,
-  isDataFile
+  isShopFile
+  //isDataFile
 } from "../scripts/utils/data-assets/isDataFile.mjs";
 import { checkDataFile } from "../scripts/utils/data-assets/checkDataFile.mjs";
 import { Log } from "../utils/log";
@@ -123,11 +123,11 @@ async function main(options: ProgramOptions) {
       }
 
       // FIXME: doesn't consider new parsers
-      if (!isDataFile(filePath)) {
+      /* if (!isDataFile(filePath)) {
         if (!silent) Log.error("File is not a recognized data file", filePath);
         skipped++;
         continue;
-      }
+      } */
 
       targets.add(filePath);
     }

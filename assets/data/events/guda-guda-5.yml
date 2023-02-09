@@ -3,17 +3,27 @@ shortTitle: GUDAGUDA5
 banner: 2022_guda5.png
 url: 2022/0911_yamataikoku/
 date: 2022-09-14 02:00 - 09-27 20:59 PDT
-hideWhenDone: auto
 description: >-
-  GUDAGUDA5 features a unique Event system with Harvest Quests, Restoration
-  Quests and later on also be Raid battles! During the Event the new 1* Archer
-  Nobukatsu will be available in the Friend Point Gacha alongside Craft Essence
-  Experience Cards. The regular Saint Quartz Summoning Banner features limited
-  5* Ruler Himiko and 4* Saber Saito Hajime as well as a set of Event Craft
-  Essences.
+  GUDAGUDA5 features a unique Event system with Harvest Quests,
+  Restoration Quests and later on also be Raid battles! During the Event the new
+  1* Archer Nobukatsu will be available in the Friend Point Gacha alongside
+  Craft Essence Experience Cards. The regular Saint Quartz Summoning Banner
+  features limited 5* Ruler Himiko and 4* Saber Saito Hajime as well as a set of
+  Event Craft Essences.
+
+  Note: Events prior to 2023 New Years have not been updated to include all details.
 times:
   - title: Social Media Campaign Reward Distribution
     date: 2022-09-14 02:00 - 09-20 20:59 PDT
+  - title: Raid Start
+    date: 2022-09-17 21:00 PDT
+  - title: Nobukatsu & CE Exp FP Gacha Period
+    date: 2022-09-14 02:00 - 09-27 20:59 PDT
+  - title: Event Shop Exchange Period
+    date: 2022-09-14 02:00 - 10-04 20:59 PDT
+  - title: Summoning Banner
+    date: 2022-09-14 02:00 - 09-27 20:59 PDT
+schedules:
   - title: Story
     times:
       - title: Prologue - Main Quest Section 2
@@ -26,11 +36,3 @@ times:
         date: 2022-09-17 21:00 PDT
       - title: Main Quest Second Half
         date: 2022-09-20 21:00 PDT
-  - title: Raid Start
-    date: 2022-09-17 21:00 PDT
-  - title: Nobukatsu & CE Exp FP Gacha Period
-    date: 2022-09-14 02:00 - 09-27 20:59 PDT
-  - title: Event Shop Exchange Period
-    date: 2022-09-14 02:00 - 10-04 20:59 PDT
-  - title: Summoning Banner
-    date: 2022-09-14 02:00 - 09-27 20:59 PDT
