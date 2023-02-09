@@ -19,7 +19,7 @@ export async function getCurrentTicketData(now) {
   }
 
   // find next reset
-  const next = Math.trunc(s.next("month").time("4am").epoch / 1000);
+  const next = Math.trunc(s.next("month").time("4am", true).epoch / 1000);
 
   return { next, data };
 }

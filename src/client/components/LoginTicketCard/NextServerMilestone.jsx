@@ -14,7 +14,7 @@ export default function NextServerMilestone() {
   });
   const day = useMemo(() => {
     const s = Math.trunc(next / 1000);
-    return Math.trunc((s - SERVER_DAY_ZERO) / SERVER_DAY_MS_LEN) * 100;
+    return Math.ceil((s - SERVER_DAY_ZERO) / SERVER_DAY_MS_LEN) * 100;
   }, [next]);
 
   return (

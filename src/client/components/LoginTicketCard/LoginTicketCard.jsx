@@ -35,8 +35,8 @@ export default function LoginTicketCard({ items, next }) {
         <p>
           Next Exchange Ticket Rotation:
           <br />
-          <DisplayDelta time={nextMonth} /> (
-          <DisplayDate time={nextMonth} format="short" />)
+          <DisplayDelta time={nextMonth.epoch} /> (
+          <DisplayDate time={nextMonth.epoch} format="short" />)
           <br />
           <Link
             href={`/exchange-tickets/${nextMonth.year()}`}
