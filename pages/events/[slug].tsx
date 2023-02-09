@@ -1,10 +1,10 @@
-import type { EventPageProps } from "src/pages/EventPage/static";
+import { normalizeDate } from "src/time/normalizeDate";
 import { CardGrid } from "src/client/components/Card";
 import { EventTimesCard } from "src/pages/EventPage/components/EventTimesCard";
 import { EventSchedulesCard } from "src/pages/EventPage/components/EventSchedulesCard";
 import { EventPageLayout } from "src/pages/EventPage/components/EventPageLayout";
+import type { EventPageProps } from "src/pages/EventPage/static";
 import styles from "src/pages/EventPage/EventPage.module.css";
-import { normalizeDate } from "src/time/normalizeDate";
 
 // Next Page configs
 export { getStaticPaths, getStaticProps } from "src/pages/EventPage/static";

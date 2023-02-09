@@ -1,4 +1,4 @@
-import { CardGrid } from "@components/Card";
+import { CardGrid } from "src/client/components/Card";
 import { EventBannerCard } from "src/pages/EventPage/components/EventBannerCard";
 import { EventPageLayout } from "src/pages/EventPage/components/EventPageLayout";
 import type { EventBannersPageProps } from "src/pages/EventPage/static/banners";

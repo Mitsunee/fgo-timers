@@ -3,12 +3,12 @@ import { useStore } from "@nanostores/react";
 import { clamp } from "@foxkit/util/clamp";
 import { settingsStore } from "src/client/stores/settingsStore";
 import { api } from "src/client/api";
+import Section from "src/client/components/Section";
+import Headline from "src/client/components/Headline";
+import { Scroller } from "src/client/components/Scroller";
+import Meta from "src/client/components/Meta";
+import { EventList } from "src/client/components/EventList";
 import { EventsPageProps } from "src/pages/EventsPage/static";
-import Section from "@components/Section";
-import Headline from "@components/Headline";
-import { Scroller } from "@components/Scroller";
-import Meta from "@components/Meta";
-import { EventList } from "@components/EventList";
 export { getStaticProps } from "src/pages/EventsPage/static";
 
 const noOp = {};
