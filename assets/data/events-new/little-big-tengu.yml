@@ -1,0 +1,61 @@
+title: Farewell to Kamakura - Little Big Tengu
+shortTitle: Little Big Tengu
+banner: 2023_littlebigtengu.png
+url: 2023/0120_little-big-tengu/
+date: 2023-01-20 00:00 - 02-02 19:59 PST
+requires: Clear Fuyuki
+description: >-
+  The Farewell to Kamakura - Little Big Tengu Event features the new welfare Assassin Kiichi Hougen in a Mission Event.
+  The Summoning Banner feature the release of the new limited SSR Avenger Taira-no-Kagekiyo, as well as rerun Banners
+  for Queen Medb (Rider) and Cú Chulainn (Alter). All 3 Banners feature the same set of rateup Event Craft Essences, as
+  well as a rateup for 3* Rider Ushiwakamaru.
+
+  The Event also features Rank Up Quests released for Ushiwakamaru and Musashibou Benkei, as well as the re-release of
+  Queen Medb's Summer 2 Costume in the Rare Prism Shop. The Event Shop contains the 'Scale of Fantasy' material from
+  future content.
+times:
+  - title: Maintenance
+    date: 2023-01-19 20:00 - 01-20 00:00 PST
+  - title: Kiichi Hougen permanently unlockable
+    date: 2023-01-24 20:00 PST
+    servants: [604100]
+  - title: 2x EXP for Kiichi Hougen
+    date: 2023-01-20 00:00 - 02-02 19:59 PST
+    servants: [604100]
+  - title: Event Shop Exchange Period
+    date: 2023-01-20 00:00 - 02-09 19:59 PST
+  - title: Queen Medb Costume available in RP Shop
+    date: 2023-01-20 00:00 PST
+    servants: [401300]
+schedules:
+  - title: Story
+    times:
+      - title: Section 1 & 2
+        date: 2023-01-20 00:00 PST
+      - title: Section 3
+        date: 2023-01-20 20:00 PST
+      - title: Section 4
+        date: 2023-01-21 20:00 PST
+      - title: Section 5
+        date: 2023-01-22 20:00 PST
+      - title: Section 6
+        date: 2023-01-23 20:00 PST
+      - title: Section 7 & 8
+        date: 2023-01-24 20:00 PST
+      - title: Final Missions
+        date: 2023-01-26 20:00 PST
+banners:
+  - date: 2023-01-20 00:00 - 02-02 19:59 PST
+    servants: [1101000, 401400] # taira
+    ces: [9404910, 9404920, 9404930]
+  - date: 2023-01-21 20:00 - 02-02 19:59 PST
+    servants: [401300, 401400] # medb
+    ces: [9404910, 9404920, 9404930]
+  - date: 2023-01-21 20:00 - 02-02 19:59 PST
+    servants: [702000, 401400] # cu alter
+    ces: [9404910, 9404920, 9404930]
+upgrades:
+  - id: 94055580 # Ushi
+    date: 2023-01-20 00:00 PST
+  - id: 94055581 # benkei
+    date: 2023-01-20 00:00 PST

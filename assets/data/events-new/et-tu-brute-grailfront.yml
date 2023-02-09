@@ -1,0 +1,42 @@
+title: Grail Front - Et Tu, Brute?
+shortTitle: Et Tu, Brute?
+banner: 2023_ettubrute.png
+url: 2023/0206_holy_grail_front/
+date: 2023-02-06 00:00 - 02-19 19:59 PST
+requires: Clear Fuyuki
+description: >-
+  The second Grail Front Event "Et Tu, Brute?" features seven Rounds of Grail Front Battles (rewarding enough pieces for one Holy Grail),
+  new Rank Up Quests for Boudica and Caligula, Nero Claudius Olympian Uniform getting added to the RP Shop and a Summoning Banner featuring
+  rateups for limited SSR Lancer Romulus=Quirinus and permanent SSR Saber Altera, with both rateups also featuring storylocked SR Nero Claudius,
+  and permanent Servants Astraea, Gaius Julius Caesar, Romulus (3*) and Boudica.
+times:
+  - title: Nero Claudius Olympian Uniform added to RP Shop
+    date: 2023-02-06 00:00 PST
+    servants: [100500]
+schedules:
+  - title: Rounds
+    times:
+      - title: Grail Front 1
+        date: 2023-02-06 00:00 PST
+      - title: Grail Front 2
+        date: 2023-02-06 20:00 PST
+      - title: Grail Front 3
+        date: 2023-02-07 20:00 PST
+      - title: Grail Front 4
+        date: 2023-02-08 20:00 PST
+      - title: Grail Front 5
+        date: 2023-02-09 20:00 PST
+      - title: Grail Front 6
+        date: 2023-02-10 20:00 PST
+      - title: Grail Front 7
+        date: 2023-02-11 20:00 PST
+banners:
+  - date: 2023-02-06 00:00 - 02-19 19:59 PST
+    servants: [304200, 100500, 900800, 101300, 301000, 401100]
+  - date: 2023-02-09 00:00 - 02-19 19:59 PST
+    servants: [101800, 100500, 900800, 101300, 301000, 401100]
+upgrades:
+  - id: 94055982 # Boudica
+    date: 2023-02-06 00:00 PST
+  - id: 94055983 # Caligula
+    date: 2023-02-06 00:00 PST
