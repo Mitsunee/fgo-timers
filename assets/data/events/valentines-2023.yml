@@ -12,6 +12,9 @@ description: >-
 
   Note: Due to the official news post not being completed prior to the Event's release some information may be missing
   on this page (such as the end time). The rerun for last year's Valentine's Banner has also not been announced yet.
+times:
+  - title: Maintenance
+    date: 2023-02-12 20:00 - 02-13 00:00 PST
 banners:
   - date: 2023-02-13 00:00 - 02-26 19:59 PST
     servants: [901100] # Caren
