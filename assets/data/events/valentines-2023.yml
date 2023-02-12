@@ -1,0 +1,84 @@
+title: Saint Valentino! Chaldea Bitter Valentine's 2023
+shortTitle: Valentine's 2023
+banner: 2023_valentines_temp.png
+url: 2023/0209_valentine/
+date: 2023-02-13 00:00 PST
+description: >-
+  2023's Valentine's Day Event features a Points Ladder and the new Super Lock-On Chocolates which can be used on a
+  Servant to give them +50% ATK Strength and +30% Bond Bonus for Event Quests. Caren C. Hortensia also releases in
+  this Event alongside a set of limited Event Craft Essences.
+
+  This Event features many rateups (see Banners tab), with most of them only last for a short time!
+
+  Note: Due to the official news post not being completed prior to the Event's release some information may be missing
+  on this page (such as the end time). The rerun for last year's Valentine's Banner has also not been announced yet.
+banners:
+  - date: 2023-02-13 00:00 - 02-26 19:59 PST
+    servants: [901100] # Caren
+    ces: [9404950, 9404960, 9404970]
+  - date: 2023-02-14 20:00 - 02-15 19:59 PST
+    servants: [101800] # Altera
+    ces: [9404950, 9404960, 9404970]
+  - date: 2023-02-14 20:00 - 02-15 19:59 PST
+    servants: [502200] # xz
+    ces: [9404950, 9404960, 9404970]
+  - date: 2023-02-15 20:00 - 02-16 19:59 PST
+    servants: [200900] # artemis
+    ces: [9404950, 9404960, 9404970]
+  - date: 2023-02-15 20:00 - 02-16 19:59 PST
+    servants: [600500] # jack
+    ces: [9404950, 9404960, 9404970]
+  - date: 2023-02-16 20:00 - 02-17 19:59 PST
+    servants: [302000] # altria lancer
+    ces: [9404950, 9404960, 9404970]
+  - date: 2023-02-16 20:00 - 02-17 19:59 PST
+    servants: [900100] # jeanne
+    ces: [9404950, 9404960, 9404970]
+  - date: 2023-02-17 20:00 - 02-18 19:59 PST
+    servants: [404000] # EuRys
+    ces: [9404950, 9404960, 9404970]
+  - date: 2023-02-17 20:00 - 02-18 19:59 PST
+    servants: [104200] # dioscuri
+    ces: [9404950, 9404960, 9404970]
+  - date: 2023-02-18 20:00 - 02-19 19:59 PST
+    servants: [503500] # anastasia
+    ces: [9404950, 9404960, 9404970]
+  - date: 2023-02-18 20:00 - 02-19 19:59 PST
+    servants: [303600] # bradamante
+    ces: [9404950, 9404960, 9404970]
+  - date: 2023-02-19 20:00 - 02-20 19:59 PST
+    servants: [603100] # osakabehime
+    ces: [9404950, 9404960, 9404970]
+  - date: 2023-02-19 20:00 - 02-20 19:59 PST
+    servants: [401300] # medb
+    ces: [9404950, 9404960, 9404970]
+  - date: 2023-02-20 20:00 - 02-21 19:59 PST
+    servants: [701400] # nightingale
+    ces: [9404950, 9404960, 9404970]
+  - date: 2023-02-20 20:00 - 02-21 19:59 PST
+    servants: [500300] # tamamo caster
+    ces: [9404950, 9404960, 9404970]
+  - date: 2023-02-21 20:00 - 02-22 19:59 PST
+    servants: [1000800] # sitonai
+    ces: [9404950, 9404960, 9404970]
+  - date: 2023-02-21 20:00 - 02-22 19:59 PST
+    servants: [2300300] # jinako
+    ces: [9404950, 9404960, 9404970]
+  - date: 2023-02-22 20:00 - 02-23 19:59 PST
+    servants: [100100] # altria vanilla
+    ces: [9404950, 9404960, 9404970]
+  - date: 2023-02-22 20:00 - 02-23 19:59 PST
+    servants: [100900] # mordred
+    ces: [9404950, 9404960, 9404970]
+  - date: 2023-02-23 20:00 - 02-24 19:59 PST
+    servants: [304600] # vritra
+    ces: [9404950, 9404960, 9404970]
+  - date: 2023-02-23 20:00 - 02-24 19:59 PST
+    servants: [400300] # drake
+    ces: [9404950, 9404960, 9404970]
+  - date: 2023-02-24 20:00 - 02-25 19:59 PST
+    servants: [401800] # quetz
+    ces: [9404950, 9404960, 9404970]
+  - date: 2023-02-24 20:00 - 02-25 19:59 PST
+    servants: [503000] # scheherazade
+    ces: [9404950, 9404960, 9404970]
