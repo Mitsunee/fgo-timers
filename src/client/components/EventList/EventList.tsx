@@ -29,7 +29,7 @@ export function EventListItem({
   const { seconds: current } = useStore(intervalStore);
   const [start, end] = normalizeDate(date);
   const hasStarted = current >= start;
-  const hasEnded = current >= end;
+  const hasEnded = end > 0 && current >= end;
   const startMs = start * 1000;
   const endMs = (end || start) * 1000;
 
