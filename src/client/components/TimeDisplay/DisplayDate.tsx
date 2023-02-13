@@ -41,5 +41,9 @@ export function DisplayDate({
       ? Global.SERVER_TZ
       : undefined;
 
-  return <NoSSR>{spacetime(time, tz).format(format)}</NoSSR>;
+  return (
+    <NoSSR>
+      <time>{spacetime(time, tz).format(format)}</time>
+    </NoSSR>
+  );
 }

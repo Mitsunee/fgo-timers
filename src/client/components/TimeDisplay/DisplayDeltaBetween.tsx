@@ -1,22 +1,25 @@
 import spacetime from "spacetime";
+import { NoSSR } from "src/client/components/NoSSR";
+import { diffToDateTimeAttribute, formatDiff } from "src/time/formatDiff";
 
 interface DisplayDeltaBetweenProps {
   time: number;
   from: number;
+  endedText?: "---" | "Ended" | string;
 }
 
-export function DisplayDeltaBetween({ time, from }: DisplayDeltaBetweenProps) {
-  const { days, hours, minutes, seconds } = spacetime(from).diff(
-    spacetime(time)
-  );
+export function DisplayDeltaBetween({
+  time,
+  from,
+  endedText
+}: DisplayDeltaBetweenProps) {
+  const diff = spacetime(from).diff(spacetime(time));
 
-  return seconds <= 0 ? (
-    <>---</>
-  ) : (
-    <>
-      {days == 0 ? "" : `${days}d `}
-      {hours == 0 ? "" : `${hours % 24}h `}
-      {`${minutes % 60}m ${seconds % 60}s`}
-    </>
+  return (
+    <NoSSR>
+      <time dateTime={diffToDateTimeAttribute(diff)}>
+        {formatDiff(diff, endedText)}
+      </time>
+    </NoSSR>
   );
 }
