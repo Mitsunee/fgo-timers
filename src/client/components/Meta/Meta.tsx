@@ -2,6 +2,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { setPageMeta } from "src/client/stores/metaStore";
+import { hostUrl } from "src/utils/env";
 
 interface MetaProps {
   title: string;
@@ -15,11 +16,6 @@ interface MetaProps {
 }
 
 const prefix = " - FGO Timers";
-const DOMAIN_STR = process.env.NEXT_PUBLIC_DOMAIN
-  ? `${process.env.NEXT_PUBLIC_DOMAIN.startsWith("http") ? "" : "https://"}${
-      process.env.NEXT_PUBLIC_DOMAIN
-    }`.replace(/\/$/, "")
-  : "";
 
 export default function Meta({
   title,
@@ -35,7 +31,7 @@ export default function Meta({
   const imagePath = image
     ? `${image.startsWith("/") ? "" : "/"}${image}`
     : "/icon-64.png";
-  const imageUrl = `${DOMAIN_STR}${imagePath}`;
+  const imageUrl = `${hostUrl}${imagePath}`;
   const pageTitle = `${title}${noTitleSuffix ? "" : prefix}`;
 
   useEffect(() => {
@@ -59,7 +55,7 @@ export default function Meta({
       {image && <meta name="twitter:card" content="summary_large_image" />}
       <meta name="twitter:image" content={imageUrl} />
       <meta property="og:image" content={imageUrl} />
-      <link rel="canonical" href={`${DOMAIN_STR}${router.asPath}`} />
+      <link rel="canonical" href={`${hostUrl}${router.asPath}`} />
       <meta name="theme-color" content={color} />
       {isError && <meta name="robots" content="noindex,noarchive,none" />}
     </Head>
