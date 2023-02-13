@@ -23,7 +23,11 @@ export function Navigation() {
       : router.asPath.startsWith(item.route);
 
   return (
-    <nav className={styles.nav}>
+    <nav
+      role="navigation"
+      aria-label="Main menu"
+      className={styles.nav}
+      id="main-menu">
       <section className={styles.navSection}>
         {navRoutes.map(navItem => {
           const isActive = testActive(navItem);
