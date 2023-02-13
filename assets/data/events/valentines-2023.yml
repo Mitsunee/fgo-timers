@@ -1,20 +1,71 @@
-title: Saint Valentino! Chaldea Bitter Valentine's 2023
+title: "Amor, the Preacher of Love's Saint Valentino! Chaldea Bitter Valentine's 2023"
 shortTitle: Valentine's 2023
-banner: 2023_valentines_temp.png
+banner: 2023_valentines.png
 url: 2023/0209_valentine/
-date: 2023-02-13 00:00 PST
+date: 2023-02-13 00:00 - 02-26 19:59 PST
 description: >-
   2023's Valentine's Day Event features a Points Ladder and the new Super Lock-On Chocolates which can be used on a
   Servant to give them +50% ATK Strength and +30% Bond Bonus for Event Quests. Caren C. Hortensia also releases in
   this Event alongside a set of limited Event Craft Essences.
 
   This Event features many rateups (see Banners tab), with most of them only last for a short time!
-
-  Note: Due to the official news post not being completed prior to the Event's release some information may be missing
-  on this page (such as the end time). The rerun for last year's Valentine's Banner has also not been announced yet.
 times:
   - title: Maintenance
     date: 2023-02-12 20:00 - 02-13 00:00 PST
+  - title: Special Login Bonus
+    date: 2023-02-13 00:00 - 02-15 19:59 PST
+  - title: Chocolate Exchange
+    date: 2023-02-13 00:00 - 03-05 19:59 PST
+  - title: Event Shop Exchange
+    date: 2023-02-13 00:00 - 03-05 19:59 PST
+schedules:
+  - title: Story
+    times:
+      - title: Section 1 & Section 2
+        date: 2023-02-13 00:00 PST
+      - title: Section 3
+        date: 2023-02-13 20:00 PST
+      - title: Section 4
+        date: 2023-02-14 20:00 PST
+      - title: Section 5
+        date: 2023-02-15 20:00 PST
+      - title: Section 6
+        date: 2023-02-16 20:00 PST
+      - title: Section 7
+        date: 2023-02-17 20:00 PST
+      - title: Section 8 & Final Section
+        date: 2023-02-18 20:00 PST
+  - title: Bitter Shadow Challenge
+    times:
+      - title: Challenge 1 (Saber)
+        date: 2023-02-13 00:00 PST
+      - title: Challenge 2 (Moon Cancer)
+        date: 2023-02-13 20:00 PST
+      - title: Challenge 3 (Archer)
+        date: 2023-02-14 20:00 PST
+      - title: Challenge 4 (Avenger)
+        date: 2023-02-15 20:00 PST
+      - title: Challenge 5 (Lancer)
+        date: 2023-02-16 20:00 PST
+      - title: Challenge 6 (Berserker)
+        date: 2023-02-17 20:00 PST
+      - title: Challenge 7 (Rider)
+        date: 2023-02-18 20:00 PST
+      - title: Challenge 8 (Alter Ego)
+        date: 2023-02-19 20:00 PST
+      - title: Challenge 9 (Caster)
+        date: 2023-02-20 20:00 PST
+      - title: Challenge 10 (Foreigner)
+        date: 2023-02-21 20:00 PST
+      - title: Challenge 11 (Assassin)
+        date: 2023-02-22 20:00 PST
+      - title: Challenge 12 (Ruler)
+        date: 2023-02-23 20:00 PST
+      - title: Challenge 13 (Moon Cancer)
+        date: 2023-02-24 20:00 PST
+      - title: Challenge 14 (Berserker)
+        date: 2023-02-25 20:00 PST
+    ends: 2023-02-26 19:59 PST
 banners:
   - date: 2023-02-13 00:00 - 02-26 19:59 PST
     servants: [901100] # Caren
@@ -85,3 +136,6 @@ banners:
   - date: 2023-02-24 20:00 - 02-25 19:59 PST
     servants: [503000] # scheherazade
     ces: [9404950, 9404960, 9404970]
+upgrades:
+  - id: 94056490
+    date: 2023-02-13 00:00 PST
