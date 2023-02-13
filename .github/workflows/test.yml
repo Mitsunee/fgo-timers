@@ -62,7 +62,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    needs: types
+    needs: lint
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -81,9 +81,6 @@ jobs:
           cache: yarn
       - name: Install dependencies
         run: yarn install --frozen-lockfile --ignore-scripts
-      # Build Scripts step not yet needed, currently using tsm as a workaround
-      #- name: Build Scripts
-      #  run: yarn build:scripts
       - name: Run Prepare and Prebuild
         run: yarn build:svgo && yarn prebuild
       - name: Run Code Tests

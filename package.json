@@ -6,8 +6,6 @@
   "scripts": {
     "prepare": "simple-git-hooks && node src/svgo/build.mjs",
     "build:svgo": "node src/svgo/build.mjs --force",
-    "dev:scripts": "tsc --watch -p tsconfig_scripts.json",
-    "build:scripts": "tsc -p tsconfig_scripts.json",
     "check-event": "tsm --require=./nowarn.js src/events/check-event-script.ts",
     "find": "tsm --require=./nowarn.js src/utils/find-script.ts",
     "prebuild": "tsm --require=./nowarn.js src/prebuild/prebuild.ts && yarn build:svgo",
@@ -26,21 +24,11 @@
     "pre-commit": "yarn nano-staged"
   },
   "nano-staged": {
-    "**/*.{js,jsx,mjs,ts,tsx}": [
-      "eslint",
-      "prettier -w"
-    ],
-    "**/*.{css,json,md,yml}": [
+    "**/*.{js,jsx,cjs,mjs,ts,tsx,css,json,md,yml}": [
       "prettier -w"
     ],
     "**/!(*inkscape).svg": [
       "svgo"
-    ],
-    "assets/data/{events,login-tickets,items}/*.yml": [
-      "tsm --require=./nowarn.js src/schema/check.ts --silent --file"
-    ],
-    "assets/data/{mana,rare}PrismShop.yml": [
-      "tsm --require=./nowarn.js src/schema/check.ts --silent --file"
     ]
   },
   "browserslist": [
