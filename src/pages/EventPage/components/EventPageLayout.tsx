@@ -88,6 +88,7 @@ export function EventPageLayout({
         title={event.title}
         date={event.date}
         description={event.description}
+        url={event.url}
         requires={event.requires}
         modalCallback={() => setShowEmbed(true)}
       />

@@ -11,7 +11,6 @@ import { GlobalStyles } from "src/types/enum";
 interface LinkButtonProps extends ComponentWithRefCC<"a"> {
   decorated?: boolean;
   href: string;
-  onClick?: undefined; // use ActionButton instead!
   fill?: undefined; // style color instead
   hover?: undefined; // style :hover color instead
   replace?: boolean;
