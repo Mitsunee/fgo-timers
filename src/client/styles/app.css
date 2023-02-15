@@ -23,6 +23,13 @@ body,
   --title: Dosis, sans-serif;
 }
 
+@media (prefers-reduced-transparency) {
+  :root {
+    --dark: #101010;
+    --light: #dfdfff;
+  }
+}
+
 body {
   background-color: var(--bg-primary);
   background-image: radial-gradient(
