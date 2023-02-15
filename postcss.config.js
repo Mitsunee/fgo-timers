@@ -1,20 +1,17 @@
 const picocolors = require("picocolors");
 
 const plugins = [
-  "postcss-focus",
+  ["@csstools/postcss-global-data", { files: ["src/client/styles/media.css"] }],
+  ["postcss-focus", { oldFocus: true }],
   [
     "postcss-preset-env",
     {
-      autoprefixer: {
-        flexbox: "no-2009"
-      },
+      autoprefixer: { flexbox: "no-2009" },
       stage: 2,
       features: {
         "custom-properties": false,
         "nesting-rules": true,
-        "custom-media-queries": {
-          importFrom: "src/client/styles/media.css"
-        }
+        "custom-media-queries": true
       }
     }
   ]
