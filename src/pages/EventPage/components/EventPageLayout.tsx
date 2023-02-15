@@ -81,7 +81,7 @@ export function EventPageLayout({
         description={
           metaDesc.length > 250 ? `${metaDesc.slice(0, 250)}...` : metaDesc
         }
-        headerDescription={`Event Timers for ${event.shortTitle}`}
+        headerDescription={description || `Event Timers for ${event.title}`}
       />
       <EventHero banner={event.banner} title={event.shortTitle} />
       <EventInfoSection

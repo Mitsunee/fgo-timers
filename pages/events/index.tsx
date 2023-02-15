@@ -51,7 +51,7 @@ export default function EventsPage({ fallback }: EventsPageProps) {
     <>
       <Meta
         title="Events"
-        description="List of current and past events of Fate/Grand Order"
+        description="List of current and past events of Fate/Grand Order Global Version"
       />
       <EventList events={eventsShown} title="Events">
         <p>

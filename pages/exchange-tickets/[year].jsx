@@ -46,7 +46,7 @@ export default function LoginTicketPage({ tickets, years, self }) {
     <>
       <Meta
         title={`Login Exchange Tickets ${self}`}
-        description={`All Login Exchange Tickets in ${self} for Fate/Grand Order NA`}
+        description={`All Login Exchange Tickets in ${self} for Fate/Grand Order Global Version`}
       />
       <div className={styles.navWrapper}>
         <Button
