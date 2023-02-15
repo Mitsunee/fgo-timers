@@ -1,18 +1,18 @@
 import { useState, useEffect } from "react";
 
-import styles from "@styles/HomePage.module.css";
 import { useRecurringEvent } from "@utils/hooks/useRecurringEvent";
 import Meta from "@components/Meta";
 import Clocks from "@components/Clocks";
-//import { NoSSR } from "@components/NoSSR";
-//import { SpecialTimer } from "@components/SpecialTimer";
 import Headline from "@components/Headline";
 import { CardGrid } from "@components/Card";
-import LoginTicketCard from "@components/LoginTicketCard";
-import MasterMissionCard from "@components/MasterMissionCard";
-import ChaldeaGateCard from "@components/ChaldeaGateCard";
-import ShopCard from "@components/ShopCard";
 import { EventList } from "src/client/components/EventList";
+//import { NoSSR } from "@components/NoSSR";
+//import { SpecialTimer } from "@components/SpecialTimer";
+import LoginTicketCard from "src/pages/HomePage/components/LoginTicketCard";
+import MasterMissionCard from "src/pages/HomePage/components/MasterMissionCard";
+import ChaldeaGateCard from "src/pages/HomePage/components/ChaldeaGateCard";
+import ShopCard from "src/pages/HomePage/components/ShopCard";
+import styles from "src/pages/HomePage/HomePage.module.css";
 // import type { HomePageProps } from "src/pages/HomePage/static";
 
 export { getStaticProps } from "src/pages/HomePage/static";
