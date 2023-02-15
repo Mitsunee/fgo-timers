@@ -243,7 +243,6 @@ export default function UpgradesPage(fallback: UpgradesPageProps) {
       <Meta
         title="Upgrades"
         description="Explore the Interludes and Rank Up Quests of Fate/Grand Order"
-        image="/assets/meta/upgrades.jpg"
       />
       <SWRConfig value={fallback}>
         <Page />

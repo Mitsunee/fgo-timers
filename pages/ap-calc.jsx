@@ -165,7 +165,6 @@ export default function APCalcPage() {
       <Meta
         title="AP Calculator"
         description="AP Calculator for Fate/Grand Order"
-        image="/assets/meta/ap.jpg"
         color="#f9e677"
       />
       <Clocks />

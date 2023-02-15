@@ -68,7 +68,6 @@ export default function HomePage({
       <Meta
         title="FGO Timers"
         description="Timers for Fate/Grand Order Global Version"
-        image="/assets/meta/landing.jpg"
         noTitleSuffix
       />
       <Clocks />
