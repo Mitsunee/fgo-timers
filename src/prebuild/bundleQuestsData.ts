@@ -3,19 +3,19 @@ import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 import { join } from "path";
 
 import { DataBundler } from "./dataBundlers";
+import { parseSchema } from "../schema/verifySchema";
+import { QuestOpenOverridesSchema } from "../schema/QuestOpenOverrides";
+import type { QuestOpenOverrides } from "../schema/QuestOpenOverrides";
 import {
   BundledQuest,
   QuestUpgrade,
   QuestOther,
-  UpgradeQuestType,
-  OpenTimeOverrides,
-  OpenTimeOverridesSchema
+  UpgradeQuestType
 } from "../upgrades/types";
 import { getQuestData } from "../upgrades/getQuestData";
 import { Log } from "../utils/log";
 import { parseQuestType } from "../upgrades/parseQuestType";
 import { parseUnlockCond } from "../upgrades/parseUnlockCond";
-import { verifySchema } from "../schema/verifySchema";
 
 const overridesFilePath = join(
   "assets",
@@ -24,26 +24,36 @@ const overridesFilePath = join(
   "openTimeOverrides.yml"
 );
 
-export const bundleQuestsData: DataBundler<BundledQuest> = async bundles => {
-  const openTimes = await readFileYaml<Partial<OpenTimeOverrides>>(
+async function getOverrides() {
+  const overridesFile = await readFileYaml<QuestOpenOverrides["in"]>(
     overridesFilePath
   );
+
+  if (!overridesFile) {
+    Log.error(
+      `Could not find openTimeOverrides.yml ${Log.styleParent(
+        overridesFilePath
+      )}`
+    );
+    return false;
+  }
+
+  const overrides = parseSchema(
+    overridesFile,
+    QuestOpenOverridesSchema,
+    overridesFilePath
+  );
+
+  return overrides ?? false;
+}
+
+export const bundleQuestsData: DataBundler<BundledQuest> = async bundles => {
+  const overrides = await getOverrides();
+  if (!overrides) return false;
+
   const questQueue = new List<number>(); // to be processed
   const knownQuests = new Set<number>(); // are queued or processed
   const res = new Map<number, BundledQuest>(); // result of processing
-
-  if (
-    !openTimes ||
-    !verifySchema(openTimes, OpenTimeOverridesSchema, overridesFilePath)
-  ) {
-    if (!openTimes)
-      Log.error(
-        `Could not find openTimeOverrides.yml ${Log.styleParent(
-          overridesFilePath
-        )}`
-      );
-    return false;
-  }
 
   for (const bundle of bundles) {
     if (!bundle.quests) continue;
@@ -72,24 +82,14 @@ export const bundleQuestsData: DataBundler<BundledQuest> = async bundles => {
     switch (type) {
       case UpgradeQuestType.INTERLUDE:
       case UpgradeQuestType.RANKUP: {
-        const name = questNA?.name || quest.name;
-        const override = openTimes.overrides[quest.id];
-        const open =
-          (typeof override == "number" && override) ||
-          (typeof override == "string" && openTimes.constants[override]) ||
-          questNA?.openedAt ||
-          quest.openedAt;
+        const name = questNA?.name ?? quest.name;
+        const override = overrides[quest.id];
+        const open = override ?? questNA?.openedAt ?? quest.openedAt;
         const data: QuestUpgrade = {
           type,
           name,
           open
         };
-
-        if (typeof override == "string" && !openTimes.constants[override]) {
-          Log.warn(
-            `Unrecognized quest open time constant '${override}'. Using api data as fallback`
-          );
-        }
 
         if (questNA) data.na = true;
         if (Object.entries(unlock).length > 0) {

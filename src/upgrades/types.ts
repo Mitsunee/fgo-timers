@@ -1,5 +1,3 @@
-import { z } from "zod";
-
 export const enum UpgradeQuestType {
   INTERLUDE = "intld",
   RANKUP = "rankup",
@@ -63,24 +61,3 @@ export function upgradeIsNPUpgrade(
 ): upgrade is UpgradeBase & { upgrades: UpgradeMapNP } {
   return upgrade.upgrades?.type == "np";
 }
-
-const _zOverrideKey = z
-  .string()
-  .regex(
-    /^[A-Z]([A-Z_]*[A-Z])?$/,
-    "openTimeOverrides constants may only use uppercase letters and underscores and must start with a letter."
-  );
-const _zQuestId = z.number().min(1498449600);
-
-export const OpenTimeOverridesSchema = z.object({
-  constants: z.record(_zOverrideKey, _zQuestId, z.undefined()),
-  overrides: z.record(
-    z
-      .string()
-      .regex(/^\d+$/)
-      .transform(val => +val),
-    z.union([_zQuestId, _zOverrideKey, z.undefined()])
-  )
-});
-
-export type OpenTimeOverrides = z.infer<typeof OpenTimeOverridesSchema>;
