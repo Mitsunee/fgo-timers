@@ -17,10 +17,6 @@ body,
   --bg-primary: #2e2c6a;
   --bg-light: #2e627a;
   --bg-dark: #680c5f;
-
-  /* font families */
-  --sans: "Noto Sans", sans-serif;
-  --title: Dosis, sans-serif;
 }
 
 @media (prefers-reduced-transparency) {
