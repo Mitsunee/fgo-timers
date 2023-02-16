@@ -17,7 +17,7 @@ import styles from "./Navigation.module.css";
 
 export function Navigation() {
   const router = useRouter();
-  const testActive = (item: typeof navRoutes[number]) =>
+  const testActive = (item: (typeof navRoutes)[number]) =>
     item.test
       ? item.test.test(router.asPath)
       : router.asPath.startsWith(item.route);

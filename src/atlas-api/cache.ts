@@ -25,7 +25,7 @@ enum CacheFile {
 
 class AtlasApiCache {
   region: SupportedRegion;
-  api: typeof atlasApi[SupportedRegion];
+  api: (typeof atlasApi)[SupportedRegion];
   private servant?: Servant[];
   private servantBasic?: ServantBasic[];
   private item?: Item[];

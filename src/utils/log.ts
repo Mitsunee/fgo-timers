@@ -4,7 +4,7 @@ import { z } from "zod";
 
 type Colour =
   | Exclude<
-      keyof ReturnType<typeof picocolors["createColors"]>,
+      keyof ReturnType<(typeof picocolors)["createColors"]>,
       "isColorSupported"
     >
   | false;

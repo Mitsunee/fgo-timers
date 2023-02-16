@@ -51,7 +51,7 @@ function mapRouteTabs(event: BundledEvent): Tabs {
 
 interface LayoutProps extends Pick<EventPageProps, "event"> {
   children: RequiredChildren;
-  current: typeof RouteTabs[number]["label"];
+  current: (typeof RouteTabs)[number]["label"];
   description?: string;
 }
 
