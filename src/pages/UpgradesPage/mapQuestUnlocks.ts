@@ -24,11 +24,7 @@ export const createQuestUnlockMapper = (
     if (result) return result;
     const quest = questMap[questId];
 
-    if (
-      !quest.unlock ||
-      !quest.unlock.quests ||
-      quest.unlock.quests.length < 1
-    ) {
+    if (!quest.unlock?.quests || quest.unlock.quests.length < 1) {
       return quest as MappedBundledQuest;
     }
 

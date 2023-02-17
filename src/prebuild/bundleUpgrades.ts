@@ -5,7 +5,7 @@ import {
 } from "@atlasacademy/api-connector/dist/Schema/Quest.js";
 import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
 
-import {
+import type {
   Upgrade,
   UpgradeMap,
   UpgradeMapNP,

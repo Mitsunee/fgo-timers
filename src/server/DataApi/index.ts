@@ -30,7 +30,7 @@ export type DataApiFallback<U extends string, T extends {}> = {
 function isSuccess<T extends {}>(
   data: DataApiResponse<T>
 ): data is ResponseData<T> {
-  return data.success == true;
+  return data.success;
 }
 
 export const fetcher = async <T extends {}>(url: URL | string) => {

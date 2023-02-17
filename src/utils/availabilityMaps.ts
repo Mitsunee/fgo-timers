@@ -1,9 +1,7 @@
 import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 import { verifySchema } from "../schema/verifySchema";
-import {
-  AvailabilityMap,
-  AvailabilityMapSchema
-} from "../schema/AvailabilityMap";
+import type { AvailabilityMap } from "../schema/AvailabilityMap";
+import { AvailabilityMapSchema } from "../schema/AvailabilityMap";
 import { Availability } from "../types/enum";
 
 class AvailabilityMatcher {

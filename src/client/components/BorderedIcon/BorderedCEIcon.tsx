@@ -1,5 +1,5 @@
-import { BundledCE } from "src/items/types";
-import { ComponentPropsCC } from "src/types/ComponentProps";
+import type { BundledCE } from "src/items/types";
+import type { ComponentPropsCC } from "src/types/ComponentProps";
 import { BorderedIcon } from "./BorderedIcon";
 import { BorderedIconAvailability } from "./BorderedIconAvailability";
 import { BorderedIconRarity } from "./BorderedIconRarity";

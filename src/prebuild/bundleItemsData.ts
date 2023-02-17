@@ -1,11 +1,12 @@
 import { readFileJson } from "@foxkit/node-util/fs";
 import { join } from "path";
 import { List } from "@foxkit/util/object";
-import { BundledItem, mapItemBackgroundToBorder } from "../items/types";
+import type { BundledItem } from "../items/types";
+import { mapItemBackgroundToBorder } from "../items/types";
 import { atlasCache } from "../atlas-api/cache";
 import { shortenAtlasUrl } from "../atlas-api/urls";
 import { Log } from "../utils/log";
-import { DataBundler } from "./dataBundlers";
+import type { DataBundler } from "./dataBundlers";
 
 async function getCustomItems() {
   const data = await readFileJson<IDMap<BundledItem>>(

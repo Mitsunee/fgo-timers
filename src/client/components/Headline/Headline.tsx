@@ -1,5 +1,5 @@
 import cc from "classcat";
-import { CC } from "src/types/ComponentProps";
+import type { CC } from "src/types/ComponentProps";
 
 import styles from "./Headline.module.css";
 

@@ -1,9 +1,9 @@
 import { ItemBackgroundType } from "@atlasacademy/api-connector/dist/Schema/Item.js";
-import { CustomItemSchema } from "../schema/CustomItem";
-import { z } from "zod";
-import { ServantBorder } from "../servants/types";
+import type { CustomItemSchema } from "../schema/CustomItem";
+import type { z } from "zod";
+import type { ServantBorder } from "../servants/types";
 import { Borders } from "../types/borders";
-import { Availability } from "../types/enum";
+import type { Availability } from "../types/enum";
 
 export type ItemBorder =
   | Borders.BRONZE

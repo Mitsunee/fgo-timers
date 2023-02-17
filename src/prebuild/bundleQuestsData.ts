@@ -2,16 +2,12 @@ import { List } from "@foxkit/util/object";
 import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 import { join } from "path";
 
-import { DataBundler } from "./dataBundlers";
+import type { DataBundler } from "./dataBundlers";
 import { parseSchema } from "../schema/verifySchema";
 import { QuestOpenOverridesSchema } from "../schema/QuestOpenOverrides";
 import type { QuestOpenOverrides } from "../schema/QuestOpenOverrides";
-import {
-  BundledQuest,
-  QuestUpgrade,
-  QuestOther,
-  UpgradeQuestType
-} from "../upgrades/types";
+import type { BundledQuest, QuestUpgrade, QuestOther } from "../upgrades/types";
+import { UpgradeQuestType } from "../upgrades/types";
 import { getQuestData } from "../upgrades/getQuestData";
 import { Log } from "../utils/log";
 import { parseQuestType } from "../upgrades/parseQuestType";

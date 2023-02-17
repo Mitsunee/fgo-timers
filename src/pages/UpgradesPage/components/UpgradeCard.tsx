@@ -3,19 +3,21 @@ import type {
   BundledServant,
   BundledSkill
 } from "src/servants/types";
-import {
+import type {
   Upgrade,
+  UpgradeMapNP,
+  UpgradeMapSkill
+} from "src/upgrades/types";
+import {
   upgradeIsNPUpgrade,
   upgradeIsSkillUpgrade,
-  UpgradeMapNP,
-  UpgradeMapSkill,
   UpgradeQuestType
 } from "src/upgrades/types";
 import styles from "./UpgradeCard.module.css";
 import { Hero } from "./Hero";
 import { BorderColours, Borders } from "src/types/borders";
 import { NPUpgrade, SkillUpgrade } from "./UpgradeDisplay";
-import { Highlight } from "../types";
+import type { Highlight } from "../types";
 import { Subtitle, Title } from "./Title";
 import type { MappedBundledQuest } from "../mapQuestUnlocks";
 import { UpgradeInfo } from "./UpgradeInfo";

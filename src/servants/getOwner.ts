@@ -1,4 +1,4 @@
-import { SupportedRegion } from "@atlas-api/api";
+import type { SupportedRegion } from "@atlas-api/api";
 import type { NoblePhantasm } from "@atlasacademy/api-connector/dist/Schema/NoblePhantasm";
 import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
 import type { Skill } from "@atlasacademy/api-connector/dist/Schema/Skill";

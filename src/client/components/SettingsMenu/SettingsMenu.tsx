@@ -12,7 +12,8 @@ import {
 } from "src/client/stores/settingsStore";
 import { Modal, ModalMenu } from "src/client/components/Modal";
 import Headline from "src/client/components/Headline";
-import { Selector, SelectorOption } from "src/client/components/Selector";
+import type { SelectorOption } from "src/client/components/Selector";
+import { Selector } from "src/client/components/Selector";
 import { DebugInfo } from "./DebugInfo";
 import styles from "./SettingsMenu.module.css";
 

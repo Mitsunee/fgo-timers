@@ -1,6 +1,6 @@
 import { ItemBackgroundFromBorder } from "src/items/itemBackgrounds";
 import type { BundledItem } from "src/items/types";
-import { ComponentPropsCC } from "src/types/ComponentProps";
+import type { ComponentPropsCC } from "src/types/ComponentProps";
 import { BorderedIcon } from "./BorderedIcon";
 import styles from "./BorderedItemIcon.module.css";
 import { IconFace } from "./IconFace";

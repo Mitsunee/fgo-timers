@@ -5,14 +5,12 @@ import FlagEN from "flag-icons/flags/4x3/gb.svg";
 import FlagJP from "flag-icons/flags/4x3/jp.svg";
 import { UpgradeQuestType } from "src/upgrades/types";
 import { getClassIconPath, nameServantClass } from "src/servants/classNames";
-import { Selector, SelectorOption } from "src/client/components/Selector";
+import type { SelectorOption } from "src/client/components/Selector";
+import { Selector } from "src/client/components/Selector";
 import { ActionButton } from "src/client/components/Button";
 import { Pending } from "src/client/components/Pending";
-import {
-  FormFilterAction,
-  FormFilterState,
-  selectableClasses
-} from "../filtersReducer";
+import type { FormFilterAction, FormFilterState } from "../filtersReducer";
+import { selectableClasses } from "../filtersReducer";
 import styles from "./FiltersForm.module.css";
 
 interface FiltersFormProps extends React.PropsWithChildren {

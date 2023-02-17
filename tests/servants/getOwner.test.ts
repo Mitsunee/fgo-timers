@@ -1,4 +1,4 @@
-import { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
+import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
 import { atlasCacheNA } from "src/atlas-api/cache";
 import { getNPOwner, getSkillOwners } from "src/servants/getOwner";
 

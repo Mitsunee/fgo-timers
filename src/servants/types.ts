@@ -1,8 +1,8 @@
 import type { NoblePhantasm } from "@atlasacademy/api-connector/dist/Schema/NoblePhantasm";
 import type { Skill } from "@atlasacademy/api-connector/dist/Schema/Skill";
-import { ClassName } from "@atlasacademy/api-connector";
-import { Borders } from "../types/borders";
-import { Availability } from "../types/enum";
+import type { ClassName } from "@atlasacademy/api-connector";
+import type { Borders } from "../types/borders";
+import type { Availability } from "../types/enum";
 
 export type SkillBorder = Borders.BLACK | Borders.GOLD | Borders.RED;
 

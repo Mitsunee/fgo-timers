@@ -1,5 +1,5 @@
 import { Borders } from "../types/borders";
-import { ServantBorder, SkillBorder } from "./types";
+import type { ServantBorder, SkillBorder } from "./types";
 
 export function mapServantRarityToBorder(rarity: number): ServantBorder {
   switch (rarity) {

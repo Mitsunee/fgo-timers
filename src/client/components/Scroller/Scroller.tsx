@@ -1,4 +1,5 @@
-import { ElementRef, useLayoutEffect, useRef } from "react";
+import type { ElementRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { useStore } from "@nanostores/react";
 import {
   settingsStore,

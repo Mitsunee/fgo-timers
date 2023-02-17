@@ -1,5 +1,6 @@
-import { BgColours, Borders } from "src/types/borders";
-import { BundledServant } from "src/servants/types";
+import type { Borders } from "src/types/borders";
+import { BgColours } from "src/types/borders";
+import type { BundledServant } from "src/servants/types";
 import { IconFace } from "src/client/components/BorderedIcon";
 import styles from "./Hero.module.css";
 
