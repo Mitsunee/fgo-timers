@@ -7,7 +7,7 @@ import { formatDiff } from "src/time/formatDiff";
 import Section from "src/client/components/Section";
 import Headline from "src/client/components/Headline";
 import { Progress } from "src/client/components/Progress";
-import { ActionButton } from "src/client/components/Button";
+import { LinkButton } from "src/client/components/Button";
 import { DiscordTSButton } from "src/client/components/DiscordTSButton";
 import { DisplayDate } from "src/client/components/TimeDisplay";
 import type { BundledEvent } from "src/events/types";
@@ -15,13 +15,14 @@ import styles from "./EventInfoSection.module.css";
 
 type EventInfoSectionProps = Pick<
   BundledEvent,
-  "title" | "date" | "requires" | "description"
+  "title" | "date" | "requires" | "description" | "url"
 > & { modalCallback: () => void };
 
 export function EventInfoSection({
   title,
   description,
   date,
+  url,
   requires,
   modalCallback
 }: EventInfoSectionProps) {
@@ -31,6 +32,9 @@ export function EventInfoSection({
   const hasStarted = current >= start;
   const hasEnded = end > 0 ? current >= end : hasStarted;
   let progressText: false | string = false;
+  const officialUrl = `https://fate-go.us/news/?category=NEWS&article=%2Fiframe%2F${encodeURIComponent(
+    url
+  )}`;
 
   if (isClient && end > 0) {
     progressText = hasEnded
@@ -52,7 +56,14 @@ export function EventInfoSection({
       )}
       <aside className={styles.flexbar}>
         {requires && <span>Requires: {requires}</span>}
-        <ActionButton onClick={modalCallback}>Official News Post</ActionButton>
+        <LinkButton
+          href={officialUrl}
+          onClick={ev => {
+            ev.preventDefault();
+            modalCallback();
+          }}>
+          Official News Post
+        </LinkButton>
         <DiscordTSButton time={date}>Copy Timestamp</DiscordTSButton>
       </aside>
       <Section background padding={false}>

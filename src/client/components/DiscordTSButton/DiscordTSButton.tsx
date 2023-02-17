@@ -11,7 +11,11 @@ export function DiscordTSButton({ children, time }: DiscordTSButtonProps) {
   const text = formatTS(time);
 
   return (
-    <ActionButton icon={IconDiscord} onClick={ev => handleCopy(ev, text)}>
+    <ActionButton
+      icon={IconDiscord}
+      onClick={ev => {
+        handleCopy(ev, text);
+      }}>
       {children}
     </ActionButton>
   );

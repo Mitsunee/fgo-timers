@@ -17,13 +17,17 @@ import styles from "./Navigation.module.css";
 
 export function Navigation() {
   const router = useRouter();
-  const testActive = (item: typeof navRoutes[number]) =>
+  const testActive = (item: (typeof navRoutes)[number]) =>
     item.test
       ? item.test.test(router.asPath)
       : router.asPath.startsWith(item.route);
 
   return (
-    <nav className={styles.nav}>
+    <nav
+      role="navigation"
+      aria-label="Main menu"
+      className={styles.nav}
+      id="main-menu">
       <section className={styles.navSection}>
         {navRoutes.map(navItem => {
           const isActive = testActive(navItem);

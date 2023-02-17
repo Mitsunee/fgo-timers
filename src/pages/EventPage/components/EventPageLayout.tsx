@@ -51,7 +51,7 @@ function mapRouteTabs(event: BundledEvent): Tabs {
 
 interface LayoutProps extends Pick<EventPageProps, "event"> {
   children: RequiredChildren;
-  current: typeof RouteTabs[number]["label"];
+  current: (typeof RouteTabs)[number]["label"];
   description?: string;
 }
 
@@ -81,13 +81,14 @@ export function EventPageLayout({
         description={
           metaDesc.length > 250 ? `${metaDesc.slice(0, 250)}...` : metaDesc
         }
-        headerDescription={`Event Timers for ${event.shortTitle}`}
+        headerDescription={description || `Event Timers for ${event.title}`}
       />
       <EventHero banner={event.banner} title={event.shortTitle} />
       <EventInfoSection
         title={event.title}
         date={event.date}
         description={event.description}
+        url={event.url}
         requires={event.requires}
         modalCallback={() => setShowEmbed(true)}
       />

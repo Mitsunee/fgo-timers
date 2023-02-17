@@ -39,6 +39,8 @@ export function Layout({ children }: React.PropsWithChildren) {
             onClick={() => setMobileNavOpen(false)}
             icon={IconClose}
             decorated={false}
+            aria-controls="main-menu"
+            aria-expanded="true"
           />
           <Navigation />
         </Modal>

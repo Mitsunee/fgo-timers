@@ -146,3 +146,9 @@ overrides:
   911100101: 1584504000 # Angra Interlude 1
   91103001: 1588305600 # Suzuka Gozen Interlude 1 (Interlude Campaign 5)
   # TODO: find all wrong dates...
+
+  # From Events:
+  94054990: 2023-01-05 00:00 PST # Yagyu Rank Up 1 (Saber Wars II Rerun)
+  94055580: 2023-01-20 00:00 PST # Ushiwakamaru Rider Rank Up 3 (Little Big Tengu)
+  94055581: 2023-01-20 00:00 PST # Benkei Rank Up 2 (Little Big Tengu)
+  94056490: 2023-02-13 00:00 PST # Kid Gil Rank Up 1 (Valentines 2023)

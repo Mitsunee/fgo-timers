@@ -2,11 +2,8 @@ import { join } from "path";
 import { readdir } from "fs/promises";
 import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 import { Log } from "../utils/log";
-import {
-  BundledItem,
-  CustomItem,
-  mapCustomItemRarityToBorder
-} from "../items/types";
+import type { BundledItem, CustomItem } from "../items/types";
+import { mapCustomItemRarityToBorder } from "../items/types";
 import { CustomItemSchema } from "../schema/CustomItem";
 import { verifySchema } from "../schema/verifySchema";
 import { shortenAtlasUrl } from "../atlas-api/urls";

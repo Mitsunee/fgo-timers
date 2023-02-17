@@ -1,4 +1,4 @@
-import { BundledSkill } from "./types";
+import type { BundledSkill } from "./types";
 
 export function getSkillNum(skill: BundledSkill, servantId: number): number {
   if (typeof skill.num == "number") return skill.num;

@@ -6,37 +6,44 @@
   background-color: var(--dark);
   display: flex;
   grid-gap: 0.33em;
+  min-width: 0px;
   width: 100%;
   height: 54px;
   padding: 0.45em 0.33em;
   font-size: 24px;
 
   & section {
+    min-width: 0px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
 
+    & h1,
+    & h2 {
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
     & h1 {
       font-size: 1em;
       margin: 0px;
+      text-overflow: clip;
     }
-    & h1,
+
     & h2 {
-      white-space: nowrap;
+      text-overflow: ellipsis;
+      display: none;
+      font-size: 0.33em;
+      margin: 0.25em 0px;
     }
   }
 
   & img {
+    min-width: 32px;
     width: 32px;
     height: 100%;
     object-fit: contain;
-  }
-
-  & section h2 {
-    display: none;
-    font-size: 0.33em;
-    margin: 0.25em 0px;
   }
 
   @media (--mq-small) {
@@ -45,11 +52,12 @@
     font-size: 48px;
 
     & img {
+      min-width: 64px;
       width: 64px;
     }
 
     & section h2 {
-      display: initial;
+      display: block;
     }
   }
 }
@@ -58,6 +66,8 @@
   display: block;
   width: 1em;
   height: 1em;
+  min-width: 1em;
+  min-height: 1em;
   padding: 0px;
   margin: 0px;
   border: 0px;

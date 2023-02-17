@@ -1,17 +1,15 @@
 import type { InferGetStaticPropsType } from "next";
 import useSWR, { SWRConfig } from "swr";
 import { useEffect, useMemo, useReducer, useState } from "react";
-import { MatchData, Searcher } from "fast-fuzzy";
+import type { MatchData } from "fast-fuzzy";
+import { Searcher } from "fast-fuzzy";
 import { clamp } from "@foxkit/util/clamp";
 import { useStore } from "@nanostores/react";
 import { getStaticProps } from "src/pages/UpgradesPage/getStaticProps";
-import { fetcher, UpgradesPageData } from "src/server/DataApi";
-import {
-  BundledQuest,
-  Upgrade,
-  upgradeIsNPUpgrade,
-  upgradeIsSkillUpgrade
-} from "src/upgrades/types";
+import type { UpgradesPageData } from "src/server/DataApi";
+import { fetcher } from "src/server/DataApi";
+import type { BundledQuest, Upgrade } from "src/upgrades/types";
+import { upgradeIsNPUpgrade, upgradeIsSkillUpgrade } from "src/upgrades/types";
 import type {
   BundledServant,
   BundledSkill,
@@ -39,7 +37,8 @@ import {
   createUpgradeSorter
 } from "src/pages/UpgradesPage/filters";
 import { apiUrl } from "src/pages/UpgradesPage/constants";
-import { Highlight, UpgradeCard } from "src/pages/UpgradesPage/components";
+import type { Highlight } from "src/pages/UpgradesPage/components";
+import { UpgradeCard } from "src/pages/UpgradesPage/components";
 import { createQuestUnlockMapper } from "src/pages/UpgradesPage/mapQuestUnlocks";
 
 export { getStaticProps };
@@ -243,7 +242,6 @@ export default function UpgradesPage(fallback: UpgradesPageProps) {
       <Meta
         title="Upgrades"
         description="Explore the Interludes and Rank Up Quests of Fate/Grand Order"
-        image="/assets/meta/upgrades.jpg"
       />
       <SWRConfig value={fallback}>
         <Page />

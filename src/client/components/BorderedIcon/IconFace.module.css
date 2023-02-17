@@ -21,7 +21,7 @@
 }
 
 div:hover {
-  & > span .face.prerendered {
+  & > .face.prerendered {
     filter: blur(0px);
   }
   & > .spoiler.prerendered {

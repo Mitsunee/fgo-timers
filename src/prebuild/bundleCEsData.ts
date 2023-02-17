@@ -6,7 +6,7 @@ import { Log } from "../utils/log";
 import { getAvailabilityMap } from "../utils/availabilityMaps";
 import { mapServantRarityToBorder } from "../servants/borders";
 import type { DataBundler } from "./dataBundlers";
-import { BundledCE } from "../items/types";
+import type { BundledCE } from "../items/types";
 
 const avMapPath = join("assets", "data", "ces", "availability.yml");
 

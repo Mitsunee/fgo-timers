@@ -3,7 +3,7 @@ import { EntityType } from "@atlasacademy/api-connector/dist/Schema/Entity.js";
 import { join } from "path";
 import { Log } from "../utils/log";
 import { getAvailabilityMap } from "../utils/availabilityMaps";
-import { BundledServant } from "../servants/types";
+import type { BundledServant } from "../servants/types";
 import { nameServant } from "../servants/nameServant";
 import { mapServantRarityToBorder } from "../servants/borders";
 import { atlasCache } from "../atlas-api/cache";

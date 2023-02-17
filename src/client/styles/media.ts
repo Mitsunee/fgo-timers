@@ -7,6 +7,6 @@ const queries = [
   ["only-small", "(max-width: 511.99999px)"]
 ] as const;
 
-export type Queries = typeof queries[number][0] | (string & {});
+export type Queries = (typeof queries)[number][0] | (string & {});
 
 export const queryMap = new Map<Queries, string /*DimensionQuery*/>(queries);

@@ -1,5 +1,5 @@
 import ClassName from "@atlasacademy/api-connector/dist/Enum/ClassName.js";
-import { SupportedRegion } from "src/atlas-api/api";
+import type { SupportedRegion } from "src/atlas-api/api";
 import { UpgradeQuestType } from "src/upgrades/types";
 
 export type SelectableClassId =

@@ -1,10 +1,11 @@
+import type { Quest } from "@atlasacademy/api-connector/dist/Schema/Quest.js";
 import {
   QuestFlag,
   QuestType
 } from "@atlasacademy/api-connector/dist/Schema/Quest.js";
 import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
 
-import {
+import type {
   Upgrade,
   UpgradeMap,
   UpgradeMapNP,
@@ -55,6 +56,21 @@ function getUpgradeMap(
   return;
 }
 
+/**
+ * Array.prototype.filter callback that returns true for Rank Up Quests and Interlude Quests (other than branches)
+ */
+function filterQuests(quest: Quest) {
+  // Return true for all Rank Up Quests
+  if (quest.warId == 1001) return true;
+  // Return true for Interlude Quests...
+  if (quest.type == QuestType.FRIENDSHIP) {
+    // ...but ignore branches
+    return !quest.flags.includes(QuestFlag.BRANCH);
+  }
+
+  return false;
+}
+
 export const bundleUpgrades: PrebuildBundler<Upgrade[]> = async function () {
   const [niceWar, niceWarNA] = await Promise.all([
     atlasCache.JP.getNiceWar(),
@@ -67,44 +83,33 @@ export const bundleUpgrades: PrebuildBundler<Upgrade[]> = async function () {
   const skills = new Set<number>();
   const nps = new Set<number>();
 
-  // parse Interludes
-  const interludes = niceWar
+  const questsData = niceWar
     .flatMap(war => war.spots.flatMap(spot => spot.quests))
-    .filter(
-      quest =>
-        quest.type == QuestType.FRIENDSHIP &&
-        !quest.flags.includes(QuestFlag.BRANCH)
-    );
-  const interludesNA = niceWarNA
+    .filter(filterQuests);
+  const questsDataNA = niceWarNA
     .flatMap(war => war.spots.flatMap(spot => spot.quests))
-    .filter(
-      quest =>
-        quest.type == QuestType.FRIENDSHIP &&
-        !quest.flags.includes(QuestFlag.BRANCH)
-    );
+    .filter(filterQuests);
 
-  for (const interlude of interludes) {
-    quests.add(interlude.id);
-    const interludeNA = interludesNA.find(quest => quest.id == interlude.id);
+  for (const questData of questsData) {
+    quests.add(questData.id);
+    const questDataNA = questsDataNA.find(quest => quest.id == questData.id);
 
     // Find Servant
-    const servant = await getRelatedServant(interlude.id, "JP");
+    const servant = await getRelatedServant(questData.id, "JP");
     if (!servant) {
-      Log.error(
-        `Could not find related Servant for interlude quest id ${interlude.id}`
-      );
+      Log.error(`Could not find related Servant for quest id ${questData.id}`);
       return false;
     }
     servants.add(servant.id);
 
     // describe upgrade
     const upgrade: Upgrade = {
-      quest: interlude.id,
+      quest: questData.id,
       servant: servant.id
     } as Upgrade; // I blame typescript for this.
-    if (interludeNA) upgrade.na = true;
+    if (questDataNA) upgrade.na = true;
 
-    const upgradeMap = getUpgradeMap(servant, interlude.id);
+    const upgradeMap = getUpgradeMap(servant, questData.id);
     if (upgradeMap) {
       upgrade.upgrades = upgradeMap;
       if (upgradeMap.type == "np") {
@@ -114,53 +119,9 @@ export const bundleUpgrades: PrebuildBundler<Upgrade[]> = async function () {
         if (upgradeMap.id) skills.add(upgradeMap.id);
         skills.add(upgradeMap.newId);
       }
-    }
-
-    upgrades.push(upgrade);
-  }
-
-  // parse Rank Up Quests
-  const rankupsJP = niceWar
-    .find(war => war.id == 1001)!
-    .spots.flatMap(spot => spot.quests);
-  const rankupsNA = niceWarNA
-    .find(war => war.id == 1001)!
-    .spots.flatMap(spot => spot.quests);
-
-  for (const rankup of rankupsJP) {
-    quests.add(rankup.id);
-    const rankupNA = rankupsNA.find(quest => quest.id == rankup.id);
-
-    // Find Servant
-    const servant = await getRelatedServant(rankup.id, "JP");
-    if (!servant) {
+    } else if (questData.warId == 1001) {
       Log.error(
-        `Could not find related Servant for rankup quest id ${rankup.id}`
-      );
-      return false;
-    }
-    servants.add(servant.id);
-
-    // describe upgrade
-    const upgrade: Upgrade = {
-      quest: rankup.id,
-      servant: servant.id
-    } as Upgrade;
-    if (rankupNA) upgrade.na = true;
-
-    const upgradeMap = getUpgradeMap(servant, rankup.id);
-    if (upgradeMap) {
-      upgrade.upgrades = upgradeMap;
-      if (upgradeMap.type == "np") {
-        nps.add(upgradeMap.id);
-        nps.add(upgradeMap.newId);
-      } else {
-        if (upgradeMap.id) skills.add(upgradeMap.id);
-        skills.add(upgradeMap.newId);
-      }
-    } else {
-      Log.error(
-        `Could not find related Skill or NP for rankup quest id ${rankup.id}`
+        `Could not find related Skill or NP for rankup quest id ${questData.id}`
       );
       return false;
     }

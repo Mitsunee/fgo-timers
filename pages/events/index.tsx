@@ -8,7 +8,7 @@ import Headline from "src/client/components/Headline";
 import { Scroller } from "src/client/components/Scroller";
 import Meta from "src/client/components/Meta";
 import { EventList } from "src/client/components/EventList";
-import { EventsPageProps } from "src/pages/EventsPage/static";
+import type { EventsPageProps } from "src/pages/EventsPage/static";
 export { getStaticProps } from "src/pages/EventsPage/static";
 
 const noOp = {};
@@ -51,7 +51,7 @@ export default function EventsPage({ fallback }: EventsPageProps) {
     <>
       <Meta
         title="Events"
-        description="List of current and past events of Fate/Grand Order"
+        description="List of current and past events of Fate/Grand Order Global Version"
       />
       <EventList events={eventsShown} title="Events">
         <p>

@@ -1,6 +1,6 @@
-import { NoblePhantasm } from "@atlasacademy/api-connector/dist/Schema/NoblePhantasm";
-import { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
-import { Skill } from "@atlasacademy/api-connector/dist/Schema/Skill";
+import type { NoblePhantasm } from "@atlasacademy/api-connector/dist/Schema/NoblePhantasm";
+import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
+import type { Skill } from "@atlasacademy/api-connector/dist/Schema/Skill";
 
 export function getPreviousSkill(
   servant: Servant,

@@ -1,10 +1,10 @@
 import picocolors from "picocolors";
 import { typeOf } from "@foxkit/util/typeOf";
-import { z } from "zod";
+import type { z } from "zod";
 
 type Colour =
   | Exclude<
-      keyof ReturnType<typeof picocolors["createColors"]>,
+      keyof ReturnType<(typeof picocolors)["createColors"]>,
       "isColorSupported"
     >
   | false;

@@ -4,8 +4,8 @@
 const config = {
   reactStrictMode: true,
   eslint: { ignoreDuringBuilds: true },
+  swcMinify: true,
   experimental: {
-    browsersListForSwc: true,
     legacyBrowsers: false,
     newNextLinkBehavior: true
   },

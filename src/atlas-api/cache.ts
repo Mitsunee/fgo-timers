@@ -8,8 +8,9 @@ import type { Item } from "@atlasacademy/api-connector/dist/Schema/Item";
 import type { MasterMission } from "@atlasacademy/api-connector/dist/Schema/MasterMission";
 import type { War } from "@atlasacademy/api-connector/dist/Schema/War";
 
-import { atlasApi, SupportedRegion } from "./api";
-import { CraftEssenceBasic } from "@atlasacademy/api-connector/dist/Schema/CraftEssence";
+import type { SupportedRegion } from "./api";
+import { atlasApi } from "./api";
+import type { CraftEssenceBasic } from "@atlasacademy/api-connector/dist/Schema/CraftEssence";
 
 export const cachePath = ".next/cache/atlasacademy";
 export const cacheVersion = "0.3.0"; // NOTE: bump when adding new things to cache
@@ -25,7 +26,7 @@ enum CacheFile {
 
 class AtlasApiCache {
   region: SupportedRegion;
-  api: typeof atlasApi[SupportedRegion];
+  api: (typeof atlasApi)[SupportedRegion];
   private servant?: Servant[];
   private servantBasic?: ServantBasic[];
   private item?: Item[];

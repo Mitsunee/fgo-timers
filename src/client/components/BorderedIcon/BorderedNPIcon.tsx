@@ -1,4 +1,5 @@
-import { BundledNP, ServantCard } from "src/servants/types";
+import type { BundledNP } from "src/servants/types";
+import { ServantCard } from "src/servants/types";
 import type { ComponentPropsCC } from "src/types/ComponentProps";
 import { BorderedIcon } from "./BorderedIcon";
 import { IconFace } from "./IconFace";

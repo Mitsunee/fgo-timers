@@ -1,4 +1,4 @@
-import { RequiredChildren } from "src/types/ComponentProps";
+import type { RequiredChildren } from "src/types/ComponentProps";
 import styles from "./Clock.module.css";
 
 interface ClockProps {

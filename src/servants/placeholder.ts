@@ -1,5 +1,5 @@
 import { Borders } from "../types/borders";
-import { BundledSkill } from "./types";
+import type { BundledSkill } from "./types";
 
 export const PLACEHOLDER_SKILL: BundledSkill = {
   name: "No Skill",

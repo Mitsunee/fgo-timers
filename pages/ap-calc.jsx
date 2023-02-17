@@ -3,7 +3,6 @@ import { useStore } from "@nanostores/react";
 import { clamp, isClamped } from "@foxkit/util/clamp";
 import cc from "classcat";
 
-import styles from "@styles/APCalcPage.module.css";
 import {
   settingsStore,
   setUserMaxAP,
@@ -21,8 +20,9 @@ import Meta from "@components/Meta";
 import { Clocks } from "@components/Clocks";
 import Section from "@components/Section";
 import { Select, SelectOption } from "@components/Selector";
-import { FormField, Results } from "@components/ApCalc";
 import { Input, InputNumber } from "@components/Input";
+import { FormField, Results } from "src/pages/ApCalcPage/components";
+import styles from "src/pages/ApCalcPage/APCalcPage.module.css";
 
 const validateApOffset = value =>
   /^(0:(0[1-9]|[1-5]\d)|[1-4]:[0-5]\d)$/.test(value);
@@ -165,7 +165,6 @@ export default function APCalcPage() {
       <Meta
         title="AP Calculator"
         description="AP Calculator for Fate/Grand Order"
-        image="/assets/meta/ap.jpg"
         color="#f9e677"
       />
       <Clocks />

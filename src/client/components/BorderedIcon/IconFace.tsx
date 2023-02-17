@@ -3,14 +3,17 @@ import Image from "next/image";
 import { expandAtlasUrl } from "src/atlas-api/urls";
 import { useSpoilerLevel } from "src/client/utils/hooks/useSpoilerLevel";
 import { useSpoilerState } from "src/client/utils/hooks/useSpoilerState";
-import { ComponentPropsCC } from "src/types/ComponentProps";
+import type { ComponentPropsCC } from "src/types/ComponentProps";
 import { SpoilerLevels } from "src/types/enum";
 import styles from "./IconFace.module.css";
 
-type ImageProps = Omit<ComponentPropsCC<typeof Image>, "id" | "placeholder">;
+type ImageProps = Omit<
+  ComponentPropsCC<typeof Image>,
+  "id" | "placeholder" | "alt" | "layout"
+>;
 type ImageLayout =
   | Required<Pick<ImageProps, "width" | "height">>
-  | { layout: "fill" };
+  | Required<Pick<ImageProps, "fill">>;
 
 interface IconFaceProps extends ImageProps {
   id: number;
@@ -73,8 +76,8 @@ export function IconFace({
   };
 
   const imgLayout: ImageLayout =
-    props.layout == "fill" || width == undefined || height == undefined
-      ? { layout: "fill" }
+    props.fill || width == undefined || height == undefined
+      ? { fill: true }
       : { width, height };
 
   return (
@@ -82,7 +85,7 @@ export function IconFace({
       <Image
         {...props}
         {...imgLayout}
-        loading={loading}
+        priority={loading == "eager"}
         unoptimized
         src={fullSrc}
         alt={alt}

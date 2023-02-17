@@ -1,7 +1,8 @@
 import { Card } from "@atlasacademy/api-connector";
 import type { NoblePhantasm } from "@atlasacademy/api-connector/dist/Schema/NoblePhantasm";
 import { Log } from "../utils/log";
-import { NPType, ServantCard } from "./types";
+import type { NPType } from "./types";
+import { ServantCard } from "./types";
 
 export function getNPType(np: NoblePhantasm): NPType {
   switch (np.card) {
