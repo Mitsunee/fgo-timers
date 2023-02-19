@@ -15,8 +15,14 @@ times:
     date: 2023-02-12 20:00 - 02-13 00:00 PST
   - title: Special Login Bonus
     date: 2023-02-13 00:00 - 02-15 19:59 PST
+  - title: Challenge Quest Available
+    date: 2023-02-18 20:00 PST
+  - title: Caren Costume Unlockable in RP Shop
+    date: 2023-03-05 20:00 PST
+    servants: [901100] # Caren
   - title: Chocolate Exchange
     date: 2023-02-13 00:00 - 03-05 19:59 PST
+    items: [94056109, 94056108, 94056106, 94056107]
   - title: Event Shop Exchange
     date: 2023-02-13 00:00 - 03-05 19:59 PST
 schedules:
