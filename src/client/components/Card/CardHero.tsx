@@ -1,19 +1,18 @@
 import { IconFace } from "src/client/components/BorderedIcon";
 import styles from "./CardHero.module.css";
 
-interface CardHeroProps
-  extends Pick<
-    React.ComponentProps<typeof IconFace>,
-    "loading" | "placeholder"
-  > {
+type CardHeroProps = Pick<
+  React.ComponentProps<typeof IconFace>,
+  "loading" | "placeholder"
+> & {
   title: string;
   icon: string;
   forceRound?: boolean;
   id?: number;
   bypassSpoilers?: true;
-}
+};
 
-export default function CardHero({
+export function CardHero({
   id = 0,
   title,
   placeholder,

@@ -9,7 +9,6 @@ import { getStaticProps } from "src/pages/UpgradesPage/getStaticProps";
 import type { UpgradesPageData } from "src/server/DataApi";
 import { fetcher } from "src/server/DataApi";
 import type { BundledQuest, Upgrade } from "src/upgrades/types";
-import { upgradeIsNPUpgrade, upgradeIsSkillUpgrade } from "src/upgrades/types";
 import type {
   BundledServant,
   BundledSkill,
@@ -38,8 +37,10 @@ import {
 } from "src/pages/UpgradesPage/filters";
 import { apiUrl } from "src/pages/UpgradesPage/constants";
 import type { Highlight } from "src/pages/UpgradesPage/components";
-import { UpgradeCard } from "src/pages/UpgradesPage/components";
-import { createQuestUnlockMapper } from "src/pages/UpgradesPage/mapQuestUnlocks";
+import {
+  UpgradeContextProvider,
+  UpgradeCard
+} from "src/pages/UpgradesPage/components";
 
 export { getStaticProps };
 type UpgradesPageProps = InferGetStaticPropsType<typeof getStaticProps>;
@@ -54,16 +55,11 @@ function Page() {
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [page, setPage] = useState<number>(1);
   const [showHelp, setShowHelp] = useState(false);
-
   const questMap = res.data!.quests as Record<number, BundledQuest>;
-  const servantMap = res.data!.servants as Record<number, BundledServant>;
-  const skillMap = res.data!.skills as Record<number, BundledSkill>;
-  const npMap = res.data!.nps as Record<number, BundledNP>;
   const sorter = createUpgradeSorter(questMap);
-  const questMapper = createQuestUnlockMapper(questMap);
 
+  // apply filters and create Searcher
   const [searcher, filteredUpgrades] = useMemo(() => {
-    // redefining res.data stuff in this scope so they aren't needed in dependecy array
     const upgrades = res.data!.upgrades;
     const servantMap = res.data!.servants as Record<number, BundledServant>;
     const questMap = res.data!.quests as Record<number, BundledQuest>;
@@ -83,6 +79,17 @@ function Page() {
     return [searcher, filteredUpgrades] as [typeof searcher, Upgrade[]];
   }, [res.isValidating, res.data, filters]);
 
+  // create memoized context value for UpgradeCard
+  const upgradeContextVal = useMemo(() => {
+    const questMap = res.data!.quests as Record<number, BundledQuest>;
+    const servantMap = res.data!.servants as Record<number, BundledServant>;
+    const skillMap = res.data!.skills as Record<number, BundledSkill>;
+    const npMap = res.data!.nps as Record<number, BundledNP>;
+    return { questMap, servantMap, skillMap, npMap } as React.ComponentProps<
+      typeof UpgradeContextProvider
+    >["value"];
+  }, [res.data]);
+
   const results: SemiRequired<MatchData<Upgrade>, "item">[] =
     res.isValidating || searchQuery == ""
       ? filteredUpgrades.sort(sorter).map(upgrade => ({ item: upgrade }))
@@ -98,10 +105,12 @@ function Page() {
     );
   };
 
+  // reset page if filters or search changed
   useEffect(() => {
     setPage(1);
   }, [filters, searchQuery]);
 
+  // make sure page is valid if perPage setting is changed
   useEffect(() => {
     setPage(page =>
       clamp({
@@ -155,53 +164,19 @@ function Page() {
           </ActionButton>
         </NoSSR>
       </div>
-      <CardGrid>
-        {results.slice(0, page * perPage).map(({ item, match, original }) => {
-          const highlight: Highlight = match
-            ? { index: match.index, length: match.length, match: original! }
-            : {};
+      <UpgradeContextProvider value={upgradeContextVal}>
+        <CardGrid>
+          {results.slice(0, page * perPage).map(({ item, match, original }) => {
+            const highlight: Highlight = match
+              ? { index: match.index, length: match.length, match: original! }
+              : {};
 
-          if (upgradeIsSkillUpgrade(item)) {
-            const { id: skillId, newId } = item.upgrades;
             return (
-              <UpgradeCard
-                key={item.quest}
-                upgrade={item}
-                servant={servantMap[item.servant]}
-                quest={questMapper(item.quest)}
-                from={skillMap[skillId ?? 0]}
-                to={skillMap[newId]}
-                {...highlight}
-              />
+              <UpgradeCard key={item.quest} upgrade={item} {...highlight} />
             );
-          }
-
-          if (upgradeIsNPUpgrade(item)) {
-            const { id: npId, newId } = item.upgrades;
-            return (
-              <UpgradeCard
-                key={item.quest}
-                upgrade={item}
-                servant={servantMap[item.servant]}
-                quest={questMapper(item.quest)}
-                from={npMap[npId]}
-                to={npMap[newId]}
-                {...highlight}
-              />
-            );
-          }
-
-          return (
-            <UpgradeCard
-              key={item.quest}
-              upgrade={item}
-              servant={servantMap[item.servant]}
-              quest={questMapper(item.quest)}
-              {...highlight}
-            />
-          );
-        })}
-      </CardGrid>
+          })}
+        </CardGrid>
+      </UpgradeContextProvider>
       <p>
         Results 1 to {Math.min(page * perPage, results.length)} of{" "}
         {results.length}

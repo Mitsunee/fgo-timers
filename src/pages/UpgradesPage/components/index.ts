@@ -1,2 +1,2 @@
-export { UpgradeCard } from "./UpgradeCard";
+export { UpgradeContextProvider, UpgradeCard } from "./UpgradeCard";
 export type { Highlight } from "../types";
