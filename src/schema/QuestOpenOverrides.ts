@@ -46,6 +46,8 @@ export const QuestOpenOverridesSchema = z
 
         return z.NEVER;
       }
+
+      overridesMapped[key] = mappedVal;
     }
 
     return overridesMapped;
