@@ -6,10 +6,10 @@ import type {
   BundledServant,
   BundledSkill
 } from "src/servants/types";
-import type { BundledQuest, Upgrade } from "src/upgrades/types";
+import type { BundledQuest, BundledUpgrade } from "src/upgrades/types";
 
 export interface UpgradesPageData {
-  upgrades: Upgrade[];
+  upgrades: BundledUpgrade[];
   servants: IDMap<BundledServant>;
   quests: IDMap<BundledQuest>;
   skills: IDMap<BundledSkill>;

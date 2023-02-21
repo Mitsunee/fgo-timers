@@ -8,7 +8,7 @@ import { useStore } from "@nanostores/react";
 import { getStaticProps } from "src/pages/UpgradesPage/getStaticProps";
 import type { UpgradesPageData } from "src/server/DataApi";
 import { fetcher } from "src/server/DataApi";
-import type { BundledQuest, Upgrade } from "src/upgrades/types";
+import type { BundledQuest, BundledUpgrade } from "src/upgrades/types";
 import type {
   BundledServant,
   BundledSkill,
@@ -76,7 +76,7 @@ function Page() {
       ]
     });
 
-    return [searcher, filteredUpgrades] as [typeof searcher, Upgrade[]];
+    return [searcher, filteredUpgrades] as [typeof searcher, BundledUpgrade[]];
   }, [res.isValidating, res.data, filters]);
 
   // create memoized context value for UpgradeCard
@@ -90,7 +90,7 @@ function Page() {
     >["value"];
   }, [res.data]);
 
-  const results: SemiRequired<MatchData<Upgrade>, "item">[] =
+  const results: SemiRequired<MatchData<BundledUpgrade>, "item">[] =
     res.isValidating || searchQuery == ""
       ? filteredUpgrades.sort(sorter).map(upgrade => ({ item: upgrade }))
       : searcher.search(searchQuery);

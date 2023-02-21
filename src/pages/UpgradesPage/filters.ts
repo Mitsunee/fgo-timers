@@ -1,8 +1,7 @@
 import ClassName from "@atlasacademy/api-connector/dist/Enum/ClassName.js";
 import { classIsExtra } from "src/servants/classNames";
 import type { BundledServant } from "src/servants/types";
-import { GlobalNums } from "src/types/enum";
-import type { BundledQuest, Upgrade } from "src/upgrades/types";
+import type { BundledQuest, BundledUpgrade } from "src/upgrades/types";
 import type { FormFilterState, SelectableClassId } from "./filtersReducer";
 
 export function createUpgradeFilter(
@@ -15,7 +14,7 @@ export function createUpgradeFilter(
       .filter(entry => entry[1])
       .map(entry => entry[0])
   );
-  return (upgrade: Upgrade) => {
+  return (upgrade: BundledUpgrade) => {
     const servant = servantMap[upgrade.servant];
     const quest = questMap[upgrade.quest];
 
@@ -51,14 +50,6 @@ export function createUpgradeFilter(
 }
 
 export function createUpgradeSorter(questMap: Record<number, BundledQuest>) {
-  return (a: Upgrade, b: Upgrade) => {
-    const questA = questMap[a.quest];
-    const questB = questMap[b.quest];
-    return (
-      (questA.open ?? 0) +
-      (questA.na ? 0 : GlobalNums.JP_TO_NA_ESTIMATE) -
-      (questB.open ?? 0) -
-      (questB.na ? 0 : GlobalNums.JP_TO_NA_ESTIMATE)
-    );
-  };
+  return (a: BundledUpgrade, b: BundledUpgrade) =>
+    questMap[a.quest].open - questMap[b.quest].open;
 }

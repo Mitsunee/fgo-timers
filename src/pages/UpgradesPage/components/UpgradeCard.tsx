@@ -6,7 +6,7 @@ import type {
 } from "src/servants/types";
 import { nameServantClass } from "src/servants/classNames";
 import { Borders } from "src/types/borders";
-import type { BundledQuest, Upgrade } from "src/upgrades/types";
+import type { BundledQuest, BundledUpgrade } from "src/upgrades/types";
 import { UpgradeQuestType } from "src/upgrades/types";
 import { Card, CardHero } from "src/client/components/Card";
 import { createQuestUnlockMapper } from "../mapQuestUnlocks";
@@ -24,7 +24,7 @@ type UpgradeContext = {
 };
 
 type UpgradeCardProps = Highlight & {
-  upgrade: Upgrade;
+  upgrade: BundledUpgrade;
   bypassSpoilers?: true;
 };
 

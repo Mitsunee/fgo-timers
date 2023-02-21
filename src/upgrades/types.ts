@@ -16,7 +16,7 @@ interface QuestBase {
   type: UpgradeQuestType;
   unlock?: QuestUnlockCondition;
   na?: true;
-  estimate?: boolean;
+  estimate?: true;
 }
 
 export interface QuestOther extends QuestBase {
@@ -36,7 +36,7 @@ export type UpgradeMapSkill = { type: "skill"; id?: number; newId: number };
 export type UpgradeMapNP = { type: "np"; id: number; newId: number };
 export type UpgradeMap = UpgradeMapSkill | UpgradeMapNP;
 
-export interface Upgrade /* Base */ {
+export interface BundledUpgrade {
   quest: number; // quest id
   servant: number; // servant id
   upgrades?: UpgradeMap;

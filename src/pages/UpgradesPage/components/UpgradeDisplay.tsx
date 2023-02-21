@@ -6,7 +6,7 @@ import { SpoileredText } from "src/client/components/Text";
 import { AtlasLink } from "src/client/components/AtlasLink";
 import type { BundledNP, BundledSkill } from "src/servants/types";
 import type {
-  Upgrade,
+  BundledUpgrade,
   UpgradeMap,
   UpgradeMapNP,
   UpgradeMapSkill
@@ -16,7 +16,7 @@ import styles from "./UpgradeDisplay.module.css";
 type Props<T, U extends UpgradeMap> = {
   from: T;
   to: T;
-  upgrade: Upgrade & { upgrades: U };
+  upgrade: BundledUpgrade & { upgrades: U };
 };
 type SkillUpgradeProps = Props<BundledSkill, UpgradeMapSkill>;
 type NPUpgradeProps = Props<BundledNP, UpgradeMapNP>;
