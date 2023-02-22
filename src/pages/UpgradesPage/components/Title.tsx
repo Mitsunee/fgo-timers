@@ -1,13 +1,13 @@
+import { useContext } from "react";
 import { InlineIcon } from "src/client/components/InlineIcon";
 import { SearchMatch, SpoileredText } from "src/client/components/Text";
 import type { Highlight } from "../types";
+import { context } from "./context";
 
 type TitleProps = {
   id: number;
-  name: string;
   placeholder: string;
   suffix: string;
-  na?: true;
 } & Highlight;
 
 type SubtitleProps = {
@@ -18,14 +18,14 @@ type SubtitleProps = {
 
 export function Title({
   id,
-  name,
-  na,
   placeholder,
   suffix,
   match,
   index,
   length
 }: TitleProps) {
+  const { servantMap } = useContext(context);
+  const { name, na } = servantMap[id];
   const highlight: Highlight =
     match && match == name ? { match, index, length } : {};
 
@@ -53,7 +53,7 @@ const icons = {
   np: { id: 8, title: "Noble Phantasm Upgrade" },
   skill: { id: 9, title: "Skill Upgrade" },
   sq: { id: 6, title: "Saint Quartz Interlude" }
-} as const; // satisfies Record<SubtitleProps["icon"],{id:number,title:string}> in Typescript 4.9
+} as const;
 
 export function Subtitle({
   icon,

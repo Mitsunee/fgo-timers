@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import { useStore } from "@nanostores/react";
 import { intervalStore } from "src/client/stores/intervalStore";
 import { useIsClient } from "src/client/utils/hooks/useIsClient";
@@ -6,24 +7,20 @@ import {
   DisplayDate,
   DisplayDateEstimate
 } from "src/client/components/TimeDisplay";
-import type { BundledServant } from "src/servants/types";
 import type { MappedBundledQuest } from "../mapQuestUnlocks";
+import { context } from "./context";
 
 interface UpgradeInfoProps {
   quest: MappedBundledQuest;
   questId: number;
-  servant: BundledServant;
   servantId: number;
 }
 
-export function UpgradeInfo({
-  quest,
-  questId,
-  servant,
-  servantId
-}: UpgradeInfoProps) {
+export function UpgradeInfo({ quest, questId, servantId }: UpgradeInfoProps) {
+  const { servantMap } = useContext(context);
   const isClient = useIsClient();
   const { seconds: current } = useStore(intervalStore);
+  const servant = servantMap[servantId];
   const time = quest.open * 1000;
 
   return (
