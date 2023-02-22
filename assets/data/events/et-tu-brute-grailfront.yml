@@ -36,7 +36,5 @@ banners:
   - date: 2023-02-09 00:00 - 02-19 19:59 PST
     servants: [101800, 100500, 900800, 101300, 301000, 401100]
 upgrades:
-  - id: 94055982 # Boudica
-    date: 2023-02-06 00:00 PST
-  - id: 94055983 # Caligula
-    date: 2023-02-06 00:00 PST
+  - 94055982 # Boudica
+  - 94055983 # Caligula

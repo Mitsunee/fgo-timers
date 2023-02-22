@@ -54,14 +54,13 @@ export const getStaticProps: GetStaticProps<
 
   const mapper = createQuestUnlockMapper(questMap);
   const data = await api.upgrades.select.fetch({
-    id: event.upgrades.map(info => info.id),
+    id: event.upgrades,
     disableSpoilers: true
   });
   const { upgrades, servants, nps, skills } = data;
   const quests: EventUpgradesPageProps["quests"] = {};
-  event.upgrades.forEach(info => {
-    const quest = mapper(info.id);
-    quests[info.id] = { ...quest, open: info.date };
+  event.upgrades.forEach(id => {
+    quests[id] = mapper(id);
   });
 
   return { props: { event, upgrades, quests, servants, nps, skills } };
