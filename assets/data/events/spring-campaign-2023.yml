@@ -1,0 +1,47 @@
+title: 2023 Spring has Sprung Campaign
+shortTitle: Spring Campaign 2023
+banner: 2023_springcampaign.png
+url: 2023/0224_SpringHasSprungCP/
+date: 2023-02-23 20:00 - 03-02 19:59 PST
+description: >-
+  To celebrate the upcoming start of Spring Master's will receive a Special Login Bonus,
+  access to new Extra Quests, a series of Limited Master Missions and many other Bonuses.
+  A Summoning Banner featuring Arthur and the CBC 2019 Craft Essences is also available.
+times:
+  - title: Special Login Bonus
+    date: 2023-02-23 20:00 - 03-09 19:59 PST
+  - title: Servant Level Extra Quests added
+    date: 2023-02-23 20:00 PST
+  - title: Limited Master Missions
+    date: 2023-02-23 20:00 - 03-02 19:59 PST
+  - title: 1/2 QP Cost for Enhancement
+    date: 2023-02-23 20:00 - 03-02 19:59 PST
+  - title: 2x Success Rate for Enhancement
+    date: 2023-02-23 20:00 - 03-02 19:59 PST
+  - title: 1/2 AP Rank Up Quests
+    date: 2023-02-23 20:00 - 03-02 19:59 PST
+  - title: 2x Support Friend Points
+    date: 2023-02-23 20:00 - 03-02 19:59 PST
+  - title: White Vessel's Command Seal added to MP Shop
+    date: 2023-02-23 20:00 PST
+  - title: Chaldea Dinnertime Unlockable in RP Shop
+    date: 2023-02-23 20:00 PST
+    ces: [9404180]
+  - title: Dragon-Slayer's Sword added to RP Shop
+    date: 2023-02-23 20:00 PST
+upgrades:
+  - id: 94057001
+    date: 2023-02-23 20:00 PST
+banners:
+  - date: 2023-02-23 20:00 - 03-09 19:59 PST
+    servants: [102900] # Arthur
+    ces:
+      - 9402280
+      - 9402290
+      - 9402300
+      - 9402310
+      - 9402320
+      - 9402330
+      - 9402340
+      - 9402350
+      - 9402360
