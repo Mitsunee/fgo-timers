@@ -4,7 +4,7 @@ import { appRouter } from "src/server/api/root";
 import type { BundledEvent } from "src/events/types";
 import type { MappedBundledQuest } from "src/pages/UpgradesPage/mapQuestUnlocks";
 import { createQuestUnlockMapper } from "src/pages/UpgradesPage/mapQuestUnlocks";
-import type { Upgrade } from "src/upgrades/types";
+import type { BundledUpgrade } from "src/upgrades/types";
 import type { BundledNP, BundledSkill } from "src/servants/types";
 import { getBundledEvents, getBundledQuestMap } from "src/utils/getBundles";
 import { Log } from "src/utils/log";
@@ -17,7 +17,7 @@ type EventWithUpgrades = BundledEvent & {
 export interface EventUpgradesPageProps
   extends Omit<EventPageProps, "ces" | "items"> {
   event: EventWithUpgrades;
-  upgrades: Upgrade[];
+  upgrades: BundledUpgrade[];
   quests: Record<number, MappedBundledQuest>;
   skills: Record<number, BundledSkill>;
   nps: Record<number, BundledNP>;
@@ -54,14 +54,12 @@ export const getStaticProps: GetStaticProps<
 
   const mapper = createQuestUnlockMapper(questMap);
   const data = await api.upgrades.select.fetch({
-    id: event.upgrades.map(info => info.id),
-    disableSpoilers: true
+    id: event.upgrades
   });
   const { upgrades, servants, nps, skills } = data;
   const quests: EventUpgradesPageProps["quests"] = {};
-  event.upgrades.forEach(info => {
-    const quest = mapper(info.id);
-    quests[info.id] = { ...quest, open: info.date };
+  event.upgrades.forEach(id => {
+    quests[id] = mapper(id);
   });
 
   return { props: { event, upgrades, quests, servants, nps, skills } };

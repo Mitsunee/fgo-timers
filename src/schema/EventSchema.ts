@@ -70,10 +70,7 @@ export const EventSchema = z.object({
     .array(EventBanner)
     .transform(banners => banners.sort((a, b) => a.date[0] - b.date[0]))
     .optional(),
-  upgrades: z
-    .array(z.object({ id: z.number(), date: zDate }))
-    .transform(upgrades => upgrades.sort((a, b) => a.date - b.date))
-    .optional()
+  upgrades: z.array(z.number()).optional()
 });
 
 export type EventDataRaw = Partial<z.input<typeof EventSchema>>;

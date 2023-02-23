@@ -1,8 +1,11 @@
+import { useMemo } from "react";
 import { CardGrid } from "src/client/components/Card";
 import { EventPageLayout } from "src/pages/EventPage/components/EventPageLayout";
 import type { EventUpgradesPageProps } from "src/pages/EventPage/static/upgrades";
-import { UpgradeCard } from "src/pages/UpgradesPage/components";
-import { upgradeIsNPUpgrade, upgradeIsSkillUpgrade } from "src/upgrades/types";
+import {
+  UpgradeContextProvider,
+  UpgradeCard
+} from "src/pages/UpgradesPage/components";
 
 // Next Page configs
 export {
@@ -25,52 +28,29 @@ export default function EventUpgradesPage({
   nps,
   skills
 }: EventUpgradesPageProps) {
+  // create memoized context value for UpgradeCard
+  const upgradeContextVal = useMemo(() => {
+    return {
+      questMap: quests,
+      servantMap: servants,
+      skillMap: skills,
+      npMap: nps
+    } as React.ComponentProps<typeof UpgradeContextProvider>["value"];
+  }, [quests, servants, nps, skills]);
+
   return (
     <EventPageLayout
       event={event}
       current="Upgrades"
       description={`Rank Up Quests and Interludes released during ${event.title}`}>
       <h1>Upgrades</h1>
-      <CardGrid>
-        {upgrades.map(upgrade => {
-          if (upgradeIsSkillUpgrade(upgrade)) {
-            const { id, newId } = upgrade.upgrades;
-            return (
-              <UpgradeCard
-                key={upgrade.quest}
-                upgrade={upgrade}
-                servant={servants[upgrade.servant]}
-                quest={quests[upgrade.quest]}
-                from={skills[id ?? 0]}
-                to={skills[newId]}
-              />
-            );
-          }
-
-          if (upgradeIsNPUpgrade(upgrade)) {
-            const { id, newId } = upgrade.upgrades;
-            return (
-              <UpgradeCard
-                key={upgrade.quest}
-                upgrade={upgrade}
-                servant={servants[upgrade.servant]}
-                quest={quests[upgrade.quest]}
-                from={nps[id]}
-                to={nps[newId]}
-              />
-            );
-          }
-
-          return (
-            <UpgradeCard
-              key={upgrade.quest}
-              upgrade={upgrade}
-              servant={servants[upgrade.servant]}
-              quest={quests[upgrade.quest]}
-            />
-          );
-        })}
-      </CardGrid>
+      <UpgradeContextProvider value={upgradeContextVal}>
+        <CardGrid>
+          {upgrades.map(upgrade => (
+            <UpgradeCard key={upgrade.quest} upgrade={upgrade} bypassSpoilers />
+          ))}
+        </CardGrid>
+      </UpgradeContextProvider>
     </EventPageLayout>
   );
 }

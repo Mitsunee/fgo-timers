@@ -5,7 +5,7 @@ import type {
   BundledSkill,
   BundledNP
 } from "src/servants/types";
-import type { BundledQuest, Upgrade } from "src/upgrades/types";
+import type { BundledQuest, BundledUpgrade } from "src/upgrades/types";
 import type { BundledCE, BundledItem } from "src/items/types";
 import type { BundledEvent } from "src/events/types";
 import { Log } from "./log";
@@ -16,7 +16,7 @@ export interface StaticBundles {
   skills: Record<number, BundledSkill>;
   nps: Record<number, BundledNP>;
   quests: Record<number, BundledQuest>;
-  upgrades: Upgrade[];
+  upgrades: BundledUpgrade[];
   ces: Record<number, BundledCE>;
   items: Record<number, BundledItem>;
   events: BundledEvent[];
@@ -80,7 +80,7 @@ export const getBundledQuestMap = withProxy(
   "Could not find quest %KEY% in bundle data"
 );
 
-export const getBundledUpgrades = createBundle<Upgrade[]>(
+export const getBundledUpgrades = createBundle<BundledUpgrade[]>(
   join("assets", "static", "upgrades.json")
 );
 

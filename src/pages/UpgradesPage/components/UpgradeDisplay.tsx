@@ -1,25 +1,24 @@
+import { useContext } from "react";
 import {
   BorderedNPIcon,
   BorderedSkillIcon
 } from "src/client/components/BorderedIcon";
 import { SpoileredText } from "src/client/components/Text";
 import { AtlasLink } from "src/client/components/AtlasLink";
-import type { BundledNP, BundledSkill } from "src/servants/types";
 import type {
-  Upgrade,
+  BundledUpgrade,
   UpgradeMap,
   UpgradeMapNP,
   UpgradeMapSkill
 } from "src/upgrades/types";
+import { context } from "./context";
 import styles from "./UpgradeDisplay.module.css";
 
-type Props<T, U extends UpgradeMap> = {
-  from: T;
-  to: T;
-  upgrade: Upgrade & { upgrades: U };
+type Props<U extends UpgradeMap> = {
+  upgrade: BundledUpgrade & { upgrades: U };
 };
-type SkillUpgradeProps = Props<BundledSkill, UpgradeMapSkill>;
-type NPUpgradeProps = Props<BundledNP, UpgradeMapNP>;
+type SkillUpgradeProps = Props<UpgradeMapSkill>;
+type NPUpgradeProps = Props<UpgradeMapNP>;
 
 function Arrow() {
   return (
@@ -29,11 +28,14 @@ function Arrow() {
   );
 }
 
-export function SkillUpgrade({ upgrade, from, to }: SkillUpgradeProps) {
+export function SkillUpgrade({ upgrade }: SkillUpgradeProps) {
+  const { skillMap } = useContext(context);
   const {
     servant,
     upgrades: { id = 0, newId }
   } = upgrade;
+  const from = skillMap[id];
+  const to = skillMap[newId];
 
   return (
     <section className={styles.grid}>
@@ -75,11 +77,14 @@ export function SkillUpgrade({ upgrade, from, to }: SkillUpgradeProps) {
   );
 }
 
-export function NPUpgrade({ upgrade, from, to }: NPUpgradeProps) {
+export function NPUpgrade({ upgrade }: NPUpgradeProps) {
+  const { npMap } = useContext(context);
   const {
     servant,
     upgrades: { id, newId }
   } = upgrade;
+  const from = npMap[id];
+  const to = npMap[newId];
 
   return (
     <section className={styles.grid}>

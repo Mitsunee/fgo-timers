@@ -30,8 +30,7 @@ times:
   - title: Dragon-Slayer's Sword added to RP Shop
     date: 2023-02-23 20:00 PST
 upgrades:
-  - id: 94057001
-    date: 2023-02-23 20:00 PST
+  - 94057001 # Arthur
 banners:
   - date: 2023-02-23 20:00 - 03-09 19:59 PST
     servants: [102900] # Arthur

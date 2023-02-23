@@ -6,7 +6,7 @@ import {
 import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
 
 import type {
-  Upgrade,
+  BundledUpgrade,
   UpgradeMap,
   UpgradeMapNP,
   UpgradeMapSkill
@@ -71,13 +71,14 @@ function filterQuests(quest: Quest) {
   return false;
 }
 
-export const bundleUpgrades: PrebuildBundler<Upgrade[]> = async function () {
+type UpgradeBundler = PrebuildBundler<BundledUpgrade[]>;
+export const bundleUpgrades: UpgradeBundler = async function () {
   const [niceWar, niceWarNA] = await Promise.all([
     atlasCache.JP.getNiceWar(),
     atlasCache.NA.getNiceWar()
   ]);
 
-  const upgrades = new Array<Upgrade>();
+  const upgrades = new Array<BundledUpgrade>();
   const servants = new Set<number>();
   const quests = new Set<number>();
   const skills = new Set<number>();
@@ -103,10 +104,10 @@ export const bundleUpgrades: PrebuildBundler<Upgrade[]> = async function () {
     servants.add(servant.id);
 
     // describe upgrade
-    const upgrade: Upgrade = {
+    const upgrade: BundledUpgrade = {
       quest: questData.id,
       servant: servant.id
-    } as Upgrade; // I blame typescript for this.
+    };
     if (questDataNA) upgrade.na = true;
 
     const upgradeMap = getUpgradeMap(servant, questData.id);

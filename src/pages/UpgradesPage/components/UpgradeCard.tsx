@@ -1,129 +1,110 @@
+import { useContext } from "react";
+import { nameServantClass } from "src/servants/classNames";
+import { Borders } from "src/types/borders";
 import type {
-  BundledNP,
-  BundledServant,
-  BundledSkill
-} from "src/servants/types";
-import type {
-  Upgrade,
+  BundledUpgrade,
   UpgradeMapNP,
   UpgradeMapSkill
 } from "src/upgrades/types";
-import {
-  upgradeIsNPUpgrade,
-  upgradeIsSkillUpgrade,
-  UpgradeQuestType
-} from "src/upgrades/types";
-import styles from "./UpgradeCard.module.css";
-import { Hero } from "./Hero";
-import { BorderColours, Borders } from "src/types/borders";
-import { NPUpgrade, SkillUpgrade } from "./UpgradeDisplay";
+import { UpgradeQuestType } from "src/upgrades/types";
+import { Card, CardHero } from "src/client/components/Card";
+import { createQuestUnlockMapper } from "../mapQuestUnlocks";
 import type { Highlight } from "../types";
+import { NPUpgrade, SkillUpgrade } from "./UpgradeDisplay";
 import { Subtitle, Title } from "./Title";
-import type { MappedBundledQuest } from "../mapQuestUnlocks";
 import { UpgradeInfo } from "./UpgradeInfo";
+import { context } from "./context";
+import styles from "./UpgradeCard.module.css";
 
-type PropsBase = {
-  servant: BundledServant;
-  quest: MappedBundledQuest;
-  // TODO: prop to override NA props where applicable (not in quest)
-} & Highlight;
-type WithSkillUpgrade = {
-  upgrade: Upgrade & { upgrades: UpgradeMapSkill };
-  from: BundledSkill;
-  to: BundledSkill;
+type UpgradeCardProps = Highlight & {
+  upgrade: BundledUpgrade;
+  bypassSpoilers?: true;
 };
-type WithNPUpgrade = {
-  upgrade: Upgrade & { upgrades: UpgradeMapNP };
-  from: BundledNP;
-  to: BundledNP;
-};
-type WithSQIntld = {
-  upgrade: Upgrade & { upgrades?: undefined };
-  from?: undefined;
-  to?: undefined;
-};
-type UpgradeCardProps = PropsBase &
-  (WithSkillUpgrade | WithNPUpgrade | WithSQIntld);
+
+export const UpgradeContextProvider = context.Provider;
 
 function isSkillUpgrade(
-  props: UpgradeCardProps
-): props is PropsBase & WithSkillUpgrade {
-  return upgradeIsSkillUpgrade(props.upgrade);
+  upgrade: BundledUpgrade
+): upgrade is BundledUpgrade & { upgrades: UpgradeMapSkill } {
+  return upgrade.upgrades?.type == "skill";
 }
-
 function isNPUpgrade(
-  props: UpgradeCardProps
-): props is PropsBase & WithNPUpgrade {
-  return upgradeIsNPUpgrade(props.upgrade);
+  upgrade: BundledUpgrade
+): upgrade is BundledUpgrade & { upgrades: UpgradeMapNP } {
+  return upgrade.upgrades?.type == "np";
 }
 
-export function UpgradeCard(props: UpgradeCardProps) {
-  const { servant, quest } = props;
-  const questPrefix =
+export function UpgradeCard({
+  upgrade,
+  bypassSpoilers,
+  ...highlight
+}: UpgradeCardProps) {
+  const { servantMap, skillMap, npMap, questMap } = useContext(context);
+  const questMapper = createQuestUnlockMapper(questMap);
+  const quest = questMapper(upgrade.quest);
+  const servant = servantMap[upgrade.servant];
+  const placeholder = `${servant.rarity}* ${nameServantClass(servant.classId)}`;
+  const prefix =
     quest.type === UpgradeQuestType.INTERLUDE
       ? "Interlude"
       : quest.na
       ? ""
       : "Rank Up";
-  const highlight: Highlight = props.match
-    ? { match: props.match, index: props.index, length: props.length }
-    : {};
 
-  // set SQ Interlude Properties as default
+  // set SQ Interlude props by default
   let suffix = "";
-  let subtitleIcon: Parameters<typeof Subtitle>[0]["icon"] = "sq";
+  let subtitleIcon: React.ComponentProps<typeof Subtitle>["icon"] = "sq";
   let UpgradeDisplay: null | React.ReactNode = null;
   let border: Borders = Borders.BLUE;
 
-  // handle Skill Upgrade Properties
-  if (isSkillUpgrade(props)) {
-    suffix = `Skill ${props.to.num}`;
+  // handle Skill upgrade props
+  if (isSkillUpgrade(upgrade)) {
+    const to = skillMap[upgrade.upgrades.newId];
+    suffix = `Skill ${to.num}`;
     subtitleIcon = "skill";
-    border = props.to.border;
-    UpgradeDisplay = (
-      <SkillUpgrade upgrade={props.upgrade} from={props.from} to={props.to} />
-    );
+    border = to.border;
+    UpgradeDisplay = <SkillUpgrade upgrade={upgrade} />;
   }
-  // handle NP Upgrade Properties
-  else if (isNPUpgrade(props)) {
+
+  // handle NP upgrade props
+  else if (isNPUpgrade(upgrade)) {
+    const to = npMap[upgrade.upgrades.newId];
     suffix = "NP";
     subtitleIcon = "np";
-    border = props.to.border;
-    UpgradeDisplay = (
-      <NPUpgrade upgrade={props.upgrade} from={props.from} to={props.to} />
-    );
+    border = to.border;
+    UpgradeDisplay = <NPUpgrade upgrade={upgrade} />;
   }
 
   return (
-    <article
-      className={styles.card}
-      style={{ "--border": BorderColours[border] } as React.CSSProperties}>
-      <Hero
-        border={border}
-        id={props.upgrade.servant}
-        name={servant.name}
+    <Card color={border} className={styles.card}>
+      <CardHero
+        id={upgrade.servant}
+        title={servant.name}
         icon={servant.icon}
-        na={servant.na}
+        placeholder={placeholder}
+        bypassSpoilers={servant.na ?? bypassSpoilers}
+        forceRound
       />
-      <Title
-        id={props.upgrade.servant}
-        servant={servant}
-        suffix={suffix}
-        {...highlight}
-      />
-      <Subtitle
-        icon={subtitleIcon}
-        prefix={questPrefix}
-        name={quest.name}
-        {...highlight}
-      />
-      {UpgradeDisplay}
-      <UpgradeInfo
-        quest={quest}
-        questId={props.upgrade.quest}
-        servant={servant}
-        servantId={props.upgrade.servant}
-      />
-    </article>
+      <main>
+        <Title
+          id={upgrade.servant}
+          placeholder={placeholder}
+          suffix={suffix}
+          {...highlight}
+        />
+        <Subtitle
+          icon={subtitleIcon}
+          prefix={prefix}
+          name={quest.name}
+          {...highlight}
+        />
+        {UpgradeDisplay}
+        <UpgradeInfo
+          quest={quest}
+          questId={upgrade.quest}
+          servantId={upgrade.servant}
+        />
+      </main>
+    </Card>
   );
 }

@@ -1,32 +1,14 @@
-.card {
-  user-select: text;
-  font-size: 14px;
-  border: 2px solid var(--border, var(--light));
-  border-radius: 1.5em;
-  overflow: hidden;
-  background-color: var(--bg-primary);
-  background-image: radial-gradient(
-      ellipse at bottom,
-      var(--bg-primary),
-      transparent
-    ),
-    linear-gradient(
-      to bottom,
-      var(--bg-primary),
-      var(--bg-primary) 85px,
-      var(--bg-light)
-    );
-  box-shadow: 3px 3px 7px var(--dark);
-
+.card > main {
   & h1 {
     width: 100%;
     text-align: center;
     font-size: 1.75em;
     padding: 0px 0.33em;
+    margin-top: 0px;
   }
 
   & h2 {
-    padding: 0px 1.33em;
+    padding: 0px;
     font-size: 1.2em;
     & img {
       vertical-align: middle;
@@ -34,7 +16,12 @@
   }
 
   & > section {
-    padding: 1.33em;
+    padding: 1.33em 0px;
+
+    &:last-child {
+      padding-bottom: 0px;
+    }
+
     & p {
       margin: 0.33em 0px;
 

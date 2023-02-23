@@ -1,10 +1,6 @@
-import type { GetStaticProps, InferGetStaticPropsType } from "next";
+import type { InferGetStaticPropsType } from "next";
 import { createProxySSGHelpers } from "@trpc/react-query/ssg";
-
-import type { DataApiFallback } from "src/server/DataApi";
-import type { ExpandedUpgrades } from "src/server/api/routers/upgrades";
 import { appRouter } from "src/server/api/root";
-import { apiUrl } from "./constants";
 import {
   getBundledQuestMap,
   getBundledServantMap,
@@ -13,9 +9,7 @@ import {
 import { createUpgradeFilter, createUpgradeSorter } from "./filters";
 import { formFiltersDefault } from "./filtersReducer";
 
-type PageProps = DataApiFallback<typeof apiUrl, ExpandedUpgrades>;
-
-export const getStaticProps: GetStaticProps<PageProps> = async () => {
+export const getStaticProps = async () => {
   const [upgradesList, questMap, servantMap, api] = await Promise.all([
     getBundledUpgrades(),
     getBundledQuestMap(),
@@ -30,14 +24,12 @@ export const getStaticProps: GetStaticProps<PageProps> = async () => {
     .filter(filter)
     .slice(0, 10)
     .map(upgrade => upgrade.quest);
-  const data: ExpandedUpgrades = await api.upgrades.select.fetch({
+  const fallback = await api.upgrades.select.fetch({
     id: upgradeIds
   });
 
   return {
-    props: {
-      fallback: { [apiUrl]: data }
-    }
+    props: { fallback }
   };
 };
 

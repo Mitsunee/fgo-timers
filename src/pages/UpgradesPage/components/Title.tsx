@@ -1,12 +1,12 @@
+import { useContext } from "react";
 import { InlineIcon } from "src/client/components/InlineIcon";
 import { SearchMatch, SpoileredText } from "src/client/components/Text";
-import { nameServantClass } from "src/servants/classNames";
-import type { BundledServant } from "src/servants/types";
 import type { Highlight } from "../types";
+import { context } from "./context";
 
 type TitleProps = {
   id: number;
-  servant: BundledServant;
+  placeholder: string;
   suffix: string;
 } & Highlight;
 
@@ -18,32 +18,29 @@ type SubtitleProps = {
 
 export function Title({
   id,
-  servant,
+  placeholder,
   suffix,
   match,
   index,
   length
 }: TitleProps) {
+  const { servantMap } = useContext(context);
+  const { name, na } = servantMap[id];
   const highlight: Highlight =
-    match && match == servant.name ? { match, index, length } : {};
+    match && match == name ? { match, index, length } : {};
 
   return (
     <>
       <h1>
-        <SpoileredText
-          id={id}
-          placeholder={`${servant.rarity}* ${nameServantClass(
-            servant.classId
-          )}`}
-          na={servant.na}>
+        <SpoileredText id={id} placeholder={placeholder} na={na}>
           {highlight.match ? (
             <SearchMatch
-              text={servant.name}
+              text={name}
               index={highlight.index}
               length={highlight.length}
             />
           ) : (
-            servant.name
+            name
           )}
           {suffix && ` ${suffix}`}
         </SpoileredText>
@@ -56,7 +53,7 @@ const icons = {
   np: { id: 8, title: "Noble Phantasm Upgrade" },
   skill: { id: 9, title: "Skill Upgrade" },
   sq: { id: 6, title: "Saint Quartz Interlude" }
-} as const; // satisfies Record<SubtitleProps["icon"],{id:number,title:string}> in Typescript 4.9
+} as const;
 
 export function Subtitle({
   icon,

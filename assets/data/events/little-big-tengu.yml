@@ -55,7 +55,5 @@ banners:
     servants: [702000, 401400] # cu alter
     ces: [9404910, 9404920, 9404930]
 upgrades:
-  - id: 94055580 # Ushi
-    date: 2023-01-20 00:00 PST
-  - id: 94055581 # benkei
-    date: 2023-01-20 00:00 PST
+  - 94055580 # Ushi
+  - 94055581 # benkei

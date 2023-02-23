@@ -2,16 +2,17 @@ import { List } from "@foxkit/util/object";
 import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 import { join } from "path";
 
-import type { DataBundler } from "./dataBundlers";
 import { parseSchema } from "../schema/verifySchema";
 import { QuestOpenOverridesSchema } from "../schema/QuestOpenOverrides";
 import type { QuestOpenOverrides } from "../schema/QuestOpenOverrides";
 import type { BundledQuest, QuestUpgrade, QuestOther } from "../upgrades/types";
 import { UpgradeQuestType } from "../upgrades/types";
 import { getQuestData } from "../upgrades/getQuestData";
-import { Log } from "../utils/log";
 import { parseQuestType } from "../upgrades/parseQuestType";
 import { parseUnlockCond } from "../upgrades/parseUnlockCond";
+import { Log } from "../utils/log";
+import { GlobalNums } from "../types/enum";
+import type { DataBundler } from "./dataBundlers";
 
 const overridesFilePath = join(
   "assets",
@@ -80,7 +81,10 @@ export const bundleQuestsData: DataBundler<BundledQuest> = async bundles => {
       case UpgradeQuestType.RANKUP: {
         const name = questNA?.name ?? quest.name;
         const override = overrides[quest.id];
-        const open = override ?? questNA?.openedAt ?? quest.openedAt;
+        const open =
+          override ??
+          questNA?.openedAt ??
+          quest.openedAt + GlobalNums.JP_TO_NA_ESTIMATE;
         const data: QuestUpgrade = {
           type,
           name,
@@ -88,6 +92,7 @@ export const bundleQuestsData: DataBundler<BundledQuest> = async bundles => {
         };
 
         if (questNA) data.na = true;
+        else if (!override) data.estimate = true;
         if (Object.entries(unlock).length > 0) {
           data.unlock = unlock;
           unlock.quests?.forEach(unlockQuestId => {
@@ -104,7 +109,8 @@ export const bundleQuestsData: DataBundler<BundledQuest> = async bundles => {
         const name = questNA?.name || quest.name;
         const data: QuestOther = {
           type,
-          name
+          name,
+          open: -1
         };
 
         if (questNA) data.na = true;

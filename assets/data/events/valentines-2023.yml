@@ -147,5 +147,4 @@ banners:
     servants: [204000]
     ces: [9404320, 9404330, 9404340]
 upgrades:
-  - id: 94056490
-    date: 2023-02-13 00:00 PST
+  - 94056490 # Kid gil

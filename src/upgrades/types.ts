@@ -12,21 +12,22 @@ export interface QuestUnlockCondition {
 
 interface QuestBase {
   name: string;
-  open?: number; // opening date as timestamp
+  open: number; // opening date as timestamp or -1 for UpgradeQuestType.OTHER
   type: UpgradeQuestType;
-  na?: true;
   unlock?: QuestUnlockCondition;
+  na?: true;
+  estimate?: true;
 }
 
 export interface QuestOther extends QuestBase {
   type: UpgradeQuestType.OTHER;
-  open?: undefined;
+  open: -1;
   unlock?: undefined;
+  estimate?: undefined;
 }
 
 export interface QuestUpgrade extends QuestBase {
   type: UpgradeQuestType.INTERLUDE | UpgradeQuestType.RANKUP;
-  open: number;
 }
 
 export type BundledQuest = QuestOther | QuestUpgrade;
@@ -35,29 +36,9 @@ export type UpgradeMapSkill = { type: "skill"; id?: number; newId: number };
 export type UpgradeMapNP = { type: "np"; id: number; newId: number };
 export type UpgradeMap = UpgradeMapSkill | UpgradeMapNP;
 
-interface UpgradeBase {
+export interface BundledUpgrade {
   quest: number; // quest id
   servant: number; // servant id
   upgrades?: UpgradeMap;
   na?: true;
-}
-
-// need to split this into two types to make typeguards work properly
-export type Upgrade = UpgradeBase &
-  (
-    | { upgrades: UpgradeMapSkill }
-    | { upgrades: UpgradeMapNP }
-    | { upgrades?: undefined }
-  );
-
-export function upgradeIsSkillUpgrade(
-  upgrade: Upgrade
-): upgrade is UpgradeBase & { upgrades: UpgradeMapSkill } {
-  return upgrade.upgrades?.type == "skill";
-}
-
-export function upgradeIsNPUpgrade(
-  upgrade: Upgrade
-): upgrade is UpgradeBase & { upgrades: UpgradeMapNP } {
-  return upgrade.upgrades?.type == "np";
 }

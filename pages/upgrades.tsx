@@ -1,20 +1,9 @@
-import type { InferGetStaticPropsType } from "next";
-import useSWR, { SWRConfig } from "swr";
 import { useEffect, useMemo, useReducer, useState } from "react";
 import type { MatchData } from "fast-fuzzy";
 import { Searcher } from "fast-fuzzy";
 import { clamp } from "@foxkit/util/clamp";
 import { useStore } from "@nanostores/react";
-import { getStaticProps } from "src/pages/UpgradesPage/getStaticProps";
-import type { UpgradesPageData } from "src/server/DataApi";
-import { fetcher } from "src/server/DataApi";
-import type { BundledQuest, Upgrade } from "src/upgrades/types";
-import { upgradeIsNPUpgrade, upgradeIsSkillUpgrade } from "src/upgrades/types";
-import type {
-  BundledServant,
-  BundledSkill,
-  BundledNP
-} from "src/servants/types";
+import type { BundledUpgrade } from "src/upgrades/types";
 import Meta from "src/client/components/Meta";
 import Section from "src/client/components/Section";
 import { NoSSR } from "src/client/components/NoSSR";
@@ -36,39 +25,36 @@ import {
   createUpgradeFilter,
   createUpgradeSorter
 } from "src/pages/UpgradesPage/filters";
-import { apiUrl } from "src/pages/UpgradesPage/constants";
 import type { Highlight } from "src/pages/UpgradesPage/components";
-import { UpgradeCard } from "src/pages/UpgradesPage/components";
-import { createQuestUnlockMapper } from "src/pages/UpgradesPage/mapQuestUnlocks";
+import {
+  UpgradeContextProvider,
+  UpgradeCard
+} from "src/pages/UpgradesPage/components";
+import type { UpgradesPageProps } from "src/pages/UpgradesPage/getStaticProps";
+import { api } from "src/client/api";
 
-export { getStaticProps };
-type UpgradesPageProps = InferGetStaticPropsType<typeof getStaticProps>;
+export { getStaticProps } from "src/pages/UpgradesPage/getStaticProps";
 
-function Page() {
-  const res = useSWR(apiUrl, fetcher<UpgradesPageData>, {
-    revalidateOnFocus: false,
-    revalidateOnReconnect: false
+export default function UpgradesPage({ fallback }: UpgradesPageProps) {
+  const res = api.upgrades.all.useQuery(undefined, {
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false
   });
+  const data = res.data ?? fallback;
   const { perPage } = useStore(settingsStore);
   const [filters, setFilter] = useReducer(filtersReducer, formFiltersDefault);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [page, setPage] = useState<number>(1);
   const [showHelp, setShowHelp] = useState(false);
+  const sorter = createUpgradeSorter(data.quests);
 
-  const questMap = res.data!.quests as Record<number, BundledQuest>;
-  const servantMap = res.data!.servants as Record<number, BundledServant>;
-  const skillMap = res.data!.skills as Record<number, BundledSkill>;
-  const npMap = res.data!.nps as Record<number, BundledNP>;
-  const sorter = createUpgradeSorter(questMap);
-  const questMapper = createQuestUnlockMapper(questMap);
-
+  // apply filters and create Searcher
   const [searcher, filteredUpgrades] = useMemo(() => {
-    // redefining res.data stuff in this scope so they aren't needed in dependecy array
-    const upgrades = res.data!.upgrades;
-    const servantMap = res.data!.servants as Record<number, BundledServant>;
-    const questMap = res.data!.quests as Record<number, BundledQuest>;
+    const upgrades = data.upgrades;
+    const servantMap = data.servants;
+    const questMap = data.quests;
     const filter = createUpgradeFilter(filters, servantMap, questMap);
-    const filteredUpgrades = res.isValidating
+    const filteredUpgrades: BundledUpgrade[] = res.isFetching
       ? upgrades
       : upgrades.filter(filter);
 
@@ -80,11 +66,21 @@ function Page() {
       ]
     });
 
-    return [searcher, filteredUpgrades] as [typeof searcher, Upgrade[]];
-  }, [res.isValidating, res.data, filters]);
+    return [searcher, filteredUpgrades] as const;
+  }, [res.isFetching, data, filters]);
 
-  const results: SemiRequired<MatchData<Upgrade>, "item">[] =
-    res.isValidating || searchQuery == ""
+  // create memoized context value for UpgradeCard
+  const upgradeContextVal = useMemo(() => {
+    return {
+      questMap: data.quests,
+      servantMap: data.servants,
+      skillMap: data.skills,
+      npMap: data.nps
+    } as React.ComponentProps<typeof UpgradeContextProvider>["value"];
+  }, [data]);
+
+  const results: SemiRequired<MatchData<BundledUpgrade>, "item">[] =
+    res.isFetching || searchQuery == ""
       ? filteredUpgrades.sort(sorter).map(upgrade => ({ item: upgrade }))
       : searcher.search(searchQuery);
 
@@ -98,10 +94,12 @@ function Page() {
     );
   };
 
+  // reset page if filters or search changed
   useEffect(() => {
     setPage(1);
   }, [filters, searchQuery]);
 
+  // make sure page is valid if perPage setting is changed
   useEffect(() => {
     setPage(page =>
       clamp({
@@ -111,7 +109,7 @@ function Page() {
     );
   }, [perPage, maxPage]);
 
-  if (res.error) {
+  if (res.isError) {
     return (
       <Section background>
         <Headline>Internal Server Error</Headline>
@@ -122,11 +120,15 @@ function Page() {
 
   return (
     <>
+      <Meta
+        title="Upgrades"
+        description="Explore the Interludes and Rank Up Quests of Fate/Grand Order"
+      />
       <Section background="blue">
         <FiltersForm
           filters={filters}
           setFilter={setFilter}
-          isPending={res.isValidating}>
+          isPending={res.isFetching}>
           <fieldset>
             <legend>Search</legend>
             <Input
@@ -155,58 +157,24 @@ function Page() {
           </ActionButton>
         </NoSSR>
       </div>
-      <CardGrid>
-        {results.slice(0, page * perPage).map(({ item, match, original }) => {
-          const highlight: Highlight = match
-            ? { index: match.index, length: match.length, match: original! }
-            : {};
+      <UpgradeContextProvider value={upgradeContextVal}>
+        <CardGrid>
+          {results.slice(0, page * perPage).map(({ item, match, original }) => {
+            const highlight: Highlight = match
+              ? { index: match.index, length: match.length, match: original! }
+              : {};
 
-          if (upgradeIsSkillUpgrade(item)) {
-            const { id: skillId, newId } = item.upgrades;
             return (
-              <UpgradeCard
-                key={item.quest}
-                upgrade={item}
-                servant={servantMap[item.servant]}
-                quest={questMapper(item.quest)}
-                from={skillMap[skillId ?? 0]}
-                to={skillMap[newId]}
-                {...highlight}
-              />
+              <UpgradeCard key={item.quest} upgrade={item} {...highlight} />
             );
-          }
-
-          if (upgradeIsNPUpgrade(item)) {
-            const { id: npId, newId } = item.upgrades;
-            return (
-              <UpgradeCard
-                key={item.quest}
-                upgrade={item}
-                servant={servantMap[item.servant]}
-                quest={questMapper(item.quest)}
-                from={npMap[npId]}
-                to={npMap[newId]}
-                {...highlight}
-              />
-            );
-          }
-
-          return (
-            <UpgradeCard
-              key={item.quest}
-              upgrade={item}
-              servant={servantMap[item.servant]}
-              quest={questMapper(item.quest)}
-              {...highlight}
-            />
-          );
-        })}
-      </CardGrid>
+          })}
+        </CardGrid>
+      </UpgradeContextProvider>
       <p>
         Results 1 to {Math.min(page * perPage, results.length)} of{" "}
         {results.length}
       </p>
-      {!res.isValidating && page < maxPage && (
+      {!res.isFetching && page < maxPage && (
         <Scroller
           handler={handleShowMore}
           handlerMax={() => setPage(maxPage)}
@@ -232,20 +200,6 @@ function Page() {
           </ModalMenu>
         </Modal>
       )}
-    </>
-  );
-}
-
-export default function UpgradesPage(fallback: UpgradesPageProps) {
-  return (
-    <>
-      <Meta
-        title="Upgrades"
-        description="Explore the Interludes and Rank Up Quests of Fate/Grand Order"
-      />
-      <SWRConfig value={fallback}>
-        <Page />
-      </SWRConfig>
     </>
   );
 }
