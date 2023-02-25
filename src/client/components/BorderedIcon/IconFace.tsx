@@ -54,7 +54,7 @@ export function IconFace({
   loading = "lazy",
   ...props
 }: IconFaceProps) {
-  const [level] = useSpoilerLevel();
+  const level = useSpoilerLevel();
   const [hidden, toggleHidden] = useSpoilerState(id);
   const fullSrc = expandAtlasUrl(src);
   const isForced = na || forceIcon || level == SpoilerLevels.ALL;
