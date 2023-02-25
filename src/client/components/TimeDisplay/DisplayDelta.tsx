@@ -1,8 +1,7 @@
-import { useStore } from "@nanostores/react";
 import spacetime from "spacetime";
-import { intervalStore } from "src/client/stores/intervalStore";
 import { NoSSR } from "src/client/components/NoSSR";
 import { diffToDateTimeAttribute, formatDiff } from "src/time/formatDiff";
+import { useCurrentTime } from "src/client/utils/hooks/useCurrentTime";
 
 interface DisplayDeltaProps {
   time: number;
@@ -10,7 +9,7 @@ interface DisplayDeltaProps {
 }
 
 export function DisplayDelta({ time, endedText }: DisplayDeltaProps) {
-  const { s } = useStore(intervalStore);
+  const { s } = useCurrentTime();
   const diff = s.diff(spacetime(time));
 
   return (

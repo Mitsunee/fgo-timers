@@ -1,7 +1,6 @@
 import cc from "classcat";
-import { useStore } from "@nanostores/react";
-import { intervalStore } from "src/client/stores/intervalStore";
 import { useIsClient } from "src/client/utils/hooks/useIsClient";
+import { useCurrentTime } from "src/client/utils/hooks/useCurrentTime";
 import {
   BorderedCEIcon,
   BorderedServantIcon
@@ -36,7 +35,7 @@ interface CEDetailProps {
 
 function TimeDetails({ banner }: Pick<EventBannerProps, "banner">) {
   const isClient = useIsClient();
-  const { seconds: current } = useStore(intervalStore);
+  const { current } = useCurrentTime();
   const [start, end] = banner.date;
   const hasStarted = current >= start;
   const hasEnded = current >= end;

@@ -1,10 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useStore } from "@nanostores/react";
 import { normalizeDate } from "src/time/normalizeDate";
 import Headline from "src/client/components/Headline";
 import { useIsClient } from "src/client/utils/hooks/useIsClient";
-import { intervalStore } from "src/client/stores/intervalStore";
+import { useCurrentTime } from "src/client/utils/hooks/useCurrentTime";
 import { InlineIcon } from "src/client/components/InlineIcon";
 import { IconHourglass } from "src/client/components/icons";
 import { DisplayDate, DisplayDelta } from "src/client/components/TimeDisplay";
@@ -26,7 +25,7 @@ export function EventListItem({
   banner
 }: EventListItemProps) {
   const isClient = useIsClient();
-  const { seconds: current } = useStore(intervalStore);
+  const { current } = useCurrentTime();
   const [start, end] = normalizeDate(date);
   const hasStarted = current >= start;
   const hasEnded = end > 0 && current >= end;

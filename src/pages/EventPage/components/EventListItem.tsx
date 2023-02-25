@@ -1,6 +1,5 @@
-import { useStore } from "@nanostores/react";
 import { useIsClient } from "src/client/utils/hooks/useIsClient";
-import { intervalStore } from "src/client/stores/intervalStore";
+import { useCurrentTime } from "src/client/utils/hooks/useCurrentTime";
 import { normalizeDate } from "src/time/normalizeDate";
 import { DisplayDate, DisplayDelta } from "src/client/components/TimeDisplay";
 import {
@@ -29,7 +28,7 @@ export function EventListItem({
 }: EventListItemProps) {
   const isClient = useIsClient();
   const [start, end] = normalizeDate(time.date);
-  const { seconds: current } = useStore(intervalStore);
+  const { current } = useCurrentTime();
   const hasStarted = current >= start;
   const hasEnd = end > 0 && !hideEnd;
   const hasEnded = end > 0 ? current >= end : hasStarted;

@@ -1,7 +1,6 @@
 import { useContext } from "react";
-import { useStore } from "@nanostores/react";
-import { intervalStore } from "src/client/stores/intervalStore";
 import { useIsClient } from "src/client/utils/hooks/useIsClient";
+import { useCurrentTime } from "src/client/utils/hooks/useCurrentTime";
 import { AtlasLink } from "src/client/components/AtlasLink";
 import {
   DisplayDate,
@@ -19,7 +18,7 @@ interface UpgradeInfoProps {
 export function UpgradeInfo({ quest, questId, servantId }: UpgradeInfoProps) {
   const { servantMap } = useContext(context);
   const isClient = useIsClient();
-  const { seconds: current } = useStore(intervalStore);
+  const { current } = useCurrentTime();
   const servant = servantMap[servantId];
   const time = quest.open * 1000;
 
