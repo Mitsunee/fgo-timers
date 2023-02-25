@@ -54,7 +54,7 @@ export function UpgradeInfo({ quest, questId, servantId }: UpgradeInfoProps) {
         {quest.estimate ? (
           <DisplayDateEstimate time={time} />
         ) : (
-          <DisplayDate time={time} format="date" serverTz="always" />
+          <DisplayDate time={time} format="date" serverTz="ssr" />
         )}
         <br />
         <AtlasLink link={`quest/${questId}/1`} na={quest.na} targetBlank>

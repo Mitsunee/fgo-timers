@@ -75,30 +75,15 @@ export function EventInfoSection({
           ))}
       </Section>
       <div className={styles.times}>
-        {isClient ? (
-          <>
-            <p>
-              <b>Start{hasStarted ? "ed" : "s"}:</b>{" "}
-              <DisplayDate time={start * 1000} format="full" />
-            </p>
-            {end > 0 && (
-              <p>
-                <b>End{hasEnded ? "ed" : "s"}:</b>{" "}
-                <DisplayDate time={end * 1000} format="full" />
-              </p>
-            )}
-          </>
-        ) : (
-          <>
-            <p>
-              <b>Start:</b> <DisplayDate time={start * 1000} format="full" />
-            </p>
-            {end > 0 && (
-              <p>
-                <b>End:</b> <DisplayDate time={end * 1000} format="full" />
-              </p>
-            )}
-          </>
+        <p>
+          <b>Start{isClient && hasStarted ? "ed" : "s"}:</b>{" "}
+          <DisplayDate time={start * 1000} format="full" />
+        </p>
+        {end > 0 && (
+          <p>
+            <b>End{isClient && hasEnded ? "ed" : "s"}:</b>{" "}
+            <DisplayDate time={end * 1000} format="full" />
+          </p>
         )}
       </div>
     </Section>
