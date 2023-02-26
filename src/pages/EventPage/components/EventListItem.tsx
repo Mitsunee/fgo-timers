@@ -11,7 +11,7 @@ import type { BundledEvent } from "src/events/types";
 import type { EventPageProps } from "../static";
 import styles from "./EventListItem.module.css";
 
-export type EventTime = Exclude<BundledEvent["times"], undefined>[number];
+export type EventTime = NonNullable<BundledEvent["times"]>[number];
 export type WithMaps = Pick<EventPageProps, "servants" | "ces" | "items">;
 
 interface EventListItemProps extends WithMaps {

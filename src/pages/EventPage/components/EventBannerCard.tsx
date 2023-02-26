@@ -12,7 +12,7 @@ import { Borders } from "src/types/borders";
 import type { EventPageProps } from "../static";
 import styles from "./EventBannerCard.module.css";
 
-type EventBanner = Exclude<BundledEvent["banners"], undefined>[number];
+type EventBanner = NonNullable<BundledEvent["banners"]>[number];
 
 interface WithMaps {
   servants: EventPageProps["servants"];

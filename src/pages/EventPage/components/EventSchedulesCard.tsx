@@ -4,7 +4,7 @@ import type { BundledEvent } from "src/events/types";
 import { EventListItem } from "./EventListItem";
 import type { WithMaps, EventTime } from "./EventListItem";
 
-type EventSchedule = Exclude<BundledEvent["schedules"], undefined>[number];
+type EventSchedule = NonNullable<BundledEvent["schedules"]>[number];
 
 interface EventSchedulesCardProps extends EventSchedule, WithMaps {
   eventEnd: number;

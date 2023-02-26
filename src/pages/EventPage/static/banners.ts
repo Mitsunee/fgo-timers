@@ -9,7 +9,7 @@ import { getEventProps } from "./getEventProps";
 import type { PageContext, EventPageProps, StaticPath } from "./types";
 
 type EventWithBanners = BundledEvent & {
-  banners: Exclude<BundledEvent["banners"], undefined>;
+  banners: NonNullable<BundledEvent["banners"]>;
 };
 
 export interface EventBannersPageProps extends Omit<EventPageProps, "items"> {
