@@ -3,7 +3,7 @@ import { Global } from "src/types/enum";
 
 export function useRecurringDaily({ hour }: { hour: number }) {
   const { s } = useCurrentTime("ms");
-  const now = s.goto(Global.SERVER_TZ);
+  const now = s.goto(Global.UTC_TZ);
   let next: number;
 
   // if hour hasn't passed yet

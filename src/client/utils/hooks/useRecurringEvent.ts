@@ -9,7 +9,7 @@ export function useRecurringEvent({
   hour: number;
 }) {
   const { s } = useCurrentTime();
-  const now = s.goto(Global.SERVER_TZ);
+  const now = s.goto(Global.UTC_TZ);
   let next: number;
 
   // if today's date is before day OR exactly the day, but hour is smaller
