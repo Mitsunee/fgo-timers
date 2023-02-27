@@ -2,11 +2,14 @@ import spacetime from "spacetime";
 import { Global } from "src/types/enum";
 
 interface DisplayDateEstimateProps {
+  /**
+   * Time in seconds
+   */
   time: number;
 }
 
 export function DisplayDateEstimate({ time }: DisplayDateEstimateProps) {
-  const s = spacetime(time, Global.SERVER_TZ);
+  const s = spacetime(time * 1000, Global.SERVER_TZ);
   const d = s.date();
 
   return (

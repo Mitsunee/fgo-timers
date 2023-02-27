@@ -1,8 +1,7 @@
-import { useMemo } from "react";
 import spacetime from "spacetime";
 import Link from "next/link";
 
-// import styles from "./LoginTicketCard.module.css";
+import { msToSeconds } from "src/time/msToSeconds";
 import { Card } from "src/client/components/Card";
 import {
   FGOItemList,
@@ -14,7 +13,8 @@ import NextLogin from "./NextLogin";
 import NextServerMilestone from "./NextServerMilestone";
 
 export default function LoginTicketCard({ items, next }) {
-  const nextMonth = useMemo(() => spacetime(next * 1000), [next]);
+  const nextMonth = spacetime(next * 1000);
+  const nextTime = msToSeconds(nextMonth.epoch);
 
   return (
     <Card
@@ -35,8 +35,8 @@ export default function LoginTicketCard({ items, next }) {
         <p>
           Next Exchange Ticket Rotation:
           <br />
-          <DisplayDelta time={nextMonth.epoch} /> (
-          <DisplayDate time={nextMonth.epoch} format="short" />)
+          <DisplayDelta time={nextTime} /> (
+          <DisplayDate time={nextTime} format="short" />)
           <br />
           <Link
             href={`/exchange-tickets/${nextMonth.year()}`}

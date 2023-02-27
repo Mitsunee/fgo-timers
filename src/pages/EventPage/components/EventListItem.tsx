@@ -44,18 +44,18 @@ export function EventListItem({
         )}
         <li>
           <b>Start{isClient && hasStarted ? "ed" : "s"}:</b>{" "}
-          <DisplayDate time={start * 1000} />
+          <DisplayDate time={start} />
         </li>
         {hasEnd && (
           <li>
             <b>End{isClient && hasEnded ? "ed" : "s"}:</b>{" "}
-            <DisplayDate time={end * 1000} />
+            <DisplayDate time={end} />
           </li>
         )}
         {showDelta && (
           <li className={styles.wide}>
             <b>{hasEnd ? `${hasStarted ? "End" : "Start"}s in:` : "In:"}</b>{" "}
-            <DisplayDelta time={(hasStarted ? end : start) * 1000} />
+            <DisplayDelta time={hasStarted ? end : start} />
           </li>
         )}
         {hasRelatedEntities && (

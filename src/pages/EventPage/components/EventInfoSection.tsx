@@ -76,12 +76,12 @@ export function EventInfoSection({
       <div className={styles.times}>
         <p>
           <b>Start{isClient && hasStarted ? "ed" : "s"}:</b>{" "}
-          <DisplayDate time={start * 1000} format="full" />
+          <DisplayDate time={start} format="full" />
         </p>
         {end > 0 && (
           <p>
             <b>End{isClient && hasEnded ? "ed" : "s"}:</b>{" "}
-            <DisplayDate time={end * 1000} format="full" />
+            <DisplayDate time={end} format="full" />
           </p>
         )}
       </div>

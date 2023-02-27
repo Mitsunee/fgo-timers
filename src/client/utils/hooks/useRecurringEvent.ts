@@ -1,13 +1,23 @@
 import { useCurrentTime } from "src/client/utils/hooks/useCurrentTime";
 import { Global } from "src/types/enum";
+import { msToSeconds } from "src/time/msToSeconds";
 
-export function useRecurringEvent({
-  day,
-  hour
-}: {
+interface RecurringEventProps {
+  /**
+   * Day of the month that the Event occurs
+   */
   day: number;
+  /**
+   * Hour of the day the Event occurs
+   */
   hour: number;
-}) {
+}
+
+/**
+ * Finds next occurence of an event that occurs at a set day and hour each month (relative to UTC)
+ * @returns Time of next occurence in seconds
+ */
+export function useRecurringEvent({ day, hour }: RecurringEventProps) {
   const { s } = useCurrentTime();
   const now = s.goto(Global.UTC_TZ);
   let next: number;
@@ -29,5 +39,5 @@ export function useRecurringEvent({
       .add(hour, "hours").epoch; // but hours start at 0
   }
 
-  return next;
+  return msToSeconds(next);
 }

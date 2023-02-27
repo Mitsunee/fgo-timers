@@ -20,7 +20,6 @@ export function UpgradeInfo({ quest, questId, servantId }: UpgradeInfoProps) {
   const isClient = useIsClient();
   const { current } = useCurrentTime();
   const servant = servantMap[servantId];
-  const time = quest.open * 1000;
 
   return (
     <section>
@@ -51,9 +50,9 @@ export function UpgradeInfo({ quest, questId, servantId }: UpgradeInfoProps) {
       <p>
         <b>Release{isClient && current >= quest.open ? "d" : "s"}:</b>{" "}
         {quest.estimate ? (
-          <DisplayDateEstimate time={time} />
+          <DisplayDateEstimate time={quest.open} />
         ) : (
-          <DisplayDate time={time} format="date" serverTz="ssr" />
+          <DisplayDate time={quest.open} format="date" serverTz="ssr" />
         )}
         <br />
         <AtlasLink link={`quest/${questId}/1`} na={quest.na} targetBlank>

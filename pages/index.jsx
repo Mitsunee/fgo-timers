@@ -35,8 +35,8 @@ export default function HomePage({
   shopData
 }) {
   const [background, setBackground] = useState(null);
-  const mpShopReset = useRecurringEvent({ day: 1, hour: 0, tz: "utc" });
-  const rpShopReset = useRecurringEvent({ day: 15, hour: 0, tz: "utc" });
+  const mpShopReset = useRecurringEvent({ day: 1, hour: 0 });
+  const rpShopReset = useRecurringEvent({ day: 15, hour: 0 });
 
   // Effect sets random background to state to avoid SSR missmatches
   useEffect(() => {

@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import { useRecurringInterval } from "src/client/utils/hooks/useRecurringInterval";
 import {
   SERVER_DAY_MS_LEN,
@@ -12,10 +11,7 @@ export default function NextServerMilestone() {
     length: SERVER_DAY_MS_LEN,
     offset: SERVER_DAY_MS_OFFSET
   });
-  const day = useMemo(() => {
-    const s = Math.trunc(next / 1000);
-    return Math.ceil((s - SERVER_DAY_ZERO) / SERVER_DAY_MS_LEN) * 100;
-  }, [next]);
+  const day = Math.ceil((next - SERVER_DAY_ZERO) / SERVER_DAY_MS_LEN) * 100;
 
   return (
     <p>

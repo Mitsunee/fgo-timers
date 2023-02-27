@@ -3,8 +3,6 @@ import { DisplayDelta, DisplayDate } from "src/client/components/TimeDisplay";
 import MissionListItem from "./MissionListItem";
 
 export function MissionList({ data }) {
-  const timestamp = data.end * 1000;
-
   return (
     <>
       <ul>
@@ -16,8 +14,8 @@ export function MissionList({ data }) {
         <p>
           Available until:
           <br />
-          <DisplayDate time={timestamp} format="short" /> (
-          <DisplayDelta time={timestamp} endedText="Ended" />)
+          <DisplayDate time={data.end} format="short" /> (
+          <DisplayDelta time={data.end} endedText="Ended" />)
         </p>
       </NoSSR>
     </>

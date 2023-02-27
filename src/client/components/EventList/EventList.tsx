@@ -29,8 +29,6 @@ export function EventListItem({
   const [start, end] = normalizeDate(date);
   const hasStarted = current >= start;
   const hasEnded = end > 0 && current >= end;
-  const startMs = start * 1000;
-  const endMs = (end || start) * 1000;
 
   return (
     <Link href={`/events/${slug}`} className={styles.link} title={title}>
@@ -48,17 +46,17 @@ export function EventListItem({
           {isClient ? (
             hasEnded ? (
               <>
-                Ended: <DisplayDate time={endMs} />
+                Ended: <DisplayDate time={end || start} />
               </>
             ) : (
               <>
                 {`${hasStarted ? "End" : "Start"}s: `}
-                <DisplayDelta time={hasStarted ? endMs : startMs} />
+                <DisplayDelta time={hasStarted && end ? end : start} />
               </>
             )
           ) : (
             <>
-              Starts: <DisplayDate time={startMs} />
+              Starts: <DisplayDate time={start} />
             </>
           )}
         </div>

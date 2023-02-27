@@ -24,8 +24,16 @@ function getFormat(alias: Formats, altClockFormat: boolean) {
 }
 
 interface DisplayDateProps {
+  /**
+   * Time in seconds
+   */
   time: number;
   format?: Formats;
+  /**
+   * "never" will render time as user's timezone (only uses serverTz when explicit set in settings, doesn't prerender)
+   * "always" will never use user's timezone (always serverTz, prerenders)
+   * "ssr" uses serverTz to prerender and user's timezone after (default, prerenders)
+   */
   serverTz?: "never" | "always" | "ssr";
 }
 
@@ -51,5 +59,7 @@ export function DisplayDate({
       if (settings.showServerTimes) tz = Global.SERVER_TZ;
   }
 
-  return isRendered ? <time>{spacetime(time, tz).format(format)}</time> : null;
+  return isRendered ? (
+    <time>{spacetime(time * 1000, tz).format(format)}</time>
+  ) : null;
 }

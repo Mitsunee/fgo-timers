@@ -5,7 +5,7 @@ import { Clock } from "./Clock";
 import styles from "./Clocks.module.css";
 
 export function Clocks() {
-  const { current } = useCurrentTime("ms");
+  const { current } = useCurrentTime();
 
   // TODO: fix layout shift
   return (

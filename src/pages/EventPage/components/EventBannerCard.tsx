@@ -46,16 +46,16 @@ function TimeDetails({ banner }: Pick<EventBannerProps, "banner">) {
         {isClient && hasEnded && <li className={styles.wide}>Has Ended</li>}
         <li>
           <b>Start{isClient && hasStarted ? "ed" : "s"}:</b>{" "}
-          <DisplayDate time={start * 1000} />
+          <DisplayDate time={start} />
         </li>
         <li>
           <b>End{isClient && hasEnded ? "ed" : "s"}:</b>{" "}
-          <DisplayDate time={end * 1000} />
+          <DisplayDate time={end} />
         </li>
         {isClient && !hasEnded && (
           <li className={styles.wide}>
             <b>{hasStarted ? "End" : "Start"}s in:</b>{" "}
-            <DisplayDelta time={(hasStarted ? end : start) * 1000} />
+            <DisplayDelta time={hasStarted ? end : start} />
           </li>
         )}
       </ul>
