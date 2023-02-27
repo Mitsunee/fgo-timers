@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-
+import { useEffect } from "react";
 import { useRecurringEvent } from "@utils/hooks/useRecurringEvent";
 import Meta from "@components/Meta";
 import Clocks from "@components/Clocks";
@@ -34,7 +33,6 @@ export default function HomePage({
   masterMissions,
   shopData
 }) {
-  const [background, setBackground] = useState(null);
   const mpShopReset = useRecurringEvent({ day: 1, hour: 0 });
   const rpShopReset = useRecurringEvent({ day: 15, hour: 0 });
 
@@ -44,14 +42,8 @@ export default function HomePage({
     if (typeof document === "undefined") return;
 
     // pick random background
-    setBackground(backgrounds[Math.floor(Math.random() * backgrounds.length)]);
-  }, [backgrounds]);
-
-  // Effect that sets background upon state changing
-  useEffect(() => {
-    // only in client
-    if (typeof document === "undefined" || background === null) return;
-
+    const background =
+      backgrounds[Math.floor(Math.random() * backgrounds.length)];
     const backgroundUrl = `url("/assets/backgrounds/landing/${background}")`;
 
     // set css property and attach className
@@ -61,7 +53,7 @@ export default function HomePage({
     return () => {
       document.body.classList.remove(styles.body);
     };
-  }, [background]);
+  }, [backgrounds]);
 
   return (
     <>
