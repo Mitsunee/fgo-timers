@@ -25,7 +25,7 @@ export function SpoileredText({
   className,
   ...props
 }: SpoileredTextProps) {
-  const [level] = useSpoilerLevel();
+  const level = useSpoilerLevel();
   const [hidden, toggleHidden] = useSpoilerState(id);
 
   if (!na) {

@@ -1,7 +1,6 @@
-import { useStore } from "@nanostores/react";
 import spacetime from "spacetime";
 import { useIsClient } from "src/client/utils/hooks/useIsClient";
-import { intervalStore } from "src/client/stores/intervalStore";
+import { useCurrentTime } from "src/client/utils/hooks/useCurrentTime";
 import { normalizeDate } from "src/time/normalizeDate";
 import { formatDiff } from "src/time/formatDiff";
 import Section from "src/client/components/Section";
@@ -27,7 +26,7 @@ export function EventInfoSection({
   modalCallback
 }: EventInfoSectionProps) {
   const isClient = useIsClient();
-  const { seconds: current, s } = useStore(intervalStore);
+  const { current, s } = useCurrentTime();
   const [start, end] = normalizeDate(date);
   const hasStarted = current >= start;
   const hasEnded = end > 0 ? current >= end : hasStarted;
@@ -75,30 +74,15 @@ export function EventInfoSection({
           ))}
       </Section>
       <div className={styles.times}>
-        {isClient ? (
-          <>
-            <p>
-              <b>Start{hasStarted ? "ed" : "s"}:</b>{" "}
-              <DisplayDate time={start * 1000} format="full" />
-            </p>
-            {end > 0 && (
-              <p>
-                <b>End{hasEnded ? "ed" : "s"}:</b>{" "}
-                <DisplayDate time={end * 1000} format="full" />
-              </p>
-            )}
-          </>
-        ) : (
-          <>
-            <p>
-              <b>Start:</b> <DisplayDate time={start * 1000} format="full" />
-            </p>
-            {end > 0 && (
-              <p>
-                <b>End:</b> <DisplayDate time={end * 1000} format="full" />
-              </p>
-            )}
-          </>
+        <p>
+          <b>Start{isClient && hasStarted ? "ed" : "s"}:</b>{" "}
+          <DisplayDate time={start} format="full" />
+        </p>
+        {end > 0 && (
+          <p>
+            <b>End{isClient && hasEnded ? "ed" : "s"}:</b>{" "}
+            <DisplayDate time={end} format="full" />
+          </p>
         )}
       </div>
     </Section>

@@ -1,16 +1,11 @@
 import { useStore } from "@nanostores/react";
-import { setSpoilerLevel, settingsMap } from "@stores/settingsStore";
-import { useEffect, useState } from "react";
+import { settingsMap } from "src/client/stores/settingsStore";
+import { useIsClient } from "src/client/utils/hooks/useIsClient";
 import { SpoilerLevels } from "src/types/enum";
 
-export function useSpoilerLevel() {
-  const [level, setLevel] = useState<SpoilerLevels>(SpoilerLevels.PRERENDER);
-  const { showSpoiler } = useStore(settingsMap, { keys: ["showSpoiler"] });
-
-  useEffect(() => {
-    if (typeof document === "undefined") return;
-    setLevel(showSpoiler);
-  }, [showSpoiler]);
-
-  return [level, setSpoilerLevel] as [SpoilerLevels, typeof setSpoilerLevel];
+const subKeys = { keys: ["showSpoiler" as const] };
+export function useSpoilerLevel(): SpoilerLevels {
+  const isClient = useIsClient();
+  const { showSpoiler } = useStore(settingsMap, subKeys);
+  return isClient ? showSpoiler : SpoilerLevels.PRERENDER;
 }

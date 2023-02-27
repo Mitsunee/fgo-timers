@@ -2,10 +2,7 @@ import { ActionButton } from "src/client/components/Button";
 import { IconClose } from "src/client/components/icons";
 import styles from "./ButtonClose.module.css";
 
-type OnClick = Exclude<
-  Pick<React.ComponentProps<"button">, "onClick">["onClick"],
-  undefined
->;
+type OnClick = NonNullable<React.ComponentProps<"button">["onClick"]>;
 interface ButtonCloseProps {
   onClick: OnClick;
 }

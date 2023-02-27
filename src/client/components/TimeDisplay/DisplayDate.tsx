@@ -1,8 +1,8 @@
 import spacetime from "spacetime";
 import { useStore } from "@nanostores/react";
 import { settingsStore } from "src/client/stores/settingsStore";
+import { useIsClient } from "src/client/utils/hooks/useIsClient";
 import { Global } from "src/types/enum";
-import { NoSSR } from "src/client/components/NoSSR";
 
 type Formats = "full" | "withSec" | "short" | "time" | "date";
 
@@ -24,26 +24,42 @@ function getFormat(alias: Formats, altClockFormat: boolean) {
 }
 
 interface DisplayDateProps {
+  /**
+   * Time in seconds
+   */
   time: number;
   format?: Formats;
-  serverTz?: "never" | "always";
+  /**
+   * "never" will render time as user's timezone (only uses serverTz when explicit set in settings, doesn't prerender)
+   * "always" will never use user's timezone (always serverTz, prerenders)
+   * "ssr" uses serverTz to prerender and user's timezone after (default, prerenders)
+   */
+  serverTz?: "never" | "always" | "ssr";
 }
 
 export function DisplayDate({
   time,
   format: formatAlias = "short",
-  serverTz
+  serverTz = "ssr"
 }: DisplayDateProps) {
   const settings = useStore(settingsStore);
+  const isClient = useIsClient();
+  const isRendered = serverTz != "never" || isClient;
   const format = getFormat(formatAlias, settings.alternativeClockFormat);
-  const tz: undefined | string =
-    serverTz == "always" || (serverTz != "never" && settings.showServerTimes)
-      ? Global.SERVER_TZ
-      : undefined;
+  let tz: undefined | string;
 
-  return (
-    <NoSSR>
-      <time>{spacetime(time, tz).format(format)}</time>
-    </NoSSR>
-  );
+  switch (serverTz) {
+    case "always":
+      tz = Global.SERVER_TZ;
+      break;
+    case "ssr":
+      if (!isClient) tz = Global.SERVER_TZ;
+    // break omitted
+    case "never":
+      if (settings.showServerTimes) tz = Global.SERVER_TZ;
+  }
+
+  return isRendered ? (
+    <time>{spacetime(time * 1000, tz).format(format)}</time>
+  ) : null;
 }

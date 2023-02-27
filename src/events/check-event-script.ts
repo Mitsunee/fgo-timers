@@ -58,7 +58,7 @@ async function getWarNA(id: number) {
 
 function validateWarsArray(
   arr: Awaited<ReturnType<typeof getWarNA>>[]
-): arr is Exclude<Awaited<ReturnType<typeof getWarNA>>, undefined>[] {
+): arr is NonNullable<Awaited<ReturnType<typeof getWarNA>>>[] {
   return !arr.some(war => !war);
 }
 

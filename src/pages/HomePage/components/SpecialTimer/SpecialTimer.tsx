@@ -10,10 +10,10 @@ interface SpecialTimerProps {
 }
 
 export function SpecialTimer({ startsAt, text, icon }: SpecialTimerProps) {
-  //const { interval } = useStore(intervalStore);
+  //const { current } = useCurrentTime();
 
   return (
-    /*isClamped({ value: interval, max: startsAt }) ? */
+    /*isClamped({ value: current, max: startsAt }) ? */
     <Section className={styles.section} background>
       <span>
         {text}: <DisplayDelta time={startsAt} /> (

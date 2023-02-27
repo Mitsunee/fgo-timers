@@ -1,7 +1,6 @@
 import cc from "classcat";
-import { useStore } from "@nanostores/react";
-import { intervalStore } from "src/client/stores/intervalStore";
 import { useIsClient } from "src/client/utils/hooks/useIsClient";
+import { useCurrentTime } from "src/client/utils/hooks/useCurrentTime";
 import {
   BorderedCEIcon,
   BorderedServantIcon
@@ -13,7 +12,7 @@ import { Borders } from "src/types/borders";
 import type { EventPageProps } from "../static";
 import styles from "./EventBannerCard.module.css";
 
-type EventBanner = Exclude<BundledEvent["banners"], undefined>[number];
+type EventBanner = NonNullable<BundledEvent["banners"]>[number];
 
 interface WithMaps {
   servants: EventPageProps["servants"];
@@ -36,7 +35,7 @@ interface CEDetailProps {
 
 function TimeDetails({ banner }: Pick<EventBannerProps, "banner">) {
   const isClient = useIsClient();
-  const { seconds: current } = useStore(intervalStore);
+  const { current } = useCurrentTime();
   const [start, end] = banner.date;
   const hasStarted = current >= start;
   const hasEnded = current >= end;
@@ -47,16 +46,16 @@ function TimeDetails({ banner }: Pick<EventBannerProps, "banner">) {
         {isClient && hasEnded && <li className={styles.wide}>Has Ended</li>}
         <li>
           <b>Start{isClient && hasStarted ? "ed" : "s"}:</b>{" "}
-          <DisplayDate time={start * 1000} />
+          <DisplayDate time={start} />
         </li>
         <li>
           <b>End{isClient && hasEnded ? "ed" : "s"}:</b>{" "}
-          <DisplayDate time={end * 1000} />
+          <DisplayDate time={end} />
         </li>
         {isClient && !hasEnded && (
           <li className={styles.wide}>
             <b>{hasStarted ? "End" : "Start"}s in:</b>{" "}
-            <DisplayDelta time={(hasStarted ? end : start) * 1000} />
+            <DisplayDelta time={hasStarted ? end : start} />
           </li>
         )}
       </ul>

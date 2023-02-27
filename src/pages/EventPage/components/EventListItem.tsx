@@ -1,6 +1,5 @@
-import { useStore } from "@nanostores/react";
 import { useIsClient } from "src/client/utils/hooks/useIsClient";
-import { intervalStore } from "src/client/stores/intervalStore";
+import { useCurrentTime } from "src/client/utils/hooks/useCurrentTime";
 import { normalizeDate } from "src/time/normalizeDate";
 import { DisplayDate, DisplayDelta } from "src/client/components/TimeDisplay";
 import {
@@ -12,7 +11,7 @@ import type { BundledEvent } from "src/events/types";
 import type { EventPageProps } from "../static";
 import styles from "./EventListItem.module.css";
 
-export type EventTime = Exclude<BundledEvent["times"], undefined>[number];
+export type EventTime = NonNullable<BundledEvent["times"]>[number];
 export type WithMaps = Pick<EventPageProps, "servants" | "ces" | "items">;
 
 interface EventListItemProps extends WithMaps {
@@ -29,7 +28,7 @@ export function EventListItem({
 }: EventListItemProps) {
   const isClient = useIsClient();
   const [start, end] = normalizeDate(time.date);
-  const { seconds: current } = useStore(intervalStore);
+  const { current } = useCurrentTime();
   const hasStarted = current >= start;
   const hasEnd = end > 0 && !hideEnd;
   const hasEnded = end > 0 ? current >= end : hasStarted;
@@ -45,18 +44,18 @@ export function EventListItem({
         )}
         <li>
           <b>Start{isClient && hasStarted ? "ed" : "s"}:</b>{" "}
-          <DisplayDate time={start * 1000} />
+          <DisplayDate time={start} />
         </li>
         {hasEnd && (
           <li>
             <b>End{isClient && hasEnded ? "ed" : "s"}:</b>{" "}
-            <DisplayDate time={end * 1000} />
+            <DisplayDate time={end} />
           </li>
         )}
         {showDelta && (
           <li className={styles.wide}>
             <b>{hasEnd ? `${hasStarted ? "End" : "Start"}s in:` : "In:"}</b>{" "}
-            <DisplayDelta time={(hasStarted ? end : start) * 1000} />
+            <DisplayDelta time={hasStarted ? end : start} />
           </li>
         )}
         {hasRelatedEntities && (

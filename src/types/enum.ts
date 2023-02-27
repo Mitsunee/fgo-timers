@@ -21,6 +21,7 @@ export const enum GlobalStyles {
 }
 
 export const enum Global {
+  UTC_TZ = "etc/utc",
   SERVER_TZ = "America/Los_Angeles"
 }
 

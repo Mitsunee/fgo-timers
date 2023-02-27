@@ -22,7 +22,7 @@ export default function ShopCardLimitedItem({ currency, data }) {
       {isClient && (
         <>
           <br />
-          Available until <DisplayDate time={ends * 1000} format="short" />
+          Available until <DisplayDate time={ends} format="short" />
         </>
       )}
     </FGOItemListItem>

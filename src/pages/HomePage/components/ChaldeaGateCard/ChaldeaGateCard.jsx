@@ -1,7 +1,4 @@
-import { useStore } from "@nanostores/react";
-
-//import styles from "./ChaldeaGateCard.module.css";
-import { intervalStore } from "src/client/stores/intervalStore";
+import { useCurrentTime } from "src/client/utils/hooks/useCurrentTime";
 import { useRecurringDaily } from "src/client/utils/hooks/useRecurringDaily";
 import { findScheduleByDay } from "./schedules";
 import { Card } from "src/client/components/Card";
@@ -12,10 +9,10 @@ import EmberLootList from "./EmberLootList";
 import ScheduleTable from "./ScheduleTable";
 
 export default function ChaldeaGateCard() {
-  const { s } = useStore(intervalStore);
+  const { s } = useCurrentTime();
   const weekday = s.goto("utc").format("day-short");
   const currentDay = findScheduleByDay(weekday);
-  const nextRotation = useRecurringDaily({ hour: 0, tz: "utc" });
+  const nextRotation = useRecurringDaily({ hour: 0 });
 
   return (
     <Card

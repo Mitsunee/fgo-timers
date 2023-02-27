@@ -60,9 +60,9 @@ export default function APCalcPage() {
     const offsetMatch = apOffset.match(/(\d):(\d)(\d)/);
     const offset =
       300 - (+offsetMatch[1] * 60 + +offsetMatch[2] * 10 + +offsetMatch[3]);
-    const renderedAt = Math.floor(Date.now() / 1000) * 1000;
-    const now = Math.floor(renderedAt / 1000) - offset;
-    const calcTime = apDiff => 1000 * (now + apDiff * 300);
+    const renderedAt = Math.floor(Date.now() / 1000);
+    const now = renderedAt - offset;
+    const calcTime = apDiff => now + apDiff * 300;
 
     // Max AP
     const maxApData = {
