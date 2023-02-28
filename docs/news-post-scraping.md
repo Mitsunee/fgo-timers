@@ -79,24 +79,15 @@ console.log(
 Remove any brackets and quotation marks where possible. Add a `-` infront of the title keys and shorten their value as needed.
 
 ```yml
-- title: Rateup
-  times:
-    - title: Both SSRs & Both SRs
-      date: 2022-05-01 21:00 PDT
-    - title: Osakabehime & Both SRs
-      date: 2022-05-03 21:00 PDT
-    - title: Jinako & Both SRs
-      date: 2022-05-05 21:00 PDT
-    - title: Both SSRs & Both SRs
-      date: 2022-05-07 21:00 PDT
-    - title: Osakabehime & Thomas Edison
-      date: 2022-05-09 21:00 PDT
-    - title: Osakabehime & Nursery Rhyme
-      date: 2022-05-10 21:00 PDT
-    - title: Jinako & Thomas Edison
-      date: 2022-05-11 21:00 PDT
-    - title: Jinako & Nursery Rhyme
-      date: 2022-05-12 21:00 PDT
-    - title: Both SSRs & Both SRs
-      date: 2022-05-13 21:00 PDT
+schedules:
+  - title: Story
+    times:
+      - title: Section 1 & 2
+        date: 2022-05-01 21:00 PDT
+      - title: Section 3
+        date: 2022-05-03 21:00 PDT
+      - title: Section 4
+        date: 2022-05-05 21:00 PDT
+      - title: Section 5 & Final Section
+        date: 2022-05-07 21:00 PDT
 ```

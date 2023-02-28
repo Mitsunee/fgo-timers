@@ -6,31 +6,47 @@ This file contains general information for getting started working with the code
 
 **Open an issue or ask to be assigned to an issue before sending a Pull Request. When you have been assigned an Issue follow the steps below.**
 
-Create a fork of this repository on GitHub and clone it. Then use the following commands to create a dev branch on your fork:
+Create a fork of this repository on GitHub and clone it.
+
+<details>
+<summary>Git instructions</summary>
+
+### Add upstream remote:
 
 ```shell
-# Add upstream remote:
 git remote add upstream git@github.com/mitsunee/fgo-timers.git
 git fetch upstream
+```
 
-# Updating your fork:
+### Updating your fork:
+
+```shell
 git fetch upstream
 git checkout main
 git rebase upstream/main
 git push -u origin main
 yarn
+```
 
-# Creating a branch (replace BRANCH_NAME accordingly):
-# update your fork first!
+### Creating a branch
+
+(replace BRANCH_NAME accordingly):
+
+```shell
 git branch BRANCH_NAME
 git checkout BRANCH_NAME
 git push -u origin BRANCH_NAME
+```
 
-# Rebasing dev branch:
+### Rebasing dev branch:
+
+```shell
 git checkout BRANCH_NAME
 git fetch upstream
 git rebase upstream/main # follow instructions if merge conflicts appear
 ```
+
+</details>
 
 After pushing changes to your dev branch you can open a Pull Request on GitHub.
 
@@ -50,38 +66,39 @@ Start the devServer with `yarn dev` locally on your system, then visit [http://l
 
 ## Directories in this repository
 
-**Note:** Directory Structure is currently changing, docs will be updated later
-
 - assets: Contains all data assets, images in original resolution and currently unused images
 - pages: Contains all pages and api routes (may adopt Next.js 13 app directory in the future)
 - public: Contains files that will get served in `/` alongside the app
 - src:
   - atlas-api: Atlas Academy API Connector adapter and cache management
-  - client: Frontend Components and stores
+  - client: Frontend Components, hooks and stores
+  - events: Utils for handling (ingame) Events
   - items: Utils for Craft Essences, Items and Custom Items
-  - pages: Temporary Location for SSG, page-specific utils and page-specific components (will be moved to `./app` when migrating to that)
+  - pages: page-specific utils and components
   - prebuild: Prebuild script that handles API data caching and reformatting into optimized data set
   - schema: Schema files and validation script
   - scripts: Legacy Location for scripts that have not been fully migrated to zod/typescript
-  - servants: Utils for Servants, Noble Phantasms and Skills
-  - server: Legacy Location for SSG, ISR and related util functions
+  - servants: Utils for handling Servants, Noble Phantasms and Skills
+  - server: tRPC routers, also Legacy Location for SSG, ISR and related util functions
+  - svgo: SVGO script that handles converting `.svg` files in the assets directory to React components
+  - time: utils for working with timestamps, and Date strings
   - types: globally used types and Enums (note that there may also be files matching `src/*/types(.d)?.ts`)
-  - upgrades: utils related to Quests and Upgrades (Interludes and Rank Ups)
+  - upgrades: Utils for handling Quests and Upgrades (Interludes and Rank Ups)
   - utils: generic utils
 - tests (mirrors src unless specified here):
   - \_\_mockups\_\_: Contains mock assets used in legacy tests (ignored by jest config)
   - scripts-uvu: Contains all legacy tests (ignored by jest config)
 
-Note: As of Next.js 13 the `./app` directory will not yet be used, but complex pages may use `./src/pages` to hold their specific styles, components and utils.
-
 ## Environment Variables
 
-- `NEXT_PUBLIC_DOMAIN`: Domain name used for meta images. Do not include any preceeding or following slashes or protocols. The protocol `https://` will be used by the Meta component.
+- `NEXT_PUBLIC_DOMAIN`: Domain name used for meta images. Protocol `https://` will be autofilled if ommitted. `http://localhost:3000` is used as fallback if not set.
 
 ## Code Guidelines
 
+- Use absolute import paths such as `import { api } from "src/client/api"`. The current aliases are deprecated and will be replaced in the future.
+- Use `import type` whenever possible. Values imported as type are removed during the build process and are thus removed from production bundles.
 - New code should use typescript - migration from esm to ts is currently in progress
-- Use the included ESLint and Prettier configuations. `simple-git-hooks` will run all committed code through both tools as well.
+- Use the included ESLint and Prettier configuations. Remember to use `yarn lint` and `yarn test:types` before pushing.
 - As a general rule of thumb default exports are only used in React Components, NextJS API Routes and NextJS Pages. All other exports should be named exports.
 - All files using JSX should use the `*.jsx` or `*.tsx` file extension.
 - Try to keep functions small (and thus their purpose obvious and readable). If you absolutely need larger functions divide your code into sections and use comments to give them headlines such as `// handle args`.
@@ -101,9 +118,18 @@ The build process has the following steps:
 
 ## Further Information
 
-**NOTE**: The backend is currently undergoing a major rewrite, documentation may be deprecated!
+**NOTE**: There is currently an ongoing migration to the following tools: TypeScript, zod, tRPC. Documentation may not be up-to-date yet.
 
-- [News Post Scraping](news-post-scraping.md) contains information for scraping data from official news posts.
+Documentation on scripts (such as `yarn find` and `yarn build:svgo`) have also not been written yet, but may be present in source code. Refer to [package.json](../package.json) to see what's available. Note that currently some scripts still have some `.mjs` files and thus use `tsm` to run. This will be replaced with `tsx` in the future.
+
+### Project Documation
+
+- [News Post Scraping](news-post-scraping.md) contains code examples for scraping data from official news posts.
+- [Time Formats](./data/time-formats.md): Time Formats used in project
+- [Event Files](./data/events.md): Events File Format
+- [Themeing and Responsive Design](./theme.md): Information on global css properties used for Themeing.
+
+### External References
+
 - [Atlas Academy DB](https://apps.atlasacademy.io/db/) can be used to find Servant and Craft Essence IDs more quickly. Usually both ID and collectionNo are supported, but scripts prefer using the ID.
 - [Atlas Academy API Documentation](https://api.atlasacademy.io/docs#/)
-- See [Themeing and Responsive Design](theme.md) for information on global css properties used for Themeing.
