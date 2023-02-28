@@ -4,6 +4,12 @@ import { useState, useEffect } from "react";
 
 //type DimensionQuery = `(${"min"|"max"}-${"width"|"height"}: ${number}px)`;
 
+/**
+ * Media query subscription hook
+ * @param queryName Either query alias (same as custom queries set in media.css) or query as string
+ * @param assumeTrue Default value to assume on first render
+ * @returns boolean
+ */
 export function useMediaQuery(
   queryName: Queries | (string & {}),
   assumeTrue: boolean = false

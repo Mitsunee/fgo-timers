@@ -1,6 +1,10 @@
 import Router from "next/router";
 import { useState, useEffect } from "react";
 
+/**
+ * Subscribes to router loading state. `true` while router is currently loading, `false` otherwise.
+ * @returns boolean
+ */
 export const useRouterLoading = () => {
   const [loading, setLoading] = useState<boolean>(false);
   useEffect(() => {

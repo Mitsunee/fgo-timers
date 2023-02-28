@@ -1,6 +1,9 @@
 import { useState } from "react";
 
 // TODO: phase out untyped hook
+/**
+ * @deprecated
+ */
 export function useInputNumberValue(initialValue = 0) {
   const [value, setValue] = useState(+initialValue);
 
