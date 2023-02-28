@@ -15,6 +15,9 @@ export const enum Availability {
   FP_LOCKED
 }
 
+/**
+ * Globally available classNames from app.css
+ */
 export const enum GlobalStyles {
   BUTTON = "button",
   BUTTON_DECORATED = "button-decorated"

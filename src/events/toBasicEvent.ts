@@ -1,5 +1,10 @@
 import type { BundledEvent, BasicEvent } from "./types";
 
+/**
+ * Creates BasicEvent object from BundledEvent
+ * @param event Event to reduce
+ * @returns BasicEvent
+ */
 export function toBasicEvent(event: BundledEvent): BasicEvent {
   return {
     title: event.title,

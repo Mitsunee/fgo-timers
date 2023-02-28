@@ -1,6 +1,11 @@
 import type { BundledEvent } from "./types";
 import { normalizeDate } from "../time/normalizeDate";
 
+/**
+ * Creates sorter callback for events using given time as reference for wheter the event would be shown on HomePage
+ * @param time current time in seconds
+ * @returns callback function for `Array.prototype.sort`
+ */
 export function createEventSorter(time: number) {
   return (a: BundledEvent, b: BundledEvent) => {
     if (a.hideAt <= time && b.hideAt > time) return 1; // a ended, b didn't, sort a after b

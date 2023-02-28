@@ -1,6 +1,11 @@
 import { Borders } from "../types/borders";
 import type { ServantBorder, SkillBorder } from "./types";
 
+/**
+ * Maps Servant rarity as number to Borders enum value
+ * @param rarity rarity of Servant
+ * @returns ServantBorder
+ */
 export function mapServantRarityToBorder(rarity: number): ServantBorder {
   switch (rarity) {
     case 0:
@@ -17,6 +22,11 @@ export function mapServantRarityToBorder(rarity: number): ServantBorder {
   }
 }
 
+/**
+ * Maps Upgrade level as number to Borders enum value
+ * @param level Upgrade level of skill
+ * @returns SkillBorder
+ */
 export function mapUpgradeLevelToSkillBorder(level: number): SkillBorder {
   switch (level) {
     case 0:

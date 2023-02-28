@@ -1,5 +1,10 @@
 import ClassName from "@atlasacademy/api-connector/dist/Enum/ClassName.js";
 
+/**
+ * Maps ClassName of Servant to name as string
+ * @param className class of Servant
+ * @returns string
+ */
 export function nameServantClass(className: ClassName): string {
   switch (className) {
     case ClassName.ALTER_EGO:
@@ -13,6 +18,12 @@ export function nameServantClass(className: ClassName): string {
 
 const basePath = "/assets/classes";
 
+/**
+ * Get url to class icon from ClassName and (optional) rarity
+ * @param className Servant class as ClassName
+ * @param rarity rarity as number (default: 5)
+ * @returns url as string
+ */
 export function getClassIconPath(
   className: ClassName,
   rarity: number = 5

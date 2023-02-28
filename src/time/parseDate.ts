@@ -1,4 +1,5 @@
 import spacetime from "spacetime";
+import { msToSeconds } from "./msToSeconds";
 
 const tzOffset = {
   PST: "-08:00",
@@ -13,9 +14,15 @@ interface TimestampProps {
 
 function toTimestamp({ date, time, timezone }: TimestampProps) {
   const s = spacetime(`${date}T${time}:00${tzOffset[timezone]}`);
-  return Math.trunc(s.epoch / 1000);
+  return msToSeconds(s.epoch);
 }
 
+/**
+ * Parses date in string format to timestamp as number in seconds
+ * @param date Date as string
+ * @throws if string could not be parsed
+ * @returns
+ */
 export function parseDate(date: string, fullStr?: string): number {
   const match = date.match(
     /^(?<date>\d{4}-\d{2}-\d{2}) (?<time>\d{2}:\d{2}) (?<timezone>P[DS]T)$/i
@@ -28,6 +35,15 @@ export function parseDate(date: string, fullStr?: string): number {
   return toTimestamp(match.groups);
 }
 
+/**
+ * Parses Date/Duration as string to timestamp as number in seconds
+ * @param date Date/Duration as string
+ * @param isDuration null or boolean to determine whether to expect Duration (`true`), expect Date (`false`) or allow both (`null`) (default: `null`)
+ * @throws if string could not be parsed
+ * @throws if isDuration is set to `true` and Date as string was given
+ * @throws if isDuration is set to `false` and Duration as string was given
+ * @returns timestamp as number in seconds or Tuple of start and end time as numbers in seconds
+ */
 // prettier-ignore
 export function parseDuration(date: string, isDuration?: null): number | [number,number];
 export function parseDuration(date: string, isDuration: true): [number, number];

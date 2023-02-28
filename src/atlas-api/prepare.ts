@@ -4,6 +4,10 @@ import { Log } from "../utils/log.js";
 import { cachePath, atlasCacheNA, atlasCacheJP } from "./cache";
 import { getCacheStatus } from "./validation";
 
+/**
+ * Method to check/update local api cache. Run at start of scripts!
+ * @returns AtlasCacheInfo
+ */
 export async function prepareCache() {
   const { newInfo, updateNa, updateJp } = await getCacheStatus();
   const update = updateNa || updateJp;

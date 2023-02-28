@@ -18,6 +18,14 @@ function stripClassSuffix(name: string): string {
     .replace(/ {2,}/g, " ");
 }
 
+/**
+ * Memoized method to get spoilersafe name of Servant without class suffix and parenthesizes "Alter" suffix
+ *
+ * For example this will turn "Altria Pendragon Alter (Lancer)" into "Altria Pendragon (Alter)"
+ *
+ * @param servant Servant object from API
+ * @returns string
+ */
 function getBaseName(servant: Servant): string {
   let cached = baseNameCache.get(servant.id);
 
@@ -37,6 +45,17 @@ function getBaseName(servant: Servant): string {
   return cached;
 }
 
+/**
+ * Determines the spoilersafe name of a servant, using class suffix only if needed to be as unambiguous as possible.
+ *
+ * A Special case for BB (and Summer BB) is made where 4* BB is called "BB" and
+ * 5* BB is called "BB (Summer)" as they both have the same class. This matches
+ * the existing naming scheme for Abigail Williams who also has a same-class
+ * summer version (of the same rarity even)
+ *
+ * @param servantId id of Servant
+ * @returns string
+ */
 export async function nameServant(servantId: number): Promise<string> {
   niceServant ??= await atlasCache.JP.getNiceServant();
   niceServantNA ??= await atlasCache.NA.getNiceServant();
@@ -52,9 +71,7 @@ export async function nameServant(servantId: number): Promise<string> {
   }
 
   if (baseName == "BB") {
-    overrideName = `BB (${servant.rarity}* ${nameServantClass(
-      servant.className
-    )})`;
+    overrideName = `BB${servant.rarity == 4 ? "" : " (Summer)"}`;
   }
 
   return overrideName || baseName;

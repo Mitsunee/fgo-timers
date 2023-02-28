@@ -46,6 +46,11 @@ export interface BundledNP {
   na?: true;
 }
 
+/**
+ * Typeguard to use to determine whether the subject is a Skill
+ * @param subject Skill or NoblePhantasm object from API
+ * @returns boolean (typeguard)
+ */
 export function isSkill(subject: Skill | NoblePhantasm): subject is Skill {
   return !Object.hasOwn(subject, "card");
 }

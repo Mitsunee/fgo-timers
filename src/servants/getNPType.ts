@@ -4,6 +4,11 @@ import { Log } from "../utils/log";
 import type { NPType } from "./types";
 import { ServantCard } from "./types";
 
+/**
+ * Gets NP type and maps as ServantCard enum value
+ * @param np NP object from API
+ * @returns ServantCard enum value
+ */
 export function getNPType(np: NoblePhantasm): NPType {
   switch (np.card) {
     case Card.BUSTER:

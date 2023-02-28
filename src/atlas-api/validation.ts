@@ -19,6 +19,10 @@ export interface AtlasCacheInfo {
   lastChecked: number;
 }
 
+/**
+ * Reads cache info of local api cache
+ * @returns AtlasCacheInfo
+ */
 export async function getLocalCacheInfo(): Promise<AtlasCacheInfo | null> {
   const infoLocal = await readFileJson<AtlasCacheInfo>(
     `${cachePath}/info.json`
@@ -27,6 +31,10 @@ export async function getLocalCacheInfo(): Promise<AtlasCacheInfo | null> {
   return infoLocal;
 }
 
+/**
+ * Fetches API info and compares with local cache info to determine whether or not cache updates are needed.
+ * @returns Object containing new local cache info after updates as "newInfo" and "updateNa"/"updateJp" prop (boolean) to tell which to update
+ */
 export async function getCacheStatus(): Promise<{
   newInfo: AtlasCacheInfo;
   updateNa?: boolean;

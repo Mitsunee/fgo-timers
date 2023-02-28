@@ -30,6 +30,11 @@ export interface BundledItem extends ItemBase {
 
 export type CustomItem = z.infer<typeof CustomItemSchema>;
 
+/**
+ * Maps rarity as string to Borders enum value
+ * @param rarity rarity as string
+ * @returns Borders enum value
+ */
 export function mapCustomItemRarityToBorder(
   rarity: CustomItem[number]["rarity"]
 ): ItemBorder {
@@ -45,6 +50,11 @@ export function mapCustomItemRarityToBorder(
   }
 }
 
+/**
+ * Maps ItemBackgroundType used in API data to Borders enum value
+ * @param background background property of API's item data
+ * @returns Borders enum value
+ */
 export function mapItemBackgroundToBorder(
   background: ItemBackgroundType
 ): ItemBorder {
