@@ -7,6 +7,9 @@ description: >-
   To celebrate the upcoming start of Spring Master's will receive a Special Login Bonus,
   access to new Extra Quests, a series of Limited Master Missions and many other Bonuses.
   A Summoning Banner featuring Arthur and the CBC 2019 Craft Essences is also available.
+
+  Update: After initially not being included in this Campaign the Craft Essence
+  Beyond the Rain Clouds has been retroactively added to the Mana Prism Exchange Shop.
 times:
   - title: Special Login Bonus
     date: 2023-02-23 20:00 - 03-09 19:59 PST
@@ -29,6 +32,9 @@ times:
     ces: [9404180]
   - title: Dragon-Slayer's Sword added to RP Shop
     date: 2023-02-23 20:00 PST
+  - title: Beyond the Rain Clouds added to MP Shop
+    date: 2023-02-28 16:00 PST
+    ces: [9405120]
 upgrades:
   - 94057001 # Arthur
 banners:
