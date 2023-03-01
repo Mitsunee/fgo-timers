@@ -1,0 +1,246 @@
+title: "Chaldea Boys 2023 - Holy Grail Phantom Thief Amakusa Shirou and the Slapstick Museum"
+shortTitle: Holy Grail Phantom Thief
+banner: 2023_cbcevent.png
+url: 2023/0228_slapstick_museum/
+date: 2023-03-03 00:00 PST - 03-14 20:59 PDT
+requires: Clear Fuyuki
+description: >-
+  Chaldea Boys 2023 features a brand new Event "Holy Grail Phantom Thief"
+  which has a costume for Amakusa Shirou, as well as many Summoning Banners
+  and Rank Up Quests for Da Vinci (Caster), Amakusa Shirou and Jing Ke.
+  Event Bonus Servants will rotate daily according to the current Summoning
+  Banners.
+
+  To celebrate Chaldea Boys 2023 Master will also receive a Invitation which
+  can be exchanged for one of the 9 new Craft Essences, as well as a Daily Login
+  Bonus contain one Calling Card. These Calling Cards can be exchanged for Rewards
+  with the final one being a new Command Code: Elegant Phantom Thief Hat
+times:
+  - title: Maintenance
+    date: 2023-03-02 20:00 - 03-03 00:00 PST
+  - title: Event Shop Exchange
+    date: 2023-03-03 00:00 PST - 03-21 20:59 PDT
+  - title: Social Media Campaign
+    date: 2023-02-28 20:00 - 03-10 19:59 PST
+  - title: Invitation Exchange
+    date: 2023-03-03 00:00 PST - 03-21 20:59 PDT
+    items: [94067501]
+  - title: Calling Card Distributon
+    date: 2023-03-07 20:00 PST - 03-14 20:59 PDT
+    items: [94056505]
+  - title: Calling Card Exchange
+    date: 2023-03-07 20:00 PST - 03-21 20:59 PDT
+    items: [94056505]
+  - title: CBC 2022 Invitation added to RP Shop
+    date: 2023-03-03 00:00 PST
+    items: [94034606]
+schedules:
+  - title: Story
+    times:
+      - title: Prologue & Section 1
+        date: 2023-03-03 00:00 PST
+      - title: Section 2
+        date: 2023-03-03 20:00 PST
+      - title: Section 3
+        date: 2023-03-04 20:00 PST
+      - title: Section 4
+        date: 2023-03-05 20:00 PST
+      - title: Section 5
+        date: 2023-03-06 20:00 PST
+      - title: Section 6
+        date: 2023-03-07 20:00 PST
+      - title: Final Section
+        date: 2023-03-08 20:00 PST
+banners:
+  - date: 2023-03-03 00:00 PST - 03-16 20:59 PDT
+    servants: [900200, 104700, 601100] # Amakusa
+    ces:
+      - 9404990
+      - 9405000
+      - 9405010
+      - 9405020
+      - 9405030
+      - 9405040
+      - 9405050
+      - 9405060
+      - 9405070
+  - date: 2023-03-04 20:00 - 03-05 19:59 PST
+    servants: [104200, 104700, 601100] # Dioscuri
+    ces:
+      - 9404990
+      - 9405000
+      - 9405010
+      - 9405020
+      - 9405030
+      - 9405040
+      - 9405050
+      - 9405060
+      - 9405070
+  - date: 2023-03-04 20:00 - 03-05 19:59 PST
+    servants: [702000, 104700, 601100] # Cu Alter
+    ces:
+      - 9404990
+      - 9405000
+      - 9405010
+      - 9405020
+      - 9405030
+      - 9405040
+      - 9405050
+      - 9405060
+      - 9405070
+  - date: 2023-03-05 20:00 - 03-06 19:59 PST
+    servants: [403800, 104700, 601100] # Odysseus
+    ces:
+      - 9404990
+      - 9405000
+      - 9405010
+      - 9405020
+      - 9405030
+      - 9405040
+      - 9405050
+      - 9405060
+      - 9405070
+  - date: 2023-03-05 20:00 - 03-06 19:59 PST
+    servants: [203100, 104700, 601100] # Napoleon
+    ces:
+      - 9404990
+      - 9405000
+      - 9405010
+      - 9405020
+      - 9405030
+      - 9405040
+      - 9405050
+      - 9405060
+      - 9405070
+  - date: 2023-03-06 20:00 - 03-07 19:59 PST
+    servants: [700700, 104700, 601100] # Vlad berserker
+    ces:
+      - 9404990
+      - 9405000
+      - 9405010
+      - 9405020
+      - 9405030
+      - 9405040
+      - 9405050
+      - 9405060
+      - 9405070
+  - date: 2023-03-06 20:00 - 03-07 19:59 PST
+    servants: [501900, 104700, 601100] # Waver
+    ces:
+      - 9404990
+      - 9405000
+      - 9405010
+      - 9405020
+      - 9405030
+      - 9405040
+      - 9405050
+      - 9405060
+      - 9405070
+  - date: 2023-03-07 20:00 - 03-08 19:59 PST
+    servants: [403700, 104700, 601100] # Nemo
+    ces:
+      - 9404990
+      - 9405000
+      - 9405010
+      - 9405020
+      - 9405030
+      - 9405040
+      - 9405050
+      - 9405060
+      - 9405070
+  - date: 2023-03-07 20:00 - 03-08 19:59 PST
+    servants: [201500, 104700, 601100] # Arjuna Archer
+    ces:
+      - 9404990
+      - 9405000
+      - 9405010
+      - 9405020
+      - 9405030
+      - 9405040
+      - 9405050
+      - 9405060
+      - 9405070
+  - date: 2023-03-08 20:00 - 03-09 19:59 PST
+    servants: [300400, 104700, 601100] # Karna
+    ces:
+      - 9404990
+      - 9405000
+      - 9405010
+      - 9405020
+      - 9405030
+      - 9405040
+      - 9405050
+      - 9405060
+      - 9405070
+  - date: 2023-03-08 20:00 - 03-09 19:59 PST
+    servants: [401200, 104700, 601100] # Ozy
+    ces:
+      - 9404990
+      - 9405000
+      - 9405010
+      - 9405020
+      - 9405030
+      - 9405040
+      - 9405050
+      - 9405060
+      - 9405070
+  - date: 2023-03-09 20:00 - 03-10 19:59 PST
+    servants: [201100, 104700, 601100] # Tesla
+    ces:
+      - 9404990
+      - 9405000
+      - 9405010
+      - 9405020
+      - 9405030
+      - 9405040
+      - 9405050
+      - 9405060
+      - 9405070
+  - date: 2023-03-09 20:00 - 03-10 19:59 PST
+    servants: [300800, 104700, 601100] # Enkidu
+    ces:
+      - 9404990
+      - 9405000
+      - 9405010
+      - 9405020
+      - 9405030
+      - 9405040
+      - 9405050
+      - 9405060
+      - 9405070
+  - date: 2023-03-10 20:00 - 03-11 19:59 PST
+    servants: [402900, 104700, 601100] # Achilles
+    ces:
+      - 9404990
+      - 9405000
+      - 9405010
+      - 9405020
+      - 9405030
+      - 9405040
+      - 9405050
+      - 9405060
+      - 9405070
+  - date: 2023-03-10 20:00 - 03-11 19:59 PST
+    servants: [703200, 104700, 601100] # Xiang Yu
+    ces:
+      - 9404990
+      - 9405000
+      - 9405010
+      - 9405020
+      - 9405030
+      - 9405040
+      - 9405050
+      - 9405060
+      - 9405070
+  - date: 2023-03-11 20:00 - 03-12 19:59 PST
+    servants: [603600, 104700, 601100] # Li Shuwen Assassin
+    ces:
+      - 9404990
+      - 9405000
+      - 9405010
+      - 9405020
+      - 9405030
+      - 9405040
+      - 9405050
+      - 9405060
+      - 9405070
