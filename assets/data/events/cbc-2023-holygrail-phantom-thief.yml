@@ -244,3 +244,7 @@ banners:
       - 9405050
       - 9405060
       - 9405070
+upgrades:
+  - 94056772 # Amakusa Rank Up 3
+  - 94056771 # Da Vinci Caster Rank Up 1
+  - 94056773 # Jing Ke Rank Up 3
