@@ -16,6 +16,7 @@ import styles from "./UpgradeDisplay.module.css";
 
 type Props<U extends UpgradeMap> = {
   upgrade: BundledUpgrade & { upgrades: U };
+  bypassSpoilers?: true;
 };
 type SkillUpgradeProps = Props<UpgradeMapSkill>;
 type NPUpgradeProps = Props<UpgradeMapNP>;
@@ -28,7 +29,7 @@ function Arrow() {
   );
 }
 
-export function SkillUpgrade({ upgrade }: SkillUpgradeProps) {
+export function SkillUpgrade({ upgrade, bypassSpoilers }: SkillUpgradeProps) {
   const { skillMap } = useContext(context);
   const {
     servant,
@@ -40,11 +41,19 @@ export function SkillUpgrade({ upgrade }: SkillUpgradeProps) {
   return (
     <section className={styles.grid}>
       <div className={styles.icon}>
-        <BorderedSkillIcon skillId={id} {...from} />
+        <BorderedSkillIcon
+          disableSpoilers={bypassSpoilers}
+          skillId={id}
+          {...from}
+        />
       </div>
       <Arrow />
       <div className={styles.icon}>
-        <BorderedSkillIcon skillId={newId} {...to} />
+        <BorderedSkillIcon
+          disableSpoilers={bypassSpoilers}
+          skillId={newId}
+          {...to}
+        />
       </div>
       <div className={styles.text}>
         {id > 1 && (
@@ -52,7 +61,7 @@ export function SkillUpgrade({ upgrade }: SkillUpgradeProps) {
             <SpoileredText
               id={id}
               placeholder={`Skill ${from.num}`}
-              na={from.na}>
+              na={from.na || bypassSpoilers}>
               {from.name}
             </SpoileredText>{" "}
             <AtlasLink
@@ -64,7 +73,10 @@ export function SkillUpgrade({ upgrade }: SkillUpgradeProps) {
         )}
       </div>
       <div className={styles.text}>
-        <SpoileredText id={newId} placeholder={`Skill ${to.num}`} na={to.na}>
+        <SpoileredText
+          id={newId}
+          placeholder={`Skill ${to.num}`}
+          na={to.na || bypassSpoilers}>
           {to.name}
         </SpoileredText>{" "}
         <AtlasLink
@@ -77,7 +89,7 @@ export function SkillUpgrade({ upgrade }: SkillUpgradeProps) {
   );
 }
 
-export function NPUpgrade({ upgrade }: NPUpgradeProps) {
+export function NPUpgrade({ upgrade, bypassSpoilers }: NPUpgradeProps) {
   const { npMap } = useContext(context);
   const {
     servant,
@@ -96,7 +108,10 @@ export function NPUpgrade({ upgrade }: NPUpgradeProps) {
         <BorderedNPIcon npId={newId} {...to} />
       </div>
       <div className={styles.text}>
-        <SpoileredText id={id} placeholder="Noble Phantasm" na={from.na}>
+        <SpoileredText
+          id={id}
+          placeholder="Noble Phantasm"
+          na={from.na || bypassSpoilers}>
           {from.name}
         </SpoileredText>{" "}
         <AtlasLink
@@ -106,7 +121,10 @@ export function NPUpgrade({ upgrade }: NPUpgradeProps) {
         />
       </div>
       <div className={styles.text}>
-        <SpoileredText id={newId} placeholder="Noble Phantasm" na={to.na}>
+        <SpoileredText
+          id={newId}
+          placeholder="Noble Phantasm"
+          na={to.na || bypassSpoilers}>
           {to.name}
         </SpoileredText>{" "}
         <AtlasLink

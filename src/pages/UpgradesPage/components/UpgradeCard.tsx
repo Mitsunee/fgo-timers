@@ -63,7 +63,9 @@ export function UpgradeCard({
     suffix = `Skill ${to.num}`;
     subtitleIcon = "skill";
     border = to.border;
-    UpgradeDisplay = <SkillUpgrade upgrade={upgrade} />;
+    UpgradeDisplay = (
+      <SkillUpgrade upgrade={upgrade} bypassSpoilers={bypassSpoilers} />
+    );
   }
 
   // handle NP upgrade props
@@ -72,7 +74,9 @@ export function UpgradeCard({
     suffix = "NP";
     subtitleIcon = "np";
     border = to.border;
-    UpgradeDisplay = <NPUpgrade upgrade={upgrade} />;
+    UpgradeDisplay = (
+      <NPUpgrade upgrade={upgrade} bypassSpoilers={bypassSpoilers} />
+    );
   }
 
   return (
