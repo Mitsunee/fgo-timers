@@ -71,8 +71,9 @@ Please append comments after `servants` for clarity. If given the first Servant 
 ```yml
 banners:
   - date: # Duration
-  - servants: # optional Array of Servant IDs
-  - ces: # optinal Array of CE IDs
+    servants: # optional Array of Servant IDs
+    ces: # optinal Array of CE IDs
+    priority: # optional sorting priority, higher number appears first
 ```
 
 ### Upgrades

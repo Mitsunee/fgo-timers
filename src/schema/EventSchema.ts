@@ -3,6 +3,8 @@ import { EventAssetsDir } from "../pages/EventPage/constants";
 import { normalizeDate } from "../time/normalizeDate";
 import { zDate, zDuration, zDurationStrict } from "./zDate";
 
+const _zPriority = z.number().min(0).default(0);
+
 const Related = z.object({
   servants: z.array(z.number()).optional(),
   ces: z.array(z.number()).optional(),
@@ -26,7 +28,7 @@ const EventSchedule = z.object({
 });
 
 const EventBanner = Related.omit({ items: true })
-  .extend({ date: zDurationStrict })
+  .extend({ date: zDurationStrict, priority: _zPriority })
   .transform(({ date, ...props }, { addIssue }) => {
     if (Array.isArray(date)) return { date, ...props };
     addIssue({
@@ -68,7 +70,18 @@ export const EventSchema = z.object({
     .optional(),
   banners: z
     .array(EventBanner)
-    .transform(banners => banners.sort((a, b) => a.date[0] - b.date[0]))
+    .transform(banners =>
+      banners
+        .sort((a, b) => {
+          if (a.priority > b.priority) return -1;
+          if (a.priority < b.priority) return 1;
+          return a.date[0] - b.date[0];
+        })
+        .map(banner => {
+          const { priority: _, ...props } = banner;
+          return props;
+        })
+    )
     .optional(),
   upgrades: z.array(z.number()).optional()
 });

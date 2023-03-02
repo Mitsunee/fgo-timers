@@ -77,6 +77,7 @@ banners:
   - date: 2023-02-13 00:00 - 02-26 19:59 PST
     servants: [901100] # Caren
     ces: [9404950, 9404960, 9404970]
+    priority: 2
   - date: 2023-02-14 20:00 - 02-15 19:59 PST
     servants: [101800] # Altera
     ces: [9404950, 9404960, 9404970]
@@ -144,7 +145,8 @@ banners:
     servants: [503000] # scheherazade
     ces: [9404950, 9404960, 9404970]
   - date: 2023-02-19 20:00 - 03-05 19:59 PST
-    servants: [204000]
+    servants: [204000] # sei shounagon
     ces: [9404320, 9404330, 9404340]
+    priority: 1
 upgrades:
   - 94056490 # Kid gil
