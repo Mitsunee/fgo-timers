@@ -9,6 +9,13 @@ export {
   getStaticPaths,
   getStaticProps
 } from "src/pages/EventPage/static/banners";
+export const config = {
+  unstable_includeFiles: [
+    "assets/static/events.json",
+    "assets/static/data/servants.json",
+    "assets/static/data/ces.json"
+  ]
+};
 
 export default function EventBannersPage({
   event,

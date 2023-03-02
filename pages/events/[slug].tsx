@@ -8,6 +8,13 @@ import styles from "src/pages/EventPage/EventPage.module.css";
 
 // Next Page configs
 export { getStaticPaths, getStaticProps } from "src/pages/EventPage/static";
+export const config = {
+  unstable_includeFiles: [
+    "assets/static/events.json",
+    "assets/static/data/servants.json",
+    "assets/static/data/ces.json"
+  ]
+};
 
 export default function EventPage({
   event,

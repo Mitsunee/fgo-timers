@@ -14,6 +14,9 @@ import { NoSSR } from "@components/NoSSR";
 import FGOIcon from "@components/FGOIcon";
 
 export { getStaticPaths, getStaticProps } from "@server/LoginTicketPage";
+export const config = {
+  unstable_includeFiles: ["assets/static/loginTickets.json"]
+};
 
 const monthName = new Map([
   ["Jan", "January"],
