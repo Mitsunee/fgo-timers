@@ -36,17 +36,21 @@ import { api } from "src/client/api";
 export { getStaticProps } from "src/pages/UpgradesPage/getStaticProps";
 
 export default function UpgradesPage({ fallback }: UpgradesPageProps) {
-  const res = api.upgrades.all.useQuery(undefined, {
+  const { perPage } = useStore(settingsStore);
+  const query = api.upgrades.all.useQuery(undefined, {
     refetchOnWindowFocus: false,
     refetchOnReconnect: false
   });
-  const data = res.data ?? fallback;
-  const { perPage } = useStore(settingsStore);
   const [filters, setFilter] = useReducer(filtersReducer, formFiltersDefault);
-  const [searchQuery, setSearchQuery] = useState<string>("");
   const [page, setPage] = useState<number>(1);
+  const [searchQuery, setSearchQuery] = useState<string>("");
   const [showHelp, setShowHelp] = useState(false);
+
+  // query states
+  const data = query.data ?? fallback;
   const sorter = createUpgradeSorter(data.quests);
+  const isLoading = query.isLoading || !query.data;
+  const isError = query.isError;
 
   // apply filters and create Searcher
   const [searcher, filteredUpgrades] = useMemo(() => {
@@ -54,10 +58,9 @@ export default function UpgradesPage({ fallback }: UpgradesPageProps) {
     const servantMap = data.servants;
     const questMap = data.quests;
     const filter = createUpgradeFilter(filters, servantMap, questMap);
-    const filteredUpgrades: BundledUpgrade[] = res.isFetching
+    const filteredUpgrades: BundledUpgrade[] = isLoading
       ? upgrades
       : upgrades.filter(filter);
-
     const searcher = new Searcher(filteredUpgrades, {
       returnMatchData: true,
       keySelector: upgrade => [
@@ -67,7 +70,7 @@ export default function UpgradesPage({ fallback }: UpgradesPageProps) {
     });
 
     return [searcher, filteredUpgrades] as const;
-  }, [res.isFetching, data, filters]);
+  }, [isLoading, data, filters]);
 
   // create memoized context value for UpgradeCard
   const upgradeContextVal = useMemo(() => {
@@ -79,20 +82,14 @@ export default function UpgradesPage({ fallback }: UpgradesPageProps) {
     } as React.ComponentProps<typeof UpgradeContextProvider>["value"];
   }, [data]);
 
+  // apply search
   const results: SemiRequired<MatchData<BundledUpgrade>, "item">[] =
-    res.isFetching || searchQuery == ""
+    query.isFetching || searchQuery == ""
       ? filteredUpgrades.sort(sorter).map(upgrade => ({ item: upgrade }))
       : searcher.search(searchQuery);
-
+  const firstResultNum = Math.min(1, results.length);
+  const lastResultNum = Math.min(page * perPage, results.length);
   const maxPage = Math.ceil(results.length / perPage);
-  const handleShowMore = () => {
-    setPage(page =>
-      clamp({
-        value: page + 1,
-        max: maxPage
-      })
-    );
-  };
 
   // reset page if filters or search changed
   useEffect(() => {
@@ -109,7 +106,17 @@ export default function UpgradesPage({ fallback }: UpgradesPageProps) {
     );
   }, [perPage, maxPage]);
 
-  if (res.isError) {
+  // action handlers
+  const handleShowMore = () => {
+    setPage(page =>
+      clamp({
+        value: page + 1,
+        max: maxPage
+      })
+    );
+  };
+
+  if (isError) {
     return (
       <Section background>
         <Headline>Internal Server Error</Headline>
@@ -128,7 +135,7 @@ export default function UpgradesPage({ fallback }: UpgradesPageProps) {
         <FiltersForm
           filters={filters}
           setFilter={setFilter}
-          isPending={res.isFetching}>
+          isPending={isLoading}>
           <fieldset>
             <legend>Search</legend>
             <Input
@@ -148,8 +155,7 @@ export default function UpgradesPage({ fallback }: UpgradesPageProps) {
           alignItems: "center"
         }}>
         <span>
-          Results 1 to {Math.min(page * perPage, results.length)} of{" "}
-          {results.length}
+          Results {firstResultNum} to {lastResultNum} of {results.length}
         </span>
         <NoSSR>
           <ActionButton onClick={() => setShowHelp(true)} icon={IconHelp}>
@@ -171,10 +177,9 @@ export default function UpgradesPage({ fallback }: UpgradesPageProps) {
         </CardGrid>
       </UpgradeContextProvider>
       <p>
-        Results 1 to {Math.min(page * perPage, results.length)} of{" "}
-        {results.length}
+        Results {firstResultNum} to {lastResultNum} of {results.length}
       </p>
-      {!res.isFetching && page < maxPage && (
+      {!isLoading && page < maxPage && (
         <Scroller
           handler={handleShowMore}
           handlerMax={() => setPage(maxPage)}

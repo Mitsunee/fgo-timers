@@ -25,10 +25,9 @@ export default function EventsPage({ fallback }: EventsPageProps) {
   });
   const [page, setPage] = useState<number>(1);
   const [searchQuery, setSearchQuery] = useState("");
-
+  const events = query.data ?? fallback;
   const isLoading = query.isLoading || !query.data;
   const isError = query.isError;
-  const events = query.data ?? fallback;
 
   // create searcher
   const searcher = useMemo(() => {
@@ -60,6 +59,7 @@ export default function EventsPage({ fallback }: EventsPageProps) {
     );
   }, [perPage, maxPage]);
 
+  // action handlers
   const handleShowMore = () => {
     setPage(page =>
       clamp({
