@@ -70,7 +70,7 @@ export default function HomePage({
           icon={"/assets/icon_game.png"}
         />
       </NoSSR>*/}
-      <EventList events={events} />
+      {events.length > 0 && <EventList events={events} />}
       <Headline>Timers</Headline>
       <CardGrid>
         <LoginTicketCard items={loginTicket.data} next={loginTicket.next} />

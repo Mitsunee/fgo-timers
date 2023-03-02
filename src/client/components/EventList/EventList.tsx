@@ -66,8 +66,6 @@ export function EventListItem({
 }
 
 export function EventList({ children, events, title }: EventListProps) {
-  if (events.length < 1) return null;
-
   return (
     <section>
       <Headline>{title || "Current Events"}</Headline>
