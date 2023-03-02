@@ -15,16 +15,6 @@ import styles from "src/pages/HomePage/HomePage.module.css";
 // import type { HomePageProps } from "src/pages/HomePage/static";
 
 export { getStaticProps } from "src/pages/HomePage/static";
-export const config = {
-  unstable_includeFiles: [
-    "assets/static/backgrounds.json",
-    "assets/static/events.json",
-    "assets/static/loginTickets.json",
-    "assets/static/prismShops.json",
-    ".next/cache/atlasacademy/info.json",
-    ".next/cache/atlasacademy/NA/nice_master_mission.json"
-  ]
-};
 
 export default function HomePage({
   backgrounds,
