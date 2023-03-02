@@ -1,5 +1,3 @@
-const restrictedGlobals = require("confusing-browser-globals");
-
 module.exports = {
   parserOptions: { sourceType: "module" },
   extends: [
@@ -11,10 +9,7 @@ module.exports = {
     "next",
     "prettier"
   ],
-  rules: {
-    "no-restricted-globals": ["error"].concat(restrictedGlobals),
-    "@next/next/no-img-element": "off"
-  },
+  rules: { "@next/next/no-img-element": "off" },
   overrides: [
     {
       files: ["tests/server/**/*.test.js", "tests/client/**/*.test.js?(x)"],
