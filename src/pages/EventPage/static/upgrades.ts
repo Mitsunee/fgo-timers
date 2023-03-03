@@ -2,11 +2,9 @@ import { createProxySSGHelpers } from "@trpc/react-query/ssg";
 import type { GetStaticPaths, GetStaticProps } from "next";
 import { appRouter } from "src/server/api/root";
 import type { BundledEvent } from "src/events/types";
-import type { MappedBundledQuest } from "src/pages/UpgradesPage/mapQuestUnlocks";
-import { createQuestUnlockMapper } from "src/pages/UpgradesPage/mapQuestUnlocks";
-import type { BundledUpgrade } from "src/upgrades/types";
+import type { BundledQuest, BundledUpgrade } from "src/upgrades/types";
 import type { BundledNP, BundledSkill } from "src/servants/types";
-import { getBundledEvents, getBundledQuestMap } from "src/utils/getBundles";
+import { getBundledEvents } from "src/utils/getBundles";
 import { Log } from "src/utils/log";
 import { getEventProps } from "./getEventProps";
 import type { PageContext, EventPageProps, StaticPath } from "./types";
@@ -18,7 +16,7 @@ export interface EventUpgradesPageProps
   extends Omit<EventPageProps, "ces" | "items"> {
   event: EventWithUpgrades;
   upgrades: BundledUpgrade[];
-  quests: Record<number, MappedBundledQuest>;
+  quests: Record<number, BundledQuest>;
   skills: Record<number, BundledSkill>;
   nps: Record<number, BundledNP>;
 }
@@ -41,10 +39,9 @@ export const getStaticProps: GetStaticProps<
   PageContext
 > = async ({ params }) => {
   const { slug } = params!;
-  const [event, api, questMap] = await Promise.all([
+  const [event, api] = await Promise.all([
     getEventProps(slug, hasUpgrades),
-    createProxySSGHelpers({ router: appRouter, ctx: {} }),
-    getBundledQuestMap()
+    createProxySSGHelpers({ router: appRouter, ctx: {} })
   ]);
   if (!hasUpgrades(event)) {
     Log.throw(
@@ -52,15 +49,9 @@ export const getStaticProps: GetStaticProps<
     );
   }
 
-  const mapper = createQuestUnlockMapper(questMap);
   const data = await api.upgrades.select.fetch({
     id: event.upgrades
   });
-  const { upgrades, servants, nps, skills } = data;
-  const quests: EventUpgradesPageProps["quests"] = {};
-  event.upgrades.forEach(id => {
-    quests[id] = mapper(id);
-  });
 
-  return { props: { event, upgrades, quests, servants, nps, skills } };
+  return { props: { event, ...data } };
 };
