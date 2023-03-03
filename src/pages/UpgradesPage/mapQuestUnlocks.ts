@@ -8,11 +8,13 @@ export interface MappedQuestInfo extends Pick<BundledQuest, "name" | "na"> {
   id: number;
 }
 
-export type MappedBundledQuest = Omit<QuestUpgrade, "unlock"> & {
-  unlock?: Omit<QuestUnlockCondition, "quests"> & {
-    quests?: MappedQuestInfo[];
-  };
-};
+interface MappedUnlocks extends Omit<QuestUnlockCondition, "quests"> {
+  quests?: MappedQuestInfo[];
+}
+
+export interface MappedBundledQuest extends Omit<QuestUpgrade, "unlock"> {
+  unlock?: MappedUnlocks;
+}
 
 const memo = new Map<number, MappedBundledQuest>();
 

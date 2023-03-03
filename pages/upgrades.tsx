@@ -79,7 +79,7 @@ export default function UpgradesPage({ fallback }: UpgradesPageProps) {
       servantMap: data.servants,
       skillMap: data.skills,
       npMap: data.nps
-    } as React.ComponentProps<typeof UpgradeContextProvider>["value"];
+    } satisfies React.ComponentProps<typeof UpgradeContextProvider>["value"];
   }, [data]);
 
   // apply search

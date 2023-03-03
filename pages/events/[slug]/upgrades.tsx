@@ -35,7 +35,7 @@ export default function EventUpgradesPage({
       servantMap: servants,
       skillMap: skills,
       npMap: nps
-    } as React.ComponentProps<typeof UpgradeContextProvider>["value"];
+    } satisfies React.ComponentProps<typeof UpgradeContextProvider>["value"];
   }, [quests, servants, nps, skills]);
 
   return (
