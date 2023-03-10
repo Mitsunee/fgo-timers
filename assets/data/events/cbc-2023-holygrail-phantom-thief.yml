@@ -64,7 +64,7 @@ banners:
       - 9405050
       - 9405060
       - 9405070
-    priority: 1
+    priority: 2
   - date: 2023-03-04 20:00 - 03-05 19:59 PST
     servants: [104200, 104700, 601100] # Dioscuri
     ces:
@@ -245,6 +245,19 @@ banners:
       - 9405050
       - 9405060
       - 9405070
+  - date: 2023-03-09 20:00 PST - 03-23 20:59 PDT
+    servants: [2500500, 104700, 601100] # Voyager
+    ces:
+      - 9404990
+      - 9405000
+      - 9405010
+      - 9405020
+      - 9405030
+      - 9405040
+      - 9405050
+      - 9405060
+      - 9405070
+    priority: 1
 upgrades:
   - 94056772 # Amakusa Rank Up 3
   - 94056771 # Da Vinci Caster Rank Up 1
