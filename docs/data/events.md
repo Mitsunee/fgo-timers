@@ -62,6 +62,8 @@ schedules: # Array
         servants: # optional Array of IDs of related Servants
         ces: # optional Array of IDs of related CEs
         items: # optional Array of IDs of related Items
+    ends: # optional end date (if different from event end time),
+    icon: # optional path to icon
 ```
 
 ### Summoning Banners
