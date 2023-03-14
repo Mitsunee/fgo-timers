@@ -44,5 +44,8 @@ limited:
   - 9405050 # CBC 2023 3*
   - 9405060 # CBC 2023 3*
   - 9405070 # CBC 2023 3*
+  - 9405080 # Akihabara Explosion 5*
+  - 9405090 # Akihabara Explosion 4*
+  - 9405100 # Akihabara Explosion 3*
 
 #fp_limited: []

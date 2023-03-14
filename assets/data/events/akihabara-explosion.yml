@@ -1,0 +1,38 @@
+title: "Akihabara Explosion! The City of Wishes and the Sculptures Engraved with Love"
+shortTitle: Akihabara Explosion
+banner: 2023_akihabara.png
+url: 2023/0313_akihabara_explosion/
+date: 2023-03-17 01:00 - 03-30 20:59 PDT
+requires: Clear Fuyuki
+description: >-
+  Akihabara Explosion is a new Tower-style Event featuring the release of SSR Berserker Galatea.
+  She will be added to the permanent Summoning pool after the conclusion of this Event.
+times:
+  - title: Challenge Quest
+    date: 2023-03-17 01:00 PDT
+  - title: Special Login Bonus
+    date: 2023-03-12 21:00 - 03-21 20:59 PDT
+  - title: All Ember Gathering & Training Grounds available
+    date: 2023-03-12 21:00 - 03-26 16:59 PDT
+  - title: Interludes 1/2 AP
+    date: 2023-03-12 21:00 - 03-26 20:59 PDT
+upgrades: [94057890] # Nero Bride
+banners:
+  - date: 2023-03-17 01:00 - 03-30 20:59 PDT
+    servants: [703900] # Galatea
+    ces:
+      - 9405080
+      - 9405090
+      - 9405100
+  - date: 2023-03-17 01:00 - 03-30 20:59 PDT
+    servants: [100600] # Nero Bride
+    ces:
+      - 9405080
+      - 9405090
+      - 9405100
+  - date: 2023-03-17 01:00 - 03-30 20:59 PDT
+    servants: [603100] # Osakabehime
+    ces:
+      - 9405080
+      - 9405090
+      - 9405100
