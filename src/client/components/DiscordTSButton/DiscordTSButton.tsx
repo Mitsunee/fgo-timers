@@ -3,12 +3,14 @@ import { IconDiscord } from "src/client/components/icons";
 import { formatTS } from "./formatTS";
 import { handleCopy } from "./handleCopy";
 
-interface DiscordTSButtonProps extends React.PropsWithChildren {
-  time: number | [number, number];
-}
+type DiscordTSButtonProps = React.PropsWithChildren &
+  Parameters<typeof formatTS>[0];
 
-export function DiscordTSButton({ children, time }: DiscordTSButtonProps) {
-  const text = formatTS(time);
+export function DiscordTSButton({
+  children,
+  ...tsProps
+}: DiscordTSButtonProps) {
+  const text = formatTS(tsProps);
 
   return (
     <ActionButton

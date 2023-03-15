@@ -14,7 +14,7 @@ import styles from "./EventInfoSection.module.css";
 
 type EventInfoSectionProps = Pick<
   BundledEvent,
-  "title" | "date" | "requires" | "description" | "url"
+  "title" | "date" | "requires" | "description" | "url" | "slug"
 > & { modalCallback: () => void };
 
 export function EventInfoSection({
@@ -22,6 +22,7 @@ export function EventInfoSection({
   description,
   date,
   url,
+  slug,
   requires,
   modalCallback
 }: EventInfoSectionProps) {
@@ -63,7 +64,9 @@ export function EventInfoSection({
           }}>
           Official News Post
         </LinkButton>
-        <DiscordTSButton time={date}>Copy Timestamp</DiscordTSButton>
+        <DiscordTSButton time={date} title={title} slug={slug}>
+          Copy Timestamp
+        </DiscordTSButton>
       </aside>
       <Section background padding={false}>
         {description
