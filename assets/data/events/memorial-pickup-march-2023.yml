@@ -1,0 +1,15 @@
+title: Part 1 & Part 1.5 Memorial Pickup Summon
+shortTitle: Part 1 & Part 1.5 Memorial Pickup Summon
+banner: 2023_march_memorial.png
+url: 2023/0324_1and1-5Memorial_pu/
+date: 2023-03-23 21:00 - 03-30 20:59 PDT
+description: >-
+  Surprise Summoning Banner for Da Vinci (Caster) and Musashi (Saber) also featuring
+  select storylocked SR Servants and old Event Craft Essences.
+banners:
+  - date: 2023-03-23 21:00 - 03-30 20:59 PDT
+    servants: [500900, 100200, 1100400] # Da Vinci
+    ces: [9400770, 9401630, 9401980, 9402510]
+  - date: 2023-03-23 21:00 - 03-30 20:59 PDT
+    servants: [101700, 201600, 503400] # Musashi
+    ces: [9403310, 9402590, 9402950, 9403470]
