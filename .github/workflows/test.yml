@@ -1,11 +1,6 @@
 name: Lint and Test
 on:
   pull_request:
-    paths:
-      - "pages/**"
-      - "src/**"
-      - "assets/**"
-      - "yarn.lock"
   push:
     branches:
       - "main"
@@ -20,11 +15,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: yarn
+          cache: pnpm
       - name: Install dependencies
-        run: yarn install --frozen-lockfile --ignore-scripts
+        run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Lint
-        run: yarn eslint --max-warnings 0 .
+        run: pnpm eslint --max-warnings 0 .
 
   format:
     runs-on: ubuntu-latest
@@ -36,11 +31,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: yarn
+          cache: pnpm
       - name: Install dependencies
-        run: yarn install --frozen-lockfile --ignore-scripts
+        run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Check Formatting
-        run: yarn prettier -c .
+        run: pnpm prettier -c .
 
   types:
     runs-on: ubuntu-latest
@@ -52,13 +47,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: yarn
+          cache: pnpm
       - name: Install dependencies
-        run: yarn install --frozen-lockfile --ignore-scripts
+        run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Build SVG Components
-        run: yarn build:svgo
+        run: pnpm build:svgo
       - name: Check Types
-        run: yarn test:types
+        run: pnpm test:types
 
   test:
     runs-on: ubuntu-latest
@@ -78,12 +73,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: yarn
+          cache: pnpm
       - name: Install dependencies
-        run: yarn install --frozen-lockfile --ignore-scripts
+        run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Run Prepare and Prebuild
-        run: yarn build:svgo && yarn prebuild
+        run: pnpm build:svgo && pnpm prebuild
       - name: Run Code Tests
-        run: yarn test:code
+        run: pnpm test:code
       - name: Run Data Tests
-        run: yarn test:data --all
+        run: pnpm test:data --all

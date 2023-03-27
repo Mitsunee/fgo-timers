@@ -2,15 +2,15 @@
   "name": "fgo-tools",
   "version": "0.1.0",
   "private": true,
-  "packageMananger": "yarn",
+  "packageMananger": "pnpm@^7.30.3",
   "scripts": {
     "prepare": "simple-git-hooks && node src/svgo/build.mjs",
     "build:svgo": "node src/svgo/build.mjs --force",
     "check-event": "tsm --require=./nowarn.js src/events/check-event-script.ts",
     "find": "tsm --require=./nowarn.js src/utils/find-script.ts",
-    "prebuild": "tsm --require=./nowarn.js src/prebuild/prebuild.ts && yarn build:svgo",
+    "prebuild": "tsm --require=./nowarn.js src/prebuild/prebuild.ts && pnpm build:svgo",
     "build": "node --version && next build",
-    "dev": "yarn prebuild && next dev",
+    "dev": "pnpm prebuild && next dev",
     "dev:types": "tsc --watch",
     "start": "next start",
     "lint": "eslint .",
@@ -18,10 +18,10 @@
     "test:types": "tsc --noEmit",
     "test:code": "jest --verbose",
     "test:data": "tsm --require=./nowarn.js src/schema/check.ts",
-    "test": "yarn test:types && yarn prebuild && yarn test:code && yarn test:data --all"
+    "test": "pnpm test:types && pnpm prebuild && pnpm test:code && pnpm test:data --all"
   },
   "simple-git-hooks": {
-    "pre-commit": "yarn nano-staged"
+    "pre-commit": "pnpm nano-staged"
   },
   "nano-staged": {
     "**/*.{js,jsx,cjs,mjs,ts,tsx,css,json,md,yml}": [
