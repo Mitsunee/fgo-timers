@@ -49,6 +49,8 @@ times: # Array
     items: # optional Array of IDs of related Items
 ```
 
+Note: For Leyline Stones please use item ID `94054401`. This makes sure an ID that is known on NA is used. There is no benefit for using the correct ID as items are merely displayed and not linked to.
+
 ### Schedules
 
 Most commonly used for Event Story release timelocks or Hunting Quest schedules.
