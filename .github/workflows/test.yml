@@ -73,14 +73,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Get date for AtlasAcademy API Cache
-        run: echo "date=$(/bin/date -u "+%Y%m%d")" >> $GITHUB_ENV
-      - name: AtlasAcademy API Cache ${{ env.date }}
-        id: atlas-cache
-        uses: actions/cache@v3
-        with:
-          path: ".next/cache/atlasacademy"
-          key: atlas-cache-${{ env.date }}
       - name: Install pnpm v7
         uses: pnpm/action-setup@v2
         with:
@@ -92,6 +84,14 @@ jobs:
           cache: pnpm
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Get key for AtlasAcademy API Cache
+        run: node src/ci/atlas-cache-key.mjs >> $GITHUB_ENV
+      - name: AtlasAcademy API Cache ${{ env.ATLAS_CACHE_KEY }}
+        id: atlas-cache
+        uses: actions/cache@v3
+        with:
+          path: ".next/cache/atlasacademy"
+          key: atlas-cache-${{ env.ATLAS_CACHE_KEY }}
       - name: Run Prepare and Prebuild
         run: pnpm build:svgo && pnpm prebuild
       - name: Run Code Tests
