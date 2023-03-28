@@ -85,7 +85,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Get key for AtlasAcademy API Cache
-        run: node src/ci/atlas-cache-key.mjs >> $GITHUB_ENV
+        run: echo "$(node src/ci/atlas-cache-key.mjs)" >> $GITHUB_ENV
       - name: AtlasAcademy API Cache ${{ env.ATLAS_CACHE_KEY }}
         id: atlas-cache
         uses: actions/cache@v3
