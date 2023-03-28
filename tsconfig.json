@@ -10,7 +10,6 @@
     "allowJs": true,
     "strict": true,
     "strictNullChecks": true,
-    "importsNotUsedAsValues": "error",
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "jsx": "preserve",
