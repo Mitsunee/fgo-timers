@@ -1,0 +1,51 @@
+title: "Hunting Quest: Part 10"
+shortTitle: Hunting Quest 10
+banner: 2023_hq10.png
+url: 2023/0331_huntingquest10/
+date: 2023-03-30 21:00 - 04-06 20:59 PDT
+requires: Fuyuki - Section 3 Part 1
+description: >-
+  Hunting Quest: Part 10 features a daily rotation of material farming nodes
+  this time with a chance for enemies to be replaced with Sakura Bot that may
+  drop different materials and/or extra QP. In addition there are limited
+  Master Missions for clearing a Hunting Quest node each day, and Summoning Banners
+  featuring Hokusai (Foreigner), Tamamo-no-Mae (Caster), Mochizuki Chiyome and
+  Houzouin Inshun, who will also get 2x Enhacement Success Rate for the duration of
+  this event. Finally Hokusai and Chiyome get new Rank Up Quests.
+schedules:
+  - title: Quest Rotation
+    times:
+      - title: Bandit Hunt
+        date: 2023-03-30 21:00 PDT
+        items: [6503, 6501]
+      - title: Book Hunt
+        date: 2023-03-31 21:00 PDT
+        items: [6511, 6501]
+      - title: Giant Hunt
+        date: 2023-04-01 21:00 PDT
+        items: [6537, 6522]
+      - title: Manticore Hunt
+        date: 2023-04-02 21:00 PDT
+        items: [6528, 6502, 6522]
+      - title: Giant Demon Boar Hunt
+        date: 2023-04-03 21:00 PDT
+        items: [6529, 6512, 6515]
+      - title: Cerberus Hunt
+        date: 2023-04-04 21:00 PDT
+        items: [6544, 6532, 6515]
+times:
+  - title: Limited Master Missions
+    date: 2023-03-30 21:00 - 04-06 20:59 PDT
+    items: [100, 101]
+  - title: 2x Enhancement Success Rate
+    date: 2023-03-30 21:00 - 04-06 20:59 PDT
+    servants: [2500200, 500300, 602900, 301400]
+  - title: Trial Quest Hokusai added to RP Shop
+    date: 2023-03-30 21:00 PDT
+    servants: [2500200]
+upgrades: [94058501, 94058502]
+banners:
+  - date: 2023-03-30 21:00 - 04-06 20:59 PDT
+    servants: [2500200, 602900, 301400]
+  - date: 2023-04-02 21:00 - 04-09 20:59 PDT
+    servants: [500300, 602900, 301400]
