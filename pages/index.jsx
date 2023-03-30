@@ -7,7 +7,7 @@ import { CardGrid } from "@components/Card";
 import { EventList } from "src/client/components/EventList";
 //import { NoSSR } from "@components/NoSSR";
 //import { SpecialTimer } from "@components/SpecialTimer";
-import LoginTicketCard from "src/pages/HomePage/components/LoginTicketCard";
+//import LoginTicketCard from "src/pages/HomePage/components/LoginTicketCard";
 import MasterMissionCard from "src/pages/HomePage/components/MasterMissionCard";
 import ChaldeaGateCard from "src/pages/HomePage/components/ChaldeaGateCard";
 import ShopCard from "src/pages/HomePage/components/ShopCard";
@@ -19,7 +19,7 @@ export const config = {
   unstable_includeFiles: [
     "assets/static/backgrounds.json",
     "assets/static/events.json",
-    "assets/static/loginTickets.json",
+    "assets/static/login_tickets.json",
     "assets/static/prismShops.json",
     ".next/cache/atlasacademy/info.json",
     ".next/cache/atlasacademy/NA/nice_master_mission.json"
@@ -29,7 +29,7 @@ export const config = {
 export default function HomePage({
   backgrounds,
   events,
-  loginTicket,
+  //loginTicket,
   masterMissions,
   shopData
 }) {
@@ -73,7 +73,7 @@ export default function HomePage({
       {events.length > 0 && <EventList events={events} />}
       <Headline>Timers</Headline>
       <CardGrid>
-        <LoginTicketCard items={loginTicket.data} next={loginTicket.next} />
+        {/* <LoginTicketCard items={loginTicket.data} next={loginTicket.next} /> */}
         <MasterMissionCard data={masterMissions} />
         <ChaldeaGateCard />
         <ShopCard shopData={shopData.manaPrismShop} endsAt={mpShopReset} />

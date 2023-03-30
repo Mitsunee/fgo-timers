@@ -1,7 +1,6 @@
 import { Log } from "../utils/log";
 import { prepareCache } from "../atlas-api/prepare";
 import { bundleBackgrounds } from "./bundleBackgrounds";
-import { bundleLoginTickets } from "./bundleLoginTickets.mjs";
 import { bundlePrismShops } from "./bundlePrismShops.mjs";
 import type { PrebuildBundlersRes } from "./bundlers";
 import { runLegacyBundler, writeBundle } from "./bundlers";
@@ -30,7 +29,6 @@ function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
   Log.info("Running Legacy Bundlers");
   const resLegacy: boolean[] = await Promise.all([
     runLegacyBundler(bundleBackgrounds),
-    runLegacyBundler(bundleLoginTickets),
     runLegacyBundler(bundlePrismShops)
   ]);
   if (!isSuccessful(resLegacy)) {

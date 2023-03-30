@@ -1,14 +1,19 @@
-import { readStaticBundle } from "src/server/utils/static";
+//import { readStaticBundle } from "src/server/utils/static";
 
 export async function getStaticPaths() {
-  const loginTickets = await readStaticBundle("loginTickets");
-  const paths = Object.keys(loginTickets).map(year => ({ params: { year } }));
+  //const loginTickets = await readStaticBundle("loginTickets");
+  //const paths = Object.keys(loginTickets).map(year => ({ params: { year } }));
 
-  return { paths, fallback: false };
+  return { paths: [], fallback: false };
 }
 
 export async function getStaticProps(context) {
-  const loginTickets = await readStaticBundle("loginTickets");
+  // WIP - login ticket page rewrite
+  console.warn("warn - login ticket page pending rewrite");
+  return { props: {} };
+
+  /* eslint-disable no-unreachable */
+  const loginTickets = {}; //await readStaticBundle("loginTickets");
   const { year } = context.params;
 
   const years = Object.keys(loginTickets);
