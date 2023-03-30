@@ -105,3 +105,5 @@ export const getBundledCEMap = withProxy(
 export const getBundledEvents = createBundle<BundledEvent[]>(
   join("assets", "static", "events.json")
 );
+
+// TODO: add getBundledLoginTickets
