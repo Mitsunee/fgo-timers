@@ -6,7 +6,11 @@ import type {
   BundledNP
 } from "src/servants/types";
 import type { BundledQuest, BundledUpgrade } from "src/upgrades/types";
-import type { BundledCE, BundledItem } from "src/items/types";
+import type {
+  BundledCE,
+  BundledItem,
+  BundledLoginTicket
+} from "src/items/types";
 import type { BundledEvent } from "src/events/types";
 import { Log } from "./log";
 import { safeProxyIDMap } from "./proxyIDMap";
@@ -106,4 +110,6 @@ export const getBundledEvents = createBundle<BundledEvent[]>(
   join("assets", "static", "events.json")
 );
 
-// TODO: add getBundledLoginTickets
+export const getBundledLoginTickets = createBundle<BundledLoginTicket[]>(
+  join("assets", "static", "login_tickets.json")
+);

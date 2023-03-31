@@ -20,6 +20,7 @@ export const config = {
     "assets/static/backgrounds.json",
     "assets/static/events.json",
     "assets/static/login_tickets.json",
+    "assest/static/data/items.json",
     "assets/static/prismShops.json",
     ".next/cache/atlasacademy/info.json",
     ".next/cache/atlasacademy/NA/nice_master_mission.json"
@@ -29,7 +30,8 @@ export const config = {
 export default function HomePage({
   backgrounds,
   events,
-  //loginTicket,
+  loginTicket,
+  items,
   masterMissions,
   shopData
 }) {
@@ -70,6 +72,10 @@ export default function HomePage({
           icon={"/assets/icon_game.png"}
         />
       </NoSSR>*/}
+      <Headline>DEBUG</Headline>
+      <code>
+        <pre>{JSON.stringify({ loginTicket, items }, null, 2)}</pre>
+      </code>
       {events.length > 0 && <EventList events={events} />}
       <Headline>Timers</Headline>
       <CardGrid>
