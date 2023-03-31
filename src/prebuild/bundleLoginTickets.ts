@@ -1,8 +1,8 @@
 import { ItemType } from "@atlasacademy/api-connector/dist/Schema/Item.js";
 import spacetime from "spacetime";
-import { Log } from "src/utils/log";
 import { atlasCache } from "../atlas-api/cache";
 import type { BundledLoginTicket } from "../items/types";
+import { Log } from "../utils/log";
 import { msToSeconds } from "../time/msToSeconds";
 import type { PrebuildBundler } from "./bundlers";
 
