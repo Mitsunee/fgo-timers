@@ -66,7 +66,8 @@ export const bundleLoginTickets: PrebuildBundler<
     }
     const dates = getTicketDatesFromName(item.name);
     if (!dates) break;
-    const ticketItems = item.itemSelects.map(
+    const itemNA = niceItemNA.find(item => item.id == i);
+    const ticketItems = (itemNA || item).itemSelects.map(
       select => select.gifts[0].objectId
     );
 
@@ -77,9 +78,7 @@ export const bundleLoginTickets: PrebuildBundler<
     };
 
     // check for NA ticket
-    if (niceItemNA.find(itemNA => itemNA.id == i)) {
-      ticket.na = true;
-    }
+    if (itemNA) ticket.na = true;
 
     // add items to set
     ticketItems.forEach(id => items.add(id));
