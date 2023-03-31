@@ -4,7 +4,6 @@ import { EventTimesCard } from "src/pages/EventPage/components/EventTimesCard";
 import { EventSchedulesCard } from "src/pages/EventPage/components/EventSchedulesCard";
 import { EventPageLayout } from "src/pages/EventPage/components/EventPageLayout";
 import type { EventPageProps } from "src/pages/EventPage/static";
-import styles from "src/pages/EventPage/EventPage.module.css";
 
 // Next Page configs
 export { getStaticPaths, getStaticProps } from "src/pages/EventPage/static";
@@ -28,7 +27,7 @@ export default function EventPage({
   return (
     <EventPageLayout event={event} current="Timers">
       {hasGrid ? (
-        <CardGrid className={styles.cardgrid}>
+        <CardGrid>
           {event.times && (
             <EventTimesCard
               times={event.times}
