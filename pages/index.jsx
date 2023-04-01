@@ -7,7 +7,7 @@ import { CardGrid } from "@components/Card";
 import { EventList } from "src/client/components/EventList";
 //import { NoSSR } from "@components/NoSSR";
 //import { SpecialTimer } from "@components/SpecialTimer";
-//import LoginTicketCard from "src/pages/HomePage/components/LoginTicketCard";
+import { LoginInfoCard } from "src/pages/HomePage/components/LoginInfoCard";
 import MasterMissionCard from "src/pages/HomePage/components/MasterMissionCard";
 import ChaldeaGateCard from "src/pages/HomePage/components/ChaldeaGateCard";
 import ShopCard from "src/pages/HomePage/components/ShopCard";
@@ -32,6 +32,7 @@ export default function HomePage({
   events,
   loginTicket,
   items,
+  milestones,
   masterMissions,
   shopData
 }) {
@@ -72,14 +73,14 @@ export default function HomePage({
           icon={"/assets/icon_game.png"}
         />
       </NoSSR>*/}
-      <Headline>DEBUG</Headline>
-      <code>
-        <pre>{JSON.stringify({ loginTicket, items }, null, 2)}</pre>
-      </code>
       {events.length > 0 && <EventList events={events} />}
       <Headline>Timers</Headline>
       <CardGrid>
-        {/* <LoginTicketCard items={loginTicket.data} next={loginTicket.next} /> */}
+        <LoginInfoCard
+          ticket={loginTicket}
+          itemMap={items}
+          milestones={milestones}
+        />
         <MasterMissionCard data={masterMissions} />
         <ChaldeaGateCard />
         <ShopCard shopData={shopData.manaPrismShop} endsAt={mpShopReset} />

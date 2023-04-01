@@ -31,6 +31,7 @@ export interface BundledItem extends ItemBase {
 export type CustomItem = z.infer<typeof CustomItemSchema>;
 
 export interface BundledLoginTicket {
+  name: string;
   start: number;
   next: number;
   items: number[];

@@ -72,6 +72,7 @@ export const bundleLoginTickets: PrebuildBundler<
     );
 
     const ticket: BundledLoginTicket = {
+      name: (itemNA || item).name,
       start: dates[0],
       next: dates[1],
       items: ticketItems

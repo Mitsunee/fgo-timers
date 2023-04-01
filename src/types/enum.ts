@@ -31,5 +31,8 @@ export const enum Global {
 export const enum GlobalNums {
   AP_MIN = 20,
   AP_MAX = 144,
-  JP_TO_NA_ESTIMATE = 63133200
+  JP_TO_NA_ESTIMATE = 63133200,
+  SERVER_DAY_LEN = 8640000,
+  SERVER_DAY_OFFSET = 3643200,
+  SERVER_DAY_ZERO = 1498449600
 }
