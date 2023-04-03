@@ -1,0 +1,13 @@
+ul.col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.66em;
+
+  & h2 {
+    text-align: center;
+  }
+
+  @media (--mq-small) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
