@@ -4,6 +4,7 @@ import { atlasCache } from "../atlas-api/cache";
 import type { BundledLoginTicket } from "../items/types";
 import { Log } from "../utils/log";
 import { msToSeconds } from "../time/msToSeconds";
+import { Global } from "../types/enum";
 import type { PrebuildBundler } from "./bundlers";
 
 const ticketNameReg = /Exchange Ticket \((?<month>[A-Z]{3}) (?<year>\d{4})\)/;
@@ -66,15 +67,19 @@ export const bundleLoginTickets: PrebuildBundler<
     }
     const dates = getTicketDatesFromName(item.name);
     if (!dates) break;
+    const [start, next] = dates;
+    const name = `Exchange Ticket (${spacetime(start * 1000, Global.UTC_TZ)
+      .format("{month-short} {year}")
+      .toUpperCase()})`;
     const itemNA = niceItemNA.find(item => item.id == i);
     const ticketItems = (itemNA || item).itemSelects.map(
       select => select.gifts[0].objectId
     );
 
     const ticket: BundledLoginTicket = {
-      name: (itemNA || item).name,
-      start: dates[0],
-      next: dates[1],
+      name,
+      start,
+      next,
       items: ticketItems
     };
 
