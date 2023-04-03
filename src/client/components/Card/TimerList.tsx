@@ -2,6 +2,8 @@ import cc from "classcat";
 import type { ComponentPropsCC } from "src/types/ComponentProps";
 import styles from "./TimerList.module.css";
 
+type TimerListProps = ComponentPropsCC<"ul">;
+
 interface TimerListEntitiesProps extends ComponentPropsCC<"li"> {
   title?: string;
 }
@@ -25,8 +27,12 @@ interface TimerListItemProps extends TimerListEntitiesProps {
 /**
  * Wrapper Component for content of a card which contains a list of timers. Children should be one or multiple `<li>` or `<TimerListItem>` elements
  */
-export function TimerList({ children }: React.PropsWithChildren) {
-  return <ul className={styles.list}>{children}</ul>;
+export function TimerList({ children, className, ...props }: TimerListProps) {
+  return (
+    <ul {...props} className={cc([styles.list, className])}>
+      {children}
+    </ul>
+  );
 }
 
 /**
