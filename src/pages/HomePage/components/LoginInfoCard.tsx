@@ -8,9 +8,9 @@ import {
 } from "src/client/components/Card";
 import { DisplayDate, DisplayDelta } from "src/client/components/TimeDisplay";
 import { BorderedItemIcon } from "src/client/components/BorderedIcon";
-import type { HomePageProps } from "../static";
+import { useRecurringDaily } from "src/client/utils/hooks/useRecurringDaily";
 import type { BundledItem, BundledLoginTicket } from "src/items/types";
-import { useRecurringDaily } from "@utils/hooks/useRecurringDaily";
+import type { HomePageProps } from "../static";
 
 interface LoginInfoCardProps {
   milestones: HomePageProps["milestones"];
@@ -59,7 +59,7 @@ function ExchangeTicketsInfo({
 }
 
 function LoginInfo({ milestones, isClient }: LoginInfoProps) {
-  const nextLogin = useRecurringDaily({ hour: 4 });
+  const nextLogin = useRecurringDaily(4);
 
   return (
     <TimerListItem>
