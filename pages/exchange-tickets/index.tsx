@@ -12,12 +12,8 @@ import {
 import { BorderedItemIcon } from "src/client/components/BorderedIcon";
 import { DisplayDate, DisplayDelta } from "src/client/components/TimeDisplay";
 import styles from "src/pages/LoginTicketsPage/LoginTicketsPage.module.css";
+import { getTicketDelta } from "src/pages/LoginTicketsPage/getTicketDelta";
 import type { LoginTicketsPageProps } from "src/pages/LoginTicketsPage/static/LoginTicketsPage";
-
-// TODO: MOVE getTicketDeltas.ts
-import spacetime from "spacetime";
-import { Global } from "src/types/enum";
-import type { BundledLoginTicket } from "src/items/types";
 
 // Next page configs
 export { getStaticProps } from "src/pages/LoginTicketsPage/static/LoginTicketsPage";
@@ -27,14 +23,6 @@ export const config = {
     "assest/static/data/items.json"
   ]
 };
-
-// TODO: MOVE getTicketDeltas.ts
-function getTicketDeltas(ticket: BundledLoginTicket, now?: number) {
-  // TODO: use `now` if given, `ticket.start` if not
-  const start = spacetime((now ?? ticket.start) * 1000, Global.UTC_TZ);
-  const next = spacetime(ticket.next * 1000, Global.UTC_TZ);
-  return start.diff(next).days;
-}
 
 export default function LoginTicketsPage({
   updatedAt,
@@ -78,9 +66,9 @@ export default function LoginTicketsPage({
               </li>
             )}
             <li data-wide>
-              Tickets Available: {getTicketDeltas(currentTicket)}
+              Tickets Available: {getTicketDelta(currentTicket)}
               {isClient &&
-                ` (${getTicketDeltas(currentTicket, currentTime)} left)`}
+                ` (${getTicketDelta(currentTicket, currentTime)} left)`}
             </li>
             <TimerListEntities>
               {currentTicket.items.map(id => (
@@ -98,9 +86,7 @@ export default function LoginTicketsPage({
                   <b>In:</b> <DisplayDelta time={nextTicket.start} />
                 </li>
               )}
-              <li data-wide>
-                Tickets Available: {getTicketDeltas(nextTicket)}
-              </li>
+              <li data-wide>Tickets Available: {getTicketDelta(nextTicket)}</li>
               <TimerListEntities>
                 {nextTicket.items.map(id => (
                   <BorderedItemIcon key={id} itemId={id} {...items[id]} />
