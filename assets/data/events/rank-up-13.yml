@@ -1,0 +1,29 @@
+title: "Servant Rank Up Quest: Part 13"
+shortTitle: Rank Up Quests Part 13
+banner: 2023_rankup13.png
+url: 2023/0406_rankup_13/
+date: 2023-04-05 21:00 - 04-12 20:59 PDT
+description: >-
+  Rank Up Quests Part 13 features NP Upgrades for Vlad III (Berserker), Rama,
+  Yan Qing, and Skill Upgrades for Sasaki Kojiro, Quetzalcoatl (Rider), James
+  Moriarty (Archer) and Artoria Pendragon (Lancer Alter). A 1/2AP Rank Up Campaign
+  is also included, Quests are released in groups every other day.
+
+  See Upgrades Tab below for more information.
+times:
+  - title: 1/2 AP Rank Up Quests
+    date: 2023-04-05 21:00 - 04-12 20:59 PDT
+  - title: Moriarty & Lancer Alter
+    date: 2023-04-05 21:00 PDT
+  - title: Quetzalcoatl & Yan Qing
+    date: 2023-04-07 21:00 PDT
+  - title: Vlad III, Rama & Kojiro
+    date: 2023-04-09 21:00 PDT
+upgrades:
+  - 94058601 # Vlad Rank Up Quest 2
+  - 94058605 # Rama Rank Up Quest 1
+  - 94058607 # Kojiro Rank Up Quest 3
+  - 94058602 # Quetz Rider Rank Up Quest 1
+  - 94058606 # Yan Qing Rank Up Quest 1
+  - 94058603 # Moriarty Archer Rank Up Quest 2
+  - 94058604 # Artoria Lancer Alter Rank Up Quest 1
