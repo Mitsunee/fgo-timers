@@ -10,12 +10,6 @@ export {
   getStaticPaths,
   getStaticProps
 } from "src/pages/LoginTicketsPage/static/LoginTicketYearPage";
-export const config = {
-  unstable_includeFiles: [
-    "assets/static/login_tickets.json",
-    "assets/static/data/items.json"
-  ]
-};
 
 // WIP
 export default function LoginTicketYearPage({

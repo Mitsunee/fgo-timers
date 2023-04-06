@@ -1,5 +1,5 @@
 import { readFileJson } from "@foxkit/node-util/fs";
-import { join } from "path";
+import path from "path";
 import type {
   BundledServant,
   BundledSkill,
@@ -26,18 +26,20 @@ export interface StaticBundles {
   events: BundledEvent[];
 }
 
-function createBundle<T>(path: string) {
-  let cache: T | null = null;
+function createBundle<T>(bundlePath: string) {
+  const relPath = path.relative(process.cwd(), bundlePath);
+  let promise: Promise<T | false> | undefined;
+  let cache: T | undefined;
   return async function getBundle(): Promise<T> {
     if (cache) return cache;
 
-    const data = await readFileJson<T>(path);
+    promise ??= readFileJson<T>(bundlePath);
+    const data = await promise;
     if (!data) {
-      Log.throw(`Could not read bundle at '${path}'`);
+      Log.throw(`Could not read bundle at ${relPath}`);
     }
 
-    cache = data;
-    return data;
+    return (cache ??= data);
   };
 }
 
@@ -49,7 +51,7 @@ function withProxy<U>(
 }
 
 export const getBundledServants = createBundle<IDMap<BundledServant>>(
-  join("assets", "static", "data", "servants.json")
+  path.join(process.cwd(), "assets/static/data/servants.json")
 );
 
 export const getBundledServantMap = withProxy(
@@ -58,7 +60,7 @@ export const getBundledServantMap = withProxy(
 );
 
 export const getBundledSkills = createBundle<IDMap<BundledSkill>>(
-  join("assets", "static", "data", "skills.json")
+  path.join(process.cwd(), "assets/static/data/skills.json")
 );
 
 export const getBundledSkillMap = withProxy(
@@ -67,7 +69,7 @@ export const getBundledSkillMap = withProxy(
 );
 
 export const getBundledNPs = createBundle<IDMap<BundledNP>>(
-  join("assets", "static", "data", "nps.json")
+  path.join(process.cwd(), "assets/static/data/nps.json")
 );
 
 export const getBundledNPMap = withProxy(
@@ -76,7 +78,7 @@ export const getBundledNPMap = withProxy(
 );
 
 export const getBundledQuests = createBundle<IDMap<BundledQuest>>(
-  join("assets", "static", "data", "quests.json")
+  path.join(process.cwd(), "assets/static/data/quests.json")
 );
 
 export const getBundledQuestMap = withProxy(
@@ -85,11 +87,11 @@ export const getBundledQuestMap = withProxy(
 );
 
 export const getBundledUpgrades = createBundle<BundledUpgrade[]>(
-  join("assets", "static", "upgrades.json")
+  path.join(process.cwd(), "assets/static/upgrades.json")
 );
 
 export const getBundledItems = createBundle<IDMap<BundledItem>>(
-  join("assets", "static", "data", "items.json")
+  path.join(process.cwd(), "assets/static/data/items.json")
 );
 
 export const getBundledItemMap = withProxy(
@@ -98,7 +100,7 @@ export const getBundledItemMap = withProxy(
 );
 
 export const getBundledCEs = createBundle<IDMap<BundledCE>>(
-  join("assets", "static", "data", "ces.json")
+  path.join(process.cwd(), "assets/static/data/ces.json")
 );
 
 export const getBundledCEMap = withProxy(
@@ -107,9 +109,9 @@ export const getBundledCEMap = withProxy(
 );
 
 export const getBundledEvents = createBundle<BundledEvent[]>(
-  join("assets", "static", "events.json")
+  path.join(process.cwd(), "assets/static/events.json")
 );
 
 export const getBundledLoginTickets = createBundle<BundledLoginTicket[]>(
-  join("assets", "static", "login_tickets.json")
+  path.join(process.cwd(), "assets/static/login_tickets.json")
 );

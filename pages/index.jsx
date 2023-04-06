@@ -15,12 +15,10 @@ import styles from "src/pages/HomePage/HomePage.module.css";
 // import type { HomePageProps } from "src/pages/HomePage/static";
 
 export { getStaticProps } from "src/pages/HomePage/static";
+// FIX ME: old code that still has no getBundle fn, also need a workaround for the API Cache
 export const config = {
   unstable_includeFiles: [
     "assets/static/backgrounds.json",
-    "assets/static/events.json",
-    "assets/static/login_tickets.json",
-    "assest/static/data/items.json",
     "assets/static/prismShops.json",
     ".next/cache/atlasacademy/info.json",
     ".next/cache/atlasacademy/NA/nice_master_mission.json"

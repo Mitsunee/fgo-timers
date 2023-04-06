@@ -17,12 +17,6 @@ import type { LoginTicketsPageProps } from "src/pages/LoginTicketsPage/static/Lo
 
 // Next page configs
 export { getStaticProps } from "src/pages/LoginTicketsPage/static/LoginTicketsPage";
-export const config = {
-  unstable_includeFiles: [
-    "assets/static/login_tickets.json",
-    "assest/static/data/items.json"
-  ]
-};
 
 // WIP
 export default function LoginTicketsPage({
