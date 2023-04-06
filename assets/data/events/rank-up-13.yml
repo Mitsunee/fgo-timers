@@ -27,3 +27,6 @@ upgrades:
   - 94058606 # Yan Qing Rank Up Quest 1
   - 94058603 # Moriarty Archer Rank Up Quest 2
   - 94058604 # Artoria Lancer Alter Rank Up Quest 1
+banners:
+  - date: 2023-04-05 21:00 - 04-19 20:59 PDT
+    servants: [202300, 301900]
