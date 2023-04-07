@@ -11,10 +11,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Install pnpm v7
+      - name: Install pnpm v8
         uses: pnpm/action-setup@v2
         with:
-          version: 7
+          version: 8
       - name: Install Node.js v16
         uses: actions/setup-node@v3
         with:
@@ -31,10 +31,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Install pnpm v7
+      - name: Install pnpm v8
         uses: pnpm/action-setup@v2
         with:
-          version: 7
+          version: 8
       - name: Install Node.js v16
         uses: actions/setup-node@v3
         with:
@@ -51,10 +51,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Install pnpm v7
+      - name: Install pnpm v8
         uses: pnpm/action-setup@v2
         with:
-          version: 7
+          version: 8
       - name: Install Node.js v16
         uses: actions/setup-node@v3
         with:
@@ -81,10 +81,10 @@ jobs:
         with:
           path: ".next/cache/atlasacademy"
           key: atlas-cache-${{ env.date }}
-      - name: Install pnpm v7
+      - name: Install pnpm v8
         uses: pnpm/action-setup@v2
         with:
-          version: 7
+          version: 8
       - name: Install Node.js v16
         uses: actions/setup-node@v3
         with:
