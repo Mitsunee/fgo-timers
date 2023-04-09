@@ -29,4 +29,6 @@ upgrades:
   - 94058604 # Artoria Lancer Alter Rank Up Quest 1
 banners:
   - date: 2023-04-05 21:00 - 04-19 20:59 PDT
-    servants: [202300, 301900]
+    servants: [202300, 301900] # Moriarty + Lalter
+  - date: 2023-04-07 21:00 - 04-19 20:59 PDT
+    servants: [401800, 602600] # Quetz + Yan Qing
