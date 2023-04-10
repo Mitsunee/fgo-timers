@@ -42,7 +42,7 @@ export const bundleServantsData: DataBundler<
   while (servantQueue.length > 0) {
     const servantId = servantQueue.shift()!;
     const servant = basicServant.find(servant => servant.id == servantId);
-    if (!servant || servant.type != EntityType.NORMAL) {
+    if (!servant || servant.type == EntityType.ENEMY_COLLECTION_DETAIL) {
       Log.error(`Could not find servant id ${servantId}`);
       return false;
     }
