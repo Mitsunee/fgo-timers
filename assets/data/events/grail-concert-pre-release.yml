@@ -1,0 +1,51 @@
+title: "Fate/Grand Order Waltz in the MOONLIGHT/LOSTROOM×Fate/Grand Order Collaboration Event Pre-Release Campaign"
+shortTitle: Grail Concert Pre-Release Campaign
+banner: 2023_grailconcert_pre.png
+url: 2023/230410_pre_waltz/
+date: 2023-04-09 21:00 - 04-23 20:59 PDT
+description: >-
+  To celebrate the upcoming release of the Fate/Grand Order Waltz in the MOONLIGHT/LOSTROOM Collaboration Event
+  two of the related Servants get new Rank Up Quests. Summoning Banners featuring Shuten-Douji (Assassin),
+  Jeanne (Ruler), Helena (Caster) and Euryale are available for this Campaign, as well as Special Login Bonuses
+  and 1/2AP Ember Gathering. Event-related Servants get the following Bonuses during this Campaign:
+  2x Enhancement Success Rate, 2x FP as Support Servants, 1/2 AP Rank Up Quests and 1/2 AP Interlude Quests.
+times:
+  - title: Special Login Bonus
+    date: 2023-04-09 21:00 - 04-23 20:59 PDT
+  - title: Sakuracon Login Bonus (once)
+    date: 2023-04-09 21:00 - 04-11 20:59 PDT
+  - title: 1/2 AP Daily Ember Gathering
+    date: 2023-04-09 21:00 - 04-23 20:59 PDT
+  - title: Bonuses for related Servants
+    date: 2023-04-09 21:00 - 04-23 20:59 PDT
+    servants:
+      - 101800
+      - 100100
+      - 102700
+      - 100500
+      - 202000
+      - 201200
+      - 301300
+      - 401300
+      - 401400
+      - 502300
+      - 501200
+      - 602100
+      - 600900
+      - 701600
+      - 900100
+      - 1100300
+      - 800100
+  - title: Collaboration Celebration Quest
+    date: 2023-04-09 21:00 - 04-30 20:59 PDT
+    ces: [9305240]
+  - title: Command Code "First Servant" added to RP Shop
+    date: 2023-04-09 21:00 PDT
+upgrades:
+  - 94058701 # Jeanne Ruler Rank Up 1
+  - 94058702 # Helena Caster Rank Up 1
+banners:
+  - date: 2023-04-09 21:00 - 04-23 20:59 PDT
+    servants: [504000, 502300, 201200] # Shuten
+  - date: 2023-04-10 21:00 - 04-23 20:59 PDT
+    servants: [900100, 502300, 201200] # Jeanne
