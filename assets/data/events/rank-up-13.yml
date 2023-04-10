@@ -15,10 +15,13 @@ times:
     date: 2023-04-05 21:00 - 04-12 20:59 PDT
   - title: Moriarty & Lancer Alter
     date: 2023-04-05 21:00 PDT
+    servants: [202300, 301900]
   - title: Quetzalcoatl & Yan Qing
     date: 2023-04-07 21:00 PDT
+    servants: [401800, 602600]
   - title: Vlad III, Rama & Kojiro
     date: 2023-04-09 21:00 PDT
+    servants: [700700, 101900, 600100]
 upgrades:
   - 94058601 # Vlad Rank Up Quest 2
   - 94058605 # Rama Rank Up Quest 1
@@ -32,3 +35,5 @@ banners:
     servants: [202300, 301900] # Moriarty + Lalter
   - date: 2023-04-07 21:00 - 04-19 20:59 PDT
     servants: [401800, 602600] # Quetz + Yan Qing
+  - date: 2023-04-09 21:00 - 04-19 20:59 PDT
+    servants: [700700, 101900] # Vlad + Rama
