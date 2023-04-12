@@ -20,3 +20,7 @@
 .right svg {
   transform: rotate(-90deg) scale(0.8);
 }
+
+.grid {
+  --entity-icon-size: 64px;
+}
