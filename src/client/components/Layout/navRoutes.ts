@@ -1,7 +1,3 @@
-import spacetime from "spacetime";
-
-const currentYear = spacetime.now().year(); // BUG: Hydration missmatch (won't fix, as new index page will take over the link)
-
 export type NavRoute = {
   route: string;
   label: string;
@@ -12,9 +8,8 @@ export const navRoutes: NavRoute[] = [
   { route: "/", label: "Timers", test: /^\/$/ },
   { route: "/events", label: "Events", test: /^\/events.*/ },
   {
-    route: `/exchange-tickets/${currentYear}`,
-    label: "Login Exchange Tickets",
-    test: /^\/exchange-tickets\/\d+\/?$/
+    route: `/exchange-tickets`,
+    label: "Login Exchange Tickets"
   },
   { route: "/upgrades", label: "Upgrades" },
   { route: "/ap-calc", label: "AP Calculator" }
