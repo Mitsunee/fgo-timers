@@ -16,59 +16,45 @@ export async function getStaticProps() {
   ]);
   const s = spacetime.now(Global.UTC_TZ);
   const now = msToSeconds(s.epoch);
-  const currentYear = s.year();
-  const currentYearTickets = tickets.filter(
-    ticket =>
-      spacetime(ticket.start * 1000, Global.UTC_TZ).year() == currentYear
+  const years = tickets.reduce(
+    (result, ticket) => {
+      const val = spacetime(ticket.start * 1000, Global.UTC_TZ).year();
+      if (val < result.min) result.min = val;
+      if (val > result.max) result.max = val;
+      return result;
+    },
+    { min: s.year(), current: s.year(), max: s.year() }
   );
-  let currentTicketIdx = currentYearTickets.findIndex(
+  let currentTicketIdx = tickets.findIndex(
     ticket => ticket.start <= now && ticket.next > now
   );
 
   if (currentTicketIdx < 0) {
-    currentTicketIdx = currentYearTickets.length - 1;
+    currentTicketIdx = tickets.length - 1;
     Log.warn("using last ticket in bundled data as fallback");
-    Log.table({ now, ...currentYearTickets[currentTicketIdx] });
+    Log.table({ now, ...tickets[currentTicketIdx] });
   }
 
-  const currentTicket = currentYearTickets[currentTicketIdx];
-  const isLastTicket = currentTicketIdx + 1 == currentYearTickets.length;
-  const nextTicket = isLastTicket
-    ? tickets.find(ticket => ticket.start == currentTicket?.next) || -1
-    : currentTicketIdx + 1;
-
+  const currentTicket = tickets[currentTicketIdx];
+  const nextTicket = tickets.find(ticket => ticket.start == currentTicket.next);
   const items: Record<number, BundledItem> = {};
-
   const itemsSeen = new Set<number>([
-    ...currentYearTickets.flatMap(ticket => ticket.items),
-    ...(typeof nextTicket == "number" ? [] : nextTicket.items)
+    ...currentTicket.items,
+    ...(nextTicket?.items || [])
   ]);
+
   for (const itemId of Array.from(itemsSeen)) {
     items[itemId] ||= itemMap[itemId];
   }
 
   const props = {
-    updatedAt: now,
-    /**
-     * Array of ticket data for all tickets in the current year
-     */
-    tickets: currentYearTickets,
-    /**
-     * Index to current ticket in `tickets`
-     */
-    current: currentTicketIdx,
-    /**
-     * Index to next ticket or ticket data if it's in the next year.
-     * **Note:** Index may be -1 if end of available data has been reached!
-     */
-    next: nextTicket,
-    /**
-     * Map of all items used in tickets in current year (and next january if applicable).
-     */
+    currentTicket,
+    nextTicket,
+    years,
     items
   } as const;
 
-  return { props, revalidate: 86400 };
+  return { props, revalidate: 18000 };
 }
 
 export type LoginTicketsPageProps = InferGetStaticPropsType<

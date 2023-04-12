@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { useIsClient } from "src/client/utils/hooks/useIsClient";
 import { useCurrentTime } from "src/client/utils/hooks/useCurrentTime";
 import { useRecurringDaily } from "src/client/utils/hooks/useRecurringDaily";
@@ -11,6 +12,7 @@ import {
 } from "src/client/components/Card";
 import { BorderedItemIcon } from "src/client/components/BorderedIcon";
 import { DisplayDate, DisplayDelta } from "src/client/components/TimeDisplay";
+import { LinkButton } from "src/client/components/Button";
 import styles from "src/pages/LoginTicketsPage/LoginTicketsPage.module.css";
 import { getTicketDelta } from "src/pages/LoginTicketsPage/getTicketDelta";
 import type { LoginTicketsPageProps } from "src/pages/LoginTicketsPage/static/LoginTicketsPage";
@@ -18,20 +20,21 @@ import type { LoginTicketsPageProps } from "src/pages/LoginTicketsPage/static/Lo
 // Next page configs
 export { getStaticProps } from "src/pages/LoginTicketsPage/static/LoginTicketsPage";
 
-// WIP
 export default function LoginTicketsPage({
-  updatedAt,
-  tickets,
-  current,
-  next,
+  currentTicket,
+  nextTicket,
+  years,
   items
 }: LoginTicketsPageProps) {
   const isClient = useIsClient();
   const { current: currentTime } = useCurrentTime();
   const nextTicketTime = useRecurringDaily(4);
-  const currentTicket = tickets[current];
-  const nextTicket =
-    typeof next == "number" ? next >= 0 && tickets[next] : next;
+  const yearsArr = useMemo(() => {
+    return Array.from(
+      { length: years.max - years.min + 1 },
+      (_, n) => years.min + n
+    );
+  }, [years]);
 
   return (
     <>
@@ -40,15 +43,6 @@ export default function LoginTicketsPage({
         description="Information on Login Exchange Tickets for Fate/Grand Order Global Version"
       />
       <Headline>Login Exchange Tickets</Headline>
-      <Section background>
-        {/* PLACEHOLDER */}
-        <b>PLACEHOLDER:</b> Thinking about putting some kind of description
-        section here. Should probably explain that future items are subject to
-        change and that this page automatically re-renders on 24hr intervals
-        (although I might lower that frequency?). I&apos;m also not displaying
-        the Exchange Ticket item icon anywhere yet. Also needed is some way to
-        link to per-year sub pages.
-      </Section>
       <Section background="blue">
         <TimerList className={styles.col}>
           <TimerListItem title={`Current: ${currentTicket.name}`}>
@@ -70,6 +64,11 @@ export default function LoginTicketsPage({
                 <BorderedItemIcon key={id} itemId={id} {...items[id]} />
               ))}
             </TimerListEntities>
+            {!currentTicket.na && (
+              <li data-wide className={styles.small}>
+                Item Data based on JP Version
+              </li>
+            )}
           </TimerListItem>
           {nextTicket && (
             <TimerListItem title={`Next: ${nextTicket.name}`}>
@@ -87,20 +86,26 @@ export default function LoginTicketsPage({
                   <BorderedItemIcon key={id} itemId={id} {...items[id]} />
                 ))}
               </TimerListEntities>
+              {!nextTicket.na && (
+                <li data-wide className={styles.small}>
+                  Item Data based on JP Version
+                </li>
+              )}
             </TimerListItem>
           )}
         </TimerList>
       </Section>
-      <Headline>Debug</Headline>
-      <code>
-        <pre>
-          {JSON.stringify(
-            { updatedAt, tickets, current, next, items },
-            null,
-            2
-          )}
-        </pre>
-      </code>
+      <Headline>Tickets by Year</Headline>
+      <nav className={styles.nav}>
+        {yearsArr.map(year => (
+          <LinkButton
+            key={year}
+            href={`/exchange-tickets/${year}`}
+            className={[year == years.current && styles.current]}>
+            {year}
+          </LinkButton>
+        ))}
+      </nav>
     </>
   );
 }
