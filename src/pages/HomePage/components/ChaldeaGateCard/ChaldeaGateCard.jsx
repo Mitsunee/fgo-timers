@@ -12,7 +12,7 @@ export default function ChaldeaGateCard() {
   const { s } = useCurrentTime();
   const weekday = s.goto("utc").format("day-short");
   const currentDay = findScheduleByDay(weekday);
-  const nextRotation = useRecurringDaily({ hour: 0 });
+  const nextRotation = useRecurringDaily(0);
 
   return (
     <Card

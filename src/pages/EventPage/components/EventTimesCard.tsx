@@ -1,4 +1,4 @@
-import { Card } from "src/client/components/Card";
+import { Card, TimerList } from "src/client/components/Card";
 import type { WithMaps, EventTime } from "./EventListItem";
 import { EventListItem } from "./EventListItem";
 
@@ -14,7 +14,7 @@ export function EventTimesCard({
 }: EventTimesCardProps) {
   return (
     <Card icon="/assets/icon_times.png" title="Timers" bypassSpoilers>
-      <ul>
+      <TimerList>
         {times.map((time, i) => (
           <EventListItem
             key={i}
@@ -24,7 +24,7 @@ export function EventTimesCard({
             items={items}
           />
         ))}
-      </ul>
+      </TimerList>
     </Card>
   );
 }

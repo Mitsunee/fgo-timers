@@ -1,0 +1,35 @@
+ul.col {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: stretch;
+  gap: 0.66em;
+
+  & h2 {
+    text-align: center;
+  }
+
+  @media (--mq-small) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.nav {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.66em;
+
+  & a {
+    font-size: 1.15em;
+
+    &.current {
+      color: var(--hover);
+    }
+  }
+}
+
+.small {
+  font-size: 0.8em;
+  font-style: italic;
+}

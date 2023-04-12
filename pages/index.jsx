@@ -7,7 +7,7 @@ import { CardGrid } from "@components/Card";
 import { EventList } from "src/client/components/EventList";
 //import { NoSSR } from "@components/NoSSR";
 //import { SpecialTimer } from "@components/SpecialTimer";
-import LoginTicketCard from "src/pages/HomePage/components/LoginTicketCard";
+import { LoginInfoCard } from "src/pages/HomePage/components/LoginInfoCard";
 import MasterMissionCard from "src/pages/HomePage/components/MasterMissionCard";
 import ChaldeaGateCard from "src/pages/HomePage/components/ChaldeaGateCard";
 import ShopCard from "src/pages/HomePage/components/ShopCard";
@@ -15,11 +15,10 @@ import styles from "src/pages/HomePage/HomePage.module.css";
 // import type { HomePageProps } from "src/pages/HomePage/static";
 
 export { getStaticProps } from "src/pages/HomePage/static";
+// FIX ME: old code that still has no getBundle fn, also need a workaround for the API Cache
 export const config = {
   unstable_includeFiles: [
     "assets/static/backgrounds.json",
-    "assets/static/events.json",
-    "assets/static/loginTickets.json",
     "assets/static/prismShops.json",
     ".next/cache/atlasacademy/info.json",
     ".next/cache/atlasacademy/NA/nice_master_mission.json"
@@ -30,6 +29,8 @@ export default function HomePage({
   backgrounds,
   events,
   loginTicket,
+  items,
+  milestones,
   masterMissions,
   shopData
 }) {
@@ -73,7 +74,11 @@ export default function HomePage({
       {events.length > 0 && <EventList events={events} />}
       <Headline>Timers</Headline>
       <CardGrid>
-        <LoginTicketCard items={loginTicket.data} next={loginTicket.next} />
+        <LoginInfoCard
+          ticket={loginTicket}
+          itemMap={items}
+          milestones={milestones}
+        />
         <MasterMissionCard data={masterMissions} />
         <ChaldeaGateCard />
         <ShopCard shopData={shopData.manaPrismShop} endsAt={mpShopReset} />

@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Card } from "src/client/components/Card";
+import { Card, TimerList } from "src/client/components/Card";
 import type { BundledEvent } from "src/events/types";
 import { EventListItem } from "./EventListItem";
 import type { WithMaps, EventTime } from "./EventListItem";
@@ -45,7 +45,7 @@ export function EventSchedulesCard({
         .map((seg, i) => (
           <p key={i}>{seg}</p>
         ))}
-      <ul>
+      <TimerList>
         {timesMapped.map((time, i) => (
           <EventListItem
             key={i}
@@ -56,7 +56,7 @@ export function EventSchedulesCard({
             hideEnd
           />
         ))}
-      </ul>
+      </TimerList>
     </Card>
   );
 }

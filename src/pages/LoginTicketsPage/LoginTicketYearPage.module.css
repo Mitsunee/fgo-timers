@@ -1,0 +1,26 @@
+.nav {
+  display: grid;
+  width: 100%;
+  grid-template-columns: auto 1fr auto;
+  grid-auto-rows: auto;
+  margin-bottom: 0.66em;
+
+  & h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    font-size: 1.5em;
+  }
+}
+
+.left svg {
+  transform: rotate(90deg) scale(0.8);
+}
+.right svg {
+  transform: rotate(-90deg) scale(0.8);
+}
+
+.grid {
+  --entity-icon-size: 64px;
+}

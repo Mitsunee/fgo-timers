@@ -4,11 +4,7 @@ import { resolvePath, joinPath } from "@foxkit/node-util/path";
 import { fileExists } from "@foxkit/node-util/fs";
 
 import { prepareCache } from "../atlas-api/prepare";
-import {
-  isTicketFile,
-  isShopFile
-  //isDataFile
-} from "../scripts/utils/data-assets/isDataFile.mjs";
+import { isShopFile } from "../scripts/utils/data-assets/isDataFile.mjs";
 import { checkDataFile } from "../scripts/utils/data-assets/checkDataFile.mjs";
 import { Log } from "../utils/log";
 import { EventAssetsDir } from "../pages/EventPage/constants";
@@ -20,9 +16,6 @@ program
   .option("-a, --all", "Check all Data Files")
   .addOption(
     new Option("-e, --events", "Check all Event files").conflicts("all")
-  )
-  .addOption(
-    new Option("-t, --tickets", "Check all Login Ticket files").conflicts("all")
   )
   .addOption(
     new Option("-s, --shops", "Check all Prism Shop files").conflicts("all")
@@ -41,7 +34,6 @@ program
 interface ProgramOptions {
   all?: boolean;
   events?: boolean;
-  tickets?: boolean;
   shops?: boolean;
   items?: boolean;
   file?: string[];
@@ -70,18 +62,6 @@ async function main(options: ProgramOptions) {
     for (const file of dir) {
       const filePath = joinPath(path, file);
       if (!checkEventPath(filePath)) continue;
-      targets.add(filePath);
-    }
-  }
-
-  // handle --tickets
-  if (options.all || options.tickets) {
-    if (showGroupInfo) Log.info("Checking all login ticket data files");
-    const path = resolvePath("assets/data/login-tickets/");
-    const dir = await readdir(path);
-    for (const file of dir) {
-      const filePath = joinPath(path, file);
-      if (!isTicketFile(filePath)) continue;
       targets.add(filePath);
     }
   }

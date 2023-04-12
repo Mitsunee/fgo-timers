@@ -30,6 +30,14 @@ export interface BundledItem extends ItemBase {
 
 export type CustomItem = z.infer<typeof CustomItemSchema>;
 
+export interface BundledLoginTicket {
+  name: string;
+  start: number;
+  next: number;
+  items: number[];
+  na?: true;
+}
+
 /**
  * Maps rarity as string to Borders enum value
  * @param rarity rarity as string
