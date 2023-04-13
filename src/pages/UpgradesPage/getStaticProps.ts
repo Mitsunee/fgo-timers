@@ -1,5 +1,5 @@
+import { createServerSideHelpers } from "@trpc/react-query/server";
 import type { InferGetStaticPropsType } from "next";
-import { createProxySSGHelpers } from "@trpc/react-query/ssg";
 import { appRouter } from "src/server/api/root";
 import {
   getBundledQuestMap,
@@ -14,7 +14,7 @@ export const getStaticProps = async () => {
     getBundledUpgrades(),
     getBundledQuestMap(),
     getBundledServantMap(),
-    createProxySSGHelpers({ router: appRouter, ctx: {} })
+    createServerSideHelpers({ router: appRouter, ctx: {} })
   ]);
 
   const sorter = createUpgradeSorter(questMap);

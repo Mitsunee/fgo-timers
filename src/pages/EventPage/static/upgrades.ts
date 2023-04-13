@@ -1,4 +1,4 @@
-import { createProxySSGHelpers } from "@trpc/react-query/ssg";
+import { createServerSideHelpers } from "@trpc/react-query/server";
 import type { GetStaticPaths, GetStaticProps } from "next";
 import { appRouter } from "src/server/api/root";
 import type { BundledEvent } from "src/events/types";
@@ -41,7 +41,7 @@ export const getStaticProps: GetStaticProps<
   const { slug } = params!;
   const [event, api] = await Promise.all([
     getEventProps(slug, hasUpgrades),
-    createProxySSGHelpers({ router: appRouter, ctx: {} })
+    createServerSideHelpers({ router: appRouter, ctx: {} })
   ]);
   if (!hasUpgrades(event)) {
     Log.throw(
