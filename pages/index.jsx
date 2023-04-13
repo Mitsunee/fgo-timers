@@ -5,7 +5,7 @@ import { Clocks } from "@components/Clocks";
 import Headline from "@components/Headline";
 import { CardGrid } from "@components/Card";
 import { EventList } from "src/client/components/EventList";
-//import { NoSSR } from "@components/NoSSR";
+import { NoSSR } from "@components/NoSSR";
 //import { SpecialTimer } from "@components/SpecialTimer";
 import { LoginInfoCard } from "src/pages/HomePage/components/LoginInfoCard";
 import MasterMissionCard from "src/pages/HomePage/components/MasterMissionCard";
@@ -80,7 +80,9 @@ export default function HomePage({
           milestones={milestones}
         />
         <MasterMissionCard data={masterMissions} />
-        <ChaldeaGateCard />
+        <NoSSR>
+          <ChaldeaGateCard />
+        </NoSSR>
         <ShopCard shopData={shopData.manaPrismShop} endsAt={mpShopReset} />
         <ShopCard shopData={shopData.rarePrismShop} endsAt={rpShopReset} />
       </CardGrid>
