@@ -50,7 +50,7 @@ function getUpgradeMap(
       type: "np",
       id: previousNP.id,
       newId: relatedNP.id
-    } as UpgradeMapNP; // TODO: change to `satisfies` when TypeScript 4.9 is supported?
+    } satisfies UpgradeMapNP;
   }
 
   return;

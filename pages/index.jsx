@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useRecurringEvent } from "@utils/hooks/useRecurringEvent";
 import Meta from "@components/Meta";
-import Clocks from "@components/Clocks";
+import { Clocks } from "@components/Clocks";
 import Headline from "@components/Headline";
 import { CardGrid } from "@components/Card";
 import { EventList } from "src/client/components/EventList";

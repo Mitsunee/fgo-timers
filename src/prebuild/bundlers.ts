@@ -3,9 +3,7 @@ import { resolvePath } from "@foxkit/node-util/path";
 import { join } from "path";
 import { Log } from "../utils/log";
 
-// BUG: types accept Set, WeakMap, Map and such, but should only accept serializable types
-
-export interface PrebuildBundle<T extends object> {
+export interface PrebuildBundle<T extends {}> {
   data: T; // Data type
   name: string; // name (only used in log right now)
   path: string; // filename
@@ -17,12 +15,12 @@ export interface PrebuildBundle<T extends object> {
   items?: number[]; // as ID
 }
 
-export type PrebuildBundler<T extends object> = () =>
+export type PrebuildBundler<T extends {}> = () =>
   | PrebuildBundle<T>
   | false
   | Promise<PrebuildBundle<T> | false>;
 
-export type PrebuildBundlersRes = Array<false | PrebuildBundle<object>>;
+export type PrebuildBundlersRes = Array<false | PrebuildBundle<{}>>;
 
 export async function runLegacyBundler(
   bundler: () => Promise<boolean>
@@ -35,7 +33,7 @@ export async function runLegacyBundler(
   }
 }
 
-export async function writeBundle<K extends object>(bundle: PrebuildBundle<K>) {
+export async function writeBundle<K extends {}>(bundle: PrebuildBundle<K>) {
   const relativePath = join("assets", "static", bundle.path);
   const filePath = resolvePath(relativePath);
   try {
