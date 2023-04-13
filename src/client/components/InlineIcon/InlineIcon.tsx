@@ -1,39 +1,42 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import cc from "classcat";
-import type { CC } from "src/types/ComponentProps";
+import type { CC, ComponentPropsCC } from "src/types/ComponentProps";
 import styles from "./InlineIcon.module.css";
 
-type SvgProps = Omit<React.ComponentProps<"svg">, "className">;
 type SvgComponent = (props: React.ComponentProps<"svg">) => JSX.Element;
-type SvgIconProps = {
-  icon: SvgComponent;
+
+interface StyleProps {
   fill?: string;
   hover?: string;
-  title?: undefined;
-};
-type InlineSvgProps = SvgProps & SvgIconProps & CC;
+  title?: string;
+}
+
+type SvgProps = ComponentPropsCC<"svg">;
+type ImgProps = Omit<ComponentPropsCC<"img">, "src" | "alt">;
+
+interface InlineImgProps extends ImgProps, StyleProps {
+  icon: string;
+  title: string;
+}
+
+interface InlineSvgProps extends SvgProps, StyleProps {
+  icon: SvgComponent;
+}
+
 interface InlineSvgStyle extends React.CSSProperties {
   "--icon-fill"?: string;
   "--icon-hover"?: string;
 }
 
-type ImgProps = Omit<React.ComponentProps<"img">, "src" | "className" | "alt">;
-type ImgIconProps = {
-  icon: string;
-  fill?: undefined;
-  hover?: undefined;
-  title: string;
-};
-type InlineImgProps = ImgProps & ImgIconProps & CC;
-type InlineIconProps = InlineImgProps | InlineSvgProps;
+export interface IconProps extends StyleProps {
+  icon: SvgComponent | string;
+}
+export interface OptionalIconProps extends StyleProps {
+  icon?: SvgComponent | string;
+}
 
-export type IconProps = SvgIconProps | ImgIconProps;
-export type OptionalIconProps =
-  | SvgIconProps
-  | ImgIconProps
-  | Partial<Record<keyof IconProps, undefined>>;
-
-function isImg(props: InlineIconProps): props is InlineImgProps {
-  return typeof props.icon == "string";
+interface InlineIconProps extends Common<SvgProps, ImgProps>, StyleProps {
+  icon: SvgComponent | string;
 }
 
 export function InlineImg({
@@ -76,6 +79,11 @@ export function InlineSvg({
 }
 
 export function InlineIcon(props: InlineIconProps) {
-  if (isImg(props)) return <InlineImg {...props} />;
-  return <InlineSvg {...props} />;
+  if (typeof props.icon == "string") {
+    const { title = "", icon, ...otherProps } = props;
+    return <InlineImg icon={icon} title={title} {...otherProps} />;
+  }
+
+  const { icon, ...otherProps } = props;
+  return <InlineSvg icon={icon} {...otherProps} />;
 }

@@ -25,26 +25,20 @@ export function Navigation() {
       className={styles.nav}
       id="main-menu">
       <section className={styles.navSection}>
-        {navRoutes.map(navItem =>
-          isActiveRoute(navItem, router.route) ? (
+        {navRoutes.map(navItem => {
+          const isActive = isActiveRoute(navItem, router.route);
+
+          return (
             <LinkButton
               key={navItem.route}
               href={navItem.route}
-              className={cc([styles.link, styles.active])}
+              className={cc([styles.link, isActive && styles.active])}
               decorated={false}
-              icon={IconChaldea}>
+              icon={isActive ? IconChaldea : undefined}>
               {navItem.label}
             </LinkButton>
-          ) : (
-            <LinkButton
-              key={navItem.route}
-              href={navItem.route}
-              className={styles.link}
-              decorated={false}>
-              {navItem.label}
-            </LinkButton>
-          )
-        )}
+          );
+        })}
         <ActionButton
           onClick={() => {
             setMobileNavOpen(false);
