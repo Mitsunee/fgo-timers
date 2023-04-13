@@ -6,7 +6,7 @@ import {
   setSettingsMenuOpen
 } from "src/client/stores/uiStore";
 import { LinkButton, ActionButton } from "src/client/components/Button";
-import { navRoutes } from "./navRoutes";
+import { navRoutes, isActiveRoute } from "./navRoutes";
 import {
   IconSettings,
   IconDiscord,
@@ -17,10 +17,6 @@ import styles from "./Navigation.module.css";
 
 export function Navigation() {
   const router = useRouter();
-  const testActive = (item: (typeof navRoutes)[number]) =>
-    item.test
-      ? item.test.test(router.asPath)
-      : router.asPath.startsWith(item.route);
 
   return (
     <nav
@@ -29,14 +25,12 @@ export function Navigation() {
       className={styles.nav}
       id="main-menu">
       <section className={styles.navSection}>
-        {navRoutes.map(navItem => {
-          const isActive = testActive(navItem);
-
-          return isActive ? (
+        {navRoutes.map(navItem =>
+          isActiveRoute(navItem, router.route) ? (
             <LinkButton
               key={navItem.route}
               href={navItem.route}
-              className={cc([styles.link, isActive && styles.active])}
+              className={cc([styles.link, styles.active])}
               decorated={false}
               icon={IconChaldea}>
               {navItem.label}
@@ -49,8 +43,8 @@ export function Navigation() {
               decorated={false}>
               {navItem.label}
             </LinkButton>
-          );
-        })}
+          )
+        )}
         <ActionButton
           onClick={() => {
             setMobileNavOpen(false);
