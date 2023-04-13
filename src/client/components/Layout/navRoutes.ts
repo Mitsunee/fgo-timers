@@ -9,7 +9,7 @@ export const navRoutes: NavRoute[] = [
   { route: "/events", label: "Events", test: /^\/events.*/ },
   {
     route: `/exchange-tickets`,
-    label: "Login Exchange Tickets"
+    label: "Exchange Tickets"
   },
   { route: "/upgrades", label: "Upgrades" },
   { route: "/ap-calc", label: "AP Calculator" }
