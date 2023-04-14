@@ -1,22 +1,23 @@
 import { Log } from "../utils/log";
 import { prepareCache } from "../atlas-api/prepare";
-import { bundleBackgrounds } from "./bundleBackgrounds";
-import { bundlePrismShops } from "./bundlePrismShops.mjs";
-import type { PrebuildBundlersRes } from "./bundlers";
-import { runLegacyBundler, writeBundle } from "./bundlers";
-import { bundleUpgrades } from "./bundleUpgrades";
-import { bundleQuestsData } from "./bundleQuestsData";
-import type { DataBundlersRes } from "./dataBundlers";
-import { writeDataBundle } from "./dataBundlers";
-import { bundleServantsData } from "./bundleServantsData";
-import { bundleSkillsData } from "./bundleSkillsData";
-import { bundleNPsData } from "./bundleNPsData";
-import { bundleCEsData } from "./bundleCEsData";
-import { bundleCustomItems } from "./bundleCustomItems";
-import { bundleItemsData } from "./bundleItemsData";
-import { saveBuildInfo } from "./saveBuildInfo";
-import { bundleEvents } from "./bundleEvents";
-import { bundleLoginTickets } from "./bundleLoginTickets";
+import { bundleBackgrounds } from "./legacy/bundleBackgrounds";
+import { bundlePrismShops } from "./legacy/bundlePrismShops.mjs";
+import type { PrebuildBundlersRes } from "./utils/bundlers";
+import { runLegacyBundler, writeBundle } from "./utils/bundlers";
+import { bundleUpgrades } from "./bundler/upgrades";
+import { bundleQuestsData } from "./data/quests";
+import type { DataBundlersRes } from "./utils/dataBundlers";
+import { writeDataBundle } from "./utils/dataBundlers";
+import { bundleServantsData } from "./data/servants";
+import { bundleSkillsData } from "./data/skills";
+import { bundleNPsData } from "./data/nps";
+import { bundleCEsData } from "./data/ces";
+import { bundleCustomItems } from "./bundler/customItems";
+import { bundleItemsData } from "./data/items";
+import { saveBuildInfo } from "./utils/saveBuildInfo";
+import { bundleEvents } from "./bundler/events";
+import { bundleExchangeTickets } from "./bundler/exchangeTickets";
+import { collectIDs } from "./utils/collectIds";
 
 function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
   return arr.every(el => el !== false);
@@ -42,7 +43,7 @@ function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
     bundleUpgrades(),
     bundleCustomItems(),
     bundleEvents(),
-    bundleLoginTickets()
+    bundleExchangeTickets()
   ]);
   if (!isSuccessful(bundlersRes)) {
     Log.die("Quitting early because of error in bundler");
@@ -54,14 +55,15 @@ function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
   }
 
   // Phase 3 - static data bundles
+  const ids = collectIDs(bundlersRes);
   Log.info("Running Data Bundlers");
   const dataRes: DataBundlersRes = await Promise.all([
-    bundleQuestsData(bundlersRes),
-    bundleServantsData(bundlersRes),
-    bundleSkillsData(bundlersRes),
-    bundleNPsData(bundlersRes),
-    bundleCEsData(bundlersRes),
-    bundleItemsData(bundlersRes)
+    bundleServantsData(ids.servants),
+    bundleQuestsData(ids.quests),
+    bundleSkillsData(ids.skills),
+    bundleNPsData(ids.nps),
+    bundleCEsData(ids.ces),
+    bundleItemsData(ids.items)
   ]);
   if (!isSuccessful(dataRes)) {
     Log.die("Quitting early because of error in data bundler");

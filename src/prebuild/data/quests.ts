@@ -2,17 +2,21 @@ import { List } from "@foxkit/util/object";
 import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 import { join } from "path";
 
-import { parseSchema } from "../schema/verifySchema";
-import { QuestOpenOverridesSchema } from "../schema/QuestOpenOverrides";
-import type { QuestOpenOverrides } from "../schema/QuestOpenOverrides";
-import type { BundledQuest, QuestUpgrade, QuestOther } from "../upgrades/types";
-import { UpgradeQuestType } from "../upgrades/types";
-import { getQuestData } from "../upgrades/getQuestData";
-import { parseQuestType } from "../upgrades/parseQuestType";
-import { parseUnlockCond } from "../upgrades/parseUnlockCond";
-import { Log } from "../utils/log";
-import { GlobalNums } from "../types/enum";
-import type { DataBundler } from "./dataBundlers";
+import { parseSchema } from "../../schema/verifySchema";
+import { QuestOpenOverridesSchema } from "../../schema/QuestOpenOverrides";
+import type { QuestOpenOverrides } from "../../schema/QuestOpenOverrides";
+import type {
+  BundledQuest,
+  QuestUpgrade,
+  QuestOther
+} from "../../upgrades/types";
+import { UpgradeQuestType } from "../../upgrades/types";
+import { getQuestData } from "../../upgrades/getQuestData";
+import { parseQuestType } from "../../upgrades/parseQuestType";
+import { parseUnlockCond } from "../../upgrades/parseUnlockCond";
+import { Log } from "../../utils/log";
+import { GlobalNums } from "../../types/enum";
+import type { DataBundler } from "../utils/dataBundlers";
 
 const overridesFilePath = join(
   "assets",
@@ -44,22 +48,13 @@ async function getOverrides() {
   return overrides ?? false;
 }
 
-export const bundleQuestsData: DataBundler<BundledQuest> = async bundles => {
+export const bundleQuestsData: DataBundler<BundledQuest> = async ids => {
   const overrides = await getOverrides();
   if (!overrides) return false;
 
-  const questQueue = new List<number>(); // to be processed
-  const knownQuests = new Set<number>(); // are queued or processed
+  const questQueue = List.fromArray([...ids]); // to be processed
+  const knownQuests = new Set<number>([...ids]); // are queued or processed
   const res = new Map<number, BundledQuest>(); // result of processing
-
-  for (const bundle of bundles) {
-    if (!bundle.quests) continue;
-    for (const id of bundle.quests) {
-      if (knownQuests.has(id)) continue;
-      questQueue.push(id);
-      knownQuests.add(id);
-    }
-  }
 
   while (questQueue.length > 0) {
     const questId: number = questQueue.shift()!;

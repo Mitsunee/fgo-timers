@@ -10,16 +10,16 @@ import type {
   UpgradeMap,
   UpgradeMapNP,
   UpgradeMapSkill
-} from "../upgrades/types";
-import type { PrebuildBundler } from "./bundlers";
-import { atlasCache } from "../atlas-api/cache";
+} from "../../upgrades/types";
+import type { PrebuildBundler } from "../utils/bundlers";
+import { atlasCache } from "../../atlas-api/cache";
 import {
   getRelatedNP,
   getRelatedServant,
   getRelatedSkill
-} from "../upgrades/getRelated";
-import { Log } from "../utils/log";
-import { getPreviousNP, getPreviousSkill } from "../upgrades/getPrevious";
+} from "../../upgrades/getRelated";
+import { Log } from "../../utils/log";
+import { getPreviousNP, getPreviousSkill } from "../../upgrades/getPrevious";
 
 function getUpgradeMap(
   servant: Servant,
@@ -135,9 +135,9 @@ export const bundleUpgrades: UpgradeBundler = async function () {
     name: "Upgrades",
     path: "upgrades.json",
     data: upgrades,
-    quests: Array.from(quests),
-    servants: Array.from(servants),
-    skills: Array.from(skills),
-    nps: Array.from(nps)
+    quests,
+    servants,
+    skills,
+    nps
   };
 };

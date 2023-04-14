@@ -3,14 +3,14 @@ import { readdir } from "fs/promises";
 import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 import { fileExists } from "@foxkit/node-util/fs";
 import { getFileName } from "@foxkit/node-util/path";
-import type { BundledEvent } from "../events/types";
-import { createEventSorter } from "../events/sortEvents";
-import type { EventDataRaw } from "../schema/EventSchema";
-import { EventSchema } from "../schema/EventSchema";
-import { parseSchema } from "../schema/verifySchema";
-import { normalizeDate } from "../time/normalizeDate";
-import { Log } from "../utils/log";
-import type { PrebuildBundler } from "./bundlers";
+import type { BundledEvent } from "../../events/types";
+import { createEventSorter } from "../../events/sortEvents";
+import type { EventDataRaw } from "../../schema/EventSchema";
+import { EventSchema } from "../../schema/EventSchema";
+import { parseSchema } from "../../schema/verifySchema";
+import { normalizeDate } from "../../time/normalizeDate";
+import { Log } from "../../utils/log";
+import type { PrebuildBundler } from "../utils/bundlers";
 
 const assetsDir = join(process.cwd(), "assets/data/events");
 
@@ -97,8 +97,8 @@ export const bundleEvents: PrebuildBundler<BundledEvent[]> = async () => {
     name: "Events",
     path: "events.json",
     data: events,
-    servants: Array.from(servants),
-    ces: Array.from(ces),
-    items: Array.from(items)
+    servants,
+    ces,
+    items
   };
 };

@@ -1,13 +1,13 @@
 import { join } from "path";
 import { readdir } from "fs/promises";
 import { readFileYaml } from "@foxkit/node-util/fs-yaml";
-import { Log } from "../utils/log";
-import type { BundledItem, CustomItem } from "../items/types";
-import { mapCustomItemRarityToBorder } from "../items/types";
-import { CustomItemSchema } from "../schema/CustomItem";
-import { verifySchema } from "../schema/verifySchema";
-import { shortenAtlasUrl } from "../atlas-api/urls";
-import type { PrebuildBundler } from "./bundlers";
+import { Log } from "../../utils/log";
+import type { BundledItem, CustomItem } from "../../items/types";
+import { mapCustomItemRarityToBorder } from "../../items/types";
+import { CustomItemSchema } from "../../schema/CustomItem";
+import { verifySchema } from "../../schema/verifySchema";
+import { shortenAtlasUrl } from "../../atlas-api/urls";
+import type { PrebuildBundler } from "../utils/bundlers";
 
 export const bundleCustomItems: PrebuildBundler<
   IDMap<BundledItem>

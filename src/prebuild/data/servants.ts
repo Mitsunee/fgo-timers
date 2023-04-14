@@ -1,20 +1,18 @@
 import { List } from "@foxkit/util/object";
 import { EntityType } from "@atlasacademy/api-connector/dist/Schema/Entity.js";
 import { join } from "path";
-import { Log } from "../utils/log";
-import { getAvailabilityMap } from "../utils/availabilityMaps";
-import type { BundledServant } from "../servants/types";
-import { nameServant } from "../servants/nameServant";
-import { mapServantRarityToBorder } from "../servants/borders";
-import { atlasCache } from "../atlas-api/cache";
-import { shortenAtlasUrl } from "../atlas-api/urls";
-import type { DataBundler } from "./dataBundlers";
+import { Log } from "../../utils/log";
+import { getAvailabilityMap } from "../../utils/availabilityMaps";
+import type { BundledServant } from "../../servants/types";
+import { nameServant } from "../../servants/nameServant";
+import { mapServantRarityToBorder } from "../../servants/borders";
+import { atlasCache } from "../../atlas-api/cache";
+import { shortenAtlasUrl } from "../../atlas-api/urls";
+import type { DataBundler } from "../utils/dataBundlers";
 
 const avMapPath = join("assets", "data", "servants", "availability.yml");
 
-export const bundleServantsData: DataBundler<
-  BundledServant
-> = async bundles => {
+export const bundleServantsData: DataBundler<BundledServant> = async ids => {
   const [basicServant, basicServantNA, availabilityMap] = await Promise.all([
     atlasCache.JP.getBasicServant(),
     atlasCache.NA.getBasicServant(),
@@ -26,18 +24,8 @@ export const bundleServantsData: DataBundler<
     return false;
   }
 
-  const servantQueue = new List<number>(); // to be processed
-  const knownServants = new Set<number>(); // are queued or processed
+  const servantQueue = List.fromArray([...ids]); // to be processed
   const res = new Map<number, BundledServant>(); // result of processing
-
-  for (const bundle of bundles) {
-    if (!bundle.servants) continue;
-    for (const id of bundle.servants) {
-      if (knownServants.has(id)) continue;
-      servantQueue.push(id);
-      knownServants.add(id);
-    }
-  }
 
   while (servantQueue.length > 0) {
     const servantId = servantQueue.shift()!;

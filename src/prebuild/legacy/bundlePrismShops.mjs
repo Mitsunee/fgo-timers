@@ -1,7 +1,7 @@
 import { writeFile } from "@foxkit/node-util/fs";
 
-import { parseShopFile } from "../scripts/utils/data-assets/parseShopFile.mjs";
-import { ready } from "../scripts/utils/log.mjs";
+import { parseShopFile } from "../../scripts/utils/data-assets/parseShopFile.mjs";
+import { ready } from "../../scripts/utils/log.mjs";
 
 export async function bundlePrismShops() {
   const [manaPrismShop, rarePrismShop] = await Promise.all([

@@ -1,18 +1,18 @@
 import { writeFile } from "@foxkit/node-util/fs";
 import { resolvePath } from "@foxkit/node-util/path";
 import { join } from "path";
-import { Log } from "../utils/log";
+import { Log } from "../../utils/log";
 
 export interface PrebuildBundle<T extends {}> {
   data: T; // Data type
   name: string; // name (only used in log right now)
   path: string; // filename
-  servants?: number[]; // as ID
-  quests?: number[]; // as ID
-  skills?: number[]; // as ID
-  nps?: number[]; // as ID
-  ces?: number[]; // as ID
-  items?: number[]; // as ID
+  servants?: Set<number>;
+  quests?: Set<number>;
+  skills?: Set<number>;
+  nps?: Set<number>;
+  ces?: Set<number>;
+  items?: Set<number>;
 }
 
 export type PrebuildBundler<T extends {}> = () =>
