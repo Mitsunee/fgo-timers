@@ -43,7 +43,7 @@ export async function getStaticProps() {
     ...(nextTicket?.items || [])
   ]);
 
-  for (const itemId of Array.from(itemsSeen)) {
+  for (const itemId of itemsSeen) {
     items[itemId] ||= itemMap[itemId];
   }
 

@@ -41,7 +41,7 @@ const componentsPath = "src/client/components/icons/";
       }
     }
 
-    for (const [componentName, files] of Array.from(conflictMap.entries())) {
+    for (const [componentName, files] of conflictMap.entries()) {
       if (files.length < 2) continue;
       const file1 = toRelativePath(files[0]);
       const file2 = toRelativePath(files[1]);

@@ -20,7 +20,7 @@ export const getStaticProps = async () => {
   const itemIds = new Set<number>([...loginTicket.items]);
   const items: typeof itemMap = {};
 
-  for (const id of Array.from(itemIds)) {
+  for (const id of itemIds) {
     items[id] = itemMap[id];
   }
 

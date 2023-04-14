@@ -124,7 +124,7 @@ async function main(options: ProgramOptions) {
 
   // run checks
   const total = targets.size;
-  for (const file of Array.from(targets)) {
+  for (const file of targets) {
     const result = await checkDataFile(file);
     if (result) passed++;
   }
