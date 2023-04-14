@@ -1,0 +1,68 @@
+title: Fate/Grand Order Waltz in the MOONLIGHT/LOSTROOM×Fate/Grand Order Collaboration Event "Bedazzled! Grail Concert! Crane Returns an Idol's Favor"
+shortTitle: "FGO Waltz Collab: Bedazzled! Grail Concert!"
+banner: 2023_grailconcert.png
+url: 2023/0417_graillive/
+date: 2023-04-17 02:00 - 04-30 20:59 PDT
+requires: Clear Fuyuki
+description: >-
+  The FGO Waltz Collaboration Event Bedazzled! Grail Concert! features the new Servants
+  Miss Crane and Mysterious Idol X Alter, as well as brandnew idol-themed costumes for twelve
+  Servants and the introduction of a new permanent shop for past costumes called Dress Making.
+  The Event itself has three points ladders with one combined bonus Craft Essences available
+  in the shop and ladders.
+times:
+  - title: Maintenance
+    date: 2023-04-16 21:00 - 04-17 02:00 PDT
+  - title: Special Login Bonus
+    date: 2023-04-17 02:00 - 04-23 20:59 PDT
+    ces: [9305390]
+  - title: Welfare permanently unlockable
+    date: 2023-04-18 21:00 PDT
+    servants: [2500800]
+  - title: Costumes unlockable with Materials
+    date: 2023-04-30 21:00 PDT
+  - title: 2x EXP for Welfare Servant
+    date: 2023-04-17 02:00 - 04-30 20:59 PDT
+    servants: [2500800]
+  - title: Event Shop
+    date: 2023-04-17 02:00 - 05-07 20:59 PDT
+    ces: [9405160]
+    items: [94057908]
+  - title: New Permanent Costume Shop
+    date: 2023-05-07 21:00 PDT
+  - title: Commemorative Quest added to RP Shop
+    date: 2023-04-30 21:00 PDT
+    ces: [9305240]
+schedules:
+  - title: Story
+    times:
+      - title: Prologue & Section 1
+        date: 2023-04-17 02:00 PDT
+      - title: Section 2
+        date: 2023-04-17 21:00 PDT
+      - title: Section 3
+        date: 2023-04-18 21:00 PDT
+        servants: [2500800]
+      - title: Section 4 & 5
+        date: 2023-04-19 21:00 PDT
+      - title: Section 6
+        date: 2023-04-20 21:00 PDT
+      - title: Section 7
+        date: 2023-04-21 21:00 PDT
+      - title: Section 8 & 9 + Epilogue
+        date: 2023-04-22 21:00 PDT
+        items: [7999]
+upgrades: [94058381, 94058382, 94058383, 94058384]
+banners:
+  - date: 2023-04-17 02:00 - 04-30 20:59 PDT
+    servants: [504600, 501200, 600900] # crane
+    ces: [9405130, 9405140, 9405150]
+    priority: 2
+  - date: 2023-04-17 02:00 - 04-30 20:59 PDT
+    servants: [702400, 501200, 600900] # mhxa
+    ces: [9405130, 9405140, 9405150]
+    priority: 1
+  - date: 2023-04-09 21:00 - 04-23 20:59 PDT
+    servants: [504000, 502300, 201200] # Shuten
+  - date: 2023-04-10 21:00 - 04-23 20:59 PDT
+    servants: [900100, 502300, 201200] # Jeanne
