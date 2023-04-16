@@ -3,26 +3,27 @@ import { readdir } from "fs/promises";
 import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 import { fileExists } from "@foxkit/node-util/fs";
 import { getFileName } from "@foxkit/node-util/path";
-import type { BundledEvent } from "../events/types";
-import { createEventSorter } from "../events/sortEvents";
-import { EventAssetsDir } from "../pages/EventPage/constants";
-import type { EventDataRaw } from "../schema/EventSchema";
-import { EventSchema } from "../schema/EventSchema";
-import { parseSchema } from "../schema/verifySchema";
-import { normalizeDate } from "../time/normalizeDate";
-import { Log } from "../utils/log";
-import type { PrebuildBundler } from "./bundlers";
+import type { BundledEvent } from "../../events/types";
+import { createEventSorter } from "../../events/sortEvents";
+import type { EventDataRaw } from "../../schema/EventSchema";
+import { EventSchema } from "../../schema/EventSchema";
+import { parseSchema } from "../../schema/verifySchema";
+import { normalizeDate } from "../../time/normalizeDate";
+import { Log } from "../../utils/log";
+import type { PrebuildBundler } from "../utils/bundlers";
+
+const assetsDir = join(process.cwd(), "assets/data/events");
 
 export const bundleEvents: PrebuildBundler<BundledEvent[]> = async () => {
   const events = new Array<BundledEvent>();
   const servants = new Set<number>();
   const ces = new Set<number>();
   const items = new Set<number>();
-  const dir = await readdir(join(process.cwd(), EventAssetsDir));
+  const dir = await readdir(assetsDir);
   const files = dir.filter(file => file.endsWith(".yml"));
 
   for (const fileName of files) {
-    const filePath = join(EventAssetsDir, fileName);
+    const filePath = join(assetsDir, fileName);
     const slug = getFileName(fileName, false);
     const fileContent = await readFileYaml<EventDataRaw>(filePath);
     if (!fileContent) {
@@ -96,8 +97,8 @@ export const bundleEvents: PrebuildBundler<BundledEvent[]> = async () => {
     name: "Events",
     path: "events.json",
     data: events,
-    servants: Array.from(servants),
-    ces: Array.from(ces),
-    items: Array.from(items)
+    servants,
+    ces,
+    items
   };
 };

@@ -62,7 +62,7 @@ export const getStaticProps: GetStaticProps<
   const itemsSeen = new Set<number>(
     thisYearTickets.flatMap(ticket => ticket.items)
   );
-  for (const itemId of Array.from(itemsSeen)) {
+  for (const itemId of itemsSeen) {
     items[itemId] ||= itemMap[itemId];
   }
 

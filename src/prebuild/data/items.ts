@@ -1,12 +1,12 @@
 import { readFileJson } from "@foxkit/node-util/fs";
 import { join } from "path";
 import { List } from "@foxkit/util/object";
-import type { BundledItem } from "../items/types";
-import { mapItemBackgroundToBorder } from "../items/types";
-import { atlasCache } from "../atlas-api/cache";
-import { shortenAtlasUrl } from "../atlas-api/urls";
-import { Log } from "../utils/log";
-import type { DataBundler } from "./dataBundlers";
+import type { BundledItem } from "../../items/types";
+import { mapItemBackgroundToBorder } from "../../items/types";
+import { atlasCache } from "../../atlas-api/cache";
+import { shortenAtlasUrl } from "../../atlas-api/urls";
+import { Log } from "../../utils/log";
+import type { DataBundler } from "../utils/dataBundlers";
 
 async function getCustomItems() {
   const data = await readFileJson<IDMap<BundledItem>>(
@@ -15,7 +15,7 @@ async function getCustomItems() {
   return data;
 }
 
-export const bundleItemsData: DataBundler<BundledItem> = async bundles => {
+export const bundleItemsData: DataBundler<BundledItem> = async ids => {
   const [customItems, niceItems, niceItemsNA] = await Promise.all([
     getCustomItems(),
     atlasCache.JP.getNiceItem(),
@@ -27,18 +27,8 @@ export const bundleItemsData: DataBundler<BundledItem> = async bundles => {
     return false;
   }
 
-  const itemQueue = new List<number>(); // to be processed
-  const knownItems = new Set<number>(); // are queued or processed
+  const itemQueue = List.fromArray([...ids]); // to be processed
   const res = new Map<number, BundledItem>(); // result of processing
-
-  for (const bundle of bundles) {
-    if (!bundle.items) continue;
-    for (const id of bundle.items) {
-      if (knownItems.has(id)) continue;
-      itemQueue.push(id);
-      knownItems.add(id);
-    }
-  }
 
   while (itemQueue.length > 0) {
     const itemId = itemQueue.shift()!;

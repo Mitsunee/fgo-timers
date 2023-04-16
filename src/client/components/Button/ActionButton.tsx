@@ -7,17 +7,13 @@ import type {
 import { InlineIcon } from "src/client/components/InlineIcon";
 import { GlobalStyles } from "src/types/enum";
 
-interface ActionButtonProps extends ComponentPropsCC<"button"> {
+interface ActionButtonProps
+  extends ComponentPropsCC<"button">,
+    OptionalIconProps {
   decorated?: boolean;
   fill?: undefined; // style color instead
   hover?: undefined; // style :hover color instead
 }
-
-type ActionButtonIconProps =
-  | (Partial<Record<Exclude<keyof OptionalIconProps, "title">, undefined>> & {
-      title: string;
-    })
-  | OptionalIconProps;
 
 export function ActionButton({
   children,
@@ -28,13 +24,15 @@ export function ActionButton({
   hover,
   title,
   ...props
-}: ActionButtonProps & ActionButtonIconProps) {
+}: ActionButtonProps) {
   const classNameExtended = cc([
     GlobalStyles.BUTTON,
     decorated && GlobalStyles.BUTTON_DECORATED,
     className
   ]);
-  const iconProps = icon ? ({ icon, fill, hover, title } as IconProps) : false;
+  const iconProps = icon
+    ? ({ icon, fill, hover, title } satisfies IconProps)
+    : false;
 
   return (
     <button

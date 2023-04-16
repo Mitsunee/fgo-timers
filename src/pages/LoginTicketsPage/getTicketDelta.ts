@@ -1,6 +1,6 @@
 import spacetime from "spacetime";
 import { clamp } from "@foxkit/util/clamp";
-import { Global } from "src/types/enum";
+import { Global, GlobalNums } from "src/types/enum";
 import type { BundledLoginTicket } from "src/items/types";
 
 export function getTicketDelta(ticket: BundledLoginTicket, now?: number) {
@@ -11,5 +11,10 @@ export function getTicketDelta(ticket: BundledLoginTicket, now?: number) {
   });
   const start = spacetime(startTs * 1000, Global.UTC_TZ);
   const next = spacetime(ticket.next * 1000, Global.UTC_TZ);
-  return start.diff(next).days;
+  const diff = start.diff(next).days;
+  const hasDailyMissions =
+    startTs >= GlobalNums.EXCHANGE_TICKET_DAILY_QUEST_RELEASE;
+
+  if (hasDailyMissions) return diff * 4;
+  return diff;
 }

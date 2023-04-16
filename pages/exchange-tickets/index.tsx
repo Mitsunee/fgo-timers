@@ -39,10 +39,25 @@ export default function LoginTicketsPage({
   return (
     <>
       <Meta
-        title="Login Exchange Tickets"
-        description="Information on Login Exchange Tickets for Fate/Grand Order Global Version"
+        title="Exchange Tickets"
+        description="Information on monthly Exchange Tickets for Fate/Grand Order Global Version"
       />
-      <Headline>Login Exchange Tickets</Headline>
+      <Headline>Exchange Tickets</Headline>
+      <Section background="black">
+        <p>
+          Exchange Tickets are available through login bonuses. The available
+          items change each month. This page uses item data from the JP version
+          to estimate future tickets the Global version may get, but these are
+          subject to change since the (early) introduction of Append Skills and
+          Pure Prisms.
+        </p>
+        <p>
+          <b>Note:</b> Starting with 7th Anniversary Exchange Tickets are also
+          available through Daily Quests (for a total of 4 Tickets a day). It is
+          not yet clear how this will done on the Global version since our
+          Anniversary happens earlier.
+        </p>
+      </Section>
       <Section background="blue">
         <TimerList className={styles.col}>
           <TimerListItem title={`Current: ${currentTicket.name}`}>

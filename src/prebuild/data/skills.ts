@@ -1,27 +1,26 @@
 import { List } from "@foxkit/util/object";
-import type { SupportedRegion } from "../atlas-api/api";
-import { atlasCache } from "../atlas-api/cache";
-import { shortenAtlasUrl } from "../atlas-api/urls";
-import { Log } from "../utils/log";
-import type { BundledSkill } from "../servants/types";
-import { getSkillOwners } from "../servants/getOwner";
-import { mapUpgradeLevelToSkillBorder } from "../servants/borders";
-import { PLACEHOLDER_SKILL } from "../servants/placeholder";
-import { getUpgradeLevel } from "../upgrades/getUpgradeLevel";
-import type { DataBundler } from "./dataBundlers";
+import type { SupportedRegion } from "../../atlas-api/api";
+import { atlasCache } from "../../atlas-api/cache";
+import { shortenAtlasUrl } from "../../atlas-api/urls";
+import { Log } from "../../utils/log";
+import type { BundledSkill } from "../../servants/types";
+import { getSkillOwners } from "../../servants/getOwner";
+import { mapUpgradeLevelToSkillBorder } from "../../servants/borders";
+import { PLACEHOLDER_SKILL } from "../../servants/placeholder";
+import { getUpgradeLevel } from "../../upgrades/getUpgradeLevel";
+import type { DataBundler } from "../utils/dataBundlers";
 
 async function flatMapSkills(region: SupportedRegion) {
   const niceServant = await atlasCache[region].getNiceServant();
   return niceServant.flatMap(servant => servant.skills);
 }
 
-export const bundleSkillsData: DataBundler<BundledSkill> = async bundles => {
+export const bundleSkillsData: DataBundler<BundledSkill> = async ids => {
   const [niceSkills, niceSkillsNA] = await Promise.all([
     flatMapSkills("JP"),
     flatMapSkills("NA")
   ]);
-  const skillQueue = new List<number>(); // to be processed
-  const knownSkills = new Set<number>(); // are queued or processed
+  const skillQueue = List.fromArray([...ids]); // to be processed
   const res = new Map<number, BundledSkill>(); // result of processing
 
   // Add placeholder skill
@@ -29,15 +28,6 @@ export const bundleSkillsData: DataBundler<BundledSkill> = async bundles => {
     ...PLACEHOLDER_SKILL,
     icon: shortenAtlasUrl(PLACEHOLDER_SKILL.icon)
   });
-
-  for (const bundle of bundles) {
-    if (!bundle.skills) continue;
-    for (const id of bundle.skills) {
-      if (knownSkills.has(id)) continue;
-      skillQueue.push(id);
-      knownSkills.add(id);
-    }
-  }
 
   while (skillQueue.length > 0) {
     const skillId = skillQueue.shift()!;

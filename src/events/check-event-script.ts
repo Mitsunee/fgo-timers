@@ -10,7 +10,6 @@ import picocolors from "picocolors";
 import { CondType } from "@atlasacademy/api-connector";
 import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 import { atlasApiNA } from "../atlas-api/api";
-import { EventAssetsDir } from "../pages/EventPage/constants";
 import { EventSchema } from "../schema/EventSchema";
 import { parseSchema } from "../schema/verifySchema";
 import { Log } from "../utils/log";
@@ -32,7 +31,7 @@ type Main = (...args: Args) => Promise<any>;
  * @returns Result of parsing event file with EventSchema. `false` if file not found.
  */
 async function getEventBySlug(slug: string) {
-  const filePath = join(EventAssetsDir, `${slug}.yml`);
+  const filePath = join("assets/data/events", `${slug}.yml`);
   const fileContent = await readFileYaml<z.input<typeof EventSchema>>(filePath);
   if (!fileContent) {
     Log.error(`Could not read EventFile at '${filePath}'`);

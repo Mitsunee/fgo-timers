@@ -38,12 +38,14 @@ export default function LoginTicketYearPage({
   const prevYear = year - 1;
   const nextYear = year + 1;
   const hasFutureTickets = tickets.some(ticket => !ticket.na);
+  const hasDailyMissionsNote = year >= 2024;
+  const hasNotesSection = hasFutureTickets || hasDailyMissionsNote;
 
   return (
     <>
       <Meta
-        title={`Login Exchange Tickets ${year}`}
-        description={`All Login Exchange Tickets in ${year} for Fate/Grand Order Global Version`}
+        title={`Exchange Tickets ${year}`}
+        description={`All monthly Exchange Tickets in ${year} for Fate/Grand Order Global Version`}
       />
       <nav className={styles.nav}>
         {prev ? (
@@ -113,13 +115,25 @@ export default function LoginTicketYearPage({
           );
         })}
       </CardGrid>
-      {hasFutureTickets && (
+      {hasNotesSection && (
         <Section background="black">
-          <b>Note:</b> Some of the tickets displayed on this page are estimates
-          based on which items the JP version of FGO had. Since the (early)
-          introduction of Append Skills and Pure Prisms these items are subject
-          to change. They are usually announced ingame a few days before
-          starting.
+          {hasFutureTickets && (
+            <p>
+              <b>Note:</b> Some of the tickets displayed on this page are
+              estimates based on which items the JP version of FGO had. Since
+              the (early) introduction of Append Skills and Pure Prisms these
+              items are subject to change. They are usually announced ingame a
+              few days before starting.
+            </p>
+          )}
+          {hasDailyMissionsNote && (
+            <p>
+              <b>Note:</b> Starting with 7th Anniversary Exchange Tickets are
+              also available through Daily Quests (for a total of 4 Tickets a
+              day). It is not yet clear how this will done on the Global version
+              since our Anniversary happens earlier.
+            </p>
+          )}
         </Section>
       )}
     </>

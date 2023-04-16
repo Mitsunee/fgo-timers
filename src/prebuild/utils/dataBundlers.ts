@@ -1,8 +1,7 @@
 import { writeFile } from "@foxkit/node-util/fs";
 import { resolvePath } from "@foxkit/node-util/path";
 import { join } from "path";
-import type { PrebuildBundle } from "./bundlers";
-import { Log } from "../utils/log";
+import { Log } from "../../utils/log";
 
 export interface DataBundle<T extends object> {
   data: Map<number, T>;
@@ -11,7 +10,7 @@ export interface DataBundle<T extends object> {
 }
 
 export type DataBundler<T extends object> = (
-  bundles: PrebuildBundle<object>[]
+  ids: Set<number>
 ) => DataBundle<T> | false | Promise<DataBundle<T> | false>;
 
 export type DataBundlersRes = Array<false | DataBundle<object>>;

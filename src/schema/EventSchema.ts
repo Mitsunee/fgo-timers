@@ -1,5 +1,4 @@
 import { z } from "zod";
-import { EventAssetsDir } from "../pages/EventPage/constants";
 import { normalizeDate } from "../time/normalizeDate";
 import { zDate, zDuration, zDurationStrict } from "./zDate";
 
@@ -90,6 +89,5 @@ export type EventDataRaw = Partial<z.input<typeof EventSchema>>;
 export type EventDataParsed = z.output<typeof EventSchema>;
 
 export function checkEventPath(path: string): boolean {
-  const reg = new RegExp(`${EventAssetsDir}/[\\w-]+\\.yml$`);
-  return reg.test(path);
+  return /assets\/data\/events\/[\w-]+\.yml$/.test(path);
 }

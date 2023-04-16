@@ -1,16 +1,16 @@
 import { List } from "@foxkit/util/object";
 import { join } from "path";
-import { atlasCache } from "../atlas-api/cache";
-import { shortenAtlasUrl } from "../atlas-api/urls";
-import { Log } from "../utils/log";
-import { getAvailabilityMap } from "../utils/availabilityMaps";
-import { mapServantRarityToBorder } from "../servants/borders";
-import type { DataBundler } from "./dataBundlers";
-import type { BundledCE } from "../items/types";
+import { atlasCache } from "../../atlas-api/cache";
+import { shortenAtlasUrl } from "../../atlas-api/urls";
+import { Log } from "../../utils/log";
+import { getAvailabilityMap } from "../../utils/availabilityMaps";
+import { mapServantRarityToBorder } from "../../servants/borders";
+import type { DataBundler } from "../utils/dataBundlers";
+import type { BundledCE } from "../../items/types";
 
 const avMapPath = join("assets", "data", "ces", "availability.yml");
 
-export const bundleCEsData: DataBundler<BundledCE> = async bundles => {
+export const bundleCEsData: DataBundler<BundledCE> = async ids => {
   const [basicCE, basicCENA, availabilityMap] = await Promise.all([
     atlasCache.JP.getBasicCE(),
     atlasCache.NA.getBasicCE(),
@@ -22,18 +22,8 @@ export const bundleCEsData: DataBundler<BundledCE> = async bundles => {
     return false;
   }
 
-  const ceQueue = new List<number>(); // to be processed
-  const knownCEs = new Set<number>(); // are queued or processed
+  const ceQueue = List.fromArray([...ids]); // to be processed
   const res = new Map<number, BundledCE>(); // result of processing
-
-  for (const bundle of bundles) {
-    if (!bundle.ces) continue;
-    for (const id of bundle.ces) {
-      if (knownCEs.has(id)) continue;
-      ceQueue.push(id);
-      knownCEs.add(id);
-    }
-  }
 
   while (ceQueue.length > 0) {
     const ceId = ceQueue.shift()!;

@@ -30,7 +30,7 @@ interface DisplayDateProps {
   time: number;
   format?: Formats;
   /**
-   * "never" will render time as user's timezone (only uses serverTz when explicit set in settings, doesn't prerender)
+   * "never" will always render time as user's timezone (doesn't prerender)
    * "always" will never use user's timezone (always serverTz, prerenders)
    * "ssr" uses serverTz to prerender and user's timezone after (default, prerenders)
    */
@@ -53,10 +53,8 @@ export function DisplayDate({
       tz = Global.SERVER_TZ;
       break;
     case "ssr":
-      if (!isClient) tz = Global.SERVER_TZ;
-    // break omitted
-    case "never":
-      if (settings.showServerTimes) tz = Global.SERVER_TZ;
+      if (!isClient || settings.showServerTimes) tz = Global.SERVER_TZ;
+      break;
   }
 
   return isRendered ? (

@@ -25,7 +25,7 @@ git fetch upstream
 git checkout main
 git rebase upstream/main
 git push -u origin main
-yarn
+pnpm install
 ```
 
 ### Creating a branch
@@ -52,17 +52,17 @@ After pushing changes to your dev branch you can open a Pull Request on GitHub.
 
 ## Getting Started
 
-First make sure you have Node.js 16.x and yarn (or corepack) installed, then clone and install the repository:
+First make sure you have Node.js 16.x and pnpm (or corepack) installed, then clone and install the repository:
 
 ```shell
-yarn install
+pnpm install
 cp .env.example .env.local
 YOUR_EDITOR .env.local # adjust values if needed
 ```
 
 ## Development Server Startup
 
-Start the devServer with `yarn dev` locally on your system, then visit [http://localhost:3000](http://localhost:3000) with your browser to see the result. `yarn prebuild` is run automatically. You can re-run it in a differnt terminal to update the data.
+Start the devServer with `pnpm dev` locally on your system, then visit [http://localhost:3000](http://localhost:3000) with your browser to see the result. `pnpm prebuild` is run automatically. You can re-run it in a differnt terminal to update the data.
 
 ## Directories in this repository
 
@@ -86,8 +86,7 @@ Start the devServer with `yarn dev` locally on your system, then visit [http://l
   - upgrades: Utils for handling Quests and Upgrades (Interludes and Rank Ups)
   - utils: generic utils
 - tests (mirrors src unless specified here):
-  - \_\_mockups\_\_: Contains mock assets used in legacy tests (ignored by jest config)
-  - scripts-uvu: Contains all legacy tests (ignored by jest config)
+  - Pages can omit the `pages` directory in the path here
 
 ## Environment Variables
 
@@ -98,29 +97,29 @@ Start the devServer with `yarn dev` locally on your system, then visit [http://l
 - Use absolute import paths such as `import { api } from "src/client/api"`. The current aliases are deprecated and will be replaced in the future.
 - Use `import type` whenever possible. Values imported as type are removed during the build process and are thus removed from production bundles.
 - New code should use typescript - migration from esm to ts is currently in progress
-- Use the included ESLint and Prettier configuations. Remember to use `yarn lint` and `yarn test:types` before pushing.
+- Use the included ESLint and Prettier configuations. Remember to use `pnpm lint` and `pnpm test:types` before pushing.
 - As a general rule of thumb default exports are only used in React Components, NextJS API Routes and NextJS Pages. All other exports should be named exports.
 - All files using JSX should use the `*.jsx` or `*.tsx` file extension.
 - Try to keep functions small (and thus their purpose obvious and readable). If you absolutely need larger functions divide your code into sections and use comments to give them headlines such as `// handle args`.
 - Deployments are static thus files in `./assets` should only be written to during the prebuild step! (this means there is currently no way to update upgrades other then redeployment)
-- Should you need to add or update dependencies please also run `yarn browserslist --update-db` and `yarn-deduplicate` before committing.
+- Should you need to add or update dependencies please also run `npx update-browserslist-db@latest` and `pnpm dedupe` before committing.
 
 ## Workflow and Testing
 
 The build process has the following steps:
 
-- Typechecks `yarn test:types`
-- Legacy Tests (deprecated tests that will be rewritten) `yarn test:legacy`
-- Testing `yarn test:code`
-- Data Testing `yarn test:data` (tests data in `./assets/` using the check script, see `--help` for more information)
-- Prebuild `yarn prebuild` (runs prebuild script)
-- Build `yarn build` (builds next app)
+- Typechecks `pnpm test:types`
+- Legacy Tests (deprecated tests that will be rewritten) `pnpm test:legacy`
+- Testing `pnpm test:code`
+- Data Testing `pnpm test:data` (tests data in `./assets/` using the check script, see `--help` for more information)
+- Prebuild `pnpm prebuild` (runs prebuild script)
+- Build `pnpm build` (builds next app)
 
 ## Further Information
 
 **NOTE**: There is currently an ongoing migration to the following tools: TypeScript, zod, tRPC. Documentation may not be up-to-date yet.
 
-Documentation on scripts (such as `yarn find` and `yarn build:svgo`) have also not been written yet, but may be present in source code. Refer to [package.json](../package.json) to see what's available. Note that currently some scripts still have some `.mjs` files and thus use `tsm` to run. This will be replaced with `tsx` in the future.
+Documentation on scripts (such as `pnpm find` and `pnpm build:svgo`) have also not been written yet, but may be present in source code. Refer to [package.json](../package.json) to see what's available. Note that currently some scripts still have some `.mjs` files and thus use `tsm` to run. This will be replaced with `tsx` in the future.
 
 ### Project Documation
 

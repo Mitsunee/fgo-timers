@@ -50,7 +50,7 @@ function ExchangeTicketsInfo({
       <li data-wide>
         See{" "}
         <Link href="/exchange-tickets/" style={{ textDecoration: "underline" }}>
-          Login Exchange Tickets
+          Exchange Tickets
         </Link>{" "}
         for more information
       </li>

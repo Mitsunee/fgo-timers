@@ -1,11 +1,11 @@
 import { ItemType } from "@atlasacademy/api-connector/dist/Schema/Item.js";
 import spacetime from "spacetime";
-import { atlasCache } from "../atlas-api/cache";
-import type { BundledLoginTicket } from "../items/types";
-import { Log } from "../utils/log";
-import { msToSeconds } from "../time/msToSeconds";
-import { Global } from "../types/enum";
-import type { PrebuildBundler } from "./bundlers";
+import { atlasCache } from "../../atlas-api/cache";
+import type { BundledLoginTicket } from "../../items/types";
+import { Log } from "../../utils/log";
+import { msToSeconds } from "../../time/msToSeconds";
+import { Global } from "../../types/enum";
+import type { PrebuildBundler } from "../utils/bundlers";
 
 const ticketNameReg = /Exchange Ticket \((?<month>[A-Z]{3}) (?<year>\d{4})\)/;
 // prettier-ignore
@@ -49,7 +49,7 @@ function getTicketDatesFromName(name: string): [number, number] | false {
   return false;
 }
 
-export const bundleLoginTickets: PrebuildBundler<
+export const bundleExchangeTickets: PrebuildBundler<
   BundledLoginTicket[]
 > = async () => {
   const [niceItem, niceItemNA] = await Promise.all([
@@ -93,11 +93,11 @@ export const bundleLoginTickets: PrebuildBundler<
     tickets.push(ticket);
   }
 
-  Log.info(`Mapped data for ${tickets.length} Login Exchange Tickets`);
+  Log.info(`Mapped data for ${tickets.length} Exchange Tickets`);
   return {
-    name: "Login Tickets",
+    name: "Exchange Tickets",
     path: "login_tickets.json",
     data: tickets,
-    items: Array.from(items)
+    items
   };
 };

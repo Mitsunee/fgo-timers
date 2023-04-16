@@ -1,37 +1,27 @@
 import { List } from "@foxkit/util/object";
-import type { SupportedRegion } from "../atlas-api/api";
-import { atlasCache } from "../atlas-api/cache";
-import { Log } from "../utils/log";
-import type { BundledNP } from "../servants/types";
-import { getNPOwner } from "../servants/getOwner";
-import { mapUpgradeLevelToSkillBorder } from "../servants/borders";
-import { getNPType } from "../servants/getNPType";
-import { getUpgradeLevel } from "../upgrades/getUpgradeLevel";
-import { findEoRNPName } from "../upgrades/findEoRNPName";
-import type { DataBundler } from "./dataBundlers";
+import type { SupportedRegion } from "../../atlas-api/api";
+import { atlasCache } from "../../atlas-api/cache";
+import { Log } from "../../utils/log";
+import type { BundledNP } from "../../servants/types";
+import { getNPOwner } from "../../servants/getOwner";
+import { mapUpgradeLevelToSkillBorder } from "../../servants/borders";
+import { getNPType } from "../../servants/getNPType";
+import { getUpgradeLevel } from "../../upgrades/getUpgradeLevel";
+import { findEoRNPName } from "../../upgrades/findEoRNPName";
+import type { DataBundler } from "../utils/dataBundlers";
 
 async function flatMapNPs(region: SupportedRegion) {
   const niceServant = await atlasCache[region].getNiceServant();
   return niceServant.flatMap(servant => servant.noblePhantasms);
 }
 
-export const bundleNPsData: DataBundler<BundledNP> = async bundles => {
+export const bundleNPsData: DataBundler<BundledNP> = async ids => {
   const [niceNoblePhantasm, niceNoblePhantasmNA] = await Promise.all([
     flatMapNPs("JP"),
     flatMapNPs("NA")
   ]);
-  const npQueue = new List<number>(); // to be processed
-  const knownNPs = new Set<number>(); // are queued or processed
+  const npQueue = List.fromArray([...ids]); // to be processed
   const res = new Map<number, BundledNP>(); // result of processing
-
-  for (const bundle of bundles) {
-    if (!bundle.nps) continue;
-    for (const id of bundle.nps) {
-      if (knownNPs.has(id)) continue;
-      npQueue.push(id);
-      knownNPs.add(id);
-    }
-  }
 
   while (npQueue.length > 0) {
     const npId = npQueue.shift()!;

@@ -1,2 +1,1 @@
-import { SettingsMenu } from "./SettingsMenu";
-export default SettingsMenu; // TODO: phase out default export
+export { SettingsMenu } from "./SettingsMenu";

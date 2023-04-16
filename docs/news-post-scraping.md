@@ -29,65 +29,104 @@ console.log(JSON.stringify(
 Generally you want to map the tableContent array like this, using slice to skip the header rows (usually 1 or 2):
 
 ```js
-tableContent.map(([date, text]) => ({
-  /* object content here */
+tableContent.map(([text, date]) => ({
+  // object content here
 }));
+
+// or
+
+tableContent.map(([text, date]) => {
+  // vars go here
+  return {
+    // object content here
+  };
+});
 ```
 
-### Transforming Durations to Dates
+### Joining multiline text
 
 ```js
-{
-  date: `${date.substring(0, date.indexOf(" -"))} ${date.slice(-3)}`;
-}
+([text]) => ({
+  title: text.split("\n").join(" & ")
+});
 ```
 
-### Full Example
+### Filtering/Cleaning Chapter titles
 
-In this example there is `1` title row in the table and the list of Servant names uses line breaks as a delimiter
+```js
+([text]) => ({
+  title: text
+    .split("\n")
+    .filter(seg => !seg.includes("Free Quest"))
+    .join(" & ")
+    .replace(/Main Quest /g, "")
+});
+```
+
+### Extracting Durations
+
+```js
+([date]) => ({
+  date: date.match(/(\d+-)?\d+-\d+ \d+:\d\d( P[DS]T)?/g).join(" - ")
+});
+```
+
+### Extracting Dates
+
+```js
+([date]) => {
+  const matchDate = date.match(/\d+-\d+-\d+ \d+:\d\d/);
+  const matchTz = date.match(/ P[DS]T/);
+  return {
+    // other props here
+    date: `${matchDate?.[0]}${matchTz?.[0]}`
+  };
+};
+```
+
+### Fallback for tables with colspan
+
+```js
+tableContent.slice(2).map(([date, text, text2]) => ({
+      title: (text2 || text).split("\n").join(" & "),
+```
+
+## Full Examples
+
+### Extracting Dates and cleaned Chapter titles from a Schedule Table
 
 ```js
 console.log(
   JSON.stringify(
-    tableContent.slice(1).map(([date, text]) => ({
-      title: text.split("\n").join(" & "),
-      date: `${date.substring(0, date.indexOf(" -"))} ${date.slice(-3)}`
-    })),
+    tableContent.slice(1).map(([text, date]) => {
+      const matchDate = date.match(/\d+-\d+-\d+ \d+:\d\d/);
+      const matchTz = date.match(/ P[DS]T/);
+      return {
+        text: text
+          .split("\n")
+          .filter(seg => !seg.includes("Free Quest"))
+          .join(" & ")
+          .replace(/Main Quest /g, ""),
+        date: `${matchDate?.[0]}${matchTz?.[0]}`
+      };
+    }),
     null,
     2
   )
 );
 ```
 
-The next example has `2` title rows in the table and also a middle column using rowspan for the non-rotating servants. `||` is used to get the 3rd column and 2nd column (in the HTML) as fallback.
+### Fallback for tables using colspan
 
 ```js
 console.log(
   JSON.stringify(
     tableContent.slice(2).map(([date, text, text2]) => ({
       title: (text2 || text).split("\n").join(" & "),
-      date: `${date.substring(0, date.indexOf(" -"))} ${date.slice(-3)}`
+      date: date.match(/(\d+-)?\d+-\d+ \d+:\d\d( P[DS]T)?/g).join(" - ")
     })),
     null,
     2
   )
 );
-```
-
-## Editing in Code Editor
-
-Remove any brackets and quotation marks where possible. Add a `-` infront of the title keys and shorten their value as needed.
-
-```yml
-schedules:
-  - title: Story
-    times:
-      - title: Section 1 & 2
-        date: 2022-05-01 21:00 PDT
-      - title: Section 3
-        date: 2022-05-03 21:00 PDT
-      - title: Section 4
-        date: 2022-05-05 21:00 PDT
-      - title: Section 5 & Final Section
-        date: 2022-05-07 21:00 PDT
 ```

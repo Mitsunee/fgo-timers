@@ -8,18 +8,13 @@ import type {
 import { InlineIcon } from "src/client/components/InlineIcon";
 import { GlobalStyles } from "src/types/enum";
 
-interface LinkButtonProps extends ComponentWithRefCC<"a"> {
+interface LinkButtonProps extends ComponentWithRefCC<"a">, OptionalIconProps {
   decorated?: boolean;
   href: string;
   fill?: undefined; // style color instead
   hover?: undefined; // style :hover color instead
   replace?: boolean;
 }
-type LinkButtonIconProps =
-  | (Partial<Record<Exclude<keyof OptionalIconProps, "title">, undefined>> & {
-      title: string;
-    })
-  | OptionalIconProps;
 
 export function LinkButton({
   children,
@@ -32,13 +27,15 @@ export function LinkButton({
   title,
   replace,
   ...props
-}: LinkButtonProps & LinkButtonIconProps) {
+}: LinkButtonProps) {
   const classNameExtended = cc([
     GlobalStyles.BUTTON,
     decorated && GlobalStyles.BUTTON_DECORATED,
     className
   ]);
-  const iconProps = icon ? ({ icon, fill, hover, title } as IconProps) : false;
+  const iconProps = icon
+    ? ({ icon, fill, hover, title } satisfies IconProps)
+    : false;
   const Inner = (
     <>
       {iconProps && <InlineIcon {...iconProps} />}

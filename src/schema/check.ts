@@ -1,13 +1,13 @@
 import { Command, Option } from "commander";
+import { join } from "path";
 import { readdir } from "fs/promises";
-import { resolvePath, joinPath } from "@foxkit/node-util/path";
+import { resolvePath } from "@foxkit/node-util/path";
 import { fileExists } from "@foxkit/node-util/fs";
 
 import { prepareCache } from "../atlas-api/prepare";
 import { isShopFile } from "../scripts/utils/data-assets/isDataFile.mjs";
 import { checkDataFile } from "../scripts/utils/data-assets/checkDataFile.mjs";
 import { Log } from "../utils/log";
-import { EventAssetsDir } from "../pages/EventPage/constants";
 import { checkCustomItemPath } from "./CustomItem";
 import { checkEventPath } from "./EventSchema";
 
@@ -57,10 +57,10 @@ async function main(options: ProgramOptions) {
   // handle --events
   if (options.all || options.events) {
     if (showGroupInfo) Log.info("Checking all event data files");
-    const path = resolvePath(EventAssetsDir);
+    const path = join(process.cwd(), "assets/data/events");
     const dir = await readdir(path);
     for (const file of dir) {
-      const filePath = joinPath(path, file);
+      const filePath = join(path, file);
       if (!checkEventPath(filePath)) continue;
       targets.add(filePath);
     }
@@ -72,7 +72,7 @@ async function main(options: ProgramOptions) {
     const path = resolvePath("assets/data/");
     const dir = await readdir(path);
     for (const file of dir) {
-      const filePath = joinPath(path, file);
+      const filePath = join(path, file);
       if (!isShopFile(filePath)) continue;
       targets.add(filePath);
     }
@@ -84,7 +84,7 @@ async function main(options: ProgramOptions) {
     const path = resolvePath("assets/data/items");
     const dir = await readdir(path);
     for (const file of dir) {
-      const filePath = joinPath(path, file);
+      const filePath = join(path, file);
       if (!checkCustomItemPath(filePath)) continue;
       targets.add(filePath);
     }
@@ -124,7 +124,7 @@ async function main(options: ProgramOptions) {
 
   // run checks
   const total = targets.size;
-  for (const file of Array.from(targets)) {
+  for (const file of targets) {
     const result = await checkDataFile(file);
     if (result) passed++;
   }

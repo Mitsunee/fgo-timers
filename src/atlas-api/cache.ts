@@ -11,6 +11,7 @@ import type { War } from "@atlasacademy/api-connector/dist/Schema/War";
 import type { SupportedRegion } from "./api";
 import { atlasApi } from "./api";
 import type { CraftEssenceBasic } from "@atlasacademy/api-connector/dist/Schema/CraftEssence";
+import { Semaphore } from "../utils/Semaphore";
 
 export const cachePath = ".next/cache/atlasacademy";
 export const cacheVersion = "0.3.0"; // NOTE: bump when adding new things to cache
@@ -24,9 +25,13 @@ enum CacheFile {
   MASTERMISSION = "nice_master_mission.json"
 }
 
+type CacheQueueNode = [CacheFile, (...args: any) => Promise<any>];
+type CacheQueue = CacheQueueNode[];
+
 class AtlasApiCache {
-  region: SupportedRegion;
-  api: (typeof atlasApi)[SupportedRegion];
+  readonly region: SupportedRegion;
+  readonly api: (typeof atlasApi)[SupportedRegion];
+  private queue: CacheQueue;
   private servant?: Servant[];
   private servantBasic?: ServantBasic[];
   private item?: Item[];
@@ -36,7 +41,22 @@ class AtlasApiCache {
 
   constructor(region: SupportedRegion) {
     this.region = region;
-    this.api = atlasApi[region];
+    const api = atlasApi[region];
+    this.api = api;
+    this.queue = [
+      [CacheFile.SERVANT, api.servantListNice.bind(api)],
+      [CacheFile.SERVANT_BASIC, api.servantList.bind(api)],
+      [CacheFile.ITEM, api.itemList.bind(api)],
+      [CacheFile.CE_BASIC, api.craftEssenceList.bind(api)],
+      [CacheFile.WAR, api.warListNice.bind(api)]
+    ];
+
+    if (region == "NA") {
+      this.queue.push([
+        CacheFile.MASTERMISSION,
+        api.masterMissionList.bind(api)
+      ]);
+    }
   }
 
   private resetCache() {
@@ -102,27 +122,11 @@ class AtlasApiCache {
   }
 
   async updateCache() {
-    const [servantData, servantDataBasic, itemData, ceData, warData] =
-      await Promise.all([
-        this.api.servantListNice(),
-        this.api.servantList(),
-        this.api.itemList(),
-        this.api.craftEssenceList(),
-        this.api.warListNice()
-      ]);
+    const handler = async ([filePath, getter]: CacheQueueNode) =>
+      getter().then(data => this.writeFile(filePath, data));
 
-    await Promise.all([
-      this.writeFile(CacheFile.SERVANT, servantData),
-      this.writeFile(CacheFile.SERVANT_BASIC, servantDataBasic),
-      this.writeFile(CacheFile.CE_BASIC, ceData),
-      this.writeFile(CacheFile.ITEM, itemData),
-      this.writeFile(CacheFile.WAR, warData)
-    ]);
-
-    if (this.region == "NA") {
-      const masterMissionData = await this.api.masterMissionList();
-      await this.writeFile(CacheFile.MASTERMISSION, masterMissionData);
-    }
+    const sem = new Semaphore(handler, 3);
+    await sem.run(this.queue);
 
     this.resetCache();
   }

@@ -29,3 +29,17 @@ type SemiRequired<T, Keys extends keyof T> = Partial<Omit<T, Keys>> &
  * Specifies function parameter that's either a boolean or a callback that gets passed a boolean and must return a boolean
  */
 type BooleanOrFn = boolean | ((state: boolean) => boolean);
+
+/**
+ * Picks keys that are common (and same of the type) between A and B
+ */
+type Common<A, B> = Pick<
+  A,
+  {
+    [K in keyof A & keyof B]: A[K] extends B[K]
+      ? B[K] extends A[K]
+        ? K
+        : never
+      : never;
+  }[keyof A & keyof B]
+>;
