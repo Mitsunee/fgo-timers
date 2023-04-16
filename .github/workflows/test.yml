@@ -93,7 +93,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Run Prepare and Prebuild
-        run: pnpm build:svgo && pnpm prebuild
+        run: pnpm build:svgo
       - name: Run Code Tests
         run: pnpm test:code
       - name: Run Data Tests
