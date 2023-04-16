@@ -11,10 +11,8 @@ import { getCacheStatus } from "./validation";
 export async function prepareCache() {
   const { newInfo, updateNa, updateJp } = await getCacheStatus();
   const update = updateNa || updateJp;
-
-  if (update) {
-    Log.info("Updating AtlasAcademy API Cache");
-  }
+  if (!update) return newInfo;
+  Log.info("Updating AtlasAcademy API Cache");
 
   if (updateNa) {
     await atlasCacheNA.updateCache();
@@ -27,10 +25,8 @@ export async function prepareCache() {
   }
 
   // update local info
-  if (update) {
-    await writeFile(join(cachePath, "info.json"), newInfo);
-    Log.info("Updated AtlasAcademy API Cache Info");
-  }
+  await writeFile(join(cachePath, "info.json"), newInfo);
+  Log.info("Updated AtlasAcademy API Cache Info");
 
   return newInfo;
 }
