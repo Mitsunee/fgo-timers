@@ -100,7 +100,7 @@ export function FiltersForm({
           options={typeSelectOptions}
         />
       </fieldset>
-      <fieldset>
+      <fieldset className={styles.wrap}>
         <legend>Class</legend>
         {selectableClasses.map(classId => {
           const name = nameServantClass(classId);
