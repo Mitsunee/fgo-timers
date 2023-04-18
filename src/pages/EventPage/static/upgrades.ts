@@ -5,8 +5,11 @@ import type { BundledEvent } from "src/events/types";
 import type { BundledQuest, BundledUpgrade } from "src/upgrades/types";
 import type { BundledNP, BundledSkill } from "src/servants/types";
 import { getBundledEvents } from "src/utils/getBundles";
-import { Log } from "src/utils/log";
-import { getEventProps } from "./getEventProps";
+import {
+  createEventActiveFilter,
+  getEventProps,
+  NOT_FOUND
+} from "./getEventProps";
 import type { PageContext, EventPageProps, StaticPath } from "./types";
 
 type EventWithUpgrades = BundledEvent & {
@@ -26,28 +29,31 @@ function hasUpgrades(event: BundledEvent): event is EventWithUpgrades {
 }
 
 export const getStaticPaths: GetStaticPaths<PageContext> = async () => {
-  const events = await getBundledEvents();
+  const [events, isActive] = await Promise.all([
+    getBundledEvents(),
+    createEventActiveFilter()
+  ]);
   const paths: StaticPath[] = events
     .filter(hasUpgrades)
+    .filter(isActive)
     .map(({ slug }) => ({ params: { slug } }));
 
-  return { paths, fallback: false };
+  return { paths, fallback: "blocking" };
 };
 
 export const getStaticProps: GetStaticProps<
   EventUpgradesPageProps,
   PageContext
 > = async ({ params }) => {
-  const { slug } = params!;
+  if (!params) return NOT_FOUND;
+
+  const { slug } = params;
   const [event, api] = await Promise.all([
     getEventProps(slug, hasUpgrades),
     createServerSideHelpers({ router: appRouter, ctx: {} })
   ]);
-  if (!hasUpgrades(event)) {
-    Log.throw(
-      `Event ${slug} has no upgrades, but upgrades sub page was rendered`
-    );
-  }
+
+  if (!event) return NOT_FOUND;
 
   const data = await api.upgrades.select.fetch({
     id: event.upgrades

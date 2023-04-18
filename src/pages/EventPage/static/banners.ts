@@ -5,7 +5,11 @@ import {
   getBundledServantMap
 } from "src/utils/getBundles";
 import type { BundledEvent } from "src/events/types";
-import { getEventProps } from "./getEventProps";
+import {
+  createEventActiveFilter,
+  getEventProps,
+  NOT_FOUND
+} from "./getEventProps";
 import type { PageContext, EventPageProps, StaticPath } from "./types";
 
 type EventWithBanners = BundledEvent & {
@@ -21,24 +25,32 @@ function hasBanners(event: BundledEvent): event is EventWithBanners {
 }
 
 export const getStaticPaths: GetStaticPaths<PageContext> = async () => {
-  const events = await getBundledEvents();
+  const [events, isActive] = await Promise.all([
+    getBundledEvents(),
+    createEventActiveFilter()
+  ]);
   const paths: StaticPath[] = events
     .filter(hasBanners)
+    .filter(isActive)
     .map(({ slug }) => ({ params: { slug } }));
 
-  return { paths, fallback: false };
+  return { paths, fallback: "blocking" };
 };
 
 export const getStaticProps: GetStaticProps<
   EventBannersPageProps,
   PageContext
 > = async ({ params }) => {
-  const { slug } = params!;
+  if (!params) return NOT_FOUND;
+
+  const { slug } = params;
   const [servantMap, ceMap, event] = await Promise.all([
     getBundledServantMap(),
     getBundledCEMap(),
     getEventProps(slug, hasBanners)
   ]);
+
+  if (!event) return NOT_FOUND;
 
   const servants: EventPageProps["servants"] = {};
   const ces: EventPageProps["ces"] = {};

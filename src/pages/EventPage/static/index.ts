@@ -5,29 +5,42 @@ import {
   getBundledServantMap,
   getBundledItemMap
 } from "src/utils/getBundles";
-import { getEventProps } from "./getEventProps";
+import {
+  createEventActiveFilter,
+  getEventProps,
+  NOT_FOUND
+} from "./getEventProps";
 import type { PageContext, EventPageProps, StaticPath } from "./types";
 
 export type { EventPageProps };
 
 export const getStaticPaths: GetStaticPaths<PageContext> = async () => {
-  const events = await getBundledEvents();
-  const paths: StaticPath[] = events.map(({ slug }) => ({ params: { slug } }));
+  const [events, isActive] = await Promise.all([
+    getBundledEvents(),
+    createEventActiveFilter()
+  ]);
+  const paths: StaticPath[] = events
+    .filter(isActive)
+    .map(({ slug }) => ({ params: { slug } }));
 
-  return { paths, fallback: false };
+  return { paths, fallback: "blocking" };
 };
 
 export const getStaticProps: GetStaticProps<
   EventPageProps,
   PageContext
 > = async ({ params }) => {
-  const { slug } = params!;
+  if (!params) return NOT_FOUND;
+
+  const { slug } = params;
   const [servantMap, ceMap, itemMap, event] = await Promise.all([
     getBundledServantMap(),
     getBundledCEMap(),
     getBundledItemMap(),
     getEventProps(slug)
   ]);
+
+  if (!event) return NOT_FOUND;
 
   const servants: EventPageProps["servants"] = {};
   const ces: EventPageProps["ces"] = {};
