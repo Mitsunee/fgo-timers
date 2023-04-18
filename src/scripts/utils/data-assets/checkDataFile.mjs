@@ -29,7 +29,7 @@ export async function checkDataFile(filePath) {
       return false;
     }
 
-    const res = CustomItemSchema.strict().safeParse(data);
+    const res = CustomItemSchema.safeParse(data);
     if (res.success) return true;
     Log.zodError(res.error, filePath);
     return false;
