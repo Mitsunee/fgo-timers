@@ -1,15 +1,9 @@
-import { createServerSideHelpers } from "@trpc/react-query/server";
 import type { GetStaticPaths, GetStaticProps } from "next";
-import { appRouter } from "src/server/api/root";
+import { serverApi } from "src/server/api/root";
 import type { BundledEvent } from "src/events/types";
 import type { BundledQuest, BundledUpgrade } from "src/upgrades/types";
 import type { BundledNP, BundledSkill } from "src/servants/types";
-import { getBundledEvents } from "src/utils/getBundles";
-import {
-  createEventActiveFilter,
-  getEventProps,
-  NOT_FOUND
-} from "./getEventProps";
+import { getEventProps, NOT_FOUND } from "./getEventProps";
 import type { PageContext, EventPageProps, StaticPath } from "./types";
 
 type EventWithUpgrades = BundledEvent & {
@@ -29,13 +23,9 @@ function hasUpgrades(event: BundledEvent): event is EventWithUpgrades {
 }
 
 export const getStaticPaths: GetStaticPaths<PageContext> = async () => {
-  const [events, isActive] = await Promise.all([
-    getBundledEvents(),
-    createEventActiveFilter()
-  ]);
+  const events = await serverApi.events.full.fetch({ exclude: "inactive" });
   const paths: StaticPath[] = events
     .filter(hasUpgrades)
-    .filter(isActive)
     .map(({ slug }) => ({ params: { slug } }));
 
   return { paths, fallback: "blocking" };
@@ -48,14 +38,10 @@ export const getStaticProps: GetStaticProps<
   if (!params) return NOT_FOUND;
 
   const { slug } = params;
-  const [event, api] = await Promise.all([
-    getEventProps(slug, hasUpgrades),
-    createServerSideHelpers({ router: appRouter, ctx: {} })
-  ]);
-
+  const event = await getEventProps(slug, hasUpgrades);
   if (!event) return NOT_FOUND;
 
-  const data = await api.upgrades.select.fetch({
+  const data = await serverApi.upgrades.select.fetch({
     id: event.upgrades
   });
 

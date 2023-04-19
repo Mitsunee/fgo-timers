@@ -1,15 +1,8 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
-import {
-  getBundledEvents,
-  getBundledCEMap,
-  getBundledServantMap
-} from "src/utils/getBundles";
+import { serverApi } from "src/server/api/root";
+import { getBundledCEMap, getBundledServantMap } from "src/utils/getBundles";
 import type { BundledEvent } from "src/events/types";
-import {
-  createEventActiveFilter,
-  getEventProps,
-  NOT_FOUND
-} from "./getEventProps";
+import { getEventProps, NOT_FOUND } from "./getEventProps";
 import type { PageContext, EventPageProps, StaticPath } from "./types";
 
 type EventWithBanners = BundledEvent & {
@@ -25,13 +18,9 @@ function hasBanners(event: BundledEvent): event is EventWithBanners {
 }
 
 export const getStaticPaths: GetStaticPaths<PageContext> = async () => {
-  const [events, isActive] = await Promise.all([
-    getBundledEvents(),
-    createEventActiveFilter()
-  ]);
+  const events = await serverApi.events.full.fetch({ exclude: "inactive" });
   const paths: StaticPath[] = events
     .filter(hasBanners)
-    .filter(isActive)
     .map(({ slug }) => ({ params: { slug } }));
 
   return { paths, fallback: "blocking" };

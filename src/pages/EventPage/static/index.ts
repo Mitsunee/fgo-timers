@@ -1,27 +1,18 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
+import { serverApi } from "src/server/api/root";
 import {
-  getBundledEvents,
   getBundledCEMap,
   getBundledServantMap,
   getBundledItemMap
 } from "src/utils/getBundles";
-import {
-  createEventActiveFilter,
-  getEventProps,
-  NOT_FOUND
-} from "./getEventProps";
+import { getEventProps, NOT_FOUND } from "./getEventProps";
 import type { PageContext, EventPageProps, StaticPath } from "./types";
 
 export type { EventPageProps };
 
 export const getStaticPaths: GetStaticPaths<PageContext> = async () => {
-  const [events, isActive] = await Promise.all([
-    getBundledEvents(),
-    createEventActiveFilter()
-  ]);
-  const paths: StaticPath[] = events
-    .filter(isActive)
-    .map(({ slug }) => ({ params: { slug } }));
+  const events = await serverApi.events.full.fetch({ exclude: "inactive" });
+  const paths: StaticPath[] = events.map(({ slug }) => ({ params: { slug } }));
 
   return { paths, fallback: "blocking" };
 };
