@@ -1,6 +1,5 @@
-import { createServerSideHelpers } from "@trpc/react-query/server";
 import type { InferGetStaticPropsType } from "next";
-import { appRouter } from "src/server/api/root";
+import { serverApi } from "src/server/api/root";
 import {
   getBundledQuestMap,
   getBundledServantMap,
@@ -10,11 +9,10 @@ import { createUpgradeFilter, createUpgradeSorter } from "./filters";
 import { formFiltersDefault } from "./filtersReducer";
 
 export const getStaticProps = async () => {
-  const [upgradesList, questMap, servantMap, api] = await Promise.all([
+  const [upgradesList, questMap, servantMap] = await Promise.all([
     getBundledUpgrades(),
     getBundledQuestMap(),
-    getBundledServantMap(),
-    createServerSideHelpers({ router: appRouter, ctx: {} })
+    getBundledServantMap()
   ]);
 
   const sorter = createUpgradeSorter(questMap);
@@ -24,7 +22,7 @@ export const getStaticProps = async () => {
     .filter(filter)
     .slice(0, 10)
     .map(upgrade => upgrade.quest);
-  const fallback = await api.upgrades.select.fetch({
+  const fallback = await serverApi.upgrades.select.fetch({
     id: upgradeIds
   });
 

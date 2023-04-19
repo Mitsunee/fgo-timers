@@ -42,7 +42,7 @@ export async function checkDataFile(filePath) {
       return false;
     }
 
-    const res = EventSchema.safeParse(data);
+    const res = EventSchema.strict().safeParse(data);
     if (res.success) return true;
     Log.zodError(res.error, filePath);
     return false;

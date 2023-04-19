@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { normalizeDate } from "src/time/normalizeDate";
+import Section from "src/client/components/Section";
 import Headline from "src/client/components/Headline";
 import { useIsClient } from "src/client/utils/hooks/useIsClient";
 import { useCurrentTime } from "src/client/utils/hooks/useCurrentTime";
@@ -67,7 +68,7 @@ export function EventListItem({
 
 export function EventList({ children, events, title }: EventListProps) {
   return (
-    <section>
+    <Section>
       <Headline>{title || "Current Events"}</Headline>
       {children}
       <div className={styles.grid}>
@@ -75,6 +76,6 @@ export function EventList({ children, events, title }: EventListProps) {
           <EventListItem key={event.shortTitle} {...event} />
         ))}
       </div>
-    </section>
+    </Section>
   );
 }

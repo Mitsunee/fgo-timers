@@ -14,15 +14,16 @@ import type { EventsPageProps } from "src/pages/EventsPage/static";
 import styles from "src/pages/EventsPage/EventsPage.module.css";
 export { getStaticProps } from "src/pages/EventsPage/static";
 
-const noOp = {};
-
-export default function EventsPage({ fallback }: EventsPageProps) {
+export default function EventsPage({ active, fallback, now }: EventsPageProps) {
   const { perPage } = useStore(settingsStore);
-  const query = api.events.basic.useQuery(noOp, {
-    placeholderData: fallback,
-    refetchOnReconnect: false,
-    refetchOnWindowFocus: false
-  });
+  const query = api.events.basic.useQuery(
+    { exclude: "active", now },
+    {
+      placeholderData: fallback,
+      refetchOnReconnect: false,
+      refetchOnWindowFocus: false
+    }
+  );
   const [page, setPage] = useState<number>(1);
   const [searchQuery, setSearchQuery] = useState("");
   const events = query.data ?? fallback;
@@ -84,7 +85,8 @@ export default function EventsPage({ fallback }: EventsPageProps) {
         title="Events"
         description="List of current and past events of Fate/Grand Order Global Version"
       />
-      <EventList events={results.slice(0, page * perPage)} title="Events">
+      <EventList events={active} title="Current Events" />
+      <EventList events={results.slice(0, page * perPage)} title="Past Events">
         <div className={styles.search}>
           <p>
             Results {firstResultNum} to {lastResultNum} of {results.length}
