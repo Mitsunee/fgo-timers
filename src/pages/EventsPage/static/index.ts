@@ -1,15 +1,20 @@
-import { createServerSideHelpers } from "@trpc/react-query/server";
 import type { InferGetStaticPropsType } from "next";
-import { appRouter } from "src/server/api/root";
+import { serverApi } from "src/server/api/root";
+import { msToSeconds } from "src/time/msToSeconds";
 
 export async function getStaticProps() {
-  const [api] = await Promise.all([
-    createServerSideHelpers({ router: appRouter, ctx: {} })
-  ]);
+  const now = msToSeconds(Date.now());
+  const active = await serverApi.events.basic.fetch({
+    exclude: "inactive",
+    now
+  });
+  const fallback = await serverApi.events.basic.fetch({
+    limit: 10,
+    exclude: "active",
+    now
+  });
 
-  const fallback = await api.events.basic.fetch({ limit: 10 });
-
-  return { props: { fallback } };
+  return { props: { active, fallback, now }, revalidate: 18000 };
 }
 
 export type EventsPageProps = InferGetStaticPropsType<typeof getStaticProps>;
