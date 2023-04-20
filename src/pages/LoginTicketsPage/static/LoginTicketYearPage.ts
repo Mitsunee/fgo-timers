@@ -5,6 +5,7 @@ import {
   getBundledItemMap,
   getBundledLoginTickets
 } from "src/utils/getBundles";
+import type { DataMap } from "src/client/contexts";
 import { getTicketsYears } from "../getTicketsYears";
 import { getTicketYear } from "../getTicketYear";
 
@@ -58,7 +59,7 @@ export const getStaticProps: GetStaticProps<
   }
 
   // map used items
-  const items: Record<number, BundledItem> = {};
+  const items: DataMap<BundledItem> = {};
   const itemsSeen = new Set<number>(
     thisYearTickets.flatMap(ticket => ticket.items)
   );

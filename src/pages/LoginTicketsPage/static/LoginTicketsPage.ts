@@ -8,6 +8,7 @@ import {
 import { Global } from "src/types/enum";
 import { Log } from "src/utils/log";
 import type { BundledItem } from "src/items/types";
+import type { DataMap } from "src/client/contexts";
 
 export async function getStaticProps() {
   const [tickets, itemMap] = await Promise.all([
@@ -37,7 +38,7 @@ export async function getStaticProps() {
 
   const currentTicket = tickets[currentTicketIdx];
   const nextTicket = tickets.find(ticket => ticket.start == currentTicket.next);
-  const items: Record<number, BundledItem> = {};
+  const items: DataMap<BundledItem> = {};
   const itemsSeen = new Set<number>([
     ...currentTicket.items,
     ...(nextTicket?.items || [])

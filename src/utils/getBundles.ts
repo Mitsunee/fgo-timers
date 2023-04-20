@@ -16,17 +16,6 @@ import type { BundledEvent } from "src/events/types";
 import { Log } from "./log";
 import { safeProxyIDMap } from "./proxyIDMap";
 
-export interface StaticBundles {
-  servants: Record<number, BundledServant>;
-  skills: Record<number, BundledSkill>;
-  nps: Record<number, BundledNP>;
-  quests: Record<number, BundledQuest>;
-  upgrades: BundledUpgrade[];
-  ces: Record<number, BundledCE>;
-  items: Record<number, BundledItem>;
-  events: BundledEvent[];
-}
-
 function createBundle<T>(bundlePath: string) {
   const relPath = path.relative(process.cwd(), bundlePath);
   let promise: Promise<T | false> | undefined;
