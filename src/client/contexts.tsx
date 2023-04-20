@@ -8,8 +8,6 @@ import type {
 import type { BundledCE, BundledItem } from "src/items/types";
 import type { BundledQuest } from "src/upgrades/types";
 
-export type DataMap<T> = Record<number, T>;
-
 export type ServantMap = DataMap<BundledServant>;
 const servantContext = createContext<ServantMap>({});
 export const ServantContext = servantContext.Provider;

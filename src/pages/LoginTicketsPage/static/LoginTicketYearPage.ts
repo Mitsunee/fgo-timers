@@ -5,7 +5,6 @@ import {
   getBundledItemMap,
   getBundledLoginTickets
 } from "src/utils/getBundles";
-import type { DataMap } from "src/client/contexts";
 import { getTicketsYears } from "../getTicketsYears";
 import { getTicketYear } from "../getTicketYear";
 

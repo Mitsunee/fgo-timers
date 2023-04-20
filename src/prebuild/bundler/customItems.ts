@@ -10,7 +10,7 @@ import { shortenAtlasUrl } from "../../atlas-api/urls";
 import type { PrebuildBundler } from "../utils/bundlers";
 
 export const bundleCustomItems: PrebuildBundler<
-  IDMap<BundledItem>
+  PartialDataMap<BundledItem>
 > = async () => {
   const res = new Map<number, BundledItem>();
   const dir = await readdir(join(process.cwd(), "assets", "data", "items"));

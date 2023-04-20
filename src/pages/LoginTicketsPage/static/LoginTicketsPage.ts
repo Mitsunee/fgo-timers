@@ -8,7 +8,6 @@ import {
 import { Global } from "src/types/enum";
 import { Log } from "src/utils/log";
 import type { BundledItem } from "src/items/types";
-import type { DataMap } from "src/client/contexts";
 
 export async function getStaticProps() {
   const [tickets, itemMap] = await Promise.all([

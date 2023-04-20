@@ -9,7 +9,7 @@ import { Log } from "../../utils/log";
 import type { DataBundler } from "../utils/dataBundlers";
 
 async function getCustomItems() {
-  const data = await readFileJson<IDMap<BundledItem>>(
+  const data = await readFileJson<PartialDataMap<BundledItem>>(
     join("assets", "static", "custom_items.json")
   );
   return data;

@@ -24,7 +24,7 @@ export const QuestOpenOverridesSchema = z
     )
   })
   .transform(({ overrides, constants }, ctx) => {
-    const overridesMapped: IDMap<number> = {};
+    const overridesMapped: PartialDataMap<number> = {};
     const entries = Object.entries(overrides) as [
       `${number}`,
       string | number
