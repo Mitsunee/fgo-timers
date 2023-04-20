@@ -1,5 +1,6 @@
 import { readFileJson } from "@foxkit/node-util/fs";
 import path from "path";
+import type { DataMap } from "src/client/contexts";
 import type {
   BundledServant,
   BundledSkill,
@@ -46,7 +47,7 @@ function createBundle<T>(bundlePath: string) {
 function withProxy<U>(
   bundle: () => Promise<IDMap<U>>,
   errMessage: string
-): () => Promise<Record<number, U>> {
+): () => Promise<DataMap<U>> {
   return async () => safeProxyIDMap(await bundle(), errMessage);
 }
 
