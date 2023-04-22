@@ -3,8 +3,9 @@ import { ServantCard } from "src/servants/types";
 import type { ComponentPropsCC } from "src/types/ComponentProps";
 import { BorderedIcon } from "./BorderedIcon";
 import { IconFace } from "./IconFace";
+import { useNPMap } from "src/client/contexts";
 
-interface BorderedNPIconProps extends ComponentPropsCC<"div">, BundledNP {
+interface BorderedNPIconProps extends ComponentPropsCC<"div"> {
   npId: number;
   title?: undefined;
 }
@@ -22,22 +23,15 @@ function getNPIconPath(type: BundledNP["type"]): string {
 
 export function BorderedNPIcon({
   children,
-  name,
-  type,
-  na,
   npId,
   ...props
 }: BorderedNPIconProps) {
-  const np: BundledNP = {
-    name,
-    type,
-    border: props.border,
-    na
-  };
+  const npMap = useNPMap();
+  const np: BundledNP = npMap[npId];
   const icon = getNPIconPath(np.type);
 
   return (
-    <BorderedIcon {...props}>
+    <BorderedIcon {...props} border={np.border}>
       <IconFace
         id={npId}
         name={np.name}

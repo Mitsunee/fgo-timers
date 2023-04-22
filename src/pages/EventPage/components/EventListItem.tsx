@@ -9,23 +9,15 @@ import {
   BorderedServantIcon
 } from "src/client/components/BorderedIcon";
 import type { BundledEvent } from "src/events/types";
-import type { EventPageProps } from "../static";
 
 export type EventTime = NonNullable<BundledEvent["times"]>[number];
-export type WithMaps = Pick<EventPageProps, "servants" | "ces" | "items">;
 
-interface EventListItemProps extends WithMaps {
+interface EventListItemProps {
   time: EventTime;
   hideEnd?: boolean;
 }
 
-export function EventListItem({
-  time,
-  servants,
-  ces,
-  items,
-  hideEnd = false
-}: EventListItemProps) {
+export function EventListItem({ time, hideEnd = false }: EventListItemProps) {
   const isClient = useIsClient();
   const [start, end] = normalizeDate(time.date);
   const { current } = useCurrentTime();
@@ -57,23 +49,13 @@ export function EventListItem({
       {hasRelatedEntities && (
         <TimerListEntities>
           {time.servants?.map(id => (
-            <BorderedServantIcon
-              key={id}
-              servantId={id}
-              {...servants[id]}
-              disableSpoilers
-            />
+            <BorderedServantIcon key={id} servantId={id} disableSpoilers />
           ))}
           {time.ces?.map(id => (
-            <BorderedCEIcon key={id} ceId={id} {...ces[id]} disableSpoilers />
+            <BorderedCEIcon key={id} ceId={id} disableSpoilers />
           ))}
           {time.items?.map(id => (
-            <BorderedItemIcon
-              key={id}
-              itemId={id}
-              {...items[id]}
-              disableSpoilers
-            />
+            <BorderedItemIcon key={id} itemId={id} disableSpoilers />
           ))}
         </TimerListEntities>
       )}

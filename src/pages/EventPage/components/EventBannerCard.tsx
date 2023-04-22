@@ -1,5 +1,6 @@
 import { useIsClient } from "src/client/utils/hooks/useIsClient";
 import { useCurrentTime } from "src/client/utils/hooks/useCurrentTime";
+import { useServantMap } from "src/client/contexts";
 import {
   BorderedCEIcon,
   BorderedServantIcon
@@ -13,28 +14,20 @@ import {
 import { DisplayDate, DisplayDelta } from "src/client/components/TimeDisplay";
 import type { BundledEvent } from "src/events/types";
 import { Borders } from "src/types/borders";
-import type { EventPageProps } from "../static";
 import styles from "./EventBannerCard.module.css";
 
 type EventBanner = NonNullable<BundledEvent["banners"]>[number];
 
-interface WithMaps {
-  servants: EventPageProps["servants"];
-  ces: EventPageProps["ces"];
-}
-
-interface EventBannerProps extends WithMaps {
+interface EventBannerProps {
   banner: EventBanner;
 }
 
 interface ServantDetailProps {
   servants: number[];
-  map: EventPageProps["servants"];
 }
 
 interface CEDetailProps {
   ces: number[];
-  map: EventPageProps["ces"];
 }
 
 function TimeDetails({ banner }: Pick<EventBannerProps, "banner">) {
@@ -65,7 +58,7 @@ function TimeDetails({ banner }: Pick<EventBannerProps, "banner">) {
   );
 }
 
-function ServantDetails({ servants, map }: ServantDetailProps) {
+function ServantDetails({ servants }: ServantDetailProps) {
   return (
     <TimerListEntities title="Servants" className={styles.servants}>
       {servants.map(id => (
@@ -76,7 +69,6 @@ function ServantDetails({ servants, map }: ServantDetailProps) {
           rel="noreferrer noopener">
           <BorderedServantIcon
             servantId={id}
-            {...map[id]}
             showAvailability
             showClass
             showRarity
@@ -88,7 +80,7 @@ function ServantDetails({ servants, map }: ServantDetailProps) {
   );
 }
 
-function CEDetails({ ces, map }: CEDetailProps) {
+function CEDetails({ ces }: CEDetailProps) {
   return (
     <TimerListEntities title="Craft Essences" className={styles.ces}>
       {ces.map(id => (
@@ -99,7 +91,6 @@ function CEDetails({ ces, map }: CEDetailProps) {
           rel="noreferrer noopener">
           <BorderedCEIcon
             ceId={id}
-            {...map[id]}
             showAvailability
             showRarity
             disableSpoilers
@@ -110,9 +101,10 @@ function CEDetails({ ces, map }: CEDetailProps) {
   );
 }
 
-export function EventBannerCard({ banner, servants, ces }: EventBannerProps) {
+export function EventBannerCard({ banner }: EventBannerProps) {
+  const servantMap = useServantMap();
   const firstServant = Array.isArray(banner.servants)
-    ? servants[banner.servants[0]]
+    ? servantMap[banner.servants[0]]
     : null;
   const icon = firstServant ? firstServant.icon : "/assets/icon_mm.png";
   const title = firstServant ? firstServant.name : "Summoning Banner";
@@ -128,12 +120,12 @@ export function EventBannerCard({ banner, servants, ces }: EventBannerProps) {
         <TimeDetails banner={banner} />
         {banner.servants && (
           <TimerListItem>
-            <ServantDetails servants={banner.servants} map={servants} />
+            <ServantDetails servants={banner.servants} />
           </TimerListItem>
         )}
         {banner.ces && (
           <TimerListItem>
-            <CEDetails ces={banner.ces} map={ces} />
+            <CEDetails ces={banner.ces} />
           </TimerListItem>
         )}
       </TimerList>

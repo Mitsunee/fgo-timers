@@ -40,19 +40,11 @@ export function SkillUpgrade({ upgrade, bypassSpoilers }: SkillUpgradeProps) {
   return (
     <section className={styles.grid}>
       <div className={styles.icon}>
-        <BorderedSkillIcon
-          disableSpoilers={bypassSpoilers}
-          skillId={id}
-          {...from}
-        />
+        <BorderedSkillIcon disableSpoilers={bypassSpoilers} skillId={id} />
       </div>
       <Arrow />
       <div className={styles.icon}>
-        <BorderedSkillIcon
-          disableSpoilers={bypassSpoilers}
-          skillId={newId}
-          {...to}
-        />
+        <BorderedSkillIcon disableSpoilers={bypassSpoilers} skillId={newId} />
       </div>
       <div className={styles.text}>
         {id > 1 && (
@@ -100,11 +92,11 @@ export function NPUpgrade({ upgrade, bypassSpoilers }: NPUpgradeProps) {
   return (
     <section className={styles.grid}>
       <div className={styles.icon}>
-        <BorderedNPIcon npId={id} {...from} />
+        <BorderedNPIcon npId={id} />
       </div>
       <Arrow />
       <div className={styles.icon}>
-        <BorderedNPIcon npId={newId} {...to} />
+        <BorderedNPIcon npId={newId} />
       </div>
       <div className={styles.text}>
         <SpoileredText

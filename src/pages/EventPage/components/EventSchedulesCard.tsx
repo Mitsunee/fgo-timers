@@ -2,11 +2,11 @@ import { useMemo } from "react";
 import { Card, TimerList } from "src/client/components/Card";
 import type { BundledEvent } from "src/events/types";
 import { EventListItem } from "./EventListItem";
-import type { WithMaps, EventTime } from "./EventListItem";
+import type { EventTime } from "./EventListItem";
 
 type EventSchedule = NonNullable<BundledEvent["schedules"]>[number];
 
-interface EventSchedulesCardProps extends EventSchedule, WithMaps {
+interface EventSchedulesCardProps extends EventSchedule {
   eventEnd: number;
 }
 
@@ -16,10 +16,7 @@ export function EventSchedulesCard({
   times,
   ends,
   icon,
-  eventEnd,
-  servants,
-  ces,
-  items
+  eventEnd
 }: EventSchedulesCardProps) {
   const end = ends || eventEnd;
   const timesMapped = useMemo<EventTime[]>(() => {
@@ -47,14 +44,7 @@ export function EventSchedulesCard({
         ))}
       <TimerList>
         {timesMapped.map((time, i) => (
-          <EventListItem
-            key={i}
-            time={time}
-            servants={servants}
-            ces={ces}
-            items={items}
-            hideEnd
-          />
+          <EventListItem key={i} time={time} hideEnd />
         ))}
       </TimerList>
     </Card>

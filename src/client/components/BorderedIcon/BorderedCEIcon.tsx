@@ -1,11 +1,11 @@
-import type { BundledCE } from "src/items/types";
 import type { ComponentPropsCC } from "src/types/ComponentProps";
+import { useCEMap } from "src/client/contexts";
 import { BorderedIcon } from "./BorderedIcon";
 import { BorderedIconAvailability } from "./BorderedIconAvailability";
 import { BorderedIconRarity } from "./BorderedIconRarity";
 import { IconFace } from "./IconFace";
 
-interface BorderedCEIconProps extends ComponentPropsCC<"div">, BundledCE {
+interface BorderedCEIconProps extends ComponentPropsCC<"div"> {
   showAvailability?: boolean;
   showRarity?: boolean;
   title?: undefined;
@@ -18,20 +18,14 @@ export function BorderedCEIcon({
   showAvailability,
   showRarity,
   ceId,
-  name,
-  icon,
-  rarity,
-  na,
   disableSpoilers,
-  availability,
   ...props
 }: BorderedCEIconProps) {
-  const ce: BundledCE = { name, icon, rarity, border: props.border };
-  if (na) ce.na = true;
-  if (availability) ce.availability = availability;
+  const ceMap = useCEMap();
+  const ce = ceMap[ceId];
 
   return (
-    <BorderedIcon {...props} forceBig={showAvailability}>
+    <BorderedIcon {...props} border={ce.border} forceBig={showAvailability}>
       <IconFace
         id={ceId}
         name={ce.name}
