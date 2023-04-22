@@ -37,7 +37,7 @@ export async function getStaticProps() {
 
   const currentTicket = tickets[currentTicketIdx];
   const nextTicket = tickets.find(ticket => ticket.start == currentTicket.next);
-  const items: Record<number, BundledItem> = {};
+  const items: DataMap<BundledItem> = {};
   const itemsSeen = new Set<number>([
     ...currentTicket.items,
     ...(nextTicket?.items || [])

@@ -58,7 +58,7 @@ export const getStaticProps: GetStaticProps<
   }
 
   // map used items
-  const items: Record<number, BundledItem> = {};
+  const items: DataMap<BundledItem> = {};
   const itemsSeen = new Set<number>(
     thisYearTickets.flatMap(ticket => ticket.items)
   );

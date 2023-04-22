@@ -1,7 +1,12 @@
 /**
- * Partial Record matches an id to data of type T
+ * Record that matches an id to data of type T
  */
-type IDMap<T> = Partial<Record<number | `${number}`, T>>;
+type DataMap<T> = Record<number, T>;
+
+/**
+ * Partial Record that matches an id to data of type T
+ */
+type PartialDataMap<T> = Partial<Record<number, T>>;
 
 interface BuildInfo {
   date: number;

@@ -2,8 +2,9 @@ import type { BundledSkill } from "src/servants/types";
 import type { ComponentPropsCC } from "src/types/ComponentProps";
 import { BorderedIcon } from "./BorderedIcon";
 import { IconFace } from "./IconFace";
+import { useSkillMap } from "src/client/contexts";
 
-interface BorderedSkillIconProps extends ComponentPropsCC<"div">, BundledSkill {
+interface BorderedSkillIconProps extends ComponentPropsCC<"div"> {
   skillId: number;
   title?: undefined;
   disableSpoilers?: boolean;
@@ -11,24 +12,15 @@ interface BorderedSkillIconProps extends ComponentPropsCC<"div">, BundledSkill {
 
 export function BorderedSkillIcon({
   children,
-  name,
-  num,
-  icon,
-  na,
   disableSpoilers,
   skillId,
   ...props
 }: BorderedSkillIconProps) {
-  const skill: BundledSkill = {
-    name,
-    num,
-    icon,
-    border: props.border
-  };
-  if (na) skill.na = true;
+  const skillMap = useSkillMap();
+  const skill: BundledSkill = skillMap[skillId];
 
   return (
-    <BorderedIcon {...props}>
+    <BorderedIcon {...props} border={skill.border}>
       <IconFace
         id={skillId}
         name={skill.name}

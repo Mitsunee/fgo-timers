@@ -12,11 +12,12 @@ import {
   TimerListItem
 } from "src/client/components/Card";
 import { Borders } from "src/types/borders";
+import { ItemContext } from "src/client/contexts";
+import { DisplayDate, DisplayDelta } from "src/client/components/TimeDisplay";
+import { BorderedItemIcon } from "src/client/components/BorderedIcon";
+import Section from "src/client/components/Section";
 import styles from "src/pages/LoginTicketsPage/LoginTicketYearPage.module.css";
 import type { LoginTicketYearPageProps } from "src/pages/LoginTicketsPage/static/LoginTicketYearPage";
-import { DisplayDate, DisplayDelta } from "@components/TimeDisplay";
-import { BorderedItemIcon } from "@components/BorderedIcon";
-import Section from "@components/Section";
 import { getTicketDelta } from "src/pages/LoginTicketsPage/getTicketDelta";
 
 // Next page config
@@ -104,11 +105,13 @@ export default function LoginTicketYearPage({
                   </li>
                 </TimerListItem>
                 <TimerListItem title="Available Items">
-                  <TimerListEntities>
-                    {ticket.items.map(id => (
-                      <BorderedItemIcon key={id} itemId={id} {...items[id]} />
-                    ))}
-                  </TimerListEntities>
+                  <ItemContext value={items}>
+                    <TimerListEntities>
+                      {ticket.items.map(id => (
+                        <BorderedItemIcon key={id} itemId={id} />
+                      ))}
+                    </TimerListEntities>
+                  </ItemContext>
                 </TimerListItem>
               </TimerList>
             </Card>

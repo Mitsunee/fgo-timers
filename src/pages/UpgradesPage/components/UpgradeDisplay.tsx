@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useNPMap, useSkillMap } from "src/client/contexts";
 import {
   BorderedNPIcon,
   BorderedSkillIcon
@@ -11,7 +11,6 @@ import type {
   UpgradeMapNP,
   UpgradeMapSkill
 } from "src/upgrades/types";
-import { context } from "./context";
 import styles from "./UpgradeDisplay.module.css";
 
 type Props<U extends UpgradeMap> = {
@@ -30,7 +29,7 @@ function Arrow() {
 }
 
 export function SkillUpgrade({ upgrade, bypassSpoilers }: SkillUpgradeProps) {
-  const { skillMap } = useContext(context);
+  const skillMap = useSkillMap();
   const {
     servant,
     upgrades: { id = 0, newId }
@@ -41,19 +40,11 @@ export function SkillUpgrade({ upgrade, bypassSpoilers }: SkillUpgradeProps) {
   return (
     <section className={styles.grid}>
       <div className={styles.icon}>
-        <BorderedSkillIcon
-          disableSpoilers={bypassSpoilers}
-          skillId={id}
-          {...from}
-        />
+        <BorderedSkillIcon disableSpoilers={bypassSpoilers} skillId={id} />
       </div>
       <Arrow />
       <div className={styles.icon}>
-        <BorderedSkillIcon
-          disableSpoilers={bypassSpoilers}
-          skillId={newId}
-          {...to}
-        />
+        <BorderedSkillIcon disableSpoilers={bypassSpoilers} skillId={newId} />
       </div>
       <div className={styles.text}>
         {id > 1 && (
@@ -90,7 +81,7 @@ export function SkillUpgrade({ upgrade, bypassSpoilers }: SkillUpgradeProps) {
 }
 
 export function NPUpgrade({ upgrade, bypassSpoilers }: NPUpgradeProps) {
-  const { npMap } = useContext(context);
+  const npMap = useNPMap();
   const {
     servant,
     upgrades: { id, newId }
@@ -101,11 +92,11 @@ export function NPUpgrade({ upgrade, bypassSpoilers }: NPUpgradeProps) {
   return (
     <section className={styles.grid}>
       <div className={styles.icon}>
-        <BorderedNPIcon npId={id} {...from} />
+        <BorderedNPIcon npId={id} />
       </div>
       <Arrow />
       <div className={styles.icon}>
-        <BorderedNPIcon npId={newId} {...to} />
+        <BorderedNPIcon npId={newId} />
       </div>
       <div className={styles.text}>
         <SpoileredText

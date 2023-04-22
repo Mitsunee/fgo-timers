@@ -1,7 +1,7 @@
 import { Log } from "./log";
 
-export function safeProxyIDMap<T>(
-  map: IDMap<T>,
+export function safeProxyDataMap<T>(
+  map: PartialDataMap<T>,
   errMessage: string
 ): Record<number, T> {
   return new Proxy(map, {

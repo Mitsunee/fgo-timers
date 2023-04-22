@@ -1,6 +1,5 @@
 import { z } from "zod";
 import { createTRPCRouter, publicProcedure } from "../trpc";
-import type { StaticBundles } from "src/utils/getBundles";
 import {
   getBundledUpgrades,
   getBundledQuestMap,
@@ -8,12 +7,13 @@ import {
   getBundledSkillMap,
   getBundledNPMap
 } from "src/utils/getBundles";
+import type { WithMaps } from "src/client/contexts";
+import type { BundledUpgrade } from "src/upgrades/types";
 import { createUpgradeSorter } from "src/pages/UpgradesPage/filters";
 
-export type ExpandedUpgrades = Pick<
-  StaticBundles,
-  "upgrades" | "quests" | "servants" | "skills" | "nps"
->;
+export type ExpandedUpgrades = WithMaps<
+  "quests" | "servants" | "skills" | "nps"
+> & { upgrades: BundledUpgrade[] };
 
 async function expandUpgrades(
   upgradesList: ExpandedUpgrades["upgrades"]

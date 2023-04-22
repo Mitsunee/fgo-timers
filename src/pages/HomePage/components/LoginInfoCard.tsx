@@ -9,34 +9,28 @@ import {
 import { DisplayDate, DisplayDelta } from "src/client/components/TimeDisplay";
 import { BorderedItemIcon } from "src/client/components/BorderedIcon";
 import { useRecurringDaily } from "src/client/utils/hooks/useRecurringDaily";
-import type { BundledItem, BundledLoginTicket } from "src/items/types";
+import type { BundledLoginTicket } from "src/items/types";
 import type { HomePageProps } from "../static";
 
 interface LoginInfoCardProps {
   milestones: HomePageProps["milestones"];
   ticket: BundledLoginTicket;
-  itemMap: Record<number, BundledItem>;
 }
 
-type ExchangeTicketsInfoProps = Pick<
-  LoginInfoCardProps,
-  "ticket" | "itemMap"
-> & { isClient: boolean };
+type ExchangeTicketsInfoProps = Pick<LoginInfoCardProps, "ticket"> & {
+  isClient: boolean;
+};
 
 type LoginInfoProps = Pick<LoginInfoCardProps, "milestones"> & {
   isClient: boolean;
 };
 
-function ExchangeTicketsInfo({
-  ticket,
-  itemMap,
-  isClient
-}: ExchangeTicketsInfoProps) {
+function ExchangeTicketsInfo({ ticket, isClient }: ExchangeTicketsInfoProps) {
   return (
     <TimerListItem title="Login Exchange Ticket">
       <TimerListEntities title={ticket.name}>
         {ticket.items.map(id => (
-          <BorderedItemIcon key={id} itemId={id} {...itemMap[id]} />
+          <BorderedItemIcon key={id} itemId={id} />
         ))}
       </TimerListEntities>
       <li data-wide={isClient ? undefined : true}>
@@ -91,11 +85,7 @@ function LoginInfo({ milestones, isClient }: LoginInfoProps) {
   );
 }
 
-export function LoginInfoCard({
-  ticket,
-  itemMap,
-  milestones
-}: LoginInfoCardProps) {
+export function LoginInfoCard({ ticket, milestones }: LoginInfoCardProps) {
   const isClient = useIsClient();
 
   return (
@@ -104,11 +94,7 @@ export function LoginInfoCard({
       icon="https://static.atlasacademy.io/NA/Items/10000.png"
       style={{ "--border": "var(--light)", "--bg": "white" }}>
       <TimerList>
-        <ExchangeTicketsInfo
-          ticket={ticket}
-          itemMap={itemMap}
-          isClient={isClient}
-        />
+        <ExchangeTicketsInfo ticket={ticket} isClient={isClient} />
         <LoginInfo milestones={milestones} isClient={isClient} />
       </TimerList>
     </Card>

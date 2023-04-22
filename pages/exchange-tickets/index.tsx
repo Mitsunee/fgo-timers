@@ -13,6 +13,7 @@ import {
 import { BorderedItemIcon } from "src/client/components/BorderedIcon";
 import { DisplayDate, DisplayDelta } from "src/client/components/TimeDisplay";
 import { LinkButton } from "src/client/components/Button";
+import { ItemContext } from "src/client/contexts";
 import styles from "src/pages/LoginTicketsPage/LoginTicketsPage.module.css";
 import { getTicketDelta } from "src/pages/LoginTicketsPage/getTicketDelta";
 import type { LoginTicketsPageProps } from "src/pages/LoginTicketsPage/static/LoginTicketsPage";
@@ -58,58 +59,62 @@ export default function LoginTicketsPage({
           Anniversary happens earlier.
         </p>
       </Section>
-      <Section background="blue">
-        <TimerList className={styles.col}>
-          <TimerListItem title={`Current: ${currentTicket.name}`}>
-            <li data-wide={isClient ? undefined : true}>
-              <b>Since:</b> <DisplayDate time={currentTicket.start} />
-            </li>
-            {isClient && (
-              <li>
-                <b>Next in:</b> <DisplayDelta time={nextTicketTime} />
-              </li>
-            )}
-            <li data-wide>
-              Tickets Available: {getTicketDelta(currentTicket)}
-              {isClient &&
-                ` (${getTicketDelta(currentTicket, currentTime)} left)`}
-            </li>
-            <TimerListEntities>
-              {currentTicket.items.map(id => (
-                <BorderedItemIcon key={id} itemId={id} {...items[id]} />
-              ))}
-            </TimerListEntities>
-            {!currentTicket.na && (
-              <li data-wide className={styles.small}>
-                Item Data based on JP Version
-              </li>
-            )}
-          </TimerListItem>
-          {nextTicket && (
-            <TimerListItem title={`Next: ${nextTicket.name}`}>
+      <ItemContext value={items}>
+        <Section background="blue">
+          <TimerList className={styles.col}>
+            <TimerListItem title={`Current: ${currentTicket.name}`}>
               <li data-wide={isClient ? undefined : true}>
-                <b>Starting:</b> <DisplayDate time={nextTicket.start} />
+                <b>Since:</b> <DisplayDate time={currentTicket.start} />
               </li>
               {isClient && (
                 <li>
-                  <b>In:</b> <DisplayDelta time={nextTicket.start} />
+                  <b>Next in:</b> <DisplayDelta time={nextTicketTime} />
                 </li>
               )}
-              <li data-wide>Tickets Available: {getTicketDelta(nextTicket)}</li>
+              <li data-wide>
+                Tickets Available: {getTicketDelta(currentTicket)}
+                {isClient &&
+                  ` (${getTicketDelta(currentTicket, currentTime)} left)`}
+              </li>
               <TimerListEntities>
-                {nextTicket.items.map(id => (
-                  <BorderedItemIcon key={id} itemId={id} {...items[id]} />
+                {currentTicket.items.map(id => (
+                  <BorderedItemIcon key={id} itemId={id} />
                 ))}
               </TimerListEntities>
-              {!nextTicket.na && (
+              {!currentTicket.na && (
                 <li data-wide className={styles.small}>
                   Item Data based on JP Version
                 </li>
               )}
             </TimerListItem>
-          )}
-        </TimerList>
-      </Section>
+            {nextTicket && (
+              <TimerListItem title={`Next: ${nextTicket.name}`}>
+                <li data-wide={isClient ? undefined : true}>
+                  <b>Starting:</b> <DisplayDate time={nextTicket.start} />
+                </li>
+                {isClient && (
+                  <li>
+                    <b>In:</b> <DisplayDelta time={nextTicket.start} />
+                  </li>
+                )}
+                <li data-wide>
+                  Tickets Available: {getTicketDelta(nextTicket)}
+                </li>
+                <TimerListEntities>
+                  {nextTicket.items.map(id => (
+                    <BorderedItemIcon key={id} itemId={id} />
+                  ))}
+                </TimerListEntities>
+                {!nextTicket.na && (
+                  <li data-wide className={styles.small}>
+                    Item Data based on JP Version
+                  </li>
+                )}
+              </TimerListItem>
+            )}
+          </TimerList>
+        </Section>
+      </ItemContext>
       <Headline>Tickets by Year</Headline>
       <nav className={styles.nav}>
         {yearsArr.map(year => (

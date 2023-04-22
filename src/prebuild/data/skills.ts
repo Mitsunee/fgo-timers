@@ -48,7 +48,7 @@ export const bundleSkillsData: DataBundler<BundledSkill> = async ids => {
     const skillVariants = owners
       .flatMap(servant => servant.skills)
       .filter(skill => skill.id == skillId);
-    let num: number | IDMap<number> = skill.num!; // can be assumed to be defined (tested)
+    let num: number | PartialDataMap<number> = skill.num!; // can be assumed to be defined (tested)
     if (!skillVariants.every(skill => skill.num == num)) {
       num = Object.fromEntries(
         owners.map(servant => {

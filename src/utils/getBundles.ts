@@ -13,18 +13,7 @@ import type {
 } from "src/items/types";
 import type { BundledEvent } from "src/events/types";
 import { Log } from "./log";
-import { safeProxyIDMap } from "./proxyIDMap";
-
-export interface StaticBundles {
-  servants: Record<number, BundledServant>;
-  skills: Record<number, BundledSkill>;
-  nps: Record<number, BundledNP>;
-  quests: Record<number, BundledQuest>;
-  upgrades: BundledUpgrade[];
-  ces: Record<number, BundledCE>;
-  items: Record<number, BundledItem>;
-  events: BundledEvent[];
-}
+import { safeProxyDataMap } from "./safeProxyDataMap";
 
 function createBundle<T>(bundlePath: string) {
   const relPath = path.relative(process.cwd(), bundlePath);
@@ -44,13 +33,13 @@ function createBundle<T>(bundlePath: string) {
 }
 
 function withProxy<U>(
-  bundle: () => Promise<IDMap<U>>,
+  bundle: () => Promise<PartialDataMap<U>>,
   errMessage: string
-): () => Promise<Record<number, U>> {
-  return async () => safeProxyIDMap(await bundle(), errMessage);
+): () => Promise<DataMap<U>> {
+  return async () => safeProxyDataMap(await bundle(), errMessage);
 }
 
-export const getBundledServants = createBundle<IDMap<BundledServant>>(
+export const getBundledServants = createBundle<PartialDataMap<BundledServant>>(
   path.join(process.cwd(), "assets/static/data/servants.json")
 );
 
@@ -59,7 +48,7 @@ export const getBundledServantMap = withProxy(
   "Could not find servant %KEY% in bundled data"
 );
 
-export const getBundledSkills = createBundle<IDMap<BundledSkill>>(
+export const getBundledSkills = createBundle<PartialDataMap<BundledSkill>>(
   path.join(process.cwd(), "assets/static/data/skills.json")
 );
 
@@ -68,7 +57,7 @@ export const getBundledSkillMap = withProxy(
   "Could not find skill %KEY% in bundled data"
 );
 
-export const getBundledNPs = createBundle<IDMap<BundledNP>>(
+export const getBundledNPs = createBundle<PartialDataMap<BundledNP>>(
   path.join(process.cwd(), "assets/static/data/nps.json")
 );
 
@@ -77,7 +66,7 @@ export const getBundledNPMap = withProxy(
   "Could not find NP %KEY% in bundled data"
 );
 
-export const getBundledQuests = createBundle<IDMap<BundledQuest>>(
+export const getBundledQuests = createBundle<PartialDataMap<BundledQuest>>(
   path.join(process.cwd(), "assets/static/data/quests.json")
 );
 
@@ -90,7 +79,7 @@ export const getBundledUpgrades = createBundle<BundledUpgrade[]>(
   path.join(process.cwd(), "assets/static/upgrades.json")
 );
 
-export const getBundledItems = createBundle<IDMap<BundledItem>>(
+export const getBundledItems = createBundle<PartialDataMap<BundledItem>>(
   path.join(process.cwd(), "assets/static/data/items.json")
 );
 
@@ -99,7 +88,7 @@ export const getBundledItemMap = withProxy(
   "Could not find item %KEY% in bundled data"
 );
 
-export const getBundledCEs = createBundle<IDMap<BundledCE>>(
+export const getBundledCEs = createBundle<PartialDataMap<BundledCE>>(
   path.join(process.cwd(), "assets/static/data/ces.json")
 );
 

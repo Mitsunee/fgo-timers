@@ -33,7 +33,7 @@ export interface BundledServant {
 
 export interface BundledSkill {
   name: string;
-  num: number | IDMap<number>; // servant id or map servant id to skill num
+  num: number | PartialDataMap<number>; // servant id or map servant id to skill num
   icon: string;
   border: SkillBorder;
   na?: true;
