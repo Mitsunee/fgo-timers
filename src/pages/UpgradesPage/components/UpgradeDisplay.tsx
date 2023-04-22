@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useNPMap, useSkillMap } from "src/client/contexts";
 import {
   BorderedNPIcon,
   BorderedSkillIcon
@@ -11,7 +11,6 @@ import type {
   UpgradeMapNP,
   UpgradeMapSkill
 } from "src/upgrades/types";
-import { context } from "./context";
 import styles from "./UpgradeDisplay.module.css";
 
 type Props<U extends UpgradeMap> = {
@@ -30,7 +29,7 @@ function Arrow() {
 }
 
 export function SkillUpgrade({ upgrade, bypassSpoilers }: SkillUpgradeProps) {
-  const { skillMap } = useContext(context);
+  const skillMap = useSkillMap();
   const {
     servant,
     upgrades: { id = 0, newId }
@@ -90,7 +89,7 @@ export function SkillUpgrade({ upgrade, bypassSpoilers }: SkillUpgradeProps) {
 }
 
 export function NPUpgrade({ upgrade, bypassSpoilers }: NPUpgradeProps) {
-  const { npMap } = useContext(context);
+  const npMap = useNPMap();
   const {
     servant,
     upgrades: { id, newId }

@@ -4,6 +4,14 @@ import { Searcher } from "fast-fuzzy";
 import { clamp } from "@foxkit/util/clamp";
 import { useStore } from "@nanostores/react";
 import type { BundledUpgrade } from "src/upgrades/types";
+import { settingsStore } from "src/client/stores/settingsStore";
+import { api } from "src/client/api";
+import {
+  NPContext,
+  QuestContext,
+  ServantContext,
+  SkillContext
+} from "src/client/contexts";
 import Meta from "src/client/components/Meta";
 import Section from "src/client/components/Section";
 import { NoSSR } from "src/client/components/NoSSR";
@@ -15,7 +23,6 @@ import { Modal, ModalMenu } from "src/client/components/Modal";
 import Headline from "src/client/components/Headline";
 import { InlineSvg } from "src/client/components/InlineIcon";
 import { IconHelp, IconAtlas } from "src/client/components/icons";
-import { settingsStore } from "src/client/stores/settingsStore";
 import {
   filtersReducer,
   formFiltersDefault
@@ -26,12 +33,8 @@ import {
   createUpgradeSorter
 } from "src/pages/UpgradesPage/filters";
 import type { Highlight } from "src/pages/UpgradesPage/components";
-import {
-  UpgradeContextProvider,
-  UpgradeCard
-} from "src/pages/UpgradesPage/components";
+import { UpgradeCard } from "src/pages/UpgradesPage/components";
 import type { UpgradesPageProps } from "src/pages/UpgradesPage/getStaticProps";
-import { api } from "src/client/api";
 
 export { getStaticProps } from "src/pages/UpgradesPage/getStaticProps";
 
@@ -72,15 +75,15 @@ export default function UpgradesPage({ fallback }: UpgradesPageProps) {
     return [searcher, filteredUpgrades] as const;
   }, [isLoading, data, filters]);
 
-  // create memoized context value for UpgradeCard
-  const upgradeContextVal = useMemo(() => {
-    return {
-      questMap: data.quests,
-      servantMap: data.servants,
-      skillMap: data.skills,
-      npMap: data.nps
-    } satisfies React.ComponentProps<typeof UpgradeContextProvider>["value"];
-  }, [data]);
+  const Contexts = (props: React.PropsWithChildren) => (
+    <ServantContext value={data.servants}>
+      <SkillContext value={data.skills}>
+        <NPContext value={data.nps}>
+          <QuestContext value={data.quests}>{props.children}</QuestContext>
+        </NPContext>
+      </SkillContext>
+    </ServantContext>
+  );
 
   // apply search
   const results: SemiRequired<MatchData<BundledUpgrade>, "item">[] =
@@ -98,22 +101,12 @@ export default function UpgradesPage({ fallback }: UpgradesPageProps) {
 
   // make sure page is valid if perPage setting is changed
   useEffect(() => {
-    setPage(page =>
-      clamp({
-        value: page,
-        max: maxPage
-      })
-    );
+    setPage(page => clamp({ value: page, max: maxPage }));
   }, [perPage, maxPage]);
 
   // action handlers
   const handleShowMore = () => {
-    setPage(page =>
-      clamp({
-        value: page + 1,
-        max: maxPage
-      })
-    );
+    setPage(page => clamp({ value: page + 1, max: maxPage }));
   };
 
   if (isError) {
@@ -163,7 +156,7 @@ export default function UpgradesPage({ fallback }: UpgradesPageProps) {
           </ActionButton>
         </NoSSR>
       </div>
-      <UpgradeContextProvider value={upgradeContextVal}>
+      <Contexts>
         <CardGrid>
           {results.slice(0, page * perPage).map(({ item, match, original }) => {
             const highlight: Highlight = match
@@ -175,7 +168,7 @@ export default function UpgradesPage({ fallback }: UpgradesPageProps) {
             );
           })}
         </CardGrid>
-      </UpgradeContextProvider>
+      </Contexts>
       <p>
         Results {firstResultNum} to {lastResultNum} of {results.length}
       </p>

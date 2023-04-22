@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import { nameServantClass } from "src/servants/classNames";
 import { Borders } from "src/types/borders";
 import type {
@@ -13,15 +12,18 @@ import type { Highlight } from "../types";
 import { NPUpgrade, SkillUpgrade } from "./UpgradeDisplay";
 import { Subtitle, Title } from "./Title";
 import { UpgradeInfo } from "./UpgradeInfo";
-import { context } from "./context";
 import styles from "./UpgradeCard.module.css";
+import {
+  useNPMap,
+  useQuestMap,
+  useServantMap,
+  useSkillMap
+} from "src/client/contexts";
 
 type UpgradeCardProps = Highlight & {
   upgrade: BundledUpgrade;
   bypassSpoilers?: true;
 };
-
-export const UpgradeContextProvider = context.Provider;
 
 function isSkillUpgrade(
   upgrade: BundledUpgrade
@@ -39,7 +41,10 @@ export function UpgradeCard({
   bypassSpoilers,
   ...highlight
 }: UpgradeCardProps) {
-  const { servantMap, skillMap, npMap, questMap } = useContext(context);
+  const servantMap = useServantMap();
+  const skillMap = useSkillMap();
+  const npMap = useNPMap();
+  const questMap = useQuestMap();
   const questMapper = createQuestUnlockMapper(questMap);
   const quest = questMapper(upgrade.quest);
   const servant = servantMap[upgrade.servant];

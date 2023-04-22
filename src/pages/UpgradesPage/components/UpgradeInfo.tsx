@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useServantMap } from "src/client/contexts";
 import { useIsClient } from "src/client/utils/hooks/useIsClient";
 import { useCurrentTime } from "src/client/utils/hooks/useCurrentTime";
 import { AtlasLink } from "src/client/components/AtlasLink";
@@ -7,7 +7,6 @@ import {
   DisplayDateEstimate
 } from "src/client/components/TimeDisplay";
 import type { MappedBundledQuest } from "../mapQuestUnlocks";
-import { context } from "./context";
 
 interface UpgradeInfoProps {
   quest: MappedBundledQuest;
@@ -16,7 +15,7 @@ interface UpgradeInfoProps {
 }
 
 export function UpgradeInfo({ quest, questId, servantId }: UpgradeInfoProps) {
-  const { servantMap } = useContext(context);
+  const servantMap = useServantMap();
   const isClient = useIsClient();
   const { current } = useCurrentTime();
   const servant = servantMap[servantId];

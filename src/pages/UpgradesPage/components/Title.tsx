@@ -1,8 +1,7 @@
-import { useContext } from "react";
+import { useServantMap } from "src/client/contexts";
 import { InlineIcon } from "src/client/components/InlineIcon";
 import { SearchMatch, SpoileredText } from "src/client/components/Text";
 import type { Highlight } from "../types";
-import { context } from "./context";
 
 type TitleProps = {
   id: number;
@@ -24,7 +23,7 @@ export function Title({
   index,
   length
 }: TitleProps) {
-  const { servantMap } = useContext(context);
+  const servantMap = useServantMap();
   const { name, na } = servantMap[id];
   const highlight: Highlight =
     match && match == name ? { match, index, length } : {};
