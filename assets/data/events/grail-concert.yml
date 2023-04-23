@@ -52,6 +52,8 @@ schedules:
       - title: Section 8 & 9 + Epilogue
         date: 2023-04-22 21:00 PDT
         items: [7999]
+      - title: Challenge Quest
+        date: 2023-04-23 21:00 PDT
 upgrades: [94058381, 94058382, 94058383, 94058384]
 banners:
   - date: 2023-04-17 02:00 - 04-30 20:59 PDT
