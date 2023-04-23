@@ -14,6 +14,7 @@ import { bundleNPsData } from "./data/nps";
 import { bundleCEsData } from "./data/ces";
 import { bundleCustomItems } from "./bundler/customItems";
 import { bundleItemsData } from "./data/items";
+import { bundleCCsData } from "./data/ccs";
 import { saveBuildInfo } from "./utils/saveBuildInfo";
 import { bundleEvents } from "./bundler/events";
 import { bundleExchangeTickets } from "./bundler/exchangeTickets";
@@ -63,7 +64,8 @@ function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
     bundleSkillsData(ids.skills),
     bundleNPsData(ids.nps),
     bundleCEsData(ids.ces),
-    bundleItemsData(ids.items)
+    bundleItemsData(ids.items),
+    bundleCCsData(ids.ccs)
   ]);
   if (!isSuccessful(dataRes)) {
     Log.die("Quitting early because of error in data bundler");

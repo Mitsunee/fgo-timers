@@ -7,6 +7,7 @@ interface IDCollection {
   nps: Set<number>;
   ces: Set<number>;
   items: Set<number>;
+  ccs: Set<number>;
 }
 
 export function collectIDs(bundles: PrebuildBundle<any>[]) {
@@ -16,7 +17,8 @@ export function collectIDs(bundles: PrebuildBundle<any>[]) {
     skills: new Set(),
     nps: new Set(),
     ces: new Set(),
-    items: new Set()
+    items: new Set(),
+    ccs: new Set()
   };
 
   bundles.forEach(bundle => {
@@ -26,6 +28,7 @@ export function collectIDs(bundles: PrebuildBundle<any>[]) {
     bundle.nps?.forEach(id => collection.nps.add(id));
     bundle.ces?.forEach(id => collection.ces.add(id));
     bundle.items?.forEach(id => collection.items.add(id));
+    bundle.ccs?.forEach(id => collection.ccs.add(id));
   });
 
   return collection;
