@@ -7,6 +7,7 @@ import type {
 } from "src/servants/types";
 import type { BundledQuest, BundledUpgrade } from "src/upgrades/types";
 import type {
+  BundledCC,
   BundledCE,
   BundledItem,
   BundledLoginTicket
@@ -103,4 +104,13 @@ export const getBundledEvents = createBundle<BundledEvent[]>(
 
 export const getBundledLoginTickets = createBundle<BundledLoginTicket[]>(
   path.join(process.cwd(), "assets/static/login_tickets.json")
+);
+
+export const getBundledCCs = createBundle<PartialDataMap<BundledCC>>(
+  path.join(process.cwd(), "assets/static/data/ccs.json")
+);
+
+export const getBundledCCMap = withProxy(
+  getBundledCCs,
+  "Could not find CC %KEY% in bundled data"
 );

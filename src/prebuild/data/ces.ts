@@ -50,7 +50,7 @@ export const bundleCEsData: DataBundler<BundledCE> = async ids => {
 
   Log.info(`Mapped data for ${res.size} CEs`);
   return {
-    name: "CEs",
+    name: "Craft Essences",
     path: "ces.json",
     data: res
   };

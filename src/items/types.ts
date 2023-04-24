@@ -12,6 +12,8 @@ export type ItemBorder =
   | Borders.BLUE
   | Borders.ZERO;
 
+export type CCBorder = Borders.BRONZE | Borders.SILVER | Borders.GOLD;
+
 interface ItemBase {
   name: string;
   icon: string;
@@ -22,6 +24,11 @@ export interface BundledCE extends ItemBase {
   border: ServantBorder;
   rarity: number;
   availability?: Availability;
+}
+
+export interface BundledCC extends ItemBase {
+  rarity: number;
+  border: CCBorder;
 }
 
 export interface BundledItem extends ItemBase {
@@ -78,5 +85,22 @@ export function mapItemBackgroundToBorder(
     case ItemBackgroundType.SILVER:
     default:
       return Borders.SILVER;
+  }
+}
+
+/**
+ * Maps non-zero rarity to CCBorder and CCBackground
+ * @params rarity
+ * @returns Borders enum value
+ */
+export function mapCCRarityToBorder(rarity: number): CCBorder {
+  switch (rarity) {
+    case 1:
+    case 2:
+      return Borders.BRONZE;
+    case 3:
+      return Borders.SILVER;
+    default:
+      return Borders.GOLD;
   }
 }

@@ -41,6 +41,7 @@ times:
     ces: [9305240]
   - title: Command Code "First Servant" added to RP Shop
     date: 2023-04-09 21:00 PDT
+    ccs: [8400120]
 upgrades:
   - 94058701 # Jeanne Ruler Rank Up 1
   - 94058702 # Helena Caster Rank Up 1

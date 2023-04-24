@@ -9,7 +9,8 @@ type EventWithBanners = BundledEvent & {
   banners: NonNullable<BundledEvent["banners"]>;
 };
 
-export interface EventBannersPageProps extends Omit<EventPageProps, "items"> {
+export interface EventBannersPageProps
+  extends Omit<EventPageProps, "items" | "ccs"> {
   event: EventWithBanners;
 }
 

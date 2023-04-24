@@ -1,0 +1,20 @@
+.icon {
+  position: relative;
+  overflow: hidden;
+  min-width: calc(1em / 155 * 142);
+  min-height: 1em;
+  max-width: calc(128px / 155 * 142);
+  max-height: 128px;
+  aspect-ratio: 142 / 155;
+
+  & .bg {
+    display: block;
+    width: auto;
+    height: 100%;
+    margin: auto;
+  }
+
+  & .face {
+    padding: 0.25em;
+  }
+}

@@ -6,7 +6,8 @@ export interface PageContext extends Partial<ParsedUrlQuery> {
   slug: string;
 }
 
-export interface EventPageProps extends WithMaps<"servants" | "ces" | "items"> {
+export interface EventPageProps
+  extends WithMaps<"servants" | "ces" | "items" | "ccs"> {
   event: BundledEvent;
 }
 

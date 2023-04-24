@@ -7,14 +7,14 @@ import type {
 import type { Item } from "@atlasacademy/api-connector/dist/Schema/Item";
 import type { MasterMission } from "@atlasacademy/api-connector/dist/Schema/MasterMission";
 import type { War } from "@atlasacademy/api-connector/dist/Schema/War";
-
+import type { CommandCodeBasic } from "@atlasacademy/api-connector/dist/Schema/CommandCode";
 import type { SupportedRegion } from "./api";
 import { atlasApi } from "./api";
 import type { CraftEssenceBasic } from "@atlasacademy/api-connector/dist/Schema/CraftEssence";
 import { Semaphore } from "../utils/Semaphore";
 
 export const cachePath = ".next/cache/atlasacademy";
-export const cacheVersion = "0.3.0"; // NOTE: bump when adding new things to cache
+export const cacheVersion = "0.4.0"; // NOTE: bump when adding new things to cache
 
 enum CacheFile {
   SERVANT = "nice_servant.json",
@@ -22,7 +22,8 @@ enum CacheFile {
   ITEM = "nice_item.json",
   CE_BASIC = "basic_equip.json",
   WAR = "nice_war.json",
-  MASTERMISSION = "nice_master_mission.json"
+  MASTERMISSION = "nice_master_mission.json",
+  COMMAND_CODE = "basic_command_code.json"
 }
 
 type CacheQueueNode = [CacheFile, (...args: any) => Promise<any>];
@@ -38,6 +39,7 @@ class AtlasApiCache {
   private ce?: CraftEssenceBasic[];
   private war?: War[];
   private masterMission?: MasterMission[];
+  private commandCodes?: CommandCodeBasic[];
 
   constructor(region: SupportedRegion) {
     this.region = region;
@@ -48,7 +50,8 @@ class AtlasApiCache {
       [CacheFile.SERVANT_BASIC, api.servantList.bind(api)],
       [CacheFile.ITEM, api.itemList.bind(api)],
       [CacheFile.CE_BASIC, api.craftEssenceList.bind(api)],
-      [CacheFile.WAR, api.warListNice.bind(api)]
+      [CacheFile.WAR, api.warListNice.bind(api)],
+      [CacheFile.COMMAND_CODE, api.commandCodeList.bind(api)]
     ];
 
     if (region == "NA") {
@@ -113,6 +116,12 @@ class AtlasApiCache {
 
     return (this.masterMission ||= await this.readFile<MasterMission[]>(
       CacheFile.MASTERMISSION
+    ));
+  }
+
+  async getCommandCodes(): Promise<CommandCodeBasic[]> {
+    return (this.commandCodes ||= await this.readFile<CommandCodeBasic[]>(
+      CacheFile.COMMAND_CODE
     ));
   }
 

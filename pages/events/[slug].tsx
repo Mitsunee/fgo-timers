@@ -4,7 +4,12 @@ import { EventTimesCard } from "src/pages/EventPage/components/EventTimesCard";
 import { EventSchedulesCard } from "src/pages/EventPage/components/EventSchedulesCard";
 import { EventPageLayout } from "src/pages/EventPage/components/EventPageLayout";
 import type { EventPageProps } from "src/pages/EventPage/static";
-import { CEContext, ItemContext, ServantContext } from "src/client/contexts";
+import {
+  CEContext,
+  ItemContext,
+  ServantContext,
+  CCContext
+} from "src/client/contexts";
 
 // Next Page configs
 export { getStaticPaths, getStaticProps } from "src/pages/EventPage/static";
@@ -35,12 +40,20 @@ function EventPage({ event }: EventPageInnerProps) {
   );
 }
 
-export default function Page({ servants, ces, items, event }: EventPageProps) {
+export default function Page({
+  servants,
+  ces,
+  items,
+  ccs,
+  event
+}: EventPageProps) {
   return (
     <ServantContext value={servants}>
       <CEContext value={ces}>
         <ItemContext value={items}>
-          <EventPage event={event} />
+          <CCContext value={ccs}>
+            <EventPage event={event} />
+          </CCContext>
         </ItemContext>
       </CEContext>
     </ServantContext>
