@@ -9,6 +9,7 @@ import {
   BorderedServantIcon
 } from "src/client/components/BorderedIcon";
 import type { BundledEvent } from "src/events/types";
+import { CommandCodeIcon } from "@components/CommandCodeIcon";
 
 export type EventTime = NonNullable<BundledEvent["times"]>[number];
 
@@ -24,7 +25,9 @@ export function EventListItem({ time, hideEnd = false }: EventListItemProps) {
   const hasStarted = current >= start;
   const hasEnd = end > 0 && !hideEnd;
   const hasEnded = end > 0 ? current >= end : hasStarted;
-  const hasRelatedEntities = Boolean(time.servants || time.ces || time.items);
+  const hasRelatedEntities = Boolean(
+    time.servants || time.ces || time.items || time.ccs
+  );
   const showDelta = (hideEnd ? !hasStarted : !hasEnded) && isClient;
 
   return (
@@ -56,6 +59,9 @@ export function EventListItem({ time, hideEnd = false }: EventListItemProps) {
           ))}
           {time.items?.map(id => (
             <BorderedItemIcon key={id} itemId={id} disableSpoilers />
+          ))}
+          {time.ccs?.map(id => (
+            <CommandCodeIcon key={id} ccId={id} disableSpoilers />
           ))}
         </TimerListEntities>
       )}
