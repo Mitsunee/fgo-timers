@@ -19,6 +19,7 @@ export const bundleEvents: PrebuildBundler<BundledEvent[]> = async () => {
   const servants = new Set<number>();
   const ces = new Set<number>();
   const items = new Set<number>();
+  const ccs = new Set<number>();
   const dir = await readdir(assetsDir);
   const files = dir.filter(file => file.endsWith(".yml"));
 
@@ -61,6 +62,7 @@ export const bundleEvents: PrebuildBundler<BundledEvent[]> = async () => {
         time.servants?.forEach(servant => servants.add(servant));
         time.ces?.forEach(ce => ces.add(ce));
         time.items?.forEach(item => items.add(item));
+        time.ccs?.forEach(cc => ccs.add(cc));
       });
     });
 
@@ -71,6 +73,7 @@ export const bundleEvents: PrebuildBundler<BundledEvent[]> = async () => {
       time.servants?.forEach(servant => servants.add(servant));
       time.ces?.forEach(ce => ces.add(ce));
       time.items?.forEach(item => items.add(item));
+      time.ccs?.forEach(cc => ccs.add(cc));
     });
 
     // browse banners for later times and used entities
@@ -99,6 +102,7 @@ export const bundleEvents: PrebuildBundler<BundledEvent[]> = async () => {
     data: events,
     servants,
     ces,
-    items
+    items,
+    ccs
   };
 };
