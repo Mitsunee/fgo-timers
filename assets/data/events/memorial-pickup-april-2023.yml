@@ -1,0 +1,15 @@
+title: Part 2 Chapter 1 - Chapter 4 Memorial Pickup Summon
+shortTitle: Lostbelt 1 - 4 Memorial Pickup Summon
+banner: 2023_april_memorial.png
+url: 2023/0426_memorial_pu/
+date: 2023-04-25 21:00 - 05-07 20:59 PDT
+description: >-
+  Surprise Summoning Banner for Qin Shi Huang and Arjuna (Alter) also featuring
+  Atalante Alter, Valkyrie and select Craft Essences.
+banners:
+  - date: 2023-04-25 21:00 - 05-04 20:59 PDT
+    servants: [900600, 703000] # Qin Shi Huang
+    ces: [9402990, 9403230, 9403540, 9403890]
+  - date: 2023-04-28 21:00 - 05-07 20:59 PDT
+    servants: [703300, 303300] # Arjuna Alter
+    ces: [9402990, 9403230, 9403540, 9403890]
