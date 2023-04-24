@@ -3,6 +3,7 @@ import { dedent } from "@foxkit/util/dedent";
 import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
 import type { CraftEssenceBasic } from "@atlasacademy/api-connector/dist/Schema/CraftEssence";
 import type { Item } from "@atlasacademy/api-connector/dist/Schema/Item";
+import type { CommandCodeBasic } from "@atlasacademy/api-connector/dist/Schema/CommandCode";
 import picocolors from "picocolors";
 import { Searcher } from "fast-fuzzy";
 import type { MatchData } from "fast-fuzzy";
@@ -41,7 +42,8 @@ enum Menu {
   SELECT = 1,
   SERVANT,
   CE,
-  ITEM
+  ITEM,
+  CC
 }
 
 type MenuFn = () => Promise<boolean>;
@@ -58,9 +60,10 @@ async function menuSelectMenu(): Promise<false | Menu> {
         1) Servant
         2) Craft Essence
         3) Item
+        4) CC
     `)
   );
-  const input = await readlinePrompt("Option (1-3)");
+  const input = await readlinePrompt("Option (1-4)");
   switch (input) {
     case "1":
       return Menu.SERVANT;
@@ -68,6 +71,8 @@ async function menuSelectMenu(): Promise<false | Menu> {
       return Menu.CE;
     case "3":
       return Menu.ITEM;
+    case "4":
+      return Menu.CC;
     default:
       return false;
   }
@@ -153,6 +158,32 @@ const menuFindItem: MenuFn = (() => {
   };
 })();
 
+const menuFindCC: MenuFn = (() => {
+  let cache: CommandCodeBasic[];
+  let searcher: Searcher<CommandCodeBasic, SearcherOpts<CommandCodeBasic>>;
+
+  return async function menuFindCC() {
+    cache ??= await atlasCacheJP.getCommandCodes();
+    searcher ??= new Searcher(cache, {
+      keySelector: candidate => candidate.name,
+      returnMatchData: true,
+      threshold: 0.75
+    });
+
+    const input = await readlinePrompt("Search CC by Name");
+    if (!input) return false;
+
+    const results = searcher.search(input);
+    for (const result of results) {
+      const name = prettyprintMatch(result);
+      console.log(`  - [${result.item.id}]: ${name} (${result.item.rarity})`);
+    }
+
+    console.log();
+    return true;
+  };
+})();
+
 async function main() {
   let menu: Menu | false = Menu.SELECT;
 
@@ -174,6 +205,11 @@ async function main() {
       }
       case Menu.ITEM: {
         const res = await menuFindItem();
+        if (!res) menu = Menu.SELECT;
+        break;
+      }
+      case Menu.CC: {
+        const res = await menuFindCC();
         if (!res) menu = Menu.SELECT;
         break;
       }
