@@ -3,7 +3,8 @@ import { serverApi } from "src/server/api/root";
 import {
   getBundledCEMap,
   getBundledServantMap,
-  getBundledItemMap
+  getBundledItemMap,
+  getBundledCCMap
 } from "src/utils/getBundles";
 import { getEventProps, NOT_FOUND } from "./getEventProps";
 import type { PageContext, EventPageProps, StaticPath } from "./types";
@@ -24,10 +25,11 @@ export const getStaticProps: GetStaticProps<
   if (!params) return NOT_FOUND;
 
   const { slug } = params;
-  const [servantMap, ceMap, itemMap, event] = await Promise.all([
+  const [servantMap, ceMap, itemMap, ccMap, event] = await Promise.all([
     getBundledServantMap(),
     getBundledCEMap(),
     getBundledItemMap(),
+    getBundledCCMap(),
     getEventProps(slug)
   ]);
 
@@ -36,6 +38,7 @@ export const getStaticProps: GetStaticProps<
   const servants: EventPageProps["servants"] = {};
   const ces: EventPageProps["ces"] = {};
   const items: EventPageProps["items"] = {};
+  const ccs: EventPageProps["ccs"] = {};
 
   // browse event times for related entities
   event.times?.forEach(time => {
@@ -47,6 +50,9 @@ export const getStaticProps: GetStaticProps<
     });
     time.items?.forEach(id => {
       items[id] = itemMap[id];
+    });
+    time.ccs?.forEach(id => {
+      ccs[id] = ccMap[id];
     });
   });
 
@@ -62,8 +68,11 @@ export const getStaticProps: GetStaticProps<
       time.items?.forEach(id => {
         items[id] = itemMap[id];
       });
+      time.ccs?.forEach(id => {
+        ccs[id] = ccMap[id];
+      });
     });
   });
 
-  return { props: { event, servants, ces, items } };
+  return { props: { event, servants, ces, items, ccs } };
 };

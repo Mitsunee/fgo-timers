@@ -7,7 +7,8 @@ const _zPriority = z.number().min(0).default(0);
 const Related = z.object({
   servants: z.array(z.number()).optional(),
   ces: z.array(z.number()).optional(),
-  items: z.array(z.number()).optional()
+  items: z.array(z.number()).optional(),
+  ccs: z.array(z.number()).optional()
 });
 
 const EventTimeDate = Related.extend({ title: z.string(), date: zDate });
@@ -26,7 +27,7 @@ const EventSchedule = z.object({
   icon: z.string().optional()
 });
 
-const EventBanner = Related.omit({ items: true })
+const EventBanner = Related.pick({ servants: true, ces: true })
   .extend({ date: zDurationStrict, priority: _zPriority })
   .transform(({ date, ...props }, { addIssue }) => {
     if (Array.isArray(date)) return { date, ...props };

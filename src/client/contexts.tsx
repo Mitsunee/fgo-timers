@@ -5,7 +5,7 @@ import type {
   BundledNP,
   BundledSkill
 } from "src/servants/types";
-import type { BundledCE, BundledItem } from "src/items/types";
+import type { BundledCC, BundledCE, BundledItem } from "src/items/types";
 import type { BundledQuest } from "src/upgrades/types";
 
 export type ServantMap = DataMap<BundledServant>;
@@ -38,6 +38,11 @@ const itemContext = createContext<ItemMap>({});
 export const ItemContext = itemContext.Provider;
 export const useItemMap = () => useContext(itemContext);
 
+export type CCMap = DataMap<BundledCC>;
+const ccContext = createContext<CCMap>({});
+export const CCContext = ccContext.Provider;
+export const useCCMap = () => useContext(ccContext);
+
 interface Maps {
   servants: ServantMap;
   skills: SkillMap;
@@ -45,6 +50,7 @@ interface Maps {
   quests: QuestMap;
   ces: CEMap;
   items: ItemMap;
+  ccs: CCMap;
 }
 
 export type WithMaps<Keys extends keyof Maps> = Pick<Maps, Keys>;
