@@ -19,6 +19,7 @@ type SettingsStored = {
   perPage: `${PageSize}`;
   showSpoiler: SpoilerLevelSelectable;
   autoInfiniteScroll: `${boolean}`;
+  discordMd: `${boolean}`;
 };
 
 export const settingsMap = persistentMap<SettingsStored>("fgoTools:", {
@@ -29,7 +30,8 @@ export const settingsMap = persistentMap<SettingsStored>("fgoTools:", {
   userMaxCost: "113",
   perPage: "10",
   showSpoiler: SpoilerLevels.SOME,
-  autoInfiniteScroll: "false"
+  autoInfiniteScroll: "false",
+  discordMd: "false"
 });
 
 export const settingsStore = computed(settingsMap, store => ({
@@ -40,7 +42,8 @@ export const settingsStore = computed(settingsMap, store => ({
   userMaxCost: Number(store.userMaxCost),
   perPage: Number(store.perPage) as PageSize,
   showSpoiler: store.showSpoiler,
-  autoInfiniteScroll: store.autoInfiniteScroll === "true"
+  autoInfiniteScroll: store.autoInfiniteScroll === "true",
+  discordMd: store.discordMd === "true"
 }));
 
 export const toggleClockFormat = action(
@@ -110,5 +113,15 @@ export const toggleInfiniteScrollMode = action(
     const { autoInfiniteScroll: oldStateStr } = store.get();
     const oldState = oldStateStr === "true";
     store.setKey("autoInfiniteScroll", `${state ?? !oldState}`);
+  }
+);
+
+export const toggleDiscordMarkdown = action(
+  settingsMap,
+  "Toggle new Discord Markdown Support",
+  (store, state?: boolean) => {
+    const { discordMd: oldStateStr } = store.get();
+    const oldState = oldStateStr === "true";
+    store.setKey("discordMd", `${state ?? !oldState}`);
   }
 );

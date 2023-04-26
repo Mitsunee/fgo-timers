@@ -8,7 +8,8 @@ import {
   toggleServerTimes,
   setPageSize,
   setSpoilerLevel,
-  toggleInfiniteScrollMode
+  toggleInfiniteScrollMode,
+  toggleDiscordMarkdown
 } from "src/client/stores/settingsStore";
 import { Modal, ModalMenu } from "src/client/components/Modal";
 import Headline from "src/client/components/Headline";
@@ -47,6 +48,11 @@ const autoScrollOptions: SelectorOption<boolean>[] = [
   { value: true, label: "On" }
 ];
 
+const discordMdOptions: SelectorOption<boolean>[] = [
+  { value: false, label: "Off" },
+  { value: true, label: "On" }
+];
+
 export function SettingsMenu() {
   const { settingsMenuOpen } = useStore(uiStore);
   const {
@@ -54,7 +60,8 @@ export function SettingsMenu() {
     showServerTimes,
     perPage,
     showSpoiler,
-    autoInfiniteScroll
+    autoInfiniteScroll,
+    discordMd
   } = useStore(settingsStore);
 
   return (
@@ -101,6 +108,14 @@ export function SettingsMenu() {
                 options={spoilerLevelOptions}
                 value={showSpoiler}
                 onChange={value => setSpoilerLevel(value)}
+              />
+            </section>
+            <section className={styles.section}>
+              <h2>New Discord Markdown Mode</h2>
+              <Selector
+                options={discordMdOptions}
+                value={discordMd}
+                onChange={value => toggleDiscordMarkdown(value)}
               />
             </section>
             <DebugInfo />

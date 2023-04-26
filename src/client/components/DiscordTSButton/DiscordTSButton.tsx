@@ -1,3 +1,5 @@
+import { useStore } from "@nanostores/react";
+import { settingsStore } from "src/client/stores/settingsStore";
 import { ActionButton } from "src/client/components/Button";
 import { IconDiscord } from "src/client/components/icons";
 import { formatTS } from "./formatTS";
@@ -10,7 +12,8 @@ export function DiscordTSButton({
   children,
   ...tsProps
 }: DiscordTSButtonProps) {
-  const text = formatTS(tsProps);
+  const { discordMd } = useStore(settingsStore);
+  const text = formatTS(tsProps, discordMd);
 
   return (
     <ActionButton
