@@ -1,0 +1,51 @@
+title: "Grail Front: My Super Camelot 2023 Pre-Release Campaign"
+shortTitle: My Super Camelot
+banner: 2023_supercamelot_pre.png
+url: 2023/0501_holy_grail_front2_cp/
+date: 2023-04-30 21:00 - 05-28 20:59 PDT
+requires: Clear Fuyuki
+description: >-
+  To celebrate the upcoming release of Grail Front: My Super Camelot Master's
+  will receive 4 promotional CEs via Login Bonus. Related Servants will receive
+  2x Enhancement Success Rate and 2x FP as Support Servants. Ozymandias,
+  Xuanzang Sanzang and Bedivere receive each a new Rank Up Quest and are also
+  featured in the Summoning Banner.
+times:
+  - title: 2x Enhancement Success Rate & 2x FP
+    date: 2023-04-30 21:00 - 05-14 20:59 PDT
+    servants:
+      - 100900
+      - 100700
+      - 102000
+      - 101200
+      - 200800
+      - 201300
+      - 302000
+      - 401200
+      - 500900
+      - 502200
+      - 501200
+      - 600900
+      - 600200
+      - 800100
+schedules:
+  - title: CE Login Bonus
+    times:
+      - title: Hand in Hand
+        date: 2023-04-30 21:00 PDT
+        ces: [9305500]
+      - title: Make a Toast
+        date: 2023-05-07 21:00 PDT
+        ces: [9305510]
+      - title: Celebration Bouquet
+        date: 2023-05-14 21:00 PDT
+        ces: [9305520]
+      - title: Appreciation
+        date: 2023-05-21 21:00 PDT
+        ces: [9305530]
+upgrades: [94059001, 94059002, 94059003]
+banners:
+  - date: 2023-04-30 21:00 - 05-07 20:59 PDT
+    servants: [502200, 101200] # xz
+  - date: 2023-05-01 21:00 - 05-08 20:59 PDT
+    servants: [401200, 101200] # ozy
