@@ -114,3 +114,12 @@ export const getBundledCCMap = withProxy(
   getBundledCCs,
   "Could not find CC %KEY% in bundled data"
 );
+
+export const getCustomItems = createBundle<PartialDataMap<BundledItem>>(
+  path.join(process.cwd(), "assets/static/custom_items.json")
+);
+
+export const getCustomItemMap = withProxy(
+  getCustomItems,
+  "Could not find Custom Item %KEY% in bundled data"
+);

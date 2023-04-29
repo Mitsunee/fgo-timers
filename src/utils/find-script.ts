@@ -9,7 +9,9 @@ import { Searcher } from "fast-fuzzy";
 import type { MatchData } from "fast-fuzzy";
 import { prepareCache } from "../atlas-api/prepare";
 import { atlasCacheJP } from "../atlas-api/cache";
+import type { BundledItem } from "../items/types";
 import { Log } from "./log";
+import { getCustomItems } from "./getBundles";
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -43,6 +45,7 @@ enum Menu {
   SERVANT,
   CE,
   ITEM,
+  ITEM_CUSTOM,
   CC
 }
 
@@ -60,7 +63,8 @@ async function menuSelectMenu(): Promise<false | Menu> {
         1) Servant
         2) Craft Essence
         3) Item
-        4) CC
+        4) Item (custom)
+        5) CC
     `)
   );
   const input = await readlinePrompt("Option (1-4)");
@@ -72,6 +76,8 @@ async function menuSelectMenu(): Promise<false | Menu> {
     case "3":
       return Menu.ITEM;
     case "4":
+      return Menu.ITEM_CUSTOM;
+    case "5":
       return Menu.CC;
     default:
       return false;
@@ -158,6 +164,45 @@ const menuFindItem: MenuFn = (() => {
   };
 })();
 
+const menuFindCustomItem: MenuFn = (() => {
+  let cache: Array<BundledItem & { id: number }>;
+  let searcher: Searcher<
+    (typeof cache)[number],
+    SearcherOpts<(typeof cache)[number]>
+  >;
+
+  async function getCache() {
+    const map = await getCustomItems();
+    const entries = Object.entries(map) as [
+      `${number}`,
+      NonNullable<(typeof map)[number]>
+    ][];
+    const list = entries.map(([id, vals]) => ({ ...vals, id: +id }));
+    return list;
+  }
+
+  return async function menuFindCustomItem() {
+    cache ??= await getCache();
+    searcher ??= new Searcher(cache, {
+      keySelector: candidate => candidate.name,
+      returnMatchData: true,
+      threshold: 0.85
+    });
+
+    const input = await readlinePrompt("Search Custom Item by Name");
+    if (!input) return false;
+
+    const results = searcher.search(input);
+    for (const result of results) {
+      const name = prettyprintMatch(result);
+      console.log(`  - [${result.item.id}]: ${name}`);
+    }
+
+    console.log();
+    return true;
+  };
+})();
+
 const menuFindCC: MenuFn = (() => {
   let cache: CommandCodeBasic[];
   let searcher: Searcher<CommandCodeBasic, SearcherOpts<CommandCodeBasic>>;
@@ -186,38 +231,45 @@ const menuFindCC: MenuFn = (() => {
 
 async function main() {
   let menu: Menu | false = Menu.SELECT;
+  let res: boolean = true;
 
   while (menu) {
     switch (menu) {
       case Menu.SELECT: {
         menu = await menuSelectMenu();
+        res = true; // set res true to prevent menu from being set again
         break;
       }
+      // the following cases are all menus. res should be set false to continue to Menu.SELECT
       case Menu.SERVANT: {
-        const res = await menuFindServant();
-        if (!res) menu = Menu.SELECT;
+        res = await menuFindServant();
         break;
       }
       case Menu.CE: {
-        const res = await menuFindCE();
-        if (!res) menu = Menu.SELECT;
+        res = await menuFindCE();
         break;
       }
       case Menu.ITEM: {
-        const res = await menuFindItem();
-        if (!res) menu = Menu.SELECT;
+        res = await menuFindItem();
+        break;
+      }
+      case Menu.ITEM_CUSTOM: {
+        res = await menuFindCustomItem();
         break;
       }
       case Menu.CC: {
-        const res = await menuFindCC();
-        if (!res) menu = Menu.SELECT;
+        res = await menuFindCC();
         break;
       }
+      // in case of an invalid valid print error and quit
       default: {
         Log.error("Unknown menu selected");
         return false;
       }
     }
+
+    // if res is false return to select menu
+    if (!res) menu = Menu.SELECT;
   }
 }
 
