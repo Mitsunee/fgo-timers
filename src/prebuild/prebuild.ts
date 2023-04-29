@@ -18,6 +18,7 @@ import { bundleCCsData } from "./data/ccs";
 import { saveBuildInfo } from "./utils/saveBuildInfo";
 import { bundleEvents } from "./bundler/events";
 import { bundleExchangeTickets } from "./bundler/exchangeTickets";
+import { bundleShops } from "./bundler/shops";
 import { collectIDs } from "./utils/collectIds";
 
 function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
@@ -44,7 +45,8 @@ function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
     bundleUpgrades(),
     bundleCustomItems(),
     bundleEvents(),
-    bundleExchangeTickets()
+    bundleExchangeTickets(),
+    bundleShops()
   ]);
   if (!isSuccessful(bundlersRes)) {
     Log.die("Quitting early because of error in bundler");

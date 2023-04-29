@@ -1,7 +1,7 @@
 import path from "path";
 import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 import type { z } from "zod";
-import { ShopSchema } from "../../schema/ShopSchema";
+import { MixedShopSchema, ShopSchema } from "../../schema/ShopSchema";
 import { parseSchema } from "../../schema/verifySchema";
 import type { MixedShop, Shop } from "../../schema/ShopSchema";
 import { Log } from "../../utils/log";
@@ -23,11 +23,17 @@ type BundledShops = {
     : Shop;
 };
 
-type AnyShopItem =
+type _AnyShopItem = (
   | Shop["inventory"][number]
   | NonNullable<Shop["limited"]>[number]
   | MixedShop["inventory"][number]
-  | NonNullable<MixedShop["limited"]>[number];
+  | NonNullable<MixedShop["limited"]>[number]
+) & { currency?: number }; // TS unions are dumb
+
+type AnyShopItem = Shop["inventory"][number] &
+  Partial<NonNullable<Shop["limited"]>[number]> &
+  Partial<MixedShop["inventory"][number]> &
+  Partial<NonNullable<MixedShop["limited"]>[number]>;
 
 export const bundleShops: PrebuildBundler<BundledShops> = async function () {
   const servants = new Set<number>();
@@ -54,6 +60,10 @@ export const bundleShops: PrebuildBundler<BundledShops> = async function () {
         quests.add(val.id);
         break;
     }
+
+    if (val.currency) {
+      items.add(val.currency);
+    }
   }
 
   async function handleShop({
@@ -72,6 +82,7 @@ export const bundleShops: PrebuildBundler<BundledShops> = async function () {
 
     const fileParsed = parseSchema(fileContent, ShopSchema, filePath);
     if (!fileParsed) return false;
+    items.add(fileParsed.currency);
     fileParsed.inventory.forEach(collectIDs);
     fileParsed.monthly?.forEach(collectIDs);
     fileParsed.limited?.forEach(collectIDs);
@@ -79,13 +90,36 @@ export const bundleShops: PrebuildBundler<BundledShops> = async function () {
     return fileParsed;
   }
 
-  // TODO: handleMixedShop
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  async function handleMixedShop({
+    path: filePath
+  }: {
+    path: string;
+    isMixed: true;
+  }) {
+    const fileContent = await readFileYaml<z.input<typeof MixedShopSchema>>(
+      filePath
+    );
+    if (!fileContent) {
+      Log.error(`Could not parse file '${path.basename(filePath)}'`);
+      return false;
+    }
+
+    const fileParsed = parseSchema(fileContent, MixedShopSchema, filePath);
+    if (!fileParsed) return false;
+    fileParsed.inventory.forEach(collectIDs);
+    fileParsed.monthly?.forEach(collectIDs);
+    fileParsed.limited?.forEach(collectIDs);
+
+    return fileParsed;
+  }
 
   const [mpShop, rpShop, ppShop] = await Promise.all([
     handleShop(ShopsIndex["mana-prism"]),
     handleShop(ShopsIndex["rare-prism"]),
     handleShop(ShopsIndex["pure-prism"])
   ]);
+  // TODO: find better way to typeguard this
   if (!(mpShop && rpShop && ppShop)) return false;
 
   const data: BundledShops = {
