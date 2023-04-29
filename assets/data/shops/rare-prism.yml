@@ -1,6 +1,206 @@
 title: Rare Prism Shop
 currency: 18
 color: gold
-inventory: []
-monthly: []
-limited: []
+inventory:
+  ## MP Shop CE Unlocks
+  - id: 9400780
+    name: "Unlock Exchange: Mona Lisa"
+    type: ce
+    cost: 1
+  - id: 9401340
+    name: "Unlock Exchange: Personal Training"
+    type: ce
+    cost: 1
+  - id: 9401710
+    name: "Unlock Exchange: Personal Lesson"
+    type: ce
+    cost: 1
+  - id: 9401970
+    name: "Unlock Exchange: Chaldea Lunchtime"
+    type: ce
+    cost: 1
+  - id: 9403300
+    name: "Unlock Exchange: Be Graceful"
+    type: ce
+    cost: 1
+  - id: 9403520
+    name: "Unlock Exchange: Chaldea Teatime"
+    type: ce
+    cost: 1
+  - id: 9403690
+    name: "Unlock Exchange: Bella Lisa"
+    type: ce
+    cost: 1
+  - id: 9403870
+    name: "Unlock Exchange: Personal Coaching"
+    type: ce
+    cost: 1
+  - id: 9403990
+    name: "Unlock Exchange: Foumes"
+    type: ce
+    cost: 1
+  - id: 9404180
+    name: "Unlock Exchange: Chaldea Dinnertime"
+    type: ce
+    cost: 1
+
+  ## Purchasable CEs (5x 5RP)
+  - id: 9402060 # Sweet Crystal
+    type: ce
+    cost: 5
+    amount: 5
+  - id: 9402260 # Fondant au Chocolat
+    type: ce
+    cost: 5
+    amount: 5
+  - id: 9401960 # Joint Recital
+    type: ce
+    cost: 5
+    amount: 5
+  - id: 9401950 # Princess of the White Rose
+    type: ce
+    cost: 5
+    amount: 5
+  - id: 9401100 # Melty Sweetheart
+    type: ce
+    cost: 5
+    amount: 5
+  - id: 9400410 # Nightless Rose
+    type: ce
+    cost: 5
+    amount: 5
+
+  ## Purchasable CCs
+  - id: 8400120 # First Servant
+    type: cc
+    cost: 5
+  - id: 8400190 # Dragon-Slayer's Sword
+    type: cc
+    cost: 2
+  - id: 8400160 # God-Binding Chain
+    type: cc
+    cost: 2
+  - id: 8400130 # Armament of Victory
+    type: cc
+    cost: 2
+
+  ## Purchasable CEs ("Not owned"-locked)
+  - id: 9800700 # Chaldea Standard
+    type: ce
+    cost: 3
+    requires: Not owned
+  - id: 9301560 # Cheers to 2019
+    type: ce
+    cost: 3
+    requires: Not owned
+  - id: 9400790 # Happy x3 Order
+    type: ce
+    cost: 3
+    requires: Not owned
+  - id: 9400360 # Beginning of the Journey
+    type: ce
+    cost: 3
+    requires: Not owned
+  - id: 9404300 # Dancing Tops
+    type: ce
+    cost: 3
+    requires: Not owned
+  - id: 9303520 # New Year's Greeting
+    type: ce
+    cost: 3
+    requires: Not owned
+  - id: 9302640 # Irohanihoheto
+    type: ce
+    cost: 3
+    requires: Not owned
+
+  ## CE Exchange Shops
+  - id: 9400970
+    name: "Unlock Exchange: Heroic Portrait"
+    type: ce
+    cost: 3
+  - id: 9402280
+    name: "Unlock Exchange: CBC 2019"
+    type: ce
+    cost: 3
+  - id: 9402910
+    name: "Unlock Exchange: CBC 2020"
+    type: ce
+    cost: 3
+  - id: 9403700
+    name: "Unlock Exchange: CBC 2021"
+    type: ce
+    cost: 3
+  - id: 9404370
+    name: "Unlock Exchange: CBC 2022"
+    type: ce
+    cost: 3
+
+  ## TODO: Unlockable Events
+  ## TODO: Purchasable Servants
+  ## TODO: Unlockable Trial Quests
+  ## TODO: Unlockable MC Quests
+
+  ## CE Aquisition Quest
+  - id: 9401300
+    name: "Unlock Aquisition Quest: [Heaven's Feel]"
+    type: ce
+    cost: 3
+  - id: 9401720
+    name: "Unlock Aquisition Quest: Anniversary Heroines"
+    type: ce
+    cost: 3
+  - id: 9403400
+    name: "Unlock Quest: Fate/Grand Order CE Recollection I"
+    type: ce
+    cost: 3
+  - id: 9304290
+    name: "Unlock Quest: Fate/Grand Order CE Recollection II"
+    type: ce
+    cost: 3
+  - id: 9302800
+    name: "Unlock Aquisition Quest: Fate/EXTELLA LINK"
+    type: ce
+    cost: 3
+  - id: 9302530
+    name: "Unlock Aquisition Quest: Pray Upon the Sword, Wish Upon Life"
+    type: ce
+    cost: 3
+  - id: 9301790
+    name: "Unlock Aquisition Quest: Fate/Apocrypha"
+    type: ce
+    cost: 3
+  - id: 9301800
+    name: "Unlock Aquisition Quest: FGO THE STAGE"
+    type: ce
+    cost: 3
+  - id: 9402670
+    name: "Unlock Aquisition Quest:Replica; Agateram"
+    type: ce
+    cost: 3
+monthly:
+  - id: 1000 # Bond Grail
+    type: item
+    cost: 3
+  - id: 5003 # Code Remover
+    type: item
+    cost: 1
+    amount: 3
+  - id: 2000 # Footprint
+    type: item
+    cost: 1
+  - id: 6999 # Lore
+    type: item
+    cost: 5
+  - id: 9570400 # HP Gold Fou
+    type: item
+    cost: 3
+  - id: 9670400 # ATK Gold Fou
+    type: item
+    cost: 3
+  - id: 4
+    type: item
+    cost: 1
+    amount: 5
+    stack: 20000
+#limited: []
