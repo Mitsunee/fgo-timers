@@ -1,5 +1,6 @@
 import { normalizeDate } from "src/time/normalizeDate";
 import { CardGrid } from "src/client/components/Card";
+import Section from "src/client/components/Section";
 import { EventTimesCard } from "src/pages/EventPage/components/EventTimesCard";
 import { EventSchedulesCard } from "src/pages/EventPage/components/EventSchedulesCard";
 import { EventPageLayout } from "src/pages/EventPage/components/EventPageLayout";
@@ -34,7 +35,7 @@ function EventPage({ event }: EventPageInnerProps) {
           ))}
         </CardGrid>
       ) : (
-        "This Event has no timers"
+        <Section background>This Event has no timers</Section>
       )}
     </EventPageLayout>
   );
