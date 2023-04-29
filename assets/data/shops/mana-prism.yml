@@ -1,6 +1,97 @@
 title: Mana Prism Shop
 currency: 3
 color: green
-inventory: []
-monthly: []
-limited: []
+inventory:
+  - id: 8400180 # White Vessel's Command Seal
+    type: cc
+    cost: 300
+  - id: 8400140 # Crest of Humanity
+    type: cc
+    cost: 300
+  - id: 8400110 # Lucky Beast
+    type: cc
+    cost: 300
+  - id: 8400150 # Red Gem Lady's Command Seal
+    type: cc
+    cost: 300
+  - id: 1000 # Bond Grail
+    type: item
+    cost: 1
+  - id: 9400780 # Mona Lisa
+    type: ce
+    cost: 1000
+    amount: 5
+    requires: Unlock in RP Shop
+  - id: 9401340 # Personal Training
+    type: ce
+    cost: 1000
+    amount: 5
+    requires: Unlock in RP Shop
+  - id: 9401710 # Personal Lesson
+    type: ce
+    cost: 1000
+    amount: 5
+    requires: Unlock in RP Shop
+  - id: 9401970 # Chaldea Lunchtime
+    type: ce
+    cost: 1000
+    amount: 5
+    requires: Unlock in RP Shop
+  - id: 9403300 # Be Graceful
+    type: ce
+    cost: 1000
+    amount: 5
+    requires: Unlock in RP Shop
+  - id: 9403520 # Chaldea Teatime
+    type: ce
+    cost: 1000
+    amount: 5
+    requires: Unlock in RP Shop
+  - id: 9403690 # Bella Lisa
+    type: ce
+    cost: 1000
+    amount: 5
+    requires: Unlock in RP Shop
+  - id: 9403870 # Personal Coaching
+    type: ce
+    cost: 1000
+    amount: 5
+    requires: Unlock in RP Shop
+  - id: 9403990 # Foumes
+    type: ce
+    cost: 1000
+    amount: 5
+    requires: Unlock in RP Shop
+  - id: 9404180 # Chaldea Dinnertime
+    type: ce
+    cost: 1000
+    amount: 5
+    requires: Unlock in RP Shop
+monthly:
+  - id: 5000 # Quick Code Opener
+    cost: 100
+  - id: 5001 # Arts Code Opener
+    cost: 100
+  - id: 5002 # Buster Code Opener
+    cost: 100
+  - id: 4001 # Summon Ticket
+    cost: 20
+    amount: 5
+  - id: 9770400 # 4* embers
+    cost: 40
+    amount: 5
+    stack: 10
+  - id: 9570300
+    name: Star Fou (All)
+    cost: 15
+    amount: 20
+  - id: 9670300
+    name: Sun Fou (All)
+    cost: 15
+    amount: 20
+limited:
+  - id: 9405120 # Beyond the Rain Clouds
+    type: ce
+    cost: 1000
+    amount: 5
+    date: 2023-02-28 16:00 PST - 05-31 16:59 PDT
