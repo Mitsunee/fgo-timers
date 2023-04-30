@@ -119,27 +119,90 @@ inventory:
     name: "Unlock Exchange: Heroic Portrait"
     type: ce
     cost: 3
+    requires: Not exchanged
   - id: 9402280
     name: "Unlock Exchange: CBC 2019"
     type: ce
     cost: 3
+    requires: Not exchanged
   - id: 9402910
     name: "Unlock Exchange: CBC 2020"
     type: ce
     cost: 3
+    requires: Not exchanged
   - id: 9403700
     name: "Unlock Exchange: CBC 2021"
     type: ce
     cost: 3
+    requires: Not exchanged
   - id: 9404370
     name: "Unlock Exchange: CBC 2022"
     type: ce
     cost: 3
+    requires: Not exchanged
 
-  ## TODO: Unlockable Events
-  ## TODO: Purchasable Servants
-  ## TODO: Unlockable Trial Quests
-  ## TODO: Unlockable MC Quests
+  ## Unlockable MC Quests
+  - id: 50
+    name: "Unlock Aquisition Quest: Anniversary Blonde"
+    type: mc
+    cost: 5
+    requires: Not cleared
+  - id: 80
+    name: "Unlock Aquisition Quest: Memories of the Lunar Sea"
+    type: mc
+    cost: 5
+    requires: Not cleared
+  - id: 60
+    name: "Unlock Aquisition Quest: Royal Brand"
+    type: mc
+    cost: 5
+    requires: Not cleared
+  - id: 130
+    name: "Unlock Aquisition Quest: Splendid New Year"
+    type: mc
+    cost: 5
+    requires: Not cleared
+  - id: 100
+    name: "Unlock Aquisition Quest: Fragment of 2004"
+    type: mc
+    cost: 5
+    requires: Not cleared
+  - id: 90
+    name: "Unlock Aquisition Quest: Memories of the Far Side of the Moon"
+    type: mc
+    cost: 5
+    requires: Not cleared
+
+  ## Unlockable Events
+  - id: 202200
+    name: "Unlock Main Interlude: Merry Christmas from the Underworld"
+    type: servant
+    cost: 5
+    requires: Not cleared
+  - id: 2300100
+    name: "Unlock Main Interlude: Abyssal Cyber Paradise, SE.RA.PH"
+    type: servant
+    cost: 5
+  - id: 1100200
+    name: "Unlock Event: Vengeful Demon's Wail at the Prison Tower"
+    type: servant
+    cost: 5
+  - id: 702800
+    name: "Unlock Event: All the Statesmen!"
+    type: servant
+    cost: 5
+
+  ## Purchasable Servants
+  - id: 202200 # Santera
+    type: servant
+    cost: 2
+    amount: 4
+    requires: Not aquired 5x
+  - id: 2300100 # BB
+    type: servant
+    cost: 2
+    amount: 4
+    requires: Not aquired 5x
 
   ## CE Aquisition Quest
   - id: 9401300
@@ -178,6 +241,58 @@ inventory:
     name: "Unlock Aquisition Quest:Replica; Agateram"
     type: ce
     cost: 3
+
+  ## Unlockable Trial Quests
+  - id: 303000
+    name: "Unlock Trial Quest: Pārvatī"
+    type: servant
+    cost: 1
+    requires: Not cleared
+  - id: 2500200
+    name: "Unlock Trial Quest: Katsushika Hokusai"
+    type: servant
+    cost: 1
+    requires: Not cleared
+  - id: 300400
+    name: "Unlock Trial Quest: Karna (5* lancer)"
+    type: servant
+    cost: 1
+    requires: Not cleared
+  - id: 301300
+    name: "Unlock Trial Quest: Scáthach"
+    type: servant
+    cost: 1
+    requires: Not cleared
+  - id: 900200
+    name: "Unlock Trial Quest: Amakusa Shirou"
+    type: servant
+    cost: 1
+    requires: Not cleared
+  - id: 301200
+    name: "Unlock Trial Quest: Brynhild"
+    type: servant
+    cost: 1
+    requires: Not cleared
+  - id: 101700
+    name: "Unlock Trial Quest: Miyamoto Musashi"
+    type: servant
+    cost: 1
+    requires: Not cleared
+  - id: 702400
+    name: "Unlock Trial Quest: Mysterious Heroine X (Alter)"
+    type: servant
+    cost: 1
+    requires: Not cleared
+  - id: 102900
+    name: "Unlock Trial Quest: Arthur Pendragon (Prototype)"
+    type: servant
+    cost: 1
+    requires: Not cleared
+  - id: 900500
+    name: "Unlock Trial Quest: Sherlock Holmes"
+    type: servant
+    cost: 1
+    requires: Not cleared
 monthly:
   - id: 1000 # Bond Grail
     type: item
