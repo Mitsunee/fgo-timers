@@ -4,6 +4,7 @@ import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
 import type { CraftEssenceBasic } from "@atlasacademy/api-connector/dist/Schema/CraftEssence";
 import type { Item } from "@atlasacademy/api-connector/dist/Schema/Item";
 import type { CommandCodeBasic } from "@atlasacademy/api-connector/dist/Schema/CommandCode";
+import type { MysticCodeBasic } from "@atlasacademy/api-connector/dist/Schema/MysticCode";
 import picocolors from "picocolors";
 import { Searcher } from "fast-fuzzy";
 import type { MatchData } from "fast-fuzzy";
@@ -43,10 +44,11 @@ function prettyprintMatch(match: MatchData<any>) {
 enum Menu {
   SELECT = 1,
   SERVANT,
-  CE,
+  CRAFT_ESSENCE,
   ITEM,
   ITEM_CUSTOM,
-  CC
+  COMMAND_CODE,
+  MYSTIC_CODE
 }
 
 type MenuFn = () => Promise<boolean>;
@@ -63,22 +65,25 @@ async function menuSelectMenu(): Promise<false | Menu> {
         1) Servant
         2) Craft Essence
         3) Item
-        4) Item (custom)
-        5) CC
+        4) Custom Item
+        5) Command Code
+        6) Mystic Code
     `)
   );
-  const input = await readlinePrompt("Option (1-4)");
+  const input = await readlinePrompt("Option (1-6)");
   switch (input) {
     case "1":
       return Menu.SERVANT;
     case "2":
-      return Menu.CE;
+      return Menu.CRAFT_ESSENCE;
     case "3":
       return Menu.ITEM;
     case "4":
       return Menu.ITEM_CUSTOM;
     case "5":
-      return Menu.CC;
+      return Menu.COMMAND_CODE;
+    case "6":
+      return Menu.MYSTIC_CODE;
     default:
       return false;
   }
@@ -112,11 +117,11 @@ const menuFindServant: MenuFn = (() => {
   };
 })();
 
-const menuFindCE: MenuFn = (() => {
+const menuFindCraftEssence: MenuFn = (() => {
   let cache: CraftEssenceBasic[];
   let searcher: Searcher<CraftEssenceBasic, SearcherOpts<CraftEssenceBasic>>;
 
-  return async function menuFindCE() {
+  return async function menuFindCraftEssence() {
     cache ??= await atlasCacheJP.getBasicCE();
     searcher = new Searcher(cache, {
       keySelector: candidate => candidate.name,
@@ -203,11 +208,11 @@ const menuFindCustomItem: MenuFn = (() => {
   };
 })();
 
-const menuFindCC: MenuFn = (() => {
+const menuFindCommandCode: MenuFn = (() => {
   let cache: CommandCodeBasic[];
   let searcher: Searcher<CommandCodeBasic, SearcherOpts<CommandCodeBasic>>;
 
-  return async function menuFindCC() {
+  return async function menuFindCommandCode() {
     cache ??= await atlasCacheJP.getCommandCodes();
     searcher ??= new Searcher(cache, {
       keySelector: candidate => candidate.name,
@@ -222,6 +227,32 @@ const menuFindCC: MenuFn = (() => {
     for (const result of results) {
       const name = prettyprintMatch(result);
       console.log(`  - [${result.item.id}]: ${name} (${result.item.rarity})`);
+    }
+
+    console.log();
+    return true;
+  };
+})();
+
+const menuFindMysticCode: MenuFn = (() => {
+  let cache: MysticCodeBasic[];
+  let searcher: Searcher<MysticCodeBasic, SearcherOpts<MysticCodeBasic>>;
+
+  return async function menuFindMysticCode() {
+    cache ??= await atlasCacheJP.getMysticCodes();
+    searcher ??= new Searcher(cache, {
+      keySelector: candidate => candidate.name,
+      returnMatchData: true,
+      threshold: 0.85
+    });
+
+    const input = await readlinePrompt("Search Mystic Code by Name");
+    if (!input) return false;
+
+    const results = searcher.search(input);
+    for (const result of results) {
+      const name = prettyprintMatch(result);
+      console.log(`  - [${result.item.id}]: ${name}`);
     }
 
     console.log();
@@ -245,8 +276,8 @@ async function main() {
         res = await menuFindServant();
         break;
       }
-      case Menu.CE: {
-        res = await menuFindCE();
+      case Menu.CRAFT_ESSENCE: {
+        res = await menuFindCraftEssence();
         break;
       }
       case Menu.ITEM: {
@@ -257,8 +288,12 @@ async function main() {
         res = await menuFindCustomItem();
         break;
       }
-      case Menu.CC: {
-        res = await menuFindCC();
+      case Menu.COMMAND_CODE: {
+        res = await menuFindCommandCode();
+        break;
+      }
+      case Menu.MYSTIC_CODE: {
+        res = await menuFindMysticCode();
         break;
       }
       // in case of an invalid valid print error and quit
