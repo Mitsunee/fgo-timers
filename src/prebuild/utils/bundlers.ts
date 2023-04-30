@@ -14,6 +14,7 @@ export interface PrebuildBundle<T extends {}> {
   ces?: Set<number>;
   items?: Set<number>;
   ccs?: Set<number>;
+  mcs?: Set<number>;
 }
 
 export type PrebuildBundler<T extends {}> = () =>

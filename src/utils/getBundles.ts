@@ -10,7 +10,8 @@ import type {
   BundledCC,
   BundledCE,
   BundledItem,
-  BundledLoginTicket
+  BundledLoginTicket,
+  BundledMysticCode
 } from "src/items/types";
 import type { BundledEvent } from "src/events/types";
 import { Log } from "./log";
@@ -122,4 +123,13 @@ export const getCustomItems = createBundle<PartialDataMap<BundledItem>>(
 export const getCustomItemMap = withProxy(
   getCustomItems,
   "Could not find Custom Item %KEY% in bundled data"
+);
+
+export const getBundledMysticCodes = createBundle<
+  PartialDataMap<BundledMysticCode>
+>(path.join(process.cwd(), "assets/static/data/mcs.json"));
+
+export const getBundledMysticCodeMap = withProxy(
+  getBundledMysticCodes,
+  "Could not find Mystic Code %KEY% in bundled data"
 );

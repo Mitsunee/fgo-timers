@@ -5,6 +5,8 @@ import type { ServantBorder } from "../servants/types";
 import { Borders } from "../types/borders";
 import type { Availability } from "../types/enum";
 
+// TODO: rename "CE" and "CC" types to "CraftEssence" and "CommandCode"
+
 export type ItemBorder =
   | Borders.BRONZE
   | Borders.SILVER
@@ -42,6 +44,13 @@ export interface BundledLoginTicket {
   start: number;
   next: number;
   items: number[];
+  na?: true;
+}
+
+export interface BundledMysticCode {
+  name: string;
+  iconM: string;
+  iconF: string;
   na?: true;
 }
 
