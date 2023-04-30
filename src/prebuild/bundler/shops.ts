@@ -3,30 +3,10 @@ import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 import type { z } from "zod";
 import { MixedShopSchema, ShopSchema } from "../../schema/ShopSchema";
 import { parseSchema } from "../../schema/verifySchema";
-import type { MixedShop, Shop } from "../../schema/ShopSchema";
+import { ShopsIndex } from "../../shops/types";
+import type { BundledShops, AnyShopItem } from "../../shops/types";
 import { Log } from "../../utils/log";
 import type { PrebuildBundler } from "../utils/bundlers";
-
-type ShopIndex = { path: string; isMixed?: boolean };
-
-const ShopsIndex = {
-  "mana-prism": { path: "assets/data/shops/mana-prism.yml" },
-  "rare-prism": { path: "assets/data/shops/rare-prism.yml" },
-  "pure-prism": { path: "assets/data/shops/pure-prism.yml" }
-} satisfies Record<string, ShopIndex>;
-
-type Shops = keyof typeof ShopsIndex;
-
-type BundledShops = {
-  [Key in Shops]: (typeof ShopsIndex)[Key] extends { isMixed: true }
-    ? MixedShop
-    : Shop;
-};
-
-type AnyShopItem = Shop["inventory"][number] &
-  Partial<NonNullable<Shop["limited"]>[number]> &
-  Partial<MixedShop["inventory"][number]> &
-  Partial<NonNullable<MixedShop["limited"]>[number]>;
 
 export const bundleShops: PrebuildBundler<BundledShops> = async function () {
   const servants = new Set<number>();
