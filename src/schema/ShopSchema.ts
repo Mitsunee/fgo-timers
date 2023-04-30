@@ -3,7 +3,7 @@ import { zDurationStrict } from "./zDate";
 import { zBorderOptional } from "./zBorder";
 
 const ShopItem = z.object({
-  type: z.enum(["item", "ce", "cc", "quest", "servant"]).default("item"), // TODO: support for costumes
+  type: z.enum(["item", "ce", "cc", "servant", "mc"]).default("item"), // TODO: support for costumes
   id: z.number(),
   name: z.string().optional(),
   requires: z.string().optional(),

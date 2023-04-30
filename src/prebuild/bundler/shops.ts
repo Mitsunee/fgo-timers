@@ -23,13 +23,6 @@ type BundledShops = {
     : Shop;
 };
 
-type _AnyShopItem = (
-  | Shop["inventory"][number]
-  | NonNullable<Shop["limited"]>[number]
-  | MixedShop["inventory"][number]
-  | NonNullable<MixedShop["limited"]>[number]
-) & { currency?: number }; // TS unions are dumb
-
 type AnyShopItem = Shop["inventory"][number] &
   Partial<NonNullable<Shop["limited"]>[number]> &
   Partial<MixedShop["inventory"][number]> &
@@ -40,7 +33,7 @@ export const bundleShops: PrebuildBundler<BundledShops> = async function () {
   const ces = new Set<number>();
   const items = new Set<number>();
   const ccs = new Set<number>();
-  const quests = new Set<number>();
+  const mcs = new Set<number>();
 
   function collectIDs(val: AnyShopItem) {
     switch (val.type) {
@@ -56,8 +49,8 @@ export const bundleShops: PrebuildBundler<BundledShops> = async function () {
       case "cc":
         ccs.add(val.id);
         break;
-      case "quest":
-        quests.add(val.id);
+      case "mc":
+        mcs.add(val.id);
         break;
     }
 
@@ -136,7 +129,7 @@ export const bundleShops: PrebuildBundler<BundledShops> = async function () {
     servants,
     ces,
     items,
-    quests,
-    ccs
+    ccs,
+    mcs
   };
 };
