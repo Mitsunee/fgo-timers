@@ -1,13 +1,13 @@
 import type { InferGetStaticPropsType } from "next";
 import { staticPropsFactory } from "src/pages/ShopPages/static";
-import { Context } from "src/pages/ShopPages/static/components/Context";
+import { DataContext } from "src/client/contexts";
 
 export const getStaticProps = staticPropsFactory("mana-prism");
 type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
 export default function ManaPrismShopPage(props: PageProps) {
   return (
-    <Context
+    <DataContext
       servants={props.servants}
       items={props.items}
       ces={props.ces}
@@ -19,6 +19,6 @@ export default function ManaPrismShopPage(props: PageProps) {
       <code>
         <pre>{JSON.stringify(props.shop, null, 2)}</pre>
       </code>
-    </Context>
+    </DataContext>
   );
 }

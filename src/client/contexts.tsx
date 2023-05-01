@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import { createContext } from "react";
+import { createContext, useContextSelector } from "use-context-selector";
 import type {
   BundledServant,
   BundledNP,
@@ -12,56 +11,62 @@ import type {
   BundledMysticCode
 } from "src/items/types";
 import type { BundledQuest } from "src/upgrades/types";
-
-export type ServantMap = DataMap<BundledServant>;
-const servantContext = createContext<ServantMap>({});
-export const ServantContext = servantContext.Provider;
-export const useServantMap = () => useContext(servantContext);
-
-export type SkillMap = DataMap<BundledSkill>;
-const skillContext = createContext<SkillMap>({});
-export const SkillContext = skillContext.Provider;
-export const useSkillMap = () => useContext(skillContext);
-
-export type NPMap = DataMap<BundledNP>;
-const npContext = createContext<NPMap>({});
-export const NPContext = npContext.Provider;
-export const useNPMap = () => useContext(npContext);
-
-export type QuestMap = DataMap<BundledQuest>;
-const questContext = createContext<QuestMap>({});
-export const QuestContext = questContext.Provider;
-export const useQuestMap = () => useContext(questContext);
-
-export type CEMap = DataMap<BundledCE>;
-const ceContext = createContext<CEMap>({});
-export const CEContext = ceContext.Provider;
-export const useCEMap = () => useContext(ceContext);
-
-export type ItemMap = DataMap<BundledItem>;
-const itemContext = createContext<ItemMap>({});
-export const ItemContext = itemContext.Provider;
-export const useItemMap = () => useContext(itemContext);
-
-export type CCMap = DataMap<BundledCC>;
-const ccContext = createContext<CCMap>({});
-export const CCContext = ccContext.Provider;
-export const useCCMap = () => useContext(ccContext);
-
-export type MysticCodeMap = DataMap<BundledMysticCode>;
-const mysticCodeContext = createContext<MysticCodeMap>({});
-export const MysticCodeContext = mysticCodeContext.Provider;
-export const useMysticCodeMap = () => useContext(mysticCodeContext);
+import { useMemo } from "react";
 
 interface Maps {
-  servants: ServantMap;
-  skills: SkillMap;
-  nps: NPMap;
-  quests: QuestMap;
-  ces: CEMap;
-  items: ItemMap;
-  ccs: CCMap;
-  mcs: MysticCodeMap;
+  servants: DataMap<BundledServant>;
+  skills: DataMap<BundledSkill>;
+  nps: DataMap<BundledNP>;
+  quests: DataMap<BundledQuest>;
+  ces: DataMap<BundledCE>;
+  items: DataMap<BundledItem>;
+  ccs: DataMap<BundledCC>;
+  mcs: DataMap<BundledMysticCode>;
 }
 
 export type WithMaps<Keys extends keyof Maps> = Pick<Maps, Keys>;
+
+const dataContext = createContext<Partial<Maps>>({});
+type DataContextProps = Partial<Maps> & React.PropsWithChildren;
+export function DataContext({
+  children,
+  servants,
+  skills,
+  nps,
+  quests,
+  ces,
+  items,
+  ccs,
+  mcs
+}: DataContextProps) {
+  const value = useMemo(() => {
+    return {
+      servants,
+      skills,
+      nps,
+      quests,
+      ces,
+      items,
+      ccs,
+      mcs
+    };
+  }, [servants, skills, nps, quests, ces, items, ccs, mcs]);
+  return <dataContext.Provider value={value}>{children}</dataContext.Provider>;
+}
+
+function useDataContext<Key extends keyof Maps>(key: Key): Maps[Key] {
+  const data = useContextSelector(dataContext, ctx => ctx[key]);
+  if (!data) {
+    throw new Error(`Missing Context: ${key}`);
+  }
+  return data;
+}
+
+export const useServantMap = () => useDataContext("servants");
+export const useSkillMap = () => useDataContext("skills");
+export const useNPMap = () => useDataContext("nps");
+export const useQuestMap = () => useDataContext("quests");
+export const useCEMap = () => useDataContext("ces");
+export const useItemMap = () => useDataContext("items");
+export const useCCMap = () => useDataContext("ccs");
+export const useMysticCodeMap = () => useDataContext("mcs");

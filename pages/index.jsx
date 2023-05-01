@@ -6,7 +6,7 @@ import Headline from "@components/Headline";
 import { CardGrid } from "@components/Card";
 import { EventList } from "src/client/components/EventList";
 import { NoSSR } from "@components/NoSSR";
-import { ItemContext } from "src/client/contexts";
+import { DataContext } from "src/client/contexts";
 //import { SpecialTimer } from "@components/SpecialTimer";
 import { LoginInfoCard } from "src/pages/HomePage/components/LoginInfoCard";
 import MasterMissionCard from "src/pages/HomePage/components/MasterMissionCard";
@@ -75,9 +75,9 @@ export default function HomePage({
       {events.length > 0 && <EventList events={events} />}
       <Headline>Timers</Headline>
       <CardGrid>
-        <ItemContext value={items}>
+        <DataContext items={items}>
           <LoginInfoCard ticket={loginTicket} milestones={milestones} />
-        </ItemContext>
+        </DataContext>
         <MasterMissionCard data={masterMissions} />
         <NoSSR>
           <ChaldeaGateCard />

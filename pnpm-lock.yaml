@@ -94,6 +94,9 @@ dependencies:
   react-dom:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
+  scheduler:
+    specifier: ^0.23.0
+    version: 0.23.0
   spacetime:
     specifier: ^7.4.3
     version: 7.4.3
@@ -106,6 +109,9 @@ dependencies:
   typescript:
     specifier: 5.0.4
     version: 5.0.4
+  use-context-selector:
+    specifier: ^1.4.1
+    version: 1.4.1(react-dom@18.2.0)(react@18.2.0)(scheduler@0.23.0)
   yaml:
     specifier: ^2.2.1
     version: 2.2.1
@@ -5806,6 +5812,24 @@ packages:
       querystringify: 2.2.0
       requires-port: 1.0.0
     dev: true
+
+  /use-context-selector@1.4.1(react-dom@18.2.0)(react@18.2.0)(scheduler@0.23.0):
+    resolution: {integrity: sha512-Io2ArvcRO+6MWIhkdfMFt+WKQX+Vb++W8DS2l03z/Vw/rz3BclKpM0ynr4LYGyU85Eke+Yx5oIhTY++QR0ZDoA==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '*'
+      react-native: '*'
+      scheduler: '>=0.19.0'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      scheduler: 0.23.0
+    dev: false
 
   /use-sync-external-store@1.2.0(react@18.2.0):
     resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}

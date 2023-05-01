@@ -4,58 +4,39 @@ import { EventTimesCard } from "src/pages/EventPage/components/EventTimesCard";
 import { EventSchedulesCard } from "src/pages/EventPage/components/EventSchedulesCard";
 import { EventPageLayout } from "src/pages/EventPage/components/EventPageLayout";
 import type { EventPageProps } from "src/pages/EventPage/static";
-import {
-  CEContext,
-  ItemContext,
-  ServantContext,
-  CCContext
-} from "src/client/contexts";
+import { DataContext } from "src/client/contexts";
 
 // Next Page configs
 export { getStaticPaths, getStaticProps } from "src/pages/EventPage/static";
 
-type EventPageInnerProps = Pick<EventPageProps, "event">;
-
-function EventPage({ event }: EventPageInnerProps) {
+export default function EventPage({
+  event,
+  servants,
+  ces,
+  items,
+  ccs
+}: EventPageProps) {
   const end = normalizeDate(event.date)[1];
   const hasGrid = Boolean(event.schedules || event.times);
 
   return (
     <EventPageLayout event={event} current="Timers">
       {hasGrid ? (
-        <CardGrid>
-          {event.times && <EventTimesCard times={event.times} />}
-          {event.schedules?.map(schedule => (
-            <EventSchedulesCard
-              key={schedule.title}
-              {...schedule}
-              eventEnd={end}
-            />
-          ))}
-        </CardGrid>
+        <DataContext servants={servants} ces={ces} items={items} ccs={ccs}>
+          <CardGrid>
+            {event.times && <EventTimesCard times={event.times} />}
+            {event.schedules?.map(schedule => (
+              <EventSchedulesCard
+                key={schedule.title}
+                {...schedule}
+                eventEnd={end}
+              />
+            ))}
+          </CardGrid>
+        </DataContext>
       ) : (
         "This Event has no timers"
       )}
     </EventPageLayout>
-  );
-}
-
-export default function Page({
-  servants,
-  ces,
-  items,
-  ccs,
-  event
-}: EventPageProps) {
-  return (
-    <ServantContext value={servants}>
-      <CEContext value={ces}>
-        <ItemContext value={items}>
-          <CCContext value={ccs}>
-            <EventPage event={event} />
-          </CCContext>
-        </ItemContext>
-      </CEContext>
-    </ServantContext>
   );
 }

@@ -12,7 +12,7 @@ import {
   TimerListItem
 } from "src/client/components/Card";
 import { Borders } from "src/types/borders";
-import { ItemContext } from "src/client/contexts";
+import { DataContext } from "src/client/contexts";
 import { DisplayDate, DisplayDelta } from "src/client/components/TimeDisplay";
 import { BorderedItemIcon } from "src/client/components/BorderedIcon";
 import Section from "src/client/components/Section";
@@ -105,13 +105,13 @@ export default function LoginTicketYearPage({
                   </li>
                 </TimerListItem>
                 <TimerListItem title="Available Items">
-                  <ItemContext value={items}>
+                  <DataContext items={items}>
                     <TimerListEntities>
                       {ticket.items.map(id => (
                         <BorderedItemIcon key={id} itemId={id} />
                       ))}
                     </TimerListEntities>
-                  </ItemContext>
+                  </DataContext>
                 </TimerListItem>
               </TimerList>
             </Card>

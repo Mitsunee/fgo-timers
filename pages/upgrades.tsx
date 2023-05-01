@@ -6,12 +6,7 @@ import { useStore } from "@nanostores/react";
 import type { BundledUpgrade } from "src/upgrades/types";
 import { settingsStore } from "src/client/stores/settingsStore";
 import { api } from "src/client/api";
-import {
-  NPContext,
-  QuestContext,
-  ServantContext,
-  SkillContext
-} from "src/client/contexts";
+import { DataContext } from "src/client/contexts";
 import Meta from "src/client/components/Meta";
 import Section from "src/client/components/Section";
 import { NoSSR } from "src/client/components/NoSSR";
@@ -74,16 +69,6 @@ export default function UpgradesPage({ fallback }: UpgradesPageProps) {
 
     return [searcher, filteredUpgrades] as const;
   }, [isLoading, data, filters]);
-
-  const Contexts = (props: React.PropsWithChildren) => (
-    <ServantContext value={data.servants}>
-      <SkillContext value={data.skills}>
-        <NPContext value={data.nps}>
-          <QuestContext value={data.quests}>{props.children}</QuestContext>
-        </NPContext>
-      </SkillContext>
-    </ServantContext>
-  );
 
   // apply search
   const results: SemiRequired<MatchData<BundledUpgrade>, "item">[] =
@@ -156,7 +141,11 @@ export default function UpgradesPage({ fallback }: UpgradesPageProps) {
           </ActionButton>
         </NoSSR>
       </div>
-      <Contexts>
+      <DataContext
+        servants={data.servants}
+        skills={data.skills}
+        nps={data.nps}
+        quests={data.quests}>
         <CardGrid>
           {results.slice(0, page * perPage).map(({ item, match, original }) => {
             const highlight: Highlight = match
@@ -168,7 +157,7 @@ export default function UpgradesPage({ fallback }: UpgradesPageProps) {
             );
           })}
         </CardGrid>
-      </Contexts>
+      </DataContext>
       <p>
         Results {firstResultNum} to {lastResultNum} of {results.length}
       </p>
