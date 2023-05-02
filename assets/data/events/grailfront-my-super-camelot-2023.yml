@@ -1,0 +1,41 @@
+title: "Grail Front: My Super Camelot 2023"
+shortTitle: "Grail Front: My Super Camelot 2023"
+banner: 2023_supercamelot.png
+url: 2023/0508_camelot2023/
+date: 2023-05-08 01:00 - 05-21 20:59 PDT
+requires: Clear Fuyuki
+description: >-
+  The latest installment in the Grailfront Event series features the introduction of
+  Support Servants, Treasure Chests and Dangerous enemies. Also included are the
+  release of Rank Up Quests for Altria Pendragon (Lancer) and Tristan, as well as
+  Summoning Banners featuring Altria Pendragon (Lancer), Mordred (Saber) and the
+  Camelot Round Table Knights. Mordred's Trifas Costume will also be added to Dress Making.
+times:
+  - title: Maintenance
+    date: 2023-05-07 21:00 - 05-08 01:00 PDT
+  - title: Costume "Memories of Trifas" added to Dress Making
+    date: 2023-05-08 01:00 PDT
+    servants: [100900] # TODO: change to costume
+schedules:
+  - title: Grailfront Rounds
+    times:
+      - title: Grail Front 1
+        date: 2023-05-08 01:00 PDT
+      - title: Grail Front 2
+        date: 2023-05-08 21:00 PDT
+      - title: Grail Front 3
+        date: 2023-05-09 21:00 PDT
+      - title: Grail Front 4
+        date: 2023-05-10 21:00 PDT
+      - title: Grail Front 5
+        date: 2023-05-11 21:00 PDT
+      - title: Grail Front 6
+        date: 2023-05-12 21:00 PDT
+      - title: Grail Front 7
+        date: 2023-05-13 21:00 PDT
+upgrades: [94058981, 94058982]
+banners:
+  - date: 2023-05-08 01:00 - 05-21 20:59 PDT
+    servants: [302000, 100700, 102000] # Altria
+  - date: 2023-05-09 21:00 - 05-21 20:59 PDT
+    servants: [100900, 102000, 200800] # Mordred
