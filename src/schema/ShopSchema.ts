@@ -2,7 +2,7 @@ import { z } from "zod";
 import { zDurationStrict } from "./zDate";
 import { zBorderOptional } from "./zBorder";
 
-const ShopItem = z.object({
+const zShopItem = z.object({
   type: z.enum(["item", "ce", "cc", "servant", "mc"]).default("item"), // TODO: support for costumes
   id: z.number(),
   name: z.string().optional(),
@@ -12,35 +12,36 @@ const ShopItem = z.object({
   stack: z.number().optional()
 });
 
-const MixedShopItem = ShopItem.extend({
-  currency: z.number()
+const zShopInventory = z.object({
+  title: z.string().optional(),
+  currency: z.number(),
+  items: z.array(zShopItem)
 });
 
-const ShopItemLimited = ShopItem.extend({
+const zShopInventoryMonthly = zShopInventory.extend({
+  day: z.number().int().min(0).max(30),
+  hour: z.number().int().min(0).max(23)
+});
+
+const zShopInventoryLimited = zShopInventory.extend({
   date: zDurationStrict
-});
-
-const MixedShopItemLimited = ShopItemLimited.extend({
-  currency: z.number()
 });
 
 export const ShopSchema = z.object({
   title: z.string(),
-  currency: z.number(),
   color: zBorderOptional,
-  inventory: z.array(ShopItem),
-  monthly: z.array(ShopItem).optional(),
-  limited: z.array(ShopItemLimited).optional()
+  inventory: z.array(zShopInventory),
+  monthly: z.array(zShopInventoryMonthly).min(1).optional(),
+  limited: z.array(zShopInventoryLimited).min(1).optional()
 });
 
-export const MixedShopSchema = ShopSchema.pick({
-  title: true,
-  color: true
-}).extend({
-  inventory: z.array(MixedShopItem),
-  monthly: z.array(MixedShopItem).optional(),
-  limited: z.array(MixedShopItemLimited).optional()
-});
+type ParsedShop = z.output<typeof ShopSchema>;
+export interface BundledShop extends ParsedShop {
+  slug: string;
+}
 
-export type Shop = z.output<typeof ShopSchema>;
-export type MixedShop = z.output<typeof MixedShopSchema>;
+export type AnyShopInventory = z.output<typeof zShopInventory> &
+  Partial<z.output<typeof zShopInventoryMonthly>> &
+  Partial<z.output<typeof zShopInventoryLimited>>;
+
+export type ShopItem = z.output<typeof zShopItem>;

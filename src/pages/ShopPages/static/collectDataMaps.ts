@@ -1,5 +1,5 @@
 import type { WithMaps } from "src/client/contexts";
-import type { AnyShop, AnyShopItem } from "src/shops/types";
+import type { BundledShop, AnyShopInventory } from "src/schema/ShopSchema";
 import {
   getBundledCCMap,
   getBundledCEMap,
@@ -8,7 +8,7 @@ import {
   getBundledServantMap
 } from "src/utils/getBundles";
 
-export async function collectDataMaps(shop: AnyShop) {
+export async function collectDataMaps(shop: BundledShop | BundledShop[]) {
   const [servantMap, itemMap, ceMap, ccMap, mcMap] = await Promise.all([
     getBundledServantMap(),
     getBundledItemMap(),
@@ -25,36 +25,39 @@ export async function collectDataMaps(shop: AnyShop) {
     mcs: {}
   };
 
-  function collectData(item: AnyShopItem) {
-    switch (item.type) {
-      case "servant":
-        data.servants[item.id] = servantMap[item.id];
-        break;
-      case "item":
-        data.items[item.id] = itemMap[item.id];
-        break;
-      case "ce":
-        data.ces[item.id] = ceMap[item.id];
-        break;
-      case "cc":
-        data.ccs[item.id] = ccMap[item.id];
-        break;
-      case "mc":
-        data.mcs[item.id] = mcMap[item.id];
-        break;
-    }
-
-    if (item.currency) {
-      data.items[item.currency] = itemMap[item.currency];
-    }
+  function handleInventory(inventory: AnyShopInventory) {
+    data.items[inventory.currency] = itemMap[inventory.currency];
+    inventory.items.forEach(item => {
+      switch (item.type) {
+        case "servant":
+          data.servants[item.id] = servantMap[item.id];
+          break;
+        case "item":
+          data.items[item.id] = itemMap[item.id];
+          break;
+        case "ce":
+          data.ces[item.id] = ceMap[item.id];
+          break;
+        case "cc":
+          data.ccs[item.id] = ccMap[item.id];
+          break;
+        case "mc":
+          data.mcs[item.id] = mcMap[item.id];
+          break;
+      }
+    });
   }
 
-  shop.inventory.forEach(collectData);
-  shop.monthly?.forEach(collectData);
-  shop.limited?.forEach(collectData);
+  function handleShop(shop: BundledShop) {
+    shop.inventory.forEach(handleInventory);
+    shop.monthly?.forEach(handleInventory);
+    shop.limited?.forEach(handleInventory);
+  }
 
-  if (shop.currency) {
-    data.items[shop.currency] = itemMap[shop.currency];
+  if (Array.isArray(shop)) {
+    shop.forEach(handleShop);
+  } else {
+    handleShop(shop);
   }
 
   return data;

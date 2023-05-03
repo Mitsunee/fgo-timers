@@ -12,7 +12,7 @@ import { normalizeDate } from "../../time/normalizeDate";
 import { Log } from "../../utils/log";
 import type { PrebuildBundler } from "../utils/bundlers";
 
-const assetsDir = join(process.cwd(), "assets/data/events");
+const eventsDir = join(process.cwd(), "assets/data/events");
 
 export const bundleEvents: PrebuildBundler<BundledEvent[]> = async () => {
   const events = new Array<BundledEvent>();
@@ -20,11 +20,11 @@ export const bundleEvents: PrebuildBundler<BundledEvent[]> = async () => {
   const ces = new Set<number>();
   const items = new Set<number>();
   const ccs = new Set<number>();
-  const dir = await readdir(assetsDir);
+  const dir = await readdir(eventsDir);
   const files = dir.filter(file => file.endsWith(".yml"));
 
   for (const fileName of files) {
-    const filePath = join(assetsDir, fileName);
+    const filePath = join(eventsDir, fileName);
     const slug = getFileName(fileName, false);
     const fileContent = await readFileYaml<EventDataRaw>(filePath);
     if (!fileContent) {

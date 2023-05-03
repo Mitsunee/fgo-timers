@@ -1,11 +1,12 @@
-import type { InferGetStaticPropsType } from "next";
-import { staticPropsFactory } from "src/pages/ShopPages/static";
+import type { GetStaticProps } from "next";
 import { DataContext } from "src/client/contexts";
+import { getStaticProps as dynamicStaticProps } from "src/pages/ShopPages/static";
+import type { ShopPageProps } from "src/pages/ShopPages/static";
 
-export const getStaticProps = staticPropsFactory("mana-prism");
-type PageProps = InferGetStaticPropsType<typeof getStaticProps>;
+export const getStaticProps: GetStaticProps<ShopPageProps> = async () =>
+  dynamicStaticProps({ params: { slug: "mana-prism" } });
 
-export default function ManaPrismShopPage(props: PageProps) {
+export default function ManaPrismShopPage(props: ShopPageProps) {
   return (
     <DataContext
       servants={props.servants}

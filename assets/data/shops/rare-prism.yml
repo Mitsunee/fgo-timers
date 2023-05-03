@@ -1,321 +1,335 @@
 title: Rare Prism Shop
-currency: 18
 color: gold
 inventory:
-  ## MP Shop CE Unlocks
-  - id: 9400780
-    name: "Unlock Exchange: Mona Lisa"
-    type: ce
-    cost: 1
-  - id: 9401340
-    name: "Unlock Exchange: Personal Training"
-    type: ce
-    cost: 1
-  - id: 9401710
-    name: "Unlock Exchange: Personal Lesson"
-    type: ce
-    cost: 1
-  - id: 9401970
-    name: "Unlock Exchange: Chaldea Lunchtime"
-    type: ce
-    cost: 1
-  - id: 9403300
-    name: "Unlock Exchange: Be Graceful"
-    type: ce
-    cost: 1
-  - id: 9403520
-    name: "Unlock Exchange: Chaldea Teatime"
-    type: ce
-    cost: 1
-  - id: 9403690
-    name: "Unlock Exchange: Bella Lisa"
-    type: ce
-    cost: 1
-  - id: 9403870
-    name: "Unlock Exchange: Personal Coaching"
-    type: ce
-    cost: 1
-  - id: 9403990
-    name: "Unlock Exchange: Foumes"
-    type: ce
-    cost: 1
-  - id: 9404180
-    name: "Unlock Exchange: Chaldea Dinnertime"
-    type: ce
-    cost: 1
+  - title: MP Shop CE Unlocks
+    currency: 18
+    items:
+      - id: 9400780
+        name: "Unlock Exchange: Mona Lisa"
+        type: ce
+        cost: 1
+      - id: 9401340
+        name: "Unlock Exchange: Personal Training"
+        type: ce
+        cost: 1
+      - id: 9401710
+        name: "Unlock Exchange: Personal Lesson"
+        type: ce
+        cost: 1
+      - id: 9401970
+        name: "Unlock Exchange: Chaldea Lunchtime"
+        type: ce
+        cost: 1
+      - id: 9403300
+        name: "Unlock Exchange: Be Graceful"
+        type: ce
+        cost: 1
+      - id: 9403520
+        name: "Unlock Exchange: Chaldea Teatime"
+        type: ce
+        cost: 1
+      - id: 9403690
+        name: "Unlock Exchange: Bella Lisa"
+        type: ce
+        cost: 1
+      - id: 9403870
+        name: "Unlock Exchange: Personal Coaching"
+        type: ce
+        cost: 1
+      - id: 9403990
+        name: "Unlock Exchange: Foumes"
+        type: ce
+        cost: 1
+      - id: 9404180
+        name: "Unlock Exchange: Chaldea Dinnertime"
+        type: ce
+        cost: 1
+  - title: Purchasable CEs
+    currency: 18
+    items:
+      - id: 9402060 # Sweet Crystal
+        type: ce
+        cost: 5
+        amount: 5
+      - id: 9402260 # Fondant au Chocolat
+        type: ce
+        cost: 5
+        amount: 5
+      - id: 9401960 # Joint Recital
+        type: ce
+        cost: 5
+        amount: 5
+      - id: 9401950 # Princess of the White Rose
+        type: ce
+        cost: 5
+        amount: 5
+      - id: 9401100 # Melty Sweetheart
+        type: ce
+        cost: 5
+        amount: 5
+      - id: 9400410 # Nightless Rose
+        type: ce
+        cost: 5
+        amount: 5
+      - id: 9800700 # Chaldea Standard
+        type: ce
+        cost: 3
+        requires: Not owned
+      - id: 9301560 # Cheers to 2019
+        type: ce
+        cost: 3
+        requires: Not owned
+      - id: 9400790 # Happy x3 Order
+        type: ce
+        cost: 3
+        requires: Not owned
+      - id: 9400360 # Beginning of the Journey
+        type: ce
+        cost: 3
+        requires: Not owned
+      - id: 9404300 # Dancing Tops
+        type: ce
+        cost: 3
+        requires: Not owned
+      - id: 9303520 # New Year's Greeting
+        type: ce
+        cost: 3
+        requires: Not owned
+      - id: 9302640 # Irohanihoheto
+        type: ce
+        cost: 3
+        requires: Not owned
 
-  ## Purchasable CEs (5x 5RP)
-  - id: 9402060 # Sweet Crystal
-    type: ce
-    cost: 5
-    amount: 5
-  - id: 9402260 # Fondant au Chocolat
-    type: ce
-    cost: 5
-    amount: 5
-  - id: 9401960 # Joint Recital
-    type: ce
-    cost: 5
-    amount: 5
-  - id: 9401950 # Princess of the White Rose
-    type: ce
-    cost: 5
-    amount: 5
-  - id: 9401100 # Melty Sweetheart
-    type: ce
-    cost: 5
-    amount: 5
-  - id: 9400410 # Nightless Rose
-    type: ce
-    cost: 5
-    amount: 5
+  - title: Command Codes
+    currency: 18
+    items:
+      - id: 8400120 # First Servant
+        type: cc
+        cost: 5
+      - id: 8400190 # Dragon-Slayer's Sword
+        type: cc
+        cost: 2
+      - id: 8400160 # God-Binding Chain
+        type: cc
+        cost: 2
+      - id: 8400130 # Armament of Victory
+        type: cc
+        cost: 2
 
-  ## Purchasable CCs
-  - id: 8400120 # First Servant
-    type: cc
-    cost: 5
-  - id: 8400190 # Dragon-Slayer's Sword
-    type: cc
-    cost: 2
-  - id: 8400160 # God-Binding Chain
-    type: cc
-    cost: 2
-  - id: 8400130 # Armament of Victory
-    type: cc
-    cost: 2
+  - title: CE Exchange Shops
+    currency: 18
+    items:
+      - id: 9400970
+        name: "Unlock Exchange: Heroic Portrait"
+        type: ce
+        cost: 3
+        requires: Not exchanged
+      - id: 9402280
+        name: "Unlock Exchange: CBC 2019"
+        type: ce
+        cost: 3
+        requires: Not exchanged
+      - id: 9402910
+        name: "Unlock Exchange: CBC 2020"
+        type: ce
+        cost: 3
+        requires: Not exchanged
+      - id: 9403700
+        name: "Unlock Exchange: CBC 2021"
+        type: ce
+        cost: 3
+        requires: Not exchanged
+      - id: 9404370
+        name: "Unlock Exchange: CBC 2022"
+        type: ce
+        cost: 3
+        requires: Not exchanged
 
-  ## Purchasable CEs ("Not owned"-locked)
-  - id: 9800700 # Chaldea Standard
-    type: ce
-    cost: 3
-    requires: Not owned
-  - id: 9301560 # Cheers to 2019
-    type: ce
-    cost: 3
-    requires: Not owned
-  - id: 9400790 # Happy x3 Order
-    type: ce
-    cost: 3
-    requires: Not owned
-  - id: 9400360 # Beginning of the Journey
-    type: ce
-    cost: 3
-    requires: Not owned
-  - id: 9404300 # Dancing Tops
-    type: ce
-    cost: 3
-    requires: Not owned
-  - id: 9303520 # New Year's Greeting
-    type: ce
-    cost: 3
-    requires: Not owned
-  - id: 9302640 # Irohanihoheto
-    type: ce
-    cost: 3
-    requires: Not owned
+  - title: Mystic Codes
+    currency: 18
+    items:
+      - id: 50
+        name: "Unlock Aquisition Quest: Anniversary Blonde"
+        type: mc
+        cost: 5
+        requires: Not cleared
+      - id: 80
+        name: "Unlock Aquisition Quest: Memories of the Lunar Sea"
+        type: mc
+        cost: 5
+        requires: Not cleared
+      - id: 60
+        name: "Unlock Aquisition Quest: Royal Brand"
+        type: mc
+        cost: 5
+        requires: Not cleared
+      - id: 130
+        name: "Unlock Aquisition Quest: Splendid New Year"
+        type: mc
+        cost: 5
+        requires: Not cleared
+      - id: 100
+        name: "Unlock Aquisition Quest: Fragment of 2004"
+        type: mc
+        cost: 5
+        requires: Not cleared
+      - id: 90
+        name: "Unlock Aquisition Quest: Memories of the Far Side of the Moon"
+        type: mc
+        cost: 5
+        requires: Not cleared
 
-  ## CE Exchange Shops
-  - id: 9400970
-    name: "Unlock Exchange: Heroic Portrait"
-    type: ce
-    cost: 3
-    requires: Not exchanged
-  - id: 9402280
-    name: "Unlock Exchange: CBC 2019"
-    type: ce
-    cost: 3
-    requires: Not exchanged
-  - id: 9402910
-    name: "Unlock Exchange: CBC 2020"
-    type: ce
-    cost: 3
-    requires: Not exchanged
-  - id: 9403700
-    name: "Unlock Exchange: CBC 2021"
-    type: ce
-    cost: 3
-    requires: Not exchanged
-  - id: 9404370
-    name: "Unlock Exchange: CBC 2022"
-    type: ce
-    cost: 3
-    requires: Not exchanged
+  - title: Past Events
+    currency: 18
+    items:
+      - id: 202200
+        name: "Unlock Main Interlude: Merry Christmas from the Underworld"
+        type: servant
+        cost: 5
+        requires: Not cleared
+      - id: 2300100
+        name: "Unlock Main Interlude: Abyssal Cyber Paradise, SE.RA.PH"
+        type: servant
+        cost: 5
+      - id: 1100200
+        name: "Unlock Event: Vengeful Demon's Wail at the Prison Tower"
+        type: servant
+        cost: 5
+      - id: 702800
+        name: "Unlock Event: All the Statesmen!"
+        type: servant
+        cost: 5
+      - id: 202200 # Santera
+        type: servant
+        cost: 2
+        amount: 4
+        requires: Not aquired 5x
+      - id: 2300100 # BB
+        type: servant
+        cost: 2
+        amount: 4
+        requires: Not aquired 5x
 
-  ## Unlockable MC Quests
-  - id: 50
-    name: "Unlock Aquisition Quest: Anniversary Blonde"
-    type: mc
-    cost: 5
-    requires: Not cleared
-  - id: 80
-    name: "Unlock Aquisition Quest: Memories of the Lunar Sea"
-    type: mc
-    cost: 5
-    requires: Not cleared
-  - id: 60
-    name: "Unlock Aquisition Quest: Royal Brand"
-    type: mc
-    cost: 5
-    requires: Not cleared
-  - id: 130
-    name: "Unlock Aquisition Quest: Splendid New Year"
-    type: mc
-    cost: 5
-    requires: Not cleared
-  - id: 100
-    name: "Unlock Aquisition Quest: Fragment of 2004"
-    type: mc
-    cost: 5
-    requires: Not cleared
-  - id: 90
-    name: "Unlock Aquisition Quest: Memories of the Far Side of the Moon"
-    type: mc
-    cost: 5
-    requires: Not cleared
+  - title: CE Aquisition Quests
+    currency: 18
+    items:
+      - id: 9401300
+        name: "Unlock Aquisition Quest: [Heaven's Feel]"
+        type: ce
+        cost: 3
+      - id: 9401720
+        name: "Unlock Aquisition Quest: Anniversary Heroines"
+        type: ce
+        cost: 3
+      - id: 9403400
+        name: "Unlock Quest: Fate/Grand Order CE Recollection I"
+        type: ce
+        cost: 3
+      - id: 9304290
+        name: "Unlock Quest: Fate/Grand Order CE Recollection II"
+        type: ce
+        cost: 3
+      - id: 9302800
+        name: "Unlock Aquisition Quest: Fate/EXTELLA LINK"
+        type: ce
+        cost: 3
+      - id: 9302530
+        name: "Unlock Aquisition Quest: Pray Upon the Sword, Wish Upon Life"
+        type: ce
+        cost: 3
+      - id: 9301790
+        name: "Unlock Aquisition Quest: Fate/Apocrypha"
+        type: ce
+        cost: 3
+      - id: 9301800
+        name: "Unlock Aquisition Quest: FGO THE STAGE"
+        type: ce
+        cost: 3
+      - id: 9402670
+        name: "Unlock Aquisition Quest:Replica; Agateram"
+        type: ce
+        cost: 3
 
-  ## Unlockable Events
-  - id: 202200
-    name: "Unlock Main Interlude: Merry Christmas from the Underworld"
-    type: servant
-    cost: 5
-    requires: Not cleared
-  - id: 2300100
-    name: "Unlock Main Interlude: Abyssal Cyber Paradise, SE.RA.PH"
-    type: servant
-    cost: 5
-  - id: 1100200
-    name: "Unlock Event: Vengeful Demon's Wail at the Prison Tower"
-    type: servant
-    cost: 5
-  - id: 702800
-    name: "Unlock Event: All the Statesmen!"
-    type: servant
-    cost: 5
-
-  ## Purchasable Servants
-  - id: 202200 # Santera
-    type: servant
-    cost: 2
-    amount: 4
-    requires: Not aquired 5x
-  - id: 2300100 # BB
-    type: servant
-    cost: 2
-    amount: 4
-    requires: Not aquired 5x
-
-  ## CE Aquisition Quest
-  - id: 9401300
-    name: "Unlock Aquisition Quest: [Heaven's Feel]"
-    type: ce
-    cost: 3
-  - id: 9401720
-    name: "Unlock Aquisition Quest: Anniversary Heroines"
-    type: ce
-    cost: 3
-  - id: 9403400
-    name: "Unlock Quest: Fate/Grand Order CE Recollection I"
-    type: ce
-    cost: 3
-  - id: 9304290
-    name: "Unlock Quest: Fate/Grand Order CE Recollection II"
-    type: ce
-    cost: 3
-  - id: 9302800
-    name: "Unlock Aquisition Quest: Fate/EXTELLA LINK"
-    type: ce
-    cost: 3
-  - id: 9302530
-    name: "Unlock Aquisition Quest: Pray Upon the Sword, Wish Upon Life"
-    type: ce
-    cost: 3
-  - id: 9301790
-    name: "Unlock Aquisition Quest: Fate/Apocrypha"
-    type: ce
-    cost: 3
-  - id: 9301800
-    name: "Unlock Aquisition Quest: FGO THE STAGE"
-    type: ce
-    cost: 3
-  - id: 9402670
-    name: "Unlock Aquisition Quest:Replica; Agateram"
-    type: ce
-    cost: 3
-
-  ## Unlockable Trial Quests
-  - id: 303000
-    name: "Unlock Trial Quest: Pārvatī"
-    type: servant
-    cost: 1
-    requires: Not cleared
-  - id: 2500200
-    name: "Unlock Trial Quest: Katsushika Hokusai"
-    type: servant
-    cost: 1
-    requires: Not cleared
-  - id: 300400
-    name: "Unlock Trial Quest: Karna (5* lancer)"
-    type: servant
-    cost: 1
-    requires: Not cleared
-  - id: 301300
-    name: "Unlock Trial Quest: Scáthach"
-    type: servant
-    cost: 1
-    requires: Not cleared
-  - id: 900200
-    name: "Unlock Trial Quest: Amakusa Shirou"
-    type: servant
-    cost: 1
-    requires: Not cleared
-  - id: 301200
-    name: "Unlock Trial Quest: Brynhild"
-    type: servant
-    cost: 1
-    requires: Not cleared
-  - id: 101700
-    name: "Unlock Trial Quest: Miyamoto Musashi"
-    type: servant
-    cost: 1
-    requires: Not cleared
-  - id: 702400
-    name: "Unlock Trial Quest: Mysterious Heroine X (Alter)"
-    type: servant
-    cost: 1
-    requires: Not cleared
-  - id: 102900
-    name: "Unlock Trial Quest: Arthur Pendragon (Prototype)"
-    type: servant
-    cost: 1
-    requires: Not cleared
-  - id: 900500
-    name: "Unlock Trial Quest: Sherlock Holmes"
-    type: servant
-    cost: 1
-    requires: Not cleared
+  - title: Unlockable Trial Quests
+    currency: 18
+    items:
+      - id: 303000
+        name: "Unlock Trial Quest: Pārvatī"
+        type: servant
+        cost: 1
+        requires: Not cleared
+      - id: 2500200
+        name: "Unlock Trial Quest: Katsushika Hokusai"
+        type: servant
+        cost: 1
+        requires: Not cleared
+      - id: 300400
+        name: "Unlock Trial Quest: Karna (5* lancer)"
+        type: servant
+        cost: 1
+        requires: Not cleared
+      - id: 301300
+        name: "Unlock Trial Quest: Scáthach"
+        type: servant
+        cost: 1
+        requires: Not cleared
+      - id: 900200
+        name: "Unlock Trial Quest: Amakusa Shirou"
+        type: servant
+        cost: 1
+        requires: Not cleared
+      - id: 301200
+        name: "Unlock Trial Quest: Brynhild"
+        type: servant
+        cost: 1
+        requires: Not cleared
+      - id: 101700
+        name: "Unlock Trial Quest: Miyamoto Musashi"
+        type: servant
+        cost: 1
+        requires: Not cleared
+      - id: 702400
+        name: "Unlock Trial Quest: Mysterious Heroine X (Alter)"
+        type: servant
+        cost: 1
+        requires: Not cleared
+      - id: 102900
+        name: "Unlock Trial Quest: Arthur Pendragon (Prototype)"
+        type: servant
+        cost: 1
+        requires: Not cleared
+      - id: 900500
+        name: "Unlock Trial Quest: Sherlock Holmes"
+        type: servant
+        cost: 1
+        requires: Not cleared
 monthly:
-  - id: 1000 # Bond Grail
-    type: item
-    cost: 3
-  - id: 5003 # Code Remover
-    type: item
-    cost: 1
-    amount: 3
-  - id: 2000 # Footprint
-    type: item
-    cost: 1
-  - id: 6999 # Lore
-    type: item
-    cost: 5
-  - id: 9570400 # HP Gold Fou
-    type: item
-    cost: 3
-  - id: 9670400 # ATK Gold Fou
-    type: item
-    cost: 3
-  - id: 4
-    type: item
-    cost: 1
-    amount: 5
-    stack: 20000
+  - currency: 18
+    day: 15
+    hour: 0
+    items:
+      - id: 1000 # Bond Grail
+        type: item
+        cost: 3
+      - id: 5003 # Code Remover
+        type: item
+        cost: 1
+        amount: 3
+      - id: 2000 # Footprint
+        type: item
+        cost: 1
+      - id: 6999 # Lore
+        type: item
+        cost: 5
+      - id: 9570400 # HP Gold Fou
+        type: item
+        cost: 3
+      - id: 9670400 # ATK Gold Fou
+        type: item
+        cost: 3
+      - id: 4
+        type: item
+        cost: 1
+        amount: 5
+        stack: 20000
 #limited: []

@@ -14,7 +14,7 @@ import type {
   BundledMysticCode
 } from "src/items/types";
 import type { BundledEvent } from "src/events/types";
-import type { BundledShops } from "src/shops/types";
+import type { BundledShop } from "src/schema/ShopSchema";
 import { Log } from "./log";
 import { safeProxyDataMap } from "./safeProxyDataMap";
 
@@ -126,7 +126,7 @@ export const getCustomItemMap = withProxy(
   "Could not find Custom Item %KEY% in bundled data"
 );
 
-export const getBundledShops = createBundle<BundledShops>(
+export const getBundledShops = createBundle<BundledShop[]>(
   path.join(process.cwd(), "assets/static/shops.json")
 );
 
