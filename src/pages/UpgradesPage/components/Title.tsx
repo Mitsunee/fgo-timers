@@ -66,7 +66,7 @@ export function Subtitle({
 
   return (
     <h2>
-      {prefix}{" "}
+      {!name.startsWith(prefix) && `${prefix} `}
       {highlight.match && highlight.match == name ? (
         <SearchMatch
           text={name}
