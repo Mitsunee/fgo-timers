@@ -11,7 +11,7 @@ export interface PageContext extends ParsedUrlQuery {
 
 export interface ShopPageProps
   extends WithMaps<"items" | "servants" | "ces" | "ccs" | "mcs"> {
-  shop: BundledShop; // TODO: add "next" prop to monthly shop inventories?
+  shop: BundledShop;
 }
 
 export const getStaticPaths: GetStaticPaths<PageContext> = async () => {
@@ -30,6 +30,7 @@ export const getStaticProps: GetStaticProps<
   const shops = await getBundledShops();
   const shop = shops.find(shop => shop.slug == slug);
   if (!shop) throw new Error(`Could not find shop with slug '${slug}'`);
+  // TODO: filter out expired limited shops (warn in log?)
   const maps = await collectDataMaps(shop);
 
   return {
