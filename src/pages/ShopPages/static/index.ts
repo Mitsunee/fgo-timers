@@ -4,6 +4,8 @@ import type { WithMaps } from "src/client/contexts";
 import type { BundledShop } from "src/schema/ShopSchema";
 import { getBundledShops } from "src/utils/getBundles";
 import { collectDataMaps } from "./collectDataMaps";
+import { getBuildInfo } from "src/utils/getBuildInfo";
+import { Log } from "src/utils/log";
 
 export interface PageContext extends ParsedUrlQuery {
   slug: string;
@@ -30,7 +32,20 @@ export const getStaticProps: GetStaticProps<
   const shops = await getBundledShops();
   const shop = shops.find(shop => shop.slug == slug);
   if (!shop) throw new Error(`Could not find shop with slug '${slug}'`);
-  // TODO: filter out expired limited shops (warn in log?)
+
+  // filter expired limited shops
+  if (shop.limited) {
+    const build = await getBuildInfo();
+    const temp = shop.limited.length;
+    shop.limited = shop.limited.filter(
+      inventory => inventory.date[1] > build.date
+    );
+    if (temp > shop.limited.length) {
+      Log.warn(`Limited inventories were filtered in '${slug}.yml'`);
+    }
+  }
+
+  // get data maps
   const maps = await collectDataMaps(shop);
 
   return {

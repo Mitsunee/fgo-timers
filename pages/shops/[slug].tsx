@@ -49,7 +49,7 @@ export default function ShopPage({
           <ShopInventorySection inventories={shop.monthly} />
         </>
       )}
-      {shop.limited && (
+      {shop.limited && shop.limited.length > 0 && (
         <>
           <Headline>
             Limited Time Inventor{shop.limited.length > 1 ? "ies" : "y"}
