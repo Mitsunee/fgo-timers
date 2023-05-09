@@ -13,7 +13,7 @@ import {
   useMysticCodeMap,
   useServantMap
 } from "src/client/contexts";
-import { InlineIcon, InlineImg } from "@components/InlineIcon";
+import { InlineImg } from "@components/InlineIcon";
 import { expandAtlasUrl } from "@atlas-api/urls";
 
 type AnyShopItems = AnyShopInventory["items"];
@@ -79,16 +79,27 @@ function ShopInventoryListItem({
     <>
       <div className={styles.item}>
         <InventoryIcon id={item.id} type={item.type} />
-        {/* PLACEHOLDER */}
-        <span>{item.name || defaultName}</span>
         <span>
-          {/* TODO: handle stack sizes */}
-          {item.amount}x {item.cost}{" "}
+          {typeof item.stack == "number" && `${item.stack}x `}
+          {item.name || defaultName}
+        </span>
+        <span>
+          {item.amount > 1 &&
+            `${item.amount}${
+              typeof item.stack == "number" ? " stacks" : "x"
+            } `}{" "}
+          {item.cost}{" "}
           <InlineImg
             icon={expandAtlasUrl(currencyItem.icon)}
             title={currencyItem.name}
           />
+          {item.amount > 1 && " each"}
         </span>
+        {item.requires && (
+          <span className={styles.wide}>
+            <b>Requires:</b> {item.requires}
+          </span>
+        )}
       </div>
     </>
   );
