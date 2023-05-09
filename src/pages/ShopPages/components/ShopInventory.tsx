@@ -4,6 +4,7 @@ import { useCurrentTime } from "src/client/utils/hooks/useCurrentTime";
 import { DisplayDate, DisplayDelta } from "src/client/components/TimeDisplay";
 import { TimerListItem } from "src/client/components/Card";
 import { ShopInventoryList } from "./ShopInventoryList";
+import { useRecurringEvent } from "@utils/hooks/useRecurringEvent";
 
 interface ShopInventoryProps {
   inventory: AnyShopInventory;
@@ -56,11 +57,40 @@ function LimitedInventoryTimer({
   );
 }
 
+function MonthlyInventoryTimer({ day, hour }: { day: number; hour: number }) {
+  const nextOccurence = useRecurringEvent({ day, hour });
+  const isClient = useIsClient();
+
+  return (
+    <>
+      <li data-wide={isClient ? undefined : true}>
+        {isClient ? (
+          <>
+            <b>Next Rotation:</b> <DisplayDate time={nextOccurence} />
+          </>
+        ) : (
+          `Every ${day}${
+            day == 1 ? "st" : day == 2 ? "nd" : day == 3 ? "rd" : "th"
+          } of the month at ${hour}:00 UTC`
+        )}
+      </li>
+      {isClient && (
+        <li>
+          <b>In:</b> <DisplayDelta time={nextOccurence} />
+        </li>
+      )}
+    </>
+  );
+}
+
 export function ShopInventory({ inventory }: ShopInventoryProps) {
   return (
     <TimerListItem title={inventory.title}>
       {inventory.date && <LimitedInventoryTimer date={inventory.date} />}
-      {/* TODO: MonthlyInventoryTimer */}
+      {typeof inventory.day == "number" &&
+        typeof inventory.hour == "number" && (
+          <MonthlyInventoryTimer day={inventory.day} hour={inventory.hour} />
+        )}
       <ShopInventoryList
         items={inventory.items}
         currency={inventory.currency}
