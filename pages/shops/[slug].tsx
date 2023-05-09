@@ -40,13 +40,13 @@ export default function ShopPage({
         color={themeColor}
       />
       <Headline>{shop.title}</Headline>
-      <ShopInventorySection inventories={shop.inventory} />
+      <ShopInventorySection inventories={shop.inventory} color={shop.color} />
       {shop.monthly && (
         <>
           <Headline>
             Monthly Inventor{shop.monthly.length > 1 ? "ies" : "y"}
           </Headline>
-          <ShopInventorySection inventories={shop.monthly} />
+          <ShopInventorySection inventories={shop.monthly} color={shop.color} />
         </>
       )}
       {shop.limited && shop.limited.length > 0 && (
@@ -54,7 +54,7 @@ export default function ShopPage({
           <Headline>
             Limited Time Inventor{shop.limited.length > 1 ? "ies" : "y"}
           </Headline>
-          <ShopInventorySection inventories={shop.limited} />
+          <ShopInventorySection inventories={shop.limited} color={shop.color} />
         </>
       )}
       {/* PLACEHOLDER */}
