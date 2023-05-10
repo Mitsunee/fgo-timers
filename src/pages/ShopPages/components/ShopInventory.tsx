@@ -5,6 +5,7 @@ import { DisplayDate, DisplayDelta } from "src/client/components/TimeDisplay";
 import { TimerListItem } from "src/client/components/Card";
 import { ShopInventoryList } from "./ShopInventoryList";
 import { useRecurringEvent } from "@utils/hooks/useRecurringEvent";
+import { formatDayOfMonth } from "src/time/formatDayOfMonth";
 
 interface ShopInventoryProps {
   inventory: AnyShopInventory;
@@ -69,9 +70,7 @@ function MonthlyInventoryTimer({ day, hour }: { day: number; hour: number }) {
             <b>Next Rotation:</b> <DisplayDate time={nextOccurence} />
           </>
         ) : (
-          `Every ${day}${
-            day == 1 ? "st" : day == 2 ? "nd" : day == 3 ? "rd" : "th"
-          } of the month at ${hour}:00 UTC`
+          `Every ${formatDayOfMonth(day)} of the month at ${hour}:00 UTC`
         )}
       </li>
       {isClient && (
