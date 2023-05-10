@@ -57,11 +57,6 @@ export default function ShopPage({
           <ShopInventorySection inventories={shop.limited} color={shop.color} />
         </>
       )}
-      {/* PLACEHOLDER */}
-      <Headline>DEBUG</Headline>
-      <code>
-        <pre>{JSON.stringify(shop, null, 2)}</pre>
-      </code>
     </DataContext>
   );
 }

@@ -15,6 +15,7 @@ import {
 } from "src/client/contexts";
 import { InlineImg } from "@components/InlineIcon";
 import { expandAtlasUrl } from "@atlas-api/urls";
+import { MysticCodeIcon } from "@components/MysticCodeIcon";
 
 type AnyShopItems = AnyShopInventory["items"];
 type AnyShopItem = AnyShopItems[number];
@@ -40,9 +41,7 @@ function InventoryIcon({ type, id }: Pick<AnyShopItem, "type" | "id">) {
     case "servant":
       return <BorderedServantIcon servantId={id} className={styles.icon} />;
     case "mc":
-      // PLACEHOLDER
-      // TODO: MysticCodeIcon??
-      return <b className={styles.icon}>MISSING</b>;
+      return <MysticCodeIcon mcId={id} className={styles.icon} />;
   }
 }
 
