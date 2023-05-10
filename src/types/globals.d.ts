@@ -31,6 +31,12 @@ type SemiRequired<T, Keys extends keyof T> = Partial<Omit<T, Keys>> &
   Pick<T, Keys>;
 
 /**
+ * Modify type to where selected keys are required
+ */
+type NonNullableKey<T, Keys extends keyof T> = Omit<T, Keys> &
+  Required<Pick<T, Keys>>;
+
+/**
  * Specifies function parameter that's either a boolean or a callback that gets passed a boolean and must return a boolean
  */
 type BooleanOrFn = boolean | ((state: boolean) => boolean);

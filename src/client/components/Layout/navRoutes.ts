@@ -7,9 +7,10 @@ export const navRoutes: NavRoute[] = [
   { route: "/", label: "Timers" },
   { route: "/events", label: "Events" },
   {
-    route: `/exchange-tickets`,
+    route: "/exchange-tickets",
     label: "Exchange Tickets"
   },
+  { route: "/shops", label: "Shops" },
   { route: "/upgrades", label: "Upgrades" },
   { route: "/ap-calc", label: "AP Calculator" }
 ];
