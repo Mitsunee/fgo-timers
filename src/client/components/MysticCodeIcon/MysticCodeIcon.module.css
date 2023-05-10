@@ -1,0 +1,9 @@
+.icon {
+  position: relative;
+  overflow: hidden;
+  min-width: 1em;
+  min-height: 1em;
+  max-width: 150px;
+  max-height: 150px;
+  aspect-ratio: 1/1;
+}
