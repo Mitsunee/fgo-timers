@@ -21,6 +21,7 @@ import { bundleExchangeTickets } from "./bundler/exchangeTickets";
 import { bundleShops } from "./bundler/shops";
 import { collectIDs } from "./utils/collectIds";
 import { bundleMysticCodesData } from "./data/mcs";
+import { bundleCostumesData } from "./data/costumes";
 
 function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
   return arr.every(el => el !== false);
@@ -69,7 +70,8 @@ function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
     bundleCEsData(ids.ces),
     bundleItemsData(ids.items),
     bundleCCsData(ids.ccs),
-    bundleMysticCodesData(ids.mcs)
+    bundleMysticCodesData(ids.mcs),
+    bundleCostumesData(ids.costumes)
   ]);
   if (!isSuccessful(dataRes)) {
     Log.die("Quitting early because of error in data bundler");

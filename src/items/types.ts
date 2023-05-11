@@ -54,6 +54,10 @@ export interface BundledMysticCode {
   na?: true;
 }
 
+export interface BundledCostume extends ItemBase {
+  border: ServantBorder;
+}
+
 /**
  * Maps rarity as string to Borders enum value
  * @param rarity rarity as string
