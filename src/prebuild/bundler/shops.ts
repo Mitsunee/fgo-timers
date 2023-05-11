@@ -18,8 +18,12 @@ export const bundleShops: PrebuildBundler<BundledShop[]> = async function () {
   const items = new Set<number>();
   const ccs = new Set<number>();
   const mcs = new Set<number>();
+  const costumes = new Set<number>();
   const dir = await readdir(shopsDir);
   const files = dir.filter(file => file.endsWith(".yml"));
+
+  // add Costume Key for ShopsPage
+  items.add(80059);
 
   function collectIDs(inventory: AnyShopInventory) {
     items.add(inventory.currency);
@@ -39,6 +43,9 @@ export const bundleShops: PrebuildBundler<BundledShop[]> = async function () {
           break;
         case "mc":
           mcs.add(item.id);
+          break;
+        case "costume":
+          costumes.add(item.id);
           break;
       }
     });
@@ -79,6 +86,7 @@ export const bundleShops: PrebuildBundler<BundledShop[]> = async function () {
     ces,
     items,
     ccs,
-    mcs
+    mcs,
+    costumes
   };
 };

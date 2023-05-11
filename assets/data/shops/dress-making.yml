@@ -1,0 +1,56 @@
+title: Dress Making
+color: silver
+inventory:
+  - currency: 3
+    items:
+      - id: 603630 # Li Shuwen Assassin Without Glasses 1st asc
+        type: costume
+        cost: 500
+        requires: Section 1 of Li Shuwen's Interlude
+      - id: 603640 # Li Shuwen Assassin Without Glasses 2nd asc
+        type: costume
+        cost: 500
+        requires: Section 1 of Li Shuwen's Interlude
+      - id: 101230 # Bedivere Silver Butler
+        type: costume
+        cost: 1000
+        requires: Clear Camelot Singularity
+      - id: 100130 # Altria Invisible Air
+        type: costume
+        cost: 500
+      - id: 100230 # Altria Alter Shinjuku Costume
+        type: costume
+        cost: 1000
+      - id: 400430 # Astolfo Trifas
+        type: costume
+        cost: 1000
+      - id: 303030 # Parvati 2k4
+        type: costume
+        cost: 1000
+  - currency: 18
+    items:
+      - id: 100930 # Mordred Trifas
+        type: costume
+        cost: 5
+        requires: Clear Fuyuki Singularity
+      - id: 901130 # Devil Caren
+        type: costume
+        cost: 2
+      - id: 100530 # Nero Olympian Gym Uniform
+        type: costume
+        cost: 5
+      - id: 401330 # Medb Prison Warden
+        type: costume
+        cost: 5
+        requires: Clear Fuyuki Singularity
+      - id: 800160 # Mash Summer V2
+        type: costume
+        cost: 5
+        requires: Clear Fuyuki Singularity
+      - id: 800130 # Mash Summer V1
+        type: costume
+        cost: 5
+        requires: Clear Fuyuki Singularity
+      - id: 102930 # Arthur White Rose
+        type: costume
+        cost: 5
