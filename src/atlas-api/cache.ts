@@ -1,7 +1,7 @@
 import { readFileJson, writeFile } from "@foxkit/node-util/fs";
 import { join } from "path";
 import type {
-  Servant,
+  ServantWithLore,
   ServantBasic
 } from "@atlasacademy/api-connector/dist/Schema/Servant";
 import type { Item } from "@atlasacademy/api-connector/dist/Schema/Item";
@@ -15,7 +15,7 @@ import type { CraftEssenceBasic } from "@atlasacademy/api-connector/dist/Schema/
 import { Semaphore } from "../utils/Semaphore";
 
 export const cachePath = ".next/cache/atlasacademy";
-export const cacheVersion = "0.5.0"; // NOTE: bump when adding new things to cache
+export const cacheVersion = "0.6.0"; // NOTE: bump when adding new things to cache
 
 enum CacheFile {
   SERVANT = "nice_servant.json",
@@ -35,7 +35,7 @@ class AtlasApiCache {
   readonly region: SupportedRegion;
   readonly api: (typeof atlasApi)[SupportedRegion];
   private queue: CacheQueue;
-  private servant?: Servant[];
+  private servant?: ServantWithLore[];
   private servantBasic?: ServantBasic[];
   private item?: Item[];
   private ce?: CraftEssenceBasic[];
@@ -49,7 +49,7 @@ class AtlasApiCache {
     const api = atlasApi[region];
     this.api = api;
     this.queue = [
-      [CacheFile.SERVANT, api.servantListNice.bind(api)],
+      [CacheFile.SERVANT, api.servantListNiceWithLore.bind(api)],
       [CacheFile.SERVANT_BASIC, api.servantList.bind(api)],
       [CacheFile.ITEM, api.itemList.bind(api)],
       [CacheFile.CE_BASIC, api.craftEssenceList.bind(api)],
@@ -89,8 +89,10 @@ class AtlasApiCache {
     return writeFile(join(cachePath, this.region, file), data);
   }
 
-  async getNiceServant(): Promise<Servant[]> {
-    return (this.servant ||= await this.readFile<Servant[]>(CacheFile.SERVANT));
+  async getNiceServant(): Promise<ServantWithLore[]> {
+    return (this.servant ||= await this.readFile<ServantWithLore[]>(
+      CacheFile.SERVANT
+    ));
   }
 
   async getBasicServant(): Promise<ServantBasic[]> {

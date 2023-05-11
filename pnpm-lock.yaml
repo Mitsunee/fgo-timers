@@ -2,8 +2,8 @@ lockfileVersion: '6.0'
 
 dependencies:
   '@atlasacademy/api-connector':
-    specifier: ^4.0.4
-    version: 4.0.4
+    specifier: ^4.0.6
+    version: 4.0.6
   '@atlasacademy/api-descriptor':
     specifier: ^2.0.6
     version: 2.0.6
@@ -163,8 +163,8 @@ packages:
       '@jridgewell/gen-mapping': 0.3.3
       '@jridgewell/trace-mapping': 0.3.18
 
-  /@atlasacademy/api-connector@4.0.4:
-    resolution: {integrity: sha512-spZU12nmFYCwkFSBbWAjpTyS+2VEeT/gXcJUSSeVkLNkkht/T/Gjaxp9Z2CkanBLEPC2SeYkzvCRf8+ezZ2fVA==}
+  /@atlasacademy/api-connector@4.0.6:
+    resolution: {integrity: sha512-wR/h+aEtqEsn3R7dZ8Zk5lW6LIZg5nfifSxDd2wM599NW3iNuWOIiOwgY4D/LQvLZc19YKjWydTj366W4RYgww==}
     dependencies:
       axios: 0.27.2
     transitivePeerDependencies:
@@ -174,7 +174,7 @@ packages:
   /@atlasacademy/api-descriptor@2.0.6:
     resolution: {integrity: sha512-gqRMqNTmfsFmzOnk6pS6ImciElXpl2by/iBAEzR1nTgBRvVH6wp+rLQttuRn0AKTxbyvsk1VDtJ/4HzklaFmCQ==}
     dependencies:
-      '@atlasacademy/api-connector': 4.0.4
+      '@atlasacademy/api-connector': 4.0.6
     transitivePeerDependencies:
       - debug
     dev: false

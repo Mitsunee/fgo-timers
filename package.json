@@ -36,7 +36,7 @@
     ">0.2% and not dead"
   ],
   "dependencies": {
-    "@atlasacademy/api-connector": "^4.0.4",
+    "@atlasacademy/api-connector": "^4.0.6",
     "@atlasacademy/api-descriptor": "^2.0.6",
     "@babel/core": "^7.21.4",
     "@csstools/postcss-global-data": "^1.0.3",
