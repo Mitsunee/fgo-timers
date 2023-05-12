@@ -50,6 +50,7 @@ export default function ShopsPage({ items, resets }: ShopsPageProps) {
           </span>
         </ShopLinkButton>
         <ShopLinkButton id={46} slug="pure-prism" title="Pure Prism Shop" />
+        <ShopLinkButton id={80059} slug="dress-making" title="Dress Making" />
       </Section>
     </DataContext>
   );

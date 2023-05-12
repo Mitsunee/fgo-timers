@@ -8,8 +8,17 @@
   background-color: var(--bg-primary);
   box-shadow: inset 0px 2px 4px var(--bg-light), 2px 2px 6px var(--dark);
   transition: color 250ms ease-in-out, border-color 250ms ease-in-out;
-  min-width: 28%;
+  min-width: 100%;
   max-width: 100%;
+
+  @media (--mq-small) {
+    min-width: 40%;
+    flex-basis: 180px;
+  }
+
+  @media (--mq-medium) {
+    flex-basis: 220px;
+  }
 
   &:hover {
     border-color: var(--hover);

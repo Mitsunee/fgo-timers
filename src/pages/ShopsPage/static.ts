@@ -11,7 +11,7 @@ export const getStaticProps = async function () {
   ]);
   const items: typeof itemMap = {};
 
-  [3, 18, 46].forEach(id => {
+  [3, 18, 46, 80059].forEach(id => {
     items[id] = itemMap[id];
   });
 
