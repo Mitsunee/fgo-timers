@@ -2,6 +2,9 @@ import { readFileJson } from "@foxkit/node-util/fs";
 
 import { createServerError } from "./createServerError";
 
+/**
+ * @deprecated Removal blocked by backgrounds in HomePage
+ */
 export async function readStaticBundle(bundle) {
   const fileName = bundle.endsWith(".json") ? bundle : `${bundle}.json`;
 

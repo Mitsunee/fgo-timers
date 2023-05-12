@@ -98,7 +98,8 @@ monthly:
         cost: 15
         amount: 20
 limited:
-  - currency: 3
+  - title: Beyond the Rain Clouds
+    currency: 3
     date: 2023-02-28 16:00 PST - 05-31 16:59 PDT
     items:
       - id: 9405120 # Beyond the Rain Clouds

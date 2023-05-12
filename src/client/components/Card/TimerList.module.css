@@ -6,9 +6,18 @@
   align-items: flex-start;
   list-style-type: none;
 
-  & h2 {
+  & h2,
+  & h3 {
     margin: 0px;
     font-size: 16px;
+  }
+
+  & h4 {
+    margin: 0px;
+    font-weight: normal;
+    font-family: var(--sans);
+    font-size: 1em;
+    text-decoration: underline;
   }
 
   & li,
