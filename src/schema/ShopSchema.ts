@@ -47,3 +47,7 @@ export type AnyShopInventory = z.output<typeof zShopInventory> &
   Partial<z.output<typeof zShopInventoryLimited>>;
 
 export type ShopItem = z.output<typeof zShopItem>;
+
+export function checkShopPath(path: string): boolean {
+  return /assets\/data\/shop\/[\w-]+\.yml$/.test(path);
+}
