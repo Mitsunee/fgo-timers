@@ -8,7 +8,8 @@ import type {
   BundledCC,
   BundledCE,
   BundledItem,
-  BundledMysticCode
+  BundledMysticCode,
+  BundledCostume
 } from "src/items/types";
 import type { BundledQuest } from "src/upgrades/types";
 import { useMemo } from "react";
@@ -22,6 +23,7 @@ interface Maps {
   items: DataMap<BundledItem>;
   ccs: DataMap<BundledCC>;
   mcs: DataMap<BundledMysticCode>;
+  costumes: DataMap<BundledCostume>;
 }
 
 export type WithMaps<Keys extends keyof Maps> = Pick<Maps, Keys>;
@@ -37,7 +39,8 @@ export function DataContext({
   ces,
   items,
   ccs,
-  mcs
+  mcs,
+  costumes
 }: DataContextProps) {
   const value = useMemo(() => {
     return {
@@ -48,9 +51,10 @@ export function DataContext({
       ces,
       items,
       ccs,
-      mcs
+      mcs,
+      costumes
     };
-  }, [servants, skills, nps, quests, ces, items, ccs, mcs]);
+  }, [servants, skills, nps, quests, ces, items, ccs, mcs, costumes]);
   return <dataContext.Provider value={value}>{children}</dataContext.Provider>;
 }
 
@@ -70,3 +74,4 @@ export const useCEMap = () => useDataContext("ces");
 export const useItemMap = () => useDataContext("items");
 export const useCCMap = () => useDataContext("ccs");
 export const useMysticCodeMap = () => useDataContext("mcs");
+export const useCostumeMap = () => useDataContext("costumes");
