@@ -1,7 +1,7 @@
 import { readFileJson } from "@foxkit/node-util/fs";
 
 import { Log } from "../utils/log";
-import { getCurrentTime } from "../scripts/utils/getCurrentTime.mjs";
+import { msToSeconds } from "../time/msToSeconds";
 import { atlasCache, cachePath, cacheVersion } from "./cache";
 
 async function fetchApiInfo() {
@@ -40,7 +40,7 @@ export async function getCacheStatus(): Promise<{
   updateNa?: boolean;
   updateJp?: boolean;
 }> {
-  const now = getCurrentTime();
+  const now = msToSeconds(Date.now());
   const infoLocal = await getLocalCacheInfo();
   const cacheVersionMatch = infoLocal?.version === cacheVersion;
 

@@ -1,6 +1,6 @@
 import { writeFile } from "@foxkit/node-util/fs";
 import { join } from "path";
-import { Log } from "../utils/log.js";
+import { Log } from "../utils/log";
 import { cachePath, atlasCacheNA, atlasCacheJP } from "./cache";
 import { getCacheStatus } from "./validation";
 
