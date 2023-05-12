@@ -5,6 +5,7 @@ import { useRecurringMonthly } from "src/client/utils/hooks/useRecurringMonthly"
 import { DisplayDate, DisplayDelta } from "src/client/components/TimeDisplay";
 import { Card, TimerList, TimerListItem } from "src/client/components/Card";
 import { useCurrentTime } from "@utils/hooks/useCurrentTime";
+import Link from "next/link";
 
 interface ShopsInfoCardProps {
   shops: ShopInfo[];
@@ -96,7 +97,7 @@ export function ShopsInfoCard({ shops }: ShopsInfoCardProps) {
                 ))}
               </>
             )}
-            {shop.limited && (
+            {shop.limited && shop.limited.length > 0 && (
               <>
                 <li data-wide>
                   <h3>
@@ -108,6 +109,10 @@ export function ShopsInfoCard({ shops }: ShopsInfoCardProps) {
                 ))}
               </>
             )}
+            <li data-wide>
+              See <Link href={`/shops/${shop.slug}`}>{shop.title}</Link> for
+              more information
+            </li>
           </TimerListItem>
         ))}
       </TimerList>

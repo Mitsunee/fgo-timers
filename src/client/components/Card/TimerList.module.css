@@ -17,6 +17,9 @@
     font-weight: normal;
     font-family: var(--sans);
     font-size: 1em;
+  }
+
+  & a {
     text-decoration: underline;
   }
 
@@ -85,6 +88,7 @@
   & > a {
     max-width: 100%;
     height: var(--entity-icon-size, 3em);
+    text-decoration: none !important;
   }
 
   & > a {

@@ -42,11 +42,8 @@ function ExchangeTicketsInfo({ ticket, isClient }: ExchangeTicketsInfoProps) {
         </li>
       )}
       <li data-wide>
-        See{" "}
-        <Link href="/exchange-tickets/" style={{ textDecoration: "underline" }}>
-          Exchange Tickets
-        </Link>{" "}
-        for more information
+        See <Link href="/exchange-tickets/">Exchange Tickets</Link> for more
+        information
       </li>
     </TimerListItem>
   );
