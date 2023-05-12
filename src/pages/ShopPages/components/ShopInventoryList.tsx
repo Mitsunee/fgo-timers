@@ -1,21 +1,23 @@
 import type { AnyShopInventory } from "src/schema/ShopSchema";
-import styles from "./ShopInventoryList.module.css";
 import {
   BorderedCEIcon,
   BorderedItemIcon,
   BorderedServantIcon
 } from "src/client/components/BorderedIcon";
 import { CommandCodeIcon } from "src/client/components/CommandCodeIcon";
+import { MysticCodeIcon } from "src/client/components/MysticCodeIcon";
+import { BorderedCostumeIcon } from "src/client/components/BorderedIcon/BorderedCostumeIcon";
 import {
   useCCMap,
   useCEMap,
+  useCostumeMap,
   useItemMap,
   useMysticCodeMap,
   useServantMap
 } from "src/client/contexts";
-import { InlineImg } from "@components/InlineIcon";
-import { expandAtlasUrl } from "@atlas-api/urls";
-import { MysticCodeIcon } from "@components/MysticCodeIcon";
+import { InlineImg } from "src/client/components/InlineIcon";
+import { expandAtlasUrl } from "src/atlas-api/urls";
+import styles from "./ShopInventoryList.module.css";
 
 type AnyShopItems = AnyShopInventory["items"];
 type AnyShopItem = AnyShopItems[number];
@@ -42,6 +44,8 @@ function InventoryIcon({ type, id }: Pick<AnyShopItem, "type" | "id">) {
       return <BorderedServantIcon servantId={id} className={styles.icon} />;
     case "mc":
       return <MysticCodeIcon mcId={id} className={styles.icon} />;
+    case "costume":
+      return <BorderedCostumeIcon costumeId={id} className={styles.icon} />;
   }
 }
 
@@ -51,6 +55,7 @@ function useDefaultName(id: number, type: AnyShopItem["type"]) {
   const ccMap = useCCMap();
   const servantMap = useServantMap();
   const mysticCodeMap = useMysticCodeMap();
+  const costumeMap = useCostumeMap();
 
   switch (type) {
     case "item":
@@ -63,6 +68,8 @@ function useDefaultName(id: number, type: AnyShopItem["type"]) {
       return servantMap[id].name;
     case "mc":
       return mysticCodeMap[id].name;
+    case "costume":
+      return costumeMap[id].name;
   }
 }
 

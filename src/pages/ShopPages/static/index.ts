@@ -12,7 +12,7 @@ export interface PageContext extends ParsedUrlQuery {
 }
 
 export interface ShopPageProps
-  extends WithMaps<"items" | "servants" | "ces" | "ccs" | "mcs"> {
+  extends WithMaps<"items" | "servants" | "ces" | "ccs" | "mcs" | "costumes"> {
   shop: BundledShop;
 }
 

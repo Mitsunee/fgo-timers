@@ -5,24 +5,30 @@ import {
   getBundledCEMap,
   getBundledItemMap,
   getBundledMysticCodeMap,
-  getBundledServantMap
+  getBundledServantMap,
+  getBundledCostumeMap
 } from "src/utils/getBundles";
 
 export async function collectDataMaps(shop: BundledShop | BundledShop[]) {
-  const [servantMap, itemMap, ceMap, ccMap, mcMap] = await Promise.all([
-    getBundledServantMap(),
-    getBundledItemMap(),
-    getBundledCEMap(),
-    getBundledCCMap(),
-    getBundledMysticCodeMap()
-  ]);
+  const [servantMap, itemMap, ceMap, ccMap, mcMap, costumeMap] =
+    await Promise.all([
+      getBundledServantMap(),
+      getBundledItemMap(),
+      getBundledCEMap(),
+      getBundledCCMap(),
+      getBundledMysticCodeMap(),
+      getBundledCostumeMap()
+    ]);
 
-  const data: WithMaps<"servants" | "items" | "ces" | "ccs" | "mcs"> = {
+  const data: WithMaps<
+    "servants" | "items" | "ces" | "ccs" | "mcs" | "costumes"
+  > = {
     servants: {},
     items: {},
     ces: {},
     ccs: {},
-    mcs: {}
+    mcs: {},
+    costumes: {}
   };
 
   function handleInventory(inventory: AnyShopInventory) {
@@ -43,6 +49,9 @@ export async function collectDataMaps(shop: BundledShop | BundledShop[]) {
           break;
         case "mc":
           data.mcs[item.id] = mcMap[item.id];
+          break;
+        case "costume":
+          data.costumes[item.id] = costumeMap[item.id];
           break;
       }
     });

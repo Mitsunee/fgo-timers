@@ -13,6 +13,7 @@ export default function ShopPage({
   ces,
   ccs,
   mcs,
+  costumes,
   shop
 }: ShopPageProps) {
   const hasTimers = Boolean(shop.limited || shop.monthly);
@@ -32,7 +33,8 @@ export default function ShopPage({
       items={items}
       ces={ces}
       ccs={ccs}
-      mcs={mcs}>
+      mcs={mcs}
+      costumes={costumes}>
       <Meta
         title={`${shop.title} | Shops | FGO Timers`}
         headerTitle="Shops"

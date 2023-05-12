@@ -9,6 +9,7 @@ import type { BundledQuest, BundledUpgrade } from "src/upgrades/types";
 import type {
   BundledCC,
   BundledCE,
+  BundledCostume,
   BundledItem,
   BundledLoginTicket,
   BundledMysticCode
@@ -137,4 +138,13 @@ export const getBundledMysticCodes = createBundle<
 export const getBundledMysticCodeMap = withProxy(
   getBundledMysticCodes,
   "Could not find Mystic Code %KEY% in bundled data"
+);
+
+export const getBundledCostumes = createBundle<PartialDataMap<BundledCostume>>(
+  path.join(process.cwd(), "assets/static/data/costumes.json")
+);
+
+export const getBundledCostumeMap = withProxy(
+  getBundledCostumes,
+  "Could not find Costume %KEY% in bundled data"
 );
