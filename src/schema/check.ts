@@ -3,9 +3,7 @@ import { join } from "path";
 import { readdir } from "fs/promises";
 import { resolvePath } from "@foxkit/node-util/path";
 import { fileExists } from "@foxkit/node-util/fs";
-
 import { prepareCache } from "../atlas-api/prepare";
-import { isShopFile } from "../scripts/utils/data-assets/isDataFile.mjs";
 import { checkDataFile } from "../scripts/utils/data-assets/checkDataFile.mjs";
 import { Log } from "../utils/log";
 import { checkCustomItemPath } from "./CustomItem";
@@ -67,15 +65,8 @@ async function main(options: ProgramOptions) {
   }
 
   // handle --shops
-  if (options.all || options.shops) {
-    if (showGroupInfo) Log.info("Checking all prism shop data files");
-    const path = resolvePath("assets/data/");
-    const dir = await readdir(path);
-    for (const file of dir) {
-      const filePath = join(path, file);
-      if (!isShopFile(filePath)) continue;
-      targets.add(filePath);
-    }
+  if (options.shops) {
+    Log.warn("Shops are currently not supported");
   }
 
   // handle --items

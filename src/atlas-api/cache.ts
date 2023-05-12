@@ -1,20 +1,21 @@
 import { readFileJson, writeFile } from "@foxkit/node-util/fs";
 import { join } from "path";
 import type {
-  Servant,
+  ServantWithLore,
   ServantBasic
 } from "@atlasacademy/api-connector/dist/Schema/Servant";
 import type { Item } from "@atlasacademy/api-connector/dist/Schema/Item";
 import type { MasterMission } from "@atlasacademy/api-connector/dist/Schema/MasterMission";
 import type { War } from "@atlasacademy/api-connector/dist/Schema/War";
 import type { CommandCodeBasic } from "@atlasacademy/api-connector/dist/Schema/CommandCode";
+import type { MysticCodeBasic } from "@atlasacademy/api-connector/dist/Schema/MysticCode";
 import type { SupportedRegion } from "./api";
 import { atlasApi } from "./api";
 import type { CraftEssenceBasic } from "@atlasacademy/api-connector/dist/Schema/CraftEssence";
 import { Semaphore } from "../utils/Semaphore";
 
 export const cachePath = ".next/cache/atlasacademy";
-export const cacheVersion = "0.4.0"; // NOTE: bump when adding new things to cache
+export const cacheVersion = "0.6.0"; // NOTE: bump when adding new things to cache
 
 enum CacheFile {
   SERVANT = "nice_servant.json",
@@ -23,7 +24,8 @@ enum CacheFile {
   CE_BASIC = "basic_equip.json",
   WAR = "nice_war.json",
   MASTERMISSION = "nice_master_mission.json",
-  COMMAND_CODE = "basic_command_code.json"
+  COMMAND_CODE = "basic_command_code.json",
+  MYSTIC_CODE = "basic_mystic_code.json"
 }
 
 type CacheQueueNode = [CacheFile, (...args: any) => Promise<any>];
@@ -33,25 +35,27 @@ class AtlasApiCache {
   readonly region: SupportedRegion;
   readonly api: (typeof atlasApi)[SupportedRegion];
   private queue: CacheQueue;
-  private servant?: Servant[];
+  private servant?: ServantWithLore[];
   private servantBasic?: ServantBasic[];
   private item?: Item[];
   private ce?: CraftEssenceBasic[];
   private war?: War[];
   private masterMission?: MasterMission[];
   private commandCodes?: CommandCodeBasic[];
+  private mysticCodes?: MysticCodeBasic[];
 
   constructor(region: SupportedRegion) {
     this.region = region;
     const api = atlasApi[region];
     this.api = api;
     this.queue = [
-      [CacheFile.SERVANT, api.servantListNice.bind(api)],
+      [CacheFile.SERVANT, api.servantListNiceWithLore.bind(api)],
       [CacheFile.SERVANT_BASIC, api.servantList.bind(api)],
       [CacheFile.ITEM, api.itemList.bind(api)],
       [CacheFile.CE_BASIC, api.craftEssenceList.bind(api)],
       [CacheFile.WAR, api.warListNice.bind(api)],
-      [CacheFile.COMMAND_CODE, api.commandCodeList.bind(api)]
+      [CacheFile.COMMAND_CODE, api.commandCodeList.bind(api)],
+      [CacheFile.MYSTIC_CODE, api.mysticCodeList.bind(api)]
     ];
 
     if (region == "NA") {
@@ -85,8 +89,10 @@ class AtlasApiCache {
     return writeFile(join(cachePath, this.region, file), data);
   }
 
-  async getNiceServant(): Promise<Servant[]> {
-    return (this.servant ||= await this.readFile<Servant[]>(CacheFile.SERVANT));
+  async getNiceServant(): Promise<ServantWithLore[]> {
+    return (this.servant ||= await this.readFile<ServantWithLore[]>(
+      CacheFile.SERVANT
+    ));
   }
 
   async getBasicServant(): Promise<ServantBasic[]> {
@@ -122,6 +128,12 @@ class AtlasApiCache {
   async getCommandCodes(): Promise<CommandCodeBasic[]> {
     return (this.commandCodes ||= await this.readFile<CommandCodeBasic[]>(
       CacheFile.COMMAND_CODE
+    ));
+  }
+
+  async getMysticCodes(): Promise<MysticCodeBasic[]> {
+    return (this.mysticCodes ||= await this.readFile<MysticCodeBasic[]>(
+      CacheFile.MYSTIC_CODE
     ));
   }
 

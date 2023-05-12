@@ -1,9 +1,4 @@
-import {
-  ServantContext,
-  SkillContext,
-  NPContext,
-  QuestContext
-} from "src/client/contexts";
+import { DataContext } from "src/client/contexts";
 import { CardGrid } from "src/client/components/Card";
 import { EventPageLayout } from "src/pages/EventPage/components/EventPageLayout";
 import type { EventUpgradesPageProps } from "src/pages/EventPage/static/upgrades";
@@ -29,23 +24,17 @@ export default function EventUpgradesPage({
       current="Upgrades"
       description={`Rank Up Quests and Interludes released during ${event.title}`}>
       <h1>Upgrades</h1>
-      <ServantContext value={servants}>
-        <SkillContext value={skills}>
-          <NPContext value={nps}>
-            <QuestContext value={quests}>
-              <CardGrid>
-                {upgrades.map(upgrade => (
-                  <UpgradeCard
-                    key={upgrade.quest}
-                    upgrade={upgrade}
-                    bypassSpoilers
-                  />
-                ))}
-              </CardGrid>
-            </QuestContext>
-          </NPContext>
-        </SkillContext>
-      </ServantContext>
+      <DataContext
+        servants={servants}
+        skills={skills}
+        nps={nps}
+        quests={quests}>
+        <CardGrid>
+          {upgrades.map(upgrade => (
+            <UpgradeCard key={upgrade.quest} upgrade={upgrade} bypassSpoilers />
+          ))}
+        </CardGrid>
+      </DataContext>
     </EventPageLayout>
   );
 }

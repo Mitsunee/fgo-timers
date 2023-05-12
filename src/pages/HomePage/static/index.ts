@@ -5,16 +5,18 @@ import { getBundledItemMap } from "src/utils/getBundles";
 import { getLoginTicketProps } from "./getLoginTicketProps";
 import { getMilestoneProps } from "./getMilestoneProps";
 import { serverApi } from "@server/api/root";
+import { getShopInfoProps } from "./getShopInfoProps";
 
 export const getStaticProps = async () => {
   const now = msToSeconds(Date.now());
-  const [legacyProps, itemMap, events, loginTicket, milestones] =
+  const [legacyProps, itemMap, events, loginTicket, milestones, shops] =
     await Promise.all([
       Legacy.getStaticProps(),
       getBundledItemMap(),
       serverApi.events.basic.fetch({ exclude: "inactive", now }),
       getLoginTicketProps(now),
-      getMilestoneProps(now)
+      getMilestoneProps(now),
+      getShopInfoProps(now)
     ]);
 
   const itemIds = new Set<number>([...loginTicket.items]);
@@ -24,7 +26,14 @@ export const getStaticProps = async () => {
     items[id] = itemMap[id];
   }
 
-  const props = { ...legacyProps, events, loginTicket, items, milestones };
+  const props = {
+    ...legacyProps,
+    events,
+    loginTicket,
+    items,
+    milestones,
+    shops
+  };
   const res: GetStaticPropsResult<typeof props> = { props, revalidate: 3600 };
   return res;
 };

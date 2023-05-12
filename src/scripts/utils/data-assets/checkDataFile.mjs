@@ -5,6 +5,7 @@ import {
   CustomItemSchema
 } from "../../../schema/CustomItem";
 import { checkEventPath, EventSchema } from "../../../schema/EventSchema.js";
+import { checkShopPath } from "../../../schema/ShopSchema.js";
 import { findLegacyParser } from "./findLegacyParser.mjs";
 
 export async function checkDataFile(filePath) {
@@ -46,6 +47,10 @@ export async function checkDataFile(filePath) {
     if (res.success) return true;
     Log.zodError(res.error, filePath);
     return false;
+  }
+
+  if (checkShopPath(filePath)) {
+    Log.warn("Shop files are currently not supported");
   }
 
   Log.error(`Could not find parser ${Log.styleParent(filePath)}`);

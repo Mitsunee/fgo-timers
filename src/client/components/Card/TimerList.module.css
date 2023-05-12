@@ -6,9 +6,21 @@
   align-items: flex-start;
   list-style-type: none;
 
-  & h2 {
+  & h2,
+  & h3 {
     margin: 0px;
     font-size: 16px;
+  }
+
+  & h4 {
+    margin: 0px;
+    font-weight: normal;
+    font-family: var(--sans);
+    font-size: 1em;
+  }
+
+  & a {
+    text-decoration: underline;
   }
 
   & li,
@@ -28,6 +40,7 @@
   padding: 0.33em;
   background-color: transparent;
   transition: background-color 250ms ease-in-out;
+  border-radius: 6px;
 
   &:hover {
     background-color: var(--dark);
@@ -75,6 +88,7 @@
   & > a {
     max-width: 100%;
     height: var(--entity-icon-size, 3em);
+    text-decoration: none !important;
   }
 
   & > a {

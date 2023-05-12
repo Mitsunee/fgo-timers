@@ -13,7 +13,7 @@ import {
 import { BorderedItemIcon } from "src/client/components/BorderedIcon";
 import { DisplayDate, DisplayDelta } from "src/client/components/TimeDisplay";
 import { LinkButton } from "src/client/components/Button";
-import { ItemContext } from "src/client/contexts";
+import { DataContext } from "src/client/contexts";
 import styles from "src/pages/LoginTicketsPage/LoginTicketsPage.module.css";
 import { getTicketDelta } from "src/pages/LoginTicketsPage/getTicketDelta";
 import type { LoginTicketsPageProps } from "src/pages/LoginTicketsPage/static/LoginTicketsPage";
@@ -59,7 +59,7 @@ export default function LoginTicketsPage({
           Anniversary happens earlier.
         </p>
       </Section>
-      <ItemContext value={items}>
+      <DataContext items={items}>
         <Section background="blue">
           <TimerList className={styles.col}>
             <TimerListItem title={`Current: ${currentTicket.name}`}>
@@ -114,7 +114,7 @@ export default function LoginTicketsPage({
             )}
           </TimerList>
         </Section>
-      </ItemContext>
+      </DataContext>
       <Headline>Tickets by Year</Headline>
       <nav className={styles.nav}>
         {yearsArr.map(year => (

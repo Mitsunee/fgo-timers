@@ -1,7 +1,6 @@
 import { Log } from "../utils/log";
 import { prepareCache } from "../atlas-api/prepare";
 import { bundleBackgrounds } from "./legacy/bundleBackgrounds";
-import { bundlePrismShops } from "./legacy/bundlePrismShops.mjs";
 import type { PrebuildBundlersRes } from "./utils/bundlers";
 import { runLegacyBundler, writeBundle } from "./utils/bundlers";
 import { bundleUpgrades } from "./bundler/upgrades";
@@ -18,7 +17,10 @@ import { bundleCCsData } from "./data/ccs";
 import { saveBuildInfo } from "./utils/saveBuildInfo";
 import { bundleEvents } from "./bundler/events";
 import { bundleExchangeTickets } from "./bundler/exchangeTickets";
+import { bundleShops } from "./bundler/shops";
 import { collectIDs } from "./utils/collectIds";
+import { bundleMysticCodesData } from "./data/mcs";
+import { bundleCostumesData } from "./data/costumes";
 
 function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
   return arr.every(el => el !== false);
@@ -31,8 +33,7 @@ function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
   // Phase 1 - Run legacy bundlers
   Log.info("Running Legacy Bundlers");
   const resLegacy: boolean[] = await Promise.all([
-    runLegacyBundler(bundleBackgrounds),
-    runLegacyBundler(bundlePrismShops)
+    runLegacyBundler(bundleBackgrounds)
   ]);
   if (!isSuccessful(resLegacy)) {
     Log.die("Quitting early because of error in legacy bundler");
@@ -44,7 +45,8 @@ function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
     bundleUpgrades(),
     bundleCustomItems(),
     bundleEvents(),
-    bundleExchangeTickets()
+    bundleExchangeTickets(),
+    bundleShops()
   ]);
   if (!isSuccessful(bundlersRes)) {
     Log.die("Quitting early because of error in bundler");
@@ -65,7 +67,9 @@ function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
     bundleNPsData(ids.nps),
     bundleCEsData(ids.ces),
     bundleItemsData(ids.items),
-    bundleCCsData(ids.ccs)
+    bundleCCsData(ids.ccs),
+    bundleMysticCodesData(ids.mcs),
+    bundleCostumesData(ids.costumes)
   ]);
   if (!isSuccessful(dataRes)) {
     Log.die("Quitting early because of error in data bundler");

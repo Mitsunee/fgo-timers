@@ -1,17 +1,16 @@
 import { useEffect } from "react";
-import { useRecurringEvent } from "@utils/hooks/useRecurringEvent";
 import Meta from "@components/Meta";
 import { Clocks } from "@components/Clocks";
 import Headline from "@components/Headline";
 import { CardGrid } from "@components/Card";
 import { EventList } from "src/client/components/EventList";
 import { NoSSR } from "@components/NoSSR";
-import { ItemContext } from "src/client/contexts";
+import { DataContext } from "src/client/contexts";
 //import { SpecialTimer } from "@components/SpecialTimer";
 import { LoginInfoCard } from "src/pages/HomePage/components/LoginInfoCard";
 import MasterMissionCard from "src/pages/HomePage/components/MasterMissionCard";
 import ChaldeaGateCard from "src/pages/HomePage/components/ChaldeaGateCard";
-import ShopCard from "src/pages/HomePage/components/ShopCard";
+import { ShopsInfoCard } from "src/pages/HomePage/components/ShopsInfoCard";
 import styles from "src/pages/HomePage/HomePage.module.css";
 // import type { HomePageProps } from "src/pages/HomePage/static";
 
@@ -33,11 +32,8 @@ export default function HomePage({
   items,
   milestones,
   masterMissions,
-  shopData
+  shops
 }) {
-  const mpShopReset = useRecurringEvent({ day: 1, hour: 0 });
-  const rpShopReset = useRecurringEvent({ day: 15, hour: 0 });
-
   // Effect sets random background to state to avoid SSR missmatches
   useEffect(() => {
     // only in client
@@ -75,15 +71,14 @@ export default function HomePage({
       {events.length > 0 && <EventList events={events} />}
       <Headline>Timers</Headline>
       <CardGrid>
-        <ItemContext value={items}>
+        <DataContext items={items}>
           <LoginInfoCard ticket={loginTicket} milestones={milestones} />
-        </ItemContext>
+        </DataContext>
         <MasterMissionCard data={masterMissions} />
         <NoSSR>
           <ChaldeaGateCard />
         </NoSSR>
-        <ShopCard shopData={shopData.manaPrismShop} endsAt={mpShopReset} />
-        <ShopCard shopData={shopData.rarePrismShop} endsAt={rpShopReset} />
+        <ShopsInfoCard shops={shops} />
       </CardGrid>
     </>
   );

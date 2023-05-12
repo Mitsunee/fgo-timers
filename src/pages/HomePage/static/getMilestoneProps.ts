@@ -1,10 +1,12 @@
+import { nextIntervalOccurence } from "src/time/nextIntervalOccurence";
 import { GlobalNums } from "src/types/enum";
 
 export function getMilestoneProps(now: number) {
-  const nextServerTime =
-    now +
-    GlobalNums.SERVER_DAY_LEN -
-    ((now - GlobalNums.SERVER_DAY_OFFSET) % GlobalNums.SERVER_DAY_LEN);
+  const nextServerTime = nextIntervalOccurence(
+    now,
+    GlobalNums.SERVER_DAY_LEN,
+    GlobalNums.SERVER_DAY_OFFSET
+  );
   const nextServerDay =
     Math.ceil(
       (nextServerTime - GlobalNums.SERVER_DAY_ZERO) / GlobalNums.SERVER_DAY_LEN

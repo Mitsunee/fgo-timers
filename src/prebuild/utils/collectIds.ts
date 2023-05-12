@@ -8,6 +8,8 @@ interface IDCollection {
   ces: Set<number>;
   items: Set<number>;
   ccs: Set<number>;
+  mcs: Set<number>;
+  costumes: Set<number>;
 }
 
 export function collectIDs(bundles: PrebuildBundle<any>[]) {
@@ -18,7 +20,9 @@ export function collectIDs(bundles: PrebuildBundle<any>[]) {
     nps: new Set(),
     ces: new Set(),
     items: new Set(),
-    ccs: new Set()
+    ccs: new Set(),
+    mcs: new Set(),
+    costumes: new Set()
   };
 
   bundles.forEach(bundle => {
@@ -29,6 +33,8 @@ export function collectIDs(bundles: PrebuildBundle<any>[]) {
     bundle.ces?.forEach(id => collection.ces.add(id));
     bundle.items?.forEach(id => collection.items.add(id));
     bundle.ccs?.forEach(id => collection.ccs.add(id));
+    bundle.mcs?.forEach(id => collection.mcs.add(id));
+    bundle.costumes?.forEach(id => collection.costumes.add(id));
   });
 
   return collection;

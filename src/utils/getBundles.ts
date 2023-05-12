@@ -9,10 +9,13 @@ import type { BundledQuest, BundledUpgrade } from "src/upgrades/types";
 import type {
   BundledCC,
   BundledCE,
+  BundledCostume,
   BundledItem,
-  BundledLoginTicket
+  BundledLoginTicket,
+  BundledMysticCode
 } from "src/items/types";
 import type { BundledEvent } from "src/events/types";
+import type { BundledShop } from "src/schema/ShopSchema";
 import { Log } from "./log";
 import { safeProxyDataMap } from "./safeProxyDataMap";
 
@@ -113,4 +116,35 @@ export const getBundledCCs = createBundle<PartialDataMap<BundledCC>>(
 export const getBundledCCMap = withProxy(
   getBundledCCs,
   "Could not find CC %KEY% in bundled data"
+);
+
+export const getCustomItems = createBundle<PartialDataMap<BundledItem>>(
+  path.join(process.cwd(), "assets/static/custom_items.json")
+);
+
+export const getCustomItemMap = withProxy(
+  getCustomItems,
+  "Could not find Custom Item %KEY% in bundled data"
+);
+
+export const getBundledShops = createBundle<BundledShop[]>(
+  path.join(process.cwd(), "assets/static/shops.json")
+);
+
+export const getBundledMysticCodes = createBundle<
+  PartialDataMap<BundledMysticCode>
+>(path.join(process.cwd(), "assets/static/data/mcs.json"));
+
+export const getBundledMysticCodeMap = withProxy(
+  getBundledMysticCodes,
+  "Could not find Mystic Code %KEY% in bundled data"
+);
+
+export const getBundledCostumes = createBundle<PartialDataMap<BundledCostume>>(
+  path.join(process.cwd(), "assets/static/data/costumes.json")
+);
+
+export const getBundledCostumeMap = withProxy(
+  getBundledCostumes,
+  "Could not find Costume %KEY% in bundled data"
 );

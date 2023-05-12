@@ -1,0 +1,354 @@
+title: Pure Prism Shop
+color: silver
+inventory:
+  - title: Bronze Materials
+    currency: 46
+    items:
+      - id: 6503 # Proof of Hero
+        type: item
+        cost: 1
+        amount: 100
+      - id: 6516 # Evil Bone
+        type: item
+        cost: 1
+        amount: 100
+      - id: 6512 # Dragon Fang
+        type: item
+        cost: 1
+        amount: 100
+      - id: 6505 # Void's Dust
+        type: item
+        cost: 1
+        amount: 100
+      - id: 6522 # Fool's Chain
+        type: item
+        cost: 1
+        amount: 100
+      - id: 6527 # Deadly Poisonous Needle
+        type: item
+        cost: 1
+        amount: 100
+      - id: 6530 # Mystic Spinal Fluid
+        type: item
+        cost: 1
+        amount: 100
+      - id: 6533 # Stake of Wailing Night
+        type: item
+        cost: 1
+        amount: 100
+      - id: 6534 # Mystic Gunpowder
+        type: item
+        cost: 1
+        amount: 100
+      - id: 6549 # Small Bell of Absolution
+        type: item
+        cost: 1
+        amount: 100
+  - title: Silver Materials
+    currency: 46
+    items:
+      - id: 6502 # Seed of Yggdrasil
+        type: item
+        cost: 2
+        amount: 100
+      - id: 6508 # Ghost Lantern
+        type: item
+        cost: 2
+        amount: 100
+      - id: 6515 # Octuplet Crystals
+        type: item
+        cost: 2
+        amount: 100
+      - id: 6509 # Serpent Jewel
+        type: item
+        cost: 2
+        amount: 100
+      - id: 6501 # Phoenix Feather
+        type: item
+        cost: 2
+        amount: 100
+      - id: 6510 # Eternal Gear
+        type: item
+        cost: 2
+        amount: 100
+      - id: 6511 # Forbidden Page
+        type: item
+        cost: 2
+        amount: 100
+      - id: 6514 # Homunculus Baby
+        type: item
+        cost: 2
+        amount: 100
+      - id: 6513 # Meteor Horseshoe
+        type: item
+        cost: 2
+        amount: 100
+      - id: 6524 # Great Knight Medal
+        type: item
+        cost: 2
+        amount: 100
+      - id: 6526 # Shell of Reminiscence
+        type: item
+        cost: 2
+        amount: 100
+      - id: 6532 # Refined Magatama
+        type: item
+        cost: 2
+        amount: 100
+      - id: 6535 # Eternal Ice
+        type: item
+        cost: 2
+        amount: 100
+      - id: 6537 # Giant's Ring
+        type: item
+        cost: 2
+        amount: 100
+      - id: 6536 # Aurora Steel
+        type: item
+        cost: 2
+        amount: 100
+      - id: 6538 # Soundless Bell
+        type: item
+        cost: 2
+        amount: 100
+      - id: 6541 # Arrowhead of Malice
+        type: item
+        cost: 2
+        amount: 100
+      - id: 6543 # Crown of Silvery Light
+        type: item
+        cost: 2
+        amount: 100
+      - id: 6545 # Divine Leyline Spiritron
+        type: item
+        cost: 2
+        amount: 100
+      - id: 6547 # Ball of Rainbow Thread
+        type: item
+        cost: 2
+        amount: 100
+      - id: 6550 # Scale of Fantasy
+        type: item
+        cost: 2
+        amount: 100
+  - title: Gold Materials
+    currency: 46
+    items:
+      - id: 6507 # Claw of Chaos
+        type: item
+        cost: 3
+        amount: 100
+      - id: 6517 # Heart of the Foreign God
+        type: item
+        cost: 3
+        amount: 100
+      - id: 6506 # Dragon's Reverse Scale
+        type: item
+        cost: 3
+        amount: 100
+      - id: 6518 # Spirit Root
+        type: item
+        cost: 3
+        amount: 100
+      - id: 6519 # Warhorse's Young Horn
+        type: item
+        cost: 3
+        amount: 100
+      - id: 6520 # Tearstone of Blood
+        type: item
+        cost: 3
+        amount: 100
+      - id: 6521 # Black Beast Grease
+        type: item
+        cost: 3
+        amount: 100
+      - id: 6523 # Lamp of Evil-Sealing
+        type: item
+        cost: 3
+        amount: 100
+      - id: 6525 # Scarab of Wisdom
+        type: item
+        cost: 3
+        amount: 100
+      - id: 6528 # Primordial Lanugo
+        type: item
+        cost: 3
+        amount: 100
+      - id: 6529 # Cursed Beast Gallstone
+        type: item
+        cost: 3
+        amount: 100
+      - id: 6531 # Mysterious Divine Wine
+        type: item
+        cost: 3
+        amount: 100
+      - id: 6539 # Reactor Core of Dawn
+        type: item
+        cost: 3
+        amount: 100
+      - id: 6540 # Tsukumo Mirror
+        type: item
+        cost: 3
+        amount: 100
+      - id: 6542 # Egg of Truth
+        type: item
+        cost: 3
+        amount: 100
+      - id: 6544 # Fragment of a Twinkling Star
+        type: item
+        cost: 3
+        amount: 100
+      - id: 6546 # Fruit of Eternity
+        type: item
+        cost: 3
+        amount: 100
+      - id: 6548 # Flaming Oni Lantern Plant
+        type: item
+        cost: 3
+        amount: 100
+  - title: Statues
+    currency: 46
+    items:
+      - id: 7001 # Saber Piece
+        type: item
+        cost: 1
+        amount: 100
+      - id: 7002 # Archer Piece
+        type: item
+        cost: 1
+        amount: 100
+      - id: 7003 # Lancer Piece
+        type: item
+        cost: 1
+        amount: 100
+      - id: 7004 # Rider Piece
+        type: item
+        cost: 1
+        amount: 100
+      - id: 7005 # Caster Piece
+        type: item
+        cost: 1
+        amount: 100
+      - id: 7006 # Assassin Piece
+        type: item
+        cost: 1
+        amount: 100
+      - id: 7007 # Berserker Piece
+        type: item
+        cost: 1
+        amount: 100
+      - id: 7101 # Saber Monument
+        type: item
+        cost: 2
+        amount: 100
+      - id: 7102 # Archer Monument
+        type: item
+        cost: 2
+        amount: 100
+      - id: 7103 # Lancer Monument
+        type: item
+        cost: 2
+        amount: 100
+      - id: 7104 # Rider Monument
+        type: item
+        cost: 2
+        amount: 100
+      - id: 7105 # Caster Monument
+        type: item
+        cost: 2
+        amount: 100
+      - id: 7106 # Assassin Monument
+        type: item
+        cost: 2
+        amount: 100
+      - id: 7107 # Berserker Monument
+        type: item
+        cost: 2
+        amount: 100
+  - title: Skill Gems
+    currency: 46
+    items:
+      - id: 6001 # Gem of Saber
+        type: item
+        cost: 1
+        amount: 100
+      - id: 6002 # Gem of Archer
+        type: item
+        cost: 1
+        amount: 100
+      - id: 6003 # Gem of Lancer
+        type: item
+        cost: 1
+        amount: 100
+      - id: 6004 # Gem of Rider
+        type: item
+        cost: 1
+        amount: 100
+      - id: 6005 # Gem of Caster
+        type: item
+        cost: 1
+        amount: 100
+      - id: 6006 # Gem of Assassin
+        type: item
+        cost: 1
+        amount: 100
+      - id: 6007 # Gem of Berserker
+        type: item
+        cost: 1
+        amount: 100
+      - id: 6101 # Magic Gem of Saber
+        type: item
+        cost: 2
+        amount: 100
+      - id: 6102 # Magic Gem of Archer
+        type: item
+        cost: 2
+        amount: 100
+      - id: 6103 # Magic Gem of Lancer
+        type: item
+        cost: 2
+        amount: 100
+      - id: 6104 # Magic Gem of Rider
+        type: item
+        cost: 2
+        amount: 100
+      - id: 6105 # Magic Gem of Caster
+        type: item
+        cost: 2
+        amount: 100
+      - id: 6106 # Magic Gem of Assassin
+        type: item
+        cost: 2
+        amount: 100
+      - id: 6107 # Magic Gem of Berserker
+        type: item
+        cost: 2
+        amount: 100
+      - id: 6201 # Secret Gem of Saber
+        type: item
+        cost: 3
+        amount: 100
+      - id: 6202 # Secret Gem of Archer
+        type: item
+        cost: 3
+        amount: 100
+      - id: 6203 # Secret Gem of Lancer
+        type: item
+        cost: 3
+        amount: 100
+      - id: 6204 # Secret Gem of Rider
+        type: item
+        cost: 3
+        amount: 100
+      - id: 6205 # Secret Gem of Caster
+        type: item
+        cost: 3
+        amount: 100
+      - id: 6206 # Secret Gem of Assassin
+        type: item
+        cost: 3
+        amount: 100
+      - id: 6207 # Secret Gem of Berserker
+        type: item
+        cost: 3
+        amount: 100
