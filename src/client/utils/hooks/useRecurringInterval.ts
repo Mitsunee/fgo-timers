@@ -1,4 +1,5 @@
-import { useCurrentTime } from "src/client/utils/hooks/useCurrentTime";
+import { useCurrentTime } from "./useCurrentTime";
+import { nextIntervalOccurence } from "src/time/nextIntervalOccurence";
 
 interface RecurringIntervalProps {
   /**
@@ -13,13 +14,12 @@ interface RecurringIntervalProps {
 
 /**
  * Finds next occurence of a recurring interval
- * @returns Start time of next interval in seconds
+ * @returns Timestamp of next occurence in seconds
  */
 export function useRecurringInterval({
   length,
   offset
 }: RecurringIntervalProps) {
   const { current } = useCurrentTime();
-  const next = current - ((current - offset) % length) + length;
-  return next;
+  return nextIntervalOccurence(current, length, offset);
 }

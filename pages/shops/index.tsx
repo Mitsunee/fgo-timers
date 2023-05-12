@@ -1,4 +1,4 @@
-import { useRecurringEvent } from "src/client/utils/hooks/useRecurringEvent";
+import { useRecurringMonthly } from "src/client/utils/hooks/useRecurringMonthly";
 import { useIsClient } from "src/client/utils/hooks/useIsClient";
 import Meta from "src/client/components/Meta";
 import { DataContext } from "src/client/contexts";
@@ -14,8 +14,8 @@ export { getStaticProps } from "src/pages/ShopsPage/static";
 
 export default function ShopsPage({ items, resets }: ShopsPageProps) {
   const isClient = useIsClient();
-  const mpNext = useRecurringEvent(resets.mp);
-  const rpNext = useRecurringEvent(resets.rp);
+  const mpNext = useRecurringMonthly(resets.mp);
+  const rpNext = useRecurringMonthly(resets.rp);
 
   return (
     <DataContext items={items}>

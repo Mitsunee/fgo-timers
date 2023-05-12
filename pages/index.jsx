@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useRecurringEvent } from "@utils/hooks/useRecurringEvent";
+import { useRecurringMonthly } from "@utils/hooks/useRecurringMonthly";
 import Meta from "@components/Meta";
 import { Clocks } from "@components/Clocks";
 import Headline from "@components/Headline";
@@ -35,8 +35,8 @@ export default function HomePage({
   masterMissions,
   shopData
 }) {
-  const mpShopReset = useRecurringEvent({ day: 1, hour: 0 });
-  const rpShopReset = useRecurringEvent({ day: 15, hour: 0 });
+  const mpShopReset = useRecurringMonthly({ day: 1, hour: 0 });
+  const rpShopReset = useRecurringMonthly({ day: 15, hour: 0 });
 
   // Effect sets random background to state to avoid SSR missmatches
   useEffect(() => {

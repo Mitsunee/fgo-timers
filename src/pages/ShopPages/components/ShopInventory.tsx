@@ -4,7 +4,7 @@ import { useCurrentTime } from "src/client/utils/hooks/useCurrentTime";
 import { DisplayDate, DisplayDelta } from "src/client/components/TimeDisplay";
 import { TimerListItem } from "src/client/components/Card";
 import { ShopInventoryList } from "./ShopInventoryList";
-import { useRecurringEvent } from "@utils/hooks/useRecurringEvent";
+import { useRecurringMonthly } from "@utils/hooks/useRecurringMonthly";
 import { formatDayOfMonth } from "src/time/formatDayOfMonth";
 
 interface ShopInventoryProps {
@@ -59,7 +59,7 @@ function LimitedInventoryTimer({
 }
 
 function MonthlyInventoryTimer({ day, hour }: { day: number; hour: number }) {
-  const nextOccurence = useRecurringEvent({ day, hour });
+  const nextOccurence = useRecurringMonthly({ day, hour });
   const isClient = useIsClient();
 
   return (
