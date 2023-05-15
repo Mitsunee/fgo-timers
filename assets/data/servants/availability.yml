@@ -198,6 +198,14 @@ limited:
   - 105500 # Yamanami Keisuke
   - 604600 # Huyan Zhuo
   - 305300 # Britomart
+  - 1001500 # Rasputin/Kirei
+  - 604700 # Tezcatlipoca
+  - 2501100 # Kukulcan
+  - 901600 # High Priestess Johanna
+  - 204700 # Takasugi Shinsaku
+  - 1001600 # Tiamat
+  - 3300100 # Draco
+  - 604800 # Locusta
 
 welfare:
   - 502600 # Elisabeth Báthory (Halloween)
@@ -241,6 +249,7 @@ welfare:
   - 604300 # Ortlinde
   - 901500 # Iyo
   - 2800400 # Nine-Tattoo Dragon Eliza
+  - 105700 # Setanta
 
 fp_limited:
   - 204100 # Oda Nobukatsu
