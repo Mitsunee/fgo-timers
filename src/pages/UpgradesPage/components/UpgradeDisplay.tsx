@@ -12,6 +12,7 @@ import type {
   UpgradeMapSkill
 } from "src/upgrades/types";
 import styles from "./UpgradeDisplay.module.css";
+import { getSkillNum } from "src/servants/getSkillNum";
 
 type Props<U extends UpgradeMap> = {
   upgrade: BundledUpgrade & { upgrades: U };
@@ -35,28 +36,38 @@ export function SkillUpgrade({ upgrade, bypassSpoilers }: SkillUpgradeProps) {
     upgrades: { id = 0, newId }
   } = upgrade;
   const from = skillMap[id];
+  const fromNum = getSkillNum(from, servant);
   const to = skillMap[newId];
+  const toNum = getSkillNum(to, servant);
 
   return (
     <section className={styles.grid}>
       <div className={styles.icon}>
-        <BorderedSkillIcon disableSpoilers={bypassSpoilers} skillId={id} />
+        <BorderedSkillIcon
+          disableSpoilers={bypassSpoilers}
+          skillId={id}
+          servantId={servant}
+        />
       </div>
       <Arrow />
       <div className={styles.icon}>
-        <BorderedSkillIcon disableSpoilers={bypassSpoilers} skillId={newId} />
+        <BorderedSkillIcon
+          disableSpoilers={bypassSpoilers}
+          skillId={newId}
+          servantId={servant}
+        />
       </div>
       <div className={styles.text}>
         {id > 1 && (
           <>
             <SpoileredText
               id={id}
-              placeholder={`Skill ${from.num}`}
+              placeholder={`Skill ${fromNum}`}
               na={from.na || bypassSpoilers}>
               {from.name}
             </SpoileredText>{" "}
             <AtlasLink
-              link={`servant/${servant}/skill-${from.num}`}
+              link={`servant/${servant}/skill-${fromNum}`}
               na={from.na}
               targetBlank
             />
@@ -66,12 +77,12 @@ export function SkillUpgrade({ upgrade, bypassSpoilers }: SkillUpgradeProps) {
       <div className={styles.text}>
         <SpoileredText
           id={newId}
-          placeholder={`Skill ${to.num}`}
+          placeholder={`Skill ${toNum}`}
           na={to.na || bypassSpoilers}>
           {to.name}
         </SpoileredText>{" "}
         <AtlasLink
-          link={`servant/${servant}/skill-${to.num}`}
+          link={`servant/${servant}/skill-${toNum}`}
           na={to.na}
           targetBlank
         />

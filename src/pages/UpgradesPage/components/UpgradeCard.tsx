@@ -19,6 +19,7 @@ import {
   useServantMap,
   useSkillMap
 } from "src/client/contexts";
+import { getSkillNum } from "src/servants/getSkillNum";
 
 type UpgradeCardProps = Highlight & {
   upgrade: BundledUpgrade;
@@ -65,7 +66,8 @@ export function UpgradeCard({
   // handle Skill upgrade props
   if (isSkillUpgrade(upgrade)) {
     const to = skillMap[upgrade.upgrades.newId];
-    suffix = `Skill ${to.num}`;
+    const toNum = getSkillNum(to, upgrade.servant);
+    suffix = `Skill ${toNum}`;
     subtitleIcon = "skill";
     border = to.border;
     UpgradeDisplay = (
