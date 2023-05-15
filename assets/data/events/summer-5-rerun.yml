@@ -1,0 +1,69 @@
+title: "Revival: Servant Summer Camp! Chaldea's Thriller Night - Lite"
+shortTitle: Servant Summer Camp Rerun
+banner: 2023_summer5re.png
+url: 2023/0516_re_2022summer/
+date: 2023-05-16 01:00 - 06-05 20:59 PDT
+requires: Clear Fuyuki
+description: >-
+  Rerun of the Summer Camp Event featuring Yu-Mei-ren (Lancer).
+  The featured banners, costumes and Chaldea Pathfinder Mystic Code will be
+  available again.
+
+  Note: Not all banners have been announced yet. The second Summer Servant banner
+  will likely appear approx. one week after the event begins. There will be no
+  solo rateup rotations for SR Servants!
+times:
+  - title: Maintenance
+    date: 2023-05-15 21:00 - 05-16 01:00 PDT
+  - title: Yu-Mei-ren permanently unlockable
+    date: 2023-05-23 21:00 PDT
+    servants: [304400]
+  - title: 2x EXP for Yu-Mei-ren
+    date: 2023-05-16 01:00 - 06-05 20:59 PDT
+    servants: [304400]
+  - title: Event Shop
+    date: 2023-05-16 01:00 - 06-12 20:59 PDT
+    items: [94051403, 94051402, 94051401]
+schedules:
+  - title: Story
+    times:
+      - title: Opening & Section 1
+        date: 2023-05-16 01:00 PDT
+      - title: Section 2
+        date: 2023-05-16 21:00 PDT
+      - title: Section 3
+        date: 2023-05-17 11:00 PDT
+      - title: Section 3 (cont.)
+        date: 2023-05-17 21:00 PDT
+      - title: Section 4
+        date: 2023-05-18 11:00 PDT
+      - title: Section 4 (cont.)
+        date: 2023-05-18 21:00 PDT
+      - title: Section 5
+        date: 2023-05-19 11:00 PDT
+      - title: Section 5 (cont.)
+        date: 2023-05-19 21:00 PDT
+      - title: Section 6
+        date: 2023-05-20 11:00 PDT
+      - title: Section 6 (cont.)
+        date: 2023-05-20 21:00 PDT
+      - title: Section 7
+        date: 2023-05-21 11:00 PDT
+      - title: Section 7 (cont.)
+        date: 2023-05-21 21:00 PDT
+      - title: Section 8
+        date: 2023-05-22 11:00 PDT
+      - title: Section 8 (cont.) & Section 9
+        date: 2023-05-22 21:00 PDT
+      - title: Section 10
+        date: 2023-05-23 11:00 PDT
+      - title: Section 11 & Final
+        date: 2023-05-23 21:00 PDT
+banners:
+  - date: 2023-05-16 01:00 - 06-05 20:59 PDT
+    servants: [2300400, 204200, 703800] # Kiara, Illya, Bryn
+    ces: [9404550, 9404560, 9404570]
+    priority: 1
+  - date: 2023-05-16 01:00 - 06-05 20:59 PDT
+    servants: [103300, 103600, 200100] # Sigurd, Lanling, Emiya
+    ces: [9404640, 9404650, 9404660]
