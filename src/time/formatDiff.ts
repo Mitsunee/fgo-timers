@@ -8,7 +8,7 @@ import type { Diff } from "spacetime";
  */
 export function formatDiff(
   { days, hours, minutes, seconds }: Diff,
-  fallback: string = "---"
+  fallback = "---"
 ): string {
   if (seconds <= 0) return fallback;
 

@@ -24,10 +24,7 @@ const basePath = "/assets/classes";
  * @param rarity rarity as number (default: 5)
  * @returns url as string
  */
-export function getClassIconPath(
-  className: ClassName,
-  rarity: number = 5
-): string {
+export function getClassIconPath(className: ClassName, rarity = 5): string {
   let rarityStr = "_g";
   switch (rarity) {
     case 0:

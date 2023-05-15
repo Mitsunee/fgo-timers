@@ -12,7 +12,7 @@ import { useState, useEffect } from "react";
  */
 export function useMediaQuery(
   queryName: Queries | (string & {}),
-  assumeTrue: boolean = false
+  assumeTrue = false
 ) {
   const [matches, setMatches] = useState<boolean>(assumeTrue);
 

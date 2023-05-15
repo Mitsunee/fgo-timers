@@ -15,8 +15,10 @@ function isObject(val: any): val is object {
   return val !== null && typeof val == "object";
 }
 
+// TODO: rewrite to exported functions
+// eslint-disable-next-line @typescript-eslint/no-extraneous-class
 export class Log {
-  private static isSilent: boolean = false;
+  private static isSilent = false;
 
   private static format(
     prefix: Prefix,
@@ -114,7 +116,7 @@ export class Log {
 
   static table(
     data: { [key: string]: any },
-    title: string = "",
+    title = "",
     prefix: Prefix = "debug",
     colour: Colour = false
   ) {

@@ -5,7 +5,7 @@ module.exports = {
     "plugin:@typescript-eslint/eslint-recommended",
     "foxkit",
     "foxkit/react",
-    "foxkit/ts",
+    "foxkit/ts-strict",
     "next",
     "prettier"
   ],

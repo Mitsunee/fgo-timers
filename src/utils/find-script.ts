@@ -262,7 +262,7 @@ const menuFindMysticCode: MenuFn = (() => {
 
 async function main() {
   let menu: Menu | false = Menu.SELECT;
-  let res: boolean = true;
+  let res = true;
 
   while (menu) {
     switch (menu) {

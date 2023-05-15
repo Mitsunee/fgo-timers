@@ -41,9 +41,9 @@ export const getStaticProps: GetStaticProps<
   ]);
   const thisYearTickets = new Array<BundledLoginTicket>();
   const prev = year - 1;
-  let hasPrev: boolean = false;
+  let hasPrev = false;
   const next = year + 1;
-  let hasNext: boolean = false;
+  let hasNext = false;
 
   // iterate through tickets to check if previous/next years exist and find all tickets for this year
   for (const ticket of tickets) {
