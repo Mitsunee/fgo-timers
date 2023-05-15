@@ -10,7 +10,7 @@ interface HeadlineProps extends CC, React.PropsWithChildren {
 export default function Headline({ children, className, id }: HeadlineProps) {
   return (
     <h1 className={cc([styles.headline, className])} id={id}>
-      {children}
+      {id ? <a href={`#${id}`}>{children}</a> : children}
     </h1>
   );
 }

@@ -89,7 +89,7 @@ export function UpgradeCard({
   return (
     <Card color={border} className={styles.card}>
       <CardHero
-        id={upgrade.servant}
+        iconId={upgrade.servant}
         title={servant.name}
         icon={servant.icon}
         placeholder={placeholder}

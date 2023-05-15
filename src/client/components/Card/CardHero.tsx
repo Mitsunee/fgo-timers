@@ -8,12 +8,12 @@ type CardHeroProps = Pick<
   title: string;
   icon: string;
   forceRound?: boolean;
-  id?: number;
+  iconId?: number;
   bypassSpoilers?: true;
 };
 
 export function CardHero({
-  id = 0,
+  iconId = 0,
   title,
   placeholder,
   icon,
@@ -30,10 +30,10 @@ export function CardHero({
       <div className={styles.icon}>
         <IconFace
           src={icon}
-          id={id}
+          id={iconId}
           name={title}
           placeholder={placeholder}
-          forceIcon={bypassSpoilers || id == 0}
+          forceIcon={bypassSpoilers || iconId == 0}
           loading={loading}
           style={{ borderRadius: forceRound ? "100%" : 0 }}
           width={76}
