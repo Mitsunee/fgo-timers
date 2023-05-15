@@ -76,13 +76,18 @@ export default function LoginTicketYearPage({
           const isOngoing = hasStarted && current < ticket.next;
           const isWide = isUpcoming || isOngoing;
           const color = isOngoing ? Borders.GOLD : Borders.BLUE;
+          const cardId = ticket.name
+            .slice(ticket.name.indexOf("(") + 1, ticket.name.indexOf(")"))
+            .replace(" ", "-")
+            .toLowerCase();
 
           return (
             <Card
               key={ticket.start}
               title={ticket.name}
               icon="https://static.atlasacademy.io/NA/Items/10000.png"
-              color={color}>
+              color={color}
+              id={cardId}>
               <TimerList>
                 <TimerListItem>
                   <li data-wide={isWide ? undefined : true}>

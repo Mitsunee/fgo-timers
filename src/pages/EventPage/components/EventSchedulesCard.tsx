@@ -35,7 +35,11 @@ export function EventSchedulesCard({
   }, [end, times]);
 
   return (
-    <Card icon={icon || "/assets/icon_mm.png"} title={title} bypassSpoilers>
+    <Card
+      icon={icon || "/assets/icon_mm.png"}
+      title={title}
+      id="schedules"
+      bypassSpoilers>
       {description
         ?.split("\n")
         .filter(seg => seg.trim().length > 0)

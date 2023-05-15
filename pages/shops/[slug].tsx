@@ -41,11 +41,11 @@ export default function ShopPage({
         description={desc}
         color={themeColor}
       />
-      <Headline>{shop.title}</Headline>
+      <Headline id="inventory">{shop.title}</Headline>
       <ShopInventorySection inventories={shop.inventory} color={shop.color} />
       {shop.monthly && (
         <>
-          <Headline>
+          <Headline id="monthly-inventory">
             Monthly Inventor{shop.monthly.length > 1 ? "ies" : "y"}
           </Headline>
           <ShopInventorySection inventories={shop.monthly} color={shop.color} />
@@ -53,7 +53,7 @@ export default function ShopPage({
       )}
       {shop.limited && shop.limited.length > 0 && (
         <>
-          <Headline>
+          <Headline id="limited-inventory">
             Limited Time Inventor{shop.limited.length > 1 ? "ies" : "y"}
           </Headline>
           <ShopInventorySection inventories={shop.limited} color={shop.color} />

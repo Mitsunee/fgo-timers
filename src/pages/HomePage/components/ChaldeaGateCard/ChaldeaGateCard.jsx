@@ -18,7 +18,8 @@ export default function ChaldeaGateCard() {
     <Card
       title="Daily Quests"
       icon="/assets/icon_chaldeagate.png"
-      color={7 /*green*/}>
+      color={7 /*green*/}
+      id="daily-quests">
       <TrainingLootList data={currentDay.training} />
       <EmberLootList data={currentDay.embers} />
       <NoSSR>

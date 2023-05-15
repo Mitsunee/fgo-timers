@@ -81,7 +81,11 @@ function LimitedInfo({ limited }: LimitedInfoProps) {
 
 export function ShopsInfoCard({ shops }: ShopsInfoCardProps) {
   return (
-    <Card title="Shops" icon="/assets/icon_prisms.png" color={Borders.GOLD}>
+    <Card
+      title="Shops"
+      icon="/assets/icon_prisms.png"
+      color={Borders.GOLD}
+      id="shops">
       <TimerList>
         {shops.map(shop => (
           <TimerListItem key={shop.slug} title={shop.title}>

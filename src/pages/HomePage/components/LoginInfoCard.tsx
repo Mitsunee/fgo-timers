@@ -89,6 +89,7 @@ export function LoginInfoCard({ ticket, milestones }: LoginInfoCardProps) {
     <Card
       title="Login & Milestones"
       icon="https://static.atlasacademy.io/NA/Items/10000.png"
+      id="logins-and-milestones"
       style={{ "--border": "var(--light)", "--bg": "white" }}>
       <TimerList>
         <ExchangeTicketsInfo ticket={ticket} isClient={isClient} />
