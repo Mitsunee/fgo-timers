@@ -38,7 +38,7 @@ export function EventSchedulesCard({
     <Card
       icon={icon || "/assets/icon_mm.png"}
       title={title}
-      id="schedules"
+      id={`schedules-${title.toLowerCase().replace(/ /g, "-")}`}
       bypassSpoilers>
       {description
         ?.split("\n")
