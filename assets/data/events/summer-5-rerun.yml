@@ -59,6 +59,8 @@ schedules:
         date: 2023-05-23 11:00 PDT
       - title: Section 11 & Final
         date: 2023-05-23 21:00 PDT
+      - title: Sequel
+        date: 2023-05-26 11:00 PDT
 banners:
   - date: 2023-05-16 01:00 - 06-05 20:59 PDT
     servants: [2300400, 204200, 703800] # Kiara, Illya, Bryn
