@@ -17,7 +17,7 @@
     "format": "prettier -w .",
     "test:types": "tsc --noEmit",
     "test:code": "tsm --require=./nowarn.js src/atlas-api/prepare-jest.ts && jest --verbose",
-    "test:data": "tsm --require=./nowarn.js src/schema/check.ts",
+    "test:data": "tsm --require=./nowarn.js src/schema/check-script.ts",
     "test": "pnpm test:types && pnpm test:code && pnpm test:data --all"
   },
   "simple-git-hooks": {
