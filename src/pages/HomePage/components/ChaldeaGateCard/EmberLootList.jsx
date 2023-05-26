@@ -1,5 +1,5 @@
 //import styles from "./EmberLootList.module.css";
-import { FGOItemList, FGOItemListItem } from "@components/FGOItemList";
+import { FGOItemList, FGOItemListItem } from "~/components/FGOItemList";
 
 export default function EmberLootList({ data }) {
   return (

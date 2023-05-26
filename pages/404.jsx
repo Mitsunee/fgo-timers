@@ -1,5 +1,5 @@
-import Headline from "@components/Headline";
-import Meta from "@components/Meta";
+import Headline from "~/components/Headline";
+import Meta from "~/components/Meta";
 
 export default function Error404Page() {
   return (

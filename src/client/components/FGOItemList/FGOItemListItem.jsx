@@ -1,4 +1,4 @@
-import FGOIcon from "@components/FGOIcon";
+import FGOIcon from "~/components/FGOIcon";
 import styles from "./FGOItemListItem.module.css";
 
 export default function FGOItemListItem({ children, data }) {

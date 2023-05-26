@@ -1,7 +1,7 @@
 import type { ElementRef } from "react";
 import { action, atom, onMount } from "nanostores";
 import Router from "next/router";
-import { queryMap } from "@styles/media";
+import { queryMap } from "~/client/styles/media";
 
 type UiStore = {
   mobileOpen: boolean;

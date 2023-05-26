@@ -1,6 +1,6 @@
 //import styles from "./ScheduleTable.module.css";
-import CollapsableSection from "@components/CollapsableSection";
-import { InfoTable } from "@components/InfoTable";
+import CollapsableSection from "~/components/CollapsableSection";
+import { InfoTable } from "~/components/InfoTable";
 import ScheduleRow from "./ScheduleRow";
 import { schedules } from "./schedules";
 

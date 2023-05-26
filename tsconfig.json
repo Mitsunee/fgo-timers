@@ -18,12 +18,8 @@
     "tsBuildInfoFile": ".next/cache/tsbuildinfo",
     "paths": {
       "~/*": ["./src/*"],
-      "@atlas-api/*": ["./src/atlas-api/*"],
-      "@components/*": ["./src/client/components/*"],
-      "@server/*": ["./src/server/*"],
-      "@stores/*": ["./src/client/stores/*"],
-      "@styles/*": ["./src/client/styles/*"],
-      "@utils/*": ["./src/client/utils/*"]
+      "~/components/*": ["./src/client/components/*"],
+      "~/hooks/*": ["./src/client/utils/hooks/*"]
     }
   },
   "include": ["src/types/*.d.ts", "next-env.d.ts", "**/*.ts", "**/*.tsx"],

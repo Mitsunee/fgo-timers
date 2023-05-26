@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { useCurrentTime } from "@utils/hooks/useCurrentTime";
 import { Card, TimerList, TimerListItem } from "~/client/components/Card";
 import { DisplayDate, DisplayDelta } from "~/client/components/TimeDisplay";
 import { useIsClient } from "~/client/utils/hooks/useIsClient";
 import { useRecurringMonthly } from "~/client/utils/hooks/useRecurringMonthly";
+import { useCurrentTime } from "~/hooks/useCurrentTime";
 import { Borders } from "~/types/borders";
 import type { ShopInfo } from "~/pages/HomePage/static/getShopInfoProps";
 

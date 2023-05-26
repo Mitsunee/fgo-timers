@@ -1,10 +1,10 @@
 import { useStore } from "@nanostores/react";
 import Link from "next/link";
 import spacetime from "spacetime";
-import { ActionButton } from "@components/Button";
-import { IconHamburger } from "@components/icons";
-import { metaStore } from "@stores/metaStore";
-import { setMobileNavOpen, uiStore } from "@stores/uiStore";
+import { metaStore } from "~/client/stores/metaStore";
+import { setMobileNavOpen, uiStore } from "~/client/stores/uiStore";
+import { ActionButton } from "~/components/Button";
+import { IconHamburger } from "~/components/icons";
 import styles from "./Header.module.css";
 
 export function Header() {

@@ -1,4 +1,3 @@
-import { CommandCodeIcon } from "@components/CommandCodeIcon";
 import {
   BorderedCEIcon,
   BorderedItemIcon,
@@ -8,6 +7,7 @@ import { TimerListEntities, TimerListItem } from "~/client/components/Card";
 import { DisplayDate, DisplayDelta } from "~/client/components/TimeDisplay";
 import { useCurrentTime } from "~/client/utils/hooks/useCurrentTime";
 import { useIsClient } from "~/client/utils/hooks/useIsClient";
+import { CommandCodeIcon } from "~/components/CommandCodeIcon";
 import { normalizeDate } from "~/time/normalizeDate";
 import type { BundledEvent } from "~/events/types";
 

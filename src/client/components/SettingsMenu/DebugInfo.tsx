@@ -1,6 +1,6 @@
 import spacetime from "spacetime";
 import type { TimezoneMeta } from "spacetime";
-import CollapsableSection from "@components/CollapsableSection";
+import CollapsableSection from "~/components/CollapsableSection";
 import { Global } from "~/types/enum";
 import styles from "./DebugInfo.module.css";
 

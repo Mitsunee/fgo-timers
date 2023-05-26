@@ -1,5 +1,5 @@
-import { expandAtlasUrl } from "@atlas-api/urls";
 import Link from "next/link";
+import { expandAtlasUrl } from "~/atlas-api/urls";
 import { useItemMap } from "~/client/contexts";
 import styles from "./ShopLinkButton.module.css";
 

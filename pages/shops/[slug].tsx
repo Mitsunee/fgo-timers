@@ -1,6 +1,6 @@
-import Headline from "@components/Headline";
-import Meta from "~/client/components/Meta";
 import { DataContext } from "~/client/contexts";
+import Headline from "~/components/Headline";
+import Meta from "~/components/Meta";
 import { ShopInventorySection } from "~/pages/ShopPages/components/ShopInventorySection";
 import { BorderColours } from "~/types/borders";
 import type { ShopPageProps } from "~/pages/ShopPages/static";

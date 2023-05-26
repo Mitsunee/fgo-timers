@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import cc from "classcat";
-import { Button } from "@components/Button";
-import Headline from "@components/Headline";
-import { IconArrow, IconClose } from "@components/icons";
-import Section from "@components/Section";
+import { Button } from "~/components/Button";
+import Headline from "~/components/Headline";
+import { IconArrow, IconClose } from "~/components/icons";
+import Section from "~/components/Section";
 import styles from "./CollapsableSection.module.css";
 
 // TODO: rewrite with new ActionButton component

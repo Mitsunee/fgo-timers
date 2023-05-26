@@ -1,6 +1,6 @@
-import { atlasApiNA } from "@atlas-api/api.ts";
-import { atlasCacheNA } from "@atlas-api/cache.ts";
-import { getLocalCacheInfo } from "@atlas-api/validation.ts";
+import { atlasApiNA } from "~/atlas-api/api.ts";
+import { atlasCacheNA } from "~/atlas-api/cache.ts";
+import { getLocalCacheInfo } from "~/atlas-api/validation.ts";
 import { spacetimeToTs, tsToSpacetime } from "~/server/utils/time";
 import { Log } from "~/utils/log";
 

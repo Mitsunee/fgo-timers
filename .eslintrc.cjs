@@ -64,11 +64,7 @@ module.exports = {
                 "^@?\\w",
                 "\\w\\u0000",
                 // internal packages
-                "^src",
-                "^@(components|server|stores|styles|utils)\\/",
                 "^~",
-                "^src\\/.*\\u0000$",
-                "^@(components|server|stores|styles|utils)\\/.*\u0000$",
                 "^~\\/.*\\u0000$",
                 // Parent imports. Put `..` last.
                 "^\\.\\.\\/",

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Button } from "@components/Button";
-import { useIsClient } from "@utils/hooks/useIsClient";
+import { Button } from "~/components/Button";
+import { useIsClient } from "~/hooks/useIsClient";
 import Result from "./Result";
 import styles from "./Results.module.css";
 
