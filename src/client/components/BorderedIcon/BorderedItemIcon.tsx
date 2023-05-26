@@ -1,6 +1,6 @@
-import { useItemMap } from "src/client/contexts";
-import { ItemBackgroundFromBorder } from "src/items/itemBackgrounds";
-import type { ComponentPropsCC } from "src/types/ComponentProps";
+import { useItemMap } from "~/client/contexts";
+import { ItemBackgroundFromBorder } from "~/items/itemBackgrounds";
+import type { ComponentPropsCC } from "~/types/ComponentProps";
 import { BorderedIcon } from "./BorderedIcon";
 import { IconFace } from "./IconFace";
 import styles from "./BorderedItemIcon.module.css";

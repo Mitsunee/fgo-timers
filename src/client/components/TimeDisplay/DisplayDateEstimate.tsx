@@ -1,5 +1,5 @@
 import spacetime from "spacetime";
-import { Global } from "src/types/enum";
+import { Global } from "~/types/enum";
 
 interface DisplayDateEstimateProps {
   /**

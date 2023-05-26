@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import cc from "classcat";
 import { useIsClient } from "@utils/hooks/useIsClient";
-import type { CC } from "src/types/ComponentProps";
+import type { CC } from "~/types/ComponentProps";
 import styles from "./Pending.module.css";
 
 export function Pending({ className }: CC) {

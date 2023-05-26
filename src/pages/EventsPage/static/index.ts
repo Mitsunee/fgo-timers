@@ -1,6 +1,6 @@
 import type { InferGetStaticPropsType } from "next";
-import { serverApi } from "src/server/api/root";
-import { msToSeconds } from "src/time/msToSeconds";
+import { serverApi } from "~/server/api/root";
+import { msToSeconds } from "~/time/msToSeconds";
 
 export async function getStaticProps() {
   const now = msToSeconds(Date.now());

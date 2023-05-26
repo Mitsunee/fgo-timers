@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { Card, TimerList, TimerListItem } from "src/client/components/Card";
-import { DisplayDate, DisplayDelta } from "src/client/components/TimeDisplay";
-import { useIsClient } from "src/client/utils/hooks/useIsClient";
-import { useRecurringMonthly } from "src/client/utils/hooks/useRecurringMonthly";
-import { Borders } from "src/types/borders";
 import { useCurrentTime } from "@utils/hooks/useCurrentTime";
-import type { ShopInfo } from "src/pages/HomePage/static/getShopInfoProps";
+import { Card, TimerList, TimerListItem } from "~/client/components/Card";
+import { DisplayDate, DisplayDelta } from "~/client/components/TimeDisplay";
+import { useIsClient } from "~/client/utils/hooks/useIsClient";
+import { useRecurringMonthly } from "~/client/utils/hooks/useRecurringMonthly";
+import { Borders } from "~/types/borders";
+import type { ShopInfo } from "~/pages/HomePage/static/getShopInfoProps";
 
 interface ShopsInfoCardProps {
   shops: ShopInfo[];

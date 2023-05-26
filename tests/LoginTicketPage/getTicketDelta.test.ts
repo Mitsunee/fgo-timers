@@ -1,5 +1,5 @@
-import { getTicketDelta } from "src/pages/LoginTicketsPage/getTicketDelta";
-import type { BundledLoginTicket } from "src/items/types";
+import { getTicketDelta } from "~/pages/LoginTicketsPage/getTicketDelta";
+import type { BundledLoginTicket } from "~/items/types";
 
 const mockTicket: BundledLoginTicket = {
   name: "Exchange Ticket (APR 2023)",

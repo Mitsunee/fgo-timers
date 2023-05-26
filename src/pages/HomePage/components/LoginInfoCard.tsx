@@ -1,15 +1,15 @@
 import Link from "next/link";
-import { BorderedItemIcon } from "src/client/components/BorderedIcon";
+import { BorderedItemIcon } from "~/client/components/BorderedIcon";
 import {
   Card,
   TimerList,
   TimerListEntities,
   TimerListItem
-} from "src/client/components/Card";
-import { DisplayDate, DisplayDelta } from "src/client/components/TimeDisplay";
-import { useIsClient } from "src/client/utils/hooks/useIsClient";
-import { useRecurringDaily } from "src/client/utils/hooks/useRecurringDaily";
-import type { BundledLoginTicket } from "src/items/types";
+} from "~/client/components/Card";
+import { DisplayDate, DisplayDelta } from "~/client/components/TimeDisplay";
+import { useIsClient } from "~/client/utils/hooks/useIsClient";
+import { useRecurringDaily } from "~/client/utils/hooks/useRecurringDaily";
+import type { BundledLoginTicket } from "~/items/types";
 import type { HomePageProps } from "../static";
 
 interface LoginInfoCardProps {

@@ -1,5 +1,5 @@
-import { prepareCache } from "../atlas-api/prepare";
-import { Log } from "../utils/log";
+import { prepareCache } from "~/atlas-api/prepare";
+import { Log } from "~/utils/log";
 import { bundleCustomItems } from "./bundler/customItems";
 import { bundleEvents } from "./bundler/events";
 import { bundleExchangeTickets } from "./bundler/exchangeTickets";

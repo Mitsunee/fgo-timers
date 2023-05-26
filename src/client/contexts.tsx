@@ -6,13 +6,9 @@ import type {
   BundledCostume,
   BundledItem,
   BundledMysticCode
-} from "src/items/types";
-import type {
-  BundledNP,
-  BundledServant,
-  BundledSkill
-} from "src/servants/types";
-import type { BundledQuest } from "src/upgrades/types";
+} from "~/items/types";
+import type { BundledNP, BundledServant, BundledSkill } from "~/servants/types";
+import type { BundledQuest } from "~/upgrades/types";
 
 interface Maps {
   servants: DataMap<BundledServant>;

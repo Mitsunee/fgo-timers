@@ -1,5 +1,5 @@
-import { nextIntervalOccurence } from "src/time/nextIntervalOccurence";
-import { GlobalNums } from "src/types/enum";
+import { nextIntervalOccurence } from "~/time/nextIntervalOccurence";
+import { GlobalNums } from "~/types/enum";
 
 export function getMilestoneProps(now: number) {
   const nextServerTime = nextIntervalOccurence(

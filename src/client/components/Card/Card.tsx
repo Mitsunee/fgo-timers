@@ -1,7 +1,7 @@
 import cc from "classcat";
-import Headline from "src/client/components/Headline";
-import { BgColours, BorderColours, Borders } from "src/types/borders";
-import type { ComponentPropsCC } from "src/types/ComponentProps";
+import Headline from "~/client/components/Headline";
+import { BgColours, BorderColours, Borders } from "~/types/borders";
+import type { ComponentPropsCC } from "~/types/ComponentProps";
 import { CardHero } from "./CardHero";
 import styles from "./Card.module.css";
 

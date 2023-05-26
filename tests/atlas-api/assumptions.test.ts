@@ -1,5 +1,5 @@
 import { EntityType } from "@atlasacademy/api-connector/dist/Schema/Entity";
-import { atlasCacheJP } from "src/atlas-api/cache";
+import { atlasCacheJP } from "~/atlas-api/cache";
 
 let niceItem: Awaited<ReturnType<(typeof atlasCacheJP)["getNiceItem"]>>;
 let niceServant: Awaited<ReturnType<(typeof atlasCacheJP)["getNiceServant"]>>;

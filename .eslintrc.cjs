@@ -53,7 +53,8 @@ module.exports = {
             groups: [
               [
                 // Side effect imports.
-                "^\\u0000"
+                "^\\u0000",
+                "^\\u0000.+\\.css$"
               ],
               [
                 // node built-ins
@@ -76,14 +77,15 @@ module.exports = {
                 "^\\.\\/",
                 "^\\.\\/.*\u0000$",
                 // Style imports.
-                "^.+\\.s?css$"
+                "^.+\\.module\\.css$"
               ]
             ]
           }
         ],
         "import/order": "off",
         "import/first": "warn",
-        "import/newline-after-import": "warn"
+        "import/newline-after-import": "warn",
+        "import/no-unresolved": "off"
       }
     }
   ]

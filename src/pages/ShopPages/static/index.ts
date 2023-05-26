@@ -1,10 +1,10 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
 import type { ParsedUrlQuery } from "querystring";
-import { getBuildInfo } from "src/utils/getBuildInfo";
-import { getBundledShops } from "src/utils/getBundles";
-import { Log } from "src/utils/log";
-import type { WithMaps } from "src/client/contexts";
-import type { BundledShop } from "src/schema/ShopSchema";
+import { getBuildInfo } from "~/utils/getBuildInfo";
+import { getBundledShops } from "~/utils/getBundles";
+import { Log } from "~/utils/log";
+import type { WithMaps } from "~/client/contexts";
+import type { BundledShop } from "~/schema/ShopSchema";
 import { collectDataMaps } from "./collectDataMaps";
 
 export interface PageContext extends ParsedUrlQuery {

@@ -1,14 +1,14 @@
-import { CardGrid } from "src/client/components/Card";
-import { DataContext } from "src/client/contexts";
-import { EventPageLayout } from "src/pages/EventPage/components/EventPageLayout";
-import { UpgradeCard } from "src/pages/UpgradesPage/components";
-import type { EventUpgradesPageProps } from "src/pages/EventPage/static/upgrades";
+import { CardGrid } from "~/client/components/Card";
+import { DataContext } from "~/client/contexts";
+import { EventPageLayout } from "~/pages/EventPage/components/EventPageLayout";
+import { UpgradeCard } from "~/pages/UpgradesPage/components";
+import type { EventUpgradesPageProps } from "~/pages/EventPage/static/upgrades";
 
 // Next Page configs
 export {
   getStaticPaths,
   getStaticProps
-} from "src/pages/EventPage/static/upgrades";
+} from "~/pages/EventPage/static/upgrades";
 
 export default function EventUpgradesPage({
   event,

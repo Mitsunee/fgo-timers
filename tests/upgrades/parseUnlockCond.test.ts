@@ -1,6 +1,6 @@
 import type { Quest } from "@atlasacademy/api-connector/dist/Schema/Quest";
-import { getQuestData } from "src/upgrades/getQuestData";
-import { parseUnlockCond } from "src/upgrades/parseUnlockCond";
+import { getQuestData } from "~/upgrades/getQuestData";
+import { parseUnlockCond } from "~/upgrades/parseUnlockCond";
 
 let quests: Quest[];
 

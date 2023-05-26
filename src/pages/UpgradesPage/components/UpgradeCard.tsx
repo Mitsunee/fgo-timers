@@ -1,19 +1,19 @@
-import { Card, CardHero } from "src/client/components/Card";
+import { Card, CardHero } from "~/client/components/Card";
 import {
   useNPMap,
   useQuestMap,
   useServantMap,
   useSkillMap
-} from "src/client/contexts";
-import { nameServantClass } from "src/servants/classNames";
-import { getSkillNum } from "src/servants/getSkillNum";
-import { Borders } from "src/types/borders";
-import { UpgradeQuestType } from "src/upgrades/types";
+} from "~/client/contexts";
+import { nameServantClass } from "~/servants/classNames";
+import { getSkillNum } from "~/servants/getSkillNum";
+import { Borders } from "~/types/borders";
+import { UpgradeQuestType } from "~/upgrades/types";
 import type {
   BundledUpgrade,
   UpgradeMapNP,
   UpgradeMapSkill
-} from "src/upgrades/types";
+} from "~/upgrades/types";
 import { createQuestUnlockMapper } from "../mapQuestUnlocks";
 import type { Highlight } from "../types";
 import { Subtitle, Title } from "./Title";

@@ -1,4 +1,4 @@
-import { normalizeDate } from "src/time/normalizeDate";
+import { normalizeDate } from "~/time/normalizeDate";
 
 interface FormatTSProps {
   time: number | [number, number];

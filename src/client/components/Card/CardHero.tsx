@@ -1,4 +1,4 @@
-import { IconFace } from "src/client/components/BorderedIcon";
+import { IconFace } from "~/client/components/BorderedIcon";
 import styles from "./CardHero.module.css";
 
 type CardHeroProps = Pick<

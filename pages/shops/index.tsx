@@ -1,16 +1,16 @@
-import Headline from "src/client/components/Headline";
-import Meta from "src/client/components/Meta";
-import Section from "src/client/components/Section";
-import { DisplayDelta } from "src/client/components/TimeDisplay";
-import { DataContext } from "src/client/contexts";
-import { useIsClient } from "src/client/utils/hooks/useIsClient";
-import { useRecurringMonthly } from "src/client/utils/hooks/useRecurringMonthly";
-import { ShopLinkButton } from "src/pages/ShopsPage/components/ShopLinkButton";
-import { formatDayOfMonth } from "src/time/formatDayOfMonth";
-import type { ShopsPageProps } from "src/pages/ShopsPage/static";
-import styles from "src/pages/ShopsPage/ShopsPage.module.css";
+import Headline from "~/client/components/Headline";
+import Meta from "~/client/components/Meta";
+import Section from "~/client/components/Section";
+import { DisplayDelta } from "~/client/components/TimeDisplay";
+import { DataContext } from "~/client/contexts";
+import { useIsClient } from "~/client/utils/hooks/useIsClient";
+import { useRecurringMonthly } from "~/client/utils/hooks/useRecurringMonthly";
+import { ShopLinkButton } from "~/pages/ShopsPage/components/ShopLinkButton";
+import { formatDayOfMonth } from "~/time/formatDayOfMonth";
+import type { ShopsPageProps } from "~/pages/ShopsPage/static";
+import styles from "~/pages/ShopsPage/ShopsPage.module.css";
 
-export { getStaticProps } from "src/pages/ShopsPage/static";
+export { getStaticProps } from "~/pages/ShopsPage/static";
 
 export default function ShopsPage({ items, resets }: ShopsPageProps) {
   const isClient = useIsClient();

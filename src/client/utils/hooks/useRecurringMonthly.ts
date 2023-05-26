@@ -1,4 +1,4 @@
-import { nextMonthlyOccurence } from "src/time/nextMonthlyOccurence";
+import { nextMonthlyOccurence } from "~/time/nextMonthlyOccurence";
 import { useCurrentTime } from "./useCurrentTime";
 
 interface RecurringEventProps {

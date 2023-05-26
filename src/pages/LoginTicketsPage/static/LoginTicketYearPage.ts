@@ -1,10 +1,7 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
 import type { ParsedUrlQuery } from "querystring";
-import {
-  getBundledItemMap,
-  getBundledLoginTickets
-} from "src/utils/getBundles";
-import type { BundledItem, BundledLoginTicket } from "src/items/types";
+import { getBundledItemMap, getBundledLoginTickets } from "~/utils/getBundles";
+import type { BundledItem, BundledLoginTicket } from "~/items/types";
 import { getTicketsYears } from "../getTicketsYears";
 import { getTicketYear } from "../getTicketYear";
 

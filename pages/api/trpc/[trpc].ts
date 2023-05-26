@@ -1,7 +1,7 @@
 import { createNextApiHandler } from "@trpc/server/adapters/next";
-import { appRouter } from "src/server/api/root";
-import { createTRPCContext } from "src/server/api/trpc";
-import { Log } from "src/utils/log";
+import { appRouter } from "~/server/api/root";
+import { createTRPCContext } from "~/server/api/trpc";
+import { Log } from "~/utils/log";
 
 // see src/server/api/root.ts for routers
 export default createNextApiHandler({

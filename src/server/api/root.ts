@@ -20,7 +20,7 @@ export const appRouter = createTRPCRouter({
 });
 
 /**
- * SSG adapter for app router. For client use `import { api } from "src/client/api"` instead
+ * SSG adapter for app router. For client use `import { api } from "~/client/api"` instead
  */
 export const serverApi = createServerSideHelpers({
   router: appRouter,

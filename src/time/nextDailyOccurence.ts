@@ -1,5 +1,5 @@
 import type { Spacetime } from "spacetime";
-import { Global } from "src/types/enum";
+import { Global } from "~/types/enum";
 import { msToSeconds } from "./msToSeconds";
 
 /**

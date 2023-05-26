@@ -1,6 +1,6 @@
 import { expandAtlasUrl } from "@atlas-api/urls";
 import Link from "next/link";
-import { useItemMap } from "src/client/contexts";
+import { useItemMap } from "~/client/contexts";
 import styles from "./ShopLinkButton.module.css";
 
 interface ShopLinkButtonProps extends React.PropsWithChildren {

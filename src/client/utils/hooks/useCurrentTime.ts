@@ -1,7 +1,7 @@
 import { useStore } from "@nanostores/react";
 import { atom, onMount } from "nanostores";
 import spacetime from "spacetime";
-import { msToSeconds } from "src/time/msToSeconds";
+import { msToSeconds } from "~/time/msToSeconds";
 
 /**
  * Creates new spacetime instance and extract current time in sec and ms units

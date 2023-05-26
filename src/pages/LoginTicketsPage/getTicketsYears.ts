@@ -1,4 +1,4 @@
-import type { BundledLoginTicket } from "src/items/types";
+import type { BundledLoginTicket } from "~/items/types";
 import { getTicketYear } from "./getTicketYear";
 
 export function getTicketsYears(tickets: BundledLoginTicket[]) {

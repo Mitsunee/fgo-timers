@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import cc from "classcat";
-import type { CC, ComponentPropsCC } from "src/types/ComponentProps";
+import type { ComponentPropsCC } from "~/types/ComponentProps";
 import styles from "./InlineIcon.module.css";
 
 type SvgComponent = (props: React.ComponentProps<"svg">) => JSX.Element;

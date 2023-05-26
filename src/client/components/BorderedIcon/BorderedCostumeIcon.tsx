@@ -1,5 +1,5 @@
-import { useCostumeMap } from "src/client/contexts";
-import type { ComponentPropsCC } from "src/types/ComponentProps";
+import { useCostumeMap } from "~/client/contexts";
+import type { ComponentPropsCC } from "~/types/ComponentProps";
 import { BorderedIcon } from "./BorderedIcon";
 import { IconFace } from "./IconFace";
 

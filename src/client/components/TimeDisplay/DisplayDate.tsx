@@ -1,8 +1,8 @@
 import { useStore } from "@nanostores/react";
 import spacetime from "spacetime";
-import { settingsStore } from "src/client/stores/settingsStore";
-import { useIsClient } from "src/client/utils/hooks/useIsClient";
-import { Global } from "src/types/enum";
+import { settingsStore } from "~/client/stores/settingsStore";
+import { useIsClient } from "~/client/utils/hooks/useIsClient";
+import { Global } from "~/types/enum";
 
 type Formats = "full" | "withSec" | "short" | "time" | "date";
 

@@ -16,14 +16,14 @@
     "noEmit": true,
     "incremental": true,
     "tsBuildInfoFile": ".next/cache/tsbuildinfo",
-    "baseUrl": "./",
     "paths": {
-      "@atlas-api/*": ["src/atlas-api/*"],
-      "@components/*": ["src/client/components/*"],
-      "@server/*": ["src/server/*"],
-      "@stores/*": ["src/client/stores/*"],
-      "@styles/*": ["src/client/styles/*"],
-      "@utils/*": ["src/client/utils/*"]
+      "~/*": ["./src/*"],
+      "@atlas-api/*": ["./src/atlas-api/*"],
+      "@components/*": ["./src/client/components/*"],
+      "@server/*": ["./src/server/*"],
+      "@stores/*": ["./src/client/stores/*"],
+      "@styles/*": ["./src/client/styles/*"],
+      "@utils/*": ["./src/client/utils/*"]
     }
   },
   "include": ["src/types/*.d.ts", "next-env.d.ts", "**/*.ts", "**/*.tsx"],

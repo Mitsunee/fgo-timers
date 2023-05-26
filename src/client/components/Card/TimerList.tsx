@@ -1,5 +1,5 @@
 import cc from "classcat";
-import type { ComponentPropsCC } from "src/types/ComponentProps";
+import type { ComponentPropsCC } from "~/types/ComponentProps";
 import styles from "./TimerList.module.css";
 
 type TimerListProps = ComponentPropsCC<"ul">;

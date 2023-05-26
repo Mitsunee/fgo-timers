@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { queryMap } from "src/client/styles/media";
-import type { Queries } from "src/client/styles/media";
+import { queryMap } from "~/client/styles/media";
+import type { Queries } from "~/client/styles/media";
 
 //type DimensionQuery = `(${"min"|"max"}-${"width"|"height"}: ${number}px)`;
 

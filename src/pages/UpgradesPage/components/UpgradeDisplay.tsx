@@ -1,17 +1,17 @@
-import { AtlasLink } from "src/client/components/AtlasLink";
+import { AtlasLink } from "~/client/components/AtlasLink";
 import {
   BorderedNPIcon,
   BorderedSkillIcon
-} from "src/client/components/BorderedIcon";
-import { SpoileredText } from "src/client/components/Text";
-import { useNPMap, useSkillMap } from "src/client/contexts";
-import { getSkillNum } from "src/servants/getSkillNum";
+} from "~/client/components/BorderedIcon";
+import { SpoileredText } from "~/client/components/Text";
+import { useNPMap, useSkillMap } from "~/client/contexts";
+import { getSkillNum } from "~/servants/getSkillNum";
 import type {
   BundledUpgrade,
   UpgradeMap,
   UpgradeMapNP,
   UpgradeMapSkill
-} from "src/upgrades/types";
+} from "~/upgrades/types";
 import styles from "./UpgradeDisplay.module.css";
 
 type Props<U extends UpgradeMap> = {

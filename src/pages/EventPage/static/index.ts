@@ -1,11 +1,11 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
-import { serverApi } from "src/server/api/root";
+import { serverApi } from "~/server/api/root";
 import {
   getBundledCCMap,
   getBundledCEMap,
   getBundledItemMap,
   getBundledServantMap
-} from "src/utils/getBundles";
+} from "~/utils/getBundles";
 import { getEventProps, NOT_FOUND } from "./getEventProps";
 import type { EventPageProps, PageContext, StaticPath } from "./types";
 

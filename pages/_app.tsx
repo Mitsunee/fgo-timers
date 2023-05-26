@@ -1,9 +1,10 @@
+import "modern-normalize/modern-normalize.css";
+import "~/client/styles/app.css";
+
 import { Dosis, Noto_Sans } from "@next/font/google";
 import type { AppType } from "next/app";
-import { api } from "src/client/api";
-import { Layout } from "src/client/components/Layout";
-import "modern-normalize/modern-normalize.css";
-import "src/client/styles/app.css";
+import { api } from "~/client/api";
+import { Layout } from "~/client/components/Layout";
 
 const dosis = Dosis({
   weight: ["400", "700"],

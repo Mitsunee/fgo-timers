@@ -1,6 +1,6 @@
 import { useMemo } from "react";
-import { Card, TimerList } from "src/client/components/Card";
-import type { BundledEvent } from "src/events/types";
+import { Card, TimerList } from "~/client/components/Card";
+import type { BundledEvent } from "~/events/types";
 import { EventListItem } from "./EventListItem";
 import type { EventTime } from "./EventListItem";
 

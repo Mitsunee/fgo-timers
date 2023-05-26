@@ -2,18 +2,18 @@ import { useEffect, useMemo, useState } from "react";
 import { clamp } from "@foxkit/util/clamp";
 import { useStore } from "@nanostores/react";
 import { Searcher, sortKind } from "fast-fuzzy";
-import { api } from "src/client/api";
-import { EventList } from "src/client/components/EventList";
-import Headline from "src/client/components/Headline";
-import { Input } from "src/client/components/Input";
-import Meta from "src/client/components/Meta";
-import { Scroller } from "src/client/components/Scroller";
-import Section from "src/client/components/Section";
-import { settingsStore } from "src/client/stores/settingsStore";
-import type { EventsPageProps } from "src/pages/EventsPage/static";
-import styles from "src/pages/EventsPage/EventsPage.module.css";
+import { api } from "~/client/api";
+import { EventList } from "~/client/components/EventList";
+import Headline from "~/client/components/Headline";
+import { Input } from "~/client/components/Input";
+import Meta from "~/client/components/Meta";
+import { Scroller } from "~/client/components/Scroller";
+import Section from "~/client/components/Section";
+import { settingsStore } from "~/client/stores/settingsStore";
+import type { EventsPageProps } from "~/pages/EventsPage/static";
+import styles from "~/pages/EventsPage/EventsPage.module.css";
 
-export { getStaticProps } from "src/pages/EventsPage/static";
+export { getStaticProps } from "~/pages/EventsPage/static";
 
 export default function EventsPage({ active, fallback, now }: EventsPageProps) {
   const { perPage } = useStore(settingsStore);

@@ -1,8 +1,8 @@
-import { Card } from "src/client/components/Card";
-import { NoSSR } from "src/client/components/NoSSR";
-import { DisplayDate, DisplayDelta } from "src/client/components/TimeDisplay";
-import { useCurrentTime } from "src/client/utils/hooks/useCurrentTime";
-import { useRecurringDaily } from "src/client/utils/hooks/useRecurringDaily";
+import { Card } from "~/client/components/Card";
+import { NoSSR } from "~/client/components/NoSSR";
+import { DisplayDate, DisplayDelta } from "~/client/components/TimeDisplay";
+import { useCurrentTime } from "~/client/utils/hooks/useCurrentTime";
+import { useRecurringDaily } from "~/client/utils/hooks/useRecurringDaily";
 import EmberLootList from "./EmberLootList";
 import { findScheduleByDay } from "./schedules";
 import ScheduleTable from "./ScheduleTable";

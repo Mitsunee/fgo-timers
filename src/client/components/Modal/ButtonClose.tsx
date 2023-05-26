@@ -1,5 +1,5 @@
-import { ActionButton } from "src/client/components/Button";
-import { IconClose } from "src/client/components/icons";
+import { ActionButton } from "~/client/components/Button";
+import { IconClose } from "~/client/components/icons";
 import styles from "./ButtonClose.module.css";
 
 type OnClick = NonNullable<React.ComponentProps<"button">["onClick"]>;

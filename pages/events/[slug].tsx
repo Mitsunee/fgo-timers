@@ -1,14 +1,14 @@
-import { CardGrid } from "src/client/components/Card";
-import Section from "src/client/components/Section";
-import { DataContext } from "src/client/contexts";
-import { EventPageLayout } from "src/pages/EventPage/components/EventPageLayout";
-import { EventSchedulesCard } from "src/pages/EventPage/components/EventSchedulesCard";
-import { EventTimesCard } from "src/pages/EventPage/components/EventTimesCard";
-import { normalizeDate } from "src/time/normalizeDate";
-import type { EventPageProps } from "src/pages/EventPage/static";
+import { CardGrid } from "~/client/components/Card";
+import Section from "~/client/components/Section";
+import { DataContext } from "~/client/contexts";
+import { EventPageLayout } from "~/pages/EventPage/components/EventPageLayout";
+import { EventSchedulesCard } from "~/pages/EventPage/components/EventSchedulesCard";
+import { EventTimesCard } from "~/pages/EventPage/components/EventTimesCard";
+import { normalizeDate } from "~/time/normalizeDate";
+import type { EventPageProps } from "~/pages/EventPage/static";
 
 // Next Page configs
-export { getStaticPaths, getStaticProps } from "src/pages/EventPage/static";
+export { getStaticPaths, getStaticProps } from "~/pages/EventPage/static";
 
 export default function EventPage({
   event,

@@ -2,12 +2,6 @@ import { useEffect, useState } from "react";
 import { clamp, isClamped } from "@foxkit/util/clamp";
 import { useStore } from "@nanostores/react";
 import cc from "classcat";
-import {
-  settingsStore,
-  setUserMaxAP,
-  setUserNodeCost
-} from "src/client/stores/settingsStore";
-import { FormField, Results } from "src/pages/ApCalcPage/components";
 import { Clocks } from "@components/Clocks";
 import { Input, InputNumber } from "@components/Input";
 import Meta from "@components/Meta";
@@ -21,7 +15,13 @@ import {
 } from "@utils/globals.js";
 import { useInputNumberValue } from "@utils/hooks/useInputNumberValue";
 import { useIsClient } from "@utils/hooks/useIsClient";
-import styles from "src/pages/ApCalcPage/APCalcPage.module.css";
+import {
+  settingsStore,
+  setUserMaxAP,
+  setUserNodeCost
+} from "~/client/stores/settingsStore";
+import { FormField, Results } from "~/pages/ApCalcPage/components";
+import styles from "~/pages/ApCalcPage/APCalcPage.module.css";
 
 const validateApOffset = value =>
   /^(0:(0[1-9]|[1-5]\d)|[1-4]:[0-5]\d)$/.test(value);

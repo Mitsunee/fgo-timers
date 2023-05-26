@@ -1,6 +1,6 @@
 import { persistentMap } from "@nanostores/persistent";
 import { action, computed } from "nanostores";
-import { SpoilerLevels } from "src/types/enum";
+import { SpoilerLevels } from "~/types/enum";
 
 /*
  * This store uses persistence which requires all values to be string.

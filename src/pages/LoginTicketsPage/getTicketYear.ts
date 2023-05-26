@@ -1,6 +1,6 @@
 import spacetime from "spacetime";
-import { Global } from "src/types/enum";
-import type { BundledLoginTicket } from "src/items/types";
+import { Global } from "~/types/enum";
+import type { BundledLoginTicket } from "~/items/types";
 
 export function getTicketYear(ticket: BundledLoginTicket) {
   return spacetime(ticket.start * 1000, Global.UTC_TZ).year();

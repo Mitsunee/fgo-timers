@@ -3,35 +3,35 @@ import { clamp } from "@foxkit/util/clamp";
 import { useStore } from "@nanostores/react";
 import { Searcher } from "fast-fuzzy";
 import type { MatchData } from "fast-fuzzy";
-import { api } from "src/client/api";
-import { ActionButton } from "src/client/components/Button";
-import { CardGrid } from "src/client/components/Card";
-import Headline from "src/client/components/Headline";
-import { IconAtlas, IconHelp } from "src/client/components/icons";
-import { InlineSvg } from "src/client/components/InlineIcon";
-import { Input } from "src/client/components/Input";
-import Meta from "src/client/components/Meta";
-import { Modal, ModalMenu } from "src/client/components/Modal";
-import { NoSSR } from "src/client/components/NoSSR";
-import { Scroller } from "src/client/components/Scroller";
-import Section from "src/client/components/Section";
-import { DataContext } from "src/client/contexts";
-import { settingsStore } from "src/client/stores/settingsStore";
-import { UpgradeCard } from "src/pages/UpgradesPage/components";
-import { FiltersForm } from "src/pages/UpgradesPage/components/FiltersForm";
+import { api } from "~/client/api";
+import { ActionButton } from "~/client/components/Button";
+import { CardGrid } from "~/client/components/Card";
+import Headline from "~/client/components/Headline";
+import { IconAtlas, IconHelp } from "~/client/components/icons";
+import { InlineSvg } from "~/client/components/InlineIcon";
+import { Input } from "~/client/components/Input";
+import Meta from "~/client/components/Meta";
+import { Modal, ModalMenu } from "~/client/components/Modal";
+import { NoSSR } from "~/client/components/NoSSR";
+import { Scroller } from "~/client/components/Scroller";
+import Section from "~/client/components/Section";
+import { DataContext } from "~/client/contexts";
+import { settingsStore } from "~/client/stores/settingsStore";
+import { UpgradeCard } from "~/pages/UpgradesPage/components";
+import { FiltersForm } from "~/pages/UpgradesPage/components/FiltersForm";
 import {
   createUpgradeFilter,
   createUpgradeSorter
-} from "src/pages/UpgradesPage/filters";
+} from "~/pages/UpgradesPage/filters";
 import {
   filtersReducer,
   formFiltersDefault
-} from "src/pages/UpgradesPage/filtersReducer";
-import type { Highlight } from "src/pages/UpgradesPage/components";
-import type { UpgradesPageProps } from "src/pages/UpgradesPage/getStaticProps";
-import type { BundledUpgrade } from "src/upgrades/types";
+} from "~/pages/UpgradesPage/filtersReducer";
+import type { Highlight } from "~/pages/UpgradesPage/components";
+import type { UpgradesPageProps } from "~/pages/UpgradesPage/getStaticProps";
+import type { BundledUpgrade } from "~/upgrades/types";
 
-export { getStaticProps } from "src/pages/UpgradesPage/getStaticProps";
+export { getStaticProps } from "~/pages/UpgradesPage/getStaticProps";
 
 export default function UpgradesPage({ fallback }: UpgradesPageProps) {
   const { perPage } = useStore(settingsStore);

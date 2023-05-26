@@ -1,6 +1,6 @@
 import path from "path";
 import { readFileJson } from "@foxkit/node-util/fs";
-import type { BundledEvent } from "src/events/types";
+import type { BundledEvent } from "~/events/types";
 import type {
   BundledCC,
   BundledCE,
@@ -8,14 +8,10 @@ import type {
   BundledItem,
   BundledLoginTicket,
   BundledMysticCode
-} from "src/items/types";
-import type { BundledShop } from "src/schema/ShopSchema";
-import type {
-  BundledNP,
-  BundledServant,
-  BundledSkill
-} from "src/servants/types";
-import type { BundledQuest, BundledUpgrade } from "src/upgrades/types";
+} from "~/items/types";
+import type { BundledShop } from "~/schema/ShopSchema";
+import type { BundledNP, BundledServant, BundledSkill } from "~/servants/types";
+import type { BundledQuest, BundledUpgrade } from "~/upgrades/types";
 import { Log } from "./log";
 import { safeProxyDataMap } from "./safeProxyDataMap";
 

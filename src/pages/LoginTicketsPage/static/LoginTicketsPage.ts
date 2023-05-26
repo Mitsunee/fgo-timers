@@ -1,13 +1,10 @@
 import spacetime from "spacetime";
 import type { InferGetStaticPropsType } from "next";
-import { msToSeconds } from "src/time/msToSeconds";
-import { Global } from "src/types/enum";
-import {
-  getBundledItemMap,
-  getBundledLoginTickets
-} from "src/utils/getBundles";
-import { Log } from "src/utils/log";
-import type { BundledItem } from "src/items/types";
+import { msToSeconds } from "~/time/msToSeconds";
+import { Global } from "~/types/enum";
+import { getBundledItemMap, getBundledLoginTickets } from "~/utils/getBundles";
+import { Log } from "~/utils/log";
+import type { BundledItem } from "~/items/types";
 
 export async function getStaticProps() {
   const [tickets, itemMap] = await Promise.all([

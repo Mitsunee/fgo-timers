@@ -1,7 +1,7 @@
 import { useStore } from "@nanostores/react";
-import { settingsMap } from "src/client/stores/settingsStore";
-import { useIsClient } from "src/client/utils/hooks/useIsClient";
-import { SpoilerLevels } from "src/types/enum";
+import { settingsMap } from "~/client/stores/settingsStore";
+import { useIsClient } from "~/client/utils/hooks/useIsClient";
+import { SpoilerLevels } from "~/types/enum";
 
 const subKeys = { keys: ["showSpoiler" as const] };
 

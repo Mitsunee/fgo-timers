@@ -1,4 +1,4 @@
-import { nextDailyOccurence } from "src/time/nextDailyOccurence";
+import { nextDailyOccurence } from "~/time/nextDailyOccurence";
 import { useCurrentTime } from "./useCurrentTime";
 
 /**

@@ -1,15 +1,15 @@
+import { CommandCodeIcon } from "@components/CommandCodeIcon";
 import {
   BorderedCEIcon,
   BorderedItemIcon,
   BorderedServantIcon
-} from "src/client/components/BorderedIcon";
-import { TimerListEntities, TimerListItem } from "src/client/components/Card";
-import { DisplayDate, DisplayDelta } from "src/client/components/TimeDisplay";
-import { useCurrentTime } from "src/client/utils/hooks/useCurrentTime";
-import { useIsClient } from "src/client/utils/hooks/useIsClient";
-import { normalizeDate } from "src/time/normalizeDate";
-import { CommandCodeIcon } from "@components/CommandCodeIcon";
-import type { BundledEvent } from "src/events/types";
+} from "~/client/components/BorderedIcon";
+import { TimerListEntities, TimerListItem } from "~/client/components/Card";
+import { DisplayDate, DisplayDelta } from "~/client/components/TimeDisplay";
+import { useCurrentTime } from "~/client/utils/hooks/useCurrentTime";
+import { useIsClient } from "~/client/utils/hooks/useIsClient";
+import { normalizeDate } from "~/time/normalizeDate";
+import type { BundledEvent } from "~/events/types";
 
 export type EventTime = NonNullable<BundledEvent["times"]>[number];
 

@@ -1,5 +1,5 @@
 import cc from "classcat";
-import type { CC } from "src/types/ComponentProps";
+import type { CC } from "~/types/ComponentProps";
 import styles from "./CardGrid.module.css";
 
 export function CardGrid({

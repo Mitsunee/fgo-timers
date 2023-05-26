@@ -1,10 +1,10 @@
 import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
-import { atlasCacheNA } from "src/atlas-api/cache";
+import { atlasCacheNA } from "~/atlas-api/cache";
 import {
   getRelatedNP,
   getRelatedServant,
   getRelatedSkill
-} from "src/upgrades/getRelated";
+} from "~/upgrades/getRelated";
 
 let servants: Servant[];
 const quests: number[] = [

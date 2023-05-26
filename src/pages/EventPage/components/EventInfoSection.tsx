@@ -1,15 +1,15 @@
 import spacetime from "spacetime";
-import { LinkButton } from "src/client/components/Button";
-import { DiscordTSButton } from "src/client/components/DiscordTSButton";
-import Headline from "src/client/components/Headline";
-import { Progress } from "src/client/components/Progress";
-import Section from "src/client/components/Section";
-import { DisplayDate } from "src/client/components/TimeDisplay";
-import { useCurrentTime } from "src/client/utils/hooks/useCurrentTime";
-import { useIsClient } from "src/client/utils/hooks/useIsClient";
-import { formatDiff } from "src/time/formatDiff";
-import { normalizeDate } from "src/time/normalizeDate";
-import type { BundledEvent } from "src/events/types";
+import { LinkButton } from "~/client/components/Button";
+import { DiscordTSButton } from "~/client/components/DiscordTSButton";
+import Headline from "~/client/components/Headline";
+import { Progress } from "~/client/components/Progress";
+import Section from "~/client/components/Section";
+import { DisplayDate } from "~/client/components/TimeDisplay";
+import { useCurrentTime } from "~/client/utils/hooks/useCurrentTime";
+import { useIsClient } from "~/client/utils/hooks/useIsClient";
+import { formatDiff } from "~/time/formatDiff";
+import { normalizeDate } from "~/time/normalizeDate";
+import type { BundledEvent } from "~/events/types";
 import styles from "./EventInfoSection.module.css";
 
 type EventInfoSectionProps = Pick<

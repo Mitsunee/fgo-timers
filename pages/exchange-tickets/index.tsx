@@ -1,25 +1,25 @@
 import { useMemo } from "react";
-import { BorderedItemIcon } from "src/client/components/BorderedIcon";
-import { LinkButton } from "src/client/components/Button";
+import { BorderedItemIcon } from "~/client/components/BorderedIcon";
+import { LinkButton } from "~/client/components/Button";
 import {
   TimerList,
   TimerListEntities,
   TimerListItem
-} from "src/client/components/Card";
-import Headline from "src/client/components/Headline";
-import Meta from "src/client/components/Meta";
-import Section from "src/client/components/Section";
-import { DisplayDate, DisplayDelta } from "src/client/components/TimeDisplay";
-import { DataContext } from "src/client/contexts";
-import { useCurrentTime } from "src/client/utils/hooks/useCurrentTime";
-import { useIsClient } from "src/client/utils/hooks/useIsClient";
-import { useRecurringDaily } from "src/client/utils/hooks/useRecurringDaily";
-import { getTicketDelta } from "src/pages/LoginTicketsPage/getTicketDelta";
-import type { LoginTicketsPageProps } from "src/pages/LoginTicketsPage/static/LoginTicketsPage";
-import styles from "src/pages/LoginTicketsPage/LoginTicketsPage.module.css";
+} from "~/client/components/Card";
+import Headline from "~/client/components/Headline";
+import Meta from "~/client/components/Meta";
+import Section from "~/client/components/Section";
+import { DisplayDate, DisplayDelta } from "~/client/components/TimeDisplay";
+import { DataContext } from "~/client/contexts";
+import { useCurrentTime } from "~/client/utils/hooks/useCurrentTime";
+import { useIsClient } from "~/client/utils/hooks/useIsClient";
+import { useRecurringDaily } from "~/client/utils/hooks/useRecurringDaily";
+import { getTicketDelta } from "~/pages/LoginTicketsPage/getTicketDelta";
+import type { LoginTicketsPageProps } from "~/pages/LoginTicketsPage/static/LoginTicketsPage";
+import styles from "~/pages/LoginTicketsPage/LoginTicketsPage.module.css";
 
 // Next page configs
-export { getStaticProps } from "src/pages/LoginTicketsPage/static/LoginTicketsPage";
+export { getStaticProps } from "~/pages/LoginTicketsPage/static/LoginTicketsPage";
 
 export default function LoginTicketsPage({
   currentTicket,

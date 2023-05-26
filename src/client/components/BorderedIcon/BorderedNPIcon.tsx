@@ -1,7 +1,7 @@
-import { useNPMap } from "src/client/contexts";
-import { ServantCard } from "src/servants/types";
-import type { BundledNP } from "src/servants/types";
-import type { ComponentPropsCC } from "src/types/ComponentProps";
+import { useNPMap } from "~/client/contexts";
+import { ServantCard } from "~/servants/types";
+import type { BundledNP } from "~/servants/types";
+import type { ComponentPropsCC } from "~/types/ComponentProps";
 import { BorderedIcon } from "./BorderedIcon";
 import { IconFace } from "./IconFace";
 

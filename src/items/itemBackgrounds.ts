@@ -1,4 +1,4 @@
-import { Borders } from "src/types/borders";
+import { Borders } from "~/types/borders";
 import type { ItemBorder } from "./types";
 
 export const enum ItemBackgrounds {

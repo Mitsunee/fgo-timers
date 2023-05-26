@@ -1,4 +1,4 @@
-import { Availability } from "src/types/enum";
+import { Availability } from "~/types/enum";
 import styles from "./BorderedIconAvailability.module.css";
 
 interface BorderedIconAvailabilityProps {

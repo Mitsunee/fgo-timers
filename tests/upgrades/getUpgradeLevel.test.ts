@@ -1,6 +1,6 @@
 import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
-import { atlasCache } from "src/atlas-api/cache";
-import { getUpgradeLevel } from "src/upgrades/getUpgradeLevel";
+import { atlasCache } from "~/atlas-api/cache";
+import { getUpgradeLevel } from "~/upgrades/getUpgradeLevel";
 
 let servants: Servant[];
 

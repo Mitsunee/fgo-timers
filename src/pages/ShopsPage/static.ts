@@ -1,8 +1,8 @@
 import { pickByKey } from "@foxkit/util/object";
 import type { GetStaticProps, InferGetStaticPropsType } from "next";
-import { getBundledItemMap, getBundledShops } from "src/utils/getBundles";
-import { Log } from "src/utils/log";
-import type { BundledShop } from "src/schema/ShopSchema";
+import { getBundledItemMap, getBundledShops } from "~/utils/getBundles";
+import { Log } from "~/utils/log";
+import type { BundledShop } from "~/schema/ShopSchema";
 
 export const getStaticProps = async function () {
   const [itemMap, shops] = await Promise.all([

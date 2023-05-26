@@ -1,6 +1,6 @@
-import { useServantMap } from "src/client/contexts";
-import { nameServantClass } from "src/servants/classNames";
-import type { ComponentPropsCC } from "src/types/ComponentProps";
+import { useServantMap } from "~/client/contexts";
+import { nameServantClass } from "~/servants/classNames";
+import type { ComponentPropsCC } from "~/types/ComponentProps";
 import { BorderedIcon } from "./BorderedIcon";
 import { BorderedIconAvailability } from "./BorderedIconAvailability";
 import { BorderedIconClass } from "./BorderedIconClass";

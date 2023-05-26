@@ -1,16 +1,13 @@
 import cc from "classcat";
 import { useRouter } from "next/router";
-import { ActionButton, LinkButton } from "src/client/components/Button";
+import { ActionButton, LinkButton } from "~/client/components/Button";
 import {
   IconChaldea,
   IconDiscord,
   IconGithub,
   IconSettings
-} from "src/client/components/icons";
-import {
-  setMobileNavOpen,
-  setSettingsMenuOpen
-} from "src/client/stores/uiStore";
+} from "~/client/components/icons";
+import { setMobileNavOpen, setSettingsMenuOpen } from "~/client/stores/uiStore";
 import { isActiveRoute, navRoutes } from "./navRoutes";
 import styles from "./Navigation.module.css";
 

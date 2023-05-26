@@ -1,5 +1,5 @@
-import { getSkillNum } from "src/servants/getSkillNum";
-import { PLACEHOLDER_SKILL } from "src/servants/placeholder";
+import { getSkillNum } from "~/servants/getSkillNum";
+import { PLACEHOLDER_SKILL } from "~/servants/placeholder";
 
 describe("getSkillNum", () => {
   it("correctly returns num when prop is number", () => {

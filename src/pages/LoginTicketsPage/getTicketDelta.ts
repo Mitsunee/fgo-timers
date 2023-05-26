@@ -1,7 +1,7 @@
 import { clamp } from "@foxkit/util/clamp";
 import spacetime from "spacetime";
-import { Global, GlobalNums } from "src/types/enum";
-import type { BundledLoginTicket } from "src/items/types";
+import { Global, GlobalNums } from "~/types/enum";
+import type { BundledLoginTicket } from "~/items/types";
 
 export function getTicketDelta(ticket: BundledLoginTicket, now?: number) {
   const startTs = clamp({

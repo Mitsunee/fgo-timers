@@ -5,9 +5,9 @@ import {
   getBundledItemMap,
   getBundledMysticCodeMap,
   getBundledServantMap
-} from "src/utils/getBundles";
-import type { WithMaps } from "src/client/contexts";
-import type { AnyShopInventory, BundledShop } from "src/schema/ShopSchema";
+} from "~/utils/getBundles";
+import type { WithMaps } from "~/client/contexts";
+import type { AnyShopInventory, BundledShop } from "~/schema/ShopSchema";
 
 export async function collectDataMaps(shop: BundledShop | BundledShop[]) {
   const [servantMap, itemMap, ceMap, ccMap, mcMap, costumeMap] =

@@ -1,5 +1,5 @@
 import { isClamped } from "@foxkit/util/clamp";
-import type { ComponentPropsCC } from "src/types/ComponentProps";
+import type { ComponentPropsCC } from "~/types/ComponentProps";
 import { Input } from "./Input";
 
 interface InputNumberProps

@@ -1,6 +1,6 @@
-import { InlineIcon } from "src/client/components/InlineIcon";
-import Section from "src/client/components/Section";
-import { DisplayDate, DisplayDelta } from "src/client/components/TimeDisplay";
+import { InlineIcon } from "~/client/components/InlineIcon";
+import Section from "~/client/components/Section";
+import { DisplayDate, DisplayDelta } from "~/client/components/TimeDisplay";
 import styles from "./SpecialTimer.module.css";
 
 interface SpecialTimerProps {

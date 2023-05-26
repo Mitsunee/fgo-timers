@@ -1,4 +1,4 @@
-import { Card } from "src/client/components/Card";
+import { Card } from "~/client/components/Card";
 import { MissionList } from "./MissionList";
 
 export default function LimitedMissionCard({ data }) {
