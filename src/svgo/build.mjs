@@ -2,10 +2,10 @@ import { readdir, rm } from "fs/promises";
 import { join } from "path";
 import { dirExists } from "@foxkit/node-util/fs";
 import { resolvePath, toRelativePath } from "@foxkit/node-util/path";
-import { error, ready } from "../scripts/utils/log.mjs"; // TODO: move script utils somewhere else
 import { buildSVGComponent } from "./buildComponent.mjs";
 import { buildSVGComponentIndex } from "./buildComponentIndex.mjs";
 import { getComponentName } from "./getComponentName.mjs";
+import { error, ready } from "./log.mjs";
 
 const componentsPath = "src/client/components/icons/";
 
