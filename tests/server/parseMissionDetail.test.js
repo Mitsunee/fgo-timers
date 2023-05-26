@@ -1,4 +1,4 @@
-import { parseMissionDetail } from "src/server/HomePage/getCurrentMasterMissions/parseMasterMission";
+import { parseMissionDetail } from "~/server/HomePage/getCurrentMasterMissions/parseMasterMission";
 
 describe("parseMissionDetail", () => {
   // string only

@@ -1,5 +1,5 @@
 /* eslint-env jest */
-import { getComponentName } from "src/svgo/getComponentName.mjs";
+import { getComponentName } from "../../src/svgo/getComponentName.mjs";
 
 describe("getComponentName", () => {
   it("correctly generates properly camelcased names", () => {

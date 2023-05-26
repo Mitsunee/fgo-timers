@@ -1,6 +1,6 @@
-import { LinkButton } from "@components/Button";
 import cc from "classcat";
-import type { ComponentPropsCC } from "src/types/ComponentProps";
+import { LinkButton } from "~/components/Button";
+import type { ComponentPropsCC } from "~/types/ComponentProps";
 import styles from "./Tabber.module.css";
 
 type Tab = { label: string; path: string; enabled: boolean };

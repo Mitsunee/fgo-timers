@@ -1,7 +1,7 @@
 import type { NoblePhantasm } from "@atlasacademy/api-connector/dist/Schema/NoblePhantasm";
-import type { Skill } from "@atlasacademy/api-connector/dist/Schema/Skill";
 import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
-import { isSkill } from "../servants/types";
+import type { Skill } from "@atlasacademy/api-connector/dist/Schema/Skill";
+import { isSkill } from "~/servants/types";
 
 export function getUpgradeLevel(
   servant: Servant,

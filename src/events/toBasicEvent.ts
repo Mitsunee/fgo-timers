@@ -1,4 +1,4 @@
-import type { BundledEvent, BasicEvent } from "./types";
+import type { BasicEvent, BundledEvent } from "./types";
 
 /**
  * Creates BasicEvent object from BundledEvent

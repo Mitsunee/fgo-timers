@@ -1,5 +1,5 @@
 import cc from "classcat";
-import type { ComponentPropsCC } from "src/types/ComponentProps";
+import type { ComponentPropsCC } from "~/types/ComponentProps";
 import styles from "./Input.module.css";
 
 interface SharedProps<T extends Stringable> {

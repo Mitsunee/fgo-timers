@@ -1,12 +1,12 @@
-import path from "path";
 import { readdir } from "fs/promises";
+import path from "path";
 import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 import { getFileName } from "@foxkit/node-util/path";
 import type { z } from "zod";
-import { ShopSchema } from "../../schema/ShopSchema";
-import type { BundledShop, AnyShopInventory } from "../../schema/ShopSchema";
-import { parseSchema } from "../../schema/verifySchema";
-import { Log } from "../../utils/log";
+import { ShopSchema } from "~/schema/ShopSchema";
+import { parseSchema } from "~/schema/verifySchema";
+import { Log } from "~/utils/log";
+import type { AnyShopInventory, BundledShop } from "~/schema/ShopSchema";
 import type { PrebuildBundler } from "../utils/bundlers";
 
 const shopsDir = path.join(process.cwd(), "assets/data/shops");

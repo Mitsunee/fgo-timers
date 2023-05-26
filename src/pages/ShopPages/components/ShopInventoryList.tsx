@@ -1,12 +1,9 @@
-import type { AnyShopInventory } from "src/schema/ShopSchema";
+import { expandAtlasUrl } from "~/atlas-api/urls";
 import {
   BorderedCEIcon,
   BorderedItemIcon,
   BorderedServantIcon
-} from "src/client/components/BorderedIcon";
-import { CommandCodeIcon } from "src/client/components/CommandCodeIcon";
-import { MysticCodeIcon } from "src/client/components/MysticCodeIcon";
-import { BorderedCostumeIcon } from "src/client/components/BorderedIcon/BorderedCostumeIcon";
+} from "~/client/components/BorderedIcon";
 import {
   useCCMap,
   useCEMap,
@@ -14,9 +11,12 @@ import {
   useItemMap,
   useMysticCodeMap,
   useServantMap
-} from "src/client/contexts";
-import { InlineImg } from "src/client/components/InlineIcon";
-import { expandAtlasUrl } from "src/atlas-api/urls";
+} from "~/client/contexts";
+import { BorderedCostumeIcon } from "~/components/BorderedIcon/BorderedCostumeIcon";
+import { CommandCodeIcon } from "~/components/CommandCodeIcon";
+import { InlineImg } from "~/components/InlineIcon";
+import { MysticCodeIcon } from "~/components/MysticCodeIcon";
+import type { AnyShopInventory } from "~/schema/ShopSchema";
 import styles from "./ShopInventoryList.module.css";
 
 type AnyShopItems = AnyShopInventory["items"];

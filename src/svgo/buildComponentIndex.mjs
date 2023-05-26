@@ -1,5 +1,4 @@
 import { writeFile } from "@foxkit/node-util/fs";
-
 import { format } from "./format.mjs";
 
 export async function buildSVGComponentIndex(components) {

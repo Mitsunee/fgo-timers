@@ -1,30 +1,30 @@
-import { useIsClient } from "src/client/utils/hooks/useIsClient";
-import { useCurrentTime } from "src/client/utils/hooks/useCurrentTime";
-import { useRecurringDaily } from "src/client/utils/hooks/useRecurringDaily";
-import Meta from "src/client/components/Meta";
-import { ActionButton, LinkButton } from "src/client/components/Button";
-import { IconArrow } from "src/client/components/icons";
 import {
   Card,
   CardGrid,
   TimerList,
   TimerListEntities,
   TimerListItem
-} from "src/client/components/Card";
-import { Borders } from "src/types/borders";
-import { DataContext } from "src/client/contexts";
-import { DisplayDate, DisplayDelta } from "src/client/components/TimeDisplay";
-import { BorderedItemIcon } from "src/client/components/BorderedIcon";
-import Section from "src/client/components/Section";
-import styles from "src/pages/LoginTicketsPage/LoginTicketYearPage.module.css";
-import type { LoginTicketYearPageProps } from "src/pages/LoginTicketsPage/static/LoginTicketYearPage";
-import { getTicketDelta } from "src/pages/LoginTicketsPage/getTicketDelta";
+} from "~/client/components/Card";
+import { DataContext } from "~/client/contexts";
+import { BorderedItemIcon } from "~/components/BorderedIcon";
+import { ActionButton, LinkButton } from "~/components/Button";
+import { IconArrow } from "~/components/icons";
+import Meta from "~/components/Meta";
+import Section from "~/components/Section";
+import { DisplayDate, DisplayDelta } from "~/components/TimeDisplay";
+import { useCurrentTime } from "~/hooks/useCurrentTime";
+import { useIsClient } from "~/hooks/useIsClient";
+import { useRecurringDaily } from "~/hooks/useRecurringDaily";
+import { getTicketDelta } from "~/pages/LoginTicketsPage/getTicketDelta";
+import { Borders } from "~/types/borders";
+import type { LoginTicketYearPageProps } from "~/pages/LoginTicketsPage/static/LoginTicketYearPage";
+import styles from "~/pages/LoginTicketsPage/LoginTicketYearPage.module.css";
 
 // Next page config
 export {
   getStaticPaths,
   getStaticProps
-} from "src/pages/LoginTicketsPage/static/LoginTicketYearPage";
+} from "~/pages/LoginTicketsPage/static/LoginTicketYearPage";
 
 export default function LoginTicketYearPage({
   tickets,

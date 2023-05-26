@@ -1,5 +1,5 @@
+import { nextIntervalOccurence } from "~/time/nextIntervalOccurence";
 import { useCurrentTime } from "./useCurrentTime";
-import { nextIntervalOccurence } from "src/time/nextIntervalOccurence";
 
 interface RecurringIntervalProps {
   /**

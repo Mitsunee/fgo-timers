@@ -1,37 +1,37 @@
 import { useEffect, useMemo, useReducer, useState } from "react";
-import type { MatchData } from "fast-fuzzy";
-import { Searcher } from "fast-fuzzy";
 import { clamp } from "@foxkit/util/clamp";
 import { useStore } from "@nanostores/react";
-import type { BundledUpgrade } from "src/upgrades/types";
-import { settingsStore } from "src/client/stores/settingsStore";
-import { api } from "src/client/api";
-import { DataContext } from "src/client/contexts";
-import Meta from "src/client/components/Meta";
-import Section from "src/client/components/Section";
-import { NoSSR } from "src/client/components/NoSSR";
-import { ActionButton } from "src/client/components/Button";
-import { Input } from "src/client/components/Input";
-import { CardGrid } from "src/client/components/Card";
-import { Scroller } from "src/client/components/Scroller";
-import { Modal, ModalMenu } from "src/client/components/Modal";
-import Headline from "src/client/components/Headline";
-import { InlineSvg } from "src/client/components/InlineIcon";
-import { IconHelp, IconAtlas } from "src/client/components/icons";
-import {
-  filtersReducer,
-  formFiltersDefault
-} from "src/pages/UpgradesPage/filtersReducer";
-import { FiltersForm } from "src/pages/UpgradesPage/components/FiltersForm";
+import { Searcher } from "fast-fuzzy";
+import type { MatchData } from "fast-fuzzy";
+import { api } from "~/client/api";
+import { DataContext } from "~/client/contexts";
+import { settingsStore } from "~/client/stores/settingsStore";
+import { ActionButton } from "~/components/Button";
+import { CardGrid } from "~/components/Card";
+import Headline from "~/components/Headline";
+import { IconAtlas, IconHelp } from "~/components/icons";
+import { InlineSvg } from "~/components/InlineIcon";
+import { Input } from "~/components/Input";
+import Meta from "~/components/Meta";
+import { Modal, ModalMenu } from "~/components/Modal";
+import { NoSSR } from "~/components/NoSSR";
+import { Scroller } from "~/components/Scroller";
+import Section from "~/components/Section";
+import { UpgradeCard } from "~/pages/UpgradesPage/components";
+import { FiltersForm } from "~/pages/UpgradesPage/components/FiltersForm";
 import {
   createUpgradeFilter,
   createUpgradeSorter
-} from "src/pages/UpgradesPage/filters";
-import type { Highlight } from "src/pages/UpgradesPage/components";
-import { UpgradeCard } from "src/pages/UpgradesPage/components";
-import type { UpgradesPageProps } from "src/pages/UpgradesPage/getStaticProps";
+} from "~/pages/UpgradesPage/filters";
+import {
+  filtersReducer,
+  formFiltersDefault
+} from "~/pages/UpgradesPage/filtersReducer";
+import type { Highlight } from "~/pages/UpgradesPage/components";
+import type { UpgradesPageProps } from "~/pages/UpgradesPage/getStaticProps";
+import type { BundledUpgrade } from "~/upgrades/types";
 
-export { getStaticProps } from "src/pages/UpgradesPage/getStaticProps";
+export { getStaticProps } from "~/pages/UpgradesPage/getStaticProps";
 
 export default function UpgradesPage({ fallback }: UpgradesPageProps) {
   const { perPage } = useStore(settingsStore);

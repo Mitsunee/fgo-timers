@@ -1,6 +1,6 @@
 import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
-import { atlasCacheNA } from "src/atlas-api/cache";
-import { getNPOwner, getSkillOwners } from "src/servants/getOwner";
+import { atlasCacheNA } from "~/atlas-api/cache";
+import { getNPOwner, getSkillOwners } from "~/servants/getOwner";
 
 let servants: Servant[];
 

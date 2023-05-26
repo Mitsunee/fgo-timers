@@ -1,6 +1,6 @@
-import { Modal } from "src/client/components/Modal";
-import { ActionButton } from "src/client/components/Button";
-import { IconClose } from "src/client/components/icons";
+import { ActionButton } from "~/components/Button";
+import { IconClose } from "~/components/icons";
+import { Modal } from "~/components/Modal";
 import styles from "./EventNewsModal.module.css";
 
 interface EventNewsModalProps {

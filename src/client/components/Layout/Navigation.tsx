@@ -1,18 +1,14 @@
-import { useRouter } from "next/router";
 import cc from "classcat";
-
+import { useRouter } from "next/router";
 import {
-  setMobileNavOpen,
-  setSettingsMenuOpen
-} from "src/client/stores/uiStore";
-import { LinkButton, ActionButton } from "src/client/components/Button";
-import { navRoutes, isActiveRoute } from "./navRoutes";
-import {
-  IconSettings,
+  IconChaldea,
   IconDiscord,
   IconGithub,
-  IconChaldea
-} from "src/client/components/icons";
+  IconSettings
+} from "~/client/components/icons";
+import { setMobileNavOpen, setSettingsMenuOpen } from "~/client/stores/uiStore";
+import { ActionButton, LinkButton } from "~/components/Button";
+import { isActiveRoute, navRoutes } from "./navRoutes";
 import styles from "./Navigation.module.css";
 
 export function Navigation() {

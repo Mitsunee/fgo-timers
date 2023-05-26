@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import { normalizeDate } from "src/time/normalizeDate";
-import Section from "src/client/components/Section";
-import Headline from "src/client/components/Headline";
-import { useIsClient } from "src/client/utils/hooks/useIsClient";
-import { useCurrentTime } from "src/client/utils/hooks/useCurrentTime";
-import { InlineIcon } from "src/client/components/InlineIcon";
-import { IconHourglass } from "src/client/components/icons";
-import { DisplayDate, DisplayDelta } from "src/client/components/TimeDisplay";
-import type { BasicEvent } from "src/events/types";
+import Headline from "~/components/Headline";
+import { IconHourglass } from "~/components/icons";
+import { InlineIcon } from "~/components/InlineIcon";
+import Section from "~/components/Section";
+import { DisplayDate, DisplayDelta } from "~/components/TimeDisplay";
+import { useCurrentTime } from "~/hooks/useCurrentTime";
+import { useIsClient } from "~/hooks/useIsClient";
+import { normalizeDate } from "~/time/normalizeDate";
+import type { BasicEvent } from "~/events/types";
 import styles from "./EventList.module.css";
 
 type EventListItemProps = BasicEvent;

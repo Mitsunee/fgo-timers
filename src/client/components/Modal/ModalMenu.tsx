@@ -1,5 +1,5 @@
-import styles from "./ModalMenu.module.css";
 import ButtonClose from "./ButtonClose";
+import styles from "./ModalMenu.module.css";
 
 interface ModalMenuProps extends React.PropsWithChildren {
   handleClose: Parameters<typeof ButtonClose>[0]["onClick"];

@@ -3,14 +3,14 @@ import cc from "classcat";
 import FlagEN from "flag-icons/flags/4x3/gb.svg";
 // @ts-ignore
 import FlagJP from "flag-icons/flags/4x3/jp.svg";
-import { UpgradeQuestType } from "src/upgrades/types";
-import { getClassIconPath, nameServantClass } from "src/servants/classNames";
-import type { SelectorOption } from "src/client/components/Selector";
-import { Selector } from "src/client/components/Selector";
-import { ActionButton } from "src/client/components/Button";
-import { Pending } from "src/client/components/Pending";
-import type { FormFilterAction, FormFilterState } from "../filtersReducer";
+import { ActionButton } from "~/components/Button";
+import { Pending } from "~/components/Pending";
+import { Selector } from "~/components/Selector";
+import { getClassIconPath, nameServantClass } from "~/servants/classNames";
+import { UpgradeQuestType } from "~/upgrades/types";
+import type { SelectorOption } from "~/components/Selector";
 import { selectableClasses } from "../filtersReducer";
+import type { FormFilterAction, FormFilterState } from "../filtersReducer";
 import styles from "./FiltersForm.module.css";
 
 interface FiltersFormProps extends React.PropsWithChildren {

@@ -1,9 +1,9 @@
 import ccat from "classcat";
-import type { ComponentPropsCC } from "src/types/ComponentProps";
-import { CCBackgroundFromBorder } from "src/items/ccBackgrounds";
-import { useCCMap } from "src/client/contexts";
-import { IconFace } from "src/client/components/BorderedIcon";
-import { BorderedIconRarity } from "src/client/components/BorderedIcon/BorderedIconRarity";
+import { useCCMap } from "~/client/contexts";
+import { IconFace } from "~/components/BorderedIcon";
+import { BorderedIconRarity } from "~/components/BorderedIcon/BorderedIconRarity";
+import { CCBackgroundFromBorder } from "~/items/ccBackgrounds";
+import type { ComponentPropsCC } from "~/types/ComponentProps";
 import styles from "./CommandCodeIcon.module.css";
 
 interface BorderedCCIconProps extends ComponentPropsCC<"div"> {

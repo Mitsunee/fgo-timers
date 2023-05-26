@@ -1,10 +1,10 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
-import { serverApi } from "src/server/api/root";
-import type { BundledEvent } from "src/events/types";
-import type { BundledQuest, BundledUpgrade } from "src/upgrades/types";
-import type { BundledNP, BundledSkill } from "src/servants/types";
+import { serverApi } from "~/server/api/root";
+import type { BundledEvent } from "~/events/types";
+import type { BundledNP, BundledSkill } from "~/servants/types";
+import type { BundledQuest, BundledUpgrade } from "~/upgrades/types";
 import { getEventProps, NOT_FOUND } from "./getEventProps";
-import type { PageContext, EventPageProps, StaticPath } from "./types";
+import type { EventPageProps, PageContext, StaticPath } from "./types";
 
 type EventWithUpgrades = BundledEvent & {
   upgrades: NonNullable<BundledEvent["upgrades"]>;

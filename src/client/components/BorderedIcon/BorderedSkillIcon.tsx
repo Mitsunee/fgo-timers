@@ -1,9 +1,9 @@
-import type { BundledSkill } from "src/servants/types";
-import type { ComponentPropsCC } from "src/types/ComponentProps";
+import { useSkillMap } from "~/client/contexts";
+import { getSkillNum } from "~/servants/getSkillNum";
+import type { BundledSkill } from "~/servants/types";
+import type { ComponentPropsCC } from "~/types/ComponentProps";
 import { BorderedIcon } from "./BorderedIcon";
 import { IconFace } from "./IconFace";
-import { useSkillMap } from "src/client/contexts";
-import { getSkillNum } from "src/servants/getSkillNum";
 
 interface BorderedSkillIconProps extends ComponentPropsCC<"div"> {
   skillId: number;

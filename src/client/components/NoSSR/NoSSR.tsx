@@ -1,4 +1,4 @@
-import { useIsClient } from "src/client/utils/hooks/useIsClient";
+import { useIsClient } from "~/hooks/useIsClient";
 
 export function NoSSR({ children }: React.PropsWithChildren) {
   const isClient = useIsClient();

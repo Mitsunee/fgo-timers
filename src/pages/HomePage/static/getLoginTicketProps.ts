@@ -1,5 +1,5 @@
-import { getBundledLoginTickets } from "src/utils/getBundles";
-import { Log } from "src/utils/log";
+import { getBundledLoginTickets } from "~/utils/getBundles";
+import { Log } from "~/utils/log";
 
 export async function getLoginTicketProps(now: number) {
   const tickets = await getBundledLoginTickets();

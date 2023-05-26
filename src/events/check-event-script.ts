@@ -5,14 +5,14 @@
  * @argument id event id to reference from atlasacademy API
  */
 import { join } from "path";
-import { z } from "zod";
-import picocolors from "picocolors";
 import { CondType } from "@atlasacademy/api-connector";
 import { readFileYaml } from "@foxkit/node-util/fs-yaml";
-import { atlasApiNA } from "../atlas-api/api";
-import { EventSchema } from "../schema/EventSchema";
-import { parseSchema } from "../schema/verifySchema";
-import { Log } from "../utils/log";
+import picocolors from "picocolors";
+import { z } from "zod";
+import { atlasApiNA } from "~/atlas-api/api";
+import { EventSchema } from "~/schema/EventSchema";
+import { parseSchema } from "~/schema/verifySchema";
+import { Log } from "~/utils/log";
 
 const ArgsSchema = z.tuple([
   z.string(),

@@ -1,25 +1,25 @@
 import { useMemo } from "react";
-import { useIsClient } from "src/client/utils/hooks/useIsClient";
-import { useCurrentTime } from "src/client/utils/hooks/useCurrentTime";
-import { useRecurringDaily } from "src/client/utils/hooks/useRecurringDaily";
-import Meta from "src/client/components/Meta";
-import Headline from "src/client/components/Headline";
-import Section from "src/client/components/Section";
 import {
   TimerList,
   TimerListEntities,
   TimerListItem
-} from "src/client/components/Card";
-import { BorderedItemIcon } from "src/client/components/BorderedIcon";
-import { DisplayDate, DisplayDelta } from "src/client/components/TimeDisplay";
-import { LinkButton } from "src/client/components/Button";
-import { DataContext } from "src/client/contexts";
-import styles from "src/pages/LoginTicketsPage/LoginTicketsPage.module.css";
-import { getTicketDelta } from "src/pages/LoginTicketsPage/getTicketDelta";
-import type { LoginTicketsPageProps } from "src/pages/LoginTicketsPage/static/LoginTicketsPage";
+} from "~/client/components/Card";
+import { DataContext } from "~/client/contexts";
+import { BorderedItemIcon } from "~/components/BorderedIcon";
+import { LinkButton } from "~/components/Button";
+import Headline from "~/components/Headline";
+import Meta from "~/components/Meta";
+import Section from "~/components/Section";
+import { DisplayDate, DisplayDelta } from "~/components/TimeDisplay";
+import { useCurrentTime } from "~/hooks/useCurrentTime";
+import { useIsClient } from "~/hooks/useIsClient";
+import { useRecurringDaily } from "~/hooks/useRecurringDaily";
+import { getTicketDelta } from "~/pages/LoginTicketsPage/getTicketDelta";
+import type { LoginTicketsPageProps } from "~/pages/LoginTicketsPage/static/LoginTicketsPage";
+import styles from "~/pages/LoginTicketsPage/LoginTicketsPage.module.css";
 
 // Next page configs
-export { getStaticProps } from "src/pages/LoginTicketsPage/static/LoginTicketsPage";
+export { getStaticProps } from "~/pages/LoginTicketsPage/static/LoginTicketsPage";
 
 export default function LoginTicketsPage({
   currentTicket,

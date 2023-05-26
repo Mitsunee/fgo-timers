@@ -1,8 +1,8 @@
-import { atlasCacheNA } from "@atlas-api/cache.ts";
-import { getLocalCacheInfo } from "@atlas-api/validation.ts";
-import { atlasApiNA } from "@atlas-api/api.ts";
-import { tsToSpacetime, spacetimeToTs } from "@server/utils/time";
-import { Log } from "src/utils/log";
+import { atlasApiNA } from "~/atlas-api/api.ts";
+import { atlasCacheNA } from "~/atlas-api/cache.ts";
+import { getLocalCacheInfo } from "~/atlas-api/validation.ts";
+import { spacetimeToTs, tsToSpacetime } from "~/server/utils/time";
+import { Log } from "~/utils/log";
 
 function splitMissionsByType(masterMissions) {
   const weeklyMissions = masterMissions.filter(

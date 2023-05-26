@@ -1,9 +1,9 @@
 import { ItemBackgroundType } from "@atlasacademy/api-connector/dist/Schema/Item.js";
-import type { CustomItemSchema } from "../schema/CustomItem";
 import type { z } from "zod";
-import type { ServantBorder } from "../servants/types";
-import { Borders } from "../types/borders";
-import type { Availability } from "../types/enum";
+import { Borders } from "~/types/borders";
+import type { CustomItemSchema } from "~/schema/CustomItem";
+import type { ServantBorder } from "~/servants/types";
+import type { Availability } from "~/types/enum";
 
 // TODO: rename "CE" and "CC" types to "CraftEssence" and "CommandCode"
 

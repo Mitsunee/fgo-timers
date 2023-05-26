@@ -1,8 +1,7 @@
 import { readdir } from "fs/promises";
 import { writeFile } from "@foxkit/node-util/fs";
-import { resolvePath, getFileName } from "@foxkit/node-util/path";
-
-import { Log } from "../../utils/log";
+import { getFileName, resolvePath } from "@foxkit/node-util/path";
+import { Log } from "~/utils/log";
 
 const dirPath = resolvePath("public/assets/backgrounds/landing/");
 const bundlePath = "assets/static/backgrounds.json";

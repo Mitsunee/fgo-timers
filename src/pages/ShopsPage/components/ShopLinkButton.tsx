@@ -1,7 +1,7 @@
 import Link from "next/link";
+import { expandAtlasUrl } from "~/atlas-api/urls";
+import { useItemMap } from "~/client/contexts";
 import styles from "./ShopLinkButton.module.css";
-import { useItemMap } from "src/client/contexts";
-import { expandAtlasUrl } from "@atlas-api/urls";
 
 interface ShopLinkButtonProps extends React.PropsWithChildren {
   id: number;

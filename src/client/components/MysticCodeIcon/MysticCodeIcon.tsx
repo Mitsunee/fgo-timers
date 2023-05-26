@@ -1,7 +1,7 @@
 import cc from "classcat";
-import type { ComponentPropsCC } from "src/types/ComponentProps";
-import { useMysticCodeMap } from "src/client/contexts";
-import { IconFace } from "src/client/components/BorderedIcon";
+import { useMysticCodeMap } from "~/client/contexts";
+import { IconFace } from "~/components/BorderedIcon";
+import type { ComponentPropsCC } from "~/types/ComponentProps";
 import styles from "./MysticCodeIcon.module.css";
 
 interface MysticCodeIconProps extends ComponentPropsCC<"div"> {

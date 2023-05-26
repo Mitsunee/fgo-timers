@@ -2,7 +2,7 @@ import type {
   BundledQuest,
   QuestUnlockCondition,
   QuestUpgrade
-} from "src/upgrades/types";
+} from "~/upgrades/types";
 
 export interface MappedQuestInfo extends Pick<BundledQuest, "name" | "na"> {
   id: number;

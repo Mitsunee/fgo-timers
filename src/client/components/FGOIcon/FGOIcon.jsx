@@ -1,7 +1,6 @@
 import cc from "classcat";
-
+import { backgrounds, borderColors } from "~/client/styles/fgoIconTheme";
 import styles from "./FGOIcon.module.css";
-import { backgrounds, borderColors } from "@styles/fgoIconTheme";
 
 export default function FGOIcon({
   children = null,

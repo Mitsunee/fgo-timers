@@ -1,10 +1,10 @@
 import type { InferGetStaticPropsType } from "next";
-import { serverApi } from "src/server/api/root";
+import { serverApi } from "~/server/api/root";
 import {
   getBundledQuestMap,
   getBundledServantMap,
   getBundledUpgrades
-} from "src/utils/getBundles";
+} from "~/utils/getBundles";
 import { createUpgradeFilter, createUpgradeSorter } from "./filters";
 import { formFiltersDefault } from "./filtersReducer";
 

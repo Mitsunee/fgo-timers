@@ -1,6 +1,6 @@
+import FGOIcon from "~/components/FGOIcon";
+import { InfoTableRow } from "~/components/InfoTable";
 import styles from "./ScheduleRow.module.css";
-import { InfoTableRow } from "@components/InfoTable";
-import FGOIcon from "@components/FGOIcon";
 
 export default function ScheduleRow({
   short,

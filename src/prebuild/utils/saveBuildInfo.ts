@@ -1,7 +1,7 @@
-import { writeFile } from "@foxkit/node-util/fs";
 import { join } from "path";
-import { Log } from "../../utils/log";
-import type { AtlasCacheInfo } from "../../atlas-api/validation";
+import { writeFile } from "@foxkit/node-util/fs";
+import { Log } from "~/utils/log";
+import type { AtlasCacheInfo } from "~/atlas-api/validation";
 
 export function makeBuildVer(cacheInfo: AtlasCacheInfo): string {
   const JP = cacheInfo.JP.toString(36);

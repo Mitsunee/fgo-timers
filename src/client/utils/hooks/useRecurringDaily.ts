@@ -1,5 +1,5 @@
+import { nextDailyOccurence } from "~/time/nextDailyOccurence";
 import { useCurrentTime } from "./useCurrentTime";
-import { nextDailyOccurence } from "src/time/nextDailyOccurence";
 
 /**
  * Finds the next occurence of a daily event

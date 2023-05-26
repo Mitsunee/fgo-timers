@@ -1,6 +1,6 @@
 import type { ParsedUrlQuery } from "querystring";
-import type { BundledEvent } from "src/events/types";
-import type { WithMaps } from "src/client/contexts";
+import type { WithMaps } from "~/client/contexts";
+import type { BundledEvent } from "~/events/types";
 
 export interface PageContext extends Partial<ParsedUrlQuery> {
   slug: string;

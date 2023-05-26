@@ -1,7 +1,7 @@
+import { InlineIcon } from "~/components/InlineIcon";
+import Section from "~/components/Section";
+import { DisplayDate, DisplayDelta } from "~/components/TimeDisplay";
 import styles from "./SpecialTimer.module.css";
-import Section from "src/client/components/Section";
-import { DisplayDate, DisplayDelta } from "src/client/components/TimeDisplay";
-import { InlineIcon } from "src/client/components/InlineIcon";
 
 interface SpecialTimerProps {
   startsAt: number;

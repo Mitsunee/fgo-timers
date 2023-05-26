@@ -1,11 +1,11 @@
 import cc from "classcat";
-import type { ComponentPropsCC } from "src/types/ComponentProps";
+import { InlineIcon } from "~/components/InlineIcon";
+import { GlobalStyles } from "~/types/enum";
 import type {
   IconProps,
   OptionalIconProps
-} from "src/client/components/InlineIcon";
-import { InlineIcon } from "src/client/components/InlineIcon";
-import { GlobalStyles } from "src/types/enum";
+} from "~/client/components/InlineIcon";
+import type { ComponentPropsCC } from "~/types/ComponentProps";
 
 interface ActionButtonProps
   extends ComponentPropsCC<"button">,

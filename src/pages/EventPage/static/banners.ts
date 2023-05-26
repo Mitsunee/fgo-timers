@@ -1,9 +1,9 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
-import { serverApi } from "src/server/api/root";
-import { getBundledCEMap, getBundledServantMap } from "src/utils/getBundles";
-import type { BundledEvent } from "src/events/types";
+import { serverApi } from "~/server/api/root";
+import { getBundledCEMap, getBundledServantMap } from "~/utils/getBundles";
+import type { BundledEvent } from "~/events/types";
 import { getEventProps, NOT_FOUND } from "./getEventProps";
-import type { PageContext, EventPageProps, StaticPath } from "./types";
+import type { EventPageProps, PageContext, StaticPath } from "./types";
 
 type EventWithBanners = BundledEvent & {
   banners: NonNullable<BundledEvent["banners"]>;

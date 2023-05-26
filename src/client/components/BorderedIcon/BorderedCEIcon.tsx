@@ -1,5 +1,5 @@
-import type { ComponentPropsCC } from "src/types/ComponentProps";
-import { useCEMap } from "src/client/contexts";
+import { useCEMap } from "~/client/contexts";
+import type { ComponentPropsCC } from "~/types/ComponentProps";
 import { BorderedIcon } from "./BorderedIcon";
 import { BorderedIconAvailability } from "./BorderedIconAvailability";
 import { BorderedIconRarity } from "./BorderedIconRarity";

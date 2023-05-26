@@ -4,8 +4,8 @@ import { useStore } from "@nanostores/react";
 import {
   settingsStore,
   toggleInfiniteScrollMode
-} from "src/client/stores/settingsStore";
-import { ActionButton } from "src/client/components/Button";
+} from "~/client/stores/settingsStore";
+import { ActionButton } from "~/components/Button";
 
 type Handler = () => void;
 type Height = React.CSSProperties["height"];

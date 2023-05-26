@@ -10,6 +10,9 @@ const createJestConfig = nextJest({
 const customJestConfig = {
   // if using TypeScript with a baseUrl set to the root directory then you need the below for alias' to work
   moduleDirectories: ["node_modules", "<rootDir>/"],
+  moduleNameMapper: {
+    "~/(.*)": "<rootDir>/src/$1"
+  },
   testEnvironment: "jest-environment-jsdom",
   testMatch: ["**/tests/**/*.[jt]s?(x)", "**/tests/**/*.[cm]js"],
   testPathIgnorePatterns: ["src"]

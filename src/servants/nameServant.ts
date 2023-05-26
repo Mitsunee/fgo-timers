@@ -1,5 +1,5 @@
 import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
-import { atlasCache } from "../atlas-api/cache";
+import { atlasCache } from "~/atlas-api/cache";
 import { nameServantClass } from "./classNames";
 
 const baseNameCache = new Map<number, string>();

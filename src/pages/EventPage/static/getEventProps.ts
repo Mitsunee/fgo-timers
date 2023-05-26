@@ -1,5 +1,5 @@
-import type { BundledEvent } from "src/events/types";
-import { getBundledEvents } from "src/utils/getBundles";
+import { getBundledEvents } from "~/utils/getBundles";
+import type { BundledEvent } from "~/events/types";
 
 type ValidateFn<T extends BundledEvent> = (event: BundledEvent) => event is T;
 

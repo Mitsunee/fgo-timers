@@ -1,6 +1,6 @@
 import type { Quest } from "@atlasacademy/api-connector/dist/Schema/Quest";
-import { atlasCache } from "../atlas-api/cache";
-import type { SupportedRegion } from "../atlas-api/api";
+import { atlasCache } from "~/atlas-api/cache";
+import type { SupportedRegion } from "~/atlas-api/api";
 
 const niceQuestMap: {
   NA?: Quest[];

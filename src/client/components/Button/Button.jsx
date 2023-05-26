@@ -1,6 +1,6 @@
-import styles from "./Button.module.css";
-import ButtonLink from "./ButtonLink";
 import ButtonInner from "./ButtonInner";
+import ButtonLink from "./ButtonLink";
+import styles from "./Button.module.css";
 
 export default function Button({
   children,

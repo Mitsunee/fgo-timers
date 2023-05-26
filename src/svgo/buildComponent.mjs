@@ -1,7 +1,6 @@
 import { readFile, writeFile } from "@foxkit/node-util/fs";
-
-import { svgo, svgToJsx } from "./svgo.mjs";
 import { format } from "./format.mjs";
+import { svgo, svgToJsx } from "./svgo.mjs";
 
 export async function buildSVGComponent(filePath, componentName) {
   const fileContent = await readFile(filePath);

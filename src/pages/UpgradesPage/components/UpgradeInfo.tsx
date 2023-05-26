@@ -1,11 +1,11 @@
-import { useServantMap } from "src/client/contexts";
-import { useIsClient } from "src/client/utils/hooks/useIsClient";
-import { useCurrentTime } from "src/client/utils/hooks/useCurrentTime";
-import { AtlasLink } from "src/client/components/AtlasLink";
 import {
   DisplayDate,
   DisplayDateEstimate
-} from "src/client/components/TimeDisplay";
+} from "~/client/components/TimeDisplay";
+import { useServantMap } from "~/client/contexts";
+import { AtlasLink } from "~/components/AtlasLink";
+import { useCurrentTime } from "~/hooks/useCurrentTime";
+import { useIsClient } from "~/hooks/useIsClient";
 import type { MappedBundledQuest } from "../mapQuestUnlocks";
 
 interface UpgradeInfoProps {

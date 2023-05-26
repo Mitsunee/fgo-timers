@@ -1,6 +1,6 @@
-import { useCurrentTime } from "src/client/utils/hooks/useCurrentTime";
-import { NoSSR } from "src/client/components/NoSSR";
-import { DisplayDate } from "src/client/components/TimeDisplay";
+import { NoSSR } from "~/components/NoSSR";
+import { DisplayDate } from "~/components/TimeDisplay";
+import { useCurrentTime } from "~/hooks/useCurrentTime";
 import { Clock } from "./Clock";
 import styles from "./Clocks.module.css";
 

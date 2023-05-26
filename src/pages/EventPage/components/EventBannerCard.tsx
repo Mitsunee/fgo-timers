@@ -1,19 +1,19 @@
-import { useIsClient } from "src/client/utils/hooks/useIsClient";
-import { useCurrentTime } from "src/client/utils/hooks/useCurrentTime";
-import { useServantMap } from "src/client/contexts";
 import {
   BorderedCEIcon,
   BorderedServantIcon
-} from "src/client/components/BorderedIcon";
+} from "~/client/components/BorderedIcon";
 import {
   Card,
   TimerList,
   TimerListEntities,
   TimerListItem
-} from "src/client/components/Card";
-import { DisplayDate, DisplayDelta } from "src/client/components/TimeDisplay";
-import type { BundledEvent } from "src/events/types";
-import { Borders } from "src/types/borders";
+} from "~/client/components/Card";
+import { useServantMap } from "~/client/contexts";
+import { DisplayDate, DisplayDelta } from "~/components/TimeDisplay";
+import { useCurrentTime } from "~/hooks/useCurrentTime";
+import { useIsClient } from "~/hooks/useIsClient";
+import { Borders } from "~/types/borders";
+import type { BundledEvent } from "~/events/types";
 import styles from "./EventBannerCard.module.css";
 
 type EventBanner = NonNullable<BundledEvent["banners"]>[number];

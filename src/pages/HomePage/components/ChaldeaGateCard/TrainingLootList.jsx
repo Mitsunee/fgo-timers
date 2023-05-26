@@ -1,7 +1,6 @@
 import { useMemo } from "react";
-
 //import styles from "./TrainingLootList.module.css";
-import { FGOItemList, FGOItemListItem } from "@components/FGOItemList";
+import { FGOItemList, FGOItemListItem } from "~/components/FGOItemList";
 
 export default function TrainingLootList({ data }) {
   const { pieceData, monumentData } = useMemo(

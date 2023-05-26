@@ -1,5 +1,5 @@
 import { z, type ZodSchema } from "zod";
-import { Log } from "../utils/log";
+import { Log } from "~/utils/log";
 
 /**
  * Verifies the data matches a Schema without transforms and prints errors if it doesn't. Returns boolean.

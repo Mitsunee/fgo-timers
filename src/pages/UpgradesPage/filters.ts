@@ -1,7 +1,7 @@
 import ClassName from "@atlasacademy/api-connector/dist/Enum/ClassName.js";
-import { classIsExtra } from "src/servants/classNames";
-import type { BundledServant } from "src/servants/types";
-import type { BundledQuest, BundledUpgrade } from "src/upgrades/types";
+import { classIsExtra } from "~/servants/classNames";
+import type { BundledServant } from "~/servants/types";
+import type { BundledQuest, BundledUpgrade } from "~/upgrades/types";
 import type { FormFilterState, SelectableClassId } from "./filtersReducer";
 
 export function createUpgradeFilter(

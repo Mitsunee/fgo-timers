@@ -1,6 +1,5 @@
 import { CondType } from "@atlasacademy/api-connector/dist/Enum/Cond.js";
 import type { Quest } from "@atlasacademy/api-connector/dist/Schema/Quest";
-
 import type { QuestUnlockCondition } from "./types";
 
 export function parseUnlockCond(quest: Quest): QuestUnlockCondition {

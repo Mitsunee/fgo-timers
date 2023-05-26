@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
-
-import styles from "./Results.module.css";
-import { useIsClient } from "@utils/hooks/useIsClient";
+import { useEffect, useState } from "react";
+import { Button } from "~/components/Button";
+import { useIsClient } from "~/hooks/useIsClient";
 import Result from "./Result";
-import { Button } from "@components/Button";
+import styles from "./Results.module.css";
 
 export default function Results({ data, formMode }) {
   const [showFullSchedule, setShowFullSchedule] = useState(false);

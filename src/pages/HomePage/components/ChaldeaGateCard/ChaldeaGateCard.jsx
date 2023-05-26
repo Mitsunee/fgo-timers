@@ -1,12 +1,12 @@
-import { useCurrentTime } from "src/client/utils/hooks/useCurrentTime";
-import { useRecurringDaily } from "src/client/utils/hooks/useRecurringDaily";
-import { findScheduleByDay } from "./schedules";
-import { Card } from "src/client/components/Card";
-import { NoSSR } from "src/client/components/NoSSR";
-import { DisplayDelta, DisplayDate } from "src/client/components/TimeDisplay";
-import TrainingLootList from "./TrainingLootList";
+import { Card } from "~/components/Card";
+import { NoSSR } from "~/components/NoSSR";
+import { DisplayDate, DisplayDelta } from "~/components/TimeDisplay";
+import { useCurrentTime } from "~/hooks/useCurrentTime";
+import { useRecurringDaily } from "~/hooks/useRecurringDaily";
 import EmberLootList from "./EmberLootList";
+import { findScheduleByDay } from "./schedules";
 import ScheduleTable from "./ScheduleTable";
+import TrainingLootList from "./TrainingLootList";
 
 export default function ChaldeaGateCard() {
   const { s } = useCurrentTime();

@@ -1,9 +1,9 @@
 import { z } from "zod";
+import { toBasicEvent } from "~/events/toBasicEvent";
+import { getBuildInfo } from "~/utils/getBuildInfo";
+import { getBundledEvents } from "~/utils/getBundles";
+import type { BundledEvent } from "~/events/types";
 import { createTRPCRouter, publicProcedure } from "../trpc";
-import { toBasicEvent } from "src/events/toBasicEvent";
-import type { BundledEvent } from "src/events/types";
-import { getBundledEvents } from "src/utils/getBundles";
-import { getBuildInfo } from "src/utils/getBuildInfo";
 
 async function createEventActiveFilter(now?: number) {
   const date = now ?? (await getBuildInfo()).date;

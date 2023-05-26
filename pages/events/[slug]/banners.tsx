@@ -1,14 +1,14 @@
-import { CardGrid } from "src/client/components/Card";
-import { DataContext } from "src/client/contexts";
-import { EventBannerCard } from "src/pages/EventPage/components/EventBannerCard";
-import { EventPageLayout } from "src/pages/EventPage/components/EventPageLayout";
-import type { EventBannersPageProps } from "src/pages/EventPage/static/banners";
+import { DataContext } from "~/client/contexts";
+import { CardGrid } from "~/components/Card";
+import { EventBannerCard } from "~/pages/EventPage/components/EventBannerCard";
+import { EventPageLayout } from "~/pages/EventPage/components/EventPageLayout";
+import type { EventBannersPageProps } from "~/pages/EventPage/static/banners";
 
 // Next Page configs
 export {
   getStaticPaths,
   getStaticProps
-} from "src/pages/EventPage/static/banners";
+} from "~/pages/EventPage/static/banners";
 
 export default function EventBannersPage({
   event,

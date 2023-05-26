@@ -1,8 +1,8 @@
-import type { OptionalButtonIconProps } from "@components/Button";
-import { ActionButton } from "@components/Button";
-import cc from "classcat";
 import React from "react";
-import type { ComponentPropsCC } from "src/types/ComponentProps";
+import cc from "classcat";
+import { ActionButton } from "~/components/Button";
+import type { OptionalButtonIconProps } from "~/components/Button";
+import type { ComponentPropsCC } from "~/types/ComponentProps";
 import styles from "./Selector.module.css";
 
 export type SelectorOption<T> = {

@@ -1,7 +1,4 @@
-import {
-  DisplayDeltaBetween,
-  DisplayDate
-} from "src/client/components/TimeDisplay";
+import { DisplayDate, DisplayDeltaBetween } from "~/components/TimeDisplay";
 
 export default function Result({ text, time, from }) {
   return (

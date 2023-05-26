@@ -1,8 +1,8 @@
 import { Card } from "@atlasacademy/api-connector";
 import type { NoblePhantasm } from "@atlasacademy/api-connector/dist/Schema/NoblePhantasm";
-import { Log } from "../utils/log";
-import type { NPType } from "./types";
+import { Log } from "~/utils/log";
 import { ServantCard } from "./types";
+import type { NPType } from "./types";
 
 /**
  * Gets NP type and maps as ServantCard enum value

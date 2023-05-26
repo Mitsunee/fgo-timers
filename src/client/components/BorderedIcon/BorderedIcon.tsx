@@ -1,7 +1,7 @@
 import cc from "classcat";
-import type { ComponentPropsCC } from "src/types/ComponentProps";
-import type { Borders } from "src/types/borders";
-import { BorderColours, BgColours } from "src/types/borders";
+import { BgColours, BorderColours } from "~/types/borders";
+import type { Borders } from "~/types/borders";
+import type { ComponentPropsCC } from "~/types/ComponentProps";
 import styles from "./BorderedIcon.module.css";
 
 export interface BorderedIconProps extends ComponentPropsCC<"div"> {

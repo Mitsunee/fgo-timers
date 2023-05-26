@@ -1,11 +1,11 @@
-import { DataContext } from "src/client/contexts";
-import Meta from "src/client/components/Meta";
-import type { ShopPageProps } from "src/pages/ShopPages/static";
-import { BorderColours } from "src/types/borders";
-import Headline from "@components/Headline";
-import { ShopInventorySection } from "src/pages/ShopPages/components/ShopInventorySection";
+import { DataContext } from "~/client/contexts";
+import Headline from "~/components/Headline";
+import Meta from "~/components/Meta";
+import { ShopInventorySection } from "~/pages/ShopPages/components/ShopInventorySection";
+import { BorderColours } from "~/types/borders";
+import type { ShopPageProps } from "~/pages/ShopPages/static";
 
-export { getStaticProps, getStaticPaths } from "src/pages/ShopPages/static";
+export { getStaticProps, getStaticPaths } from "~/pages/ShopPages/static";
 
 export default function ShopPage({
   servants,

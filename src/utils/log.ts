@@ -1,5 +1,5 @@
-import picocolors from "picocolors";
 import { typeOf } from "@foxkit/util/typeOf";
+import picocolors from "picocolors";
 import type { z } from "zod";
 
 type Colour =
