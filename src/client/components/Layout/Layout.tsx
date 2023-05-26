@@ -1,11 +1,11 @@
 import { useStore } from "@nanostores/react";
-import { ActionButton } from "~/client/components/Button";
-import { IconClose } from "~/client/components/icons";
-import { Modal } from "~/client/components/Modal";
-import { Pending } from "~/client/components/Pending";
-import { SettingsMenu } from "~/client/components/SettingsMenu";
 import { setMobileNavOpen, uiStore } from "~/client/stores/uiStore";
-import { useRouterLoading } from "~/client/utils/hooks/useRouterLoading";
+import { ActionButton } from "~/components/Button";
+import { IconClose } from "~/components/icons";
+import { Modal } from "~/components/Modal";
+import { Pending } from "~/components/Pending";
+import { SettingsMenu } from "~/components/SettingsMenu";
+import { useRouterLoading } from "~/hooks/useRouterLoading";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { Navigation } from "./Navigation";

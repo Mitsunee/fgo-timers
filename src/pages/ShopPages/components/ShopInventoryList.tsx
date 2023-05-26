@@ -4,10 +4,6 @@ import {
   BorderedItemIcon,
   BorderedServantIcon
 } from "~/client/components/BorderedIcon";
-import { BorderedCostumeIcon } from "~/client/components/BorderedIcon/BorderedCostumeIcon";
-import { CommandCodeIcon } from "~/client/components/CommandCodeIcon";
-import { InlineImg } from "~/client/components/InlineIcon";
-import { MysticCodeIcon } from "~/client/components/MysticCodeIcon";
 import {
   useCCMap,
   useCEMap,
@@ -16,6 +12,10 @@ import {
   useMysticCodeMap,
   useServantMap
 } from "~/client/contexts";
+import { BorderedCostumeIcon } from "~/components/BorderedIcon/BorderedCostumeIcon";
+import { CommandCodeIcon } from "~/components/CommandCodeIcon";
+import { InlineImg } from "~/components/InlineIcon";
+import { MysticCodeIcon } from "~/components/MysticCodeIcon";
 import type { AnyShopInventory } from "~/schema/ShopSchema";
 import styles from "./ShopInventoryList.module.css";
 

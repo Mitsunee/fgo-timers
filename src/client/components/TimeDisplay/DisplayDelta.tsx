@@ -1,6 +1,6 @@
 import spacetime from "spacetime";
-import { NoSSR } from "~/client/components/NoSSR";
-import { useCurrentTime } from "~/client/utils/hooks/useCurrentTime";
+import { NoSSR } from "~/components/NoSSR";
+import { useCurrentTime } from "~/hooks/useCurrentTime";
 import { diffToDateTimeAttribute, formatDiff } from "~/time/formatDiff";
 
 interface DisplayDeltaProps {

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
-import Meta from "~/client/components/Meta";
-import { Tabber } from "~/client/components/Tabber";
-import type { Tabs } from "~/client/components/Tabber";
+import Meta from "~/components/Meta";
+import { Tabber } from "~/components/Tabber";
+import type { Tabs } from "~/components/Tabber";
 import type { BundledEvent } from "~/events/types";
 import type { RequiredChildren } from "~/types/ComponentProps";
 import type { EventPageProps } from "../static";

@@ -1,5 +1,5 @@
-import { CardGrid } from "~/client/components/Card";
 import { DataContext } from "~/client/contexts";
+import { CardGrid } from "~/components/Card";
 import { EventPageLayout } from "~/pages/EventPage/components/EventPageLayout";
 import { UpgradeCard } from "~/pages/UpgradesPage/components";
 import type { EventUpgradesPageProps } from "~/pages/EventPage/static/upgrades";

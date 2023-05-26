@@ -1,11 +1,11 @@
 import type { ElementRef } from "react";
 import { useLayoutEffect, useRef } from "react";
 import { useStore } from "@nanostores/react";
-import { ActionButton } from "~/client/components/Button";
 import {
   settingsStore,
   toggleInfiniteScrollMode
 } from "~/client/stores/settingsStore";
+import { ActionButton } from "~/components/Button";
 
 type Handler = () => void;
 type Height = React.CSSProperties["height"];

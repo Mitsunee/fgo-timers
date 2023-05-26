@@ -1,5 +1,5 @@
-import { CardGrid } from "~/client/components/Card";
 import { DataContext } from "~/client/contexts";
+import { CardGrid } from "~/components/Card";
 import { EventBannerCard } from "~/pages/EventPage/components/EventBannerCard";
 import { EventPageLayout } from "~/pages/EventPage/components/EventPageLayout";
 import type { EventBannersPageProps } from "~/pages/EventPage/static/banners";

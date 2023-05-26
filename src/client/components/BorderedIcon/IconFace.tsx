@@ -1,8 +1,8 @@
 import cc from "classcat";
 import Image from "next/image";
 import { expandAtlasUrl } from "~/atlas-api/urls";
-import { useSpoilerLevel } from "~/client/utils/hooks/useSpoilerLevel";
-import { useSpoilerState } from "~/client/utils/hooks/useSpoilerState";
+import { useSpoilerLevel } from "~/hooks/useSpoilerLevel";
+import { useSpoilerState } from "~/hooks/useSpoilerState";
 import { SpoilerLevels } from "~/types/enum";
 import type { ComponentPropsCC } from "~/types/ComponentProps";
 import styles from "./IconFace.module.css";

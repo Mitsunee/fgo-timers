@@ -4,7 +4,7 @@ import "~/client/styles/app.css";
 import { Dosis, Noto_Sans } from "@next/font/google";
 import type { AppType } from "next/app";
 import { api } from "~/client/api";
-import { Layout } from "~/client/components/Layout";
+import { Layout } from "~/components/Layout";
 
 const dosis = Dosis({
   weight: ["400", "700"],

@@ -1,6 +1,6 @@
-import { CardGrid } from "~/client/components/Card";
-import Section from "~/client/components/Section";
 import { DataContext } from "~/client/contexts";
+import { CardGrid } from "~/components/Card";
+import Section from "~/components/Section";
 import { EventPageLayout } from "~/pages/EventPage/components/EventPageLayout";
 import { EventSchedulesCard } from "~/pages/EventPage/components/EventSchedulesCard";
 import { EventTimesCard } from "~/pages/EventPage/components/EventTimesCard";

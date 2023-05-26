@@ -1,6 +1,5 @@
 import cc from "classcat";
 import { useRouter } from "next/router";
-import { ActionButton, LinkButton } from "~/client/components/Button";
 import {
   IconChaldea,
   IconDiscord,
@@ -8,6 +7,7 @@ import {
   IconSettings
 } from "~/client/components/icons";
 import { setMobileNavOpen, setSettingsMenuOpen } from "~/client/stores/uiStore";
+import { ActionButton, LinkButton } from "~/components/Button";
 import { isActiveRoute, navRoutes } from "./navRoutes";
 import styles from "./Navigation.module.css";
 

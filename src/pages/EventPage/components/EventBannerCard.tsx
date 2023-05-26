@@ -8,10 +8,10 @@ import {
   TimerListEntities,
   TimerListItem
 } from "~/client/components/Card";
-import { DisplayDate, DisplayDelta } from "~/client/components/TimeDisplay";
 import { useServantMap } from "~/client/contexts";
-import { useCurrentTime } from "~/client/utils/hooks/useCurrentTime";
-import { useIsClient } from "~/client/utils/hooks/useIsClient";
+import { DisplayDate, DisplayDelta } from "~/components/TimeDisplay";
+import { useCurrentTime } from "~/hooks/useCurrentTime";
+import { useIsClient } from "~/hooks/useIsClient";
 import { Borders } from "~/types/borders";
 import type { BundledEvent } from "~/events/types";
 import styles from "./EventBannerCard.module.css";

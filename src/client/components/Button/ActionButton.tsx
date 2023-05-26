@@ -1,5 +1,5 @@
 import cc from "classcat";
-import { InlineIcon } from "~/client/components/InlineIcon";
+import { InlineIcon } from "~/components/InlineIcon";
 import { GlobalStyles } from "~/types/enum";
 import type {
   IconProps,

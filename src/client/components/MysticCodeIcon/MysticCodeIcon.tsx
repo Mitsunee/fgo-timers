@@ -1,6 +1,6 @@
 import cc from "classcat";
-import { IconFace } from "~/client/components/BorderedIcon";
 import { useMysticCodeMap } from "~/client/contexts";
+import { IconFace } from "~/components/BorderedIcon";
 import type { ComponentPropsCC } from "~/types/ComponentProps";
 import styles from "./MysticCodeIcon.module.css";
 

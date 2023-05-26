@@ -1,14 +1,14 @@
 import Link from "next/link";
-import { BorderedItemIcon } from "~/client/components/BorderedIcon";
 import {
   Card,
   TimerList,
   TimerListEntities,
   TimerListItem
 } from "~/client/components/Card";
-import { DisplayDate, DisplayDelta } from "~/client/components/TimeDisplay";
-import { useIsClient } from "~/client/utils/hooks/useIsClient";
-import { useRecurringDaily } from "~/client/utils/hooks/useRecurringDaily";
+import { BorderedItemIcon } from "~/components/BorderedIcon";
+import { DisplayDate, DisplayDelta } from "~/components/TimeDisplay";
+import { useIsClient } from "~/hooks/useIsClient";
+import { useRecurringDaily } from "~/hooks/useRecurringDaily";
 import type { BundledLoginTicket } from "~/items/types";
 import type { HomePageProps } from "../static";
 

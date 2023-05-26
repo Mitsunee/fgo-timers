@@ -1,10 +1,10 @@
-import { AtlasLink } from "~/client/components/AtlasLink";
 import {
   BorderedNPIcon,
   BorderedSkillIcon
 } from "~/client/components/BorderedIcon";
-import { SpoileredText } from "~/client/components/Text";
 import { useNPMap, useSkillMap } from "~/client/contexts";
+import { AtlasLink } from "~/components/AtlasLink";
+import { SpoileredText } from "~/components/Text";
 import { getSkillNum } from "~/servants/getSkillNum";
 import type {
   BundledUpgrade,

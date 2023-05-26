@@ -1,5 +1,5 @@
 import spacetime from "spacetime";
-import { NoSSR } from "~/client/components/NoSSR";
+import { NoSSR } from "~/components/NoSSR";
 import { diffToDateTimeAttribute, formatDiff } from "~/time/formatDiff";
 
 interface DisplayDeltaBetweenProps {

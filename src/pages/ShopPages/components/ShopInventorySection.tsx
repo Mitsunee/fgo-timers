@@ -1,5 +1,5 @@
-import { TimerList } from "~/client/components/Card";
-import Section from "~/client/components/Section";
+import { TimerList } from "~/components/Card";
+import Section from "~/components/Section";
 import { BorderColours } from "~/types/borders";
 import type { AnyShopInventory, BundledShop } from "~/schema/ShopSchema";
 import { ShopInventory } from "./ShopInventory";

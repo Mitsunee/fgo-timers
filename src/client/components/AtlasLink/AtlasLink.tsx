@@ -1,5 +1,5 @@
-import { IconAtlas } from "~/client/components/icons";
-import { InlineSvg } from "~/client/components/InlineIcon";
+import { IconAtlas } from "~/components/icons";
+import { InlineSvg } from "~/components/InlineIcon";
 
 interface AtlasLinkProps extends React.PropsWithChildren {
   link: string;

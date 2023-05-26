@@ -1,6 +1,6 @@
 import cc from "classcat";
 import Link from "next/link";
-import { InlineIcon } from "~/client/components/InlineIcon";
+import { InlineIcon } from "~/components/InlineIcon";
 import { GlobalStyles } from "~/types/enum";
 import type {
   IconProps,

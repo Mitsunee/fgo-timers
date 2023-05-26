@@ -1,10 +1,10 @@
-import { Card, CardHero } from "~/client/components/Card";
 import {
   useNPMap,
   useQuestMap,
   useServantMap,
   useSkillMap
 } from "~/client/contexts";
+import { Card, CardHero } from "~/components/Card";
 import { nameServantClass } from "~/servants/classNames";
 import { getSkillNum } from "~/servants/getSkillNum";
 import { Borders } from "~/types/borders";

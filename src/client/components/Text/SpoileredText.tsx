@@ -1,6 +1,6 @@
 import cc from "classcat";
-import { useSpoilerLevel } from "~/client/utils/hooks/useSpoilerLevel";
-import { useSpoilerState } from "~/client/utils/hooks/useSpoilerState";
+import { useSpoilerLevel } from "~/hooks/useSpoilerLevel";
+import { useSpoilerState } from "~/hooks/useSpoilerState";
 import { SpoilerLevels } from "~/types/enum";
 import type {
   ComponentPropsCC,

@@ -1,4 +1,4 @@
-import { Card, TimerList } from "~/client/components/Card";
+import { Card, TimerList } from "~/components/Card";
 import { EventListItem } from "./EventListItem";
 import type { EventTime } from "./EventListItem";
 

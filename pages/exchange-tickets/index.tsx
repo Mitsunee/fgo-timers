@@ -1,19 +1,19 @@
 import { useMemo } from "react";
-import { BorderedItemIcon } from "~/client/components/BorderedIcon";
-import { LinkButton } from "~/client/components/Button";
 import {
   TimerList,
   TimerListEntities,
   TimerListItem
 } from "~/client/components/Card";
-import Headline from "~/client/components/Headline";
-import Meta from "~/client/components/Meta";
-import Section from "~/client/components/Section";
-import { DisplayDate, DisplayDelta } from "~/client/components/TimeDisplay";
 import { DataContext } from "~/client/contexts";
-import { useCurrentTime } from "~/client/utils/hooks/useCurrentTime";
-import { useIsClient } from "~/client/utils/hooks/useIsClient";
-import { useRecurringDaily } from "~/client/utils/hooks/useRecurringDaily";
+import { BorderedItemIcon } from "~/components/BorderedIcon";
+import { LinkButton } from "~/components/Button";
+import Headline from "~/components/Headline";
+import Meta from "~/components/Meta";
+import Section from "~/components/Section";
+import { DisplayDate, DisplayDelta } from "~/components/TimeDisplay";
+import { useCurrentTime } from "~/hooks/useCurrentTime";
+import { useIsClient } from "~/hooks/useIsClient";
+import { useRecurringDaily } from "~/hooks/useRecurringDaily";
 import { getTicketDelta } from "~/pages/LoginTicketsPage/getTicketDelta";
 import type { LoginTicketsPageProps } from "~/pages/LoginTicketsPage/static/LoginTicketsPage";
 import styles from "~/pages/LoginTicketsPage/LoginTicketsPage.module.css";

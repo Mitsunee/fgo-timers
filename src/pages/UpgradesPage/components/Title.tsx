@@ -1,6 +1,6 @@
-import { InlineIcon } from "~/client/components/InlineIcon";
-import { SearchMatch, SpoileredText } from "~/client/components/Text";
 import { useServantMap } from "~/client/contexts";
+import { InlineIcon } from "~/components/InlineIcon";
+import { SearchMatch, SpoileredText } from "~/components/Text";
 import type { Highlight } from "../types";
 
 type TitleProps = {

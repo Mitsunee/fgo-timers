@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Card, TimerList } from "~/client/components/Card";
+import { Card, TimerList } from "~/components/Card";
 import type { BundledEvent } from "~/events/types";
 import { EventListItem } from "./EventListItem";
 import type { EventTime } from "./EventListItem";

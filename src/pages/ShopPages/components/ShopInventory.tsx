@@ -1,7 +1,7 @@
-import { TimerListItem } from "~/client/components/Card";
-import { DisplayDate, DisplayDelta } from "~/client/components/TimeDisplay";
-import { useCurrentTime } from "~/client/utils/hooks/useCurrentTime";
-import { useIsClient } from "~/client/utils/hooks/useIsClient";
+import { TimerListItem } from "~/components/Card";
+import { DisplayDate, DisplayDelta } from "~/components/TimeDisplay";
+import { useCurrentTime } from "~/hooks/useCurrentTime";
+import { useIsClient } from "~/hooks/useIsClient";
 import { useRecurringMonthly } from "~/hooks/useRecurringMonthly";
 import { formatDayOfMonth } from "~/time/formatDayOfMonth";
 import type { AnyShopInventory } from "~/schema/ShopSchema";
