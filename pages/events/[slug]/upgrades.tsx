@@ -1,8 +1,8 @@
-import { DataContext } from "src/client/contexts";
 import { CardGrid } from "src/client/components/Card";
+import { DataContext } from "src/client/contexts";
 import { EventPageLayout } from "src/pages/EventPage/components/EventPageLayout";
-import type { EventUpgradesPageProps } from "src/pages/EventPage/static/upgrades";
 import { UpgradeCard } from "src/pages/UpgradesPage/components";
+import type { EventUpgradesPageProps } from "src/pages/EventPage/static/upgrades";
 
 // Next Page configs
 export {

@@ -1,5 +1,5 @@
-import Meta from "@components/Meta";
 import Headline from "@components/Headline";
+import Meta from "@components/Meta";
 
 export default function Error500Page() {
   return (

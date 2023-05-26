@@ -1,9 +1,9 @@
-import type { BundledNP } from "src/servants/types";
+import { useNPMap } from "src/client/contexts";
 import { ServantCard } from "src/servants/types";
+import type { BundledNP } from "src/servants/types";
 import type { ComponentPropsCC } from "src/types/ComponentProps";
 import { BorderedIcon } from "./BorderedIcon";
 import { IconFace } from "./IconFace";
-import { useNPMap } from "src/client/contexts";
 
 interface BorderedNPIconProps extends ComponentPropsCC<"div"> {
   npId: number;

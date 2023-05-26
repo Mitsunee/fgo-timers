@@ -1,9 +1,9 @@
-import { DataContext } from "src/client/contexts";
 import Meta from "src/client/components/Meta";
-import type { ShopPageProps } from "src/pages/ShopPages/static";
+import { DataContext } from "src/client/contexts";
+import { ShopInventorySection } from "src/pages/ShopPages/components/ShopInventorySection";
 import { BorderColours } from "src/types/borders";
 import Headline from "@components/Headline";
-import { ShopInventorySection } from "src/pages/ShopPages/components/ShopInventorySection";
+import type { ShopPageProps } from "src/pages/ShopPages/static";
 
 export { getStaticProps, getStaticPaths } from "src/pages/ShopPages/static";
 

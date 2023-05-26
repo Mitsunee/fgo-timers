@@ -1,5 +1,5 @@
-import type { BundledEvent } from "./types";
 import { normalizeDate } from "../time/normalizeDate";
+import type { BundledEvent } from "./types";
 
 /**
  * Creates sorter callback for events using given time as reference for wheter the event would be shown on HomePage

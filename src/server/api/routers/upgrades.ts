@@ -1,15 +1,15 @@
 import { z } from "zod";
-import { createTRPCRouter, publicProcedure } from "../trpc";
+import { createUpgradeSorter } from "src/pages/UpgradesPage/filters";
 import {
-  getBundledUpgrades,
+  getBundledNPMap,
   getBundledQuestMap,
   getBundledServantMap,
   getBundledSkillMap,
-  getBundledNPMap
+  getBundledUpgrades
 } from "src/utils/getBundles";
 import type { WithMaps } from "src/client/contexts";
 import type { BundledUpgrade } from "src/upgrades/types";
-import { createUpgradeSorter } from "src/pages/UpgradesPage/filters";
+import { createTRPCRouter, publicProcedure } from "../trpc";
 
 export type ExpandedUpgrades = WithMaps<
   "quests" | "servants" | "skills" | "nps"

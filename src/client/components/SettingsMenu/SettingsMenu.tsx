@@ -1,20 +1,19 @@
 import { useStore } from "@nanostores/react";
-
-import { SpoilerLevels } from "src/types/enum";
-import { uiStore, setSettingsMenuOpen } from "src/client/stores/uiStore";
+import Headline from "src/client/components/Headline";
+import { Modal, ModalMenu } from "src/client/components/Modal";
+import { Selector } from "src/client/components/Selector";
 import {
-  settingsStore,
-  toggleClockFormat,
-  toggleServerTimes,
   setPageSize,
   setSpoilerLevel,
+  settingsStore,
+  toggleClockFormat,
+  toggleDiscordMarkdown,
   toggleInfiniteScrollMode,
-  toggleDiscordMarkdown
+  toggleServerTimes
 } from "src/client/stores/settingsStore";
-import { Modal, ModalMenu } from "src/client/components/Modal";
-import Headline from "src/client/components/Headline";
+import { setSettingsMenuOpen, uiStore } from "src/client/stores/uiStore";
+import { SpoilerLevels } from "src/types/enum";
 import type { SelectorOption } from "src/client/components/Selector";
-import { Selector } from "src/client/components/Selector";
 import { DebugInfo } from "./DebugInfo";
 import styles from "./SettingsMenu.module.css";
 

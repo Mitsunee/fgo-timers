@@ -1,4 +1,4 @@
-import { atom, action } from "nanostores";
+import { action, atom } from "nanostores";
 
 type MetaStoreProps = {
   title: string;

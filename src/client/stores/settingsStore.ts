@@ -1,5 +1,5 @@
-import { computed, action } from "nanostores";
 import { persistentMap } from "@nanostores/persistent";
+import { action, computed } from "nanostores";
 import { SpoilerLevels } from "src/types/enum";
 
 /*

@@ -1,11 +1,11 @@
-import { normalizeDate } from "src/time/normalizeDate";
 import { CardGrid } from "src/client/components/Card";
 import Section from "src/client/components/Section";
-import { EventTimesCard } from "src/pages/EventPage/components/EventTimesCard";
-import { EventSchedulesCard } from "src/pages/EventPage/components/EventSchedulesCard";
-import { EventPageLayout } from "src/pages/EventPage/components/EventPageLayout";
-import type { EventPageProps } from "src/pages/EventPage/static";
 import { DataContext } from "src/client/contexts";
+import { EventPageLayout } from "src/pages/EventPage/components/EventPageLayout";
+import { EventSchedulesCard } from "src/pages/EventPage/components/EventSchedulesCard";
+import { EventTimesCard } from "src/pages/EventPage/components/EventTimesCard";
+import { normalizeDate } from "src/time/normalizeDate";
+import type { EventPageProps } from "src/pages/EventPage/static";
 
 // Next Page configs
 export { getStaticPaths, getStaticProps } from "src/pages/EventPage/static";

@@ -2,9 +2,9 @@ import type { GetStaticPropsResult, InferGetStaticPropsType } from "next";
 import * as Legacy from "src/server/HomePage";
 import { msToSeconds } from "src/time/msToSeconds";
 import { getBundledItemMap } from "src/utils/getBundles";
+import { serverApi } from "@server/api/root";
 import { getLoginTicketProps } from "./getLoginTicketProps";
 import { getMilestoneProps } from "./getMilestoneProps";
-import { serverApi } from "@server/api/root";
 import { getShopInfoProps } from "./getShopInfoProps";
 
 export const getStaticProps = async () => {

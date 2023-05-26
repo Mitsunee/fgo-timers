@@ -1,12 +1,12 @@
 import cc from "classcat";
 import Link from "next/link";
-import type { ComponentWithRefCC } from "src/types/ComponentProps";
+import { InlineIcon } from "src/client/components/InlineIcon";
+import { GlobalStyles } from "src/types/enum";
 import type {
   IconProps,
   OptionalIconProps
 } from "src/client/components/InlineIcon";
-import { InlineIcon } from "src/client/components/InlineIcon";
-import { GlobalStyles } from "src/types/enum";
+import type { ComponentWithRefCC } from "src/types/ComponentProps";
 
 interface LinkButtonProps extends ComponentWithRefCC<"a">, OptionalIconProps {
   decorated?: boolean;

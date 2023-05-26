@@ -1,13 +1,13 @@
 import { List } from "@foxkit/util/object";
-import type { SupportedRegion } from "../../atlas-api/api";
 import { atlasCache } from "../../atlas-api/cache";
 import { shortenAtlasUrl } from "../../atlas-api/urls";
-import { Log } from "../../utils/log";
-import type { BundledSkill } from "../../servants/types";
-import { getSkillOwners } from "../../servants/getOwner";
 import { mapUpgradeLevelToSkillBorder } from "../../servants/borders";
+import { getSkillOwners } from "../../servants/getOwner";
 import { PLACEHOLDER_SKILL } from "../../servants/placeholder";
 import { getUpgradeLevel } from "../../upgrades/getUpgradeLevel";
+import { Log } from "../../utils/log";
+import type { SupportedRegion } from "../../atlas-api/api";
+import type { BundledSkill } from "../../servants/types";
 import type { DataBundler } from "../utils/dataBundlers";
 
 async function flatMapSkills(region: SupportedRegion) {

@@ -1,7 +1,7 @@
 import { useStore } from "@nanostores/react";
-import { settingsStore } from "src/client/stores/settingsStore";
 import { ActionButton } from "src/client/components/Button";
 import { IconDiscord } from "src/client/components/icons";
+import { settingsStore } from "src/client/stores/settingsStore";
 import { formatTS } from "./formatTS";
 import { handleCopy } from "./handleCopy";
 

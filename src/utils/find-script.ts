@@ -1,18 +1,18 @@
 import readline from "readline";
-import { dedent } from "@foxkit/util/dedent";
-import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
+import type { CommandCodeBasic } from "@atlasacademy/api-connector/dist/Schema/CommandCode";
 import type { CraftEssenceBasic } from "@atlasacademy/api-connector/dist/Schema/CraftEssence";
 import type { Item } from "@atlasacademy/api-connector/dist/Schema/Item";
-import type { CommandCodeBasic } from "@atlasacademy/api-connector/dist/Schema/CommandCode";
 import type { MysticCodeBasic } from "@atlasacademy/api-connector/dist/Schema/MysticCode";
-import picocolors from "picocolors";
+import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
+import { dedent } from "@foxkit/util/dedent";
 import { Searcher } from "fast-fuzzy";
+import picocolors from "picocolors";
 import type { MatchData } from "fast-fuzzy";
-import { prepareCache } from "../atlas-api/prepare";
 import { atlasCacheJP } from "../atlas-api/cache";
+import { prepareCache } from "../atlas-api/prepare";
 import type { BundledItem } from "../items/types";
-import { Log } from "./log";
 import { getCustomItems } from "./getBundles";
+import { Log } from "./log";
 
 const rl = readline.createInterface({
   input: process.stdin,

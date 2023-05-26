@@ -1,5 +1,5 @@
-import { atlasCache } from "src/atlas-api/cache";
 import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
+import { atlasCache } from "src/atlas-api/cache";
 import { findEoRNPName } from "src/upgrades/findEoRNPName";
 
 let eorServants: { NA: Servant[]; JP: Servant[] };

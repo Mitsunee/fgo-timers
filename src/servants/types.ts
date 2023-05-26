@@ -1,6 +1,6 @@
+import type { ClassName } from "@atlasacademy/api-connector";
 import type { NoblePhantasm } from "@atlasacademy/api-connector/dist/Schema/NoblePhantasm";
 import type { Skill } from "@atlasacademy/api-connector/dist/Schema/Skill";
-import type { ClassName } from "@atlasacademy/api-connector";
 import type { Borders } from "../types/borders";
 import type { Availability } from "../types/enum";
 

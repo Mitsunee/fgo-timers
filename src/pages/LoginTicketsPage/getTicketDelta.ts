@@ -1,5 +1,5 @@
-import spacetime from "spacetime";
 import { clamp } from "@foxkit/util/clamp";
+import spacetime from "spacetime";
 import { Global, GlobalNums } from "src/types/enum";
 import type { BundledLoginTicket } from "src/items/types";
 

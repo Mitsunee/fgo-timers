@@ -1,6 +1,6 @@
 import spacetime from "spacetime";
-import { getBundledShops } from "src/utils/getBundles";
 import { nextMonthlyOccurence } from "src/time/nextMonthlyOccurence";
+import { getBundledShops } from "src/utils/getBundles";
 import type { BundledShop } from "src/schema/ShopSchema";
 
 type PickedMonthlyInventory = Pick<

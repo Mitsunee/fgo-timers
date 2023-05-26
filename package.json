@@ -84,6 +84,8 @@
     "eslint-config-foxkit": "^2.1.1",
     "eslint-config-next": "13.1.6",
     "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
     "jest": "^29.5.0",
     "jest-environment-jsdom": "^29.5.0",
     "nano-staged": "^0.8.0",

@@ -4,7 +4,14 @@ import {
   QuestType
 } from "@atlasacademy/api-connector/dist/Schema/Quest.js";
 import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
-
+import { atlasCache } from "../../atlas-api/cache";
+import { getPreviousNP, getPreviousSkill } from "../../upgrades/getPrevious";
+import {
+  getRelatedNP,
+  getRelatedServant,
+  getRelatedSkill
+} from "../../upgrades/getRelated";
+import { Log } from "../../utils/log";
 import type {
   BundledUpgrade,
   UpgradeMap,
@@ -12,14 +19,6 @@ import type {
   UpgradeMapSkill
 } from "../../upgrades/types";
 import type { PrebuildBundler } from "../utils/bundlers";
-import { atlasCache } from "../../atlas-api/cache";
-import {
-  getRelatedNP,
-  getRelatedServant,
-  getRelatedSkill
-} from "../../upgrades/getRelated";
-import { Log } from "../../utils/log";
-import { getPreviousNP, getPreviousSkill } from "../../upgrades/getPrevious";
 
 function getUpgradeMap(
   servant: Servant,

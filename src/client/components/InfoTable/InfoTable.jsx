@@ -1,5 +1,4 @@
 import cc from "classcat";
-
 import styles from "./InfoTable.module.css";
 
 export default function InfoTable({

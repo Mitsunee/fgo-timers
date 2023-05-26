@@ -1,12 +1,12 @@
-import { useRecurringMonthly } from "src/client/utils/hooks/useRecurringMonthly";
-import { useIsClient } from "src/client/utils/hooks/useIsClient";
-import Meta from "src/client/components/Meta";
-import { DataContext } from "src/client/contexts";
 import Headline from "src/client/components/Headline";
+import Meta from "src/client/components/Meta";
 import Section from "src/client/components/Section";
 import { DisplayDelta } from "src/client/components/TimeDisplay";
-import { formatDayOfMonth } from "src/time/formatDayOfMonth";
+import { DataContext } from "src/client/contexts";
+import { useIsClient } from "src/client/utils/hooks/useIsClient";
+import { useRecurringMonthly } from "src/client/utils/hooks/useRecurringMonthly";
 import { ShopLinkButton } from "src/pages/ShopsPage/components/ShopLinkButton";
+import { formatDayOfMonth } from "src/time/formatDayOfMonth";
 import type { ShopsPageProps } from "src/pages/ShopsPage/static";
 import styles from "src/pages/ShopsPage/ShopsPage.module.css";
 

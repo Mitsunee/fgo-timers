@@ -1,25 +1,25 @@
-import { nameServantClass } from "src/servants/classNames";
-import { Borders } from "src/types/borders";
-import type {
-  BundledUpgrade,
-  UpgradeMapNP,
-  UpgradeMapSkill
-} from "src/upgrades/types";
-import { UpgradeQuestType } from "src/upgrades/types";
 import { Card, CardHero } from "src/client/components/Card";
-import { createQuestUnlockMapper } from "../mapQuestUnlocks";
-import type { Highlight } from "../types";
-import { NPUpgrade, SkillUpgrade } from "./UpgradeDisplay";
-import { Subtitle, Title } from "./Title";
-import { UpgradeInfo } from "./UpgradeInfo";
-import styles from "./UpgradeCard.module.css";
 import {
   useNPMap,
   useQuestMap,
   useServantMap,
   useSkillMap
 } from "src/client/contexts";
+import { nameServantClass } from "src/servants/classNames";
 import { getSkillNum } from "src/servants/getSkillNum";
+import { Borders } from "src/types/borders";
+import { UpgradeQuestType } from "src/upgrades/types";
+import type {
+  BundledUpgrade,
+  UpgradeMapNP,
+  UpgradeMapSkill
+} from "src/upgrades/types";
+import { createQuestUnlockMapper } from "../mapQuestUnlocks";
+import type { Highlight } from "../types";
+import { Subtitle, Title } from "./Title";
+import { NPUpgrade, SkillUpgrade } from "./UpgradeDisplay";
+import { UpgradeInfo } from "./UpgradeInfo";
+import styles from "./UpgradeCard.module.css";
 
 type UpgradeCardProps = Highlight & {
   upgrade: BundledUpgrade;

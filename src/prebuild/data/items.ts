@@ -1,11 +1,11 @@
-import { readFileJson } from "@foxkit/node-util/fs";
 import { join } from "path";
+import { readFileJson } from "@foxkit/node-util/fs";
 import { List } from "@foxkit/util/object";
-import type { BundledItem } from "../../items/types";
-import { mapItemBackgroundToBorder } from "../../items/types";
 import { atlasCache } from "../../atlas-api/cache";
 import { shortenAtlasUrl } from "../../atlas-api/urls";
+import { mapItemBackgroundToBorder } from "../../items/types";
 import { Log } from "../../utils/log";
+import type { BundledItem } from "../../items/types";
 import type { DataBundler } from "../utils/dataBundlers";
 
 async function getCustomItems() {

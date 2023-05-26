@@ -1,5 +1,5 @@
 import { NoSSR } from "src/client/components/NoSSR";
-import { DisplayDelta, DisplayDate } from "src/client/components/TimeDisplay";
+import { DisplayDate, DisplayDelta } from "src/client/components/TimeDisplay";
 import MissionListItem from "./MissionListItem";
 
 export function MissionList({ data }) {

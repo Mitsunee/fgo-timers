@@ -1,5 +1,4 @@
 import { useMemo } from "react";
-
 //import styles from "./TrainingLootList.module.css";
 import { FGOItemList, FGOItemListItem } from "@components/FGOItemList";
 

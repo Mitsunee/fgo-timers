@@ -1,6 +1,6 @@
-import spacetime from "spacetime";
-import { atom, onMount } from "nanostores";
 import { useStore } from "@nanostores/react";
+import { atom, onMount } from "nanostores";
+import spacetime from "spacetime";
 import { msToSeconds } from "src/time/msToSeconds";
 
 /**

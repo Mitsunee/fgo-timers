@@ -1,27 +1,26 @@
-import { useState, useEffect } from "react";
-import { useStore } from "@nanostores/react";
+import { useEffect, useState } from "react";
 import { clamp, isClamped } from "@foxkit/util/clamp";
+import { useStore } from "@nanostores/react";
 import cc from "classcat";
-
 import {
   settingsStore,
   setUserMaxAP,
   setUserNodeCost
 } from "src/client/stores/settingsStore";
-import { useIsClient } from "@utils/hooks/useIsClient";
-import { useInputNumberValue } from "@utils/hooks/useInputNumberValue";
+import { FormField, Results } from "src/pages/ApCalcPage/components";
+import { Clocks } from "@components/Clocks";
+import { Input, InputNumber } from "@components/Input";
+import Meta from "@components/Meta";
+import Section from "@components/Section";
+import { Select, SelectOption } from "@components/Selector";
 import {
   MAX_AP_MAX_VALUE,
   MAX_AP_MIN_VALUE,
   NODE_COST_MAX_VALUE,
   NODE_COST_MIN_VALUE
 } from "@utils/globals.js";
-import Meta from "@components/Meta";
-import { Clocks } from "@components/Clocks";
-import Section from "@components/Section";
-import { Select, SelectOption } from "@components/Selector";
-import { Input, InputNumber } from "@components/Input";
-import { FormField, Results } from "src/pages/ApCalcPage/components";
+import { useInputNumberValue } from "@utils/hooks/useInputNumberValue";
+import { useIsClient } from "@utils/hooks/useIsClient";
 import styles from "src/pages/ApCalcPage/APCalcPage.module.css";
 
 const validateApOffset = value =>

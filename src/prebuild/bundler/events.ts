@@ -1,15 +1,15 @@
-import { join } from "path";
 import { readdir } from "fs/promises";
-import { readFileYaml } from "@foxkit/node-util/fs-yaml";
+import { join } from "path";
 import { fileExists } from "@foxkit/node-util/fs";
+import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 import { getFileName } from "@foxkit/node-util/path";
-import type { BundledEvent } from "../../events/types";
 import { createEventSorter } from "../../events/sortEvents";
-import type { EventDataRaw } from "../../schema/EventSchema";
 import { EventSchema } from "../../schema/EventSchema";
 import { parseSchema } from "../../schema/verifySchema";
 import { normalizeDate } from "../../time/normalizeDate";
 import { Log } from "../../utils/log";
+import type { BundledEvent } from "../../events/types";
+import type { EventDataRaw } from "../../schema/EventSchema";
 import type { PrebuildBundler } from "../utils/bundlers";
 
 const eventsDir = join(process.cwd(), "assets/data/events");

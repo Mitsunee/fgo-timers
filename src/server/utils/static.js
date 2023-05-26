@@ -1,5 +1,4 @@
 import { readFileJson } from "@foxkit/node-util/fs";
-
 import { createServerError } from "./createServerError";
 
 /**

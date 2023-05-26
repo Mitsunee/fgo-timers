@@ -1,35 +1,35 @@
 import { useEffect, useMemo, useReducer, useState } from "react";
-import type { MatchData } from "fast-fuzzy";
-import { Searcher } from "fast-fuzzy";
 import { clamp } from "@foxkit/util/clamp";
 import { useStore } from "@nanostores/react";
-import type { BundledUpgrade } from "src/upgrades/types";
-import { settingsStore } from "src/client/stores/settingsStore";
+import { Searcher } from "fast-fuzzy";
+import type { MatchData } from "fast-fuzzy";
 import { api } from "src/client/api";
-import { DataContext } from "src/client/contexts";
-import Meta from "src/client/components/Meta";
-import Section from "src/client/components/Section";
-import { NoSSR } from "src/client/components/NoSSR";
 import { ActionButton } from "src/client/components/Button";
-import { Input } from "src/client/components/Input";
 import { CardGrid } from "src/client/components/Card";
-import { Scroller } from "src/client/components/Scroller";
-import { Modal, ModalMenu } from "src/client/components/Modal";
 import Headline from "src/client/components/Headline";
+import { IconAtlas, IconHelp } from "src/client/components/icons";
 import { InlineSvg } from "src/client/components/InlineIcon";
-import { IconHelp, IconAtlas } from "src/client/components/icons";
-import {
-  filtersReducer,
-  formFiltersDefault
-} from "src/pages/UpgradesPage/filtersReducer";
+import { Input } from "src/client/components/Input";
+import Meta from "src/client/components/Meta";
+import { Modal, ModalMenu } from "src/client/components/Modal";
+import { NoSSR } from "src/client/components/NoSSR";
+import { Scroller } from "src/client/components/Scroller";
+import Section from "src/client/components/Section";
+import { DataContext } from "src/client/contexts";
+import { settingsStore } from "src/client/stores/settingsStore";
+import { UpgradeCard } from "src/pages/UpgradesPage/components";
 import { FiltersForm } from "src/pages/UpgradesPage/components/FiltersForm";
 import {
   createUpgradeFilter,
   createUpgradeSorter
 } from "src/pages/UpgradesPage/filters";
+import {
+  filtersReducer,
+  formFiltersDefault
+} from "src/pages/UpgradesPage/filtersReducer";
 import type { Highlight } from "src/pages/UpgradesPage/components";
-import { UpgradeCard } from "src/pages/UpgradesPage/components";
 import type { UpgradesPageProps } from "src/pages/UpgradesPage/getStaticProps";
+import type { BundledUpgrade } from "src/upgrades/types";
 
 export { getStaticProps } from "src/pages/UpgradesPage/getStaticProps";
 

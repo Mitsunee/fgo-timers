@@ -1,6 +1,6 @@
+import { useEffect } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import { setPageMeta } from "src/client/stores/metaStore";
 import { hostUrl } from "src/utils/env";
 

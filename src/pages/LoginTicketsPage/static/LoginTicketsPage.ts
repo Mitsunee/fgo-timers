@@ -1,11 +1,11 @@
 import spacetime from "spacetime";
 import type { InferGetStaticPropsType } from "next";
 import { msToSeconds } from "src/time/msToSeconds";
+import { Global } from "src/types/enum";
 import {
   getBundledItemMap,
   getBundledLoginTickets
 } from "src/utils/getBundles";
-import { Global } from "src/types/enum";
 import { Log } from "src/utils/log";
 import type { BundledItem } from "src/items/types";
 

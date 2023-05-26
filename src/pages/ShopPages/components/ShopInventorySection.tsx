@@ -1,7 +1,7 @@
-import Section from "src/client/components/Section";
 import { TimerList } from "src/client/components/Card";
-import type { AnyShopInventory, BundledShop } from "src/schema/ShopSchema";
+import Section from "src/client/components/Section";
 import { BorderColours } from "src/types/borders";
+import type { AnyShopInventory, BundledShop } from "src/schema/ShopSchema";
 import { ShopInventory } from "./ShopInventory";
 
 interface ShopInventorySectionProps {

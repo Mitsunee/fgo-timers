@@ -1,12 +1,11 @@
-import Link from "next/link";
 import { useStore } from "@nanostores/react";
+import Link from "next/link";
 import spacetime from "spacetime";
-
-import styles from "./Header.module.css";
-import { metaStore } from "@stores/metaStore";
-import { setMobileNavOpen, uiStore } from "@stores/uiStore";
 import { ActionButton } from "@components/Button";
 import { IconHamburger } from "@components/icons";
+import { metaStore } from "@stores/metaStore";
+import { setMobileNavOpen, uiStore } from "@stores/uiStore";
+import styles from "./Header.module.css";
 
 export function Header() {
   const meta = useStore(metaStore);

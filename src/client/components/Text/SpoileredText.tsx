@@ -1,11 +1,11 @@
 import cc from "classcat";
+import { useSpoilerLevel } from "src/client/utils/hooks/useSpoilerLevel";
+import { useSpoilerState } from "src/client/utils/hooks/useSpoilerState";
+import { SpoilerLevels } from "src/types/enum";
 import type {
   ComponentPropsCC,
   RequiredChildren
 } from "src/types/ComponentProps";
-import { useSpoilerState } from "src/client/utils/hooks/useSpoilerState";
-import { useSpoilerLevel } from "src/client/utils/hooks/useSpoilerLevel";
-import { SpoilerLevels } from "src/types/enum";
 import styles from "./SpoileredText.module.css";
 
 interface SpoileredTextProps

@@ -1,8 +1,8 @@
-import { createTRPCRouter } from "./trpc";
-import { upgradesRouter } from "./routers/upgrades";
-import { eventsRouter } from "./routers/events";
 import path from "path";
 import { createServerSideHelpers } from "@trpc/react-query/server";
+import { eventsRouter } from "./routers/events";
+import { upgradesRouter } from "./routers/upgrades";
+import { createTRPCRouter } from "./trpc";
 
 /**
  * This is just here to convince node file trace that we need this folder

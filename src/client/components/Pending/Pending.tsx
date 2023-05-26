@@ -1,9 +1,8 @@
+import { useEffect, useState } from "react";
 import cc from "classcat";
-import { useState, useEffect } from "react";
-
-import styles from "./Pending.module.css";
 import { useIsClient } from "@utils/hooks/useIsClient";
 import type { CC } from "src/types/ComponentProps";
+import styles from "./Pending.module.css";
 
 export function Pending({ className }: CC) {
   const [dots, setDots] = useState(0);

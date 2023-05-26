@@ -1,9 +1,8 @@
 import spacetime from "spacetime";
 import type { TimezoneMeta } from "spacetime";
-
-import styles from "./DebugInfo.module.css";
-import CollapsableSection from "@components/CollapsableSection";
 import { Global } from "src/types/enum";
+import CollapsableSection from "@components/CollapsableSection";
+import styles from "./DebugInfo.module.css";
 
 function offsetToString(offset: number) {
   return `UTC${offset < 0 ? "" : "+"}${Math.trunc(offset)}:${`${Math.abs(

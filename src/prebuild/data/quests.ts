@@ -1,21 +1,20 @@
-import { List } from "@foxkit/util/object";
-import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 import { join } from "path";
-
-import { parseSchema } from "../../schema/verifySchema";
+import { readFileYaml } from "@foxkit/node-util/fs-yaml";
+import { List } from "@foxkit/util/object";
 import { QuestOpenOverridesSchema } from "../../schema/QuestOpenOverrides";
-import type { QuestOpenOverrides } from "../../schema/QuestOpenOverrides";
-import type {
-  BundledQuest,
-  QuestUpgrade,
-  QuestOther
-} from "../../upgrades/types";
-import { UpgradeQuestType } from "../../upgrades/types";
+import { parseSchema } from "../../schema/verifySchema";
+import { GlobalNums } from "../../types/enum";
 import { getQuestData } from "../../upgrades/getQuestData";
 import { parseQuestType } from "../../upgrades/parseQuestType";
 import { parseUnlockCond } from "../../upgrades/parseUnlockCond";
+import { UpgradeQuestType } from "../../upgrades/types";
 import { Log } from "../../utils/log";
-import { GlobalNums } from "../../types/enum";
+import type { QuestOpenOverrides } from "../../schema/QuestOpenOverrides";
+import type {
+  BundledQuest,
+  QuestOther,
+  QuestUpgrade
+} from "../../upgrades/types";
 import type { DataBundler } from "../utils/dataBundlers";
 
 const overridesFilePath = join(

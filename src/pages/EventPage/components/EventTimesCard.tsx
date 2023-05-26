@@ -1,6 +1,6 @@
 import { Card, TimerList } from "src/client/components/Card";
-import type { EventTime } from "./EventListItem";
 import { EventListItem } from "./EventListItem";
+import type { EventTime } from "./EventListItem";
 
 interface EventTimesCardProps {
   times: EventTime[];

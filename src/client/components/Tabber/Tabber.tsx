@@ -1,5 +1,5 @@
-import { LinkButton } from "@components/Button";
 import cc from "classcat";
+import { LinkButton } from "@components/Button";
 import type { ComponentPropsCC } from "src/types/ComponentProps";
 import styles from "./Tabber.module.css";
 

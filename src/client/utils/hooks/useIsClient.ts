@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 /**
  * SSR-safe client detection. Returns `false` during SSR and Hydration, in client sets state to `true` for second render.

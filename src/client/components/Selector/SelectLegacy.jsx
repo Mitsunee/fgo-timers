@@ -1,7 +1,7 @@
 import cc from "classcat";
-import styles from "./SelectLegacy.module.css";
 import { Button } from "@components/Button";
 import { withAddedProps } from "@utils/withAddedProps";
+import styles from "./SelectLegacy.module.css";
 
 export function Select({ children, onChange, value }) {
   return (

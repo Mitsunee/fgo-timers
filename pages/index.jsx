@@ -1,16 +1,16 @@
 import { useEffect } from "react";
-import Meta from "@components/Meta";
-import { Clocks } from "@components/Clocks";
-import Headline from "@components/Headline";
-import { CardGrid } from "@components/Card";
 import { EventList } from "src/client/components/EventList";
-import { NoSSR } from "@components/NoSSR";
 import { DataContext } from "src/client/contexts";
+import ChaldeaGateCard from "src/pages/HomePage/components/ChaldeaGateCard";
 //import { SpecialTimer } from "@components/SpecialTimer";
 import { LoginInfoCard } from "src/pages/HomePage/components/LoginInfoCard";
 import MasterMissionCard from "src/pages/HomePage/components/MasterMissionCard";
-import ChaldeaGateCard from "src/pages/HomePage/components/ChaldeaGateCard";
 import { ShopsInfoCard } from "src/pages/HomePage/components/ShopsInfoCard";
+import { CardGrid } from "@components/Card";
+import { Clocks } from "@components/Clocks";
+import Headline from "@components/Headline";
+import Meta from "@components/Meta";
+import { NoSSR } from "@components/NoSSR";
 import styles from "src/pages/HomePage/HomePage.module.css";
 // import type { HomePageProps } from "src/pages/HomePage/static";
 

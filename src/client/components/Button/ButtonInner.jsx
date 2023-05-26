@@ -1,5 +1,5 @@
-import styles from "./ButtonInner.module.css";
 import ButtonIcon from "./ButtonIconLegacy";
+import styles from "./ButtonInner.module.css";
 
 export default function ButtonInner({
   children,

@@ -1,10 +1,10 @@
 import { ItemType } from "@atlasacademy/api-connector/dist/Schema/Item.js";
 import spacetime from "spacetime";
 import { atlasCache } from "../../atlas-api/cache";
-import type { BundledLoginTicket } from "../../items/types";
-import { Log } from "../../utils/log";
 import { msToSeconds } from "../../time/msToSeconds";
 import { Global } from "../../types/enum";
+import { Log } from "../../utils/log";
+import type { BundledLoginTicket } from "../../items/types";
 import type { PrebuildBundler } from "../utils/bundlers";
 
 const ticketNameReg = /Exchange Ticket \((?<month>[A-Z]{3}) (?<year>\d{4})\)/;

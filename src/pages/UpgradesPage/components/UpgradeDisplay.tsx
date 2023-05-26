@@ -1,10 +1,11 @@
-import { useNPMap, useSkillMap } from "src/client/contexts";
+import { AtlasLink } from "src/client/components/AtlasLink";
 import {
   BorderedNPIcon,
   BorderedSkillIcon
 } from "src/client/components/BorderedIcon";
 import { SpoileredText } from "src/client/components/Text";
-import { AtlasLink } from "src/client/components/AtlasLink";
+import { useNPMap, useSkillMap } from "src/client/contexts";
+import { getSkillNum } from "src/servants/getSkillNum";
 import type {
   BundledUpgrade,
   UpgradeMap,
@@ -12,7 +13,6 @@ import type {
   UpgradeMapSkill
 } from "src/upgrades/types";
 import styles from "./UpgradeDisplay.module.css";
-import { getSkillNum } from "src/servants/getSkillNum";
 
 type Props<U extends UpgradeMap> = {
   upgrade: BundledUpgrade & { upgrades: U };

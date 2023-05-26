@@ -1,9 +1,9 @@
+import { useItemMap } from "src/client/contexts";
 import { ItemBackgroundFromBorder } from "src/items/itemBackgrounds";
 import type { ComponentPropsCC } from "src/types/ComponentProps";
-import { useItemMap } from "src/client/contexts";
 import { BorderedIcon } from "./BorderedIcon";
-import styles from "./BorderedItemIcon.module.css";
 import { IconFace } from "./IconFace";
+import styles from "./BorderedItemIcon.module.css";
 
 interface BorderedItemIconProps extends ComponentPropsCC<"div"> {
   title?: undefined;

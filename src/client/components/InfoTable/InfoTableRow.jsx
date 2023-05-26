@@ -1,5 +1,4 @@
 import cc from "classcat";
-
 import styles from "./InfoTableRow.module.css";
 
 export default function InfoTableRow({

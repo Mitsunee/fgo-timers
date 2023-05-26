@@ -1,5 +1,5 @@
-import { loadConfig, optimize } from "svgo";
 import { convertSvgToJsx } from "@svgo/jsx";
+import { loadConfig, optimize } from "svgo";
 
 let config;
 async function getConfig() {

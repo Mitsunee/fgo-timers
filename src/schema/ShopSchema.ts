@@ -1,6 +1,6 @@
 import { z } from "zod";
-import { zDurationStrict } from "./zDate";
 import { zBorderOptional } from "./zBorder";
+import { zDurationStrict } from "./zDate";
 
 const zShopItem = z.object({
   type: z

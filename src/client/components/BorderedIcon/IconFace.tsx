@@ -3,8 +3,8 @@ import Image from "next/image";
 import { expandAtlasUrl } from "src/atlas-api/urls";
 import { useSpoilerLevel } from "src/client/utils/hooks/useSpoilerLevel";
 import { useSpoilerState } from "src/client/utils/hooks/useSpoilerState";
-import type { ComponentPropsCC } from "src/types/ComponentProps";
 import { SpoilerLevels } from "src/types/enum";
+import type { ComponentPropsCC } from "src/types/ComponentProps";
 import styles from "./IconFace.module.css";
 
 type ImageProps = Omit<

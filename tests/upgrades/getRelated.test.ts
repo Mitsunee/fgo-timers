@@ -1,9 +1,9 @@
 import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
 import { atlasCacheNA } from "src/atlas-api/cache";
 import {
+  getRelatedNP,
   getRelatedServant,
-  getRelatedSkill,
-  getRelatedNP
+  getRelatedSkill
 } from "src/upgrades/getRelated";
 
 let servants: Servant[];

@@ -1,14 +1,14 @@
 import spacetime from "spacetime";
-import { useIsClient } from "src/client/utils/hooks/useIsClient";
-import { useCurrentTime } from "src/client/utils/hooks/useCurrentTime";
-import { normalizeDate } from "src/time/normalizeDate";
-import { formatDiff } from "src/time/formatDiff";
-import Section from "src/client/components/Section";
-import Headline from "src/client/components/Headline";
-import { Progress } from "src/client/components/Progress";
 import { LinkButton } from "src/client/components/Button";
 import { DiscordTSButton } from "src/client/components/DiscordTSButton";
+import Headline from "src/client/components/Headline";
+import { Progress } from "src/client/components/Progress";
+import Section from "src/client/components/Section";
 import { DisplayDate } from "src/client/components/TimeDisplay";
+import { useCurrentTime } from "src/client/utils/hooks/useCurrentTime";
+import { useIsClient } from "src/client/utils/hooks/useIsClient";
+import { formatDiff } from "src/time/formatDiff";
+import { normalizeDate } from "src/time/normalizeDate";
 import type { BundledEvent } from "src/events/types";
 import styles from "./EventInfoSection.module.css";
 
