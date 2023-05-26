@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { normalizeDate } from "../time/normalizeDate";
+import { normalizeDate } from "~/time/normalizeDate";
 import { zDate, zDuration, zDurationStrict } from "./zDate";
 
 const _zPriority = z.number().min(0).default(0);

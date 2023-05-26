@@ -9,10 +9,10 @@ import { CondType } from "@atlasacademy/api-connector";
 import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 import picocolors from "picocolors";
 import { z } from "zod";
-import { atlasApiNA } from "../atlas-api/api";
-import { EventSchema } from "../schema/EventSchema";
-import { parseSchema } from "../schema/verifySchema";
-import { Log } from "../utils/log";
+import { atlasApiNA } from "~/atlas-api/api";
+import { EventSchema } from "~/schema/EventSchema";
+import { parseSchema } from "~/schema/verifySchema";
+import { Log } from "~/utils/log";
 
 const ArgsSchema = z.tuple([
   z.string(),

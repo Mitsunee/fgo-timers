@@ -1,11 +1,11 @@
 import { join } from "path";
 import { List } from "@foxkit/util/object";
-import { atlasCache } from "../../atlas-api/cache";
-import { shortenAtlasUrl } from "../../atlas-api/urls";
-import { mapServantRarityToBorder } from "../../servants/borders";
-import { getAvailabilityMap } from "../../utils/availabilityMaps";
-import { Log } from "../../utils/log";
-import type { BundledCE } from "../../items/types";
+import { atlasCache } from "~/atlas-api/cache";
+import { shortenAtlasUrl } from "~/atlas-api/urls";
+import { mapServantRarityToBorder } from "~/servants/borders";
+import { getAvailabilityMap } from "~/utils/availabilityMaps";
+import { Log } from "~/utils/log";
+import type { BundledCE } from "~/items/types";
 import type { DataBundler } from "../utils/dataBundlers";
 
 const avMapPath = join("assets", "data", "ces", "availability.yml");

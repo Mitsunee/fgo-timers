@@ -1,13 +1,13 @@
 import { List } from "@foxkit/util/object";
-import { atlasCache } from "../../atlas-api/cache";
-import { mapUpgradeLevelToSkillBorder } from "../../servants/borders";
-import { getNPType } from "../../servants/getNPType";
-import { getNPOwner } from "../../servants/getOwner";
-import { findEoRNPName } from "../../upgrades/findEoRNPName";
-import { getUpgradeLevel } from "../../upgrades/getUpgradeLevel";
-import { Log } from "../../utils/log";
-import type { SupportedRegion } from "../../atlas-api/api";
-import type { BundledNP } from "../../servants/types";
+import { atlasCache } from "~/atlas-api/cache";
+import { mapUpgradeLevelToSkillBorder } from "~/servants/borders";
+import { getNPType } from "~/servants/getNPType";
+import { getNPOwner } from "~/servants/getOwner";
+import { findEoRNPName } from "~/upgrades/findEoRNPName";
+import { getUpgradeLevel } from "~/upgrades/getUpgradeLevel";
+import { Log } from "~/utils/log";
+import type { SupportedRegion } from "~/atlas-api/api";
+import type { BundledNP } from "~/servants/types";
 import type { DataBundler } from "../utils/dataBundlers";
 
 async function flatMapNPs(region: SupportedRegion) {

@@ -1,13 +1,13 @@
 import { join } from "path";
 import { EntityType } from "@atlasacademy/api-connector/dist/Schema/Entity.js";
 import { List } from "@foxkit/util/object";
-import { atlasCache } from "../../atlas-api/cache";
-import { shortenAtlasUrl } from "../../atlas-api/urls";
-import { mapServantRarityToBorder } from "../../servants/borders";
-import { nameServant } from "../../servants/nameServant";
-import { getAvailabilityMap } from "../../utils/availabilityMaps";
-import { Log } from "../../utils/log";
-import type { BundledServant } from "../../servants/types";
+import { atlasCache } from "~/atlas-api/cache";
+import { shortenAtlasUrl } from "~/atlas-api/urls";
+import { mapServantRarityToBorder } from "~/servants/borders";
+import { nameServant } from "~/servants/nameServant";
+import { getAvailabilityMap } from "~/utils/availabilityMaps";
+import { Log } from "~/utils/log";
+import type { BundledServant } from "~/servants/types";
 import type { DataBundler } from "../utils/dataBundlers";
 
 const avMapPath = join("assets", "data", "servants", "availability.yml");

@@ -8,9 +8,9 @@ import { dedent } from "@foxkit/util/dedent";
 import { Searcher } from "fast-fuzzy";
 import picocolors from "picocolors";
 import type { MatchData } from "fast-fuzzy";
-import { atlasCacheJP } from "../atlas-api/cache";
-import { prepareCache } from "../atlas-api/prepare";
-import type { BundledItem } from "../items/types";
+import { atlasCacheJP } from "~/atlas-api/cache";
+import { prepareCache } from "~/atlas-api/prepare";
+import type { BundledItem } from "~/items/types";
 import { getCustomItems } from "./getBundles";
 import { Log } from "./log";
 

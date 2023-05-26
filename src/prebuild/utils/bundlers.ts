@@ -1,7 +1,7 @@
 import { join } from "path";
 import { writeFile } from "@foxkit/node-util/fs";
 import { resolvePath } from "@foxkit/node-util/path";
-import { Log } from "../../utils/log";
+import { Log } from "~/utils/log";
 
 export interface PrebuildBundle<T extends {}> {
   data: T; // Data type

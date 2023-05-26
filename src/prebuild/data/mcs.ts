@@ -1,8 +1,8 @@
 import { List } from "@foxkit/util/object";
-import { atlasCache } from "../../atlas-api/cache";
-import { shortenAtlasUrl } from "../../atlas-api/urls";
-import { Log } from "../../utils/log";
-import type { BundledMysticCode } from "../../items/types";
+import { atlasCache } from "~/atlas-api/cache";
+import { shortenAtlasUrl } from "~/atlas-api/urls";
+import { Log } from "~/utils/log";
+import type { BundledMysticCode } from "~/items/types";
 import type { DataBundler } from "../utils/dataBundlers";
 
 export const bundleMysticCodesData: DataBundler<

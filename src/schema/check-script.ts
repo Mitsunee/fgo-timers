@@ -3,7 +3,7 @@ import { basename, join } from "path";
 import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 import { Command, Option } from "commander";
 import type { z } from "zod";
-import { Log } from "../utils/log";
+import { Log } from "~/utils/log";
 import { AvailabilityMapSchema } from "./AvailabilityMap";
 import { CustomItemSchema } from "./CustomItem";
 import { EventSchema } from "./EventSchema";

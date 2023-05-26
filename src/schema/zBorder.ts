@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { Borders } from "../types/borders";
+import { Borders } from "~/types/borders";
 
 const zBorderEnum = z.enum([
   "black",

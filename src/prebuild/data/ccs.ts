@@ -1,9 +1,9 @@
 import { List } from "@foxkit/util/object";
-import { atlasCache } from "../../atlas-api/cache";
-import { shortenAtlasUrl } from "../../atlas-api/urls";
-import { mapCCRarityToBorder } from "../../items/types";
-import { Log } from "../../utils/log";
-import type { BundledCC } from "../../items/types";
+import { atlasCache } from "~/atlas-api/cache";
+import { shortenAtlasUrl } from "~/atlas-api/urls";
+import { mapCCRarityToBorder } from "~/items/types";
+import { Log } from "~/utils/log";
+import type { BundledCC } from "~/items/types";
 import type { DataBundler } from "../utils/dataBundlers";
 
 export const bundleCCsData: DataBundler<BundledCC> = async ids => {

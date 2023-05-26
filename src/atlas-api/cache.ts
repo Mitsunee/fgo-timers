@@ -10,7 +10,7 @@ import type {
 } from "@atlasacademy/api-connector/dist/Schema/Servant";
 import type { War } from "@atlasacademy/api-connector/dist/Schema/War";
 import { readFileJson, writeFile } from "@foxkit/node-util/fs";
-import { Semaphore } from "../utils/Semaphore";
+import { Semaphore } from "~/utils/Semaphore";
 import { atlasApi } from "./api";
 import type { SupportedRegion } from "./api";
 

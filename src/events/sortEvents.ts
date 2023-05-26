@@ -1,4 +1,4 @@
-import { normalizeDate } from "../time/normalizeDate";
+import { normalizeDate } from "~/time/normalizeDate";
 import type { BundledEvent } from "./types";
 
 /**

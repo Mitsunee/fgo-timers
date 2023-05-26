@@ -1,4 +1,4 @@
-import { Borders } from "../types/borders";
+import { Borders } from "~/types/borders";
 import type { ServantBorder, SkillBorder } from "./types";
 
 /**

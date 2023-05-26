@@ -1,6 +1,6 @@
 import { readFileJson } from "@foxkit/node-util/fs";
-import { msToSeconds } from "../time/msToSeconds";
-import { Log } from "../utils/log";
+import { msToSeconds } from "~/time/msToSeconds";
+import { Log } from "~/utils/log";
 import { atlasCache, cachePath, cacheVersion } from "./cache";
 
 async function fetchApiInfo() {
