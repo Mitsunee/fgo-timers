@@ -91,6 +91,7 @@ export function EventPageLayout({
         url={event.url}
         requires={event.requires}
         slug={event.slug}
+        links={event.links}
         modalCallback={() => setShowEmbed(true)}
       />
       <Tabber tabs={tabs} current={current} id="tabs" />

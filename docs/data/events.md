@@ -34,6 +34,17 @@ Information on what is required to access an Event
 requires: # string describing requirment such as "Clear Fuyuki"
 ```
 
+### Links
+
+Adds additional link buttons to EventInfoSection
+
+```yml
+links: # Array
+  - title: # string
+    url: # string (url)
+    icon: # optional path or to icon, default: IconGlobe
+```
+
 ### Times
 
 Array of further times to display on the events separate page:

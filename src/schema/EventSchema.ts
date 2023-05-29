@@ -38,6 +38,12 @@ const EventBanner = Related.pick({ servants: true, ces: true })
     return z.NEVER;
   });
 
+const EventLink = z.object({
+  icon: z.string().optional(),
+  url: z.string().url(),
+  title: z.string().max(50)
+});
+
 export const EventSchema = z.object({
   title: z.string(),
   shortTitle: z.string().max(50),
@@ -46,6 +52,7 @@ export const EventSchema = z.object({
   url: z.string(),
   requires: z.string().optional(),
   description: z.string(),
+  links: z.array(EventLink).optional(),
   schedules: z
     .array(EventSchedule)
     .transform(schedules =>

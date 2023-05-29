@@ -2,6 +2,7 @@ import spacetime from "spacetime";
 import { LinkButton } from "~/components/Button";
 import { DiscordTSButton } from "~/components/DiscordTSButton";
 import Headline from "~/components/Headline";
+import { IconGlobe } from "~/components/icons";
 import { Progress } from "~/components/Progress";
 import Section from "~/components/Section";
 import { DisplayDate } from "~/components/TimeDisplay";
@@ -14,7 +15,7 @@ import styles from "./EventInfoSection.module.css";
 
 type EventInfoSectionProps = Pick<
   BundledEvent,
-  "title" | "date" | "requires" | "description" | "url" | "slug"
+  "title" | "date" | "requires" | "description" | "url" | "slug" | "links"
 > & { modalCallback: () => void };
 
 export function EventInfoSection({
@@ -24,6 +25,7 @@ export function EventInfoSection({
   url,
   slug,
   requires,
+  links,
   modalCallback
 }: EventInfoSectionProps) {
   const isClient = useIsClient();
@@ -67,6 +69,17 @@ export function EventInfoSection({
         <DiscordTSButton time={date} title={title} slug={slug}>
           Copy Timestamp
         </DiscordTSButton>
+        {links &&
+          links.length > 0 &&
+          links.map((link, idx) => (
+            <LinkButton
+              key={idx}
+              href={link.url}
+              target="_blank"
+              icon={link.icon || IconGlobe}>
+              {link.title}
+            </LinkButton>
+          ))}
       </aside>
       <Section background padding={false}>
         {description
