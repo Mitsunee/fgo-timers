@@ -17,9 +17,9 @@
     "incremental": true,
     "tsBuildInfoFile": ".next/cache/tsbuildinfo",
     "paths": {
-      "~/*": ["./src/*"],
       "~/components/*": ["./src/client/components/*"],
-      "~/hooks/*": ["./src/client/utils/hooks/*"]
+      "~/hooks/*": ["./src/client/utils/hooks/*"],
+      "~/*": ["./src/*"]
     }
   },
   "include": ["src/types/*.d.ts", "next-env.d.ts", "**/*.ts", "**/*.tsx"],
