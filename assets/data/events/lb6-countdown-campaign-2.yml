@@ -7,7 +7,9 @@ description: >-
   This is the second part of a series of campaigns celebrating the release of the special site
   “Countdown to Lostbelt No.6 - A Review of the Past”. There will be another Campaign of Login
   Bonuses each containing one Silver Apple, one Gold Apple and one Saint Quartz.
-  The special site can be visited at https://fate-go.us/ctlb6/
+links:
+  - title: Special Site
+    url: https://fate-go.us/ctlb6/
 times:
   - title: Login Bonus - Anastasia
     date: 2023-03-28 21:00 - 04-03 20:59 PDT

@@ -5,8 +5,10 @@ url: 2023/0202_cdl_6/
 date: 2023-02-02 20:00 PST - 03-22 20:59 PDT
 description: >-
   To celebrate the release of the special site “Countdown to Lostbelt No.6 - A Review of the Past” there will be a Campaign
-  of Login Bonuses each containing one Silver Apple, one Gold Apple and one Saint Quartz. The special site can be visited at
-  https://fate-go.us/ctlb6/
+  of Login Bonuses each containing one Silver Apple, one Gold Apple and one Saint Quartz.
+links:
+  - title: Special Site
+    url: https://fate-go.us/ctlb6/
 times:
   - title: Login Bonus - Fuyuki & Orleans
     date: 2023-02-02 20:00 - 02-08 19:59 PST
