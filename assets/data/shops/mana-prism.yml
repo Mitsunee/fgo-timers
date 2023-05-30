@@ -106,3 +106,11 @@ limited:
         type: ce
         cost: 1000
         amount: 5
+  - title: To the Beyond, Bereft the Snowy Blossom
+    currency: 3
+    date: 2023-05-31 17:00 PDT - 08-31 16:59 PDT
+    items:
+      - id: 9405170 # To the Beyond, Bereft the Snowy Blossom
+        type: ce
+        cost: 1000
+        amount: 5
