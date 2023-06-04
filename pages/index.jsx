@@ -10,11 +10,10 @@ import ChaldeaGateCard from "~/pages/HomePage/components/ChaldeaGateCard";
 import { LoginInfoCard } from "~/pages/HomePage/components/LoginInfoCard";
 import MasterMissionCard from "~/pages/HomePage/components/MasterMissionCard";
 import { ShopsInfoCard } from "~/pages/HomePage/components/ShopsInfoCard";
-// import styles from "~/pages/HomePage/HomePage.module.css";
 // import type { HomePageProps } from "~/pages/HomePage/static";
 
 export { getStaticProps } from "~/pages/HomePage/static";
-// FIX ME: old code that still has no getBundle fn, also need a workaround for the API Cache
+// FIX ME: mastermissions currently blocking next.js upgrade since that removes unstable_includeFiles
 export const config = {
   unstable_includeFiles: [
     ".next/cache/atlasacademy/info.json",
