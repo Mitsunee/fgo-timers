@@ -1,14 +1,3 @@
-.grid {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 0.66em;
-
-  @media (--mq-medium) {
-    gap: 1.33em;
-  }
-}
-
 .body {
   background-image: var(--landing-bg);
   background-size: cover !important;
@@ -16,10 +5,14 @@
   & > div[id="__next"] {
     background: radial-gradient(
         ellipse at top,
-        rgba(46, 44, 106, 0.8),
+        rgb(var(--bg-primary-rgb) / 80%),
         transparent
       ),
-      radial-gradient(ellipse at bottom, rgba(104, 12, 95, 0.8), transparent);
+      radial-gradient(
+        ellipse at bottom,
+        rgb(var(--bg-dark-rgb) / 80%),
+        transparent
+      );
     background-size: 100%;
     background-attachment: fixed;
     backdrop-filter: blur(3px);
