@@ -40,7 +40,7 @@ const App: AppType = ({ Component, pageProps }) => {
   }, []);
 
   return (
-    <Layout>
+    <>
       <style jsx global>
         {`
           :root {
@@ -49,8 +49,10 @@ const App: AppType = ({ Component, pageProps }) => {
           }
         `}
       </style>
-      <Component {...pageProps} />
-    </Layout>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </>
   );
 };
 
