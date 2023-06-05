@@ -19,16 +19,8 @@ export function Layout({ children }: React.PropsWithChildren) {
     <>
       <Header />
       <div className={styles.inner}>
-        {loading ? (
-          <main>
-            <Pending />
-          </main>
-        ) : (
-          <>
-            <Navigation />
-            <main>{children}</main>
-          </>
-        )}
+        <Navigation />
+        <main>{loading ? <Pending /> : children}</main>
       </div>
       <Footer />
       <SettingsMenu />

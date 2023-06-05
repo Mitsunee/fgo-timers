@@ -136,6 +136,7 @@ a.button-decorated {
   align-items: center;
   justify-content: space-between;
   user-select: none;
+  cursor: pointer;
 
   &:focus-visible {
     outline: 1px solid var(--hover);
