@@ -5,7 +5,7 @@ import Headline from "~/components/Headline";
 import { IconGlobe } from "~/components/icons";
 import { Progress } from "~/components/Progress";
 import Section from "~/components/Section";
-import { DisplayDate } from "~/components/TimeDisplay";
+import { DisplayDate, DisplayDelta } from "~/components/TimeDisplay";
 import { useCurrentTime } from "~/hooks/useCurrentTime";
 import { useIsClient } from "~/hooks/useIsClient";
 import { formatDiff } from "~/time/formatDiff";
@@ -94,11 +94,18 @@ export function EventInfoSection({
           <b>Start{isClient && hasStarted ? "ed" : "s"}:</b>{" "}
           <DisplayDate time={start} format="full" />
         </p>
-        {end > 0 && (
+        {end > 0 ? (
           <p>
             <b>End{isClient && hasEnded ? "ed" : "s"}:</b>{" "}
             <DisplayDate time={end} format="full" />
           </p>
+        ) : (
+          isClient &&
+          !hasStarted && (
+            <p>
+              <b>In:</b> <DisplayDelta time={start} />
+            </p>
+          )
         )}
       </div>
     </Section>
