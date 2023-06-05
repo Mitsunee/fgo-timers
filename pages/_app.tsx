@@ -1,6 +1,7 @@
 import "modern-normalize/modern-normalize.css";
 import "~/client/styles/app.css";
 
+import { useLayoutEffect as _useLayoutEffect } from "react";
 import { Dosis, Noto_Sans } from "@next/font/google";
 import type { AppType } from "next/app";
 import { api } from "~/client/api";
@@ -20,9 +21,26 @@ const noto = Noto_Sans({
   display: "swap"
 });
 
+// HACK: Dear React, there is not reason to have a warning thrown on every render
+//       that useLayoutEffect does nothing on the server, that's the entire
+//       point of me using that hook in particular.
+const useLayoutEffect: typeof _useLayoutEffect =
+  typeof document === "undefined" ? () => undefined : _useLayoutEffect;
+
 const App: AppType = ({ Component, pageProps }) => {
+  useLayoutEffect(() => {
+    const bg = Math.ceil((Math.random() * 100) % 17)
+      .toString()
+      .padStart(2, "0");
+    document.body.style.setProperty(
+      "--landing-bg",
+      `url("/assets/backgrounds/landing/${bg}.jpg")`
+    );
+    document.body.classList.add("with-bg");
+  }, []);
+
   return (
-    <Layout>
+    <>
       <style jsx global>
         {`
           :root {
@@ -31,8 +49,10 @@ const App: AppType = ({ Component, pageProps }) => {
           }
         `}
       </style>
-      <Component {...pageProps} />
-    </Layout>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </>
   );
 };
 

@@ -24,8 +24,9 @@
 
   & > nav {
     display: none;
-    min-width: 360px;
-    width: 360px;
+    --nav-width: 260px;
+    min-width: var(--nav-width);
+    width: var(--nav-width);
   }
 
   @media (--mq-large) {

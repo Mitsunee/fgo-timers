@@ -4,6 +4,7 @@
   justify-content: space-between;
   gap: 1rem;
   border: 1px solid var(--bg-dark);
+  border-radius: 8px;
   padding: 1.5rem;
   background-color: var(--bg-primary);
   box-shadow: inset 0px 2px 4px var(--bg-light), 2px 2px 6px var(--dark);
