@@ -1,0 +1,32 @@
+title: 'Part 2 Chapter 6 "Lostbelt No.6: Fae Round Table Domain, Avalon le Fae - The Moment a Planet Is Born" (Act I) Release!'
+shortTitle: Lostbelt 6 Avalon le Fae Arc 1 Release
+banner: 2023_lb6-1release.png
+url: 2023/0602_avalon-le-fae/
+date: 2023-06-06 01:00 PDT
+requires: Clear Heian-Kyo
+description: >-
+  The release of the new Main Story chapter Lostbelt 6 Part 1 marks the
+  introduction of Queen Morgan and two of her Fae Round Table Knights. They are
+  featured in a Summoning Banner alongside a rateup for Cú Chulainn (Caster) and
+  the introduction of new Craft Essences that will replace some older Craft
+  Essences in the general Gacha pool. Note that only the Servants are on rateup!
+times:
+  - title: Pre-Release Campaign
+    date: 2023-06-01 21:00 - 06-29 20:59 PDT
+  - title: Maintenance
+    date: 2023-06-05 21:00 - 06-06 01:00 PDT
+  - title: Livestream Rewards
+    date: 2023-06-06 01:00 - 06-12 20:59 PDT
+  - title: CEs added to general pool
+    date: 2023-06-19 21:00 PDT
+    ces: [9405180, 9405190, 9405200, 9405210, 9405220]
+  - title: CEs removed from general pool
+    date: 2023-06-19 21:00 PDT
+    ces: [9400240, 9400280, 9400300, 9404250]
+  - title: Noble Piece added to FP Gacha pool
+    date: 2023-06-19 21:00 PDT
+    ces: [9404250]
+upgrades: [94060390]
+banners:
+  - date: 2023-06-06 01:00 - 06-19 20:59 PDT
+    servants: [704000, 105000, 204300, 502100]
