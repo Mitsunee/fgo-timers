@@ -43,8 +43,13 @@
   }
 
   &:not(.active) {
-    &:hover {
+    &:hover,
+    &:focus {
       color: var(--hover);
+    }
+    &:focus {
+      border-color: currentColor;
+      outline: 0px;
     }
   }
 
