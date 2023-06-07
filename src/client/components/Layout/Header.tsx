@@ -30,6 +30,7 @@ export function Header() {
           className={styles.button}
           aria-controls="main-menu"
           aria-expanded={mobileOpen ? "true" : "false"}
+          aria-label="Open Main Menu"
         />
       </header>
     </>

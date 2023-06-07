@@ -33,6 +33,7 @@ export function Layout({ children }: React.PropsWithChildren) {
             decorated={false}
             aria-controls="main-menu"
             aria-expanded="true"
+            aria-label="Close Main Menu"
           />
           <Navigation />
         </Modal>
