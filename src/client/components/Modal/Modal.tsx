@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { createPortal } from "react-dom";
 import cc from "classcat";
 import styles from "./Modal.module.css";
 
@@ -22,13 +23,18 @@ export function Modal({ children, labelledBy, background = true }: ModalProps) {
   }, []);
 
   return (
-    <div className={cc([styles.wrapper, background && styles.background])}>
-      <div
-        className={styles.content}
-        aria-modal="true"
-        aria-labelledby={labelledBy || undefined}>
-        {children}
-      </div>
-    </div>
+    <>
+      {createPortal(
+        <div className={cc([styles.wrapper, background && styles.background])}>
+          <div
+            className={styles.content}
+            aria-modal="true"
+            aria-labelledby={labelledBy || undefined}>
+            {children}
+          </div>
+        </div>,
+        document.body
+      )}
+    </>
   );
 }
