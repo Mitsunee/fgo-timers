@@ -86,7 +86,7 @@ export default function EventsPage({ active, fallback, now }: EventsPageProps) {
         title="Events"
         description="List of current and past events of Fate/Grand Order Global Version"
       />
-      <EventList events={active} title="Current Events" />
+      <EventList events={active} title="Current Events" loading="eager" />
       <EventList events={results.slice(0, page * perPage)} title="Past Events">
         <div className={styles.search}>
           <p>

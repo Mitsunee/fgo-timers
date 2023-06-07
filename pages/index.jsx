@@ -44,7 +44,7 @@ export default function HomePage({
           icon={"/assets/icon_game.png"}
         />
       </NoSSR>*/}
-      {events.length > 0 && <EventList events={events} />}
+      {events.length > 0 && <EventList events={events} loading="eager" />}
       <Headline>Timers</Headline>
       <CardGrid>
         <DataContext items={items}>

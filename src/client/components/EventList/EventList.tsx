@@ -11,14 +11,17 @@ import { normalizeDate } from "~/time/normalizeDate";
 import type { BasicEvent } from "~/events/types";
 import styles from "./EventList.module.css";
 
-type EventListItemProps = BasicEvent;
+type EventListItemProps = BasicEvent &
+  Pick<React.ComponentProps<typeof Image>, "loading">;
 
 interface EventListProps extends React.PropsWithChildren {
   events: BasicEvent[];
   title?: string;
+  loading?: React.ComponentProps<typeof Image>["loading"];
 }
 
 export function EventListItem({
+  loading,
   slug,
   title,
   shortTitle,
@@ -41,6 +44,7 @@ export function EventListItem({
           className={styles.img}
           width={800}
           height={300}
+          loading={loading ?? "lazy"}
         />
         <div className={styles.timer}>
           <InlineIcon icon={IconHourglass} />
@@ -66,14 +70,19 @@ export function EventListItem({
   );
 }
 
-export function EventList({ children, events, title }: EventListProps) {
+export function EventList({
+  children,
+  events,
+  title,
+  loading
+}: EventListProps) {
   return (
     <Section>
       <Headline>{title || "Current Events"}</Headline>
       {children}
       <div className={styles.grid}>
         {events.map(event => (
-          <EventListItem key={event.shortTitle} {...event} />
+          <EventListItem key={event.shortTitle} loading={loading} {...event} />
         ))}
       </div>
     </Section>
