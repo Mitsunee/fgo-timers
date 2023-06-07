@@ -10,6 +10,10 @@ description: >-
   featured in a Summoning Banner alongside a rateup for Cú Chulainn (Caster) and
   the introduction of new Craft Essences that will replace some older Craft
   Essences in the general Gacha pool. Note that only the Servants are on rateup!
+
+  Update: During the Chaldea Broadcasting Station U.S. Branch Vol. 17 Livestream
+  it was announced that Lostbelt 6 will be released on two parts. Summoning
+  Banners will be added on the appropriate event page.
 times:
   - title: Pre-Release Campaign
     date: 2023-06-01 21:00 - 06-29 20:59 PDT
@@ -26,6 +30,8 @@ times:
   - title: Noble Piece added to FP Gacha pool
     date: 2023-06-19 21:00 PDT
     ces: [9404250]
+  - title: Act II Release
+    date: 2023-06-19 01:00 PDT
 upgrades: [94060390]
 banners:
   - date: 2023-06-06 01:00 - 06-19 20:59 PDT
