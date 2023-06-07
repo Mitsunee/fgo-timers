@@ -32,6 +32,7 @@ export function EventListItem({
   const { current } = useCurrentTime();
   const [start, end] = normalizeDate(date);
   const hasStarted = current >= start;
+  const showStarted = end == 0 && hasStarted;
   const hasEnded = end > 0 && current >= end;
 
   return (
@@ -48,20 +49,26 @@ export function EventListItem({
         />
         <div className={styles.timer}>
           <InlineIcon icon={IconHourglass} />
-          {isClient ? (
-            hasEnded ? (
-              <>
-                Ended: <DisplayDate time={end || start} />
-              </>
-            ) : (
-              <>
-                {`${hasStarted ? "End" : "Start"}s: `}
-                <DisplayDelta time={hasStarted && end ? end : start} />
-              </>
-            )
-          ) : (
+          {!isClient ? (
             <>
               Starts: <DisplayDate time={start} />
+            </>
+          ) : showStarted ? (
+            <>
+              Started: <DisplayDate time={start} />
+            </>
+          ) : !hasStarted ? (
+            <>
+              Starts in: <DisplayDelta time={start} />
+            </>
+          ) : // we know end is > 0 now
+          hasEnded ? (
+            <>
+              Ended: <DisplayDate time={end} />
+            </>
+          ) : (
+            <>
+              Ends in: <DisplayDelta time={end} />
             </>
           )}
         </div>

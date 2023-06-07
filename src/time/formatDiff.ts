@@ -3,14 +3,14 @@ import type { Diff } from "spacetime";
 /**
  * Formats spacetime Diff as human readable string
  * @param diff Diff
- * @param fallback string to display if delta is 0 or less (default: "---")
+ * @param fallback string to display if delta is less than 0 (default: "---")
  * @returns string
  */
 export function formatDiff(
   { days, hours, minutes, seconds }: Diff,
   fallback = "---"
-): string {
-  if (seconds <= 0) return fallback;
+) {
+  if (seconds < 0) return fallback;
 
   return `${days == 0 ? "" : `${days}d `}${
     hours == 0 ? "" : `${hours % 24}h `
