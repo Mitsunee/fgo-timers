@@ -51,11 +51,11 @@ export function EventListItem({
           <InlineIcon icon={IconHourglass} />
           {!isClient ? (
             <>
-              Starts: <DisplayDate time={start} />
+              Starts: <DisplayDate time={start} format="full" />
             </>
           ) : showStarted ? (
             <>
-              Started: <DisplayDate time={start} />
+              Started: <DisplayDate time={start} format="full" />
             </>
           ) : !hasStarted ? (
             <>
@@ -64,7 +64,7 @@ export function EventListItem({
           ) : // we know end is > 0 now
           hasEnded ? (
             <>
-              Ended: <DisplayDate time={end} />
+              Ended: <DisplayDate time={end} format="full" />
             </>
           ) : (
             <>

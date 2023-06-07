@@ -39,7 +39,7 @@ function LimitedInventoryTimer({
     <>
       <li data-wide={hasStarted ? true : undefined}>
         <b>Available {hasStarted ? "since" : "starting"}:</b>{" "}
-        <DisplayDate time={start} />
+        <DisplayDate time={start} format="full" />
       </li>
       {!hasStarted && (
         <li>
@@ -47,7 +47,7 @@ function LimitedInventoryTimer({
         </li>
       )}
       <li data-wide={hasEnded ? true : undefined}>
-        <b>Available until:</b> <DisplayDate time={end} />
+        <b>Available until:</b> <DisplayDate time={end} format="full" />
       </li>
       {!hasEnded && (
         <li>
@@ -67,7 +67,8 @@ function MonthlyInventoryTimer({ day, hour }: { day: number; hour: number }) {
       <li data-wide={isClient ? undefined : true}>
         {isClient ? (
           <>
-            <b>Next Rotation:</b> <DisplayDate time={nextOccurence} />
+            <b>Next Rotation:</b>{" "}
+            <DisplayDate time={nextOccurence} format="full" />
           </>
         ) : (
           `Every ${formatDayOfMonth(day)} of the month at ${hour}:00 UTC`

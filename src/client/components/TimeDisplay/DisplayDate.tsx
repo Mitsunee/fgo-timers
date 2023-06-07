@@ -7,7 +7,10 @@ import { Global } from "~/types/enum";
 type Formats = "full" | "withSec" | "short" | "time" | "date";
 
 const DateFormats: Record<Formats, string | [string, string]> = {
-  full: ["nice-full", "nice-full-24"],
+  full: [
+    "{date-ordinal} {month} {year}, {hour-pad}:{minute-pad}{ampm}",
+    "{date-ordinal} {month} {year}, {hour-24-pad}:{minute-pad}"
+  ],
   short: ["nice-short", "nice-short-24"],
   withSec: [
     "{month-short} {date-ordinal}, {hour-pad}:{minute-pad}:{second-pad}{ampm}",
