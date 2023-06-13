@@ -14,6 +14,10 @@ description: >-
   Update: During the Chaldea Broadcasting Station U.S. Branch Vol. 17 Livestream
   it was announced that Lostbelt 6 will be released on two parts. Summoning
   Banners will be added on the appropriate event page.
+
+  Update 2: A Summoning Banner for Altria Caster featuring the limited Craft
+  Essences from 5th Anniversary has been added. The newly added permanent Craft
+  Essences from Morgan's Banner are also available in this one.
 times:
   - title: Pre-Release Campaign
     date: 2023-06-01 21:00 - 06-29 20:59 PDT
@@ -36,3 +40,6 @@ upgrades: [94060390]
 banners:
   - date: 2023-06-06 01:00 - 06-19 20:59 PDT
     servants: [704000, 105000, 204300, 502100]
+  - date: 2023-06-12 21:00 - 06-19 20:59 PDT
+    servants: [504500]
+    ces: [9404600, 9404610, 9404620]
