@@ -51,7 +51,7 @@ export async function getStaticProps() {
     items
   } as const;
 
-  return { props, revalidate: 18000 };
+  return { props /*  revalidate: 18000  */ };
 }
 
 export type LoginTicketsPageProps = InferGetStaticPropsType<
