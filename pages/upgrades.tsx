@@ -3,7 +3,7 @@ import { clamp } from "@foxkit/util/clamp";
 import { useStore } from "@nanostores/react";
 import { Searcher } from "fast-fuzzy";
 import type { MatchData } from "fast-fuzzy";
-//import { api } from "~/client/api";
+import { api } from "~/client/api";
 import { DataContext } from "~/client/contexts";
 import { settingsStore } from "~/client/stores/settingsStore";
 import { ActionButton } from "~/components/Button";
@@ -11,14 +11,14 @@ import { CardGrid } from "~/components/Card";
 import Headline from "~/components/Headline";
 import { IconAtlas, IconHelp } from "~/components/icons";
 import { InlineSvg } from "~/components/InlineIcon";
-//import { Input } from "~/components/Input";
+import { Input } from "~/components/Input";
 import Meta from "~/components/Meta";
 import { Modal, ModalMenu } from "~/components/Modal";
 import { NoSSR } from "~/components/NoSSR";
 import { Scroller } from "~/components/Scroller";
 import Section from "~/components/Section";
 import { UpgradeCard } from "~/pages/UpgradesPage/components";
-//import { FiltersForm } from "~/pages/UpgradesPage/components/FiltersForm";
+import { FiltersForm } from "~/pages/UpgradesPage/components/FiltersForm";
 import {
   createUpgradeFilter,
   createUpgradeSorter
@@ -35,20 +35,20 @@ export { getStaticProps } from "~/pages/UpgradesPage/getStaticProps";
 
 export default function UpgradesPage({ fallback }: UpgradesPageProps) {
   const { perPage } = useStore(settingsStore);
-  /* const query = api.upgrades.all.useQuery(undefined, {
+  const query = api.upgrades.all.useQuery(undefined, {
     refetchOnWindowFocus: false,
     refetchOnReconnect: false
-  }); */
-  const [filters, _setFilter] = useReducer(filtersReducer, formFiltersDefault);
+  });
+  const [filters, setFilter] = useReducer(filtersReducer, formFiltersDefault);
   const [page, setPage] = useState<number>(1);
-  const [searchQuery, _setSearchQuery] = useState<string>("");
+  const [searchQuery, setSearchQuery] = useState<string>("");
   const [showHelp, setShowHelp] = useState(false);
 
   // query states
-  const data = /* query.data ?? */ fallback;
+  const data = query.data ?? fallback;
   const sorter = createUpgradeSorter(data.quests);
-  const isLoading = false; //query.isLoading || !query.data;
-  const isError = false; //query.isError;
+  const isLoading = query.isLoading || !query.data;
+  const isError = query.isError;
 
   // apply filters and create Searcher
   const [searcher, filteredUpgrades] = useMemo(() => {
@@ -72,7 +72,7 @@ export default function UpgradesPage({ fallback }: UpgradesPageProps) {
 
   // apply search
   const results: SemiRequired<MatchData<BundledUpgrade>, "item">[] =
-    /* query.isFetching || */ searchQuery == ""
+    query.isFetching || searchQuery == ""
       ? filteredUpgrades.sort(sorter).map(upgrade => ({ item: upgrade }))
       : searcher.search(searchQuery);
   const firstResultNum = Math.min(1, results.length);
@@ -109,13 +109,7 @@ export default function UpgradesPage({ fallback }: UpgradesPageProps) {
         title="Upgrades"
         description="Explore the Interludes and Rank Up Quests of Fate/Grand Order"
       />
-      <Section background>
-        <b>Note:</b> We are currently experiencing server issues and data
-        fetching has been disabled temporarily, meaning this page does not
-        currently have all data available to it. Thank you for your
-        understanding.
-      </Section>
-      {/* <Section background="blue">
+      <Section background="blue">
         <FiltersForm
           filters={filters}
           setFilter={setFilter}
@@ -130,7 +124,7 @@ export default function UpgradesPage({ fallback }: UpgradesPageProps) {
             />
           </fieldset>
         </FiltersForm>
-      </Section> */}
+      </Section>
       <div
         style={{
           height: 34,
@@ -168,12 +162,10 @@ export default function UpgradesPage({ fallback }: UpgradesPageProps) {
         Results {firstResultNum} to {lastResultNum} of {results.length}
       </p>
       {!isLoading && page < maxPage && (
-        <NoSSR>
-          <Scroller
-            handler={handleShowMore}
-            handlerMax={() => setPage(maxPage)}
-          />
-        </NoSSR>
+        <Scroller
+          handler={handleShowMore}
+          handlerMax={() => setPage(maxPage)}
+        />
       )}
       {showHelp && (
         <Modal labelledBy="help-modal">

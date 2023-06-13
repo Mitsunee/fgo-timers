@@ -9,12 +9,12 @@ export async function getStaticProps() {
     now
   });
   const fallback = await serverApi.events.basic.fetch({
-    limit: 50,
+    limit: 10,
     exclude: "active",
     now
   });
 
-  return { props: { active, fallback, now } /* revalidate: 18000 */ };
+  return { props: { active, fallback, now }, revalidate: 18000 };
 }
 
 export type EventsPageProps = InferGetStaticPropsType<typeof getStaticProps>;

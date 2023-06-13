@@ -20,7 +20,7 @@ export const getStaticProps = async () => {
   const upgradeIds = upgradesList
     .sort(sorter)
     .filter(filter)
-    .slice(0, 100)
+    .slice(0, 10)
     .map(upgrade => upgrade.quest);
   const fallback = await serverApi.upgrades.select.fetch({
     id: upgradeIds

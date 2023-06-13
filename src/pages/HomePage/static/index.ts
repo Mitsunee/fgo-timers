@@ -34,9 +34,7 @@ export const getStaticProps = async () => {
     milestones,
     shops
   };
-  const res: GetStaticPropsResult<typeof props> = {
-    props /* revalidate: 3600  */
-  };
+  const res: GetStaticPropsResult<typeof props> = { props, revalidate: 3600 };
   return res;
 };
 
