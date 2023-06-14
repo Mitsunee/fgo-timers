@@ -1,0 +1,30 @@
+title: "Interlude Campaign: Part 16"
+shortTitle: Interlude Campaign 16
+banner: 2023_intld16.png
+url: 2023/0616_interlude16_cp/
+date: 2023-06-15 21:00 - 06-22 20:59 PDT
+description: >-
+  The 16th part of the Interlude Campaign features new Interlude Quests for
+  seven Servants including Skill Upgrades for Astolfo (Saber), Caenis (Lancer)
+  and Antonio Salieri. Interlude Quests are 1/2 AP during this Campaign. There
+  is also a Summoning Banner featuring Anastasia (Caster), Caenis (Lancer),
+  Mandricardo and Salieri.
+times:
+  - title: Interludes Released
+    date: 2023-06-15 21:00 PDT
+  - title: 2x Success Rate for Bonus Servants
+    date: 2023-06-15 21:00 - 06-22 20:59 PDT
+    servants: [104100, 503500, 2500400, 304100, 403900, 1100600, 703400]
+  - title: 1/2 AP Interlude Quests
+    date: 2023-06-15 21:00 - 06-22 20:59 PDT
+upgrades:
+  - 91104101
+  - 91304101
+  - 91403901
+  - 91503502
+  - 91703401
+  - 911100601
+  - 912500401
+banners:
+  - date: 2023-06-15 21:00 - 06-29 20:59 PDT
+    servants: [503500, 304100, 403900, 1100600]
