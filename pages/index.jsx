@@ -1,5 +1,4 @@
 import { DataContext } from "~/client/contexts";
-//import { SpecialTimer } from "~/components/SpecialTimer";
 import { CardGrid } from "~/components/Card";
 import { Clocks } from "~/components/Clocks";
 import { EventList } from "~/components/EventList";
@@ -10,6 +9,7 @@ import ChaldeaGateCard from "~/pages/HomePage/components/ChaldeaGateCard";
 import { LoginInfoCard } from "~/pages/HomePage/components/LoginInfoCard";
 import MasterMissionCard from "~/pages/HomePage/components/MasterMissionCard";
 import { ShopsInfoCard } from "~/pages/HomePage/components/ShopsInfoCard";
+import { SpecialTimer } from "~/pages/HomePage/components/SpecialTimer";
 // import type { HomePageProps } from "~/pages/HomePage/static";
 
 export { getStaticProps } from "~/pages/HomePage/static";
@@ -22,6 +22,7 @@ export const config = {
 };
 
 export default function HomePage({
+  special,
   events,
   loginTicket,
   items,
@@ -37,13 +38,13 @@ export default function HomePage({
         noTitleSuffix
       />
       <Clocks />
-      {/*<NoSSR>
+      <NoSSR>
         <SpecialTimer
-          startsAt={1668901500000}
-          text={"Fate/Grand Order Anime NYC 2022 Panel"}
+          startsAt={special.date}
+          text={special.title}
           icon={"/assets/icon_game.png"}
         />
-      </NoSSR>*/}
+      </NoSSR>
       {events.length > 0 && <EventList events={events} loading="eager" />}
       <Headline>Timers</Headline>
       <CardGrid>
