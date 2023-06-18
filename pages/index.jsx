@@ -38,13 +38,15 @@ export default function HomePage({
         noTitleSuffix
       />
       <Clocks />
-      <NoSSR>
-        <SpecialTimer
-          startsAt={special.date}
-          text={special.title}
-          icon={"/assets/icon_game.png"}
-        />
-      </NoSSR>
+      {special && (
+        <NoSSR>
+          <SpecialTimer
+            startsAt={special.date}
+            text={special.title}
+            icon={"/assets/icon_game.png"}
+          />
+        </NoSSR>
+      )}
       {events.length > 0 && <EventList events={events} loading="eager" />}
       <Headline>Timers</Headline>
       <CardGrid>

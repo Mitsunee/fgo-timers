@@ -2,7 +2,6 @@ import type { GetStaticPropsResult, InferGetStaticPropsType } from "next";
 import { serverApi } from "~/server/api/root";
 import * as Legacy from "~/server/HomePage";
 import { msToSeconds } from "~/time/msToSeconds";
-import { parseDate } from "~/time/parseDate";
 import { getBundledItemMap } from "~/utils/getBundles";
 import { getLoginTicketProps } from "./getLoginTicketProps";
 import { getMilestoneProps } from "./getMilestoneProps";
@@ -27,13 +26,13 @@ export const getStaticProps = async () => {
     items[id] = itemMap[id];
   }
 
-  const special = {
+  /* const special = {
     title: "Next Chaldea Broadcasting Station",
     date: parseDate("2023-06-19 18:00 PDT")
-  };
+  }; */
 
   const props = {
-    special,
+    // special,
     ...legacyProps,
     events,
     loginTicket,
