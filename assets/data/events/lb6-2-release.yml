@@ -16,3 +16,7 @@ times:
     date: 2023-06-19 21:00 - 06-20 01:00 PDT
   - title: Release of Act II
     date: 2023-06-20 01:00 PDT
+links:
+  - title: Livestream
+    url: https://www.youtube.com/watch?v=hck6cej4JWw
+    icon: /assets/icon_yt.png
