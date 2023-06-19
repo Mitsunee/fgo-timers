@@ -1,4 +1,9 @@
 /**
+ * Currently supported game regions
+ */
+type SupportedRegion = "NA" | "JP";
+
+/**
  * Record that matches an id to data of type T
  */
 type DataMap<T> = Record<number, T>;
