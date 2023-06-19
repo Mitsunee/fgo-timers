@@ -1,5 +1,7 @@
 import { msToSeconds } from "~/time/msToSeconds";
 import { Log } from "~/utils/log";
+import * as BasicServant from "./data/basicServant";
+import * as NiceServant from "./data/niceServant";
 import { getApiInfo, getCacheInfo } from "./info";
 import type { ApiCacheInfo } from "./info";
 
