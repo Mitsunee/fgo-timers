@@ -2,6 +2,7 @@ import path from "path";
 import type { ServantBasic } from "@atlasacademy/api-connector/dist/Schema/Servant";
 import { Log } from "~/utils/log";
 import { cachedJson } from "../cachedFile";
+import type { PathsMap } from "../types";
 
 export const paths = {
   JP: path.join(
@@ -12,7 +13,7 @@ export const paths = {
     process.cwd(),
     ".next/cache/atlasacademy/basicServant/basic_servant_na.json"
   )
-};
+} satisfies PathsMap;
 
 export const File = cachedJson<ServantBasic[]>({
   limitPath: ".next/cache/atlasacademy/basicServant"

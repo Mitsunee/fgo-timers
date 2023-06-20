@@ -1,7 +1,8 @@
 import path from "path";
-import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
+import type { ServantWithLore } from "@atlasacademy/api-connector/dist/Schema/Servant";
 import { Log } from "~/utils/log";
 import { cachedJson } from "../cachedFile";
+import type { PathsMap } from "../types";
 
 export const paths = {
   JP: path.join(
@@ -12,13 +13,13 @@ export const paths = {
     process.cwd(),
     ".next/cache/atlasacademy/servant/nice_servant_na.json"
   )
-};
+} satisfies PathsMap;
 
-export const File = cachedJson<Servant[]>({
-  limitPath: ".next/cache/atlasacademy/servant"
+export const File = cachedJson<ServantWithLore[]>({
+  limitPath: ".next/cache/atlasacademy/niceServant"
 });
 
-function getServantFromArray(id: number, servants: Servant[]) {
+function getServantFromArray(id: number, servants: ServantWithLore[]) {
   const servant = servants.find(servant => servant.id == id);
   if (!servant) {
     Log.throw(`Could not find servant with id ${id}`);
