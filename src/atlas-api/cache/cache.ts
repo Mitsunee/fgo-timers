@@ -4,6 +4,7 @@ import * as BasicServant from "./data/basicServant";
 import * as CraftEssence from "./data/craftEssence";
 import * as NiceItem from "./data/item";
 import * as NiceServant from "./data/niceServant";
+import * as NiceWar from "./data/niceWar";
 import { getApiInfo, getCacheInfo } from "./info";
 import type { ApiCacheInfo } from "./info";
 
@@ -45,6 +46,7 @@ export async function checkCacheUpdates(): Promise<ApiCacheUpdateInfo> {
   const updateForced = Boolean(process.env.FORCE_ATLAS_CACHE_UPDATE);
 
   const localInfo = await getCacheInfo();
+  // TODO: rm -rf cache dir if version missmatches?
   const localVersionMatches = localInfo?.version == CACHE_VER;
 
   if (updateForced) {
