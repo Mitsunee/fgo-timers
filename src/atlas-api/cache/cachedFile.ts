@@ -1,4 +1,6 @@
+import { dirname } from "path";
 import { ParsedFile } from "@foxkit/node-util/fs-extra";
+import { Log } from "~/utils/log";
 import type { PathsMap } from "./types";
 
 type PartialPaths = Partial<PathsMap>;
@@ -10,19 +12,24 @@ export function generateLimitPath({ NA, JP }: { NA?: string; JP?: string }) {
     throw new Error(`Empty paths object given`);
   }
 
-  let limitPath = "";
-  for (let i = 0; i < NA.length; i++) {
-    if (NA[i] != JP[i]) break;
-    limitPath += NA[i];
-  }
+  const dirNA = dirname(NA);
+  const dirJP = dirname(JP);
 
-  if (!limitPath.includes(".next/cache/atlasacademy")) {
-    throw new Error(
-      `Given paths must be located in '.next/cache/atlasacademy'`
+  if (dirNA != dirJP) {
+    Log.throw(
+      new Error(`Given paths should be located in the same directory`),
+      { NA, JP }
     );
   }
 
-  return limitPath;
+  if (!dirNA.includes(".next/cache/atlasacademy")) {
+    Log.throw(
+      new Error(`Given paths must be located in '.next/cache/atlasacademy'`),
+      { NA, JP }
+    );
+  }
+
+  return dirNA;
 }
 
 export function cachedJson<T>(options: { paths: PartialPaths }) {
@@ -62,6 +69,8 @@ export function cachedJson<T>(options: { paths: PartialPaths }) {
 
         return writeFileCached;
       }
+
+      if (p == "limitPath") return target.limitPath;
 
       // @ts-ignore
       // eslint-disable-next-line prefer-rest-params
