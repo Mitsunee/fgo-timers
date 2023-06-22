@@ -1,7 +1,7 @@
 import path from "path";
 import type { CraftEssenceBasic } from "@atlasacademy/api-connector/dist/Schema/CraftEssence";
 import { cachedJson } from "../cachedFile";
-import type { PathsMap } from "../types";
+import type { ApiDataFetcher, PathsMap } from "../types";
 
 export const paths = {
   JP: path.join(
@@ -15,6 +15,8 @@ export const paths = {
 } satisfies PathsMap;
 
 export const File = cachedJson<CraftEssenceBasic[]>({ paths });
+export const Fetcher: ApiDataFetcher<CraftEssenceBasic[]> = connector =>
+  connector.craftEssenceList();
 
 /**
  * Gets basic equip export (Craft Essences)

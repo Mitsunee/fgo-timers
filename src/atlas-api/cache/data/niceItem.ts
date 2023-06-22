@@ -1,7 +1,7 @@
 import path from "path";
 import type { Item } from "@atlasacademy/api-connector/dist/Schema/Item";
 import { cachedJson } from "../cachedFile";
-import type { PathsMap } from "../types";
+import type { ApiDataFetcher, PathsMap } from "../types";
 
 export const paths = {
   JP: path.join(
@@ -15,6 +15,8 @@ export const paths = {
 } satisfies PathsMap;
 
 export const File = cachedJson<Item[]>({ paths });
+export const Fetcher: ApiDataFetcher<Item[]> = connector =>
+  connector.itemList();
 
 /**
  * Gets nice Item export

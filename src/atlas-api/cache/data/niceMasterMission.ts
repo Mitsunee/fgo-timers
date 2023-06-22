@@ -1,7 +1,7 @@
 import path from "path";
 import type { MasterMission } from "@atlasacademy/api-connector/dist/Schema/MasterMission";
 import { cachedJson } from "../cachedFile";
-import type { PathsMap } from "../types";
+import type { ApiDataFetcher, PathsMap } from "../types";
 
 export const paths = {
   NA: path.join(
@@ -11,6 +11,8 @@ export const paths = {
 } satisfies Partial<PathsMap>;
 
 export const File = cachedJson<MasterMission[]>({ paths });
+export const Fetcher: ApiDataFetcher<MasterMission[]> = connector =>
+  connector.masterMissionList();
 
 /**
  * Gets nice Master Mission export (NA-only)

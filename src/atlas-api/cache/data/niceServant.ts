@@ -1,7 +1,7 @@
 import path from "path";
 import type { ServantWithLore } from "@atlasacademy/api-connector/dist/Schema/Servant";
 import { cachedJson } from "../cachedFile";
-import type { PathsMap } from "../types";
+import type { ApiDataFetcher, PathsMap } from "../types";
 
 export const paths = {
   JP: path.join(
@@ -15,6 +15,8 @@ export const paths = {
 } satisfies PathsMap;
 
 export const File = cachedJson<ServantWithLore[]>({ paths });
+export const Fetcher: ApiDataFetcher<ServantWithLore[]> = connector =>
+  connector.servantListNiceWithLore();
 
 /**
  * Gets nice Servant export (with lore)

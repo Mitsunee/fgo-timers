@@ -1,7 +1,7 @@
 import path from "path";
 import type { MysticCodeBasic } from "@atlasacademy/api-connector/dist/Schema/MysticCode";
 import { cachedJson } from "../cachedFile";
-import type { PathsMap } from "../types";
+import type { ApiDataFetcher, PathsMap } from "../types";
 
 export const paths = {
   JP: path.join(
@@ -15,6 +15,8 @@ export const paths = {
 } satisfies PathsMap;
 
 export const File = cachedJson<MysticCodeBasic[]>({ paths });
+export const Fetcher: ApiDataFetcher<MysticCodeBasic[]> = connector =>
+  connector.mysticCodeList();
 
 /**
  * Gets basic Mystic Code export

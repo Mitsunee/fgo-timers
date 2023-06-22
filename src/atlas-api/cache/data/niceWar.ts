@@ -2,7 +2,7 @@ import path from "path";
 import type { Quest } from "@atlasacademy/api-connector/dist/Schema/Quest";
 import type { War } from "@atlasacademy/api-connector/dist/Schema/War";
 import { cachedJson } from "../cachedFile";
-import type { PathsMap } from "../types";
+import type { ApiDataFetcher, PathsMap } from "../types";
 
 export const paths = {
   JP: path.join(process.cwd(), ".next/cache/atlasacademy/war/nice_war_jp.json"),
@@ -10,6 +10,8 @@ export const paths = {
 } satisfies PathsMap;
 
 export const File = cachedJson<War[]>({ paths });
+export const Fetcher: ApiDataFetcher<War[]> = connector =>
+  connector.warListNice();
 
 /**
  * Gets nice War export
