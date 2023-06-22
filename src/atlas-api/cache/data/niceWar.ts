@@ -1,7 +1,6 @@
 import path from "path";
 import type { Quest } from "@atlasacademy/api-connector/dist/Schema/Quest";
 import type { War } from "@atlasacademy/api-connector/dist/Schema/War";
-import { Log } from "~/utils/log";
 import { cachedJson } from "../cachedFile";
 import type { PathsMap } from "../types";
 
@@ -10,97 +9,79 @@ export const paths = {
   NA: path.join(process.cwd(), ".next/cache/atlasacademy/war/nice_war_na.json")
 } satisfies PathsMap;
 
-export const File = cachedJson<War[]>({
-  limitPath: ".next/cache/atlasacademy/war"
-});
-
-const niceQuestCache: Partial<Record<SupportedRegion, Quest[]>> = {};
-
-function getNiceQuestFromNiceWar(wars: War[], region: SupportedRegion) {
-  const val = (niceQuestCache[region] ??= wars.flatMap(war =>
-    war.spots.flatMap(spot => spot.quests)
-  ));
-
-  return val;
-}
-
-function getWarFromArray(id: number, wars: War[]) {
-  const war = wars.find(war => war.id == id);
-  if (!war) {
-    Log.throw(`Could not find war with id ${id}`);
-  }
-
-  return war;
-}
+export const File = cachedJson<War[]>({ paths });
 
 /**
- * Gets niceWar export, either full export or filtered by specific ids.
- * @param ids ids of wars to get (default: all wars). Set as `null` if you want all wars but use the `region` parameter.
+ * Gets nice War export
  * @param region Region `"NA"` or `"JP"` (default: `"JP"`)
- * @throws If any id can not be found
- * @returns Array of Wars
+ * @returns nice War export
  */
-export async function getNiceWars(
-  ids?: number[] | null,
-  region: SupportedRegion = "JP"
-) {
+export async function getNiceWarsFull(region: SupportedRegion = "JP") {
   const filePath = paths[region];
   const res = await File.readFile(filePath);
   if (!res.success) throw res.error;
-  if (!ids) return res.data;
-
-  return ids.map(id => getWarFromArray(id, res.data));
+  return res.data;
 }
 
 /**
- * Gets specific war's data
- * @param id id of war to get
+ * Gets nice data of Wars by id
+ * @param ids ids of Wars to get
  * @param region Region `"NA"` or `"JP"` (default: `"JP"`)
- * @throws If id can not be found
- * @returns War
+ * @returns Array of Wars (may include undefined if any id was not found)
  */
-export async function getNiceWar(id: number, region: SupportedRegion = "JP") {
-  const niceWars = await getNiceWars(null, region);
-  return getWarFromArray(id, niceWars);
-}
-
-function getQuestFromArray(id: number, quests: Quest[]) {
-  const quest = quests.find(quest => quest.id == id);
-  if (!quest) {
-    Log.throw(`Could not find quest with id ${id}`);
-  }
-
-  return quest;
-}
-
-/**
- * Generates niceQuest export from niceWar, either full export or filtered by specific ids.
- * @param ids ids of quests to get (default: all quests). Set as `null` if you want all quests but use the `region` parameter.
- * @param region Region `"NA"` or `"JP"` (default: `"JP"`)
- * @throws If any id can not be found
- * @returns Array of Quests
- */
-export async function getNiceQuests(
-  ids: number[] | null,
+export async function getNiceWars(
+  ids: number[],
   region: SupportedRegion = "JP"
 ) {
-  const niceQuests = (niceQuestCache[region] ??= getNiceQuestFromNiceWar(
-    await getNiceWars(null, region),
-    region
-  ));
-  if (!ids) return niceQuests;
-
-  return ids.map(id => getQuestFromArray(id, niceQuests));
+  const niceWars = await getNiceWarsFull(region);
+  return ids.map(id => niceWars.find(war => war.id == id));
 }
 
 /**
- * Gets specific quest's data
- * @param id id of quest to get
+ * Gets nice data of War by id
+ * @param id id of War to get
  * @param region Region `"NA"` or `"JP"` (default: `"JP"`)
- * @throws If id can not be found
- * @returns Quest
+ * @returns War or undefined if not found
+ */
+export async function getNiceWar(id: number, region: SupportedRegion = "JP") {
+  const niceWars = await getNiceWarsFull(region);
+  return niceWars.find(war => war.id == id);
+}
+
+const niceQuestCache: Partial<Record<SupportedRegion, Quest[]>> = {};
+
+/**
+ * Generates nice Quest export from niceWar
+ * @param region Region `"NA"` or `"JP"` (default: `"JP"`)
+ * @returns nice Quest export
+ */
+export async function getNiceQuestsFull(region: SupportedRegion = "JP") {
+  return (niceQuestCache[region] ??= (await getNiceWarsFull(region)).flatMap(
+    war => war.spots.flatMap(spot => spot.quests)
+  ));
+}
+
+/**
+ * Gets nice data of Quests by id
+ * @param ids ids of Quests to get
+ * @param region Region `"NA"` or `"JP"` (default: `"JP"`)
+ * @returns Array of Quests (may include undefined if any id was not found)
+ */
+export async function getNiceQuests(
+  ids: number[],
+  region: SupportedRegion = "JP"
+) {
+  const niceQuests = await getNiceQuestsFull(region);
+  return ids.map(id => niceQuests.find(quest => quest.id == id));
+}
+
+/**
+ * Gets nice Quest data by id
+ * @param id id of Quest to get
+ * @param region Region `"NA"` or `"JP"` (default: `"JP"`)
+ * @returns Quest or undefined if not found
  */
 export async function getNiceQuest(id: number, region: SupportedRegion = "JP") {
-  const niceQuests = await getNiceQuests(null, region);
-  return getQuestFromArray(id, niceQuests);
+  const niceQuests = await getNiceQuestsFull(region);
+  return niceQuests.find(quest => quest.id == id);
 }

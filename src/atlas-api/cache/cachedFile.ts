@@ -1,10 +1,35 @@
 import { ParsedFile } from "@foxkit/node-util/fs-extra";
+import type { PathsMap } from "./types";
 
-export function cachedJson<T>(options: { limitPath?: string }) {
+type PartialPaths = Partial<PathsMap>;
+
+export function generateLimitPath({ NA, JP }: { NA?: string; JP?: string }) {
+  if (NA && !JP) return NA;
+  if (JP && !NA) return JP;
+  if (!(NA && JP)) {
+    throw new Error(`Empty paths object given`);
+  }
+
+  let limitPath = "";
+  for (let i = 0; i < NA.length; i++) {
+    if (NA[i] != JP[i]) break;
+    limitPath += NA[i];
+  }
+
+  if (!limitPath.includes(".next/cache/atlasacademy")) {
+    throw new Error(
+      `Given paths must be located in '.next/cache/atlasacademy'`
+    );
+  }
+
+  return limitPath;
+}
+
+export function cachedJson<T>(options: { paths: PartialPaths }) {
   const cache: Partial<Record<string, { success: true; data: T }>> = {};
 
   const File = new ParsedFile<T>({
-    limitPath: options.limitPath,
+    limitPath: generateLimitPath(options.paths),
     stringify: JSON.stringify,
     parse: JSON.parse
   });
