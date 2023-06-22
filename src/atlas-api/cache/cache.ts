@@ -1,8 +1,11 @@
 import { msToSeconds } from "~/time/msToSeconds";
 import { Log } from "~/utils/log";
-import * as CraftEssence from "./data/basicCraftEssence";
+import * as BasicCommandCode from "./data/basicCommandCode";
+import * as BasicCraftEssence from "./data/basicCraftEssence";
+import * as BasicMysticCode from "./data/basicMysticCode";
 import * as BasicServant from "./data/basicServant";
 import * as NiceItem from "./data/niceItem";
+import * as NiceMasterMission from "./data/niceMasterMission";
 import * as NiceServant from "./data/niceServant";
 import * as NiceWar from "./data/niceWar";
 import { getApiInfo, getCacheInfo } from "./info";
