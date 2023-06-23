@@ -14,6 +14,7 @@ export const paths = {
   )
 } satisfies PathsMap;
 
+export const name = "Nice Servant (with Lore)";
 export const File = cachedJson<ServantWithLore[]>({ paths });
 export const Fetcher: ApiDataFetcher<ServantWithLore[]> = connector =>
   connector.servantListNiceWithLore();

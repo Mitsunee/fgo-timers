@@ -14,6 +14,7 @@ export const paths = {
   )
 } satisfies PathsMap;
 
+export const name = "Basic Craft Essence";
 export const File = cachedJson<CraftEssenceBasic[]>({ paths });
 export const Fetcher: ApiDataFetcher<CraftEssenceBasic[]> = connector =>
   connector.craftEssenceList();

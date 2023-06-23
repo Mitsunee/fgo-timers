@@ -10,6 +10,7 @@ import * as NiceServant from "./data/niceServant";
 import * as NiceWar from "./data/niceWar";
 import { getApiInfo, getCacheInfo } from "./info";
 import type { ApiCacheInfo } from "./info";
+import type { CacheFile } from "./types";
 
 export const CACHE_VER = "0.7.0"; // NOTE: bump when adding new things to cache
 
@@ -57,7 +58,7 @@ export async function checkCacheUpdates(): Promise<ApiCacheUpdateInfo> {
       "AtlasAcademy API Cache update was forced via environment variable"
     );
   } else if (!localInfo) {
-    Log.warn("No AtlasAcademy API Cache was found");
+    Log.warn("No AtlasAcademy API Cache Info file was found");
   } else if (!localVersionMatches) {
     Log.warn("AtlasAcademy API Cache version missmatch");
   }

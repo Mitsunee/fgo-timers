@@ -14,6 +14,7 @@ export const paths = {
   )
 } satisfies PathsMap;
 
+export const name = "Basic Command Code";
 export const File = cachedJson<CommandCodeBasic[]>({ paths });
 export const Fetcher: ApiDataFetcher<CommandCodeBasic[]> = connector =>
   connector.commandCodeList();

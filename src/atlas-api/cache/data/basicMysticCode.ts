@@ -14,6 +14,7 @@ export const paths = {
   )
 } satisfies PathsMap;
 
+export const name = "Basic Mystic Code";
 export const File = cachedJson<MysticCodeBasic[]>({ paths });
 export const Fetcher: ApiDataFetcher<MysticCodeBasic[]> = connector =>
   connector.mysticCodeList();

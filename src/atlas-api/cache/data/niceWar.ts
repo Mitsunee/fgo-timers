@@ -9,6 +9,7 @@ export const paths = {
   NA: path.join(process.cwd(), ".next/cache/atlasacademy/war/nice_war_na.json")
 } satisfies PathsMap;
 
+export const name = "Nice War & Nice Quest";
 export const File = cachedJson<War[]>({ paths });
 export const Fetcher: ApiDataFetcher<War[]> = connector =>
   connector.warListNice();

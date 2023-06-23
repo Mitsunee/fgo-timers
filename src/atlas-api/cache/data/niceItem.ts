@@ -14,6 +14,7 @@ export const paths = {
   )
 } satisfies PathsMap;
 
+export const name = "Nice Item";
 export const File = cachedJson<Item[]>({ paths });
 export const Fetcher: ApiDataFetcher<Item[]> = connector =>
   connector.itemList();

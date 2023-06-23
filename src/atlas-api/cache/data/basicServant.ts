@@ -14,6 +14,7 @@ export const paths = {
   )
 } satisfies PathsMap;
 
+export const name = "Basic Servant";
 export const File = cachedJson<ServantBasic[]>({ paths });
 export const Fetcher: ApiDataFetcher<ServantBasic[]> = connector =>
   connector.servantList();

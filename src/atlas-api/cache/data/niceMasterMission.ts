@@ -10,6 +10,7 @@ export const paths = {
   )
 } satisfies Partial<PathsMap>;
 
+export const name = "Nice Master Mission";
 export const File = cachedJson<MasterMission[]>({ paths });
 export const Fetcher: ApiDataFetcher<MasterMission[]> = connector =>
   connector.masterMissionList();
