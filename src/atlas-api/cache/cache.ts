@@ -59,6 +59,7 @@ export async function checkCacheUpdates(): Promise<ApiCacheUpdateInfo> {
   const localInfo = await getCacheInfo();
   const localVersionMatches = localInfo?.version == CACHE_VER;
 
+  // Log reason for forced cache update if applicable
   if (updateForced) {
     Log.warn(
       "AtlasAcademy API Cache update was forced via environment variable"
@@ -69,6 +70,7 @@ export async function checkCacheUpdates(): Promise<ApiCacheUpdateInfo> {
     Log.warn("AtlasAcademy API Cache version missmatch");
   }
 
+  // Force cache update if forced or required
   if (updateForced || !localInfo || !localVersionMatches) {
     const apiInfo = await getApiInfo();
 
@@ -85,6 +87,7 @@ export async function checkCacheUpdates(): Promise<ApiCacheUpdateInfo> {
     };
   }
 
+  // check if last check is recent enough
   const shouldCheck = compareCacheAge(now, localInfo.lastChecked);
 
   if (!shouldCheck) {
@@ -96,11 +99,32 @@ export async function checkCacheUpdates(): Promise<ApiCacheUpdateInfo> {
     };
   }
 
+  // Perform actual checks
+  Log.info("Checking AtlasAcademy API versions");
   const apiInfo = await getApiInfo();
+  const shouldUpdateJP = localInfo.JP < apiInfo.JP.timestamp;
+  const shouldUpdateNA = localInfo.NA < apiInfo.NA.timestamp;
+
+  // Log if update was not needed for region
+  if (!shouldUpdateJP) {
+    Log.info("AtlasAcademy API Cache for JP region is up-to-date");
+  }
+  if (!shouldUpdateNA) {
+    Log.info("AtlasAcademy API Cache for NA region is up-to-date");
+  }
+
+  // Return existing info if no updates were needed
+  if (!shouldUpdateJP && !shouldUpdateNA) {
+    return {
+      JP: false,
+      NA: false,
+      info: localInfo
+    };
+  }
 
   return {
-    JP: localInfo.JP == apiInfo.JP.timestamp,
-    NA: localInfo.NA == apiInfo.NA.timestamp,
+    JP: shouldUpdateJP,
+    NA: shouldUpdateNA,
     info: {
       JP: apiInfo.JP.timestamp,
       NA: apiInfo.NA.timestamp,
@@ -155,11 +179,16 @@ async function updateCacheRegion(region: SupportedRegion) {
   }
 }
 
-// TODO: doc comments
+/**
+ * Prepares AtlasAcademy API Cache, by checking for updates (with a 1hr cooldown)
+ * and downloading the new exports as needed.
+ * @returns ApiCacheInfo after any updates have been performed
+ */
 export async function prepareCache() {
   const shouldUpdate = await checkCacheUpdates();
   const updatedAny = shouldUpdate.NA || shouldUpdate.JP;
 
+  // Delete old cache directory if needed
   if (shouldUpdate.clean) {
     Log.info(`Cleaning AtlasAcademy API Cache directory`);
     await rm(resolve(".next/cache/atlasacademy"), {
@@ -168,6 +197,7 @@ export async function prepareCache() {
     });
   }
 
+  // perform required updates and write info if either one updated
   if (shouldUpdate.JP) await updateCacheRegion("JP");
   if (shouldUpdate.NA) await updateCacheRegion("NA");
   if (updatedAny) await writeCacheInfo(shouldUpdate.info);
