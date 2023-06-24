@@ -1,5 +1,10 @@
+import { rm } from "fs/promises";
+import { resolve } from "path";
+import { List } from "@foxkit/util/object";
 import { msToSeconds } from "~/time/msToSeconds";
 import { Log } from "~/utils/log";
+import { Semaphore } from "~/utils/Semaphore";
+import { atlasApi } from "../api";
 import * as BasicCommandCode from "./data/basicCommandCode";
 import * as BasicCraftEssence from "./data/basicCraftEssence";
 import * as BasicMysticCode from "./data/basicMysticCode";
@@ -8,7 +13,7 @@ import * as NiceItem from "./data/niceItem";
 import * as NiceMasterMission from "./data/niceMasterMission";
 import * as NiceServant from "./data/niceServant";
 import * as NiceWar from "./data/niceWar";
-import { getApiInfo, getCacheInfo } from "./info";
+import { getApiInfo, getCacheInfo, writeCacheInfo } from "./info";
 import type { ApiCacheInfo } from "./info";
 import type { CacheFile } from "./types";
 
@@ -27,6 +32,10 @@ interface ApiCacheUpdateInfo {
    * new ApiCacheInfo to write after completed update
    */
   info: ApiCacheInfo;
+  /**
+   * Whether to delete the existing cache before updating
+   */
+  clean?: boolean;
 }
 
 /**
@@ -41,16 +50,13 @@ interface ApiCacheUpdateInfo {
  */
 function compareCacheAge(now: number, lastChecked: number) {
   // updates are currently checked hourly
-  return lastChecked + 3600 > now;
+  return lastChecked + 3600 < now;
 }
 
 export async function checkCacheUpdates(): Promise<ApiCacheUpdateInfo> {
   const now = msToSeconds(Date.now());
-  // TODO: document this behaviour:
   const updateForced = Boolean(process.env.FORCE_ATLAS_CACHE_UPDATE);
-
   const localInfo = await getCacheInfo();
-  // TODO: rm -rf cache dir if version missmatches?
   const localVersionMatches = localInfo?.version == CACHE_VER;
 
   if (updateForced) {
@@ -69,6 +75,7 @@ export async function checkCacheUpdates(): Promise<ApiCacheUpdateInfo> {
     return {
       JP: true,
       NA: true,
+      clean: true,
       info: {
         JP: apiInfo.JP.timestamp,
         NA: apiInfo.NA.timestamp,
@@ -103,19 +110,67 @@ export async function checkCacheUpdates(): Promise<ApiCacheUpdateInfo> {
   };
 }
 
-// WIP
-async function prepareCache() {
+/**
+ * List object containing all exports
+ */
+const cacheFiles = new List<CacheFile<any>>();
+cacheFiles
+  .push(BasicCommandCode)
+  .push(BasicCraftEssence)
+  .push(BasicMysticCode)
+  .push(BasicServant)
+  .push(NiceItem)
+  .push(NiceMasterMission)
+  .push(NiceServant)
+  .push(NiceWar);
+
+async function updateCacheRegion(region: SupportedRegion) {
+  Log.info(`Updating AtlasAcademy API Cache for ${region}`);
+
+  async function processCacheFile<T extends CacheFile<any>>(file: T) {
+    const filePath = file.paths[region];
+    if (!filePath) {
+      Log.info(
+        `Skipping ${file.name} for region ${region} as no path was given`
+      );
+      return null;
+    }
+
+    const data = await file.Fetcher(atlasApi[region]);
+    const res = await file.File.writeFile(filePath, data);
+    if (!res.success) {
+      Log.warn(`Error writing ${file.name} for region ${region}`);
+      Log.error(res.error);
+    }
+
+    return res;
+  }
+
+  type Result = Awaited<ReturnType<typeof processCacheFile>>;
+  const sem = new Semaphore<CacheFile<any>, Result>(processCacheFile, 3);
+  const res = await sem.run(cacheFiles);
+
+  if (res.some(result => result && !result.success)) {
+    Log.throw(`Error writing Cache for region ${region}`);
+  }
+}
+
+// TODO: doc comments
+export async function prepareCache() {
   const shouldUpdate = await checkCacheUpdates();
   const updatedAny = shouldUpdate.NA || shouldUpdate.JP;
 
-  if (shouldUpdate.JP) {
-    Log.info("Updating AtlasAcademy Cache for JP");
-    //...
+  if (shouldUpdate.clean) {
+    Log.info(`Cleaning AtlasAcademy API Cache directory`);
+    await rm(resolve(".next/cache/atlasacademy"), {
+      recursive: true,
+      force: true
+    });
   }
 
-  if (updatedAny) {
-    // write info
-  }
+  if (shouldUpdate.JP) await updateCacheRegion("JP");
+  if (shouldUpdate.NA) await updateCacheRegion("NA");
+  if (updatedAny) await writeCacheInfo(shouldUpdate.info);
 
   return shouldUpdate.info;
 }

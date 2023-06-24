@@ -16,7 +16,7 @@
     "lint": "eslint .",
     "format": "prettier -w .",
     "test:types": "tsc --noEmit",
-    "test:code": "tsx src/atlas-api/prepare-jest.ts && jest --verbose",
+    "test:code": "tsx src/atlas-api/prepare-script.ts && jest --verbose",
     "test:data": "tsx src/schema/check-script.ts",
     "test": "pnpm test:types && pnpm test:code && pnpm test:data --all"
   },

@@ -91,6 +91,7 @@ Start the devServer with `pnpm dev` locally on your system, then visit [http://l
 ## Environment Variables
 
 - `NEXT_PUBLIC_DOMAIN`: Domain name used for meta images. Protocol `https://` will be autofilled if ommitted. `http://localhost:3000` is used as fallback if not set.
+- `FORCE_ATLAS_CACHE_UPDATE`: If set to non-empty value will force a cache update when any script (such as prebuild) runs `prepareCache`.
 
 ## Code Guidelines
 

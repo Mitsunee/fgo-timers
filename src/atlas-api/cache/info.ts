@@ -29,8 +29,9 @@ export async function getCacheInfo() {
 
 export async function writeCacheInfo(newInfo: ApiCacheInfo) {
   const res = await LocalInfoFile.writeFile(localInfoFilePath, newInfo);
-  if (res.success) return true;
-  throw res.error;
+  if (!res.success) throw res.error;
+  Log.info("Updated AtlasAcademy API Cache Info");
+  return true;
 }
 
 export async function getApiInfo(): Promise<{ NA: Info; JP: Info }> {
