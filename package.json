@@ -5,6 +5,7 @@
   "packageMananger": "pnpm@^7.30.3",
   "scripts": {
     "prepare": "simple-git-hooks && node src/svgo/build.mjs",
+    "prepare:cache": "tsx src/atlas-api/prepare-script.ts",
     "build:svgo": "node src/svgo/build.mjs --force",
     "check-event": "tsx src/events/check-event-script.ts",
     "find": "tsx src/utils/find-script.ts",
@@ -16,9 +17,9 @@
     "lint": "eslint .",
     "format": "prettier -w .",
     "test:types": "tsc --noEmit",
-    "test:code": "tsx src/atlas-api/prepare-script.ts && jest --verbose",
+    "test:code": "jest --verbose",
     "test:data": "tsx src/schema/check-script.ts",
-    "test": "pnpm test:types && pnpm test:code && pnpm test:data --all"
+    "test": "pnpm test:types && pnpm prepare:cache && pnpm test:code && pnpm test:data --all"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm nano-staged"

@@ -6,70 +6,9 @@ on:
       - "main"
 
 jobs:
-  lint:
+  prepare:
+    name: "Prepare AtlasAcademy API Cache"
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Install pnpm v8
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-      - name: Install Node.js v18
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: pnpm
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile --ignore-scripts
-      - name: Lint
-        run: pnpm lint # eslint --max-warnings 0 .
-
-  format:
-    runs-on: ubuntu-latest
-    needs: lint
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Install pnpm v8
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-      - name: Install Node.js v18
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: pnpm
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile --ignore-scripts
-      - name: Check Formatting
-        run: pnpm prettier -c .
-
-  types:
-    runs-on: ubuntu-latest
-    needs: lint
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Install pnpm v8
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-      - name: Install Node.js v18
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: pnpm
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile --ignore-scripts
-      - name: Build SVG Components
-        run: pnpm build:svgo
-      - name: Check Types
-        run: pnpm test:types
-
-  test:
-    runs-on: ubuntu-latest
-    needs: lint
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -92,9 +31,129 @@ jobs:
           cache: pnpm
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --ignore-scripts
-      - name: Run Prepare and Prebuild
+      - name: Prepare AtlasAcademy API Cache
+        run: pnpm prepare:cache
+
+  lint:
+    name: "Lint"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install pnpm v8
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - name: Install Node.js v18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Lint
+        run: pnpm lint # eslint --max-warnings 0 .
+
+  format:
+    name: "Code Formatting Checks"
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install pnpm v8
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - name: Install Node.js v18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Check Formatting
+        run: pnpm prettier -c .
+
+  types:
+    name: "Typechecks"
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install pnpm v8
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - name: Install Node.js v18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Build SVG Components
+        run: pnpm build:svgo
+      - name: Check Types
+        run: pnpm test:types
+
+  test:
+    name: "Code Tests"
+    runs-on: ubuntu-latest
+    needs: [lint, prepare]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Get date for AtlasAcademy API Cache
+        run: echo "date=$(/bin/date -u "+%Y%m%d")" >> $GITHUB_ENV
+      - name: AtlasAcademy API Cache ${{ env.date }}
+        id: atlas-cache
+        uses: actions/cache@v3
+        with:
+          path: ".next/cache/atlasacademy"
+          key: atlas-cache-${{ env.date }}
+      - name: Install pnpm v8
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - name: Install Node.js v18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Run SVGO Component Build
         run: pnpm build:svgo
       - name: Run Code Tests
         run: pnpm test:code
+
+  data:
+    name: "Check Data"
+    runs-on: ubuntu-latest
+    needs: [lint, prepare]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Get date for AtlasAcademy API Cache
+        run: echo "date=$(/bin/date -u "+%Y%m%d")" >> $GITHUB_ENV
+      - name: AtlasAcademy API Cache ${{ env.date }}
+        id: atlas-cache
+        uses: actions/cache@v3
+        with:
+          path: ".next/cache/atlasacademy"
+          key: atlas-cache-${{ env.date }}
+      - name: Install pnpm v8
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - name: Install Node.js v18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Run Data Tests
         run: pnpm test:data --all
