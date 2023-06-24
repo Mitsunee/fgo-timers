@@ -18,8 +18,8 @@ dependencies:
     specifier: ^1.0.3
     version: 1.0.3(postcss@8.4.24)
   '@foxkit/node-util':
-    specifier: ^0.5.0
-    version: 0.5.0(picocolors@1.0.0)
+    specifier: ^0.5.2
+    version: 0.5.2(picocolors@1.0.0)
   '@foxkit/util':
     specifier: ^0.6.2
     version: 0.6.2
@@ -1108,8 +1108,8 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@foxkit/node-util@0.5.0(picocolors@1.0.0):
-    resolution: {integrity: sha512-zAtws+eWRVNGAl3AF+jl17lpWPeem6NXresRwGEUKg0hq9JNx3y1tbptYYXNbbk/Shn2kPwcr8+/hDnH8RBTOA==}
+  /@foxkit/node-util@0.5.2(picocolors@1.0.0):
+    resolution: {integrity: sha512-e1UfeWyb+YEWOkwTbtzDtx6RHHGsCdILVqcCoyfg25pAXJ5UIrhZ1jpGmeRHrNwmy46qWSTxpSfLN1E2K9Eqww==}
     peerDependencies:
       picocolors: '>=1.0.0'
     peerDependenciesMeta:
