@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Lint
-        run: pnpm eslint --max-warnings 0 .
+        run: pnpm lint # eslint --max-warnings 0 .
 
   format:
     runs-on: ubuntu-latest
