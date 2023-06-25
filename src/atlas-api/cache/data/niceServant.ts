@@ -28,7 +28,10 @@ export async function getNiceServantsFull(region: SupportedRegion = "JP") {
   const filePath = paths[region];
   const res = await File.readFile(filePath);
   if (!res.success) throw res.error;
-  return res.data;
+  return res.data.filter(
+    // Keep only Mash and all "normal" type Servants (i.e removes Boss Detail etc.)
+    servant => servant.type === "normal" || servant.id == 800100
+  );
 }
 
 /**
