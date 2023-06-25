@@ -1,5 +1,5 @@
 import type { Quest } from "@atlasacademy/api-connector/dist/Schema/Quest";
-import { getNiceQuest } from "~/atlas-api/cache/data/niceWar";
+import { getNiceQuest } from "~/atlas-api/cache/data/niceQuest";
 import { parseUnlockCond } from "~/upgrades/parseUnlockCond";
 
 let quests: Quest[];
