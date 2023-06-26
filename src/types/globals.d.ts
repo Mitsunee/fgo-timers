@@ -13,11 +13,6 @@ type DataMap<T> = Record<number, T>;
  */
 type PartialDataMap<T> = Partial<Record<number, T>>;
 
-interface BuildInfo {
-  date: number;
-  version: string;
-}
-
 /**
  * any type that cast safely be casted to string in a template literal
  */
