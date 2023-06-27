@@ -1,0 +1,64 @@
+title: '"Fate/Grand Order 2023 - 6th Anniversary" Commemorative Campaign'
+shortTitle: 6th Anniversary Commemorative Campaign
+banner: 2023_anni6commemorative.png
+url: 2023/0628_pre6th/
+date: 2023-06-28 21:00 - 07-12 20:59 PDT
+description: >-
+  To commemorate the 6h Anniversary of Fate/Grand Order Global there is a
+  Memorial Quest Campaign where Masters can earn the chance to pick up to two of
+  a set of limited Craft Essences and a brand new 3* Command Code, as well as a
+  Social Media Campaign rewarding 60 Saint Quartz if the targets are met. There
+  is also a rerun of Sherlock Holmes' 2nd Anniversary Summoning Banner.
+times:
+  - title: Social Media Campaign
+    date: 2023-06-25 21:00 - 07-01 20:59 PDT
+    items: [2]
+  - title: Memorial Quests
+    date: 2023-06-28 21:00 - 07-12 20:59 PDT
+    items: [94061501]
+    ccs: [8400950]
+  - title: '"Touring Portrait" CE Exchange'
+    date: 2023-06-28 21:00 - 07-19 20:59 PDT
+    items: [94061501]
+schedules:
+  - title: CE Exchange Opening Times
+    icon: https://static.atlasacademy.io/JP/Items/94061501.png
+    ends: 2023-07-19 20:59 PDT
+    times:
+      - title: Set 1
+        date: 2023-06-28 21:00 PDT
+        ces: [9305820, 9305750, 9305730, 9305910, 9305960, 9306020]
+      - title: Set 2
+        date: 2023-06-29 21:00 PDT
+        ces: [9305980, 9305860, 9305720, 9305760, 9305900, 9305850]
+      - title: Set 3
+        date: 2023-06-30 21:00 PDT
+        ces: [9305840, 9305810, 9305920, 9305800, 9306040, 9305970]
+      - title: Set 4
+        date: 2023-07-01 21:00 PDT
+        ces: [9305870, 9305930, 9306050, 9306010, 9306060, 9306030]
+      - title: Set 5
+        date: 2023-07-02 21:00 PDT
+        ces:
+          - 9305770
+          - 9305790
+          - 9305940
+          - 9305740
+          - 9305990
+          - 9305780
+          - 9305830
+          - 9306000
+          - 9306070
+      - title: Set 6
+        date: 2023-07-03 02:00 PDT
+        ces: [9305890, 9305880, 9305950]
+links:
+  - title: Twitter Campaign
+    url: https://twitter.com/FateGO_USA/status/1673029685947531265
+    icon: /assets/icon_tw.png
+  - title: Special Site
+    url: https://fate-go.us/6th_anniversary/
+banners:
+  - date: 2023-06-28 21:00 - 07-02 20:59 PDT
+    servants: [900500]
+    ces: [9402510, 9402520, 9402530]
