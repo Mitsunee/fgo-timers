@@ -12,14 +12,21 @@ description: >-
 times:
   - title: Social Media Campaign
     date: 2023-06-25 21:00 - 07-01 20:59 PDT
+  - title: Social Media Campaign Rewards
+    date: 2023-07-03 02:00 - 07-09 20:59 PDT
     items: [2]
-  - title: Memorial Quests
+  - title: Memorial Quests (Arc 1)
     date: 2023-06-28 21:00 - 07-12 20:59 PDT
+    items: [94061501]
+  - title: Memorial Quests (Lostbelt 5)
+    date: 2023-07-03 02:00 - 07-12 20:59 PDT
     items: [94061501]
     ccs: [8400950]
   - title: '"Touring Portrait" CE Exchange'
     date: 2023-06-28 21:00 - 07-19 20:59 PDT
     items: [94061501]
+  - title: Anime Expo Panel
+    date: 2023-07-02 19:00 PDT
 schedules:
   - title: CE Exchange Opening Times
     icon: https://static.atlasacademy.io/JP/Items/94061501.png
@@ -38,7 +45,7 @@ schedules:
         date: 2023-07-01 21:00 PDT
         ces: [9305870, 9305930, 9306050, 9306010, 9306060, 9306030]
       - title: Set 5
-        date: 2023-07-02 21:00 PDT
+        date: 2023-07-03 02:00 PDT
         ces:
           - 9305770
           - 9305790
