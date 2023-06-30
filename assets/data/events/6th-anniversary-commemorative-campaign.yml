@@ -27,6 +27,8 @@ times:
     items: [94061501]
   - title: Anime Expo Panel
     date: 2023-07-02 19:00 PDT
+  - title: Scheduled Maintenance
+    date: 2023-07-02 21:00 - 07-03 02:00 PDT
 schedules:
   - title: CE Exchange Opening Times
     icon: https://static.atlasacademy.io/JP/Items/94061501.png
