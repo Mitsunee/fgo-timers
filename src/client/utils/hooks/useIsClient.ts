@@ -1,5 +1,5 @@
 import { useStore } from "@nanostores/react";
-import { atom } from "nanostores";
+import { atom, onMount } from "nanostores";
 
 const isClient = atom(false);
 
@@ -10,6 +10,31 @@ const isClient = atom(false);
 export function setIsClient() {
   isClient.set(true);
 }
+
+declare global {
+  interface Window {
+    toggleClientRendering: (val?: boolean) => void;
+  }
+}
+
+onMount(isClient, () => {
+  // skip if on serverside pre-render or production deployment
+  if (
+    typeof window == "undefined" ||
+    process.env.NEXT_PUBLIC_VERCEL_ENV == "production"
+  ) {
+    return;
+  }
+
+  window.toggleClientRendering = val => {
+    const current = isClient.get();
+    isClient.set(val ?? !current);
+  };
+
+  console.log(
+    "[DEBUG] Toggle client rendering with toggleClientRendering(val?: boolean)"
+  );
+});
 
 /**
  * SSR-safe client detection. Returns `false` during SSR and Hydration, in
