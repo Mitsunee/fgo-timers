@@ -5,17 +5,17 @@ import { msToSeconds } from "~/time/msToSeconds";
 import { Log } from "~/utils/log";
 import { Semaphore } from "~/utils/Semaphore";
 import { atlasApi } from "../api";
-import * as BasicCommandCode from "./data/basicCommandCode";
-import * as BasicCraftEssence from "./data/basicCraftEssence";
-import * as BasicMysticCode from "./data/basicMysticCode";
-import * as BasicServant from "./data/basicServant";
-import * as NiceItem from "./data/niceItem";
-import * as NiceMasterMission from "./data/niceMasterMission";
-import * as NiceServant from "./data/niceServant";
-import * as NiceWar from "./data/niceWar";
+import { BasicCommandCode } from "./data/basicCommandCode";
+import { BasicCraftEssence } from "./data/basicCraftEssence";
+import { BasicMysticCode } from "./data/basicMysticCode";
+import { BasicServant } from "./data/basicServant";
+import { NiceItem } from "./data/niceItem";
+import { NiceMasterMission } from "./data/niceMasterMission";
+import { NiceServant } from "./data/niceServant";
+import { NiceWar } from "./data/niceWar";
 import { getApiInfo, getCacheInfo, writeCacheInfo } from "./info";
+import type { CacheFile } from "./CacheFile";
 import type { ApiCacheInfo } from "./info";
-import type { CacheFile } from "./types";
 
 export const CACHE_VER = "0.7.0"; // NOTE: bump when adding new things to cache
 
@@ -137,7 +137,7 @@ export async function checkCacheUpdates(): Promise<ApiCacheUpdateInfo> {
 /**
  * List object containing all exports
  */
-const cacheFiles = new List<CacheFile<any>>();
+const cacheFiles = new List<CacheFile<any[]>>();
 cacheFiles
   .push(BasicCommandCode)
   .push(BasicCraftEssence)
@@ -160,8 +160,8 @@ async function updateCacheRegion(region: SupportedRegion) {
       return null;
     }
 
-    const data = await file.Fetcher(atlasApi[region]);
-    const res = await file.File.writeFile(filePath, data);
+    const data = await file.fetcher(atlasApi[region]);
+    const res = await file.writeFile(filePath, data);
     if (!res.success) {
       Log.warn(`Error writing ${file.name} for region ${region}`);
       Log.error(res.error);

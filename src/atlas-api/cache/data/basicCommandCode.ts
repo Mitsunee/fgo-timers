@@ -1,7 +1,5 @@
 import path from "path";
-import type { CommandCodeBasic } from "@atlasacademy/api-connector/dist/Schema/CommandCode";
-import { cachedJson } from "../cachedFile";
-import type { ApiDataFetcher, PathsMap } from "../types";
+import { CacheFile } from "../CacheFile";
 
 export const paths = {
   JP: path.join(
@@ -12,12 +10,13 @@ export const paths = {
     process.cwd(),
     ".next/cache/atlasacademy/commandCode/basic_command_code_na.json"
   )
-} satisfies PathsMap;
+};
 
-export const name = "Basic Command Code";
-export const File = cachedJson<CommandCodeBasic[]>({ paths });
-export const Fetcher: ApiDataFetcher<CommandCodeBasic[]> = connector =>
-  connector.commandCodeList();
+export const BasicCommandCode = new CacheFile({
+  name: "Basic Command Code",
+  fetcher: connector => connector.commandCodeList(),
+  paths
+});
 
 /**
  * Gets basic Command Code export
@@ -26,7 +25,7 @@ export const Fetcher: ApiDataFetcher<CommandCodeBasic[]> = connector =>
  */
 export async function getBasicCommandCodesFull(region: SupportedRegion = "JP") {
   const filePath = paths[region];
-  const res = await File.readFile(filePath);
+  const res = await BasicCommandCode.readFile(filePath);
   if (!res.success) throw res.error;
   return res.data;
 }

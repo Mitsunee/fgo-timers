@@ -1,7 +1,5 @@
 import path from "path";
-import type { CraftEssenceBasic } from "@atlasacademy/api-connector/dist/Schema/CraftEssence";
-import { cachedJson } from "../cachedFile";
-import type { ApiDataFetcher, PathsMap } from "../types";
+import { CacheFile } from "../CacheFile";
 
 export const paths = {
   JP: path.join(
@@ -12,12 +10,13 @@ export const paths = {
     process.cwd(),
     ".next/cache/atlasacademy/craftEssence/basic_equip_na.json"
   )
-} satisfies PathsMap;
+};
 
-export const name = "Basic Craft Essence";
-export const File = cachedJson<CraftEssenceBasic[]>({ paths });
-export const Fetcher: ApiDataFetcher<CraftEssenceBasic[]> = connector =>
-  connector.craftEssenceList();
+export const BasicCraftEssence = new CacheFile({
+  name: "Basic Craft Essence",
+  fetcher: connector => connector.craftEssenceList(),
+  paths
+});
 
 /**
  * Gets basic equip export (Craft Essences)
@@ -28,7 +27,7 @@ export async function getBasicCraftEssencesFull(
   region: SupportedRegion = "JP"
 ) {
   const filePath = paths[region];
-  const res = await File.readFile(filePath);
+  const res = await BasicCraftEssence.readFile(filePath);
   if (!res.success) throw res.error;
   return res.data;
 }

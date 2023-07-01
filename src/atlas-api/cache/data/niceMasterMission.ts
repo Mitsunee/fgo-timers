@@ -1,26 +1,25 @@
 import path from "path";
-import type { MasterMission } from "@atlasacademy/api-connector/dist/Schema/MasterMission";
-import { cachedJson } from "../cachedFile";
-import type { ApiDataFetcher, PathsMap } from "../types";
+import { CacheFile } from "../CacheFile";
 
 export const paths = {
   NA: path.join(
     process.cwd(),
     ".next/cache/atlasacademy/masterMission/nice_master_mission_na.json"
   )
-} satisfies Partial<PathsMap>;
+};
 
-export const name = "Nice Master Mission";
-export const File = cachedJson<MasterMission[]>({ paths });
-export const Fetcher: ApiDataFetcher<MasterMission[]> = connector =>
-  connector.masterMissionList();
+export const NiceMasterMission = new CacheFile({
+  name: "Nice Master Mission",
+  fetcher: connector => connector.masterMissionList(),
+  paths
+});
 
 /**
  * Gets nice Master Mission export (NA-only)
  * @returns nice Master Mission export
  */
-export async function getNiceMasterMission() {
-  const res = await File.readFile(paths.NA);
+export async function getNiceMasterMission(region: "NA" = "NA") {
+  const res = await NiceMasterMission.readFile(paths[region]);
   if (!res.success) throw res.error;
   return res.data;
 }

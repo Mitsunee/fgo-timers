@@ -1,7 +1,5 @@
 import path from "path";
-import type { ServantWithLore } from "@atlasacademy/api-connector/dist/Schema/Servant";
-import { cachedJson } from "../cachedFile";
-import type { ApiDataFetcher, PathsMap } from "../types";
+import { CacheFile } from "../CacheFile";
 
 export const paths = {
   JP: path.join(
@@ -12,12 +10,13 @@ export const paths = {
     process.cwd(),
     ".next/cache/atlasacademy/servant/nice_servant_na.json"
   )
-} satisfies PathsMap;
+};
 
-export const name = "Nice Servant (with Lore)";
-export const File = cachedJson<ServantWithLore[]>({ paths });
-export const Fetcher: ApiDataFetcher<ServantWithLore[]> = connector =>
-  connector.servantListNiceWithLore();
+export const NiceServant = new CacheFile({
+  name: "Nice Servant (with Lore)",
+  fetcher: connector => connector.servantListNiceWithLore(),
+  paths
+});
 
 /**
  * Gets nice Servant export (with lore)
@@ -26,7 +25,7 @@ export const Fetcher: ApiDataFetcher<ServantWithLore[]> = connector =>
  */
 export async function getNiceServantsFull(region: SupportedRegion = "JP") {
   const filePath = paths[region];
-  const res = await File.readFile(filePath);
+  const res = await NiceServant.readFile(filePath);
   if (!res.success) throw res.error;
   return res.data.filter(
     // Keep only Mash and all "normal" type Servants (i.e removes Boss Detail etc.)

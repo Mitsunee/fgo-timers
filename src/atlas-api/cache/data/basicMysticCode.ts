@@ -1,7 +1,5 @@
 import path from "path";
-import type { MysticCodeBasic } from "@atlasacademy/api-connector/dist/Schema/MysticCode";
-import { cachedJson } from "../cachedFile";
-import type { ApiDataFetcher, PathsMap } from "../types";
+import { CacheFile } from "../CacheFile";
 
 export const paths = {
   JP: path.join(
@@ -12,12 +10,13 @@ export const paths = {
     process.cwd(),
     ".next/cache/atlasacademy/basicMysticCode/basic_mystic_code_na.json"
   )
-} satisfies PathsMap;
+};
 
-export const name = "Basic Mystic Code";
-export const File = cachedJson<MysticCodeBasic[]>({ paths });
-export const Fetcher: ApiDataFetcher<MysticCodeBasic[]> = connector =>
-  connector.mysticCodeList();
+export const BasicMysticCode = new CacheFile({
+  name: "Basic Mystic Code",
+  fetcher: connector => connector.mysticCodeList(),
+  paths
+});
 
 /**
  * Gets basic Mystic Code export
@@ -26,7 +25,7 @@ export const Fetcher: ApiDataFetcher<MysticCodeBasic[]> = connector =>
  */
 export async function getBasicMysticCodesFull(region: SupportedRegion = "JP") {
   const filePath = paths[region];
-  const res = await File.readFile(filePath);
+  const res = await BasicMysticCode.readFile(filePath);
   if (!res.success) throw res.error;
   return res.data;
 }

@@ -1,7 +1,5 @@
 import path from "path";
-import type { Item } from "@atlasacademy/api-connector/dist/Schema/Item";
-import { cachedJson } from "../cachedFile";
-import type { ApiDataFetcher, PathsMap } from "../types";
+import { CacheFile } from "../CacheFile";
 
 export const paths = {
   JP: path.join(
@@ -12,12 +10,13 @@ export const paths = {
     process.cwd(),
     ".next/cache/atlasacademy/item/nice_item_na.json"
   )
-} satisfies PathsMap;
+};
 
-export const name = "Nice Item";
-export const File = cachedJson<Item[]>({ paths });
-export const Fetcher: ApiDataFetcher<Item[]> = connector =>
-  connector.itemList();
+export const NiceItem = new CacheFile({
+  name: "Nice Item",
+  fetcher: connector => connector.itemList(),
+  paths
+});
 
 /**
  * Gets nice Item export
@@ -26,7 +25,7 @@ export const Fetcher: ApiDataFetcher<Item[]> = connector =>
  */
 export async function getNiceItemsFull(region: SupportedRegion = "JP") {
   const filePath = paths[region];
-  const res = await File.readFile(filePath);
+  const res = await NiceItem.readFile(filePath);
   if (!res.success) throw res.error;
   return res.data;
 }

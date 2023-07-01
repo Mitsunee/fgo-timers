@@ -1,18 +1,16 @@
 import path from "path";
-import type { War } from "@atlasacademy/api-connector/dist/Schema/War";
-import { cachedJson } from "../cachedFile";
-import type { ApiDataFetcher, PathsMap } from "../types";
+import { CacheFile } from "../CacheFile";
 
 export const paths = {
   JP: path.join(process.cwd(), ".next/cache/atlasacademy/war/nice_war_jp.json"),
   NA: path.join(process.cwd(), ".next/cache/atlasacademy/war/nice_war_na.json")
-} satisfies PathsMap;
+};
 
-export const name = "Nice War & Nice Quest";
-export const File = cachedJson<War[]>({ paths });
-export const Fetcher: ApiDataFetcher<War[]> = connector =>
-  connector.warListNice();
-
+export const NiceWar = new CacheFile({
+  name: "Nice War & Nice Quest",
+  fetcher: connector => connector.warListNice(),
+  paths
+});
 /**
  * Gets nice War export
  * @param region Region `"NA"` or `"JP"` (default: `"JP"`)
@@ -20,7 +18,7 @@ export const Fetcher: ApiDataFetcher<War[]> = connector =>
  */
 export async function getNiceWarsFull(region: SupportedRegion = "JP") {
   const filePath = paths[region];
-  const res = await File.readFile(filePath);
+  const res = await NiceWar.readFile(filePath);
   if (!res.success) throw res.error;
   return res.data;
 }

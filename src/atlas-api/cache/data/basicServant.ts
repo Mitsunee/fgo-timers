@@ -1,7 +1,5 @@
 import path from "path";
-import type { ServantBasic } from "@atlasacademy/api-connector/dist/Schema/Servant";
-import { cachedJson } from "../cachedFile";
-import type { ApiDataFetcher, PathsMap } from "../types";
+import { CacheFile } from "../CacheFile";
 
 export const paths = {
   JP: path.join(
@@ -12,12 +10,13 @@ export const paths = {
     process.cwd(),
     ".next/cache/atlasacademy/basicServant/basic_servant_na.json"
   )
-} satisfies PathsMap;
+};
 
-export const name = "Basic Servant";
-export const File = cachedJson<ServantBasic[]>({ paths });
-export const Fetcher: ApiDataFetcher<ServantBasic[]> = connector =>
-  connector.servantList();
+export const BasicServant = new CacheFile({
+  name: "Basic Servant",
+  fetcher: connector => connector.servantList(),
+  paths
+});
 
 /**
  * Gets basic Servant export
@@ -26,7 +25,7 @@ export const Fetcher: ApiDataFetcher<ServantBasic[]> = connector =>
  */
 export async function getBasicServantsFull(region: SupportedRegion = "JP") {
   const filePath = paths[region];
-  const res = await File.readFile(filePath);
+  const res = await BasicServant.readFile(filePath);
   if (!res.success) throw res.error;
   return res.data;
 }
