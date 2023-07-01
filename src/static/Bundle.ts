@@ -1,31 +1,26 @@
 import { ParsedFile } from "@foxkit/node-util/fs-extra";
 
 export class BundleFile<T> {
-  File: ParsedFile<T>;
-  cache?: T;
+  readonly filePath: string;
+  readonly File: ParsedFile<T>;
 
   constructor(filePath: string) {
+    this.filePath = filePath;
     this.File = new ParsedFile<T>({
       limitPath: filePath,
       parse: JSON.parse,
-      stringify: JSON.stringify
+      stringify: JSON.stringify,
+      cache: true
     });
   }
 
-  // this should replace the public method when ParsedFile has its own caching
-  async #readFile() {
-    const res = await this.File.readFile(this.File.limitPath!);
+  async readFile() {
+    const res = await this.File.readFile(this.filePath);
     if (!res.success) throw res.error;
     return res.data;
   }
 
-  async readFile() {
-    return (this.cache ??= await this.#readFile());
-  }
-
   async writeFile(data: T) {
-    const res = await this.File.writeFile(this.File.limitPath!, data);
-    if (res.success) this.cache = data;
-    return res;
+    return this.File.writeFile(this.filePath, data);
   }
 }
