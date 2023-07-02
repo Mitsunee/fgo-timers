@@ -6,9 +6,21 @@ export interface BuildInfo {
   version: string;
 }
 
-export const name = "Build Info";
-export const filePath = path.join(process.cwd(), "assets/static/info.json");
-export const File = new BundleFile<BuildInfo>(filePath);
+const filePath = path.join(process.cwd(), "assets/static/info.json");
+export const BuildInfoFile = new BundleFile<BuildInfo>({
+  name: "Build Info",
+  filePath
+});
 
-export const getBuildInfo = File.readFile.bind(File);
-export const writeBuildInfo = File.writeFile.bind(File);
+/**
+ * Reads build info from prebuild step
+ * @returns BuildInfo object
+ */
+export const getBuildInfo = BuildInfoFile.readBundle.bind(BuildInfoFile);
+
+/**
+ * Writes build info
+ * @param data BuildInfo object
+ * @returns FileWriteResult
+ */
+export const writeBuildInfo = BuildInfoFile.writeBundle.bind(BuildInfoFile);

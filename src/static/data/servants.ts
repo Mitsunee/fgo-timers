@@ -3,25 +3,24 @@ import { Log } from "~/utils/log";
 import type { BundledServant } from "~/servants/types";
 import { BundleFile } from "../Bundle";
 
-export const name = "Servants";
-export const filePath = path.join(
-  process.cwd(),
-  "assets/static/data/servants.json"
-);
-export const File = new BundleFile<PartialDataMap<BundledServant>>(filePath);
+const filePath = path.join(process.cwd(), "assets/static/data/servants.json");
+export const ServantsFile = new BundleFile<PartialDataMap<BundledServant>>({
+  name: "Servants",
+  filePath
+});
 
 /**
  * Reads Servants data bundle
  * @returns Bundled data
  */
-export const getServantsFull = File.readFile.bind(File);
+export const getServantsFull = ServantsFile.readBundle.bind(ServantsFile);
 
 /**
  * Writes to Servants data bundle
  * @param data Record Object of bundled Servants
  * @returns FileWriteResult
  */
-export const writeBundledServants = File.writeFile.bind(File);
+export const writeBundledServants = ServantsFile.writeBundle.bind(ServantsFile);
 
 /**
  * Reads specific Servant's bundled data

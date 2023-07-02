@@ -3,25 +3,29 @@ import { Log } from "~/utils/log";
 import type { BundledCE } from "~/items/types";
 import { BundleFile } from "../Bundle";
 
-export const name = "Craft Essences";
-export const filePath = path.join(
+const filePath = path.join(
   process.cwd(),
   "assets/static/data/craftEssences.json"
 );
-export const File = new BundleFile<PartialDataMap<BundledCE>>(filePath);
+export const CraftEssencesFile = new BundleFile<PartialDataMap<BundledCE>>({
+  name: "Craft Essences",
+  filePath
+});
 
 /**
  * Reads Craft Essences data bundle
  * @returns Bundled data
  */
-export const getCraftEssencesFull = File.readFile.bind(File);
+export const getCraftEssencesFull =
+  CraftEssencesFile.readBundle.bind(CraftEssencesFile);
 
 /**
  * Writes to Craft Essences data bundle
  * @param data Record Object of bundled Craft Essences
  * @returns FileWriteResult
  */
-export const writeBundledCraftEssences = File.writeFile.bind(File);
+export const writeBundledCraftEssences =
+  CraftEssencesFile.writeBundle.bind(CraftEssencesFile);
 
 /**
  * Reads specific Craft Essence's bundled data

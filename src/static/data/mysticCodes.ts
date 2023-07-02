@@ -3,25 +3,28 @@ import { Log } from "~/utils/log";
 import type { BundledMysticCode } from "~/items/types";
 import { BundleFile } from "../Bundle";
 
-export const name = "Mystic Codes";
-export const filePath = path.join(
+const filePath = path.join(
   process.cwd(),
   "assets/static/data/mysticCodes.json"
 );
-export const File = new BundleFile<PartialDataMap<BundledMysticCode>>(filePath);
+export const MysticCodesFile = new BundleFile<
+  PartialDataMap<BundledMysticCode>
+>({ name: "Mystic Codes", filePath });
 
 /**
  * Reads Mystic Codes data bundle
  * @returns Bundled data
  */
-export const getMysticCodesFull = File.readFile.bind(File);
+export const getMysticCodesFull =
+  MysticCodesFile.readBundle.bind(MysticCodesFile);
 
 /**
  * Writes to Mystic Codes data bundle
  * @param data Record Object of bundled Mystic Codes
  * @returns FileWriteResult
  */
-export const writeBundledMysticCodes = File.writeFile.bind(File);
+export const writeBundledMysticCodes =
+  MysticCodesFile.writeBundle.bind(MysticCodesFile);
 
 /**
  * Reads specific Mystic Code's bundled data

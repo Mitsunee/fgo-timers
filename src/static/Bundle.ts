@@ -1,26 +1,37 @@
 import { ParsedFile } from "@foxkit/node-util/fs-extra";
+import { Log } from "~/utils/log";
 
-export class BundleFile<T> {
+export class BundleFile<T> extends ParsedFile<T> {
   readonly filePath: string;
-  readonly File: ParsedFile<T>;
+  readonly name: string;
 
-  constructor(filePath: string) {
-    this.filePath = filePath;
-    this.File = new ParsedFile<T>({
-      limitPath: filePath,
+  constructor(options: { name: string; filePath: string }) {
+    if (!/assets\/static(\/data)?\/[a-z-]+\.json$/.test(options.filePath)) {
+      Log.throw(
+        `Invalid BundleFile path passed for ${
+          options.name // prettier linebreak
+        }. Path must be located in assets/static/ and be a .json file`
+      );
+    }
+
+    super({
+      limitPath: options.filePath,
       parse: JSON.parse,
       stringify: JSON.stringify,
       cache: true
     });
+
+    this.name = options.name;
+    this.filePath = options.filePath;
   }
 
-  async readFile() {
-    const res = await this.File.readFile(this.filePath);
+  async readBundle() {
+    const res = await this.readFile(this.filePath);
     if (!res.success) throw res.error;
     return res.data;
   }
 
-  async writeFile(data: T) {
-    return this.File.writeFile(this.filePath, data);
+  async writeBundle(data: T) {
+    return this.writeFile(this.filePath, data);
   }
 }

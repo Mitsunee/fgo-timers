@@ -3,25 +3,24 @@ import { Log } from "~/utils/log";
 import type { BundledQuest } from "~/upgrades/types";
 import { BundleFile } from "../Bundle";
 
-export const name = "Quests";
-export const filePath = path.join(
-  process.cwd(),
-  "assets/static/data/quests.json"
-);
-export const File = new BundleFile<PartialDataMap<BundledQuest>>(filePath);
+const filePath = path.join(process.cwd(), "assets/static/data/quests.json");
+export const QuestsFile = new BundleFile<PartialDataMap<BundledQuest>>({
+  name: "Quests",
+  filePath
+});
 
 /**
  * Reads Quests data bundle
  * @returns Bundled data
  */
-export const getQuestsFull = File.readFile.bind(File);
+export const getQuestsFull = QuestsFile.readBundle.bind(QuestsFile);
 
 /**
  * Writes to Quests data bundle
  * @param data Record Object of bundled Quests
  * @returns FileWriteResult
  */
-export const writeBundledQuests = File.writeFile.bind(File);
+export const writeBundledQuests = QuestsFile.writeBundle.bind(QuestsFile);
 
 /**
  * Reads specific Quest's bundled data

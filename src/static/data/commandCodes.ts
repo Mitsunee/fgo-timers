@@ -3,25 +3,29 @@ import { Log } from "~/utils/log";
 import type { BundledCC } from "~/items/types";
 import { BundleFile } from "../Bundle";
 
-export const name = "Command Codes";
-export const filePath = path.join(
+const filePath = path.join(
   process.cwd(),
   "assets/static/data/commandCodes.json"
 );
-export const File = new BundleFile<PartialDataMap<BundledCC>>(filePath);
+export const CommandCodesFile = new BundleFile<PartialDataMap<BundledCC>>({
+  name: "Command Codes",
+  filePath
+});
 
 /**
  * Reads Command Codes data bundle
  * @returns Bundled data
  */
-export const getCommandCodesFull = File.readFile.bind(File);
+export const getCommandCodesFull =
+  CommandCodesFile.readBundle.bind(CommandCodesFile);
 
 /**
  * Writes to Command Codes data bundle
  * @param data Record Object of bundled Command Codes
  * @returns FileWriteResult
  */
-export const writeBundledCommandCodes = File.writeFile.bind(File);
+export const writeBundledCommandCodes =
+  CommandCodesFile.writeBundle.bind(CommandCodesFile);
 
 /**
  * Reads specific Command Code's bundled data

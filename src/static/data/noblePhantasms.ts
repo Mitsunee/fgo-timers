@@ -3,25 +3,29 @@ import { Log } from "~/utils/log";
 import type { BundledNP } from "~/servants/types";
 import { BundleFile } from "../Bundle";
 
-export const name = "Noble Phantasms";
-export const filePath = path.join(
+const filePath = path.join(
   process.cwd(),
   "assets/static/data/noblePhantasms.json"
 );
-export const File = new BundleFile<PartialDataMap<BundledNP>>(filePath);
+export const NoblePhantasmsFile = new BundleFile<PartialDataMap<BundledNP>>({
+  name: "Noble Phantasms",
+  filePath
+});
 
 /**
  * Reads Noble Phantasms data bundle
  * @returns Bundled data
  */
-export const getNoblePhantasmsFull = File.readFile.bind(File);
+export const getNoblePhantasmsFull =
+  NoblePhantasmsFile.readBundle.bind(NoblePhantasmsFile);
 
 /**
  * Writes to Noble Phantasms data bundle
  * @param data Record Object of bundled Noble Phantasms
  * @returns FileWriteResult
  */
-export const writeBundledNoblePhantasms = File.writeFile.bind(File);
+export const writeBundledNoblePhantasms =
+  NoblePhantasmsFile.writeBundle.bind(NoblePhantasmsFile);
 
 /**
  * Reads specific Noble Phantasm's bundled data

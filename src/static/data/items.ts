@@ -3,25 +3,24 @@ import { Log } from "~/utils/log";
 import type { BundledItem } from "~/items/types";
 import { BundleFile } from "../Bundle";
 
-export const name = "Items";
-export const filePath = path.join(
-  process.cwd(),
-  "assets/static/data/items.json"
-);
-export const File = new BundleFile<PartialDataMap<BundledItem>>(filePath);
+const filePath = path.join(process.cwd(), "assets/static/data/items.json");
+export const ItemsFile = new BundleFile<PartialDataMap<BundledItem>>({
+  name: "Items",
+  filePath
+});
 
 /**
  * Reads Items data bundle
  * @returns Bundled data
  */
-export const getItemsFull = File.readFile.bind(File);
+export const getItemsFull = ItemsFile.readBundle.bind(ItemsFile);
 
 /**
  * Writes to Items data bundle
  * @param data Record Object of bundled Items
  * @returns FileWriteResult
  */
-export const writeBundledItems = File.writeFile.bind(File);
+export const writeBundledItems = ItemsFile.writeBundle.bind(ItemsFile);
 
 /**
  * Reads specific Item's bundled data
