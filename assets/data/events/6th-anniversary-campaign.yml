@@ -1,0 +1,63 @@
+title: 6th Anniversary (Placeholder)
+shortTitle: 6th Anniversary Campaign
+banner: 0000_placeholder_banner.png # PLACEHOLDER
+url: 2023/0628_pre6th/ # FIXME: This is the wrong url
+date: 2023-07-03 02:00 - 07-16 20:59 PDT
+description: >-
+  The 6th Anniversary features the release of SSR Assassin Koyanskaya of Light,
+  a Guaranteed SSR Banner as well as many more Rateup Banners, campaigns and
+  rewards. Masters will also receive a EN Version exclusive commemorative Craft
+  Essence! Rank Up Quest Part 14 and the release of the new Special Summon
+  feature are also included in this Campaign.
+
+  NOTE: As the news post is not available yet not all details are known yet.
+  I will try to update this page as soon as possible. This might not happen until
+  after Maintenance. Please excuse the silly placeholder and thank you for your
+  patience.
+times:
+  - title: Scheduled Maintenance
+    date: 2023-07-02 21:00 - 07-03 02:00 PDT
+  - title: Social Media Campaign & Anime Expo Panel Rewards
+    date: 2023-07-03 02:00 - 07-09 20:59 PDT
+    items: [2]
+  - title: Memorial Quests (Lostbelt 5)
+    date: 2023-07-03 02:00 - 07-12 20:59 PDT
+    items: [94061501]
+    ccs: [8400950]
+  - title: '"Touring Portrait" CE Exchange'
+    date: 2023-06-28 21:00 - 07-19 20:59 PDT
+    items: [94061501]
+  - title: Consecutive Login Bonus
+    date: 2023-07-03 02:00 - 07-12 20:59 PDT
+    # FIXME: NA exclusive CE crashes prebuild oops
+  - title: Accrued Login Bonus
+    date: 2023-07-03 02:00 - 07-12 20:59 PDT
+  - title: 1/2 AP Daily Quests (+ all days' available)
+    date: 2023-07-03 02:00 - 07-16 20:59 PDT
+  - title: 3x Success Rate for Enhancement
+    date: 2023-07-03 02:00 - 07-16 20:59 PDT
+  - title: 1/2 AP Main Quest up to LB5.5
+    date: 2023-07-16 21:00 PDT
+  - title: Servant & CE Inventory Expansions
+    date: 2023-07-03 02:00 PDT
+  - title: 2x Daily Mission Rewards
+    date: 2023-07-03 17:00 - 07-17 16:59 PDT
+  - title: New Extra Missions Added
+    date: 2023-07-03 02:00 PDT
+  - title: Interlude SQ Rewards Doubled
+    date: 2023-07-03 02:00 PDT
+  - title: Daily Paid Summon Feature Added
+    date: 2023-07-03 02:00 PDT
+  - title: Guaranteed SSR Banner
+    date: 2023-07-03 02:00 - 07-16 20:59 PDT
+  - title: Limited Time Da Vinci Shop
+    date: 2023-07-03 02:00 - 07-16 20:59 PDT
+  - title: Beast's Footprint now x3 in monthly RP Shop
+    date: 2023-07-03 02:00 PDT
+  - title: Release of Special Summon (Free SSR)
+    date: 2023-07-03 02:00 PDT
+banners:
+  - date: 2023-07-03 02:00 - 07-16 20:59 PDT
+    servants: [604200]
+    ces: [9405330, 9405340, 9405350]
+# TODO: upgrades:
