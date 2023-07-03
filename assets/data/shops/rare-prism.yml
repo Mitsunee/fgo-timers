@@ -318,6 +318,7 @@ monthly:
       - id: 2000 # Footprint
         type: item
         cost: 1
+        amount: 3
       - id: 6999 # Lore
         type: item
         cost: 5
@@ -327,9 +328,34 @@ monthly:
       - id: 9670400 # ATK Gold Fou
         type: item
         cost: 3
-      - id: 4
+      - id: 4 # Friend Points
         type: item
         cost: 1
         amount: 5
         stack: 20000
-#limited: []
+limited:
+  - title: 6th Anniversary Limited Inventory
+    currency: 3
+    date: 2023-07-03 02:00 - 07-16 20:59 PDT
+    items:
+      - id: 1000 # Bond Grail
+        type: item
+        cost: 3
+      - id: 5003 # Code Remover
+        type: item
+        cost: 1
+        amount: 3
+      - id: 6999 # Lore
+        type: item
+        cost: 5
+      - id: 9570400 # HP Gold Fou
+        type: item
+        cost: 3
+      - id: 9670400 # ATK Gold Fou
+        type: item
+        cost: 3
+      - id: 4 # Friend Points
+        type: item
+        cost: 1
+        amount: 5
+        stack: 20000

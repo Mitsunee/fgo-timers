@@ -1,7 +1,7 @@
-title: 6th Anniversary (Placeholder)
-shortTitle: 6th Anniversary Campaign
-banner: 0000_placeholder_banner.png # PLACEHOLDER
-url: 2023/0628_pre6th/ # FIXME: This is the wrong url
+title: Fate/Grand Order 2023 - 6th Anniversary
+shortTitle: 6th Anniversary
+banner: 2023_anni6.png
+url: 2023/0703_6th_anniversary/
 date: 2023-07-03 02:00 - 07-16 20:59 PDT
 description: >-
   The 6th Anniversary features the release of SSR Assassin Koyanskaya of Light,
@@ -9,11 +9,6 @@ description: >-
   rewards. Masters will also receive a EN Version exclusive commemorative Craft
   Essence! Rank Up Quest Part 14 and the release of the new Special Summon
   feature are also included in this Campaign.
-
-  NOTE: As the news post is not available yet not all details are known yet.
-  I will try to update this page as soon as possible. This might not happen until
-  after Maintenance. Please excuse the silly placeholder and thank you for your
-  patience.
 times:
   - title: Scheduled Maintenance
     date: 2023-07-02 21:00 - 07-03 02:00 PDT
@@ -42,10 +37,12 @@ times:
     date: 2023-07-03 02:00 PDT
   - title: 2x Daily Mission Rewards
     date: 2023-07-03 17:00 - 07-17 16:59 PDT
+    items: [3]
   - title: New Extra Missions Added
     date: 2023-07-03 02:00 PDT
   - title: Interlude SQ Rewards Doubled
     date: 2023-07-03 02:00 PDT
+    items: [2]
   - title: Daily Paid Summon Feature Added
     date: 2023-07-03 02:00 PDT
   - title: Guaranteed SSR Banner
@@ -54,10 +51,28 @@ times:
     date: 2023-07-03 02:00 - 07-16 20:59 PDT
   - title: Beast's Footprint now x3 in monthly RP Shop
     date: 2023-07-03 02:00 PDT
+    items: [2000]
   - title: Release of Special Summon (Free SSR)
     date: 2023-07-03 02:00 PDT
+  - title: Koyanskaya Trial Quest
+    date: 2023-07-03 02:00 - 07-16 20:59 PDT
+    servants: [604200]
 banners:
   - date: 2023-07-03 02:00 - 07-16 20:59 PDT
-    servants: [604200]
+    servants: [604200, 304100, 303500, 303300]
     ces: [9405330, 9405340, 9405350]
-# TODO: upgrades:
+upgrades:
+  - 94061503 # Lily Rank Up 2
+  - 94061513 # Mozart Rank Up 2
+  - 94061512 # Ozymandias Rank Up 2
+  - 94061514 # Mata Hari Rank Up 2
+  - 94061511 # Anne & Mary Rider Rank Up 1
+  - 94061510 # Cursed Arm Rank Up 2
+  - 94061507 # Circe Rank Up 1
+  - 94061509 # Leonidas Rank Up 2
+  - 94061505 # Cu Berserker Rank Up 1
+  - 94061508 # Cu Proto Rank Up 2
+  - 94061501 # Jalter Avenger Rank Up 1
+  - 94061504 # Mephistopheles Rank Up 2
+  - 94061506 # Ereshkigal Rank Up 1
+  - 94061502 # Drake Rank Up 1
