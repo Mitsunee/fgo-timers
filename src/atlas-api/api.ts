@@ -1,5 +1,8 @@
 import { ApiConnector, Language, Region } from "@atlasacademy/api-connector";
 
+/**
+ * @deprecated
+ */
 export type SupportedRegion = "JP" | "NA";
 const language = Language.ENGLISH;
 

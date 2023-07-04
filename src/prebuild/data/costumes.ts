@@ -1,39 +1,34 @@
-import { List } from "@foxkit/util/object";
-import { atlasCache } from "~/atlas-api/cache";
+import { getNiceCostume } from "~/atlas-api/cache/data/niceCostume";
+import { getNiceServantByCostume } from "~/atlas-api/cache/data/niceServant";
 import { shortenAtlasUrl } from "~/atlas-api/urls";
 import { mapServantRarityToBorder } from "~/servants/borders";
+import { CostumesFile } from "~/static/data/costumes";
 import { Log } from "~/utils/log";
 import type { BundledCostume } from "~/items/types";
-import type { DataBundler } from "../utils/dataBundlers";
+import { DataBundler } from "../utils/dataBundlers";
 
-export const bundleCostumesData: DataBundler<BundledCostume> = async ids => {
-  const [niceServant, niceServantNA] = await Promise.all([
-    atlasCache.JP.getNiceServant(),
-    atlasCache.NA.getNiceServant()
-  ]);
+export const CostumesBundle = new DataBundler({
+  file: CostumesFile,
+  transform: async id => {
+    const [costume, costumeNA, servant] = await Promise.all([
+      getNiceCostume(id),
+      getNiceCostume(id, "NA"),
+      getNiceServantByCostume(id)
+    ]);
 
-  const costumeQueue = List.fromArray([...ids]); // to be processed
-  const res = new Map<number, BundledCostume>(); // result of processing
-
-  let costumeId: number | undefined;
-  while ((costumeId = costumeQueue.shift())) {
-    const servant = niceServant.find(
-      servant => servant.profile.costume[`${costumeId}`]
-    );
-    if (!servant) {
-      Log.error(`Could not find any servant with costume id ${costumeId}`);
-      return false;
+    if (!costume) {
+      Log.error(`Could not find costume with id ${id}`);
+      return;
     }
 
-    const costume = servant.profile.costume[`${costumeId}`];
-    const servantNA = niceServantNA.find(
-      servantNA => servantNA.id == servant.id
-    );
-    const costumeNA = servantNA?.profile.costume[`${costumeId}`];
-    let iconUrl = servant.extraAssets.faces.costume?.[`${costumeId}`];
+    if (!servant) {
+      Log.error(`Could not find any servant with costume id ${id}`);
+      return;
+    }
+    let iconUrl = servant.extraAssets.faces.costume?.[`${id}`];
 
     if (!iconUrl) {
-      Log.warn(`Using fallback icon for costume '${costumeId}'`);
+      Log.warn(`Using fallback icon for costume '${id}'`);
       iconUrl = "https://static.atlasacademy.io/JP/Items/23.png";
     }
 
@@ -45,13 +40,9 @@ export const bundleCostumesData: DataBundler<BundledCostume> = async ids => {
 
     if (costumeNA) data.na = true;
 
-    res.set(costumeId, data);
+    return data;
   }
+});
 
-  Log.info(`Mapped data for ${res.size} Costumes`);
-  return {
-    name: "Costumes",
-    path: "costumes.json",
-    data: res
-  };
-};
+export const bundleCostumesData =
+  CostumesBundle.processBundle.bind(CostumesBundle);

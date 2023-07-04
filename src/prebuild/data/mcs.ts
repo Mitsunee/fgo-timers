@@ -1,45 +1,34 @@
-import { List } from "@foxkit/util/object";
-import { atlasCache } from "~/atlas-api/cache";
+import { getBasicMysticCode } from "~/atlas-api/cache/data/basicMysticCode";
 import { shortenAtlasUrl } from "~/atlas-api/urls";
+import { MysticCodesFile } from "~/static/data/mysticCodes";
 import { Log } from "~/utils/log";
 import type { BundledMysticCode } from "~/items/types";
-import type { DataBundler } from "../utils/dataBundlers";
+import { DataBundler } from "../utils/dataBundlers";
 
-export const bundleMysticCodesData: DataBundler<
-  BundledMysticCode
-> = async ids => {
-  const [basicMysticCode, basicMysticCodeNA] = await Promise.all([
-    atlasCache.JP.getMysticCodes(),
-    atlasCache.NA.getMysticCodes()
-  ]);
+export const MysticCodesBundle = new DataBundler({
+  file: MysticCodesFile,
+  transform: async id => {
+    const [mysticCode, mysticCodeNA] = await Promise.all([
+      getBasicMysticCode(id),
+      getBasicMysticCode(id, "NA")
+    ]);
 
-  const mcQueue = List.fromArray([...ids]); // to be processed
-  const res = new Map<number, BundledMysticCode>(); // result of processing
-
-  let mcId: number | undefined;
-  while ((mcId = mcQueue.shift())) {
-    const mc = basicMysticCode.find(mc => mc.id == mcId);
-    if (!mc) {
-      Log.error(`Could not find mc id ${mcId}`);
-      return false;
+    if (!mysticCode) {
+      Log.error(`Could not find mystic code with id ${id}`);
+      return;
     }
 
-    const mcNA = basicMysticCodeNA.find(mcNA => mcNA.id == mcId);
     const data: BundledMysticCode = {
-      name: mcNA?.name || mc.name,
-      iconF: shortenAtlasUrl(mc.item.female),
-      iconM: shortenAtlasUrl(mc.item.male)
+      name: mysticCodeNA?.name || mysticCode.name,
+      iconF: shortenAtlasUrl(mysticCode.item.female),
+      iconM: shortenAtlasUrl(mysticCode.item.male)
     };
 
-    if (mcNA) data.na = true;
+    if (mysticCodeNA) data.na = true;
 
-    res.set(mcId, data);
+    return data;
   }
+});
 
-  Log.info(`Mapped data for ${res.size} Mystic Codes`);
-  return {
-    name: "Mystic Codes",
-    path: "mcs.json",
-    data: res
-  };
-};
+export const bundleMysticCodesData =
+  MysticCodesBundle.processBundle.bind(MysticCodesBundle);

@@ -16,7 +16,7 @@ export function collectIDs(bundles: PrebuildBundle<any>[]) {
   const collection: IDCollection = {
     servants: new Set(),
     quests: new Set(),
-    skills: new Set(),
+    skills: new Set([0]), // always include id 0 (placeholder)
     nps: new Set(),
     ces: new Set(),
     items: new Set(),

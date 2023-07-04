@@ -1,58 +1,48 @@
-import { List } from "@foxkit/util/object";
-import { atlasCache } from "~/atlas-api/cache";
+import { getNiceSkill } from "~/atlas-api/cache/data/niceSkill";
 import { shortenAtlasUrl } from "~/atlas-api/urls";
 import { mapUpgradeLevelToSkillBorder } from "~/servants/borders";
 import { getSkillOwners } from "~/servants/getOwner";
 import { PLACEHOLDER_SKILL } from "~/servants/placeholder";
+import { SkillsFile } from "~/static/data/skills";
 import { getUpgradeLevel } from "~/upgrades/getUpgradeLevel";
 import { Log } from "~/utils/log";
-import type { SupportedRegion } from "~/atlas-api/api";
 import type { BundledSkill } from "~/servants/types";
-import type { DataBundler } from "../utils/dataBundlers";
+import { DataBundler } from "../utils/dataBundlers";
 
-async function flatMapSkills(region: SupportedRegion) {
-  const niceServant = await atlasCache[region].getNiceServant();
-  return niceServant.flatMap(servant => servant.skills);
-}
+export const SkillsBundle = new DataBundler({
+  file: SkillsFile,
+  transform: async id => {
+    if (id == 0) {
+      return Object.assign({}, PLACEHOLDER_SKILL, {
+        icon: shortenAtlasUrl(PLACEHOLDER_SKILL.icon)
+      });
+    }
 
-export const bundleSkillsData: DataBundler<BundledSkill> = async ids => {
-  const [niceSkills, niceSkillsNA] = await Promise.all([
-    flatMapSkills("JP"),
-    flatMapSkills("NA")
-  ]);
-  const skillQueue = List.fromArray([...ids]); // to be processed
-  const res = new Map<number, BundledSkill>(); // result of processing
+    const [skill, skillNA] = await Promise.all([
+      getNiceSkill(id),
+      getNiceSkill(id, "NA")
+    ]);
 
-  // Add placeholder skill
-  res.set(0, {
-    ...PLACEHOLDER_SKILL,
-    icon: shortenAtlasUrl(PLACEHOLDER_SKILL.icon)
-  });
-
-  while (skillQueue.length > 0) {
-    const skillId = skillQueue.shift()!;
-    const skill = niceSkills.find(skill => skill.id == skillId);
     if (!skill) {
-      Log.error(`Could not find skill id ${skillId}`);
-      return false;
+      Log.error(`Could not find skill with id ${id}`);
+      return;
     }
 
     const owners = await getSkillOwners(skill);
     if (owners.length < 1) {
-      Log.error(`Could not find any owners of skill id ${skillId}`);
-      return false;
+      Log.error(`Could not find any owners of skill id ${id}`);
+      return;
     }
 
-    const skillNA = niceSkillsNA.find(skill => skill.id == skillId);
     const upgradeLevel = getUpgradeLevel(owners[0], skill); // can be assumed to be consistent (tested)
     const skillVariants = owners
       .flatMap(servant => servant.skills)
-      .filter(skill => skill.id == skillId);
-    let num: number | PartialDataMap<number> = skill.num!; // can be assumed to be defined (tested)
+      .filter(skill => skill.id == id);
+    let num: number | PartialDataMap<number> = skill.num;
     if (!skillVariants.every(skill => skill.num == num)) {
       num = Object.fromEntries(
         owners.map(servant => {
-          const skill = servant.skills.find(skill => skill.id == skillId)!;
+          const skill = servant.skills.find(skill => skill.id == id)!;
           return [servant.id, skill.num!];
         })
       );
@@ -67,13 +57,8 @@ export const bundleSkillsData: DataBundler<BundledSkill> = async ids => {
 
     if (skillNA) data.na = true;
 
-    res.set(skillId, data);
+    return data;
   }
+});
 
-  Log.info(`Mapped data for ${res.size - 1} Skills`);
-  return {
-    name: "Skills",
-    path: "skills.json",
-    data: res
-  };
-};
+export const bundleSkillsData = SkillsBundle.processBundle.bind(SkillsBundle);
