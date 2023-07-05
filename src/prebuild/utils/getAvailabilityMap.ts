@@ -1,6 +1,6 @@
-import { readFileYaml } from "@foxkit/node-util/fs-yaml";
+import path from "path";
 import { AvailabilityMapSchema } from "~/schema/AvailabilityMap";
-import { verifySchema } from "~/schema/verifySchema";
+import { ParsedYaml } from "~/schema/ParsedYaml";
 import { Availability } from "~/types/enum";
 import type { AvailabilityMap } from "~/schema/AvailabilityMap";
 
@@ -28,10 +28,21 @@ class AvailabilityMatcher {
   }
 }
 
+export const AvailabilityFile = new ParsedYaml({
+  name: "Availability Map",
+  schema: AvailabilityMapSchema,
+  transform: value => new AvailabilityMatcher(value),
+  limitPath: path.join(process.cwd(), "assets/data") // TEMP: move all availability maps into dedicated directory
+});
+
+/**
+ * Get Availability Map as AvailabilityMatcher
+ * @param filePath path to map file
+ * @throws If file could not be parsed
+ * @returns AvailabilityMatcher
+ */
 export async function getAvailabilityMap(filePath: string) {
-  const data = await readFileYaml<Partial<AvailabilityMap>>(filePath);
-  if (!data || !verifySchema(data, AvailabilityMapSchema, filePath)) {
-    return false;
-  }
-  return new AvailabilityMatcher(data);
+  const res = await AvailabilityFile.readFile(filePath);
+  if (!res.success) throw res.error;
+  return res.data;
 }
