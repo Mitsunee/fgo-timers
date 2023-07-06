@@ -1,14 +1,14 @@
 import { join } from "path";
 import { getBasicServant } from "~/atlas-api/cache/data/basicServant";
 import { shortenAtlasUrl } from "~/atlas-api/urls";
+import { getAvailabilityMap } from "~/schema/AvailabilityMap";
 import { mapServantRarityToBorder } from "~/servants/borders";
 import { nameServant } from "~/servants/nameServant";
 import { ServantsFile } from "~/static/data/servants";
 import { Log } from "~/utils/log";
+import type { AvailabilityMatcher } from "~/schema/AvailabilityMap";
 import type { BundledServant } from "~/servants/types";
 import { DataBundler } from "../utils/dataBundlers";
-import { getAvailabilityMap } from "../utils/getAvailabilityMap";
-import type { AvailabilityMatcher } from "../utils/getAvailabilityMap";
 
 const avMapPath = join(process.cwd(), "assets/data/servants/availability.yml");
 let availabilityMap: AvailabilityMatcher;

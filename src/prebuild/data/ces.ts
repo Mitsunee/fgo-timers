@@ -1,13 +1,13 @@
 import { join } from "path";
 import { getBasicCraftEssence } from "~/atlas-api/cache/data/basicCraftEssence";
 import { shortenAtlasUrl } from "~/atlas-api/urls";
+import { getAvailabilityMap } from "~/schema/AvailabilityMap";
 import { mapServantRarityToBorder } from "~/servants/borders";
 import { CraftEssencesFile } from "~/static/data/craftEssences";
 import { Log } from "~/utils/log";
 import type { BundledCE } from "~/items/types";
+import type { AvailabilityMatcher } from "~/schema/AvailabilityMap";
 import { DataBundler } from "../utils/dataBundlers";
-import { getAvailabilityMap } from "../utils/getAvailabilityMap";
-import type { AvailabilityMatcher } from "../utils/getAvailabilityMap";
 
 const avMapPath = join(process.cwd(), "assets/data/ces/availability.yml");
 let availabilityMap: AvailabilityMatcher;
