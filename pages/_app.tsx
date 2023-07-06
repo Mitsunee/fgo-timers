@@ -31,7 +31,6 @@ const useLayoutEffect: typeof _useLayoutEffect =
 const App: AppType = ({ Component, pageProps }) => {
   useLayoutEffect(() => {
     // set background
-    /* TEMP: disable backgrounds to save bandwidth during anni6 spike
     const bg = Math.ceil((Math.random() * 100) % 17)
       .toString()
       .padStart(2, "0");
@@ -40,7 +39,6 @@ const App: AppType = ({ Component, pageProps }) => {
       `url("/assets/backgrounds/landing/${bg}.jpg")`
     );
     document.body.classList.add("with-bg");
-    */
 
     // set isClient
     setIsClient();
