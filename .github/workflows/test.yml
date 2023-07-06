@@ -19,7 +19,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ".next/cache/atlasacademy"
-          key: atlas-cache-${{ env.date }}
+          key: atlas-cache-${{ env.date }}-${{ github.ref_name }}
       - name: Install pnpm v8
         uses: pnpm/action-setup@v2
         with:
@@ -113,7 +113,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ".next/cache/atlasacademy"
-          key: atlas-cache-${{ env.date }}
+          key: atlas-cache-${{ env.date }}-${{ github.ref_name }}
       - name: Install pnpm v8
         uses: pnpm/action-setup@v2
         with:
@@ -127,6 +127,8 @@ jobs:
         run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Run SVGO Component Build
         run: pnpm build:svgo
+      - name: Prepare AtlasAcademy API Cache
+        run: pnpm prepare:cache
       - name: Run Code Tests
         run: pnpm test:code
 
@@ -144,7 +146,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ".next/cache/atlasacademy"
-          key: atlas-cache-${{ env.date }}
+          key: atlas-cache-${{ env.date }}-${{ github.ref_name }}
       - name: Install pnpm v8
         uses: pnpm/action-setup@v2
         with:
@@ -156,5 +158,7 @@ jobs:
           cache: pnpm
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Prepare AtlasAcademy API Cache
+        run: pnpm prepare:cache
       - name: Run Data Tests
         run: pnpm test:data --all
