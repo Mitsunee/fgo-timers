@@ -8,6 +8,8 @@ export class ParsedYaml<
   S extends AnyZodObject,
   T = ZodOutput<S>
 > extends ParsedFile<T> {
+  limitPath: string;
+
   constructor(options: {
     name: string; // TEMP: name prop until parse gets passed filename as a prop in future version of node-util
     schema: S;
@@ -35,5 +37,7 @@ export class ParsedYaml<
       extensions: [".yml"],
       cache: true
     });
+
+    this.limitPath = options.limitPath; // re-set for typescript to be happy :)
   }
 }

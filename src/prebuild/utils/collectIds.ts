@@ -1,6 +1,4 @@
-import type { PrebuildBundle } from "./bundlers";
-
-interface IDCollection {
+export interface IDCollection {
   servants: Set<number>;
   quests: Set<number>;
   skills: Set<number>;
@@ -12,11 +10,11 @@ interface IDCollection {
   costumes: Set<number>;
 }
 
-export function collectIDs(bundles: PrebuildBundle<any>[]) {
+export function createIDCollection() {
   const collection: IDCollection = {
     servants: new Set(),
     quests: new Set(),
-    skills: new Set([0]), // always include id 0 (placeholder)
+    skills: new Set(),
     nps: new Set(),
     ces: new Set(),
     items: new Set(),
@@ -24,6 +22,21 @@ export function collectIDs(bundles: PrebuildBundle<any>[]) {
     mcs: new Set(),
     costumes: new Set()
   };
+
+  return collection;
+}
+
+/**
+ * Creates full id collection by merging multiple partial collections.
+ * Note: Will always include skill id `0` which is meant to match
+ * placeholder skill
+ *
+ * @param bundles Array of partial IDCollections
+ * @returns IDCollection
+ */
+export function mergeIDCollections(bundles: Partial<IDCollection>[]) {
+  const collection = createIDCollection();
+  collection.skills.add(0); // always include placeholder skill
 
   bundles.forEach(bundle => {
     bundle.servants?.forEach(id => collection.servants.add(id));
