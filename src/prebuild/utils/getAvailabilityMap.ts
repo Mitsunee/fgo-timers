@@ -28,6 +28,8 @@ class AvailabilityMatcher {
   }
 }
 
+export type { AvailabilityMatcher };
+
 export const AvailabilityFile = new ParsedYaml({
   name: "Availability Map",
   schema: AvailabilityMapSchema,
