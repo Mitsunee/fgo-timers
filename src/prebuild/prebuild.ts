@@ -21,11 +21,11 @@ import { saveBuildInfo } from "./utils/saveBuildInfo";
 import type { PrebuildBundlerResult } from "./utils/bundlers";
 import type { DataBundlerResult } from "./utils/dataBundlers";
 
-function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
-  return arr.every(Boolean);
+function bundlersSuccessful(arr: Array<PrebuildBundlerResult>) {
+  return arr.every(res => res.success);
 }
 
-function writesSuccessful(
+function dataBundlersSuccessfull(
   arr: DataBundlerResult[]
 ): arr is { name: string; result: { success: true } }[] {
   return arr.every(write => write.result.success);
@@ -35,7 +35,10 @@ function writesSuccessful(
   // Phase 0 - Clean & Prepare Cache
   const [cacheInfo] = await Promise.all([
     prepareCache(),
-    rm(path.join(process.cwd(), "assets/static"))
+    rm(path.join(process.cwd(), "assets/static"), {
+      recursive: true,
+      force: true
+    })
   ]);
 
   // Phase 1 - bundlers
@@ -48,7 +51,7 @@ function writesSuccessful(
     bundleShops()
   ]);
 
-  if (!isSuccessful(bundlersRes)) {
+  if (!bundlersSuccessful(bundlersRes)) {
     Log.die("Quitting early because of error in bundler");
   }
 
@@ -68,7 +71,7 @@ function writesSuccessful(
     bundleCostumesData(ids.costumes)
   ]);
 
-  if (!writesSuccessful(dataRes)) {
+  if (!dataBundlersSuccessfull(dataRes)) {
     Log.die("Quitting early because of error in data bundler");
   }
 

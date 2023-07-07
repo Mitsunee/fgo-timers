@@ -5,7 +5,7 @@ import { BundleFile } from "../Bundle";
 
 const filePath = path.join(
   process.cwd(),
-  "assets/static/data/craftEssences.json"
+  "assets/static/data/craft_essences.json"
 );
 export const CraftEssencesFile = new BundleFile<PartialDataMap<BundledCE>>({
   name: "Craft Essences",

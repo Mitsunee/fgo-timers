@@ -5,7 +5,7 @@ import { BundleFile } from "../Bundle";
 
 const filePath = path.join(
   process.cwd(),
-  "assets/static/data/commandCodes.json"
+  "assets/static/data/command_codes.json"
 );
 export const CommandCodesFile = new BundleFile<PartialDataMap<BundledCC>>({
   name: "Command Codes",

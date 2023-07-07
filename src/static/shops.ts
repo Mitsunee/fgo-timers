@@ -1,5 +1,5 @@
 import path from "path";
-import type { BundledShop } from "~/schema/ShopSchema";
+import type { BundledShop } from "~/shops/types";
 import { BundleFile } from "./Bundle";
 
 const filePath = path.join(process.cwd(), "assets/static/shops.json");

@@ -6,11 +6,11 @@ export class BundleFile<T> extends ParsedFile<T> {
   readonly name: string;
 
   constructor(options: { name: string; filePath: string }) {
-    if (!/assets\/static(\/data)?\/[a-z-]+\.json$/.test(options.filePath)) {
+    if (!/assets\/static(\/data)?\/[a-z_]+\.json$/.test(options.filePath)) {
+      Log.error(`Invalid BundleFile path passed for ${options.name}`);
+      Log.debug({ options });
       Log.throw(
-        `Invalid BundleFile path passed for ${
-          options.name // prettier linebreak
-        }. Path must be located in assets/static/ and be a .json file`
+        `Invalid BundleFile passed. Path must be located in assets/static/ and be a .json file`
       );
     }
 

@@ -60,17 +60,3 @@ export async function getNiceServant(
   const niceServants = await getNiceServantsFull(region);
   return niceServants.find(servant => servant.id == id);
 }
-
-/**
- * Gets nice Servant data by costume id
- * @param costumeId id of Costume
- * @param region Region `"NA"` or `"JP"` (default: `"JP"`)
- * @returns Servant or undefined if not found
- */
-export async function getNiceServantByCostume(
-  costumeId: number,
-  region: SupportedRegion = "JP"
-) {
-  const niceServants = await getNiceServantsFull(region);
-  return niceServants.find(servant => servant.profile.costume[`${costumeId}`]);
-}

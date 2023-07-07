@@ -1,5 +1,5 @@
 import { getNiceCostume } from "~/atlas-api/cache/data/niceCostume";
-import { getNiceServantByCostume } from "~/atlas-api/cache/data/niceServant";
+import { getNiceServant } from "~/atlas-api/cache/data/niceServant";
 import { shortenAtlasUrl } from "~/atlas-api/urls";
 import { mapServantRarityToBorder } from "~/servants/borders";
 import { CostumesFile } from "~/static/data/costumes";
@@ -10,10 +10,9 @@ import { DataBundler } from "../utils/dataBundlers";
 export const CostumesBundle = new DataBundler({
   file: CostumesFile,
   transform: async id => {
-    const [costume, costumeNA, servant] = await Promise.all([
+    const [costume, costumeNA] = await Promise.all([
       getNiceCostume(id),
-      getNiceCostume(id, "NA"),
-      getNiceServantByCostume(id)
+      getNiceCostume(id, "NA")
     ]);
 
     if (!costume) {
@@ -21,12 +20,13 @@ export const CostumesBundle = new DataBundler({
       return;
     }
 
+    const servant = await getNiceServant(costume.owner);
     if (!servant) {
       Log.error(`Could not find any servant with costume id ${id}`);
       return;
     }
-    let iconUrl = servant.extraAssets.faces.costume?.[`${id}`];
 
+    let iconUrl = servant.extraAssets.faces.costume?.[`${id}`];
     if (!iconUrl) {
       Log.warn(`Using fallback icon for costume '${id}'`);
       iconUrl = "https://static.atlasacademy.io/JP/Items/23.png";

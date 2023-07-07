@@ -5,7 +5,7 @@ import { BundleFile } from "../Bundle";
 
 const filePath = path.join(
   process.cwd(),
-  "assets/static/data/noblePhantasms.json"
+  "assets/static/data/noble_phantasms.json"
 );
 export const NoblePhantasmsFile = new BundleFile<PartialDataMap<BundledNP>>({
   name: "Noble Phantasms",

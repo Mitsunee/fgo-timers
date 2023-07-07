@@ -43,7 +43,9 @@ export async function getNiceCostumes(
   region: SupportedRegion = "JP"
 ) {
   const niceCostumes = await getNiceCostumesFull(region);
-  return ids.map(id => niceCostumes.find(costume => costume.id == id));
+  return ids.map(id =>
+    niceCostumes.find(costume => costume.battleCharaId == id)
+  );
 }
 
 /**
@@ -57,5 +59,5 @@ export async function getNiceCostume(
   region: SupportedRegion = "JP"
 ) {
   const niceCostumes = await getNiceCostumesFull(region);
-  return niceCostumes.find(costume => costume.id == id);
+  return niceCostumes.find(costume => costume.battleCharaId == id);
 }

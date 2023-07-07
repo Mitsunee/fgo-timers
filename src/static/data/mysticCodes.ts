@@ -5,7 +5,7 @@ import { BundleFile } from "../Bundle";
 
 const filePath = path.join(
   process.cwd(),
-  "assets/static/data/mysticCodes.json"
+  "assets/static/data/mystic_codes.json"
 );
 export const MysticCodesFile = new BundleFile<
   PartialDataMap<BundledMysticCode>
