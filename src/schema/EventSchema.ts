@@ -1,5 +1,7 @@
+import path from "path";
 import { z } from "zod";
 import { normalizeDate } from "~/time/normalizeDate";
+import { ParsedYaml } from "./ParsedYaml";
 import { zDate, zDuration, zDurationStrict } from "./zDate";
 
 const _zPriority = z.number().min(0).default(0);
@@ -99,3 +101,9 @@ export type EventDataParsed = z.output<typeof EventSchema>;
 export function checkEventPath(path: string): boolean {
   return /assets\/data\/events\/[\w-]+\.yml$/.test(path);
 }
+
+export const EventFile = new ParsedYaml({
+  name: "Event",
+  schema: EventSchema,
+  limitPath: path.join(process.cwd(), "assets/data/events")
+});

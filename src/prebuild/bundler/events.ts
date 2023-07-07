@@ -1,108 +1,88 @@
-import { readdir } from "fs/promises";
-import { join } from "path";
-import { fileExists } from "@foxkit/node-util/fs";
-import { readFileYaml } from "@foxkit/node-util/fs-yaml";
-import { getFileName } from "@foxkit/node-util/path";
+import path from "path";
+import { getFileName, isFile } from "@foxkit/node-util/fs";
+import { eventsCollectIDs } from "~/events/collectIDs";
 import { createEventSorter } from "~/events/sortEvents";
-import { EventSchema } from "~/schema/EventSchema";
-import { parseSchema } from "~/schema/verifySchema";
+import { EventFile } from "~/schema/EventSchema";
+import { EventsFile } from "~/static/events";
 import { normalizeDate } from "~/time/normalizeDate";
 import { Log } from "~/utils/log";
 import type { BundledEvent } from "~/events/types";
-import type { EventDataRaw } from "~/schema/EventSchema";
-import type { PrebuildBundler } from "../utils/bundlers";
+import { DirectoryBundler } from "../utils/bundlers";
 
-const eventsDir = join(process.cwd(), "assets/data/events");
-
-export const bundleEvents: PrebuildBundler<BundledEvent[]> = async () => {
-  const events = new Array<BundledEvent>();
-  const servants = new Set<number>();
-  const ces = new Set<number>();
-  const items = new Set<number>();
-  const ccs = new Set<number>();
-  const dir = await readdir(eventsDir);
-  const files = dir.filter(file => file.endsWith(".yml"));
-
-  for (const fileName of files) {
-    const filePath = join(eventsDir, fileName);
-    const slug = getFileName(fileName, false);
-    const fileContent = await readFileYaml<EventDataRaw>(filePath);
-    if (!fileContent) {
-      Log.warn(`Could not parse file '${fileName}'. Skipping...`);
-      continue;
-    }
-
-    const fileParsed = parseSchema(fileContent, EventSchema, filePath);
-    if (!fileParsed) return false;
-
-    const bannerFilePath = join(
-      "public",
-      "assets",
-      "events",
-      fileParsed.banner
-    );
-    if (!(await fileExists(bannerFilePath))) {
-      Log.error(`Banner image located at '${bannerFilePath}' was not found`);
-      return false;
-    }
-
-    let hideAt: number = Array.isArray(fileParsed.date)
-      ? fileParsed.date[1]
-      : fileParsed.date;
-
-    // browse schedules for later times and used entities
-    fileParsed.schedules?.forEach(schedule => {
-      if (schedule.ends && schedule.ends > hideAt) {
-        hideAt = schedule.ends;
+const EventsBundler = new DirectoryBundler({
+  name: "Events",
+  inputFile: EventFile,
+  outputFile: EventsFile,
+  bundle: async files => {
+    let success = true;
+    const entries = Object.entries(files);
+    const events = entries.flatMap<BundledEvent>(([filePath, res]) => {
+      const fileName = getFileName(filePath, true);
+      const slug = getFileName(filePath, false);
+      if (!res?.success) {
+        Log.warn(`Could not parse file '${fileName}'. Skipping...`);
+        success = false;
+        return [];
       }
 
-      const final = schedule.times[schedule.times.length - 1].date;
-      if (final > hideAt) hideAt = final;
-      schedule.times.forEach(time => {
-        time.servants?.forEach(servant => servants.add(servant));
-        time.ces?.forEach(ce => ces.add(ce));
-        time.items?.forEach(item => items.add(item));
-        time.ccs?.forEach(cc => ccs.add(cc));
+      const fileParsed = res.data;
+
+      let hideAt = Array.isArray(fileParsed.date)
+        ? fileParsed.date[1]
+        : fileParsed.date;
+
+      // browse schedules for later times
+      fileParsed.schedules?.forEach(schedule => {
+        if (schedule.ends && schedule.ends > hideAt) {
+          hideAt = schedule.ends;
+        }
+
+        const final = schedule.times[schedule.times.length - 1].date;
+        if (final > hideAt) hideAt = final;
       });
+
+      // browse times for later times
+      fileParsed.times?.forEach(time => {
+        // FIXME: doesn't handle times with no end date
+        const ends = normalizeDate(time.date)[1];
+        if (ends > hideAt) hideAt = ends;
+      });
+
+      // browse banners for later times
+      fileParsed.banners?.forEach(banner => {
+        if (banner.date[1] > hideAt) hideAt = banner.date[1];
+      });
+
+      return Object.assign({}, fileParsed, { slug, hideAt });
     });
 
-    // browse times for later times and used entities
-    fileParsed.times?.forEach(time => {
-      const ends = normalizeDate(time.date)[1];
-      if (ends > hideAt) hideAt = ends;
-      time.servants?.forEach(servant => servants.add(servant));
-      time.ces?.forEach(ce => ces.add(ce));
-      time.items?.forEach(item => items.add(item));
-      time.ccs?.forEach(cc => ccs.add(cc));
-    });
+    // check banner images
+    await Promise.all(
+      events.map(async event => {
+        const imagePath = path.join(
+          process.cwd(),
+          "public/assets/events",
+          event.banner
+        );
+        const check = await isFile(imagePath);
+        if (!check) {
+          Log.error(
+            `Could not find event banner image '${event.banner}' in 'public/assets/events'`
+          );
+          success = false;
+        }
+      })
+    );
 
-    // browse banners for later times and used entities
-    fileParsed.banners?.forEach(banner => {
-      if (banner.date[1] > hideAt) hideAt = banner.date[1];
-      banner.servants?.forEach(servant => servants.add(servant));
-      banner.ces?.forEach(ce => ces.add(ce));
-    });
+    if (!success) throw new Error("Could not parse all event files");
+    const ids = eventsCollectIDs(events);
 
-    const event: BundledEvent = {
-      ...fileParsed,
-      slug,
-      hideAt
-    };
+    // sort events
+    const sorter = createEventSorter(Date.now());
+    events.sort(sorter);
 
-    events.push(event);
+    return { data: events, size: events.length, ids };
   }
+});
 
-  const sorter = createEventSorter(Date.now());
-  events.sort(sorter);
-
-  Log.info(`Mapped data for ${events.length} Events`);
-  return {
-    name: "Events",
-    path: "events.json",
-    data: events,
-    servants,
-    ces,
-    items,
-    ccs
-  };
-};
+export const bundleEvents = EventsBundler.processBundle.bind(EventsBundler);

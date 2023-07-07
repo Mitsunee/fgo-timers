@@ -3,7 +3,7 @@ import type { BundledItem } from "~/items/types";
 import { BundleFile } from "./Bundle";
 
 const filePath = path.join(process.cwd(), "assets/static/custom_items.json");
-export const CustomItemFile = new BundleFile<PartialDataMap<BundledItem>>({
+export const CustomItemsFile = new BundleFile<PartialDataMap<BundledItem>>({
   name: "Custom Items",
   filePath
 });
@@ -12,7 +12,7 @@ export const CustomItemFile = new BundleFile<PartialDataMap<BundledItem>>({
  * Reads Custom Items bundle
  * @returns Bundled data
  */
-export const getBundledItems = CustomItemFile.readBundle.bind(CustomItemFile);
+export const getBundledItems = CustomItemsFile.readBundle.bind(CustomItemsFile);
 
 /**
  * Writes to Custom Items bundle
@@ -20,7 +20,7 @@ export const getBundledItems = CustomItemFile.readBundle.bind(CustomItemFile);
  * @returns FileWriteResult
  */
 export const writeBundledItems =
-  CustomItemFile.writeBundle.bind(CustomItemFile);
+  CustomItemsFile.writeBundle.bind(CustomItemsFile);
 
 /**
  * Gets custom Item data by id

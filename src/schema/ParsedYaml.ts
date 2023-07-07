@@ -1,11 +1,11 @@
 import { ParsedFile } from "@foxkit/node-util/fs-extra";
 import YAML from "yaml";
 import { ZodError } from "zod";
-import type { AnyZodObject, output as ZodOutput } from "zod";
+import type { output as ZodOutput, ZodSchema } from "zod";
 import { Log } from "~/utils/log";
 
 export class ParsedYaml<
-  S extends AnyZodObject,
+  S extends ZodSchema,
   T = ZodOutput<S>
 > extends ParsedFile<T> {
   limitPath: string;
