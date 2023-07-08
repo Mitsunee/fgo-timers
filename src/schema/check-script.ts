@@ -1,5 +1,5 @@
 import { basename, join } from "path";
-import { readDir } from "@foxkit/node-util/fs";
+import { getFileName, readDir } from "@foxkit/node-util/fs";
 import { ParsedFile } from "@foxkit/node-util/fs-extra";
 import { Command, Option } from "commander";
 import YAML from "yaml";
@@ -60,6 +60,45 @@ async function main(options: ProgramOptions) {
   const startedAt = Date.now();
   const showGroupInfo = !silent && !all;
 
+  function duplicateFileNameCheck(files: string[]) {
+    const knownNames = new Set<string>();
+    const duplicates = new Set<string>();
+
+    // search for duplicates
+    for (const filePath of files) {
+      const fileName = getFileName(filePath);
+      if (!knownNames.has(fileName)) {
+        knownNames.add(fileName);
+        continue;
+      }
+      duplicates.add(fileName);
+    }
+
+    // return passed array if no duplicates were found
+    if (duplicates.size < 1) return files;
+
+    // Log duplicated paths
+    for (const duplicateName of duplicates) {
+      const duplicatePaths = files.filter(
+        file => getFileName(file) == duplicateName
+      );
+
+      Log.error(
+        `Duplicate event file name: '${duplicateName}'\n${JSON.stringify(
+          duplicatePaths,
+          null,
+          2
+        )}`
+      );
+
+      checkState.checked += duplicatePaths.length;
+      checkState.failed += duplicatePaths.length;
+    }
+
+    // return filtered list
+    return files.filter(file => !duplicates.has(getFileName(file)));
+  }
+
   async function checkFile(
     filePath: string,
     fileType: string,
@@ -101,7 +140,10 @@ async function main(options: ProgramOptions) {
       recursive: true,
       pathStyle: "absolute"
     });
-    await Promise.all(files.map(file => checkFile(file, "event", EventSchema)));
+    const filesDeduped = duplicateFileNameCheck(files);
+    await Promise.all(
+      filesDeduped.map(file => checkFile(file, "event", EventSchema))
+    );
   }
 
   // handle --shops
