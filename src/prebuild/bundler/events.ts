@@ -11,6 +11,7 @@ import { DirectoryBundler } from "../utils/bundlers";
 
 const EventsBundler = new DirectoryBundler({
   name: "Events",
+  recursive: true,
   inputFile: EventFile,
   outputFile: EventsFile,
   bundle: async files => {
