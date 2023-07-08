@@ -1,4 +1,5 @@
-import { writeBuildInfo } from "~/static/bundleInfo";
+import path from "path";
+import { BuildInfoFile } from "~/static/bundleInfo";
 import { Log } from "~/utils/log";
 import type { ApiCacheInfo } from "~/atlas-api/cache/info";
 import type { BuildInfo } from "~/static/bundleInfo";
@@ -26,7 +27,15 @@ export async function saveBuildInfo(cacheInfo: ApiCacheInfo) {
     date: Math.floor(Date.now() / 1000),
     version: makeBuildVer(cacheInfo)
   };
-  writeBuildInfo(buildInfo);
-  Log.ready("Saved build info");
+  const res = await BuildInfoFile.writeBundle(buildInfo);
+  if (!res.success) {
+    Log.throw(`Failed to write bundle info:`, res.error);
+  }
+
+  Log.ready(
+    `Saved build info ${Log.styleParent(
+      path.relative(process.cwd(), BuildInfoFile.filePath)
+    )}`
+  );
   return buildInfo;
 }

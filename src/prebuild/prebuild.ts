@@ -43,6 +43,7 @@ function dataBundlersSuccessfull(
 
   // Phase 1 - bundlers
   Log.info("Running Bundlers");
+
   const bundlersRes: PrebuildBundlerResult[] = await Promise.all([
     bundleUpgrades(),
     bundleCustomItems(),

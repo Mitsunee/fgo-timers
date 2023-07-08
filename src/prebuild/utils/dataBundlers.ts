@@ -1,3 +1,4 @@
+import path from "path";
 import type { FileWriteResult } from "@foxkit/node-util/fs-extra";
 import { List } from "@foxkit/util/object";
 import { Log } from "~/utils/log";
@@ -77,7 +78,11 @@ export class DataBundler<T> {
 
       if (!res.success) Log.error(res.error);
 
-      Log.ready(`Mapped data for ${dataMap.size} ${this.file.name}`);
+      Log.ready(
+        `Mapped data for ${dataMap.size} ${this.file.name} ${Log.styleParent(
+          path.relative(process.cwd(), this.file.filePath)
+        )}`
+      );
 
       return { name: this.file.name, result: res };
     } catch (e) {

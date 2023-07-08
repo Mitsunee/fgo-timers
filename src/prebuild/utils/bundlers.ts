@@ -1,3 +1,4 @@
+import path from "path";
 import type { FileWriteResult } from "@foxkit/node-util/fs-extra";
 import type { AnyZodObject, output as ZodOutput } from "zod";
 import { Log } from "~/utils/log";
@@ -11,8 +12,6 @@ export interface PrebuildBundlerResult {
   ids: Partial<IDCollection>;
 }
 
-export type PrebuildBundler = () => Promise<PrebuildBundlerResult>;
-
 /**
  * Handles logging and normalising of bundle results
  * @param bundleResult Object that should contain a name, size, result and ids
@@ -22,7 +21,8 @@ export function handleBundlerResult({
   name,
   size,
   result,
-  ids = {}
+  ids = {},
+  outputPath
 }: {
   /**
    * Name in log
@@ -38,11 +38,15 @@ export function handleBundlerResult({
    */
   result?: FileWriteResult;
   /**
-   * Collection of ids using in data
+   * Collection of ids used in data
    */
   ids?: Partial<IDCollection>;
+  /**
+   * File path of where output has been saved, omitting this fails build!
+   */
+  outputPath?: string;
 }): PrebuildBundlerResult {
-  if (!result || !size) {
+  if (!result || !size || !outputPath) {
     Log.error(`Encountered error while bundling ${name}`);
     return { name, success: false, ids: {} };
   }
@@ -53,7 +57,11 @@ export function handleBundlerResult({
     return { name, success: false, ids: {} };
   }
 
-  Log.ready(`Mapped data for ${size} ${name}`);
+  Log.ready(
+    `Mapped data for ${size} ${name} ${Log.styleParent(
+      path.relative(process.cwd(), outputPath)
+    )}`
+  );
   return { name, success: true, ids };
 }
 
@@ -61,7 +69,7 @@ type ReadDirResult<S extends AnyZodObject, T = ZodOutput<S>> = Awaited<
   ReturnType<ParsedYaml<S, T>["readDir"]>
 >;
 
-interface BundleTransformResult<B> {
+interface BundlerResult<B> {
   data: B;
   size: number;
   ids: Partial<IDCollection>;
@@ -69,9 +77,8 @@ interface BundleTransformResult<B> {
 
 type BundlerTransformer<B, S extends AnyZodObject, T = ZodOutput<S>> = (
   files: ReadDirResult<S, T>
-) => BundleTransformResult<B> | Promise<BundleTransformResult<B>>;
+) => BundlerResult<B> | Promise<BundlerResult<B>>;
 
-// TODO: Also need something without input file for upgrades and exchange tickets
 /**
  * PrebuildBundler class to use for handling directories of yaml files
  */
@@ -120,7 +127,57 @@ export class DirectoryBundler<B, S extends AnyZodObject, T = ZodOutput<S>> {
       const bundled = await this.bundle(files);
       const result = await this.outputFile.writeBundle(bundled.data);
       return handleBundlerResult(
-        Object.assign({}, bundled, { result, name: this.name })
+        Object.assign({}, bundled, {
+          result,
+          name: this.name,
+          outputPath: this.outputFile.filePath
+        })
+      );
+    } catch (error) {
+      Log.error(`Encountered error while bundling ${this.name}`);
+      Log.error(error);
+      return handleBundlerResult({ name: this.name });
+    }
+  }
+}
+
+/**
+ * PrebuildBundler class to use for bundles without input files
+ */
+export class PrebuildBundler<T> {
+  name: string;
+  outputFile: BundleFile<T>;
+  bundle: () => Promise<BundlerResult<T>>;
+
+  constructor(options: {
+    /**
+     * Name in log
+     */
+    name: string;
+    /**
+     * `BundleFile` for the bundle target
+     */
+    outputFile: BundleFile<T>;
+    /**
+     * Method that generates bundle data as was as ID collection
+     */
+    bundle: () => Promise<BundlerResult<T>>;
+  }) {
+    this.name = options.name;
+    this.outputFile = options.outputFile;
+    this.bundle = options.bundle;
+  }
+
+  async processBundle() {
+    try {
+      const bundled = await this.bundle();
+      const result = await this.outputFile.writeBundle(bundled.data);
+      return handleBundlerResult(
+        Object.assign({}, bundled, {
+          result,
+          name: this.name,
+          outputPath: this.outputFile.filePath
+        })
       );
     } catch (error) {
       Log.error(`Encountered error while bundling ${this.name}`);
