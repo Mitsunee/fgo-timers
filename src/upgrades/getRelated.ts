@@ -2,7 +2,6 @@ import type { NoblePhantasm } from "@atlasacademy/api-connector/dist/Schema/Nobl
 import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
 import type { Skill } from "@atlasacademy/api-connector/dist/Schema/Skill";
 import { getNiceServantsFull } from "~/atlas-api/cache/data/niceServant";
-import type { SupportedRegion } from "~/atlas-api/api";
 
 export async function getRelatedServant(
   questId: number,
