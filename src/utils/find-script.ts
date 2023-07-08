@@ -100,7 +100,10 @@ const menuFindServant: MenuFn = (() => {
   return async function menuFindServant() {
     cache ??= await getNiceServantsFull();
     searcher ??= new Searcher(cache, {
-      keySelector: candidate => candidate.name,
+      keySelector: candidate => [
+        candidate.name,
+        ...Object.values(candidate.ascensionAdd.overWriteServantName.ascension)
+      ],
       returnMatchData: true,
       threshold: 0.7
     });
