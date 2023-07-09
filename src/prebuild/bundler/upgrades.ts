@@ -6,6 +6,7 @@ import {
 import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
 import { getNiceQuestsFull } from "~/atlas-api/cache/data/niceQuest";
 import { UpgradesFile } from "~/static/upgrades";
+import { upgradesCollectIDs } from "~/upgrades/collectIDs";
 import { getPreviousNP, getPreviousSkill } from "~/upgrades/getPrevious";
 import {
   getRelatedNP,
@@ -20,7 +21,6 @@ import type {
   UpgradeMapSkill
 } from "~/upgrades/types";
 import { PrebuildBundler } from "../utils/bundlers";
-import type { IDCollection } from "../utils/collectIds";
 
 function getUpgradeMap(
   servant: Servant,
@@ -83,22 +83,14 @@ const UpgradesBundler = new PrebuildBundler({
     ]);
 
     const upgrades = new Array<BundledUpgrade>();
-    const ids = {
-      servants: new Set(),
-      quests: new Set(),
-      skills: new Set(),
-      nps: new Set()
-    } satisfies Partial<IDCollection>;
 
     for (const quest of quests) {
-      ids.quests.add(quest.id);
       const questNA = questsNA.find(questNA => questNA.id == quest.id);
       const servant = await getRelatedServant(quest.id, "JP");
       if (!servant) {
         Log.throw(`Could not find related Servant for quest id ${quest.id}`);
       }
 
-      ids.servants.add(servant.id);
       const upgrade: BundledUpgrade = {
         quest: quest.id,
         servant: servant.id
@@ -108,13 +100,6 @@ const UpgradesBundler = new PrebuildBundler({
 
       if (upgradeMap) {
         upgrade.upgrades = upgradeMap;
-        if (upgradeMap.type == "np") {
-          ids.nps.add(upgradeMap.id);
-          ids.nps.add(upgradeMap.newId);
-        } else {
-          if (upgradeMap.id) ids.skills.add(upgradeMap.id);
-          ids.skills.add(upgradeMap.newId);
-        }
       } else if (quest.warId == 1001) {
         Log.throw(
           `Could not find related Skill or NP for rankup quest id ${quest.id}`
@@ -123,6 +108,8 @@ const UpgradesBundler = new PrebuildBundler({
 
       upgrades.push(upgrade);
     }
+
+    const ids = await upgradesCollectIDs(upgrades);
 
     return { data: upgrades, size: upgrades.length, ids };
   }
