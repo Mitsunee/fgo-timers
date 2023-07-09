@@ -18,61 +18,60 @@ function createCollection() {
   return ids;
 }
 
-export async function upgradeCollectIDs(upgrade: BundledUpgrade) {
+export function upgradeCollectIDs(upgrade: BundledUpgrade) {
   const collection = createCollection();
   collection.quests.add(upgrade.quest);
   collection.servants.add(upgrade.servant);
-  const quest = await getQuest(upgrade.quest);
-  if (!quest) {
-    Log.throw(`Could not find quest with id ${upgrade.quest} in bundled data`);
-  }
-
-  quest.unlock?.quests?.forEach(id => collection.quests.add(id));
 
   switch (upgrade.upgrades?.type) {
     case "np":
       collection.nps.add(upgrade.upgrades.id);
       collection.nps.add(upgrade.upgrades.newId);
       break;
-    case "skill": {
-      const id = upgrade.upgrades.id ?? 0; // add placeholder skill if not set
-      collection.skills.add(id);
+    case "skill":
+      collection.skills.add(upgrade.upgrades.id ?? 0);
       collection.skills.add(upgrade.upgrades.newId);
+  }
+
+  return collection;
+}
+
+export function upgradesCollectIDs(upgrades: BundledUpgrade[]) {
+  const collection = createCollection();
+
+  for (const upgrade of upgrades) {
+    collection.quests.add(upgrade.quest);
+    collection.servants.add(upgrade.servant);
+
+    switch (upgrade.upgrades?.type) {
+      case "np":
+        collection.nps.add(upgrade.upgrades.id);
+        collection.nps.add(upgrade.upgrades.newId);
+        break;
+      case "skill":
+        collection.skills.add(upgrade.upgrades.id ?? 0);
+        collection.skills.add(upgrade.upgrades.newId);
     }
   }
 
   return collection;
 }
 
-export async function upgradesCollectIDs(upgrades: BundledUpgrade[]) {
-  const collection = createCollection();
+/**
+ * Checks all quests in set for quest unlock condition that require further quests
+ * @param set Set of Quest IDs
+ */
+export async function addQuestUnlockIds(set: Set<number>) {
+  const questIds = Array.from(set);
 
-  await Promise.all(
-    upgrades.map(async upgrade => {
-      collection.quests.add(upgrade.quest);
-      collection.servants.add(upgrade.servant);
-      const quest = await getQuest(upgrade.quest);
+  return Promise.all(
+    questIds.map(async id => {
+      const quest = await getQuest(id);
       if (!quest) {
-        Log.throw(
-          `Could not find quest with id ${upgrade.quest} in bundled data`
-        );
+        Log.throw(`Could not find quest with id ${id} in bundled data`);
       }
 
-      quest.unlock?.quests?.forEach(id => collection.quests.add(id));
-
-      switch (upgrade.upgrades?.type) {
-        case "np":
-          collection.nps.add(upgrade.upgrades.id);
-          collection.nps.add(upgrade.upgrades.newId);
-          break;
-        case "skill":
-          if (typeof upgrade.upgrades.id == "number") {
-            collection.skills.add(upgrade.upgrades.id);
-          }
-          collection.skills.add(upgrade.upgrades.newId);
-      }
+      quest.unlock?.quests?.forEach(unlockId => set.add(unlockId));
     })
   );
-
-  return collection;
 }

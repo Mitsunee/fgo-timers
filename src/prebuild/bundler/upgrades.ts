@@ -109,7 +109,7 @@ const UpgradesBundler = new PrebuildBundler({
       upgrades.push(upgrade);
     }
 
-    const ids = await upgradesCollectIDs(upgrades);
+    const ids = upgradesCollectIDs(upgrades);
 
     return { data: upgrades, size: upgrades.length, ids };
   }

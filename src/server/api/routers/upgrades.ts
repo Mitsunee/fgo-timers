@@ -5,7 +5,7 @@ import { createQuestRecord } from "~/static/data/quests";
 import { createServantRecord } from "~/static/data/servants";
 import { createSkillRecord } from "~/static/data/skills";
 import { getBundledUpgrades } from "~/static/upgrades";
-import { upgradesCollectIDs } from "~/upgrades/collectIDs";
+import { addQuestUnlockIds, upgradesCollectIDs } from "~/upgrades/collectIDs";
 import type { WithMaps } from "~/client/contexts";
 import type { BundledUpgrade } from "~/upgrades/types";
 import { createTRPCRouter, publicProcedure } from "../trpc";
@@ -17,7 +17,8 @@ export type ExpandedUpgrades = WithMaps<
 async function expandUpgrades(
   upgradesList: ExpandedUpgrades["upgrades"]
 ): Promise<ExpandedUpgrades> {
-  const ids = await upgradesCollectIDs(upgradesList);
+  const ids = upgradesCollectIDs(upgradesList);
+  await addQuestUnlockIds(ids.quests);
   const [quests, servants, skills, nps] = await Promise.all([
     createQuestRecord(ids.quests),
     createServantRecord(ids.servants),
