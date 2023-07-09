@@ -53,7 +53,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Lint
-        run: pnpm lint # eslint --max-warnings 0 .
+        run: pnpm eslint --max-warnings 0 .
 
   format:
     name: "Code Formatting Checks"
