@@ -1,7 +1,9 @@
 import type { IDCollection } from "~/prebuild/utils/collectIds";
 import type { BundledEvent } from "./types";
 
-export function eventCollectIDs(event: BundledEvent) {
+type Options = Record<"times" | "schedules" | "banners", boolean>;
+
+export function eventCollectIDs(event: BundledEvent, options?: Options) {
   const collection = {
     servants: new Set(),
     ces: new Set(),
@@ -9,26 +11,32 @@ export function eventCollectIDs(event: BundledEvent) {
     ccs: new Set()
   } satisfies Partial<IDCollection>;
 
-  event.times?.forEach(time => {
-    time.servants?.forEach(id => collection.servants.add(id));
-    time.ces?.forEach(id => collection.ces.add(id));
-    time.items?.forEach(id => collection.items.add(id));
-    time.ccs?.forEach(id => collection.ccs.add(id));
-  });
-
-  event.schedules?.forEach(schedule => {
-    schedule.times.forEach(time => {
+  if (options?.times ?? true) {
+    event.times?.forEach(time => {
       time.servants?.forEach(id => collection.servants.add(id));
       time.ces?.forEach(id => collection.ces.add(id));
       time.items?.forEach(id => collection.items.add(id));
       time.ccs?.forEach(id => collection.ccs.add(id));
     });
-  });
+  }
 
-  event.banners?.forEach(banner => {
-    banner.servants?.forEach(id => collection.servants.add(id));
-    banner.ces?.forEach(id => collection.ces.add(id));
-  });
+  if (options?.schedules ?? true) {
+    event.schedules?.forEach(schedule => {
+      schedule.times.forEach(time => {
+        time.servants?.forEach(id => collection.servants.add(id));
+        time.ces?.forEach(id => collection.ces.add(id));
+        time.items?.forEach(id => collection.items.add(id));
+        time.ccs?.forEach(id => collection.ccs.add(id));
+      });
+    });
+  }
+
+  if (options?.banners ?? true) {
+    event.banners?.forEach(banner => {
+      banner.servants?.forEach(id => collection.servants.add(id));
+      banner.ces?.forEach(id => collection.ces.add(id));
+    });
+  }
 
   return collection;
 }
