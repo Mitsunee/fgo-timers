@@ -1,5 +1,6 @@
 import path from "path";
 import { Log } from "~/utils/log";
+import { safeProxyDataMap } from "~/utils/safeProxyDataMap";
 import type { BundledQuest } from "~/upgrades/types";
 import { BundleFile } from "../Bundle";
 
@@ -29,6 +30,17 @@ export const writeBundledQuests = QuestsFile.writeBundle.bind(QuestsFile);
  */
 export async function getQuest(id: number) {
   return getQuestsFull().then(map => map[id]);
+}
+
+/**
+ * Proxy of Quests data bundle that throws if an id is not found
+ * @returns Bundled data (proxied)
+ */
+export async function getQuestMap() {
+  return safeProxyDataMap(
+    await getQuestsFull(),
+    "Could not find quest with id %KEY% in bundled data"
+  );
 }
 
 /**

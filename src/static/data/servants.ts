@@ -1,5 +1,6 @@
 import path from "path";
 import { Log } from "~/utils/log";
+import { safeProxyDataMap } from "~/utils/safeProxyDataMap";
 import type { BundledServant } from "~/servants/types";
 import { BundleFile } from "../Bundle";
 
@@ -29,6 +30,17 @@ export const writeBundledServants = ServantsFile.writeBundle.bind(ServantsFile);
  */
 export async function getServant(id: number) {
   return getServantsFull().then(map => map[id]);
+}
+
+/**
+ * Proxy of Servants data bundle that throws if an id is not found
+ * @returns Bundled data (proxied)
+ */
+export async function getServantMap() {
+  return safeProxyDataMap(
+    await getServantsFull(),
+    "Could not find servant with id %KEY% in bundled data"
+  );
 }
 
 /**

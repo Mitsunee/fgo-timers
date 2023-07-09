@@ -28,10 +28,10 @@ import {
   formFiltersDefault
 } from "~/pages/UpgradesPage/filtersReducer";
 import type { Highlight } from "~/pages/UpgradesPage/components";
-import type { UpgradesPageProps } from "~/pages/UpgradesPage/getStaticProps";
+import type { UpgradesPageProps } from "~/pages/UpgradesPage/static";
 import type { BundledUpgrade } from "~/upgrades/types";
 
-export { getStaticProps } from "~/pages/UpgradesPage/getStaticProps";
+export { getStaticProps } from "~/pages/UpgradesPage/static";
 
 export default function UpgradesPage({ fallback }: UpgradesPageProps) {
   const { perPage } = useStore(settingsStore);
