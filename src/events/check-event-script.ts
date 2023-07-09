@@ -1,16 +1,15 @@
 #!/usr/bin/env node
 /**
- * Script to find timestamps in atlasacademy API that don't appear in given event file
+ * @fileoverview Script to find timestamps in atlasacademy API that don't appear in given event file
  * @argument slug slug matching name of event file to reference
  * @argument id event id to reference from atlasacademy API
  */
 import { join } from "path";
 import { CondType } from "@atlasacademy/api-connector";
-import { readFileYaml } from "@foxkit/node-util/fs-yaml";
 import picocolors from "picocolors";
 import { z } from "zod";
 import { atlasApiNA } from "~/atlas-api/api";
-import { EventSchema } from "~/schema/EventSchema";
+import { EventFile } from "~/schema/EventSchema";
 import { parseSchema } from "~/schema/verifySchema";
 import { Log } from "~/utils/log";
 
@@ -28,23 +27,16 @@ type Main = (...args: Args) => Promise<any>;
 /**
  * Reads and parses event file by slug
  * @param slug slug matching name of event file to reference
- * @returns Result of parsing event file with EventSchema. `false` if file not found.
+ * @returns Result of parsing event file with EventSchema. undefined if file not found.
  */
 async function getEventBySlug(slug: string) {
   const filePath = join("assets/data/events", `${slug}.yml`);
-  const fileContent = await readFileYaml<z.input<typeof EventSchema>>(filePath);
-  if (!fileContent) {
-    Log.error(`Could not read EventFile at '${filePath}'`);
-    return false;
+  const res = await EventFile.readFile(filePath);
+  if (!res.success) {
+    Log.error(res.error);
+    return;
   }
-
-  const data = parseSchema(fileContent, EventSchema, filePath);
-  if (!data) {
-    Log.error(`Error parsing EventFile at '${filePath}'`);
-    return false;
-  }
-
-  return data;
+  return res.data;
 }
 
 /**
