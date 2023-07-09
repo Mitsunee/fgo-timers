@@ -13,13 +13,6 @@ import { SpecialTimer } from "~/pages/HomePage/components/SpecialTimer";
 // import type { HomePageProps } from "~/pages/HomePage/static";
 
 export { getStaticProps } from "~/pages/HomePage/static";
-// FIX ME: mastermissions currently blocking next.js upgrade since that removes unstable_includeFiles
-export const config = {
-  unstable_includeFiles: [
-    ".next/cache/atlasacademy/info.json",
-    ".next/cache/atlasacademy/NA/nice_master_mission.json"
-  ]
-};
 
 export default function HomePage({
   special,
