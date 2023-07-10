@@ -2,7 +2,7 @@ import type { GetStaticPaths, GetStaticProps } from "next";
 import type { ParsedUrlQuery } from "querystring";
 import { createItemRecord } from "~/static/data/items";
 import { getBundledTickets } from "~/static/exchangeTickets";
-import type { BundledItem, BundledExchangeTicket } from "~/items/types";
+import type { BundledExchangeTicket, BundledItem } from "~/items/types";
 import { getTicketsYears } from "../getTicketsYears";
 import { getTicketYear } from "../getTicketYear";
 
