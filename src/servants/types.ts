@@ -19,7 +19,7 @@ export const enum ServantCard {
   EXTRA
 }
 
-export type NPType = Exclude<ServantCard, ServantCard.EXTRA>;
+export type NoblePhantasmType = Exclude<ServantCard, ServantCard.EXTRA>;
 
 export interface BundledServant {
   name: string;
@@ -39,9 +39,9 @@ export interface BundledSkill {
   na?: true;
 }
 
-export interface BundledNP {
+export interface BundledNoblePhantasm {
   name: string;
-  type: NPType;
+  type: NoblePhantasmType;
   border: SkillBorder;
   na?: true;
 }

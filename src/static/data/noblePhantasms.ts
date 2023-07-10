@@ -1,13 +1,15 @@
 import path from "path";
 import { Log } from "~/utils/log";
-import type { BundledNP } from "~/servants/types";
+import type { BundledNoblePhantasm } from "~/servants/types";
 import { BundleFile } from "../Bundle";
 
 const filePath = path.join(
   process.cwd(),
   "assets/static/data/noble_phantasms.json"
 );
-export const NoblePhantasmsFile = new BundleFile<PartialDataMap<BundledNP>>({
+export const NoblePhantasmsFile = new BundleFile<
+  PartialDataMap<BundledNoblePhantasm>
+>({
   name: "Noble Phantasms",
   filePath
 });
@@ -43,7 +45,7 @@ export async function getNoblePhantasm(id: number) {
  * @throws if id was not found
  */
 export async function createNoblePhantasmRecord(ids: number[] | Set<number>) {
-  const record: DataMap<BundledNP> = {};
+  const record: DataMap<BundledNoblePhantasm> = {};
   const noblePhantasms = await getNoblePhantasmsFull();
 
   for (const id of ids) {

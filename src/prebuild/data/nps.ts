@@ -6,7 +6,7 @@ import { NoblePhantasmsFile } from "~/static/data/noblePhantasms";
 import { findEoRNPName } from "~/upgrades/findEoRNPName";
 import { getUpgradeLevel } from "~/upgrades/getUpgradeLevel";
 import { Log } from "~/utils/log";
-import type { BundledNP } from "~/servants/types";
+import type { BundledNoblePhantasm } from "~/servants/types";
 import { DataBundler } from "../utils/dataBundlers";
 
 export const NoblePhantasmsBundle = new DataBundler({
@@ -37,7 +37,7 @@ export const NoblePhantasmsBundle = new DataBundler({
       : findEoRNPName(noblePhantasm, owner);
     const upgradeLevel = getUpgradeLevel(owner, noblePhantasm);
 
-    const data: BundledNP = {
+    const data: BundledNoblePhantasm = {
       name,
       type: getNPType(noblePhantasm),
       border: mapUpgradeLevelToSkillBorder(upgradeLevel)
