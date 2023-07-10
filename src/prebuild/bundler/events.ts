@@ -44,8 +44,8 @@ const EventsBundler = new DirectoryBundler({
 
       // browse times for later times
       fileParsed.times?.forEach(time => {
-        // FIXME: doesn't handle times with no end date
-        const ends = normalizeDate(time.date)[1];
+        const date = normalizeDate(time.date);
+        const ends = Math.max.apply(null, date);
         if (ends > hideAt) hideAt = ends;
       });
 
