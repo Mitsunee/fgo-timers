@@ -1,7 +1,7 @@
 import spacetime from "spacetime";
+import { getBundledShops } from "~/static/shops";
 import { nextMonthlyOccurence } from "~/time/nextMonthlyOccurence";
-import { getBundledShops } from "~/utils/getBundles";
-import type { BundledShop } from "~/schema/ShopSchema";
+import type { BundledShop } from "~/shops/types";
 
 type PickedMonthlyInventory = Pick<
   NonNullable<BundledShop["monthly"]>[number],

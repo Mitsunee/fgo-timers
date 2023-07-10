@@ -1,7 +1,7 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
 import { serverApi } from "~/server/api/root";
 import type { BundledEvent } from "~/events/types";
-import type { BundledNP, BundledSkill } from "~/servants/types";
+import type { BundledNoblePhantasm, BundledSkill } from "~/servants/types";
 import type { BundledQuest, BundledUpgrade } from "~/upgrades/types";
 import { getEventProps, NOT_FOUND } from "./getEventProps";
 import type { EventPageProps, PageContext, StaticPath } from "./types";
@@ -15,7 +15,7 @@ export interface EventUpgradesPageProps
   upgrades: BundledUpgrade[];
   quests: Record<number, BundledQuest>;
   skills: Record<number, BundledSkill>;
-  nps: Record<number, BundledNP>;
+  nps: Record<number, BundledNoblePhantasm>;
 }
 
 function hasUpgrades(event: BundledEvent): event is EventWithUpgrades {

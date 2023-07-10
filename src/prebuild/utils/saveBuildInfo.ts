@@ -1,9 +1,10 @@
-import { join } from "path";
-import { writeFile } from "@foxkit/node-util/fs";
+import path from "path";
+import { BuildInfoFile } from "~/static/bundleInfo";
 import { Log } from "~/utils/log";
-import type { AtlasCacheInfo } from "~/atlas-api/validation";
+import type { ApiCacheInfo } from "~/atlas-api/cache/info";
+import type { BuildInfo } from "~/static/bundleInfo";
 
-export function makeBuildVer(cacheInfo: AtlasCacheInfo): string {
+export function makeBuildVer(cacheInfo: ApiCacheInfo): string {
   const JP = cacheInfo.JP.toString(36);
   const NA = cacheInfo.NA.toString(36);
   let matching = 0;
@@ -21,12 +22,20 @@ export function makeBuildVer(cacheInfo: AtlasCacheInfo): string {
   )}`;
 }
 
-export async function saveBuildInfo(cacheInfo: AtlasCacheInfo) {
+export async function saveBuildInfo(cacheInfo: ApiCacheInfo) {
   const buildInfo: BuildInfo = {
     date: Math.floor(Date.now() / 1000),
     version: makeBuildVer(cacheInfo)
   };
-  writeFile(join("assets", "static", "info.json"), buildInfo);
-  Log.ready("Saved build info");
+  const res = await BuildInfoFile.writeBundle(buildInfo);
+  if (!res.success) {
+    Log.throw(`Failed to write bundle info:`, res.error);
+  }
+
+  Log.ready(
+    `Saved build info ${Log.styleParent(
+      path.relative(process.cwd(), BuildInfoFile.filePath)
+    )}`
+  );
   return buildInfo;
 }

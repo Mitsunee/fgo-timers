@@ -1,57 +1,48 @@
 import { join } from "path";
-import { List } from "@foxkit/util/object";
-import { atlasCache } from "~/atlas-api/cache";
+import { getBasicCraftEssence } from "~/atlas-api/cache/data/basicCraftEssence";
 import { shortenAtlasUrl } from "~/atlas-api/urls";
+import { getAvailabilityMap } from "~/schema/AvailabilityMap";
 import { mapServantRarityToBorder } from "~/servants/borders";
-import { getAvailabilityMap } from "~/utils/availabilityMaps";
+import { CraftEssencesFile } from "~/static/data/craftEssences";
 import { Log } from "~/utils/log";
-import type { BundledCE } from "~/items/types";
-import type { DataBundler } from "../utils/dataBundlers";
+import type { BundledCraftEssence } from "~/items/types";
+import type { AvailabilityMatcher } from "~/schema/AvailabilityMap";
+import { DataBundler } from "../utils/dataBundlers";
 
-const avMapPath = join("assets", "data", "ces", "availability.yml");
+const avMapPath = join(process.cwd(), "assets/data/ces/availability.yml");
+let availabilityMap: AvailabilityMatcher;
 
-export const bundleCEsData: DataBundler<BundledCE> = async ids => {
-  const [basicCE, basicCENA, availabilityMap] = await Promise.all([
-    atlasCache.JP.getBasicCE(),
-    atlasCache.NA.getBasicCE(),
-    getAvailabilityMap(avMapPath)
-  ]);
+export const CraftEssencesBundle = new DataBundler({
+  file: CraftEssencesFile,
+  transform: async id => {
+    availabilityMap ??= await getAvailabilityMap(avMapPath);
+    const [craftEssenceJP, craftEssenceNA] = await Promise.all([
+      getBasicCraftEssence(id, "JP"),
+      getBasicCraftEssence(id, "NA")
+    ]);
 
-  if (!availabilityMap) {
-    Log.error(`Could not find availability map at '${avMapPath}'`);
-    return false;
-  }
+    // we need to handle NA-only CEs in this one
+    const craftEssence = craftEssenceJP || craftEssenceNA;
 
-  const ceQueue = List.fromArray([...ids]); // to be processed
-  const res = new Map<number, BundledCE>(); // result of processing
-
-  while (ceQueue.length > 0) {
-    const ceId = ceQueue.shift()!;
-    const ce = basicCE.find(ce => ce.id == ceId);
-    if (!ce) {
-      Log.error(`Could not find ce id ${ceId}`);
-      return false;
+    if (!craftEssence) {
+      Log.error(`Could not find craft essence with id ${id}`);
+      return;
     }
 
-    const ceNA = basicCENA.find(ceNA => ceNA.id == ceId);
-    const availability = availabilityMap.match(ceId);
-    const data: BundledCE = {
-      name: ceNA?.name || ce.name,
-      icon: shortenAtlasUrl(ce.face),
-      border: mapServantRarityToBorder(ce.rarity),
-      rarity: ce.rarity
+    const availability = availabilityMap.match(id);
+    const data: BundledCraftEssence = {
+      name: craftEssenceNA?.name || craftEssence.name,
+      icon: shortenAtlasUrl(craftEssence.face),
+      border: mapServantRarityToBorder(craftEssence.rarity),
+      rarity: craftEssence.rarity
     };
 
-    if (ceNA) data.na = true;
+    if (craftEssenceNA) data.na = true;
     if (availability) data.availability = availability;
 
-    res.set(ceId, data);
+    return data;
   }
+});
 
-  Log.info(`Mapped data for ${res.size} CEs`);
-  return {
-    name: "Craft Essences",
-    path: "ces.json",
-    data: res
-  };
-};
+export const bundleCEsData =
+  CraftEssencesBundle.processBundle.bind(CraftEssencesBundle);

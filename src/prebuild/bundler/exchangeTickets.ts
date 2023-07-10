@@ -1,11 +1,11 @@
 import { ItemType } from "@atlasacademy/api-connector/dist/Schema/Item.js";
 import spacetime from "spacetime";
-import { atlasCache } from "~/atlas-api/cache";
+import { getNiceItemsFull } from "~/atlas-api/cache/data/niceItem";
+import { LoginTicketsFile } from "~/static/exchangeTickets";
 import { msToSeconds } from "~/time/msToSeconds";
 import { Global } from "~/types/enum";
-import { Log } from "~/utils/log";
-import type { BundledLoginTicket } from "~/items/types";
-import type { PrebuildBundler } from "../utils/bundlers";
+import type { BundledExchangeTicket } from "~/items/types";
+import { PrebuildBundler } from "../utils/bundlers";
 
 const ticketNameReg = /Exchange Ticket \((?<month>[A-Z]{3}) (?<year>\d{4})\)/;
 // prettier-ignore
@@ -49,55 +49,55 @@ function getTicketDatesFromName(name: string): [number, number] | false {
   return false;
 }
 
-export const bundleExchangeTickets: PrebuildBundler<
-  BundledLoginTicket[]
-> = async () => {
-  const [niceItem, niceItemNA] = await Promise.all([
-    atlasCache.JP.getNiceItem(),
-    atlasCache.NA.getNiceItem()
-  ]);
-  const items = new Set<number>();
-  const tickets = new Array<BundledLoginTicket>();
-  let i = 9999;
-  let item: ReturnType<(typeof niceItem)["find"]>;
+const ExchangeTicketsBundler = new PrebuildBundler({
+  name: "Exchange Tickets",
+  outputFile: LoginTicketsFile,
+  bundle: async () => {
+    const [niceItem, niceItemNA] = await Promise.all([
+      getNiceItemsFull(),
+      getNiceItemsFull("NA")
+    ]);
+    const items = new Set<number>();
+    const tickets = new Array<BundledExchangeTicket>();
+    let i = 9999;
+    let item: ReturnType<(typeof niceItem)["find"]>;
 
-  while ((i++, (item = niceItem.find(item => item.id == i)))) {
-    if (item.type !== ItemType.ITEM_SELECT || item.itemSelects.length < 1) {
-      break;
+    while ((i++, (item = niceItem.find(item => item.id == i)))) {
+      if (item.type !== ItemType.ITEM_SELECT || item.itemSelects.length < 1) {
+        break;
+      }
+      const dates = getTicketDatesFromName(item.name);
+      if (!dates) break;
+      const [start, next] = dates;
+      const name = `Exchange Ticket (${spacetime(start * 1000, Global.UTC_TZ)
+        .format("{month-short} {year}")
+        .toUpperCase()})`;
+      const itemNA = niceItemNA.find(item => item.id == i);
+      const ticketItems = (itemNA || item).itemSelects.map(
+        select => select.gifts[0].objectId
+      );
+
+      const ticket: BundledExchangeTicket = {
+        name,
+        start,
+        next,
+        items: ticketItems
+      };
+
+      // check for NA ticket
+      if (itemNA) ticket.na = true;
+
+      // add items to set
+      ticketItems.forEach(id => items.add(id));
+
+      // add to data collection
+      tickets.push(ticket);
     }
-    const dates = getTicketDatesFromName(item.name);
-    if (!dates) break;
-    const [start, next] = dates;
-    const name = `Exchange Ticket (${spacetime(start * 1000, Global.UTC_TZ)
-      .format("{month-short} {year}")
-      .toUpperCase()})`;
-    const itemNA = niceItemNA.find(item => item.id == i);
-    const ticketItems = (itemNA || item).itemSelects.map(
-      select => select.gifts[0].objectId
-    );
 
-    const ticket: BundledLoginTicket = {
-      name,
-      start,
-      next,
-      items: ticketItems
-    };
-
-    // check for NA ticket
-    if (itemNA) ticket.na = true;
-
-    // add items to set
-    ticketItems.forEach(id => items.add(id));
-
-    // add to data collection
-    tickets.push(ticket);
+    return { data: tickets, size: tickets.length, ids: { items } };
   }
+});
 
-  Log.info(`Mapped data for ${tickets.length} Exchange Tickets`);
-  return {
-    name: "Exchange Tickets",
-    path: "login_tickets.json",
-    data: tickets,
-    items
-  };
-};
+export const bundleExchangeTickets = ExchangeTicketsBundler.processBundle.bind(
+  ExchangeTicketsBundler
+);

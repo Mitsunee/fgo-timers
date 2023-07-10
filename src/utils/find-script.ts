@@ -8,10 +8,14 @@ import { dedent } from "@foxkit/util/dedent";
 import { Searcher } from "fast-fuzzy";
 import picocolors from "picocolors";
 import type { MatchData } from "fast-fuzzy";
-import { atlasCacheJP } from "~/atlas-api/cache";
-import { prepareCache } from "~/atlas-api/prepare";
+import { prepareCache } from "~/atlas-api/cache/cache";
+import { getBasicCommandCodesFull } from "~/atlas-api/cache/data/basicCommandCode";
+import { getBasicCraftEssencesFull } from "~/atlas-api/cache/data/basicCraftEssence";
+import { getBasicMysticCodesFull } from "~/atlas-api/cache/data/basicMysticCode";
+import { getNiceItemsFull } from "~/atlas-api/cache/data/niceItem";
+import { getNiceServantsFull } from "~/atlas-api/cache/data/niceServant";
+import { getCustomItems } from "~/static/customItems";
 import type { BundledItem } from "~/items/types";
-import { getCustomItems } from "./getBundles";
 import { Log } from "./log";
 
 const rl = readline.createInterface({
@@ -94,9 +98,12 @@ const menuFindServant: MenuFn = (() => {
   let searcher: Searcher<Servant, SearcherOpts<Servant>>;
 
   return async function menuFindServant() {
-    cache ??= await atlasCacheJP.getNiceServant();
+    cache ??= await getNiceServantsFull();
     searcher ??= new Searcher(cache, {
-      keySelector: candidate => candidate.name,
+      keySelector: candidate => [
+        candidate.name,
+        ...Object.values(candidate.ascensionAdd.overWriteServantName.ascension)
+      ],
       returnMatchData: true,
       threshold: 0.7
     });
@@ -122,7 +129,7 @@ const menuFindCraftEssence: MenuFn = (() => {
   let searcher: Searcher<CraftEssenceBasic, SearcherOpts<CraftEssenceBasic>>;
 
   return async function menuFindCraftEssence() {
-    cache ??= await atlasCacheJP.getBasicCE();
+    cache ??= await getBasicCraftEssencesFull();
     searcher = new Searcher(cache, {
       keySelector: candidate => candidate.name,
       returnMatchData: true,
@@ -148,7 +155,7 @@ const menuFindItem: MenuFn = (() => {
   let searcher: Searcher<Item, SearcherOpts<Item>>;
 
   return async function menuFindItem() {
-    cache ??= await atlasCacheJP.getNiceItem();
+    cache ??= await getNiceItemsFull();
     searcher ??= new Searcher(cache, {
       keySelector: candidate => candidate.name,
       returnMatchData: true,
@@ -213,7 +220,7 @@ const menuFindCommandCode: MenuFn = (() => {
   let searcher: Searcher<CommandCodeBasic, SearcherOpts<CommandCodeBasic>>;
 
   return async function menuFindCommandCode() {
-    cache ??= await atlasCacheJP.getCommandCodes();
+    cache ??= await getBasicCommandCodesFull();
     searcher ??= new Searcher(cache, {
       keySelector: candidate => candidate.name,
       returnMatchData: true,
@@ -239,7 +246,7 @@ const menuFindMysticCode: MenuFn = (() => {
   let searcher: Searcher<MysticCodeBasic, SearcherOpts<MysticCodeBasic>>;
 
   return async function menuFindMysticCode() {
-    cache ??= await atlasCacheJP.getMysticCodes();
+    cache ??= await getBasicMysticCodesFull();
     searcher ??= new Searcher(cache, {
       keySelector: candidate => candidate.name,
       returnMatchData: true,

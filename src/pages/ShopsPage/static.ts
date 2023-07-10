@@ -1,19 +1,15 @@
 import { pickByKey } from "@foxkit/util/object";
 import type { GetStaticProps, InferGetStaticPropsType } from "next";
-import { getBundledItemMap, getBundledShops } from "~/utils/getBundles";
+import { createItemRecord } from "~/static/data/items";
+import { getBundledShops } from "~/static/shops";
 import { Log } from "~/utils/log";
-import type { BundledShop } from "~/schema/ShopSchema";
+import type { BundledShop } from "~/shops/types";
 
 export const getStaticProps = async function () {
-  const [itemMap, shops] = await Promise.all([
-    getBundledItemMap(),
-    getBundledShops()
+  const [shops, items] = await Promise.all([
+    getBundledShops(),
+    createItemRecord(new Set<number>([3, 18, 46, 80059]))
   ]);
-  const items: typeof itemMap = {};
-
-  [3, 18, 46, 80059].forEach(id => {
-    items[id] = itemMap[id];
-  });
 
   const mpShop = shops.find(
     shop => shop.slug == "mana-prism" && shop.monthly && shop.monthly.length > 0
@@ -23,13 +19,11 @@ export const getStaticProps = async function () {
   ) as NonNullableKey<BundledShop, "monthly">;
 
   if (!mpShop) {
-    Log.error("Could not find MP Shop data");
-    throw new Error("Could not find MP Shop data");
+    Log.throw("Could not find MP Shop data");
   }
 
   if (!rpShop) {
-    Log.error("Could not find RP Shop data");
-    throw new Error("Could not find RP Shop data");
+    Log.throw("Could not find RP Shop data");
   }
 
   const resets = {

@@ -5,6 +5,7 @@
   "packageMananger": "pnpm@^7.30.3",
   "scripts": {
     "prepare": "simple-git-hooks && node src/svgo/build.mjs",
+    "prepare:cache": "tsx src/atlas-api/prepare-script.ts",
     "build:svgo": "node src/svgo/build.mjs --force",
     "check-event": "tsx src/events/check-event-script.ts",
     "find": "tsx src/utils/find-script.ts",
@@ -16,9 +17,9 @@
     "lint": "eslint .",
     "format": "prettier -w .",
     "test:types": "tsc --noEmit",
-    "test:code": "tsx src/atlas-api/prepare-jest.ts && jest --verbose",
+    "test:code": "jest --verbose",
     "test:data": "tsx src/schema/check-script.ts",
-    "test": "pnpm test:types && pnpm test:code && pnpm test:data --all"
+    "test": "pnpm test:types && pnpm prepare:cache && pnpm test:code && pnpm test:data --all"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm nano-staged"
@@ -40,7 +41,7 @@
     "@atlasacademy/api-descriptor": "^2.0.8",
     "@babel/core": "^7.22.5",
     "@csstools/postcss-global-data": "^1.0.3",
-    "@foxkit/node-util": "^0.4.0",
+    "@foxkit/node-util": "^0.5.4",
     "@foxkit/util": "^0.6.2",
     "@nanostores/persistent": "^0.9.0",
     "@nanostores/react": "0.7.1",

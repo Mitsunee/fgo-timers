@@ -1,92 +1,39 @@
-import { readdir } from "fs/promises";
-import path from "path";
-import { readFileYaml } from "@foxkit/node-util/fs-yaml";
-import { getFileName } from "@foxkit/node-util/path";
-import type { z } from "zod";
-import { ShopSchema } from "~/schema/ShopSchema";
-import { parseSchema } from "~/schema/verifySchema";
+import { getFileName } from "@foxkit/node-util/fs";
+import { ShopFile } from "~/schema/ShopSchema";
+import { shopsCollectIDs } from "~/shops/collectIDs";
+import { ShopsFile } from "~/static/shops";
 import { Log } from "~/utils/log";
-import type { AnyShopInventory, BundledShop } from "~/schema/ShopSchema";
-import type { PrebuildBundler } from "../utils/bundlers";
+import type { BundledShop } from "~/shops/types";
+import { DirectoryBundler } from "../utils/bundlers";
 
-const shopsDir = path.join(process.cwd(), "assets/data/shops");
-
-export const bundleShops: PrebuildBundler<BundledShop[]> = async function () {
-  const shops = new Array<BundledShop>();
-  const servants = new Set<number>();
-  const ces = new Set<number>();
-  const items = new Set<number>();
-  const ccs = new Set<number>();
-  const mcs = new Set<number>();
-  const costumes = new Set<number>();
-  const dir = await readdir(shopsDir);
-  const files = dir.filter(file => file.endsWith(".yml"));
-
-  // add Costume Key for ShopsPage
-  items.add(80059);
-
-  function collectIDs(inventory: AnyShopInventory) {
-    items.add(inventory.currency);
-    inventory.items.forEach(item => {
-      switch (item.type) {
-        case "servant":
-          servants.add(item.id);
-          break;
-        case "ce":
-          ces.add(item.id);
-          break;
-        case "item":
-          items.add(item.id);
-          break;
-        case "cc":
-          ccs.add(item.id);
-          break;
-        case "mc":
-          mcs.add(item.id);
-          break;
-        case "costume":
-          costumes.add(item.id);
-          break;
+const ShopsBundler = new DirectoryBundler({
+  name: "Shops",
+  inputFile: ShopFile,
+  outputFile: ShopsFile,
+  bundle: async files => {
+    let success = true;
+    const entries = Object.entries(files);
+    const shops = entries.flatMap<BundledShop>(([filePath, res]) => {
+      const fileName = getFileName(filePath, true);
+      const slug = getFileName(filePath, false);
+      if (!res?.success) {
+        Log.warn(`Could not parse file '${fileName}'. Skipping...`);
+        success = false;
+        return [];
       }
+
+      const fileParsed = res.data;
+      const shop = Object.assign({}, fileParsed, { slug });
+      return shop;
     });
+
+    if (!success) throw new Error("Could not parse all shop files");
+
+    const ids = shopsCollectIDs(shops);
+    ids.items.add(80059); // NOTE: always include Costume Key for ShopsPage
+
+    return { data: shops, size: shops.length, ids };
   }
+});
 
-  for (const fileName of files) {
-    const filePath = path.join(shopsDir, fileName);
-    const slug = getFileName(fileName, false);
-    const fileContent = await readFileYaml<z.input<typeof ShopSchema>>(
-      filePath
-    );
-    if (!fileContent) {
-      Log.warn(`Could not parse file '${fileName}'. Skipping...`);
-      continue;
-    }
-
-    const fileParsed = parseSchema(fileContent, ShopSchema, filePath);
-    if (!fileParsed) return false;
-
-    fileParsed.inventory.forEach(collectIDs);
-    fileParsed.monthly?.forEach(collectIDs);
-    fileParsed.limited?.forEach(collectIDs);
-
-    const shop: BundledShop = {
-      slug,
-      ...fileParsed
-    };
-
-    shops.push(shop);
-  }
-
-  Log.info(`Mapped data for ${shops.length} Shops`);
-  return {
-    name: "Shops",
-    path: "shops.json",
-    data: shops,
-    servants,
-    ces,
-    items,
-    ccs,
-    mcs,
-    costumes
-  };
-};
+export const bundleShops = ShopsBundler.processBundle.bind(ShopsBundler);

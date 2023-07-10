@@ -1,13 +1,13 @@
 import type { Quest } from "@atlasacademy/api-connector/dist/Schema/Quest";
-import { getQuestData } from "~/upgrades/getQuestData";
+import { getNiceQuest } from "~/atlas-api/cache/data/niceQuest";
 import { parseUnlockCond } from "~/upgrades/parseUnlockCond";
 
 let quests: Quest[];
 
 beforeAll(async () => {
   const res = await Promise.all([
-    getQuestData(91103002, "NA"), // Interlude 'I Think of Ears, Therefore I Have Ears' (has all props)
-    getQuestData(94014411, "NA") // Rank Up Quest 'Mysterious Heroine X' (has no bond or quest requirement)
+    getNiceQuest(91103002, "NA"), // Interlude 'I Think of Ears, Therefore I Have Ears' (has all props)
+    getNiceQuest(94014411, "NA") // Rank Up Quest 'Mysterious Heroine X' (has no bond or quest requirement)
   ]);
   if (res.some(quest => !quest)) throw new Error("Invalid test data");
   quests = res as Quest[];

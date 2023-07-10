@@ -1,11 +1,12 @@
-import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
-import { atlasCache } from "~/atlas-api/cache";
+import type { ServantWithLore } from "@atlasacademy/api-connector/dist/Schema/Servant";
+import { getNiceServantsFull } from "~/atlas-api/cache/data/niceServant";
+import { Log } from "~/utils/log";
 import { nameServantClass } from "./classNames";
 
 const baseNameCache = new Map<number, string>();
 
-let niceServant: Servant[];
-let niceServantNA: Servant[];
+let niceServant: ServantWithLore[];
+let niceServantNA: ServantWithLore[];
 
 function stripClassSuffix(name: string): string {
   return name
@@ -26,17 +27,12 @@ function stripClassSuffix(name: string): string {
  * @param servant Servant object from API
  * @returns string
  */
-function getBaseName(servant: Servant): string {
+function getBaseName(servant: ServantWithLore): string {
   let cached = baseNameCache.get(servant.id);
 
   if (!cached) {
-    const servantNA = niceServantNA?.find(
-      servantNA => servantNA.id == servant.id
-    );
     cached = stripClassSuffix(
-      servantNA?.ascensionAdd?.overWriteServantName?.ascension?.["0"] ||
-        servantNA?.name ||
-        servant.ascensionAdd?.overWriteServantName?.ascension?.["0"] ||
+      servant.ascensionAdd?.overWriteServantName?.ascension?.["0"] ||
         servant.name
     );
     baseNameCache.set(servant.id, cached);
@@ -57,11 +53,16 @@ function getBaseName(servant: Servant): string {
  * @returns string
  */
 export async function nameServant(servantId: number): Promise<string> {
-  niceServant ??= await atlasCache.JP.getNiceServant();
-  niceServantNA ??= await atlasCache.NA.getNiceServant();
+  niceServant ??= await getNiceServantsFull("JP");
+  niceServantNA ??= await getNiceServantsFull("NA");
 
-  const servant = niceServant.find(servant => servant.id == servantId)!;
-  const baseName = getBaseName(servant);
+  const servant = niceServant.find(servant => servant.id == servantId);
+  if (!servant) {
+    Log.throw(`Could not find servant with id ${servantId}`);
+  }
+  const servantNA = niceServantNA.find(servantNA => servantNA.id == servantId);
+
+  const baseName = getBaseName(servantNA || servant);
   let overrideName: string | undefined;
 
   if (

@@ -1,5 +1,5 @@
 import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
-import { atlasCacheNA } from "~/atlas-api/cache";
+import { getNiceServantsFull } from "~/atlas-api/cache/data/niceServant";
 import {
   getRelatedNP,
   getRelatedServant,
@@ -17,7 +17,7 @@ const quests: number[] = [
 ];
 
 beforeAll(async () => {
-  const niceServant = await atlasCacheNA.getNiceServant();
+  const niceServant = await getNiceServantsFull("NA");
   const res = [
     niceServant.find(servant => servant.id === 103000), // 0 - Suzuka Gozen
     niceServant.find(servant => servant.id == 200100), // 1 - Emiya Archer - tested for typechanged NP

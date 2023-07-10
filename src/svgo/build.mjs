@@ -1,7 +1,6 @@
 import { readdir, rm } from "fs/promises";
-import { join } from "path";
-import { dirExists } from "@foxkit/node-util/fs";
-import { resolvePath, toRelativePath } from "@foxkit/node-util/path";
+import path from "path";
+import { isDirectory } from "@foxkit/node-util/fs";
 import { buildSVGComponent } from "./buildComponent.mjs";
 import { buildSVGComponentIndex } from "./buildComponentIndex.mjs";
 import { getComponentName } from "./getComponentName.mjs";
@@ -9,18 +8,22 @@ import { error, ready } from "./log.mjs";
 
 const componentsPath = "src/client/components/icons/";
 
+function toRelativePath(absolutePath) {
+  return path.relative(process.cwd(), absolutePath);
+}
+
 (async function main(flags) {
-  if ((await dirExists(componentsPath)) && !flags.includes("--force")) {
+  if ((await isDirectory(componentsPath)) && !flags.includes("--force")) {
     process.exit(0);
   }
 
-  const path = resolvePath("assets/svg/");
-  const dir = await readdir(path);
+  const dirPath = path.resolve("assets/svg/");
+  const dir = await readdir(dirPath);
   const components = new Set();
   const files = dir
     .filter(file => file.endsWith(".svg") && !file.endsWith("inkscape.svg"))
     .map(file => {
-      const filePath = join(path, file);
+      const filePath = path.join(dirPath, file);
       const componentName = getComponentName(filePath);
       components.add(componentName);
       return { filePath, componentName };
@@ -53,7 +56,7 @@ const componentsPath = "src/client/components/icons/";
   }
 
   try {
-    await rm(resolvePath(componentsPath), {
+    await rm(path.resolve(componentsPath), {
       recursive: true,
       force: true
     });

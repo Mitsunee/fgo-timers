@@ -1,11 +1,17 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
 import type { ParsedUrlQuery } from "querystring";
-import { getBuildInfo } from "~/utils/getBuildInfo";
-import { getBundledShops } from "~/utils/getBundles";
+import { shopCollectIDs } from "~/shops/collectIDs";
+import { getBuildInfo } from "~/static/bundleInfo";
+import { createCommandCodeRecord } from "~/static/data/commandCodes";
+import { createCostumeRecord } from "~/static/data/costumes";
+import { createCraftEssenceRecord } from "~/static/data/craftEssences";
+import { createItemRecord } from "~/static/data/items";
+import { createMysticCodeRecord } from "~/static/data/mysticCodes";
+import { createServantRecord } from "~/static/data/servants";
+import { getBundledShops } from "~/static/shops";
 import { Log } from "~/utils/log";
 import type { WithMaps } from "~/client/contexts";
-import type { BundledShop } from "~/schema/ShopSchema";
-import { collectDataMaps } from "./collectDataMaps";
+import type { BundledShop } from "~/shops/types";
 
 export interface PageContext extends ParsedUrlQuery {
   slug: string;
@@ -46,9 +52,17 @@ export const getStaticProps: GetStaticProps<
   }
 
   // get data maps
-  const maps = await collectDataMaps(shop);
+  const ids = shopCollectIDs(shop);
+  const [servants, ces, items, ccs, mcs, costumes] = await Promise.all([
+    createServantRecord(ids.servants),
+    createCraftEssenceRecord(ids.ces),
+    createItemRecord(ids.items),
+    createCommandCodeRecord(ids.ccs),
+    createMysticCodeRecord(ids.mcs),
+    createCostumeRecord(ids.costumes)
+  ]);
 
   return {
-    props: { shop, ...maps }
+    props: { shop, servants, ces, items, ccs, mcs, costumes }
   };
 };

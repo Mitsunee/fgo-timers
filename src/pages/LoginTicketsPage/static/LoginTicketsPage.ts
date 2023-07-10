@@ -1,16 +1,13 @@
 import spacetime from "spacetime";
 import type { InferGetStaticPropsType } from "next";
+import { createItemRecord } from "~/static/data/items";
+import { getBundledTickets } from "~/static/exchangeTickets";
 import { msToSeconds } from "~/time/msToSeconds";
 import { Global } from "~/types/enum";
-import { getBundledItemMap, getBundledLoginTickets } from "~/utils/getBundles";
 import { Log } from "~/utils/log";
-import type { BundledItem } from "~/items/types";
 
 export async function getStaticProps() {
-  const [tickets, itemMap] = await Promise.all([
-    getBundledLoginTickets(),
-    getBundledItemMap()
-  ]);
+  const tickets = await getBundledTickets();
   const s = spacetime.now(Global.UTC_TZ);
   const now = msToSeconds(s.epoch);
   const years = tickets.reduce(
@@ -34,15 +31,9 @@ export async function getStaticProps() {
 
   const currentTicket = tickets[currentTicketIdx];
   const nextTicket = tickets.find(ticket => ticket.start == currentTicket.next);
-  const items: DataMap<BundledItem> = {};
-  const itemsSeen = new Set<number>([
-    ...currentTicket.items,
-    ...(nextTicket?.items || [])
-  ]);
-
-  for (const itemId of itemsSeen) {
-    items[itemId] ||= itemMap[itemId];
-  }
+  const items = await createItemRecord(
+    new Set<number>([...currentTicket.items, ...(nextTicket?.items || [])])
+  );
 
   const props = {
     currentTicket,

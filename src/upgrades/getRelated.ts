@@ -1,14 +1,13 @@
 import type { NoblePhantasm } from "@atlasacademy/api-connector/dist/Schema/NoblePhantasm";
 import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
 import type { Skill } from "@atlasacademy/api-connector/dist/Schema/Skill";
-import { atlasCache } from "~/atlas-api/cache";
-import type { SupportedRegion } from "~/atlas-api/api";
+import { getNiceServantsFull } from "~/atlas-api/cache/data/niceServant";
 
 export async function getRelatedServant(
   questId: number,
   region: SupportedRegion
 ): Promise<Servant | undefined> {
-  const niceServant = await atlasCache[region].getNiceServant();
+  const niceServant = await getNiceServantsFull(region);
   return niceServant.find(servant => servant.relateQuestIds.includes(questId));
 }
 

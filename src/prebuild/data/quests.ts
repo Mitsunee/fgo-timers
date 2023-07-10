@@ -1,66 +1,26 @@
-import { join } from "path";
-import { readFileYaml } from "@foxkit/node-util/fs-yaml";
-import { List } from "@foxkit/util/object";
-import { QuestOpenOverridesSchema } from "~/schema/QuestOpenOverrides";
-import { parseSchema } from "~/schema/verifySchema";
+import { getNiceQuest } from "~/atlas-api/cache/data/niceQuest";
+import { getQuestOpenOverrides } from "~/schema/QuestOpenOverrides";
+import { QuestsFile } from "~/static/data/quests";
 import { GlobalNums } from "~/types/enum";
-import { getQuestData } from "~/upgrades/getQuestData";
 import { parseQuestType } from "~/upgrades/parseQuestType";
 import { parseUnlockCond } from "~/upgrades/parseUnlockCond";
 import { UpgradeQuestType } from "~/upgrades/types";
 import { Log } from "~/utils/log";
-import type { QuestOpenOverrides } from "~/schema/QuestOpenOverrides";
-import type { BundledQuest, QuestOther, QuestUpgrade } from "~/upgrades/types";
-import type { DataBundler } from "../utils/dataBundlers";
+import type { QuestOther, QuestUpgrade } from "~/upgrades/types";
+import { DataBundler } from "../utils/dataBundlers";
 
-const overridesFilePath = join(
-  "assets",
-  "data",
-  "upgrades",
-  "openTimeOverrides.yml"
-);
-
-async function getOverrides() {
-  const overridesFile = await readFileYaml<QuestOpenOverrides["in"]>(
-    overridesFilePath
-  );
-
-  if (!overridesFile) {
-    Log.error(
-      `Could not find openTimeOverrides.yml ${Log.styleParent(
-        overridesFilePath
-      )}`
-    );
-    return false;
-  }
-
-  const overrides = parseSchema(
-    overridesFile,
-    QuestOpenOverridesSchema,
-    overridesFilePath
-  );
-
-  return overrides ?? false;
-}
-
-export const bundleQuestsData: DataBundler<BundledQuest> = async ids => {
-  const overrides = await getOverrides();
-  if (!overrides) return false;
-
-  const questQueue = List.fromArray([...ids]); // to be processed
-  const knownQuests = new Set<number>([...ids]); // are queued or processed
-  const res = new Map<number, BundledQuest>(); // result of processing
-
-  while (questQueue.length > 0) {
-    const questId: number = questQueue.shift()!;
-    const [quest, questNA] = await Promise.all([
-      getQuestData(questId, "JP"),
-      getQuestData(questId, "NA")
+export const QuestsBundle = new DataBundler({
+  file: QuestsFile,
+  transform: async (id, add) => {
+    const [overrides, quest, questNA] = await Promise.all([
+      getQuestOpenOverrides(),
+      getNiceQuest(id),
+      getNiceQuest(id, "NA")
     ]);
 
     if (!quest) {
-      Log.error(`Could not find quest id ${questId}`);
-      return false;
+      Log.error(`Could not find quest with id ${id}`);
+      return;
     }
 
     const type = parseQuestType(quest);
@@ -85,15 +45,10 @@ export const bundleQuestsData: DataBundler<BundledQuest> = async ids => {
         else if (!override) data.estimate = true;
         if (Object.entries(unlock).length > 0) {
           data.unlock = unlock;
-          unlock.quests?.forEach(unlockQuestId => {
-            if (knownQuests.has(unlockQuestId)) return;
-            questQueue.push(unlockQuestId);
-            knownQuests.add(unlockQuestId);
-          });
+          unlock.quests?.forEach(add);
         }
 
-        res.set(questId, data);
-        break;
+        return data;
       }
       case UpgradeQuestType.OTHER: {
         const name = questNA?.name || quest.name;
@@ -105,16 +60,10 @@ export const bundleQuestsData: DataBundler<BundledQuest> = async ids => {
 
         if (questNA) data.na = true;
 
-        res.set(questId, data);
-        break;
+        return data;
       }
     }
   }
+});
 
-  Log.info(`Mapped data for ${res.size} Quests`);
-  return {
-    name: "Quests",
-    path: "quests.json",
-    data: res
-  };
-};
+export const bundleQuestsData = QuestsBundle.processBundle.bind(QuestsBundle);

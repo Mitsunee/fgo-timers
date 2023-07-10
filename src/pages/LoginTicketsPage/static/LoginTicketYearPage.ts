@@ -1,12 +1,13 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
 import type { ParsedUrlQuery } from "querystring";
-import { getBundledItemMap, getBundledLoginTickets } from "~/utils/getBundles";
-import type { BundledItem, BundledLoginTicket } from "~/items/types";
+import { createItemRecord } from "~/static/data/items";
+import { getBundledTickets } from "~/static/exchangeTickets";
+import type { BundledExchangeTicket, BundledItem } from "~/items/types";
 import { getTicketsYears } from "../getTicketsYears";
 import { getTicketYear } from "../getTicketYear";
 
 export interface LoginTicketYearPageProps {
-  tickets: BundledLoginTicket[];
+  tickets: BundledExchangeTicket[];
   items: Record<number, BundledItem>;
   prev?: true;
   year: number;
@@ -18,7 +19,7 @@ export interface PageContext extends Partial<ParsedUrlQuery> {
 }
 
 export const getStaticPaths: GetStaticPaths<PageContext> = async () => {
-  const tickets = await getBundledLoginTickets();
+  const tickets = await getBundledTickets();
   const years = getTicketsYears(tickets);
   const paths = years.map(year => ({
     params: { year: year.toString() as `${number}` }
@@ -32,11 +33,8 @@ export const getStaticProps: GetStaticProps<
   PageContext
 > = async ({ params }) => {
   const year = +params!.year;
-  const [tickets, itemMap] = await Promise.all([
-    getBundledLoginTickets(),
-    getBundledItemMap()
-  ]);
-  const thisYearTickets = new Array<BundledLoginTicket>();
+  const tickets = await getBundledTickets();
+  const thisYearTickets = new Array<BundledExchangeTicket>();
   const prev = year - 1;
   let hasPrev = false;
   const next = year + 1;
@@ -55,13 +53,9 @@ export const getStaticProps: GetStaticProps<
   }
 
   // map used items
-  const items: DataMap<BundledItem> = {};
-  const itemsSeen = new Set<number>(
-    thisYearTickets.flatMap(ticket => ticket.items)
+  const items: DataMap<BundledItem> = await createItemRecord(
+    new Set(thisYearTickets.flatMap(ticket => ticket.items))
   );
-  for (const itemId of itemsSeen) {
-    items[itemId] ||= itemMap[itemId];
-  }
 
   // create props object
   const props: LoginTicketYearPageProps = {

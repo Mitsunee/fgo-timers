@@ -1,45 +1,69 @@
-import { readdir } from "fs/promises";
-import { join } from "path";
-import { readFileYaml } from "@foxkit/node-util/fs-yaml";
+import { getFileName } from "@foxkit/node-util/fs";
 import { shortenAtlasUrl } from "~/atlas-api/urls";
-import { mapCustomItemRarityToBorder } from "~/items/types";
-import { CustomItemSchema } from "~/schema/CustomItem";
-import { verifySchema } from "~/schema/verifySchema";
+import { CustomItemFile } from "~/schema/CustomItem";
+import { CustomItemsFile } from "~/static/customItems";
+import { Borders } from "~/types/borders";
 import { Log } from "~/utils/log";
 import type { BundledItem, CustomItem } from "~/items/types";
-import type { PrebuildBundler } from "../utils/bundlers";
+import { DirectoryBundler } from "../utils/bundlers";
 
-export const bundleCustomItems: PrebuildBundler<
-  PartialDataMap<BundledItem>
-> = async () => {
-  const res = new Map<number, BundledItem>();
-  const dir = await readdir(join(process.cwd(), "assets", "data", "items"));
-  const files = dir.filter(file => file.endsWith(".yml"));
-
-  for (const fileName of files) {
-    const filePath = join("assets", "data", "items", fileName);
-    const items = await readFileYaml<CustomItem>(filePath);
-    if (!items) {
-      Log.warn(`Could not parse file '${fileName}'. Skipping...`);
-      continue;
-    }
-    if (!verifySchema(items, CustomItemSchema, filePath)) return false;
-
-    for (const item of items) {
-      const data: BundledItem = {
-        name: item.name,
-        icon: shortenAtlasUrl(item.icon),
-        border: mapCustomItemRarityToBorder(item.rarity),
-        na: true
-      };
-      res.set(item.id, data);
-    }
+/**
+ * Maps rarity as string to Borders enum value
+ * @param rarity rarity as string
+ * @returns Borders enum value
+ */
+export function mapCustomItemRarityToBorder(
+  rarity: CustomItem[number]["rarity"]
+): BundledItem["border"] {
+  switch (rarity) {
+    case "bronze":
+      return Borders.BRONZE;
+    case "silver":
+      return Borders.SILVER;
+    case "gold":
+      return Borders.GOLD;
+    default:
+      return Borders.BLUE;
   }
+}
 
-  Log.info(`Built data for ${res.size} Custom items`);
-  return {
-    data: Object.fromEntries(res.entries()),
-    name: "Custom Items",
-    path: "custom_items.json"
-  };
-};
+const CustomItemsBundler = new DirectoryBundler({
+  name: "Custom Items",
+  inputFile: CustomItemFile,
+  outputFile: CustomItemsFile,
+  bundle: async files => {
+    let success = true;
+    const entries = Object.entries(files);
+    const items: DataMap<BundledItem> = {};
+    let itemCount = 0;
+
+    for (const [filePath, res] of entries) {
+      const fileName = getFileName(filePath, true);
+      if (!res?.success) {
+        Log.warn(`Could not parse file '${fileName}'. Skipping...`);
+        success = false;
+        continue;
+      }
+
+      const fileParsed = res.data;
+
+      for (const customItem of fileParsed) {
+        const data: BundledItem = {
+          name: customItem.name,
+          icon: shortenAtlasUrl(customItem.icon),
+          border: mapCustomItemRarityToBorder(customItem.rarity),
+          na: true
+        };
+        items[customItem.id] = data;
+        itemCount++;
+      }
+    }
+
+    if (!success) throw new Error("Could not parse all custom item files");
+
+    return { data: items, size: itemCount, ids: {} };
+  }
+});
+
+export const bundleCustomItems =
+  CustomItemsBundler.processBundle.bind(CustomItemsBundler);

@@ -1,13 +1,13 @@
 import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
-import { atlasCache } from "~/atlas-api/cache";
+import { getNiceServantsFull } from "~/atlas-api/cache/data/niceServant";
 import { getPreviousNP, getPreviousSkill } from "~/upgrades/getPrevious";
 
 let servants: Servant[];
 
 beforeAll(async () => {
   const [niceServant, niceServantNA] = await Promise.all([
-    atlasCache.JP.getNiceServant(),
-    atlasCache.NA.getNiceServant()
+    getNiceServantsFull("JP"),
+    getNiceServantsFull("NA")
   ]);
   const res = [
     niceServantNA.find(servant => servant.id == 103000), // 0 - Suzuka Gozen - standard servant

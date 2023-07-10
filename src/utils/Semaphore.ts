@@ -1,13 +1,13 @@
 import { List } from "@foxkit/util/object";
 
 type NullableNode<T> = ReturnType<List<T>["getNode"]> | null | undefined;
-type Callback<T, R = any> = (val: T) => Promise<R>;
+type Callback<T, R> = (val: T) => Promise<R>;
 
 export class Semaphore<T, R = any> {
   private callback: Callback<T, R>;
   private size: number;
 
-  constructor(cb: Callback<T>, size: number) {
+  constructor(cb: Callback<T, R>, size: number) {
     this.callback = cb;
     this.size = size;
   }

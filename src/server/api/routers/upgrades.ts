@@ -1,12 +1,11 @@
 import { z } from "zod";
 import { createUpgradeSorter } from "~/pages/UpgradesPage/filters";
-import {
-  getBundledNPMap,
-  getBundledQuestMap,
-  getBundledServantMap,
-  getBundledSkillMap,
-  getBundledUpgrades
-} from "~/utils/getBundles";
+import { createNoblePhantasmRecord } from "~/static/data/noblePhantasms";
+import { createQuestRecord } from "~/static/data/quests";
+import { createServantRecord } from "~/static/data/servants";
+import { createSkillRecord } from "~/static/data/skills";
+import { getBundledUpgrades } from "~/static/upgrades";
+import { addQuestUnlockIds, upgradesCollectIDs } from "~/upgrades/collectIDs";
 import type { WithMaps } from "~/client/contexts";
 import type { BundledUpgrade } from "~/upgrades/types";
 import { createTRPCRouter, publicProcedure } from "../trpc";
@@ -18,42 +17,17 @@ export type ExpandedUpgrades = WithMaps<
 async function expandUpgrades(
   upgradesList: ExpandedUpgrades["upgrades"]
 ): Promise<ExpandedUpgrades> {
-  const [questMap, servantMap, skillMap, npMap] = await Promise.all([
-    getBundledQuestMap(),
-    getBundledServantMap(),
-    getBundledSkillMap(),
-    getBundledNPMap()
+  const ids = upgradesCollectIDs(upgradesList);
+  await addQuestUnlockIds(ids.quests);
+  const [quests, servants, skills, nps] = await Promise.all([
+    createQuestRecord(ids.quests),
+    createServantRecord(ids.servants),
+    createSkillRecord(ids.skills),
+    createNoblePhantasmRecord(ids.nps)
   ]);
-
-  const sorter = createUpgradeSorter(questMap);
+  const sorter = createUpgradeSorter(quests);
   const upgrades = // clone array, don't modify original
     [...upgradesList].sort(sorter);
-  const quests: ExpandedUpgrades["quests"] = {};
-  const servants: ExpandedUpgrades["servants"] = {};
-  const skills: ExpandedUpgrades["skills"] = {};
-  const nps: ExpandedUpgrades["nps"] = {};
-
-  for (const upgrade of upgrades) {
-    // map quest and its unlock requirement quest(s)
-    const quest = (quests[upgrade.quest] ??= questMap[upgrade.quest]);
-    quest.unlock?.quests?.forEach(id => (quests[id] ??= questMap[id]));
-
-    // map servant
-    servants[upgrade.servant] ??= servantMap[upgrade.servant];
-
-    // map upgrade targets
-    if (upgrade.upgrades) {
-      if (upgrade.upgrades.type == "skill") {
-        const { id = 0, newId } = upgrade.upgrades;
-        skills[id] ??= skillMap[id];
-        skills[newId] ??= skillMap[newId];
-      } else {
-        const { id, newId } = upgrade.upgrades;
-        nps[id] ??= npMap[id];
-        nps[newId] ??= npMap[newId];
-      }
-    }
-  }
 
   return { upgrades, quests, servants, skills, nps };
 }

@@ -1,4 +1,6 @@
+import path from "path";
 import { z } from "zod";
+import { ParsedYaml } from "./ParsedYaml";
 import { zBorderOptional } from "./zBorder";
 import { zDurationStrict } from "./zDate";
 
@@ -37,11 +39,6 @@ export const ShopSchema = z.object({
   limited: z.array(zShopInventoryLimited).min(1).optional()
 });
 
-type ParsedShop = z.output<typeof ShopSchema>;
-export interface BundledShop extends ParsedShop {
-  slug: string;
-}
-
 export type AnyShopInventory = z.output<typeof zShopInventory> &
   Partial<z.output<typeof zShopInventoryMonthly>> &
   Partial<z.output<typeof zShopInventoryLimited>>;
@@ -51,3 +48,9 @@ export type ShopItem = z.output<typeof zShopItem>;
 export function checkShopPath(path: string): boolean {
   return /assets\/data\/shop\/[\w-]+\.yml$/.test(path);
 }
+
+export const ShopFile = new ParsedYaml({
+  name: "Shop",
+  schema: ShopSchema,
+  limitPath: path.join(process.cwd(), "assets/data/shops")
+});

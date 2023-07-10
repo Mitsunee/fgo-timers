@@ -1,11 +1,10 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
+import { eventCollectIDs } from "~/events/collectIDs";
 import { serverApi } from "~/server/api/root";
-import {
-  getBundledCCMap,
-  getBundledCEMap,
-  getBundledItemMap,
-  getBundledServantMap
-} from "~/utils/getBundles";
+import { createCommandCodeRecord } from "~/static/data/commandCodes";
+import { createCraftEssenceRecord } from "~/static/data/craftEssences";
+import { createItemRecord } from "~/static/data/items";
+import { createServantRecord } from "~/static/data/servants";
 import { getEventProps, NOT_FOUND } from "./getEventProps";
 import type { EventPageProps, PageContext, StaticPath } from "./types";
 
@@ -25,54 +24,21 @@ export const getStaticProps: GetStaticProps<
   if (!params) return NOT_FOUND;
 
   const { slug } = params;
-  const [servantMap, ceMap, itemMap, ccMap, event] = await Promise.all([
-    getBundledServantMap(),
-    getBundledCEMap(),
-    getBundledItemMap(),
-    getBundledCCMap(),
-    getEventProps(slug)
-  ]);
-
+  const event = await getEventProps(slug);
   if (!event) return NOT_FOUND;
 
-  const servants: EventPageProps["servants"] = {};
-  const ces: EventPageProps["ces"] = {};
-  const items: EventPageProps["items"] = {};
-  const ccs: EventPageProps["ccs"] = {};
-
-  // browse event times for related entities
-  event.times?.forEach(time => {
-    time.servants?.forEach(id => {
-      servants[id] = servantMap[id];
-    });
-    time.ces?.forEach(id => {
-      ces[id] = ceMap[id];
-    });
-    time.items?.forEach(id => {
-      items[id] = itemMap[id];
-    });
-    time.ccs?.forEach(id => {
-      ccs[id] = ccMap[id];
-    });
+  const ids = eventCollectIDs(event, {
+    times: true,
+    schedules: true,
+    banners: false
   });
 
-  // browse schedule for related entities
-  event.schedules?.forEach(schedule => {
-    schedule.times.forEach(time => {
-      time.servants?.forEach(id => {
-        servants[id] = servantMap[id];
-      });
-      time.ces?.forEach(id => {
-        ces[id] = ceMap[id];
-      });
-      time.items?.forEach(id => {
-        items[id] = itemMap[id];
-      });
-      time.ccs?.forEach(id => {
-        ccs[id] = ccMap[id];
-      });
-    });
-  });
+  const [servants, ces, items, ccs] = await Promise.all([
+    createServantRecord(ids.servants),
+    createCraftEssenceRecord(ids.ces),
+    createItemRecord(ids.items),
+    createCommandCodeRecord(ids.ccs)
+  ]);
 
   return { props: { event, servants, ces, items, ccs } };
 };

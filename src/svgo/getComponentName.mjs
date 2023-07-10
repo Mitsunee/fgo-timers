@@ -1,4 +1,4 @@
-import { getFileName } from "@foxkit/node-util/path";
+import { getFileName } from "@foxkit/node-util/fs";
 
 export function getComponentName(filePath) {
   return `Icon-${getFileName(filePath, false)}`

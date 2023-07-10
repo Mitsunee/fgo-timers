@@ -1,4 +1,6 @@
-import { prepareCache } from "~/atlas-api/prepare";
+import { rm } from "fs/promises";
+import path from "path";
+import { prepareCache } from "~/atlas-api/cache/cache";
 import { Log } from "~/utils/log";
 import { bundleCustomItems } from "./bundler/customItems";
 import { bundleEvents } from "./bundler/events";
@@ -14,43 +16,51 @@ import { bundleNPsData } from "./data/nps";
 import { bundleQuestsData } from "./data/quests";
 import { bundleServantsData } from "./data/servants";
 import { bundleSkillsData } from "./data/skills";
-import { writeBundle } from "./utils/bundlers";
-import { collectIDs } from "./utils/collectIds";
-import { writeDataBundle } from "./utils/dataBundlers";
+import { mergeIDCollections } from "./utils/collectIds";
 import { saveBuildInfo } from "./utils/saveBuildInfo";
-import type { PrebuildBundlersRes } from "./utils/bundlers";
-import type { DataBundlersRes } from "./utils/dataBundlers";
+import type { PrebuildBundlerResult } from "./utils/bundlers";
+import type { DataBundlerResult } from "./utils/dataBundlers";
 
-function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
-  return arr.every(el => el !== false);
+function bundlersSuccessful(arr: Array<PrebuildBundlerResult>) {
+  return arr.every(res => res.success);
+}
+
+function dataBundlersSuccessfull(
+  arr: DataBundlerResult[]
+): arr is { name: string; result: { success: true } }[] {
+  return arr.every(write => write.result.success);
 }
 
 (async function main() {
-  // Phase 0 - Prepare Cache
-  const cacheInfo = await prepareCache();
+  // Phase 0 - Clean & Prepare Cache
+  const [cacheInfo] = await Promise.all([
+    prepareCache(),
+    rm(path.join(process.cwd(), "assets/static"), {
+      recursive: true,
+      force: true
+    })
+  ]);
 
   // Phase 1 - bundlers
   Log.info("Running Bundlers");
-  const bundlersRes: PrebuildBundlersRes = await Promise.all([
+
+  const bundlersRes: PrebuildBundlerResult[] = await Promise.all([
     bundleUpgrades(),
     bundleCustomItems(),
     bundleEvents(),
     bundleExchangeTickets(),
     bundleShops()
   ]);
-  if (!isSuccessful(bundlersRes)) {
+
+  if (!bundlersSuccessful(bundlersRes)) {
     Log.die("Quitting early because of error in bundler");
-  }
-  if (!isSuccessful(await Promise.all(bundlersRes.map(writeBundle)))) {
-    Log.error("Quitting early due to bundle write failure");
-    Log.warn("Current static bundles may be in an invalid state");
-    process.exit(1);
   }
 
   // Phase 2 - static data bundles
-  const ids = collectIDs(bundlersRes);
+  const ids = mergeIDCollections(bundlersRes.map(res => res.ids));
   Log.info("Running Data Bundlers");
-  const dataRes: DataBundlersRes = await Promise.all([
+
+  const dataRes: DataBundlerResult[] = await Promise.all([
     bundleServantsData(ids.servants),
     bundleQuestsData(ids.quests),
     bundleSkillsData(ids.skills),
@@ -61,13 +71,9 @@ function isSuccessful<T>(arr: Array<T | false>): arr is Array<T> {
     bundleMysticCodesData(ids.mcs),
     bundleCostumesData(ids.costumes)
   ]);
-  if (!isSuccessful(dataRes)) {
+
+  if (!dataBundlersSuccessfull(dataRes)) {
     Log.die("Quitting early because of error in data bundler");
-  }
-  if (!isSuccessful(await Promise.all(dataRes.map(writeDataBundle)))) {
-    Log.error("Quitting early due to data bundle write failure");
-    Log.warn("Current static bundles may be in an invalid state");
-    process.exit(1);
   }
 
   // Phase 3 - build info

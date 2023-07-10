@@ -1,11 +1,8 @@
-import { ItemBackgroundType } from "@atlasacademy/api-connector/dist/Schema/Item.js";
 import type { z } from "zod";
-import { Borders } from "~/types/borders";
 import type { CustomItemSchema } from "~/schema/CustomItem";
 import type { ServantBorder } from "~/servants/types";
+import type { Borders } from "~/types/borders";
 import type { Availability } from "~/types/enum";
-
-// TODO: rename "CE" and "CC" types to "CraftEssence" and "CommandCode"
 
 export type ItemBorder =
   | Borders.BRONZE
@@ -14,7 +11,7 @@ export type ItemBorder =
   | Borders.BLUE
   | Borders.ZERO;
 
-export type CCBorder = Borders.BRONZE | Borders.SILVER | Borders.GOLD;
+export type CommandCodeBorder = Borders.BRONZE | Borders.SILVER | Borders.GOLD;
 
 interface ItemBase {
   name: string;
@@ -22,15 +19,15 @@ interface ItemBase {
   na?: true;
 }
 
-export interface BundledCE extends ItemBase {
+export interface BundledCraftEssence extends ItemBase {
   border: ServantBorder;
   rarity: number;
   availability?: Availability;
 }
 
-export interface BundledCC extends ItemBase {
+export interface BundledCommandCode extends ItemBase {
   rarity: number;
-  border: CCBorder;
+  border: CommandCodeBorder;
 }
 
 export interface BundledItem extends ItemBase {
@@ -39,7 +36,7 @@ export interface BundledItem extends ItemBase {
 
 export type CustomItem = z.infer<typeof CustomItemSchema>;
 
-export interface BundledLoginTicket {
+export interface BundledExchangeTicket {
   name: string;
   start: number;
   next: number;
@@ -56,64 +53,4 @@ export interface BundledMysticCode {
 
 export interface BundledCostume extends ItemBase {
   border: ServantBorder;
-}
-
-/**
- * Maps rarity as string to Borders enum value
- * @param rarity rarity as string
- * @returns Borders enum value
- */
-export function mapCustomItemRarityToBorder(
-  rarity: CustomItem[number]["rarity"]
-): ItemBorder {
-  switch (rarity) {
-    case "bronze":
-      return Borders.BRONZE;
-    case "silver":
-      return Borders.SILVER;
-    case "gold":
-      return Borders.GOLD;
-    default:
-      return Borders.BLUE;
-  }
-}
-
-/**
- * Maps ItemBackgroundType used in API data to Borders enum value
- * @param background background property of API's item data
- * @returns Borders enum value
- */
-export function mapItemBackgroundToBorder(
-  background: ItemBackgroundType
-): ItemBorder {
-  switch (background) {
-    case ItemBackgroundType.BRONZE:
-      return Borders.BRONZE;
-    case ItemBackgroundType.GOLD:
-      return Borders.GOLD;
-    case ItemBackgroundType.QUEST_CLEAR_QP_REWARD:
-      return Borders.BLUE;
-    case ItemBackgroundType.ZERO:
-      return Borders.ZERO;
-    case ItemBackgroundType.SILVER:
-    default:
-      return Borders.SILVER;
-  }
-}
-
-/**
- * Maps non-zero rarity to CCBorder and CCBackground
- * @params rarity
- * @returns Borders enum value
- */
-export function mapCCRarityToBorder(rarity: number): CCBorder {
-  switch (rarity) {
-    case 1:
-    case 2:
-      return Borders.BRONZE;
-    case 3:
-      return Borders.SILVER;
-    default:
-      return Borders.GOLD;
-  }
 }

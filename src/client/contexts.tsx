@@ -1,23 +1,27 @@
 import { useMemo } from "react";
 import { createContext, useContextSelector } from "use-context-selector";
 import type {
-  BundledCC,
-  BundledCE,
+  BundledCommandCode,
   BundledCostume,
+  BundledCraftEssence,
   BundledItem,
   BundledMysticCode
 } from "~/items/types";
-import type { BundledNP, BundledServant, BundledSkill } from "~/servants/types";
+import type {
+  BundledNoblePhantasm,
+  BundledServant,
+  BundledSkill
+} from "~/servants/types";
 import type { BundledQuest } from "~/upgrades/types";
 
 interface Maps {
   servants: DataMap<BundledServant>;
   skills: DataMap<BundledSkill>;
-  nps: DataMap<BundledNP>;
+  nps: DataMap<BundledNoblePhantasm>;
   quests: DataMap<BundledQuest>;
-  ces: DataMap<BundledCE>;
+  ces: DataMap<BundledCraftEssence>;
   items: DataMap<BundledItem>;
-  ccs: DataMap<BundledCC>;
+  ccs: DataMap<BundledCommandCode>;
   mcs: DataMap<BundledMysticCode>;
   costumes: DataMap<BundledCostume>;
 }

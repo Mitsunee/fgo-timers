@@ -1,13 +1,13 @@
 import type { Servant } from "@atlasacademy/api-connector/dist/Schema/Servant";
-import { atlasCache } from "~/atlas-api/cache";
+import { getNiceServantsFull } from "~/atlas-api/cache/data/niceServant";
 import { findEoRNPName } from "~/upgrades/findEoRNPName";
 
 let eorServants: { NA: Servant[]; JP: Servant[] };
 
 beforeAll(async () => {
   const [niceServant, niceServantNA] = await Promise.all([
-    atlasCache.JP.getNiceServant(),
-    atlasCache.NA.getNiceServant()
+    getNiceServantsFull("JP"),
+    getNiceServantsFull("NA")
   ]);
   const JP = niceServant.filter(servant =>
     servant.noblePhantasms.some(np => np.name == "???")

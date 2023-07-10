@@ -1,6 +1,6 @@
 import { useNPMap } from "~/client/contexts";
 import { ServantCard } from "~/servants/types";
-import type { BundledNP } from "~/servants/types";
+import type { BundledNoblePhantasm } from "~/servants/types";
 import type { ComponentPropsCC } from "~/types/ComponentProps";
 import { BorderedIcon } from "./BorderedIcon";
 import { IconFace } from "./IconFace";
@@ -10,7 +10,7 @@ interface BorderedNPIconProps extends ComponentPropsCC<"div"> {
   title?: undefined;
 }
 
-function getNPIconPath(type: BundledNP["type"]): string {
+function getNPIconPath(type: BundledNoblePhantasm["type"]): string {
   switch (type) {
     case ServantCard.BUSTER:
       return "/assets/icon_buster.png";
@@ -27,7 +27,7 @@ export function BorderedNPIcon({
   ...props
 }: BorderedNPIconProps) {
   const npMap = useNPMap();
-  const np: BundledNP = npMap[npId];
+  const np: BundledNoblePhantasm = npMap[npId];
   const icon = getNPIconPath(np.type);
 
   return (

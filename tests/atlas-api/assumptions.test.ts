@@ -1,13 +1,14 @@
 import { EntityType } from "@atlasacademy/api-connector/dist/Schema/Entity";
-import { atlasCacheJP } from "~/atlas-api/cache";
+import { getNiceItemsFull } from "~/atlas-api/cache/data/niceItem";
+import { getNiceServantsFull } from "~/atlas-api/cache/data/niceServant";
 
-let niceItem: Awaited<ReturnType<(typeof atlasCacheJP)["getNiceItem"]>>;
-let niceServant: Awaited<ReturnType<(typeof atlasCacheJP)["getNiceServant"]>>;
+let niceItem: Awaited<ReturnType<typeof getNiceItemsFull>>;
+let niceServant: Awaited<ReturnType<typeof getNiceServantsFull>>;
 let niceSkills: (typeof niceServant)[number]["skills"];
 
 beforeAll(async () => {
-  niceItem = await atlasCacheJP.getNiceItem();
-  niceServant = await atlasCacheJP.getNiceServant();
+  niceItem = await getNiceItemsFull();
+  niceServant = await getNiceServantsFull();
 
   niceSkills = niceServant
     .filter(servant => servant.type == EntityType.NORMAL)

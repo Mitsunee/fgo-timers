@@ -1,8 +1,8 @@
-import { getBundledLoginTickets } from "~/utils/getBundles";
+import { getBundledTickets } from "~/static/exchangeTickets";
 import { Log } from "~/utils/log";
 
 export async function getLoginTicketProps(now: number) {
-  const tickets = await getBundledLoginTickets();
+  const tickets = await getBundledTickets();
   let ticket = tickets.find(ticket => ticket.start <= now && ticket.next > now);
 
   if (!ticket) {

@@ -1,6 +1,6 @@
 import { atlasApiNA } from "~/atlas-api/api.ts";
-import { atlasCacheNA } from "~/atlas-api/cache.ts";
-import { getLocalCacheInfo } from "~/atlas-api/validation.ts";
+import { getNiceMasterMission } from "~/atlas-api/cache/data/niceMasterMission.ts";
+import { getCacheInfo } from "~/atlas-api/cache/info.ts";
 import { spacetimeToTs, tsToSpacetime } from "~/server/utils/time";
 import { Log } from "~/utils/log";
 
@@ -21,9 +21,10 @@ function getNextDay(now) {
 }
 
 export async function fetchMasterMissions(now) {
-  const cacheInfo = await getLocalCacheInfo();
+  const cacheInfo = await getCacheInfo();
+  if (!cacheInfo) Log.throw(`Could not read cache info`);
   const cacheMaxAge = getNextDay(cacheInfo.lastChecked);
-  let masterMissions = await atlasCacheNA.getMasterMissions("NA");
+  let masterMissions = await getNiceMasterMission("NA");
 
   // depending on if the cache is from today use cache or API to fetch missions data
   if (now >= cacheMaxAge) {

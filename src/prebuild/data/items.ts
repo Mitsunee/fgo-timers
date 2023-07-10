@@ -1,48 +1,50 @@
-import { join } from "path";
-import { readFileJson } from "@foxkit/node-util/fs";
-import { List } from "@foxkit/util/object";
-import { atlasCache } from "~/atlas-api/cache";
+import { ItemBackgroundType } from "@atlasacademy/api-connector/dist/Schema/Item";
+import { getNiceItem } from "~/atlas-api/cache/data/niceItem";
 import { shortenAtlasUrl } from "~/atlas-api/urls";
-import { mapItemBackgroundToBorder } from "~/items/types";
+import { getCustomItem } from "~/static/customItems";
+import { ItemsFile } from "~/static/data/items";
+import { Borders } from "~/types/borders";
 import { Log } from "~/utils/log";
 import type { BundledItem } from "~/items/types";
-import type { DataBundler } from "../utils/dataBundlers";
+import { DataBundler } from "../utils/dataBundlers";
 
-async function getCustomItems() {
-  const data = await readFileJson<PartialDataMap<BundledItem>>(
-    join("assets", "static", "custom_items.json")
-  );
-  return data;
+/**
+ * Maps ItemBackgroundType used in API data to Borders enum value
+ * @param background background property of API's item data
+ * @returns Borders enum value
+ */
+export function mapItemBackgroundToBorder(
+  background: ItemBackgroundType
+): BundledItem["border"] {
+  switch (background) {
+    case ItemBackgroundType.BRONZE:
+      return Borders.BRONZE;
+    case ItemBackgroundType.GOLD:
+      return Borders.GOLD;
+    case ItemBackgroundType.QUEST_CLEAR_QP_REWARD:
+      return Borders.BLUE;
+    case ItemBackgroundType.ZERO:
+      return Borders.ZERO;
+    case ItemBackgroundType.SILVER:
+    default:
+      return Borders.SILVER;
+  }
 }
 
-export const bundleItemsData: DataBundler<BundledItem> = async ids => {
-  const [customItems, niceItems, niceItemsNA] = await Promise.all([
-    getCustomItems(),
-    atlasCache.JP.getNiceItem(),
-    atlasCache.NA.getNiceItem()
-  ]);
+const ItemsBundle = new DataBundler({
+  file: ItemsFile,
+  transform: async id => {
+    const [item, itemNA, customItem] = await Promise.all([
+      getNiceItem(id),
+      getNiceItem(id, "NA"),
+      getCustomItem(id)
+    ]);
 
-  if (!customItems) {
-    Log.error("Could not read custom_items.json static file");
-    return false;
-  }
+    if (customItem) return customItem;
 
-  const itemQueue = List.fromArray([...ids]); // to be processed
-  const res = new Map<number, BundledItem>(); // result of processing
-
-  while (itemQueue.length > 0) {
-    const itemId = itemQueue.shift()!;
-    const customItem = customItems[itemId];
-    if (customItem) {
-      res.set(itemId, customItem);
-      continue;
-    }
-
-    const item = niceItems.find(item => item.id == itemId);
-    const itemNA = niceItemsNA.find(item => item.id == itemId);
     if (!item) {
-      Log.error(`Could not find item id ${itemId}`);
-      return false;
+      Log.error(`Could not find item with id ${id}`);
+      return;
     }
 
     const data: BundledItem = {
@@ -50,15 +52,11 @@ export const bundleItemsData: DataBundler<BundledItem> = async ids => {
       icon: shortenAtlasUrl(item.icon),
       border: mapItemBackgroundToBorder(item.background)
     };
+
     if (itemNA) data.na = true;
 
-    res.set(itemId, data);
+    return data;
   }
+});
 
-  Log.info(`Mapped data for ${res.size} Items`);
-  return {
-    name: "Items",
-    path: "items.json",
-    data: res
-  };
-};
+export const bundleItemsData = ItemsBundle.processBundle.bind(ItemsBundle);

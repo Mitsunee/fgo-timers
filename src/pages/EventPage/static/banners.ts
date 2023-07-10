@@ -1,6 +1,8 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
+import { eventCollectIDs } from "~/events/collectIDs";
 import { serverApi } from "~/server/api/root";
-import { getBundledCEMap, getBundledServantMap } from "~/utils/getBundles";
+import { createCraftEssenceRecord } from "~/static/data/craftEssences";
+import { createServantRecord } from "~/static/data/servants";
 import type { BundledEvent } from "~/events/types";
 import { getEventProps, NOT_FOUND } from "./getEventProps";
 import type { EventPageProps, PageContext, StaticPath } from "./types";
@@ -34,26 +36,19 @@ export const getStaticProps: GetStaticProps<
   if (!params) return NOT_FOUND;
 
   const { slug } = params;
-  const [servantMap, ceMap, event] = await Promise.all([
-    getBundledServantMap(),
-    getBundledCEMap(),
-    getEventProps(slug, hasBanners)
-  ]);
-
+  const event = await getEventProps(slug, hasBanners);
   if (!event) return NOT_FOUND;
 
-  const servants: EventPageProps["servants"] = {};
-  const ces: EventPageProps["ces"] = {};
-
-  // browse event data for related servants and ces
-  event.banners.forEach(banner => {
-    banner.servants?.forEach(id => {
-      servants[id] = servantMap[id];
-    });
-    banner.ces?.forEach(id => {
-      ces[id] = ceMap[id];
-    });
+  const ids = eventCollectIDs(event, {
+    banners: true,
+    times: false,
+    schedules: false
   });
+
+  const [servants, ces] = await Promise.all([
+    createServantRecord(ids.servants),
+    createCraftEssenceRecord(ids.ces)
+  ]);
 
   return { props: { event, servants, ces } };
 };

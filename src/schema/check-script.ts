@@ -1,8 +1,9 @@
-import { readdir } from "fs/promises";
 import { basename, join } from "path";
-import { readFileYaml } from "@foxkit/node-util/fs-yaml";
+import { getFileName, readDir } from "@foxkit/node-util/fs";
+import { ParsedFile } from "@foxkit/node-util/fs-extra";
 import { Command, Option } from "commander";
-import type { z } from "zod";
+import YAML from "yaml";
+import type { ZodSchema } from "zod";
 import { Log } from "~/utils/log";
 import { AvailabilityMapSchema } from "./AvailabilityMap";
 import { CustomItemSchema } from "./CustomItem";
@@ -42,6 +43,12 @@ interface ProgramOptions {
 
 const assetsPath = join(process.cwd(), "assets/data");
 
+const Yaml = new ParsedFile<unknown>({
+  limitPath: assetsPath,
+  parse: YAML.parse,
+  extensions: [".yml"]
+});
+
 async function main(options: ProgramOptions) {
   const checkState = {
     checked: 0,
@@ -53,24 +60,64 @@ async function main(options: ProgramOptions) {
   const startedAt = Date.now();
   const showGroupInfo = !silent && !all;
 
+  function duplicateFileNameCheck(files: string[]) {
+    const knownNames = new Set<string>();
+    const duplicates = new Set<string>();
+
+    // search for duplicates
+    for (const filePath of files) {
+      const fileName = getFileName(filePath);
+      if (!knownNames.has(fileName)) {
+        knownNames.add(fileName);
+        continue;
+      }
+      duplicates.add(fileName);
+    }
+
+    // return passed array if no duplicates were found
+    if (duplicates.size < 1) return files;
+
+    // Log duplicated paths
+    for (const duplicateName of duplicates) {
+      const duplicatePaths = files.filter(
+        file => getFileName(file) == duplicateName
+      );
+
+      Log.error(
+        `Duplicate event file name: '${duplicateName}'\n${JSON.stringify(
+          duplicatePaths,
+          null,
+          2
+        )}`
+      );
+
+      checkState.checked += duplicatePaths.length;
+      checkState.failed += duplicatePaths.length;
+    }
+
+    // return filtered list
+    return files.filter(file => !duplicates.has(getFileName(file)));
+  }
+
   async function checkFile(
     filePath: string,
     fileType: string,
-    schema: z.ZodTypeAny
+    schema: ZodSchema
   ) {
     checkState.checked++;
-    const fileContent = await readFileYaml<z.input<typeof schema>>(filePath);
+    const res = await Yaml.readFile(filePath);
 
     // handle unreadable file
-    if (!fileContent) {
+    if (!res.success) {
       Log.error(
         `Could not read ${fileType} file '${basename(filePath)}'. Skipping...`
       );
+      Log.error(res.error);
       checkState.skipped++;
       return;
     }
 
-    const fileParsed = schema.safeParse(fileContent);
+    const fileParsed = schema.safeParse(res.data);
     if (fileParsed.success) {
       checkState.passed++;
       return;
@@ -82,17 +129,6 @@ async function main(options: ProgramOptions) {
     return;
   }
 
-  function createProcessor(
-    dirPath: string,
-    fileType: string,
-    schema: z.ZodTypeAny
-  ) {
-    return async function processor(fileName: string) {
-      const filePath = join(dirPath, fileName);
-      return checkFile(filePath, fileType, schema);
-    };
-  }
-
   // handle --all
   if (!silent && all) Log.info("Checking all data files");
 
@@ -100,39 +136,32 @@ async function main(options: ProgramOptions) {
   if (all || options.events) {
     if (showGroupInfo) Log.info("Checking all event data files");
     const dirPath = join(assetsPath, "events");
-    const files = await readdir(dirPath);
-    const processor = createProcessor(dirPath, "event", EventSchema);
-
-    for (const fileName of files) {
-      if (!fileName.endsWith(".yml")) continue;
-      await processor(fileName);
-    }
+    const files = await readDir(dirPath, {
+      recursive: true,
+      pathStyle: "absolute"
+    });
+    const filesDeduped = duplicateFileNameCheck(files);
+    await Promise.all(
+      filesDeduped.map(file => checkFile(file, "event", EventSchema))
+    );
   }
 
   // handle --shops
   if (all || options.shops) {
     if (showGroupInfo) Log.info("Checking all shop data files");
     const dirPath = join(assetsPath, "shops");
-    const files = await readdir(dirPath);
-    const processor = createProcessor(dirPath, "shop", ShopSchema);
-
-    for (const fileName of files) {
-      if (!fileName.endsWith(".yml")) continue;
-      await processor(fileName);
-    }
+    const files = await readDir(dirPath, { pathStyle: "absolute" });
+    await Promise.all(files.map(file => checkFile(file, "shop", ShopSchema)));
   }
 
   // handle --items
   if (all || options.items) {
     if (showGroupInfo) Log.info("Checking all custom item data files");
     const dirPath = join(assetsPath, "items");
-    const files = await readdir(dirPath);
-    const processor = createProcessor(dirPath, "custom item", CustomItemSchema);
-
-    for (const fileName of files) {
-      if (!fileName.endsWith(".yml")) continue;
-      await processor(fileName);
-    }
+    const files = await readDir(dirPath, { pathStyle: "absolute" });
+    await Promise.all(
+      files.map(file => checkFile(file, "custom item", CustomItemSchema))
+    );
   }
 
   // handle --maps

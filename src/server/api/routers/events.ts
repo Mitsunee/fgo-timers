@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { toBasicEvent } from "~/events/toBasicEvent";
-import { getBuildInfo } from "~/utils/getBuildInfo";
-import { getBundledEvents } from "~/utils/getBundles";
+import { getBuildInfo } from "~/static/bundleInfo";
+import { getBundledEvents } from "~/static/events";
 import type { BundledEvent } from "~/events/types";
 import { createTRPCRouter, publicProcedure } from "../trpc";
 

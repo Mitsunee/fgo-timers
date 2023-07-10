@@ -1,7 +1,7 @@
 import { getTicketDelta } from "~/pages/LoginTicketsPage/getTicketDelta";
-import type { BundledLoginTicket } from "~/items/types";
+import type { BundledExchangeTicket } from "~/items/types";
 
-const mockTicket: BundledLoginTicket = {
+const mockTicket: BundledExchangeTicket = {
   name: "Exchange Ticket (APR 2023)",
   start: 1680321600,
   next: 1682913600,
@@ -11,7 +11,7 @@ const mockTicket: BundledLoginTicket = {
 const mockTicketExpectedTotal = 30;
 const mockNow = 1680603975;
 const mockNowExpectedLeft = 26;
-const mockTicket2: BundledLoginTicket = {
+const mockTicket2: BundledExchangeTicket = {
   name: "Exchange Ticket (MAY 2023)",
   start: 1682913600,
   next: 1685592000,
