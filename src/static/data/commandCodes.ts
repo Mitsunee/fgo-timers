@@ -1,13 +1,15 @@
 import path from "path";
 import { Log } from "~/utils/log";
-import type { BundledCC } from "~/items/types";
+import type { BundledCommandCode } from "~/items/types";
 import { BundleFile } from "../Bundle";
 
 const filePath = path.join(
   process.cwd(),
   "assets/static/data/command_codes.json"
 );
-export const CommandCodesFile = new BundleFile<PartialDataMap<BundledCC>>({
+export const CommandCodesFile = new BundleFile<
+  PartialDataMap<BundledCommandCode>
+>({
   name: "Command Codes",
   filePath
 });
@@ -43,7 +45,7 @@ export async function getCommandCode(id: number) {
  * @throws if id was not found
  */
 export async function createCommandCodeRecord(ids: number[] | Set<number>) {
-  const record: DataMap<BundledCC> = {};
+  const record: DataMap<BundledCommandCode> = {};
   const commandCodes = await getCommandCodesFull();
 
   for (const id of ids) {

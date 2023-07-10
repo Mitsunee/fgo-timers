@@ -9,12 +9,12 @@ import { BorderedItemIcon } from "~/components/BorderedIcon";
 import { DisplayDate, DisplayDelta } from "~/components/TimeDisplay";
 import { useIsClient } from "~/hooks/useIsClient";
 import { useRecurringDaily } from "~/hooks/useRecurringDaily";
-import type { BundledLoginTicket } from "~/items/types";
+import type { BundledExchangeTicket } from "~/items/types";
 import type { HomePageProps } from "../static";
 
 interface LoginInfoCardProps {
   milestones: HomePageProps["milestones"];
-  ticket: BundledLoginTicket;
+  ticket: BundledExchangeTicket;
 }
 
 type ExchangeTicketsInfoProps = Pick<LoginInfoCardProps, "ticket"> & {

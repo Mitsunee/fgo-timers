@@ -1,11 +1,35 @@
+import { ItemBackgroundType } from "@atlasacademy/api-connector/dist/Schema/Item";
 import { getNiceItem } from "~/atlas-api/cache/data/niceItem";
 import { shortenAtlasUrl } from "~/atlas-api/urls";
-import { mapItemBackgroundToBorder } from "~/items/types";
 import { getCustomItem } from "~/static/customItems";
 import { ItemsFile } from "~/static/data/items";
+import { Borders } from "~/types/borders";
 import { Log } from "~/utils/log";
 import type { BundledItem } from "~/items/types";
 import { DataBundler } from "../utils/dataBundlers";
+
+/**
+ * Maps ItemBackgroundType used in API data to Borders enum value
+ * @param background background property of API's item data
+ * @returns Borders enum value
+ */
+export function mapItemBackgroundToBorder(
+  background: ItemBackgroundType
+): BundledItem["border"] {
+  switch (background) {
+    case ItemBackgroundType.BRONZE:
+      return Borders.BRONZE;
+    case ItemBackgroundType.GOLD:
+      return Borders.GOLD;
+    case ItemBackgroundType.QUEST_CLEAR_QP_REWARD:
+      return Borders.BLUE;
+    case ItemBackgroundType.ZERO:
+      return Borders.ZERO;
+    case ItemBackgroundType.SILVER:
+    default:
+      return Borders.SILVER;
+  }
+}
 
 const ItemsBundle = new DataBundler({
   file: ItemsFile,

@@ -4,7 +4,7 @@ import { getNiceItemsFull } from "~/atlas-api/cache/data/niceItem";
 import { LoginTicketsFile } from "~/static/exchangeTickets";
 import { msToSeconds } from "~/time/msToSeconds";
 import { Global } from "~/types/enum";
-import type { BundledLoginTicket } from "~/items/types";
+import type { BundledExchangeTicket } from "~/items/types";
 import { PrebuildBundler } from "../utils/bundlers";
 
 const ticketNameReg = /Exchange Ticket \((?<month>[A-Z]{3}) (?<year>\d{4})\)/;
@@ -58,7 +58,7 @@ const ExchangeTicketsBundler = new PrebuildBundler({
       getNiceItemsFull("NA")
     ]);
     const items = new Set<number>();
-    const tickets = new Array<BundledLoginTicket>();
+    const tickets = new Array<BundledExchangeTicket>();
     let i = 9999;
     let item: ReturnType<(typeof niceItem)["find"]>;
 
@@ -77,7 +77,7 @@ const ExchangeTicketsBundler = new PrebuildBundler({
         select => select.gifts[0].objectId
       );
 
-      const ticket: BundledLoginTicket = {
+      const ticket: BundledExchangeTicket = {
         name,
         start,
         next,

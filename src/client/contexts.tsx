@@ -1,8 +1,8 @@
 import { useMemo } from "react";
 import { createContext, useContextSelector } from "use-context-selector";
 import type {
-  BundledCC,
-  BundledCE,
+  BundledCommandCode,
+  BundledCraftEssence,
   BundledCostume,
   BundledItem,
   BundledMysticCode
@@ -15,9 +15,9 @@ interface Maps {
   skills: DataMap<BundledSkill>;
   nps: DataMap<BundledNP>;
   quests: DataMap<BundledQuest>;
-  ces: DataMap<BundledCE>;
+  ces: DataMap<BundledCraftEssence>;
   items: DataMap<BundledItem>;
-  ccs: DataMap<BundledCC>;
+  ccs: DataMap<BundledCommandCode>;
   mcs: DataMap<BundledMysticCode>;
   costumes: DataMap<BundledCostume>;
 }

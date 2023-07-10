@@ -1,13 +1,15 @@
 import path from "path";
 import { Log } from "~/utils/log";
-import type { BundledCE } from "~/items/types";
+import type { BundledCraftEssence } from "~/items/types";
 import { BundleFile } from "../Bundle";
 
 const filePath = path.join(
   process.cwd(),
   "assets/static/data/craft_essences.json"
 );
-export const CraftEssencesFile = new BundleFile<PartialDataMap<BundledCE>>({
+export const CraftEssencesFile = new BundleFile<
+  PartialDataMap<BundledCraftEssence>
+>({
   name: "Craft Essences",
   filePath
 });
@@ -43,7 +45,7 @@ export async function getCraftEssence(id: number) {
  * @throws if id was not found
  */
 export async function createCraftEssenceRecord(ids: number[] | Set<number>) {
-  const record: DataMap<BundledCE> = {};
+  const record: DataMap<BundledCraftEssence> = {};
   const craftEssences = await getCraftEssencesFull();
 
   for (const id of ids) {

@@ -1,11 +1,31 @@
 import { getFileName } from "@foxkit/node-util/fs";
 import { shortenAtlasUrl } from "~/atlas-api/urls";
-import { mapCustomItemRarityToBorder } from "~/items/types";
 import { CustomItemFile } from "~/schema/CustomItem";
 import { CustomItemsFile } from "~/static/customItems";
+import { Borders } from "~/types/borders";
 import { Log } from "~/utils/log";
-import type { BundledItem } from "~/items/types";
+import type { BundledItem, CustomItem } from "~/items/types";
 import { DirectoryBundler } from "../utils/bundlers";
+
+/**
+ * Maps rarity as string to Borders enum value
+ * @param rarity rarity as string
+ * @returns Borders enum value
+ */
+export function mapCustomItemRarityToBorder(
+  rarity: CustomItem[number]["rarity"]
+): BundledItem["border"] {
+  switch (rarity) {
+    case "bronze":
+      return Borders.BRONZE;
+    case "silver":
+      return Borders.SILVER;
+    case "gold":
+      return Borders.GOLD;
+    default:
+      return Borders.BLUE;
+  }
+}
 
 const CustomItemsBundler = new DirectoryBundler({
   name: "Custom Items",

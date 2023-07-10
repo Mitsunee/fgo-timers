@@ -1,12 +1,12 @@
 import path from "path";
-import type { BundledLoginTicket } from "~/items/types";
+import type { BundledExchangeTicket } from "~/items/types";
 import { BundleFile } from "./Bundle";
 
 const filePath = path.join(
   process.cwd(),
   "assets/static/exchange_tickets.json"
 );
-export const LoginTicketsFile = new BundleFile<BundledLoginTicket[]>({
+export const LoginTicketsFile = new BundleFile<BundledExchangeTicket[]>({
   name: "Exchange Tickets",
   filePath
 });

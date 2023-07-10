@@ -1,5 +1,5 @@
 import { Borders } from "~/types/borders";
-import type { CCBorder } from "./types";
+import type { CommandCodeBorder } from "./types";
 
 export const enum CCBackgrounds {
   BRONZE,
@@ -15,7 +15,7 @@ export const CCBackgroundPath: Record<CCBackgrounds, string> = {
   [CCBackgrounds.GOLD]: `${basePath}gold.png`
 };
 
-export const CCBackgroundFromBorder: Record<CCBorder, string> = {
+export const CCBackgroundFromBorder: Record<CommandCodeBorder, string> = {
   [Borders.BRONZE]: CCBackgroundPath[CCBackgrounds.BRONZE],
   [Borders.SILVER]: CCBackgroundPath[CCBackgrounds.SILVER],
   [Borders.GOLD]: CCBackgroundPath[CCBackgrounds.GOLD]

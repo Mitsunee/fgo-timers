@@ -5,7 +5,7 @@ import { getAvailabilityMap } from "~/schema/AvailabilityMap";
 import { mapServantRarityToBorder } from "~/servants/borders";
 import { CraftEssencesFile } from "~/static/data/craftEssences";
 import { Log } from "~/utils/log";
-import type { BundledCE } from "~/items/types";
+import type { BundledCraftEssence } from "~/items/types";
 import type { AvailabilityMatcher } from "~/schema/AvailabilityMap";
 import { DataBundler } from "../utils/dataBundlers";
 
@@ -30,7 +30,7 @@ export const CraftEssencesBundle = new DataBundler({
     }
 
     const availability = availabilityMap.match(id);
-    const data: BundledCE = {
+    const data: BundledCraftEssence = {
       name: craftEssenceNA?.name || craftEssence.name,
       icon: shortenAtlasUrl(craftEssence.face),
       border: mapServantRarityToBorder(craftEssence.rarity),
