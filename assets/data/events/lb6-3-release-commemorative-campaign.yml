@@ -24,3 +24,6 @@ times:
   - title: Limited Master Mission (Leyline Stone)
     date: 2023-06-01 21:00 - 08-31 20:59 PDT
     items: [94054401]
+banners:
+  - date: 2023-07-12 21:00 - 07-26 20:59 PDT
+    servants: [2800100, 204300, 105000, 200800, 100700]
