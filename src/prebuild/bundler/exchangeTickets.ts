@@ -73,9 +73,11 @@ const ExchangeTicketsBundler = new PrebuildBundler({
         .format("{month-short} {year}")
         .toUpperCase()})`;
       const itemNA = niceItemNA.find(item => item.id == i);
-      const ticketItems = (itemNA || item).itemSelects.map(
-        select => select.gifts[0].objectId
-      );
+      const itemSelects =
+        itemNA && itemNA.itemSelects.length > 0
+          ? itemNA.itemSelects
+          : item.itemSelects;
+      const ticketItems = itemSelects.map(select => select.gifts[0].objectId);
 
       const ticket: BundledExchangeTicket = {
         name,
@@ -85,7 +87,7 @@ const ExchangeTicketsBundler = new PrebuildBundler({
       };
 
       // check for NA ticket
-      if (itemNA) ticket.na = true;
+      if (itemSelects == itemNA?.itemSelects) ticket.na = true;
 
       // add items to set
       ticketItems.forEach(id => items.add(id));
