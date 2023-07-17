@@ -107,31 +107,3 @@ limited:
         type: ce
         cost: 1000
         amount: 5
-  - title: 6th Anniversary Limited Inventory
-    currency: 3
-    date: 2023-07-03 02:00 - 07-16 20:59 PDT
-    items:
-      - id: 5000 # Quick Code Opener
-        cost: 50
-        amount: 3
-      - id: 5001 # Arts Code Opener
-        cost: 50
-        amount: 3
-      - id: 5002 # Buster Code Opener
-        cost: 50
-        amount: 3
-      - id: 4001 # Summon Ticket
-        cost: 10
-        amount: 10
-      - id: 9770400 # 4* embers
-        cost: 20
-        amount: 10
-        stack: 10
-      - id: 9570300
-        name: Star Fou (All)
-        cost: 5
-        amount: 30
-      - id: 9670300
-        name: Sun Fou (All)
-        cost: 5
-        amount: 30
