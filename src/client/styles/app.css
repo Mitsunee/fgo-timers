@@ -108,7 +108,9 @@ a.button-decorated {
   background-color: var(--bg-primary);
   background-image: linear-gradient(to top, rgba(0 0 0 / 30%), transparent);
   color: var(--primary);
-  box-shadow: 0px 2px var(--dark), inset 0px -2px rgba(0 0 0 / 30%);
+  box-shadow:
+    0px 2px var(--dark),
+    inset 0px -2px rgba(0 0 0 / 30%);
 
   &:not(:disabled) {
     &:hover,
@@ -118,7 +120,9 @@ a.button-decorated {
       color: var(--hover);
     }
     &:active {
-      box-shadow: 0px 1px var(--dark), inset 0px 2px 3px var(--dark);
+      box-shadow:
+        0px 1px var(--dark),
+        inset 0px 2px 3px var(--dark);
       border-top-color: var(--dark);
       border-left-color: var(--dark);
     }

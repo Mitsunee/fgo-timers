@@ -21,7 +21,9 @@
 
   & span {
     z-index: 1;
-    text-shadow: 1px 1px var(--dark), -1px -1px var(--dark);
+    text-shadow:
+      1px 1px var(--dark),
+      -1px -1px var(--dark);
     max-width: 90%;
     padding: 0.33em;
     mix-blend-mode: difference;

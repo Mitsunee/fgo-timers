@@ -4,11 +4,15 @@
   border: 1px solid var(--light);
   border-radius: 0.33em;
   color: inherit;
-  box-shadow: inset 1px 1px 4px var(--dark), 0px 0px 4px var(--dark);
+  box-shadow:
+    inset 1px 1px 4px var(--dark),
+    0px 0px 4px var(--dark);
 
   &.invalid {
     color: #f00;
     border-color: #f00;
-    box-shadow: inset 1px 1px 4px #f00a, 0px 0px 4px #f00a;
+    box-shadow:
+      inset 1px 1px 4px #f00a,
+      0px 0px 4px #f00a;
   }
 }

@@ -43,9 +43,7 @@ export function EventSchedulesCard({
       {description
         ?.split("\n")
         .filter(seg => seg.trim().length > 0)
-        .map((seg, i) => (
-          <p key={i}>{seg}</p>
-        ))}
+        .map((seg, i) => <p key={i}>{seg}</p>)}
       <TimerList>
         {timesMapped.map((time, i) => (
           <EventListItem key={i} time={time} hideEnd />

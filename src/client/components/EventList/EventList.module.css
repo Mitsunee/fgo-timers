@@ -33,7 +33,9 @@
   border: 1px solid var(--light);
   border-radius: 8px;
   box-shadow: 1px 1px 6px 2px var(--dark);
-  transition: color 250ms ease-in-out, border-color 250ms ease-in-out;
+  transition:
+    color 250ms ease-in-out,
+    border-color 250ms ease-in-out;
 
   &:hover {
     border-color: var(--hover);

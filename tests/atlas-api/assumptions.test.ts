@@ -45,10 +45,13 @@ describe("skills", () => {
     ).toBe(1);
   });
   it("upgrade level of reused skills is consistent", () => {
-    const byOccurence = niceSkills.reduce((list, skill) => {
-      list[skill.id] = (list[skill.id] || 0) + 1;
-      return list;
-    }, {} as { [id: string]: number });
+    const byOccurence = niceSkills.reduce(
+      (list, skill) => {
+        list[skill.id] = (list[skill.id] || 0) + 1;
+        return list;
+      },
+      {} as { [id: string]: number }
+    );
     const reused = Object.entries(byOccurence)
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       .filter(([_, n]) => n >= 2)
@@ -76,10 +79,13 @@ describe("NPs", () => {
     const niceNPs = niceServant
       .filter(servant => servant.type == EntityType.NORMAL)
       .flatMap(servant => servant.noblePhantasms);
-    const byOccurence = niceNPs.reduce((list, np) => {
-      list[np.id] = (list[np.id] || 0) + 1;
-      return list;
-    }, {} as { [id: string]: number });
+    const byOccurence = niceNPs.reduce(
+      (list, np) => {
+        list[np.id] = (list[np.id] || 0) + 1;
+        return list;
+      },
+      {} as { [id: string]: number }
+    );
     const reused = Object.entries(byOccurence)
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       .filter(([_, n]) => n >= 2).length;

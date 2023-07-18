@@ -7,8 +7,12 @@
   border-radius: 8px;
   padding: 1.5rem;
   background-color: var(--bg-primary);
-  box-shadow: inset 0px 2px 4px var(--bg-light), 2px 2px 6px var(--dark);
-  transition: color 250ms ease-in-out, border-color 250ms ease-in-out;
+  box-shadow:
+    inset 0px 2px 4px var(--bg-light),
+    2px 2px 6px var(--dark);
+  transition:
+    color 250ms ease-in-out,
+    border-color 250ms ease-in-out;
   min-width: 100%;
   max-width: 100%;
 

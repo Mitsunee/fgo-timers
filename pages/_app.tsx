@@ -2,7 +2,7 @@ import "modern-normalize/modern-normalize.css";
 import "~/client/styles/app.css";
 
 import { useLayoutEffect as _useLayoutEffect } from "react";
-import { Dosis, Noto_Sans } from "@next/font/google";
+import { Dosis, Noto_Sans } from "next/font/google";
 import type { AppType } from "next/app";
 import { api } from "~/client/api";
 import { Layout } from "~/components/Layout";
