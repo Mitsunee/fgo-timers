@@ -1,0 +1,127 @@
+{
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string",
+      "enum": [
+        "black",
+        "bronze",
+        "silver",
+        "gold",
+        "blue",
+        "green",
+        "red",
+        "zero"
+      ]
+    },
+    "inventory": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "currency": {
+            "type": "number"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["item", "ce", "cc", "servant", "mc", "costume"],
+                  "default": "item"
+                },
+                "id": {
+                  "type": "number"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "requires": {
+                  "type": "string"
+                },
+                "cost": {
+                  "type": "number"
+                },
+                "amount": {
+                  "type": "number",
+                  "default": 1
+                },
+                "stack": {
+                  "type": "number"
+                }
+              },
+              "required": ["id", "cost"],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": ["currency", "items"],
+        "additionalProperties": false
+      }
+    },
+    "monthly": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "$ref": "#/properties/inventory/items/properties/title"
+          },
+          "currency": {
+            "$ref": "#/properties/inventory/items/properties/currency"
+          },
+          "items": {
+            "$ref": "#/properties/inventory/items/properties/items"
+          },
+          "day": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 30
+          },
+          "hour": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 23
+          }
+        },
+        "required": ["currency", "items", "day", "hour"],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "limited": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "$ref": "#/properties/inventory/items/properties/title"
+          },
+          "currency": {
+            "$ref": "#/properties/inventory/items/properties/currency"
+          },
+          "items": {
+            "$ref": "#/properties/inventory/items/properties/items"
+          },
+          "date": {
+            "type": "string"
+          }
+        },
+        "required": ["currency", "items", "date"],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    }
+  },
+  "required": ["title", "inventory"],
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

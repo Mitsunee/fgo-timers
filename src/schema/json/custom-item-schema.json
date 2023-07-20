@@ -1,0 +1,28 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "number",
+        "description": "Item ID as number"
+      },
+      "name": {
+        "type": "string",
+        "description": "Item name as string"
+      },
+      "icon": {
+        "type": "string",
+        "description": "Full icon url as string"
+      },
+      "rarity": {
+        "type": "string",
+        "enum": ["bronze", "silver", "gold", "blue"],
+        "description": "Item rarity as word"
+      }
+    },
+    "required": ["id", "name", "icon", "rarity"],
+    "additionalProperties": false
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

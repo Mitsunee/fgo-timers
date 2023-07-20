@@ -76,7 +76,7 @@ Start the devServer with `pnpm dev` locally on your system, then visit [http://l
   - items: Utils for Craft Essences, Items and Custom Items
   - pages: page-specific utils and components
   - prebuild: Prebuild script that handles API data caching and reformatting into optimized data set
-  - schema: Schema files and validation script
+  - schema: Schema files and validation script, as well as a folder of automatically generated JSON schemas based on the zod schemas (see [generate-json-schemas.ts](../src/schema/generate-json-schema.ts))
   - scripts: Legacy Location for scripts that have not been fully migrated to zod/typescript
   - servants: Utils for handling Servants, Noble Phantasms and Skills
   - server: tRPC routers, also Legacy Location for SSG, ISR and related util functions

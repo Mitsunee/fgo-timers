@@ -1,0 +1,179 @@
+{
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "shortTitle": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "banner": {
+      "type": "string",
+      "pattern": "\\d{4}_[a-z0-9_-]+\\.png"
+    },
+    "date": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "requires": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "icon": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 50
+          }
+        },
+        "required": ["url", "title"],
+        "additionalProperties": false
+      }
+    },
+    "schedules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "times": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "servants": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "ces": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "ccs": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "title": {
+                  "type": "string"
+                },
+                "date": {
+                  "type": "string"
+                }
+              },
+              "required": ["title", "date"],
+              "additionalProperties": false
+            }
+          },
+          "ends": {
+            "$ref": "#/properties/schedules/items/properties/times/items/properties/date"
+          },
+          "icon": {
+            "type": "string"
+          }
+        },
+        "required": ["title", "times"],
+        "additionalProperties": false
+      }
+    },
+    "times": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "#/properties/schedules/items/properties/times/items"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "servants": {
+                "$ref": "#/properties/schedules/items/properties/times/items/properties/servants"
+              },
+              "ces": {
+                "$ref": "#/properties/schedules/items/properties/times/items/properties/ces"
+              },
+              "items": {
+                "$ref": "#/properties/schedules/items/properties/times/items/properties/items"
+              },
+              "ccs": {
+                "$ref": "#/properties/schedules/items/properties/times/items/properties/ccs"
+              },
+              "title": {
+                "type": "string"
+              },
+              "date": {
+                "$ref": "#/properties/date"
+              }
+            },
+            "required": ["title", "date"],
+            "additionalProperties": false
+          }
+        ]
+      }
+    },
+    "banners": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "servants": {
+            "$ref": "#/properties/schedules/items/properties/times/items/properties/servants"
+          },
+          "ces": {
+            "$ref": "#/properties/schedules/items/properties/times/items/properties/ces"
+          },
+          "date": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "number",
+            "minimum": 0,
+            "default": 0
+          }
+        },
+        "required": ["date"],
+        "additionalProperties": false
+      }
+    },
+    "upgrades": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    }
+  },
+  "required": ["title", "shortTitle", "banner", "date", "url", "description"],
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

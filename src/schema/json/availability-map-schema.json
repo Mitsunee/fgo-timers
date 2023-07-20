@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+    "storylocked": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "exclusiveMinimum": 100000
+      }
+    },
+    "fp_pool": {
+      "$ref": "#/properties/storylocked"
+    },
+    "limited": {
+      "$ref": "#/properties/storylocked"
+    },
+    "welfare": {
+      "$ref": "#/properties/storylocked"
+    },
+    "fp_limited": {
+      "$ref": "#/properties/storylocked"
+    },
+    "fp_storylocked": {
+      "$ref": "#/properties/storylocked"
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
