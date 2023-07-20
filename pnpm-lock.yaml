@@ -128,6 +128,9 @@ dependencies:
   zod:
     specifier: ^3.21.4
     version: 3.21.4
+  zod-to-json-schema:
+    specifier: ^3.21.4
+    version: 3.21.4(zod@3.21.4)
 
 devDependencies:
   '@types/jest':
@@ -163,9 +166,6 @@ devDependencies:
   simple-git-hooks:
     specifier: ^2.8.1
     version: 2.8.1
-  zod-to-json-schema:
-    specifier: ^3.21.4
-    version: 3.21.4(zod@3.21.4)
 
 packages:
 
@@ -6000,7 +6000,8 @@ packages:
       zod: ^3.21.4
     dependencies:
       zod: 3.21.4
-    dev: true
+    dev: false
 
   /zod@3.21.4:
     resolution: {integrity: sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==}
+    dev: false
