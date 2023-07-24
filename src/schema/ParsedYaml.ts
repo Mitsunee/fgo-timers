@@ -11,12 +11,11 @@ export class ParsedYaml<
   limitPath: string;
 
   constructor(options: {
-    name: string; // TEMP: name prop until parse gets passed filename as a prop in future version of node-util
     schema: S;
     limitPath: string;
     transform?: (value: ZodOutput<S>) => T | Promise<T>;
   }) {
-    async function parse(contentStr: string) {
+    async function parse(contentStr: string, filePath: string) {
       try {
         const content = YAML.parse(contentStr);
         const parsed = options.schema.parse(content);
@@ -24,8 +23,8 @@ export class ParsedYaml<
         return options.transform(parsed);
       } catch (e) {
         if (e instanceof ZodError) {
-          Log.zodError(e, options.name); // TEMP: see above
-          throw new Error(`Schema Parse Error in ${options.name}`);
+          Log.zodError(e, filePath);
+          throw new Error(`Schema Parse Error in ${filePath}`);
         }
         throw e;
       }

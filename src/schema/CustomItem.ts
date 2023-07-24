@@ -18,7 +18,6 @@ export function checkCustomItemPath(path: string): boolean {
 }
 
 export const CustomItemFile = new ParsedYaml({
-  name: "Custom Item",
   schema: CustomItemSchema,
   limitPath: path.join(process.cwd(), "assets/data/items")
 });

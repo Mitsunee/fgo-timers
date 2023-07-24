@@ -17,7 +17,7 @@ const localInfoFilePath = path.join(
 
 const LocalInfoFile = new ParsedFile<ApiCacheInfo>({
   limitPath: localInfoFilePath,
-  parse: JSON.parse,
+  parse: file => JSON.parse(file),
   stringify: JSON.stringify
 });
 

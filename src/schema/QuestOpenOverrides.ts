@@ -33,7 +33,6 @@ export const QuestOpenOverridesSchema = z.object({
 });
 
 export const QuestOpenOverridesFile = new ParsedYaml({
-  name: "Quest Open Overrides",
   limitPath: questOpenFilePath,
   schema: QuestOpenOverridesSchema,
   transform: ({ overrides, constants }) => {

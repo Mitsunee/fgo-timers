@@ -50,7 +50,6 @@ export function checkShopPath(path: string): boolean {
 }
 
 export const ShopFile = new ParsedYaml({
-  name: "Shop",
   schema: ShopSchema,
   limitPath: path.join(process.cwd(), "assets/data/shops")
 });

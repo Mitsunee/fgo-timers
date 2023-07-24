@@ -45,7 +45,7 @@ const assetsPath = join(process.cwd(), "assets/data");
 
 const Yaml = new ParsedFile<unknown>({
   limitPath: assetsPath,
-  parse: YAML.parse,
+  parse: file => YAML.parse(file),
   extensions: [".yml"]
 });
 

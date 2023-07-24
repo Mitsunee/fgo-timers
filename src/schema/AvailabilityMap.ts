@@ -43,10 +43,9 @@ class AvailabilityMatcher {
 export type { AvailabilityMatcher };
 
 export const AvailabilityFile = new ParsedYaml({
-  name: "Availability Map",
   schema: AvailabilityMapSchema,
   transform: value => new AvailabilityMatcher(value),
-  limitPath: path.join(process.cwd(), "assets/data") // TEMP: move all availability maps into dedicated directory
+  limitPath: path.join(process.cwd(), "assets/data") // TODO: move all availability maps into dedicated directory
 });
 
 /**

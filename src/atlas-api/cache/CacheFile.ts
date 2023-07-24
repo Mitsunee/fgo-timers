@@ -45,7 +45,7 @@ export class CacheFile<T> extends ParsedFile<T> {
     super({
       limitPath: generateLimitPath(options.paths),
       stringify: JSON.stringify,
-      parse: JSON.parse,
+      parse: file => JSON.parse(file),
       cache: true
     });
     this.name = options.name;

@@ -103,7 +103,6 @@ export function checkEventPath(path: string): boolean {
 }
 
 export const EventFile = new ParsedYaml({
-  name: "Event",
   schema: EventSchema,
   limitPath: path.join(process.cwd(), "assets/data/events")
 });

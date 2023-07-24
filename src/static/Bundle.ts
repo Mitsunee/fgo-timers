@@ -16,7 +16,7 @@ export class BundleFile<T> extends ParsedFile<T> {
 
     super({
       limitPath: options.filePath,
-      parse: JSON.parse,
+      parse: file => JSON.parse(file),
       stringify: JSON.stringify,
       cache: true
     });
