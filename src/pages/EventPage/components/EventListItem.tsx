@@ -3,6 +3,7 @@ import {
   BorderedItemIcon,
   BorderedServantIcon
 } from "~/client/components/BorderedIcon";
+import { BorderedCostumeIcon } from "~/components/BorderedIcon/BorderedCostumeIcon";
 import { TimerListEntities, TimerListItem } from "~/components/Card";
 import { CommandCodeIcon } from "~/components/CommandCodeIcon";
 import { DisplayDate, DisplayDelta } from "~/components/TimeDisplay";
@@ -26,7 +27,7 @@ export function EventListItem({ time, hideEnd = false }: EventListItemProps) {
   const hasEnd = end > 0 && !hideEnd;
   const hasEnded = end > 0 ? current >= end : hasStarted;
   const hasRelatedEntities = Boolean(
-    time.servants || time.ces || time.items || time.ccs
+    time.servants || time.ces || time.items || time.ccs || time.costumes
   );
   const showDelta = (hideEnd ? !hasStarted : !hasEnded) && isClient;
 
@@ -62,6 +63,9 @@ export function EventListItem({ time, hideEnd = false }: EventListItemProps) {
           ))}
           {time.ccs?.map(id => (
             <CommandCodeIcon key={id} ccId={id} disableSpoilers />
+          ))}
+          {time.costumes?.map(id => (
+            <BorderedCostumeIcon key={id} costumeId={id} disableSpoilers />
           ))}
         </TimerListEntities>
       )}

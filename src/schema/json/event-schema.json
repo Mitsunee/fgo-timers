@@ -85,6 +85,12 @@
                     "type": "number"
                   }
                 },
+                "costumes": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                },
                 "title": {
                   "type": "string"
                 },
@@ -128,6 +134,9 @@
               },
               "ccs": {
                 "$ref": "#/properties/schedules/items/properties/times/items/properties/ccs"
+              },
+              "costumes": {
+                "$ref": "#/properties/schedules/items/properties/times/items/properties/costumes"
               },
               "title": {
                 "type": "string"

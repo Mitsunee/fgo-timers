@@ -28,6 +28,9 @@ times:
     date: 2023-07-17 21:00 - 08-06 20:59 PDT
   - title: Lostbelt 6 Free Quest First Clear 1/2 AP
     date: 2023-07-17 21:00 - 07-31 20:59 PDT
+  - title: Morgan and Melusine Costumes available
+    date: 2023-07-12 21:00 PDT
+    costumes: [704030, 304830, 304840, 304850]
 banners:
   - date: 2023-07-12 21:00 - 07-26 20:59 PDT
     servants: [2800100, 204300, 105000, 200800, 100700] # Oberon

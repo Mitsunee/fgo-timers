@@ -15,7 +15,7 @@ times:
     date: 2023-05-07 21:00 - 05-08 01:00 PDT
   - title: Costume "Memories of Trifas" added to Dress Making
     date: 2023-05-08 01:00 PDT
-    servants: [100900] # TODO: change to costume
+    costumes: [100930]
 schedules:
   - title: Grailfront Rounds
     times:

@@ -12,7 +12,7 @@ type EventWithBanners = BundledEvent & {
 };
 
 export interface EventBannersPageProps
-  extends Omit<EventPageProps, "items" | "ccs"> {
+  extends Omit<EventPageProps, "items" | "ccs" | "costumes"> {
   event: EventWithBanners;
 }
 

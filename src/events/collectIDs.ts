@@ -8,7 +8,8 @@ export function eventCollectIDs(event: BundledEvent, options?: Options) {
     servants: new Set(),
     ces: new Set(),
     items: new Set(),
-    ccs: new Set()
+    ccs: new Set(),
+    costumes: new Set()
   } satisfies Partial<IDCollection>;
 
   if (options?.times ?? true) {
@@ -17,6 +18,7 @@ export function eventCollectIDs(event: BundledEvent, options?: Options) {
       time.ces?.forEach(id => collection.ces.add(id));
       time.items?.forEach(id => collection.items.add(id));
       time.ccs?.forEach(id => collection.ccs.add(id));
+      time.costumes?.forEach(id => collection.costumes.add(id));
     });
   }
 
@@ -27,6 +29,7 @@ export function eventCollectIDs(event: BundledEvent, options?: Options) {
         time.ces?.forEach(id => collection.ces.add(id));
         time.items?.forEach(id => collection.items.add(id));
         time.ccs?.forEach(id => collection.ccs.add(id));
+        time.costumes?.forEach(id => collection.costumes.add(id));
       });
     });
   }
@@ -46,7 +49,8 @@ export function eventsCollectIDs(events: BundledEvent[]) {
     servants: new Set(),
     ces: new Set(),
     items: new Set(),
-    ccs: new Set()
+    ccs: new Set(),
+    costumes: new Set()
   } satisfies Partial<IDCollection>;
 
   for (const event of events) {
@@ -55,6 +59,7 @@ export function eventsCollectIDs(events: BundledEvent[]) {
       time.ces?.forEach(id => collection.ces.add(id));
       time.items?.forEach(id => collection.items.add(id));
       time.ccs?.forEach(id => collection.ccs.add(id));
+      time.costumes?.forEach(id => collection.costumes.add(id));
     });
 
     event.schedules?.forEach(schedule => {
@@ -63,6 +68,7 @@ export function eventsCollectIDs(events: BundledEvent[]) {
         time.ces?.forEach(id => collection.ces.add(id));
         time.items?.forEach(id => collection.items.add(id));
         time.ccs?.forEach(id => collection.ccs.add(id));
+        time.costumes?.forEach(id => collection.costumes.add(id));
       });
     });
 

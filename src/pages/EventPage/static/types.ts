@@ -7,7 +7,7 @@ export interface PageContext extends Partial<ParsedUrlQuery> {
 }
 
 export interface EventPageProps
-  extends WithMaps<"servants" | "ces" | "items" | "ccs"> {
+  extends WithMaps<"servants" | "ces" | "items" | "ccs" | "costumes"> {
   event: BundledEvent;
 }
 

@@ -2,6 +2,7 @@ import type { GetStaticPaths, GetStaticProps } from "next";
 import { eventCollectIDs } from "~/events/collectIDs";
 import { serverApi } from "~/server/api/root";
 import { createCommandCodeRecord } from "~/static/data/commandCodes";
+import { createCostumeRecord } from "~/static/data/costumes";
 import { createCraftEssenceRecord } from "~/static/data/craftEssences";
 import { createItemRecord } from "~/static/data/items";
 import { createServantRecord } from "~/static/data/servants";
@@ -33,12 +34,13 @@ export const getStaticProps: GetStaticProps<
     banners: false
   });
 
-  const [servants, ces, items, ccs] = await Promise.all([
+  const [servants, ces, items, ccs, costumes] = await Promise.all([
     createServantRecord(ids.servants),
     createCraftEssenceRecord(ids.ces),
     createItemRecord(ids.items),
-    createCommandCodeRecord(ids.ccs)
+    createCommandCodeRecord(ids.ccs),
+    createCostumeRecord(ids.costumes)
   ]);
 
-  return { props: { event, servants, ces, items, ccs } };
+  return { props: { event, servants, ces, items, ccs, costumes } };
 };

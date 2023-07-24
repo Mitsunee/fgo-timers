@@ -15,7 +15,8 @@ export default function EventPage({
   servants,
   ces,
   items,
-  ccs
+  ccs,
+  costumes
 }: EventPageProps) {
   const end = normalizeDate(event.date)[1];
   const hasGrid = Boolean(event.schedules || event.times);
@@ -23,7 +24,12 @@ export default function EventPage({
   return (
     <EventPageLayout event={event} current="Timers">
       {hasGrid ? (
-        <DataContext servants={servants} ces={ces} items={items} ccs={ccs}>
+        <DataContext
+          servants={servants}
+          ces={ces}
+          items={items}
+          ccs={ccs}
+          costumes={costumes}>
           <CardGrid>
             {event.times && <EventTimesCard times={event.times} />}
             {event.schedules?.map(schedule => (

@@ -10,7 +10,8 @@ const Related = z.object({
   servants: z.array(z.number()).optional(),
   ces: z.array(z.number()).optional(),
   items: z.array(z.number()).optional(),
-  ccs: z.array(z.number()).optional()
+  ccs: z.array(z.number()).optional(),
+  costumes: z.array(z.number()).optional()
 });
 
 const EventTimeDate = Related.extend({ title: z.string(), date: zDate });

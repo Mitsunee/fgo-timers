@@ -10,7 +10,7 @@ type EventWithUpgrades = BundledEvent & {
   upgrades: NonNullable<BundledEvent["upgrades"]>;
 };
 export interface EventUpgradesPageProps
-  extends Omit<EventPageProps, "ces" | "items" | "ccs"> {
+  extends Omit<EventPageProps, "ces" | "items" | "ccs" | "costumes"> {
   event: EventWithUpgrades;
   upgrades: BundledUpgrade[];
   quests: Record<number, BundledQuest>;

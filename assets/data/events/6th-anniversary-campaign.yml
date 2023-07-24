@@ -24,7 +24,7 @@ times:
     items: [94061501]
   - title: Consecutive Login Bonus
     date: 2023-07-03 02:00 - 07-12 20:59 PDT
-    # FIXME: NA exclusive CE crashes prebuild oops
+    ces: [90084001]
   - title: Accrued Login Bonus
     date: 2023-07-03 02:00 - 07-12 20:59 PDT
   - title: 1/2 AP Daily Quests (+ all days' available)
