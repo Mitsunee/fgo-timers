@@ -9,7 +9,7 @@ import type { BundledCraftEssence } from "~/items/types";
 import type { AvailabilityMatcher } from "~/schema/AvailabilityMap";
 import { DataBundler } from "../utils/dataBundlers";
 
-const avMapPath = join(process.cwd(), "assets/data/ces/availability.yml");
+const avMapPath = join(process.cwd(), "assets/data/availability/ces.yml");
 let availabilityMap: AvailabilityMatcher;
 
 export const CraftEssencesBundle = new DataBundler({

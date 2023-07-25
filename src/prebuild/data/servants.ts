@@ -10,7 +10,7 @@ import type { AvailabilityMatcher } from "~/schema/AvailabilityMap";
 import type { BundledServant } from "~/servants/types";
 import { DataBundler } from "../utils/dataBundlers";
 
-const avMapPath = join(process.cwd(), "assets/data/servants/availability.yml");
+const avMapPath = join(process.cwd(), "assets/data/availability/servants.yml");
 let availabilityMap: AvailabilityMatcher;
 
 const ServantsBundle = new DataBundler({

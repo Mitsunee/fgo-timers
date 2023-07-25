@@ -167,14 +167,13 @@ async function main(options: ProgramOptions) {
   // handle --maps
   if (all || options.maps) {
     if (showGroupInfo) Log.info("Checking all availability map files");
-    const files = [
-      join(assetsPath, "ces/availability.yml"),
-      join(assetsPath, "servants/availability.yml")
-    ];
-
-    for (const filePath of files) {
-      await checkFile(filePath, "availability map", AvailabilityMapSchema);
-    }
+    const dirPath = join(assetsPath, "availability");
+    const files = await readDir(dirPath, { pathStyle: "absolute" });
+    await Promise.all(
+      files.map(file =>
+        checkFile(file, "availability map", AvailabilityMapSchema)
+      )
+    );
   }
 
   // handle --quest-open
