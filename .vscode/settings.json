@@ -1,12 +1,10 @@
 {
   "yaml.schemas": {
-    "src/schema/json/availability-map-schema.json": [
-      "assets/data/ces/availability.yml",
-      "assets/data/servants/availability.yml"
-    ],
+    "src/schema/json/availability-map-schema.json": "assets/data/availability/*.yml",
     "src/schema/json/custom-item-schema.json": "assets/data/items/*.yml",
     "src/schema/json/event-schema.json": "assets/data/events/**/*.yml",
-    "src/schema/json/quest-open-overrides-schema.json": "assets/data/upgrades/openTimeOverrides.yml",
+    "src/schema/json/quest-open-schema.json": "assets/data/upgrades/openTimeOverrides.yml",
+    "src/schema/json/servant-name-schema.json": "assets/data/servants/nameOverrides.yml",
     "src/schema/json/shop-schema.json": "assets/data/shops/*.yml"
   }
 }

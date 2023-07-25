@@ -5,6 +5,7 @@ import { Log } from "~/utils/log";
 import { bundleCustomItems } from "./bundler/customItems";
 import { bundleEvents } from "./bundler/events";
 import { bundleExchangeTickets } from "./bundler/exchangeTickets";
+import { bundleServantNames } from "./bundler/servantNames";
 import { bundleShops } from "./bundler/shops";
 import { bundleUpgrades } from "./bundler/upgrades";
 import { bundleCCsData } from "./data/ccs";
@@ -49,7 +50,8 @@ function dataBundlersSuccessfull(
     bundleCustomItems(),
     bundleEvents(),
     bundleExchangeTickets(),
-    bundleShops()
+    bundleShops(),
+    bundleServantNames()
   ]);
 
   if (!bundlersSuccessful(bundlersRes)) {

@@ -3,8 +3,8 @@ import { getBasicServant } from "~/atlas-api/cache/data/basicServant";
 import { shortenAtlasUrl } from "~/atlas-api/urls";
 import { getAvailabilityMap } from "~/schema/AvailabilityMap";
 import { mapServantRarityToBorder } from "~/servants/borders";
-import { nameServant } from "~/servants/nameServant";
 import { ServantsFile } from "~/static/data/servants";
+import { getBundledServantNames } from "~/static/servantNames";
 import { Log } from "~/utils/log";
 import type { AvailabilityMatcher } from "~/schema/AvailabilityMap";
 import type { BundledServant } from "~/servants/types";
@@ -12,15 +12,16 @@ import { DataBundler } from "../utils/dataBundlers";
 
 const avMapPath = join(process.cwd(), "assets/data/availability/servants.yml");
 let availabilityMap: AvailabilityMatcher;
+let servantNames: Awaited<ReturnType<typeof getBundledServantNames>>;
 
 const ServantsBundle = new DataBundler({
   file: ServantsFile,
   transform: async id => {
     availabilityMap ??= await getAvailabilityMap(avMapPath);
-    const [servant, servantNA, servantName] = await Promise.all([
+    servantNames ??= await getBundledServantNames();
+    const [servant, servantNA] = await Promise.all([
       getBasicServant(id),
-      getBasicServant(id, "NA"),
-      nameServant(id)
+      getBasicServant(id, "NA")
     ]);
 
     if (!servant) {
@@ -30,7 +31,7 @@ const ServantsBundle = new DataBundler({
 
     const availability = availabilityMap.match(id);
     const data: BundledServant = {
-      name: servantName,
+      name: servantNames[servant.id] || servantNA?.name || servant.name,
       icon: shortenAtlasUrl(servant.face),
       classId: servant.className,
       border: mapServantRarityToBorder(servant.rarity),
