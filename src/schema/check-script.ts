@@ -9,27 +9,23 @@ import { AvailabilityMapSchema } from "./AvailabilityMap";
 import { CustomItemSchema } from "./CustomItem";
 import { EventSchema } from "./EventSchema";
 import { QuestOpenOverridesSchema } from "./QuestOpenOverrides";
+import { ServantNameOverridesSchema } from "./ServantNameOverrides";
 import { ShopSchema } from "./ShopSchema";
 
 const program = new Command();
 program
-  .option("-A, --all", "Check all Data Files")
+  .option("-a, --all", "Check all Data files")
+  .addOption(new Option("--events", "Check all Event files").conflicts("all"))
+  .addOption(new Option("--shops", "Check all Shop files").conflicts("all"))
   .addOption(
-    new Option("-e, --events", "Check all Event files").conflicts("all")
-  )
-  .addOption(new Option("-s, --shops").conflicts("all"))
-  .addOption(
-    new Option("-i, --items", "Check all Custom Item files").conflicts("all")
+    new Option("--items", "Check all Custom Item files").conflicts("all")
   )
   .addOption(
-    new Option("-m, --maps", "Check all Availability Map Files").conflicts(
-      "all"
-    )
+    new Option("--maps", "Check all Availability Map files").conflicts("all")
   )
-  .addOption(
-    new Option("-q, --quest-open", "Check Quest Open Time Override File")
-  )
-  .option("-S, --silent", "Run without logging to cli (except errors)");
+  .addOption(new Option("--quest-open", "Check Quest Open Time Override file"))
+  .addOption(new Option("--servant-names", "Check Servant Name Override file"))
+  .option("-s, --silent", "Run without logging to cli (except errors)");
 
 interface ProgramOptions {
   all?: boolean;
@@ -38,6 +34,7 @@ interface ProgramOptions {
   items?: boolean;
   maps?: boolean;
   questOpen?: boolean;
+  servantNames?: boolean;
   silent?: boolean;
 }
 
@@ -181,6 +178,12 @@ async function main(options: ProgramOptions) {
     if (showGroupInfo) Log.info("Checking quest open time map file");
     const filePath = join(assetsPath, "upgrades/openTimeOverrides.yml");
     await checkFile(filePath, "quest open time map", QuestOpenOverridesSchema);
+  }
+
+  if (all || options.servantNames) {
+    if (showGroupInfo) Log.info("Checking servant name map file");
+    const filePath = join(assetsPath, "servants/nameOverrides.yml");
+    await checkFile(filePath, "servant name map", ServantNameOverridesSchema);
   }
 
   // die if no files were checked
