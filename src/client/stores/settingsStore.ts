@@ -9,6 +9,7 @@ import { SpoilerLevels } from "~/types/enum";
 
 type PageSize = 10 | 25 | 50 | 100;
 type SpoilerLevelSelectable = Exclude<SpoilerLevels, SpoilerLevels.PRERENDER>;
+type PlayerGender = "M" | "F"; // binary :(
 
 type SettingsStored = {
   alternativeClockFormat: `${boolean}`;
@@ -20,6 +21,7 @@ type SettingsStored = {
   showSpoiler: SpoilerLevelSelectable;
   autoInfiniteScroll: `${boolean}`;
   discordMd: `${boolean}`;
+  playerGender: PlayerGender;
 };
 
 export const settingsMap = persistentMap<SettingsStored>("fgoTools:", {
@@ -31,7 +33,8 @@ export const settingsMap = persistentMap<SettingsStored>("fgoTools:", {
   perPage: "10",
   showSpoiler: SpoilerLevels.SOME,
   autoInfiniteScroll: "false",
-  discordMd: "false"
+  discordMd: "true",
+  playerGender: "F"
 });
 
 export const settingsStore = computed(settingsMap, store => ({
@@ -43,7 +46,8 @@ export const settingsStore = computed(settingsMap, store => ({
   perPage: Number(store.perPage) as PageSize,
   showSpoiler: store.showSpoiler,
   autoInfiniteScroll: store.autoInfiniteScroll === "true",
-  discordMd: store.discordMd === "true"
+  discordMd: store.discordMd === "true",
+  playerGender: store.playerGender
 }));
 
 export const toggleClockFormat = action(
@@ -123,5 +127,14 @@ export const toggleDiscordMarkdown = action(
     const { discordMd: oldStateStr } = store.get();
     const oldState = oldStateStr === "true";
     store.setKey("discordMd", `${state ?? !oldState}`);
+  }
+);
+
+export const setPlayerGender = action(
+  settingsMap,
+  "Set Player Gender",
+  (store, state: PlayerGender) => {
+    store.setKey("playerGender", state);
+    return;
   }
 );

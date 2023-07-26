@@ -1,6 +1,7 @@
 import { useStore } from "@nanostores/react";
 import {
   setPageSize,
+  setPlayerGender,
   setSpoilerLevel,
   settingsStore,
   toggleClockFormat,
@@ -52,6 +53,12 @@ const discordMdOptions: SelectorOption<boolean>[] = [
   { value: true, label: "On" }
 ];
 
+type PlayerGender = Parameters<typeof setPlayerGender>[0];
+const playerGenderOptions: SelectorOption<PlayerGender>[] = [
+  { value: "M", label: "Male" },
+  { value: "F", label: "Female" }
+];
+
 export function SettingsMenu() {
   const { settingsMenuOpen } = useStore(uiStore);
   const {
@@ -60,7 +67,8 @@ export function SettingsMenu() {
     perPage,
     showSpoiler,
     autoInfiniteScroll,
-    discordMd
+    discordMd,
+    playerGender
   } = useStore(settingsStore);
 
   return (
@@ -83,6 +91,14 @@ export function SettingsMenu() {
                 options={serverTimeOptions}
                 value={showServerTimes}
                 onChange={value => toggleServerTimes(value)}
+              />
+            </section>
+            <section className={styles.section}>
+              <h2>Player Gender</h2>
+              <Selector
+                options={playerGenderOptions}
+                value={playerGender}
+                onChange={value => setPlayerGender(value)}
               />
             </section>
             <section className={styles.section}>
