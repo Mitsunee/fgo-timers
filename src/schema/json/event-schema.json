@@ -103,10 +103,16 @@
             }
           },
           "ends": {
-            "$ref": "#/properties/schedules/items/properties/times/items/properties/date"
+            "$ref": "#/properties/schedules/items/properties/times/items/properties/date",
+            "description": "override end time for schedule"
           },
           "icon": {
-            "type": "string"
+            "type": "string",
+            "description": "Set custom icon for schedule"
+          },
+          "noReplace": {
+            "type": "boolean",
+            "description": "Set true for schedules where elements don't replace eachother and all run until a shared end time"
           }
         },
         "required": ["title", "times"],

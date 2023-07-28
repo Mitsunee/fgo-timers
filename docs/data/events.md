@@ -77,6 +77,7 @@ schedules: # Array
         items: # optional Array of IDs of related Items
     ends: # optional end date (if different from event end time),
     icon: # optional path to icon
+    noReplace: # optional Set true to set all times to shared time (ends prop or event end time)
 ```
 
 ### Summoning Banners

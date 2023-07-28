@@ -16,7 +16,8 @@ export function EventSchedulesCard({
   times,
   ends,
   icon,
-  eventEnd
+  eventEnd,
+  noReplace
 }: EventSchedulesCardProps) {
   const end = ends || eventEnd;
   const timesMapped = useMemo<EventTime[]>(() => {
@@ -24,7 +25,11 @@ export function EventSchedulesCard({
 
     for (let i = 0; i < times.length; i++) {
       const current = times[i];
-      const nextDate = i == times.length - 1 ? end : times[i + 1].date;
+      const nextDate = noReplace
+        ? end // set global end prop if no replace is enabled
+        : i == times.length - 1 // check if this is the last time
+        ? end // set global end prop
+        : times[i + 1].date; // or set date of next time
       timesMapped.push({
         ...current,
         date: [current.date, nextDate]
@@ -32,7 +37,7 @@ export function EventSchedulesCard({
     }
 
     return timesMapped;
-  }, [end, times]);
+  }, [end, times, noReplace]);
 
   return (
     <Card

@@ -26,8 +26,15 @@ const EventSchedule = z.object({
   times: z
     .array(EventTimeDate)
     .transform(times => times.sort((a, b) => a.date - b.date)),
-  ends: zDate.optional(),
-  icon: z.string().optional()
+  ends: zDate.optional().describe("override end time for schedule"),
+  icon: z.string().optional().describe("Set custom icon for schedule"),
+  noReplace: z
+    .boolean()
+    .optional()
+    .describe(
+      "Set true for schedules where elements don't replace eachother and all " +
+        "run until a shared end time"
+    )
 });
 
 const EventBanner = Related.pick({ servants: true, ces: true })

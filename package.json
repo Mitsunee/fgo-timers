@@ -7,7 +7,7 @@
     "prepare": "simple-git-hooks && node src/svgo/build.mjs",
     "prepare:cache": "tsx src/atlas-api/prepare-script.ts",
     "build:svgo": "node src/svgo/build.mjs --force",
-    "build:schema": "tsx src/schema/generate-json-schema.ts",
+    "build:schema": "tsx src/schema/generate-json-schema.ts && prettier -w src/schema/json",
     "check-event": "tsx src/events/check-event-script.ts",
     "find": "tsx src/utils/find-script.ts",
     "prebuild": "tsx src/prebuild/prebuild.ts && pnpm build:svgo",
