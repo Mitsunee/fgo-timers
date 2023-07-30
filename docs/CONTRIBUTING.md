@@ -90,8 +90,11 @@ Start the devServer with `pnpm dev` locally on your system, then visit [http://l
 
 ## Environment Variables
 
+Environment variables can be set in `.env` or via cli such as `FORCE_ATLAS_CACHE_UPDATE=true pnpm dev`.
+
 - `NEXT_PUBLIC_DOMAIN`: Domain name used for meta images. Protocol `https://` will be autofilled if ommitted. `http://localhost:3000` is used as fallback if not set.
 - `FORCE_ATLAS_CACHE_UPDATE`: If set to non-empty value will force a cache update when any script (such as prebuild) runs `prepareCache`.
+- `SKIP_ATLAS_CACHE_UPDATE`: If set to non-empty value will forceskip checking for updates on the AtlasAcademy API. Is overriden by `FORCE_ATLAS_CACHE_UPDATE` if both are set.
 
 ## Code Guidelines
 

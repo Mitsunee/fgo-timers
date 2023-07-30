@@ -56,6 +56,7 @@ function compareCacheAge(now: number, lastChecked: number) {
 export async function checkCacheUpdates(): Promise<ApiCacheUpdateInfo> {
   const now = msToSeconds(Date.now());
   const updateForced = Boolean(process.env.FORCE_ATLAS_CACHE_UPDATE);
+  const updateForceSkipped = Boolean(process.env.SKIP_ATLAS_CACHE_UPDATE);
   const localInfo = await getCacheInfo();
   const localVersionMatches = localInfo?.version == CACHE_VER;
 
@@ -88,9 +89,15 @@ export async function checkCacheUpdates(): Promise<ApiCacheUpdateInfo> {
   }
 
   // check if last check is recent enough
-  const shouldCheck = compareCacheAge(now, localInfo.lastChecked);
+  const shouldCheck =
+    !updateForceSkipped && compareCacheAge(now, localInfo.lastChecked);
 
   if (!shouldCheck) {
+    if (updateForceSkipped) {
+      Log.warn(
+        "AtlasAcademy API Cache update was force-skipped via environment variable"
+      );
+    }
     Log.info("Skipped AtlasAcademy API Cache update");
     return {
       JP: false,
