@@ -12,7 +12,10 @@ export function EventNewsModal({ url, closeCallback }: EventNewsModalProps) {
   return (
     <Modal>
       <div className={styles.wrapper}>
-        <iframe src={`https://webview.fate-go.us/iframe/${url}`} />
+        <iframe
+          title="Official News"
+          src={`https://webview.fate-go.us/iframe/${url}`}
+        />
         <ActionButton
           className={styles.close}
           icon={IconClose}

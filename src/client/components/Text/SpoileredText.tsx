@@ -42,6 +42,8 @@ export function SpoileredText({
           hidden ? "reveal" : "hide"
         })`;
         return (
+          // FIXME: This can't be a span
+          // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
           <span
             {...props}
             className={cc([hidden && styles.hidden, className])}

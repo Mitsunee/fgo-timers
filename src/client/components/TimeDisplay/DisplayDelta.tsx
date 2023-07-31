@@ -11,6 +11,7 @@ interface DisplayDeltaProps {
   /**
    * Text to display if specified time is in the past
    */
+  // eslint-disable-next-line @typescript-eslint/ban-types
   endedText?: "---" | "Ended" | (string & {});
 }
 

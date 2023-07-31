@@ -11,6 +11,7 @@ import type { Queries } from "~/client/styles/media";
  * @returns boolean
  */
 export function useMediaQuery(
+  // eslint-disable-next-line @typescript-eslint/ban-types
   queryName: Queries | (string & {}),
   assumeTrue = false
 ) {

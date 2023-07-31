@@ -18,6 +18,15 @@
 .spoiler {
   animation-name: fadein;
   animation-duration: 0.1s;
+  background-color: transparent;
+  background-image: url("/assets/spoiler.png");
+  background-size: cover;
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  &:focus-visible {
+    outline: 0px;
+  }
 }
 
 div:hover {

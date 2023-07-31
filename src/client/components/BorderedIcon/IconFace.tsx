@@ -9,7 +9,7 @@ import styles from "./IconFace.module.css";
 
 type ImageProps = Omit<
   ComponentPropsCC<typeof Image>,
-  "id" | "placeholder" | "alt" | "layout"
+  "id" | "placeholder" | "alt" | "layout" | "onClick"
 >;
 type ImageLayout =
   | Required<Pick<ImageProps, "width" | "height">>
@@ -68,11 +68,10 @@ export function IconFace({
         hidden ? "reveal" : "hide"
       })`.trim();
 
-  const handleClick: React.MouseEventHandler<React.ElementRef<"img">> = (
-    ...args
-  ) => {
+  const handleClick: React.MouseEventHandler<
+    React.ElementRef<"img" | "button">
+  > = () => {
     toggleHidden();
-    props.onClick?.(...args);
   };
 
   const imgLayout: ImageLayout =
@@ -105,9 +104,7 @@ export function IconFace({
         }
       />
       {!showsIcon && (
-        <img
-          src="/assets/spoiler.png"
-          alt={alt}
+        <button
           title={title}
           className={cc([
             styles.spoiler,

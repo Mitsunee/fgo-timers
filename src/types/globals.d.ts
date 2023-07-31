@@ -57,12 +57,12 @@ type Common<A, B> = Pick<A, {
 /**
  * Finds keys that are shared between `A` and `B`
  */
-type SharedKeys<A extends {}, B extends {}> = Extract<keyof A, keyof B>;
+type SharedKeys<A extends object, B extends object> = Extract<keyof A, keyof B>;
 
 /**
  * Finds keys that are not shared between `A` and `B`
  */
-type NotSharedKeys<A extends {}, B extends {}> =
+type NotSharedKeys<A extends object, B extends object> =
   | Exclude<keyof A, keyof B>
   | Exclude<keyof B, keyof A>;
 
@@ -75,7 +75,7 @@ type Pretty<T> = { [K in keyof T]: T[K] };
  * Utility for Merge and PartialMerge. Gets all keys of `A` and `B` that include
  * `undefined` in both. These keys are assumed to be optional.
  */
-type SharedOptionalKeys<A extends {}, B extends {}> = SharedKeys<
+type SharedOptionalKeys<A extends object, B extends object> = SharedKeys<
   Pick<A, { [K in keyof A]-?: undefined extends A[K] ? K : never }[keyof A]>,
   Pick<B, { [K in keyof B]-?: undefined extends B[K] ? K : never }[keyof B]>
 >;
@@ -85,7 +85,7 @@ type SharedOptionalKeys<A extends {}, B extends {}> = SharedKeys<
  * and not shared
  */
 // prettier-ignore
-type Merge<A extends {}, B extends {}> = Pretty<{
+type Merge<A extends object, B extends object> = Pretty<{
   // for all keys Shared between both types, except the keys that are optional
   // on both set the union of its values with `undefined` excluded
   [K in Exclude<SharedKeys<A, B>, SharedOptionalKeys<A, B>>]: 
@@ -103,7 +103,7 @@ type Merge<A extends {}, B extends {}> = Pretty<{
  * values are optional, values optional on both remain optional
  */
 // prettier-ignore
-type PartialMerge<A extends {}, B extends {}> = Pretty<{
+type PartialMerge<A extends object, B extends object> = Pretty<{
   // for all keys Shared between both types, except the keys that are optional
   // on both set the union of its values with `undefined` excluded
   [K in Exclude<SharedKeys<A, B>, SharedOptionalKeys<A, B>>]: 
