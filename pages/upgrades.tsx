@@ -1,11 +1,11 @@
 import { useEffect, useMemo, useReducer, useState } from "react";
 import { clamp } from "@foxkit/util/clamp";
-import { useStore } from "@nanostores/react";
+//import { useStore } from "@nanostores/react";
 import { Searcher } from "fast-fuzzy";
 import type { MatchData } from "fast-fuzzy";
 import { api } from "~/client/api";
 import { DataContext } from "~/client/contexts";
-import { settingsStore } from "~/client/stores/settingsStore";
+//import { settingsStore } from "~/client/stores/settingsStore";
 import { ActionButton } from "~/components/Button";
 import { CardGrid } from "~/components/Card";
 import Headline from "~/components/Headline";
@@ -33,8 +33,11 @@ import type { BundledUpgrade } from "~/upgrades/types";
 
 export { getStaticProps } from "~/pages/UpgradesPage/static";
 
+// TEMP: override perPage to always be 10 to avoid weird bug
+const perPage = 10; // FIXME: page size other than 10 causes crash when mapping quest unlocks. no clue how.
+
 export default function UpgradesPage({ fallback }: UpgradesPageProps) {
-  const { perPage } = useStore(settingsStore);
+  //const { perPage } = useStore(settingsStore);
   const query = api.upgrades.all.useQuery(undefined, {
     refetchOnWindowFocus: false,
     refetchOnReconnect: false
@@ -87,7 +90,7 @@ export default function UpgradesPage({ fallback }: UpgradesPageProps) {
   // make sure page is valid if perPage setting is changed
   useEffect(() => {
     setPage(page => clamp({ value: page, max: maxPage }));
-  }, [perPage, maxPage]);
+  }, [/* perPage, */ maxPage]);
 
   // action handlers
   const handleShowMore = () => {
