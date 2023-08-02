@@ -1,0 +1,33 @@
+title: '"MELTY BLOOD: TYPE LUMINA" Evo 2023 Selection Celebration Campaign'
+shortTitle: MELTY BLOOD Evo 2023
+banner: 2023_melty_evo.png
+url: 2023/0804_evo_cp/
+date: 2023-08-03 21:00 - 08-10 20:59 PDT
+description: >-
+  To commemorate MELTY BLOOD being at Evo 2023 there will be four promotional
+  Craft Essences via Login Bonus and a Celebration Quest, as well as a new Rank
+  Up Quest for Edmond Dantès.
+
+  Mash's costumes will now be available for free in Dress Making for everyone
+  who has cleared the Final Singularity. RP spent on these costumes before
+  reaching this requirement are refunded. The Celebration Quests for Evo 2022
+  and Evo 2023 will be unlockable in the Rare Prism Shop after this campaign
+  concludes.
+times:
+  - title: Login Bonus
+    date: 2023-08-03 21:00 - 08-10 20:59 PDT
+    ces: [9307120, 9307130, 9307140]
+  - title: Celebration Quest
+    date: 2023-08-03 21:00 - 08-10 20:59 PDT
+    ces: [9307010]
+  - title: Mash Costumes now free in Dress Making
+    date: 2023-08-03 21:00 PDT
+    costumes: [800130, 800160]
+  - title: Celebration Quests added to RP Shop
+    date: 2023-08-10 21:00 PDT
+    ces: [9306210, 9307010]
+upgrades: [94081201]
+banners:
+  - date: 2023-08-03 21:00 - 08-10 20:59 PDT
+    servants: [100100, 401400]
+    ces: [9400770, 9401630, 9401980, 9402510, 9403610, 9400510]
