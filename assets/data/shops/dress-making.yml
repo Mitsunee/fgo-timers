@@ -45,12 +45,12 @@ inventory:
         requires: Clear Fuyuki Singularity
       - id: 800160 # Mash Summer V2
         type: costume
-        cost: 5
-        requires: Clear Fuyuki Singularity
+        cost: 0
+        requires: Clear Final Singularity
       - id: 800130 # Mash Summer V1
         type: costume
-        cost: 5
-        requires: Clear Fuyuki Singularity
+        cost: 0
+        requires: Clear Final Singularity
       - id: 102930 # Arthur White Rose
         type: costume
         cost: 5
