@@ -1,6 +1,6 @@
 import { rm } from "fs/promises";
 import { resolve } from "path";
-import { List } from "@foxkit/util/object";
+import { List } from "@foxkit/list";
 import { msToSeconds } from "~/time/msToSeconds";
 import { Log } from "~/utils/log";
 import { Semaphore } from "~/utils/Semaphore";
@@ -144,16 +144,16 @@ export async function checkCacheUpdates(): Promise<ApiCacheUpdateInfo> {
 /**
  * List object containing all exports
  */
-const cacheFiles = new List<CacheFile<any[]>>();
-cacheFiles
-  .push(BasicCommandCode)
-  .push(BasicCraftEssence)
-  .push(BasicMysticCode)
-  .push(BasicServant)
-  .push(NiceItem)
-  .push(NiceMasterMission)
-  .push(NiceServant)
-  .push(NiceWar);
+const cacheFiles = new List<CacheFile<any[]>>([
+  BasicCommandCode,
+  BasicCraftEssence,
+  BasicMysticCode,
+  BasicServant,
+  NiceItem,
+  NiceMasterMission,
+  NiceServant,
+  NiceWar
+]);
 
 async function updateCacheRegion(region: SupportedRegion) {
   Log.info(`Updating AtlasAcademy API Cache for ${region}`);

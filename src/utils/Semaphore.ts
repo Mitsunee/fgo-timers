@@ -1,4 +1,4 @@
-import { List } from "@foxkit/util/object";
+import { List } from "@foxkit/list";
 
 type NullableNode<T> = ReturnType<List<T>["getNode"]> | null | undefined;
 type Callback<T, R> = (val: T) => Promise<R>;
@@ -17,7 +17,7 @@ export class Semaphore<T, R = any> {
   }
 
   async run(list: List<T> | Array<T> | Set<T>, sizeOverride?: number) {
-    const queue = list instanceof List ? list : List.fromArray([...list]);
+    const queue = list instanceof List ? list : new List(list);
     const length = sizeOverride ?? this.size;
     const callback = this.callback;
     const start = { next: queue.getNode(0) } as NullableNode<T>;

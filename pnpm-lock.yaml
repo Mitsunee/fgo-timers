@@ -17,6 +17,9 @@ dependencies:
   '@csstools/postcss-global-data':
     specifier: ^2.0.1
     version: 2.0.1(postcss@8.4.27)
+  '@foxkit/list':
+    specifier: ^1.2.0
+    version: 1.2.0
   '@foxkit/node-util':
     specifier: ^0.6.0
     version: 0.6.0(picocolors@1.0.0)
@@ -1122,6 +1125,10 @@ packages:
     resolution: {integrity: sha512-a8TLtmPi8xzPkCbp/OGFUo5yhRkHM2Ko9kOWP4znJr0WAhWyThaw3PnwX4vOTWOAMsV2uRt32PPDcEz63esSaA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
+
+  /@foxkit/list@1.2.0:
+    resolution: {integrity: sha512-dXlD0JRnQNwnEj4NStYTomoM2bDVcVsKjb0P/6jWY0Ud6StMxjxlADSqv5k601Tg2Tmg1Uk5b5NULBK3cuMMxQ==}
+    dev: false
 
   /@foxkit/node-util@0.6.0(picocolors@1.0.0):
     resolution: {integrity: sha512-e60lhhUgW+MVHRJCtis9HfZ2+2mNGI7ZNQkVwgTe6P4WQ6dqQn/pMKjkltHPaXCRk3XWMzkLD7Iy0KMM0ZpRHw==}

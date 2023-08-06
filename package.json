@@ -42,6 +42,7 @@
     "@atlasacademy/api-descriptor": "^2.0.11",
     "@babel/core": "^7.22.9",
     "@csstools/postcss-global-data": "^2.0.1",
+    "@foxkit/list": "^1.2.0",
     "@foxkit/node-util": "^0.6.0",
     "@foxkit/util": "^0.6.2",
     "@nanostores/persistent": "^0.9.1",

@@ -1,6 +1,6 @@
 import path from "path";
+import { List } from "@foxkit/list";
 import type { FileWriteResult } from "@foxkit/node-util/fs-extra";
-import { List } from "@foxkit/util/object";
 import { Log } from "~/utils/log";
 import type { BundleFile } from "~/static/Bundle";
 
@@ -43,8 +43,8 @@ export class DataBundler<T> {
    */
   async process(set: Set<number>) {
     const knownId = new Set(set);
-    const queue = List.fromArray(Array.from(set));
-    let current = queue.getNode(0) || null; // TEMP: ListNode type is not exported right now, so I put `|| null` to set the inferred type
+    const queue = new List(set);
+    let current = queue.getNode(0) || null;
     const data = new Map<number, T>();
     const addToQueue = (id: number) => {
       if (knownId.has(id)) return;
