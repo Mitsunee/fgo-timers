@@ -249,6 +249,14 @@ inventory:
         name: "Unlock Aquisition Quest:Replica; Agateram"
         type: ce
         cost: 3
+      - id: 9306210
+        name: "MELTY BLOOD: TYPE LUMINA Evo 2022 Selection Celebration Quest"
+        type: ce
+        cost: 3
+      - id: 9307010
+        name: "MELTY BLOOD: TYPE LUMINA Evo 2023 Selection Celebration Quest"
+        type: ce
+        cost: 3
 
   - title: Unlockable Trial Quests
     currency: 18
