@@ -1,0 +1,36 @@
+title: Back to School Campaign 2023
+shortTitle: Back to School 2023
+banner: 2023_bts.png
+url: 2023/0814_bts_cp_2023/
+date: 2023-08-15 01:00 - 10-31 20:59 PDT
+description: >-
+  The Back to School Campaign 2023 features a Special Login Bonus, an increase
+  to the base amount of Friend Slots, limited Master Missions (which reward
+  Pieces, Monuments, Saint Quartz and a Summon Ticket) and other campaigns!
+times:
+  - title: Scheduled Maintenance
+    date: 2023-08-14 21:00 - 08-15 01:00 PDT
+  - title: Special Login Bonus
+    date: 2023-08-15 01:00 - 08-28 20:59 PDT
+    items: [2]
+  - title: Friend Slots increased by 3
+    date: 2023-08-15 01:00 PDT
+  - title: Limited Master Missions
+    date: 2023-08-15 01:00 - 10-31 20:59 PDT
+    items: [7001, 7101, 2, 4001]
+  - title: All Servants Friend Points x2
+    date: 2023-08-15 01:00 - 08-31 20:59 PDT
+  - title: Chaldea Gate Daily Quest 1/2 AP
+    date: 2023-08-15 01:00 - 08-21 20:59 PDT
+  - title: All Chaldea Gate Quests available
+    date: 2023-08-15 01:00 - 08-21 20:59 PDT
+  - title: 2x Enhancement Success Rate
+    date: 2023-08-15 01:00 - 08-21 20:59 PDT
+  - title: Illyasviel Costume added to Dress Making
+    date: 2023-08-15 01:00 PDT
+    costumes: [502830]
+upgrades: [94062081, 94062082]
+banners:
+  - date: 2023-08-15 01:00 - 08-28 20:59 PDT
+    servants: [502800, 204200, 504100]
+    ces: [9401850, 9401860, 9401870]

@@ -54,3 +54,7 @@ inventory:
       - id: 102930 # Arthur White Rose
         type: costume
         cost: 5
+      - id: 502830 # Illyasviel Caster Testament
+        type: costume
+        cost: 2
+        requires: Clear Fuyuki Singularity

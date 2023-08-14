@@ -1,0 +1,39 @@
+title: "Hunting Quest: Part 11"
+shortTitle: Hunting Quest 11
+banner: 2023_hq11.png
+url: 2023/0814_huntingquest11/
+date: 2023-08-15 01:00 - 08-21 20:59 PDT
+requires: Fuyuki - Section 1 Part 1
+description: >-
+  Hunting Quest: Part 11 features a daily rotation of material farming nodes
+  this time with a chance for enemies to be replaced with a Magical Stick that
+  may drop different materials depending on the stage, as well as extra QP. In
+  addition there are limited Master Missions for clearing a Hunting Quest node
+  each day.
+schedules:
+  - title: Quest Rotation
+    times:
+      - title: Skeleton Hunt
+        date: 2023-08-15 01:00 PDT
+        items: [6516, 6514]
+      - title: Golem Hunt
+        date: 2023-08-15 21:00 PDT
+        items: [6515, 6514]
+      - title: Hermit Crab Hunt
+        date: 2023-08-16 21:00 PDT
+        items: [6526, 6543]
+      - title: Chimera & Hassan Hunt
+        date: 2023-08-17 21:00 PDT
+        items: [6507, 6505, 6543]
+      - title: Alraune & Ghoul Hunt
+        date: 2023-08-18 21:00 PDT
+        items: [6546, 6533, 6536]
+      - title: Mini Cu & Rainbow Wyvern Hunt
+        date: 2023-08-19 21:00 PDT
+        items: [6540, 6512, 6536]
+times:
+  - title: Scheduled Maintenance
+    date: 2023-08-14 21:00 - 08-15 01:00 PDT
+  - title: Limited Master Missions
+    date: 2023-08-15 01:00 - 08-21 20:59 PDT
+    items: [100, 101]
