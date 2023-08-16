@@ -34,6 +34,8 @@ storylocked:
   - 204300 # Fairy Knight Tristan
   - 704200 # Kriemhild
   - 305100 # Don Quixote
+  - 305400 # Bhima
+  - 704600 # Duryodhana
 
 fp_pool:
   - 100300 # Altria Pendragon (Lily)
@@ -206,6 +208,15 @@ limited:
   - 1001600 # Tiamat
   - 3300100 # Draco
   - 604800 # Locusta
+  - 204800 # Durga
+  - 105600 # Medusa (Saber)
+  - 505300 # Aesc the rain witch
+  - 704700 # Summer Castoria
+  - 405000 # Summer Suzuka
+  - 1101600 # Summer Chloe
+  - 901700 # Summer Melusine
+  - 204900 # Summer Barghest
+  - 2800600 # Summer Baobhan Sith
 
 welfare:
   - 502600 # Elisabeth Báthory (Halloween)
@@ -250,6 +261,7 @@ welfare:
   - 901500 # Iyo
   - 2800400 # Nine-Tattoo Dragon Eliza
   - 105700 # Setanta
+  - 2501200 # Cnoc na Riabh Yaraan-doo
 
 fp_limited:
   - 204100 # Oda Nobukatsu
