@@ -57,19 +57,17 @@ limited:
   - 9401630 # 2023 march memorial
   - 9401980 # 2023 march memorial
   - 9402510 # 2023 march memorial
-  - 9403310 # 2023 march memorial
-  - 9402590 # 2023 march memorial
   - 9402950 # 2023 march memorial
   - 9403470 # 2023 march memorial
   - 9405130 # Grail Concert 5*
   - 9405140 # Grail Concert 4*
   - 9405150 # Grail Concert 3*
-  - 9404550 # Summer 5 Banner 1 5*
-  - 9404560 # Summer 5 Banner 1 4*
-  - 9404570 # Summer 5 Banner 1 3*
-  - 9404640 # Summer 5 Banner 2 5*
-  - 9404650 # Summer 5 Banner 2 4*
-  - 9404660 # Summer 5 Banner 2 3*
+  - 9404550 # Summer 2022 Banner 1 5*
+  - 9404560 # Summer 2022 Banner 1 4*
+  - 9404570 # Summer 2022 Banner 1 3*
+  - 9404640 # Summer 2022 Banner 2 5*
+  - 9404650 # Summer 2022 Banner 2 4*
+  - 9404660 # Summer 2022 Banner 2 3*
   - 9402510 # 2nd Anniversary 5*
   - 9402520 # 2nd Anniversary 4*
   - 9402530 # 2nd Anniversary 3*
@@ -89,4 +87,28 @@ limited:
   - 9401850 # Prisma Illya Collab Event 5*
   - 9401860 # Prisma Illya Collab Event 4*
   - 9401870 # Prisma Illya Collab Event 3*
+  - 9401770 # Summer 2018 Banner 1 5*
+  - 9401790 # Summer 2018 Banner 1 4*
+  - 9401800 # Summer 2018 Banner 1 3*
+  - 9401810 # Summer 2018 Banner 2 5*
+  - 9401830 # Summer 2018 Banner 2 4*
+  - 9401840 # Summer 2018 Banner 2 3*
+  - 9402540 # Summer 2019 Banner 1 5*
+  - 9402550 # Summer 2019 Banner 1 4*
+  - 9402560 # Summer 2019 Banner 1 3*
+  - 9402580 # Summer 2019 Banner 2 5*
+  - 9402590 # Summer 2019 Banner 2 4*
+  - 9402600 # Summer 2019 Banner 2 3*
+  - 9403310 # Summer 2020 Banner 1 5*
+  - 9403320 # Summer 2020 Banner 1 4*
+  - 9403330 # Summer 2020 Banner 1 3*
+  - 9403370 # Summer 2020 Banner 2 5*
+  - 9403380 # Summer 2020 Banner 2 4*
+  - 9403390 # Summer 2020 Banner 2 3*
+  - 9404000 # Summer 2021 Banner 1 5*
+  - 9404010 # Summer 2021 Banner 1 4*
+  - 9404020 # Summer 2021 Banner 1 3*
+  - 9404030 # Summer 2021 Banner 2 5*
+  - 9404040 # Summer 2021 Banner 2 4*
+  - 9404050 # Summer 2021 Banner 2 3*
 #fp_limited: []
