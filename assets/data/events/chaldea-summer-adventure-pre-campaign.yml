@@ -4,7 +4,7 @@ banner: 2023_summer_pre.png
 url: 2023/0817_2023summer_cp/
 date: 2023-08-22 21:00 - 08-29 20:59 PDT
 description: >-
-  To prepare for the new Summer Event there is a Social Media Campaign, Special 
+  To prepare for the new Summer Event there is a Social Media Campaign, Special
   Login Bonus, as well as 2x Enhancement Success Rate and 1/2 AP Rank Ups and
   Interludes for the servants who are going to be bonus servants in the upcoming
   event.
@@ -103,10 +103,15 @@ times:
       - 1100200
       - 2500200
       - 2500300
+  - title: Chaldea Broadcasting Station Lite Vol. 2
+    date: 2023-08-30 18:00 PDT
 links:
   - url: https://twitter.com/FateGO_USA/status/1693473109360152819
     title: Social Media Campaign
     icon: /assets/icon_tw.png
+  - url: https://www.youtube.com/watch?v=h1mD_bBGm7E&pp=ygULYW5pcGxleCB1c2E%3D
+    title: Livestream
+    icon: /assets/icon_yt.png
 banners:
   - date: 2023-08-22 21:00 - 08-29 20:59 PDT
     servants: [400300, 202500, 203700] # Drake
