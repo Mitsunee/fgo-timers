@@ -105,8 +105,8 @@ dependencies:
     specifier: ^0.23.0
     version: 0.23.0
   spacetime:
-    specifier: ^7.4.6
-    version: 7.4.6
+    specifier: ^7.4.7
+    version: 7.4.7
   svgo:
     specifier: ^3.0.2
     version: 3.0.2
@@ -3312,8 +3312,8 @@ packages:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
     dev: true
 
-  /fsevents@2.3.2:
-    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
+  /fsevents@2.3.3:
+    resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
@@ -4033,7 +4033,7 @@ packages:
       micromatch: 4.0.5
       walker: 1.0.8
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: 2.3.3
     dev: true
 
   /jest-leak-detector@29.6.2:
@@ -5478,8 +5478,8 @@ packages:
     resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
     engines: {node: '>=0.10.0'}
 
-  /spacetime@7.4.6:
-    resolution: {integrity: sha512-MgjSa4nUjY/M23Yq67KiKfORUCQ2IEzfnC9BKUzlIRU9RaDaaRewraoNb8pOMuWzRPwD3/8yIVX2OKBkUftOMQ==}
+  /spacetime@7.4.7:
+    resolution: {integrity: sha512-5qVgPHUQj9TD4g1Xl68tXXwEi/27Xatvroyj8VU8/E7RgaqLJNaTte5tu3GRowuMqHcNMxs7UfzKeqAlLCo3tQ==}
     dev: false
 
   /sprintf-js@1.0.3:
@@ -5724,7 +5724,7 @@ packages:
       '@esbuild-kit/core-utils': 3.1.0
       '@esbuild-kit/esm-loader': 2.5.5
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: 2.3.3
     dev: false
 
   /type-check@0.4.0:
