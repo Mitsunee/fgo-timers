@@ -105,6 +105,8 @@ times:
       - 2500300
   - title: Chaldea Broadcasting Station Lite Vol. 2
     date: 2023-08-30 18:00 PDT
+  - title: Planned Event Release Date
+    date: 2023-08-31 01:00 PDT
 links:
   - url: https://twitter.com/FateGO_USA/status/1693473109360152819
     title: Social Media Campaign
@@ -115,7 +117,7 @@ links:
 banners:
   - date: 2023-08-22 21:00 - 08-29 20:59 PDT
     servants: [400300, 202500, 203700] # Drake
-    ces:
+    ces: &summer-ces
       - 9401770 #2018
       - 9401790
       - 9401800
@@ -148,34 +150,22 @@ banners:
       - 9404660
   - date: 2023-08-23 21:00 - 08-29 20:59 PDT
     servants: [403700, 202500, 203700] # Nemo
-    ces:
-      - 9401770 #2018
-      - 9401790
-      - 9401800
-      - 9401810
-      - 9401830
-      - 9401840
-      - 9402540 #2019
-      - 9402550
-      - 9402560
-      - 9402580
-      - 9402590
-      - 9402600
-      - 9403310 #2020
-      - 9403320
-      - 9403330
-      - 9403370
-      - 9403380
-      - 9403390
-      - 9404000 # 2021
-      - 9404010
-      - 9404020
-      - 9404030
-      - 9404040
-      - 9404050
-      - 9404550 # 2022
-      - 9404560
-      - 9404570
-      - 9404640
-      - 9404650
-      - 9404660
+    ces: *summer-ces
+  - date: 2023-08-24 21:00 - 08-25 20:59 PDT
+    servants: [703600, 203600, 403600] # mUSAshi
+    ces: *summer-ces
+  - date: 2023-08-25 21:00 - 08-26 20:59 PDT
+    servants: [900900, 304000] # Altria Ruler
+    ces: *summer-ces
+  - date: 2023-08-26 21:00 - 08-27 20:59 PDT
+    servants: [2300200, 103400, 2500300] # BBB
+    ces: *summer-ces
+  - date: 2023-08-27 21:00 - 08-28 20:59 PDT
+    servants: [402700, 202800, 302900] # maid alter
+    ces: *summer-ces
+  - date: 2023-08-28 21:00 - 08-29 20:59 PDT
+    servants: [302400, 302500] # tama lancer
+    ces: *summer-ces
+  - date: 2023-08-29 21:00 - 08-30 20:59 PDT
+    servants: [202600, 502700, 900400] # altria archer
+    ces: *summer-ces
