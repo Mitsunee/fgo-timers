@@ -99,14 +99,7 @@ monthly:
         amount: 20
 limited:
   # id: 9405120 # Beyond the Rain Clouds
-  - title: To the Beyond, Bereft the Snowy Blossom
-    currency: 3
-    date: 2023-05-31 17:00 PDT - 08-31 16:59 PDT
-    items:
-      - id: 9405170 # To the Beyond, Bereft the Snowy Blossom
-        type: ce
-        cost: 1000
-        amount: 5
+  # id: 9405170 # To the Beyond, Bereft the Snowy Blossom
   - title: Into the Enchanting Pall
     currency: 3
     date: 2023-08-31 17:00 PDT - 11-30 15:59 PST
