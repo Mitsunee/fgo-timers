@@ -1,0 +1,49 @@
+title: Chaldea Summer Adventure! A Boy Pursuing Dreams and a Girl Who Dreams
+shortTitle: Chaldea Summer Adventure!
+banner: 2023_summeradv.png
+url: 2023/0823_2023summer/
+date: 2023-08-31 01:00 - 09-20 20:59 PDT
+requires: Clear Fuyuki
+description: >-
+  The 2023 Summer Event Chaldea Summer Adventure! features the release of 7 new
+  Summer Servants, three costumes and a lotto-like event mechanic.
+times:
+  - title: Special Login Bonus
+    date: 2023-08-31 01:00 - 09-07 20:59 PDT
+    items: [2]
+  - title: Treasure Chest Exchange
+    date: 2023-08-31 01:00 - 09-27 20:59 PDT
+    items: [94060407, 94060406, 94060405]
+  - title: 2x Experience for Da Vinci
+    date: 2023-08-31 01:00 - 09-20 20:59 PDT
+    servants: [901200]
+  - title: Event Shop Exchange
+    date: 2023-08-31 01:00 - 09-27 20:59 PDT
+    items: [94060403, 94060402, 94060401]
+  - title: Individual CE Effect Feature added
+    date: 2023-08-31 01:00 PDT
+schedules:
+  - title: Story
+    noReplace: true
+    times:
+      - title: Opening & Section 1 & 2
+        date: 2023-08-31 01:00 PDT
+      - title: Section 3
+        date: 2023-08-31 21:00 PDT
+      - title: Section 4
+        date: 2023-09-01 21:00 PDT
+      - title: Section 5 & 6
+        date: 2023-09-02 21:00 PDT
+      - title: Section 7
+        date: 2023-09-03 21:00 PDT
+      - title: Section 8
+        date: 2023-09-04 21:00 PDT
+      - title: Section 9, 10 & Final
+        date: 2023-09-05 21:00 PDT
+banners:
+  - date: 2023-08-31 01:00 - 09-20 20:59 PDT
+    servants: [105100, 204400, 504800] # Okitan
+    ces: [9405240, 9405250, 9405260]
+  - date: 2023-08-31 01:00 - 09-20 20:59 PDT
+    servants: [402900, 403900] # Achilles
+    ces: [9405270, 9405280, 9405290]
