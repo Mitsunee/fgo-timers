@@ -52,38 +52,30 @@ After pushing changes to your dev branch you can open a Pull Request on GitHub.
 
 ## Getting Started
 
-First make sure you have Node.js 16.x and pnpm (or corepack) installed, then clone and install the repository:
+First make sure you have Node.js 18.x and pnpm (or corepack) installed, then clone and install the repository:
 
 ```shell
 pnpm install
-cp .env.example .env.local
-YOUR_EDITOR .env.local # adjust values if needed
 ```
 
 ## Development Server Startup
 
-Start the devServer with `pnpm dev` locally on your system, then visit [http://localhost:3000](http://localhost:3000) with your browser to see the result. `pnpm prebuild` is run automatically. You can re-run it in a differnt terminal to update the data.
+Start the devServer with `pnpm dev` locally on your system, then visit [http://localhost:3000](http://localhost:3000) with your browser to see the result. `pnpm prebuild` is run automatically. You can re-run it in a differnt terminal to update the data. Pages will need to be refreshed to load in the new data!
 
 ## Directories in this repository
 
 - assets: Contains all data assets, images in original resolution and currently unused images
-- pages: Contains all pages and api routes (may adopt Next.js 13 app directory in the future)
+- pages: Contains all Next.js Pages and API routes
 - public: Contains files that will get served in `/` alongside the app
-- src:
+- src: Contains most of the source code, categorized losely by topic (such as "servants", or "items"):
   - atlas-api: Atlas Academy API Connector adapter and cache management
   - client: Frontend Components, hooks and stores
-  - events: Utils for handling (ingame) Events
-  - items: Utils for Craft Essences, Items and Custom Items
   - pages: page-specific utils and components
   - prebuild: Prebuild script that handles API data caching and reformatting into optimized data set
   - schema: Schema files and validation script, as well as a folder of automatically generated JSON schemas based on the zod schemas (see [generate-json-schemas.ts](../src/schema/generate-json-schema.ts))
-  - scripts: Legacy Location for scripts that have not been fully migrated to zod/typescript
-  - servants: Utils for handling Servants, Noble Phantasms and Skills
-  - server: tRPC routers, also Legacy Location for SSG, ISR and related util functions
+  - server: tRPC routers
   - svgo: SVGO script that handles converting `.svg` files in the assets directory to React components
-  - time: utils for working with timestamps, and Date strings
   - types: globally used types and Enums (note that there may also be files matching `src/*/types(.d)?.ts`)
-  - upgrades: Utils for handling Quests and Upgrades (Interludes and Rank Ups)
   - utils: generic utils
 - tests (mirrors src unless specified here):
   - Pages can omit the `pages` directory in the path here
@@ -98,32 +90,33 @@ Environment variables can be set in `.env` or via cli such as `FORCE_ATLAS_CACHE
 
 ## Code Guidelines
 
-- Use absolute import paths such as `import { api } from "src/client/api"`. The current aliases are deprecated and will be replaced in the future.
 - Use `import type` whenever possible. Values imported as type are removed during the build process and are thus removed from production bundles.
-- New code should use typescript - migration from esm to ts is currently in progress
-- Use the included ESLint and Prettier configuations. Remember to use `pnpm lint` and `pnpm test:types` before pushing.
+- Import aliases are preferred if you are navigating up more than one layer of directories (i.e. use `~/utils` over `../../utils`)
+- Use the included ESLint and Prettier configuations. Remember to use `pnpm lint` and `pnpm typecheck` before pushing.
 - As a general rule of thumb default exports are only used in React Components, NextJS API Routes and NextJS Pages. All other exports should be named exports.
-- All files using JSX should use the `*.jsx` or `*.tsx` file extension.
-- Try to keep functions small (and thus their purpose obvious and readable). If you absolutely need larger functions divide your code into sections and use comments to give them headlines such as `// handle args`.
+- All files using JSX should use the `*.tsx` file extension.
 - Deployments are static thus files in `./assets` should only be written to during the prebuild step! (this means there is currently no way to update upgrades other then redeployment)
 - Should you need to add or update dependencies please also run `npx update-browserslist-db@latest` and `pnpm dedupe` before committing.
 
-## Workflow and Testing
+## Scripts/Testing
 
-The build process has the following steps:
+The following scripts are available in this project:
 
-- Typechecks `pnpm test:types`
-- Legacy Tests (deprecated tests that will be rewritten) `pnpm test:legacy`
-- Testing `pnpm test:code`
-- Data Testing `pnpm test:data` (tests data in `./assets/` using the check script, see `--help` for more information)
-- Prebuild `pnpm prebuild` (runs prebuild script)
-- Build `pnpm build` (builds next app)
+- Preparation `pnpm prepare` / `pnpm prepare:cache`
+- Utility Scripts
+  - Find Script `pnpm find` (utility to help find IDs for game entities such as Servant, CEs or Items)
+  - Check Event Script `pnpm check-event` (utility to help find unused timestamps in events)
+  - JSON Schema Build Script `pnpm build:schema` (may require running `pnpm format` after)
+- Testing
+  - Typechecks `pnpm typecheck`
+  - Linting/Formatting `pnpm lint` or `pnpm lint:strict`, `pnpm format` or `pnpm format:check`
+  - Tests `pnpm test:code` for code tests, `pnpm test:data` for schema checks
+- Building `pnpm prebuild`, `pnpm build:svgo`, `pnpm build`
+  - Start `pnpm start` (starts a build of the Next.js app)
 
 ## Further Information
 
 **NOTE**: There is currently an ongoing migration to the following tools: TypeScript, zod, tRPC. Documentation may not be up-to-date yet.
-
-Documentation on scripts (such as `pnpm find` and `pnpm build:svgo`) have also not been written yet, but may be present in source code. Refer to [package.json](../package.json) to see what's available. Note that currently some scripts still have some `.mjs` files and thus use `tsm` to run. This will be replaced with `tsx` in the future.
 
 ### Project Documation
 

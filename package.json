@@ -16,11 +16,13 @@
     "dev:types": "tsc --watch",
     "start": "next start",
     "lint": "eslint .",
+    "lint:strict": "eslint --max-warnings 0 .",
     "format": "prettier -w .",
-    "test:types": "tsc --noEmit",
+    "format:check": "prettier -c .",
+    "typecheck": "tsc --noEmit",
     "test:code": "jest --verbose",
     "test:data": "tsx src/schema/check-script.ts",
-    "test": "pnpm test:types && pnpm prepare:cache && pnpm test:code && pnpm test:data --all"
+    "test": "pnpm prepare:cache && pnpm test:code && pnpm test:data --all"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm nano-staged"

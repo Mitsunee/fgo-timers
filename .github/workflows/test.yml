@@ -53,7 +53,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Lint
-        run: pnpm eslint --max-warnings 0 .
+        run: pnpm lint:strict
 
   format:
     name: "Code Formatting Checks"
@@ -74,7 +74,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Check Formatting
-        run: pnpm prettier -c .
+        run: pnpm format:check
 
   types:
     name: "Typechecks"
@@ -97,7 +97,7 @@ jobs:
       - name: Build SVG Components
         run: pnpm build:svgo
       - name: Check Types
-        run: pnpm test:types
+        run: pnpm typecheck
 
   test:
     name: "Code Tests"
