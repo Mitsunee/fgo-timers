@@ -40,6 +40,8 @@ schedules:
         date: 2023-09-04 21:00 PDT
       - title: Section 9, 10 & Final
         date: 2023-09-05 21:00 PDT
+      - title: Challenge Quest
+        date: 2023-09-06 21:00 PDT
 banners:
   - date: 2023-08-31 01:00 - 09-20 20:59 PDT
     servants: [105100, 204400, 504800] # Okitan
