@@ -49,6 +49,9 @@ banners:
   - date: 2023-08-31 01:00 - 09-20 20:59 PDT
     servants: [402900, 403900] # Achilles
     ces: [9405270, 9405280, 9405290]
+  - date: 2023-09-06 21:00 - 09-20 20:59 PDT
+    servants: [1101100, 704100, 404500]
+    ces: [9405240, 9405270, 9405250, 9405280, 9405260, 9405290]
 links:
   - url: https://gamepress.gg/grandorder/event-guide/fgo-summer-2023-chaldea-summer-adventure-boy-pursuing-dreams-and-girl-who-dreams
     title: Gamepress
