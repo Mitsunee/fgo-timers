@@ -4,6 +4,7 @@ import { useStore } from "@nanostores/react";
 import { Searcher, sortKind } from "fast-fuzzy";
 import { api } from "~/client/api";
 import { settingsStore } from "~/client/stores/settingsStore";
+import { Clocks } from "~/components/Clocks";
 import { EventList } from "~/components/EventList";
 import Headline from "~/components/Headline";
 import { Input } from "~/components/Input";
@@ -15,10 +16,10 @@ import styles from "~/pages/EventsPage/EventsPage.module.css";
 
 export { getStaticProps } from "~/pages/EventsPage/static";
 
-export default function EventsPage({ active, fallback, now }: EventsPageProps) {
+export default function EventsPage({ fallback, now }: EventsPageProps) {
   const { perPage } = useStore(settingsStore);
   const query = api.events.basic.useQuery(
-    { exclude: "active", now },
+    { now },
     {
       placeholderData: fallback,
       refetchOnReconnect: false,
@@ -86,8 +87,8 @@ export default function EventsPage({ active, fallback, now }: EventsPageProps) {
         title="Events"
         description="List of current and past events of Fate/Grand Order Global Version"
       />
-      <EventList events={active} title="Current Events" loading="eager" />
-      <EventList events={results.slice(0, page * perPage)} title="Past Events">
+      <Clocks />
+      <EventList events={results.slice(0, page * perPage)} title="Events">
         <div className={styles.search}>
           <p>
             Results {firstResultNum} to {lastResultNum} of {results.length}

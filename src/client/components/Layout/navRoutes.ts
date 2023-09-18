@@ -4,7 +4,7 @@ export type NavRoute = {
 };
 
 export const navRoutes: NavRoute[] = [
-  { route: "/", label: "Timers" },
+  { route: "/", label: "Announcement" },
   { route: "/events", label: "Events" },
   {
     route: "/exchange-tickets",

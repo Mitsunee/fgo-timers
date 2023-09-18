@@ -30,16 +30,6 @@ const useLayoutEffect: typeof _useLayoutEffect =
 
 const App: AppType = ({ Component, pageProps }) => {
   useLayoutEffect(() => {
-    // set background
-    const bg = Math.ceil((Math.random() * 100) % 17)
-      .toString()
-      .padStart(2, "0");
-    document.body.style.setProperty(
-      "--landing-bg",
-      `url("/assets/backgrounds/landing/${bg}.jpg")`
-    );
-    document.body.classList.add("with-bg");
-
     // set isClient
     setIsClient();
   }, []);

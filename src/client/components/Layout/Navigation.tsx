@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import {
   IconChaldea,
   IconDiscord,
-  IconGithub,
   IconSettings
 } from "~/client/components/icons";
 import { setMobileNavOpen, setSettingsMenuOpen } from "~/client/stores/uiStore";
@@ -51,15 +50,7 @@ export function Navigation() {
           decorated={false}
           className={styles.link}
           target="_blank">
-          Discord
-        </LinkButton>
-        <LinkButton
-          href="https://github.com/sponsors/Mitsunee"
-          icon={IconGithub}
-          decorated={false}
-          className={styles.link}
-          target="_blank">
-          Sponsor on Github
+          Discord Server
         </LinkButton>
       </section>
     </nav>

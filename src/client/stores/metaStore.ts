@@ -6,8 +6,8 @@ type MetaStoreProps = {
 };
 
 export const metaStore = atom<MetaStoreProps>({
-  title: "FGO Tools",
-  description: ""
+  title: "FGO Timers",
+  description: "This website is no longer maintained"
 });
 
 export const setPageMeta = action(
