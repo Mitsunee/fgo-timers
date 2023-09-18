@@ -8,6 +8,7 @@ export default function HomePage() {
         title="FGO Timers"
         description="So this is goodbye, I guess. As of 18th of September 2023 I am no
         longer maintaining FGO Timers..."
+        headerDescription="Announcement"
         noTitleSuffix
       />
       <Section background="black">
